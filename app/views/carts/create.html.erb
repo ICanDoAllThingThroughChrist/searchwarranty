@@ -1,12 +1,14 @@
 <p>
   <h1>Cart Warranty Search Result</h1>
-  <h2>
-  <% if @cart == nil %>
-      Cart is not in Warranty
-  <% else%>
-     Cart Number: <%=@cart.cart_number%> is in warranty, Please Contact
-     311 and provide your mailing address
-  <% end%>
-  </h2>
+  <h3>
+    <% if @cart == nil %>
+        Cart is not in Warranty
+    <% else%>
+       <br>Cart Number: <%=@cart.cart_number%> is in warranty.</br>
+       <br>Please Contact 311 and provide:</br>
+        <br>1. your solid waste service unit address</br>
+        <br>2. your container number: <%=@cart.cart_number%></br>
+    <% end%>
+  </h3>
+  <p><%= link_to "New Cart Search", new_cart_path,  method: :get %></p>
 </p>
-<p><%= link_to "New Cart Search", new_cart_path,  method: :get %></p>
