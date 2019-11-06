@@ -1,0 +1,12 @@
+<p>
+  <h1>Cart Warranty Search Result</h1>
+  <h2>
+  <% if @cart == nil %>
+      Cart is not in Warranty
+  <% else%>
+     Cart Number: <%=@cart.cart_number%> is in warranty, Please Contact
+     311 and provide your mailing address
+  <% end%>
+  </h2>
+</p>
+<p><%= link_to "New Cart Search", new_cart_path,  method: :get %></p>
