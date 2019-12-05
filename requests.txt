@@ -1,0 +1,1 @@
+{"A"=>"Calculated Column 1", "B"=>"Resolution Notes", "C"=>"Case Number", "D"=>"Client", "E"=>"Type", "F"=>"Composite"}

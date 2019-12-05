@@ -33,29 +33,6 @@ class CartsController < ApplicationController
         then "SS0"+i.to_s
       end
     }
-    #   when b < 9
-    #     b_8 = b_1.map {|i| "SS000000"+i}
-    #   when b < 99
-    #     b_7 = b_1.map {|i| "SS00000"+i}
-    #   when b < 999
-    #     b_6 = b_1.map {|i| "SS0000"+i}
-    #   when b < 9999
-    #     b_5 = b_1.map {|i| "SS0000"+i}
-    #   when b < 99999
-    #     b_4 = b_1.map {|i| "SS000"+i}
-    #   when b < 999999
-    #     b_3 = b_1.map {|i| "SS00"+i}
-    #   when b < 9999999
-    #     b_2 = b_1.map {|i| "SS0"+i}
-    # end
-    # b_1 = b.map {|i| i.to_s}
-    # b_2 = b_1.map {|i| "SS0"+i}
-    # b_3 = b_1.map {|i| "SS00"+i}
-    # b_4 = b_1.map {|i| "SS000"+i}
-    # b_5 = b_1.map {|i| "SS0000"+i}
-    # b_6 = b_1.map {|i| "SS0000"+i}
-    # b_7 = b_1.map {|i| "SS00000"+i}
-    # b_8 = b_1.map {|i| "SS000000"+i}
       if a_1.include?(cart_number_s)
         @cart=Cart.new(carts_params)
       elsif a_2.include?(cart_number_i)
