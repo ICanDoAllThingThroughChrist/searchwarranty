@@ -5,3 +5,10 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+require 'csv'
+
+CSV.foreach("db/csv/311-Public-Data-Extract-2019-clean.csv", { encoding: "UTF-8", headers: true, header_converters: :symbol, converters: :all}) {|row|
+  # binding.pry
+ Sr.create(row.to_hash)
+ # binding.pry
+}
