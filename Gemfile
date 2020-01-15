@@ -34,6 +34,11 @@ gem 'pry'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 gem 'daru', '~> 0.1.5'
+gem 'daru-view'
+gem 'spreadsheet', '~> 1.1.1'
+gem 'mechanize', '~> 2.7.5'
+gem 'seed_dump'
+gem 'foreman', '~> 0.82.0'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
