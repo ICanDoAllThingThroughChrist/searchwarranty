@@ -7,7 +7,13 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 require 'csv'
 
-CSV.foreach("db/csv/311-Public-Data-Extract-2019-clean.csv", { encoding: "UTF-8", headers: true, header_converters: :symbol, converters: :all}) {|row|
+# CSV.foreach("C:/Users/e128289/Documents/311-open-data-monthly.csv", { encoding: "UTF-8", headers: true, header_converters: :symbol, converters: :all}) {|row|
+#   # binding.pry
+#  Sr.create(row.to_hash)
+#  # binding.pry
+# }
+
+CSV.foreach("C:/Users/e128289/Documents/311-open-data-annual.csv", { encoding: "UTF-8", headers: true, header_converters: :symbol, converters: :all}) {|row|
   # binding.pry
  Sr.create(row.to_hash)
  # binding.pry
