@@ -1,1 +1,1 @@
-bundle exec rails server --binding=127.255.255.255 -p 3000
+bundle exec rails server --binding=10.120.12.243 -p 3000
