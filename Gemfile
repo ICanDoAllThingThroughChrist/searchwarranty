@@ -39,7 +39,8 @@ gem 'spreadsheet', '~> 1.1.1'
 gem 'mechanize', '~> 2.7.5'
 gem 'seed_dump'
 gem 'foreman', '~> 0.82.0'
-
+gem 'csvreader', '~> 1.2', '>= 1.2.3'
+gem 'pry-byebug', '~> 3.4'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
