@@ -6,6 +6,7 @@
     web2 = open('https://hfdapp.houstontx.gov/311/311-Public-Data-Extract-2019-clean.txt'){|f| f.read}
     web1 = open('https://hfdapp.houstontx.gov/311/311-Public-Data-Extract-monthly-clean.txt'){|f| f.read}
     thing1 = web1.split(/\n/)
+    records1 = CsvHash.parse(web1, :converters => :all, :header_converters => :symbol ) #turns web1 from string to hash
     things2 = web2.split(/\n/)
     columns = %i[case_number sr_location county district neighborhood tax_id trash_quad recycle_quad trash_day heavy_trash_day recycle_day key_map management_district department division sr_type queue sla status sr_create_date due_date date_closed overdue title x y latitude longitude channel_type created_at updated_at]
     class Sr
@@ -45,7 +46,7 @@
     end 
     a =[]
     thing1.each {|sr|
-      binding.pry
+      Csv.parse(sr, sep: '|')
     }
   
     line_array_hash = Hash[line_array.map {|key, value| [key, value]}
