@@ -1,4 +1,7 @@
 class Sr < ApplicationRecord
+  def initialize(h)
+    h.each {|k,v| instance_variable_set("@#{k}",v)}
+  end
   scope :OpenOverdue, ->{(where(:overdue => 1..300, :department => "SWM Solid Waste Management", :status => "Open").count)}
   scope :OpenGrandTotal, ->{(where(:department=> "SWM Solid Waste Management", :status => "Open").count)}
   scope :NEOpenOverdue,  ->{(where(:overdue => 1..300, :department => "SWM Solid Waste Management", :status => "Open", :trash_quad => "NE").count)}

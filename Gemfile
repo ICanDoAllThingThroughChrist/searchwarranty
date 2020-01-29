@@ -40,7 +40,11 @@ gem 'mechanize', '~> 2.7.5'
 gem 'seed_dump'
 gem 'foreman', '~> 0.82.0'
 gem 'csvreader', '~> 1.2', '>= 1.2.3'
-gem 'pry-byebug', '~> 3.4'
+# gem 'pry-byebug', '~> 3.4'
+gem 'open-uri'
+# gem 'csvreader'
+gem 'byebug'
+gem 'csv'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
