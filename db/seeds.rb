@@ -24,3 +24,4 @@ CSV.foreach("C:/Users/e128289/Documents/311-Public-Data-Extract-2019-clean.csv",
  Sr.create(row.to_hash)
  # binding.pry
 }
+end

@@ -1,4 +1,5 @@
 class Sr < ApplicationRecord
+  attr_accessor :case_number, :sr_location, :county, :district, :neighborhood, :tax_id, :trash_quad, :recycle_quad, :trash_day, :heavy_trash_day, :recycle_day, :key_map, :management_district, :department, :division, :sr_type, :queue, :sla, :status, :sr_create_date, :due_date, :date_closed, :overdue, :title, :x, :y, :latitude, :longitude, :channel_type, :created_at, :updated_at
   def initialize(h)
     h.each {|k,v| instance_variable_set("@#{k}",v)}
   end

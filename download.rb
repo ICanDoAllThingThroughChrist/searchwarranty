@@ -14,14 +14,20 @@
         h.each {|k,v| instance_variable_set("@#{k}",v)}
       end
     end 
-    a =[]
+
     thing1.each {|sr|
-      #  byebug
+       byebug
        b=sr.split('|')
        c=Hash[columns.zip(b)]
        Sr.new(c)
     }
-  
+    thing2.each {|sr|
+    byebug
+    b=sr.split('|')
+    c=Hash[columns.zip(b)]
+    Sr.new(c)
+ }
+
     # line_array_hash = Hash[line_array.map {|key, value| [key, value]}
     # Sr.new(line_array_hash) 
   #   File.open("users.txt", "r", '\r').each do |line|
