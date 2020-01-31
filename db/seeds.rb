@@ -5,7 +5,7 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-require 'csv'
+# require 'csv'
 
 # CSV.foreach("C:/Users/e128289/Documents/311-open-data-monthly.csv", { encoding: "UTF-8", headers: true, header_converters: :symbol, converters: :all}) {|row|
 #   # binding.pry
@@ -19,10 +19,11 @@ require 'csv'
 #  # binding.pry
 # }
 #
+# require 'csv'
 # CSV.foreach("C:/Users/e128289/Documents/311-Public-Data-Extract-2019-clean.csv", { encoding: "UTF-8", headers: true, header_converters: :symbol, converters: :all}) {|row|
-#   # binding.pry
+#   binding.pry
 #  Sr.create(row.to_hash)
-#  # binding.pry
+#   binding.pry
 # }
 # end
 require 'open-uri'
@@ -36,10 +37,10 @@ things2 = web2.split(/\n/)
 columns = %i[case_number sr_location county district neighborhood tax_id trash_quad recycle_quad trash_day heavy_trash_day recycle_day key_map management_district department division sr_type queue sla status sr_create_date due_date date_closed overdue title x y latitude longitude channel_type created_at updated_at]
 
 things2.each {|sr|
-    byebug
+    # byebug
     b=sr.split('|')
     c=Hash[columns.zip(b)]
-    byebug
+    # byebug
     Sr.create(c)
-    byebug
+    # byebug
  }

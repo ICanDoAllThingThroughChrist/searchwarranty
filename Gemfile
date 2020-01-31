@@ -33,18 +33,20 @@ gem 'parse-server-sdk', '~> 2.3', '>= 2.3.3'
 gem 'pry'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
-gem 'daru', '~> 0.1.5'
-gem 'daru-view'
-gem 'spreadsheet', '~> 1.1.1'
-gem 'mechanize', '~> 2.7.5'
+# gem 'daru', '~> 0.1.5'
+# gem 'daru-view'
+# gem 'spreadsheet', '~> 1.1.1'
+# gem 'mechanize', '~> 2.7.5'
 gem 'seed_dump'
 gem 'foreman', '~> 0.82.0'
 gem 'csvreader', '~> 1.2', '>= 1.2.3'
 # gem 'pry-byebug', '~> 3.4'
 # gem 'open-uri'
 # gem 'csvreader'
-gem 'byebug'
+# gem 'byebug'
 gem 'csv'
+# gem 'hirb'
+gem 'table_print', '~> 1.5', '>= 1.5.6'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
