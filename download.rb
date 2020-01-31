@@ -21,7 +21,7 @@
        c=Hash[columns.zip(b)]
        Sr.new(c)
     }
-    thing2.each {|sr|
+    things2.each {|sr|
     byebug
     b=sr.split('|')
     c=Hash[columns.zip(b)]
