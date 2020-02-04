@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200115153301) do
+ActiveRecord::Schema.define(version: 20200204170358) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -55,6 +55,24 @@ ActiveRecord::Schema.define(version: 20200115153301) do
     t.datetime "updated_at", null: false
     t.integer "field1"
     t.integer "field2"
+    t.string "client"
+    t.string "garbage_route"
+    t.string "heavy_trash_quad"
+    t.string "sr_owner"
+    t.string "sr_creator"
+    t.integer "resolve_days"
+    t.integer "street_num"
+    t.string "client_street"
+    t.string "city"
+    t.string "state"
+    t.integer "zip"
+    t.string "phone_number"
+    t.string "email_address"
+    t.string "garbage_day1"
+    t.string "garbage_quad"
+    t.string "recycle_day1"
+    t.string "recycle_route"
+    t.integer "resolution_time"
   end
 
 end
