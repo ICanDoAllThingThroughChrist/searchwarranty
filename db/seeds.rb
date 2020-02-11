@@ -19,16 +19,22 @@
 # #  # binding.pry
 # # }
 #
+# require 'csv'
+# # require
+# # columns = %i[CASE_NUMBER	SR_LOCATION	COUNTY	CLIENT	STREET_NUM	CLIENT_STREET	CITY	STATE	ZIP	PHONE_NUMBER	EMAIL_ADDRESS	DISTRICT	NEIGHBORHOOD	TAX_ID	GARBAGE_ROUTE	GARBAGE_DAY1	GARBAGE_QUAD	RECYCLE_DAY1	RECYCLE_ROUTE	RECYCLE_QUAD	HEAVY_TRASH_DAY	HEAVY_TRASH_QUAD	KEY_MAP	MANAGEMENT_DISTRICT	SR_OWNER	SR_CREATOR	DEPARTMENT	DIVISION	SR_TYPE	QUEUE	SLA	STATUS	SR_CREATE_DATE	DUE_DATE	DATE_CLOSED	RESOLUTION_TIME	OVERDUE]
+# # a = Hash[columns.]
+# CSV.foreach("C:/Users/e128289/Documents/SWM All Data with Resolution Time.csv", { encoding: "UTF-8", headers: true, header_converters: :symbol, converters: :all}) {|row|
+#   # binding.pry
+#  Sr.create(row.to_hash)
+#   # binding.pry
+# }
+# # end
 require 'csv'
-# require
-# columns = %i[CASE_NUMBER	SR_LOCATION	COUNTY	CLIENT	STREET_NUM	CLIENT_STREET	CITY	STATE	ZIP	PHONE_NUMBER	EMAIL_ADDRESS	DISTRICT	NEIGHBORHOOD	TAX_ID	GARBAGE_ROUTE	GARBAGE_DAY1	GARBAGE_QUAD	RECYCLE_DAY1	RECYCLE_ROUTE	RECYCLE_QUAD	HEAVY_TRASH_DAY	HEAVY_TRASH_QUAD	KEY_MAP	MANAGEMENT_DISTRICT	SR_OWNER	SR_CREATOR	DEPARTMENT	DIVISION	SR_TYPE	QUEUE	SLA	STATUS	SR_CREATE_DATE	DUE_DATE	DATE_CLOSED	RESOLUTION_TIME	OVERDUE]
-# a = Hash[columns.]
-CSV.foreach("C:/Users/e128289/Documents/SWM All Data with Resolution Time.csv", { encoding: "UTF-8", headers: true, header_converters: :symbol, converters: :all}) {|row|
+CSV.foreach("C:/Users/e128289/Documents/Assignments-Track.csv", { encoding: "UTF-8", headers: true, header_converters: :symbol, converters: :all}) {|row|
   # binding.pry
- Sr.create(row.to_hash)
+ Assignment.create(row.to_hash)
   # binding.pry
 }
-# end
 # require 'open-uri'
 # require 'csvreader'
 # require 'byebug'
