@@ -22,16 +22,16 @@ class Cart < ApplicationRecord
       }
     end
     def cart_replaced_wheel_lid(cart)
-        if /replace/.match?(cart.case_note) == TRUE && /wheel/.match?(cart.case_note) == TRUE
+        if /[r..R]eplace/.match?(cart.case_note) == TRUE && /wheel/.match?(cart.case_note) == TRUE
           cart.replace_wheel_lid = 1
-        elsif /replace/.match?(cart.case_note) == TRUE && /lid/.match?(cart.case_note) == TRUE
+        elsif /[r..R]eplace/.match?(cart.case_note) == TRUE && /lid/.match?(cart.case_note) == TRUE
           cart.replace_wheel_lid = 1
         else
           cart.replace_wheel_lid = 0
         end
     end
     def cart_delivered(cart)
-      if /deliver/.match?(cart.case_note) == TRUE
+      if /[d..D]eliver/.match?(cart.case_note) == TRUE
         cart.delivered = 1
       else
         cart.delivered = 0
@@ -39,14 +39,15 @@ class Cart < ApplicationRecord
     end
     def cart_serviced(cart)
         # binding.pry
-        if /service/.match?(cart.case_note) == TRUE
+        if /[s..S]ervice/.match?(cart.case_note) == TRUE
+          # binding.pry
           cart.serviced = 1
         else
           cart.serviced = 0
         end
     end
     def cart_replaced(cart)
-        if /replace/.match?(cart.case_note) == TRUE &&  /cart/.match?(cart.case_note) == TRUE
+        if /[r..R]eplace/.match?(cart.case_note) == TRUE &&  /[c..C]art/.match?(cart.case_note) == TRUE
           cart.replaced_cart = 1
         else
           cart.replaced_cart = 0

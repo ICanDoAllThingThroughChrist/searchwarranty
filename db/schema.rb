@@ -74,7 +74,7 @@ ActiveRecord::Schema.define(version: 20200214221416) do
   end
 
   create_table "carts", force: :cascade do |t|
-    t.decimal "sr_number"
+    t.string "sr_number"
     t.string "client"
     t.string "service_location"
     t.string "status"

@@ -1,7 +1,7 @@
 class CreateCarts < ActiveRecord::Migration[5.1]
   def change
     create_table :carts do |t|
-      t.decimal :sr_number
+      t.string :sr_number
       t.string :client
       t.string :service_location
       t.string :status
