@@ -6,7 +6,8 @@ class Cart < ApplicationRecord
         # binding.pry
         cart.cart_taxid(cart)
         cart.cart_client(cart)
-        binding.pry
+        cart.cart_service_location(cart)
+        # binding.pry
         cart.unique = cart.service_location + cart.tax_id.to_s + cart.client
         cart.cart_serviced(cart)
         # binding.pry
@@ -17,7 +18,7 @@ class Cart < ApplicationRecord
         cart.cart_replaced(cart)
         # binding.pry
         cart.save
-        binding.pry
+        # binding.pry
       }
     end
     def cart_replaced_wheel_lid(cart)
@@ -63,6 +64,15 @@ class Cart < ApplicationRecord
       if cart.client.nil? == TRUE
         # binding.pry
         cart.client = 0
+        # binding.pry
+      else
+        cart
+      end
+    end
+    def cart_service_location(cart)
+      if cart.service_location.nil? == TRUE
+        # binding.pry
+        cart.service_location = 0
         # binding.pry
       else
         cart
