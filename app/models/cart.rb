@@ -47,7 +47,7 @@ class Cart < ApplicationRecord
         end
     end
     def cart_replaced(cart)
-        if /[r..R]eplace/.match?(cart.case_note) == TRUE &&  /[c..C]art/.match?(cart.case_note) == TRUE 
+        if /[r..R]eplace/.match?(cart.case_note) == TRUE &&  /[c..C]art/.match?(cart.case_note) == TRUE &&  cart.replace_wheel_lid = 0
           cart.replaced_cart = 1
         elsif /[r..R]eplacement/.match?(cart.case_note) == TRUE
           cart.replaced_cart = 1
