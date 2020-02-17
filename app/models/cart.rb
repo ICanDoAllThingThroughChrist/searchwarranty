@@ -1,57 +1,71 @@
 class Cart < ApplicationRecord
-
-  def self.unique
-    carts = []
-    carts = Cart.all
-    carts.each.map {|cart|
-      byebug
-      cart.unique = cart.service_location + cart.tax_id1.to_s + " " + cart.client
-      cart.cart_serviced
-      cart.cart_delivered
-      cart.cart_replaced_wheel_lid
-      cart.cart_replaced
-      cart.save
-    }
-  end
-
-  def cart_replaced_wheel_lid
-      if /replace/.match?(cart.case_note) == TRUE && if /wheel/.match?(cart.case_note) == TRUE ||
-      elsif /replace/.match?(cart.case_note) == TRUE && if /lid/.match?(cart.case_note) == TRUE
-      then
-        cart.replace_wheel_lid = 1
-      else
-        cart.replace_wheel_lid = 0
-      end
-  end
-
-  def cart_delivered
-    if
-      /deliver/.match?(cart.case_note) == TRUE
-    then
-      cart.delivered = 1
-    else
-      cart.delivered = 0
+    def self.unique
+      carts = []
+      carts = Cart.all
+      carts.each.map {|cart|
+        # binding.pry
+        cart.cart_taxid(cart)
+        cart.cart_client(cart)
+        binding.pry
+        cart.unique = cart.service_location + cart.tax_id.to_s + cart.client
+        cart.cart_serviced(cart)
+        # binding.pry
+        cart.cart_delivered(cart)
+        # binding.pry
+        cart.cart_replaced_wheel_lid(cart)
+        # binding.pry
+        cart.cart_replaced(cart)
+        # binding.pry
+        cart.save
+        binding.pry
+      }
     end
-  end
-
-  def cart_serviced
-      if
-        /service/.match?(cart.serviced) == TRUE
-      then
-        cart.serviced = 1
-      else
-        cart.serviced = 0
+    def cart_replaced_wheel_lid(cart)
+        if /replace/.match?(cart.case_note) == TRUE && /wheel/.match?(cart.case_note) == TRUE
+          cart.replace_wheel_lid = 1
+        elsif /replace/.match?(cart.case_note) == TRUE && /lid/.match?(cart.case_note) == TRUE
+          cart.replace_wheel_lid = 1
+        else
+          cart.replace_wheel_lid = 0
+        end
     end
-  end
-
-  def cart_replaced
-      if
-        /replace/.match?(cart.case_note) == TRUE && if /cart/.match?(cart.case_note) == TRUE
-      then
-        cart.replaced_cart = 1
+    def cart_delivered(cart)
+      if /deliver/.match?(cart.case_note) == TRUE
+        cart.delivered = 1
       else
-        cart.replaced_cart = 0
+        cart.delivered = 0
       end
-  end
+    end
+    def cart_serviced(cart)
+        # binding.pry
+        if /service/.match?(cart.case_note) == TRUE
+          cart.serviced = 1
+        else
+          cart.serviced = 0
+        end
+    end
+    def cart_replaced(cart)
+        if /replace/.match?(cart.case_note) == TRUE &&  /cart/.match?(cart.case_note) == TRUE
+          cart.replaced_cart = 1
+        else
+          cart.replaced_cart = 0
+        end
+    end
 
+    def cart_taxid(cart)
+      if cart.tax_id.nil? == TRUE
+        cart.tax_id = 0
+      else
+        cart
+      end
+    end
+    def cart_client(cart)
+      if cart.client.nil? == TRUE
+        # binding.pry
+        cart.client = 0
+        # binding.pry
+      else
+        cart
+      end
+    end
 end
