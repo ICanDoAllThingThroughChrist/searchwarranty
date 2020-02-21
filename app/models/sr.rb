@@ -7,7 +7,7 @@ class Sr < ApplicationRecord
     @overdue_list = Array.new
   end
   def self.overdue
-    overdue_open_srs = Sr.where(:overdue => 0..300,:department => 'SWM Solid Waste Management', :status => 'Open')
+    overdue_open_srs = Sr.where(:overdue => 0..400,:department => 'SWM Solid Waste Management', :status => 'Open')
     overdue_open_srs.each{|sr|
       if sr.department == 'SWM Solid Waste Management'
       then
@@ -17,7 +17,7 @@ class Sr < ApplicationRecord
         puts "#{sr}"
       end
       }
-    not_overdue_open_srs = Sr.where(:overdue => -300..-1,:department => 'SWM Solid Waste Management', :status => 'Open')
+    not_overdue_open_srs = Sr.where(:overdue => -400..-1,:department => 'SWM Solid Waste Management', :status => 'Open')
     not_overdue_open_srs.each{|sr|
       if sr.department == 'SWM Solid Waste Management'
       then
@@ -27,7 +27,7 @@ class Sr < ApplicationRecord
         puts "#{sr}"
       end
     }
-    open_srs = Sr.where(:overdue => -300..300,:department => 'SWM Solid Waste Management', :status => 'Open')
+    open_srs = Sr.where(:overdue => -400..400,:department => 'SWM Solid Waste Management', :status => 'Open')
     open_srs
   end
   def self.sent_chain(methods)
