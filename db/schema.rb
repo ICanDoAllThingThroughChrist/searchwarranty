@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200221161144) do
+ActiveRecord::Schema.define(version: 20200221213940) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -182,6 +182,18 @@ ActiveRecord::Schema.define(version: 20200221161144) do
     t.string "recycle_route"
     t.integer "resolution_time"
     t.string "expression"
+    t.integer "ne_overdue"
+    t.integer "ne_not_overdue"
+    t.integer "ne_sr_total"
+    t.integer "nw_overdue"
+    t.integer "nw_not_overdue"
+    t.integer "nw_sr_total"
+    t.integer "se_overdue"
+    t.integer "se_not_overdue"
+    t.integer "se_sr_total"
+    t.integer "sw_overdue"
+    t.integer "sw_not_overdue"
+    t.integer "sw_sr_total"
   end
 
 end
