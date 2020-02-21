@@ -30,7 +30,8 @@ require 'csv'
 # for City of Houston Container Problems by Residents Service Request download
 # 1. Before Running Report: In CSV File, rename attribute from "type" to "service_type"
 # 2. Delete all Carts Related Records from rails DB;
-CSV.foreach("C:/Users/e128289/Documents/containers-problems.csv", {encoding: "iso-8859-1:utf-8", headers: true, header_converters: :symbol, converters: :all}) {|row|
+CSV.foreach("C:/Users/e128289/Documents/containers-problems.csv", {encoding: "iso-8859-1:utf-8", headers: %w[SR_Number	Client	Service_Location	Status	Client_Str_No	Client_Str_Name	Client_Zip_Code	Phone_Number	Email_Address	Create_Date	Due_Date	Closed_Date	Overdue	Agent_Name	Super_Neighborhood	Tax_ID	Service_Area	District	Key_Map	Management_District	GARBAGE_ROUTE	GARBAGE_DAY	GARBAGE_QUAD	RECYCLE_ROUTE	RECYCLE_DAY	RECYCLE_QUAD	HEAVY_TRASH_DAY	HEAVY_TRASH_QUAD	Subject	Reason	service_type Queue	SLA	Container_Problem	Container_Damage	Case_Note	Resolution_Comment	Channel_Type	Other_Description	Title	x	y	LATITUDE	LONGITUDE	Tax_ID1
+], header_converters: :symbol, converters: :all}) {|row|
   # binding.pry
   Cart.create(row.to_hash)
   # binding.pry
