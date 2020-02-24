@@ -10,10 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200221213940) do
+ActiveRecord::Schema.define(version: 20200224213824) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+  enable_extension "tablefunc"
 
   create_table "assignments", force: :cascade do |t|
     t.string "site1recycling"
@@ -196,4 +197,74 @@ ActiveRecord::Schema.define(version: 20200221213940) do
     t.integer "sw_sr_total"
   end
 
+
+  create_view "report_sr_expressions", sql_definition: <<-SQL
+      SELECT srs.id,
+      srs.case_number,
+      srs.sr_location,
+      srs.county,
+      srs.district,
+      srs.neighborhood,
+      srs.tax_id,
+      srs.trash_quad,
+      srs.recycle_quad,
+      srs.trash_day,
+      srs.heavy_trash_day,
+      srs.recycle_day,
+      srs.key_map,
+      srs.management_district,
+      srs.department,
+      srs.division,
+      srs.sr_type,
+      srs.queue,
+      srs.sla,
+      srs.status,
+      srs.sr_create_date,
+      srs.due_date,
+      srs.date_closed,
+      srs.overdue,
+      srs.title,
+      srs.x,
+      srs.y,
+      srs.latitude,
+      srs.longitude,
+      srs.channel_type,
+      srs.created_at,
+      srs.updated_at,
+      srs.field1,
+      srs.field2,
+      srs.client,
+      srs.garbage_route,
+      srs.heavy_trash_quad,
+      srs.sr_owner,
+      srs.sr_creator,
+      srs.resolve_days,
+      srs.street_num,
+      srs.client_street,
+      srs.city,
+      srs.state,
+      srs.zip,
+      srs.phone_number,
+      srs.email_address,
+      srs.garbage_day1,
+      srs.garbage_quad,
+      srs.recycle_day1,
+      srs.recycle_route,
+      srs.resolution_time,
+      srs.expression,
+      srs.ne_overdue,
+      srs.ne_not_overdue,
+      srs.ne_sr_total,
+      srs.nw_overdue,
+      srs.nw_not_overdue,
+      srs.nw_sr_total,
+      srs.se_overdue,
+      srs.se_not_overdue,
+      srs.se_sr_total,
+      srs.sw_overdue,
+      srs.sw_not_overdue,
+      srs.sw_sr_total
+     FROM srs
+    WHERE (((srs.department)::text = 'SWM Solid Waste Management'::text) AND ((srs.status)::text = 'Open'::text));
+  SQL
 end

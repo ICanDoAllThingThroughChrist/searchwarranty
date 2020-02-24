@@ -9,22 +9,27 @@ class Sr < ApplicationRecord
   #   @ne_sr_total = ne_sr_total
   # end
   def self.sr_count
-    sr = Sr.new
-    binding.pry
-    sr.ne_overdue = Sr.where(:department => 'SWM Solid Waste Management', :expression => 'Overdue', :trash_quad => 'NE').count
-    sr.ne_not_overdue = Sr.where(:department => 'SWM Solid Waste Management', :expression => 'Not Overdue', :trash_quad => 'NE').count
-    sr.ne_sr_total = sr.ne_not_overdue + sr.ne_overdue
-    sr.se_overdue = Sr.where(:department => 'SWM Solid Waste Management', :expression => 'Overdue', :trash_quad => 'SE').count
-    sr.se_not_overdue = Sr.where(:department => 'SWM Solid Waste Management', :expression => 'Not Overdue', :trash_quad => 'SE').count
-    sr.se_sr_total = sr.se_not_overdue + sr.se_overdue
-    sr.sw_overdue = Sr.where(:department => 'SWM Solid Waste Management', :expression => 'Overdue', :trash_quad => 'SW').count
-    binding.pry
-    sr.sw_not_overdue = Sr.where(:department => 'SWM Solid Waste Management', :expression => 'Not Overdue', :trash_quad => 'SW').count
-    sr.sw_sr_total = sr.sw_not_overdue + sr.sw_overdue
-    sr.nw_overdue = Sr.where(:department => 'SWM Solid Waste Management', :expression => 'Overdue', :trash_quad => 'NW').count
-    sr.nw_not_overdue = Sr.where(:department => 'SWM Solid Waste Management', :expression => 'Not Overdue', :trash_quad => 'NW').count
-    sr.nw_sr_total = sr.nw_not_overdue + sr.nw_overdue
-    binding.pry
+  open_sr = Sr.where(:department=> "SWM Solid Waste Management", :status => "Open")
+  open_sr.each{|sr|
+    if sr.department == 'SWM Solid Waste Management' && sr.expression == 'Overdue' && sr.trash_quad == 'NE'
+       sr.ne_overdue = 1
+    elsif sr.department == 'SWM Solid Waste Management' && sr.expression == 'Overdue' && sr.trash_quad == 'NW'
+      sr.nw_overdue = 1
+    elsif sr.department == 'SWM Solid Waste Management' && sr.expression == 'Overdue' && sr.trash_quad == 'SW'
+      sr.sw_overdue = 1
+    elsif sr.department == 'SWM Solid Waste Management' && sr.expression == 'Overdue' && sr.trash_quad == 'SE'
+      sr.se_overdue = 1
+    elsif sr.department == 'SWM Solid Waste Management' && sr.expression == 'Not Overdue' && sr.trash_quad == 'SE' && sr.se_overdue != 1
+      sr.se_not_overdue = 1
+    elsif sr.department == 'SWM Solid Waste Management' && sr.expression == 'Not Overdue' && sr.trash_quad == 'SW' && sr.sw_overdue != 1
+      sr.sw_not_overdue = 1
+    elsif sr.department == 'SWM Solid Waste Management' && sr.expression == 'Not Overdue' && sr.trash_quad == 'NW' && sr.nw_overdue != 1
+      sr.nw_not_overdue = 1
+    elsif sr.department == 'SWM Solid Waste Management' && sr.expression == 'Not Overdue' && sr.trash_quad == 'NE' && sr.ne_overdue != 1
+      sr.ne_not_overdue = 1
+    end
+    sr.save
+    }
   end
   def self.overdue
     overdue_open_srs = Sr.where(:overdue => 0..400,:department => 'SWM Solid Waste Management', :status => 'Open')
