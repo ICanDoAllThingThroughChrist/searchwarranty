@@ -8,6 +8,30 @@ class Sr < ApplicationRecord
   #   super
   #   @ne_sr_total = ne_sr_total
   # end
+  def self.quad_expression
+  open_sr = Sr.where(:department=> "SWM Solid Waste Management", :status => "Open")
+  open_sr.each{|sr|
+        if sr.expression == 'Overdue' && sr.trash_quad == 'NE'
+              sr.quad_status = 'NE_Overdue'
+        elsif sr.expression == 'Not Overdue' && sr.trash_quad == 'NE'
+              sr.quad_status = 'NE_Not_Overdue'
+        elsif sr.expression == 'Overdue' && sr.trash_quad == 'SE'
+              sr.quad_status = 'SE_Overdue'
+        elsif sr.expression == 'Not Overdue' && sr.trash_quad == 'SE'
+              sr.quad_status = 'SE_Not_Overdue'
+        elsif sr.expression == 'Overdue' && sr.trash_quad == 'SW'
+              sr.quad_status = 'SW_Overdue'
+        elsif sr.expression == 'Not Overdue' && sr.trash_quad == 'SW'
+              sr.quad_status = 'SW_Not_Overdue'
+        elsif sr.expression == 'Overdue' && sr.trash_quad == 'NW'
+              sr.quad_status = 'NW_Overdue'
+        elsif sr.expression == 'Not Overdue' && sr.trash_quad == 'NW'
+              sr.quad_status = 'NW_Not_Overdue'
+        else
+              puts "#{sr}"
+        end
+        sr.save}
+  end
   def self.sr_count
   open_sr = Sr.where(:department=> "SWM Solid Waste Management", :status => "Open")
   open_sr.each{|sr|
