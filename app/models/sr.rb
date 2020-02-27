@@ -56,6 +56,17 @@ class Sr < ApplicationRecord
     }
   end
   def self.overdue
+    open_null=Sr.where(:department  => 'SWM Solid Waste Management',:status => 'Open',:overdue => 'NULL')
+    # binding.pry
+    open_null.each {|sr|
+      if sr.overdue.nil?
+          seconds = sr.due_date - Time.now
+          sr.overdue = seconds/(60*60*24)
+          sr.save
+      else
+        puts "#{sr}"
+      end
+    }
     overdue_open_srs = Sr.where(:overdue => 0..400,:department => 'SWM Solid Waste Management', :status => 'Open')
     overdue_open_srs.each{|sr|
       if sr.department == 'SWM Solid Waste Management'
