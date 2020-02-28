@@ -8,103 +8,106 @@
 # require 'csv'
 #
 #
-# require 'csv'
-# # for City of Houston BI Data Collection
-# # columns = %i[CASE_NUMBER	SR_LOCATION	COUNTY	CLIENT	STREET_NUM	CLIENT_STREET	CITY	STATE	ZIP	PHONE_NUMBER	EMAIL_ADDRESS	DISTRICT	NEIGHBORHOOD	TAX_ID	GARBAGE_ROUTE	GARBAGE_DAY1	GARBAGE_QUAD	RECYCLE_DAY1	RECYCLE_ROUTE	RECYCLE_QUAD	HEAVY_TRASH_DAY	HEAVY_TRASH_QUAD	KEY_MAP	MANAGEMENT_DISTRICT	SR_OWNER	SR_CREATOR	DEPARTMENT	DIVISION	SR_TYPE	QUEUE	SLA	STATUS	SR_CREATE_DATE	DUE_DATE	DATE_CLOSED	RESOLUTION_TIME	OVERDUE]
-# # a = Hash[columns.]
-# CSV.foreach("C:/Users/e128289/Documents/SWM All Data with Resolution Time.csv", { encoding: "iso-8859-1:utf-8", headers: true, header_converters: :symbol, converters: :all}) {|row|
-#   # binding.pry
-#  Sr.create(row.to_hash)
-#   # binding.pry
-# }
-# # end
+require 'csv'
+# for City of Houston BI Data Collection
+# columns = %i[CASE_NUMBER	SR_LOCATION	COUNTY	CLIENT	STREET_NUM	CLIENT_STREET	CITY	STATE	ZIP	PHONE_NUMBER	EMAIL_ADDRESS	DISTRICT	NEIGHBORHOOD	TAX_ID	GARBAGE_ROUTE	GARBAGE_DAY1	GARBAGE_QUAD	RECYCLE_DAY1	RECYCLE_ROUTE	RECYCLE_QUAD	HEAVY_TRASH_DAY	HEAVY_TRASH_QUAD	KEY_MAP	MANAGEMENT_DISTRICT	SR_OWNER	SR_CREATOR	DEPARTMENT	DIVISION	SR_TYPE	QUEUE	SLA	STATUS	SR_CREATE_DATE	DUE_DATE	DATE_CLOSED	RESOLUTION_TIME	OVERDUE]
+# a = Hash[columns.]
+CSV.foreach("C:/Users/e128289/Documents/SWM All Data with Resolution Time.csv", { encoding: "iso-8859-1:utf-8", headers: true, header_converters: :symbol, converters: :all}) {|row|
+  # binding.pry
+ Sr.create(row.to_hash)
+  # binding.pry
+}
+end
+Sr.overdue
+Sr.quad_expression
+Sr.sr_count
 # require 'csv'
 # For City of Houston sw3p environmental assignments data download
 # CSV.foreach("C:/Users/e128289/Documents/Assignments-Track2.csv", { encoding: "UTF-8", headers: true, header_converters: :symbol, converters: :all}) {|row|
 #    # binding.pry
 #  Assignment.create(row.to_hash)
 #   # binding.pry
-# }
-# #
-require 'csv'
-# for City of Houston Container Problems by Residents Service Request download
-# 1. Before Running Report: In CSV File, rename attribute from "type" to "service_type"
-# 2. Delete all Carts Related Records from rails DB;
-# CSV.foreach("C:/Users/e128289/Documents/containers-problems.csv", {encoding: "iso-8859-1:utf-8", headers: %w[SR_Number	Client	Service_Location	Status	Client_Str_No	Client_Str_Name	Client_Zip_Code	Phone_Number	Email_Address	Create_Date	Due_Date	Closed_Date	Overdue	Agent_Name	Super_Neighborhood	Tax_ID	Service_Area	District	Key_Map	Management_District	GARBAGE_ROUTE	GARBAGE_DAY	GARBAGE_QUAD	RECYCLE_ROUTE	RECYCLE_DAY	RECYCLE_QUAD	HEAVY_TRASH_DAY	HEAVY_TRASH_QUAD	Subject	Reason	service_type Queue	SLA	Container_Problem	Container_Damage	Case_Note	Resolution_Comment	Channel_Type	Other_Description	Title	x	y	LATITUDE	LONGITUDE	Tax_ID1
+# # }
+# # #
+# require 'csv'
+# # for City of Houston Container Problems by Residents Service Request download
+# # 1. Before Running Report: In CSV File, rename attribute from "type" to "service_type"
+# # 2. Delete all Carts Related Records from rails DB;
+# # CSV.foreach("C:/Users/e128289/Documents/containers-problems.csv", {encoding: "iso-8859-1:utf-8", headers: %w[SR_Number	Client	Service_Location	Status	Client_Str_No	Client_Str_Name	Client_Zip_Code	Phone_Number	Email_Address	Create_Date	Due_Date	Closed_Date	Overdue	Agent_Name	Super_Neighborhood	Tax_ID	Service_Area	District	Key_Map	Management_District	GARBAGE_ROUTE	GARBAGE_DAY	GARBAGE_QUAD	RECYCLE_ROUTE	RECYCLE_DAY	RECYCLE_QUAD	HEAVY_TRASH_DAY	HEAVY_TRASH_QUAD	Subject	Reason	service_type Queue	SLA	Container_Problem	Container_Damage	Case_Note	Resolution_Comment	Channel_Type	Other_Description	Title	x	y	LATITUDE	LONGITUDE	Tax_ID1
+# # ], header_converters: :symbol, converters: :all}) {|row|
+# #   # binding.pry
+# #   Cart.create(row.to_hash)
+# #   # binding.pry
+# # }
+# # Cart.unique
+# # "run Cart.unique in Rails Console"
+# # CSV.foreach("C:/Users/e128289/Documents/1-1-2017-to-7-1-2017-inventory-requests.csv", {encoding: "iso-8859-1:utf-8", headers: %w[SR_Number	Client	Service_Location	Status	Phone_Number	Client_Str_No	Client_Str_Name	Client_Zip_Code	Email_Address	Create_Date	Due_Date	Closed_Date	Overdue	Agent_Name	Super_Neighborhood	service_area	District	Key_Map	Management_District	tax_id	GARBAGE_ROUTE	GARBAGE_DAY	GARBAGE_QUAD	RECYCLE_ROUTE	RECYCLE_DAY	RECYCLE_QUAD	HEAVY_TRASH_DAY	HEAVY_TRASH_QUAD	Subject	Reason	service_type	Queue	SLA	Channel_Type	Case_Note	Resolution_Comment	LATITUDE	LONGITUDE	x	y], header_converters: :symbol, converters: :all}) {|row|
+# #   # binding.pry
+# #   Cart.create(row.to_hash)
+# #   # binding.pry
+# # }
+# # Cart.unique
+# # # "run Cart.unique in Rails Console"
+# # CSV.foreach("C:/Users/e128289/Documents/7-1-17-to-12-30-17-inventory-requests.csv", {encoding: "iso-8859-1:utf-8", headers: %w[SR_Number	Client	Service_Location	Status	Phone_Number	Client_Str_No	Client_Str_Name	Client_Zip_Code	Email_Address	Create_Date	Due_Date	Closed_Date	Overdue	Agent_Name	Super_Neighborhood	service_area	District	Key_Map	Management_District	tax_id	GARBAGE_ROUTE	GARBAGE_DAY	GARBAGE_QUAD	RECYCLE_ROUTE	RECYCLE_DAY	RECYCLE_QUAD	HEAVY_TRASH_DAY	HEAVY_TRASH_QUAD	Subject	Reason	service_type	Queue	SLA	Channel_Type	Case_Note	Resolution_Comment	LATITUDE	LONGITUDE	x	y], header_converters: :symbol, converters: :all}) {|row|
+# #   # binding.pry
+# #   Cart.create(row.to_hash)
+# #   # binding.pry
+# # }
+# # Cart.unique
+# # # "run Cart.unique in Rails Console"
+# # CSV.foreach("C:/Users/e128289/Documents/1-1-2018-to-6-30-118-inventory-requests.csv", {encoding: "iso-8859-1:utf-8", headers: %w[SR_Number	Client	Service_Location	Status	Phone_Number	Client_Str_No	Client_Str_Name	Client_Zip_Code	Email_Address	Create_Date	Due_Date	Closed_Date	Overdue	Agent_Name	Super_Neighborhood	service_area	District	Key_Map	Management_District	tax_id	GARBAGE_ROUTE	GARBAGE_DAY	GARBAGE_QUAD	RECYCLE_ROUTE	RECYCLE_DAY	RECYCLE_QUAD	HEAVY_TRASH_DAY	HEAVY_TRASH_QUAD	Subject	Reason	service_type	Queue	SLA	Channel_Type	Case_Note	Resolution_Comment	LATITUDE	LONGITUDE	x	y], header_converters: :symbol, converters: :all}) {|row|
+# #   # binding.pry
+# #   Cart.create(row.to_hash)
+# #   # binding.pry
+# # }
+# # Cart.unique
+# # # "run Cart.unique in Rails Console"
+# # CSV.foreach("C:/Users/e128289/Documents/6-30-18-to12-30-18-Inventory-Requests.csv", {encoding: "iso-8859-1:utf-8", headers: %w[SR_Number	Client	Service_Location	Status	Phone_Number	Client_Str_No	Client_Str_Name	Client_Zip_Code	Email_Address	Create_Date	Due_Date	Closed_Date	Overdue	Agent_Name	Super_Neighborhood	service_area	District	Key_Map	Management_District	tax_id	GARBAGE_ROUTE	GARBAGE_DAY	GARBAGE_QUAD	RECYCLE_ROUTE	RECYCLE_DAY	RECYCLE_QUAD	HEAVY_TRASH_DAY	HEAVY_TRASH_QUAD	Subject	Reason	service_type	Queue	SLA	Channel_Type	Case_Note	Resolution_Comment	LATITUDE	LONGITUDE	x	y], header_converters: :symbol, converters: :all}) {|row|
+# #   # binding.pry
+# #   Cart.create(row.to_hash)
+# #   # binding.pry
+# # }
+# # Cart.unique
+# # CSV.foreach("C:/Users/e128289/Documents/12-30-18-to-7-11-19-Inventory-Requests.csv", {encoding: "iso-8859-1:utf-8", headers: %w[SR_Number	Client	Service_Location	Status	Phone_Number	Client_Str_No	Client_Str_Name	Client_Zip_Code	Email_Address	Create_Date	Due_Date	Closed_Date	Overdue	Agent_Name	Super_Neighborhood	service_area	District	Key_Map	Management_District	tax_id	GARBAGE_ROUTE	GARBAGE_DAY	GARBAGE_QUAD	RECYCLE_ROUTE	RECYCLE_DAY	RECYCLE_QUAD	HEAVY_TRASH_DAY	HEAVY_TRASH_QUAD	Subject	Reason	service_type	Queue	SLA	Channel_Type	Case_Note	Resolution_Comment	LATITUDE	LONGITUDE	x	y], header_converters: :symbol, converters: :all}) {|row|
+# #   # binding.pry
+# #   Cart.create(row.to_hash)
+# #   # binding.pry
+# # }
+# # Cart.unique
+# # CSV.foreach("C:/Users/e128289/Documents/07-12-19-to-2-27-20-Inventory-Requests.csv", {encoding: "iso-8859-1:utf-8", headers: %w[SR_Number	Client	Service_Location	Status	Phone_Number	Client_Str_No	Client_Str_Name	Client_Zip_Code	Email_Address	Create_Date	Due_Date	Closed_Date	Overdue	Agent_Name	Super_Neighborhood	service_area	District	Key_Map	Management_District	tax_id	GARBAGE_ROUTE	GARBAGE_DAY	GARBAGE_QUAD	RECYCLE_ROUTE	RECYCLE_DAY	RECYCLE_QUAD	HEAVY_TRASH_DAY	HEAVY_TRASH_QUAD	Subject	Reason	service_type	Queue	SLA	Channel_Type	Case_Note	Resolution_Comment	LATITUDE	LONGITUDE	x	y], header_converters: :symbol, converters: :all}) {|row|
+# #   # binding.pry
+# #   Cart.create(row.to_hash)
+# #   # binding.pry
+# # }
+# # Cart.unique
+# CSV.foreach("C:/Users/e128289/Documents/July18-July19.csv", {encoding: "iso-8859-1:utf-8", headers: %w[sr_number	service_type	CLIENT	service_location	Tax_ID	case_note	GARBAGE_QUAD
 # ], header_converters: :symbol, converters: :all}) {|row|
 #   # binding.pry
 #   Cart.create(row.to_hash)
 #   # binding.pry
 # }
 # Cart.unique
-# "run Cart.unique in Rails Console"
-# CSV.foreach("C:/Users/e128289/Documents/1-1-2017-to-7-1-2017-inventory-requests.csv", {encoding: "iso-8859-1:utf-8", headers: %w[SR_Number	Client	Service_Location	Status	Phone_Number	Client_Str_No	Client_Str_Name	Client_Zip_Code	Email_Address	Create_Date	Due_Date	Closed_Date	Overdue	Agent_Name	Super_Neighborhood	service_area	District	Key_Map	Management_District	tax_id	GARBAGE_ROUTE	GARBAGE_DAY	GARBAGE_QUAD	RECYCLE_ROUTE	RECYCLE_DAY	RECYCLE_QUAD	HEAVY_TRASH_DAY	HEAVY_TRASH_QUAD	Subject	Reason	service_type	Queue	SLA	Channel_Type	Case_Note	Resolution_Comment	LATITUDE	LONGITUDE	x	y], header_converters: :symbol, converters: :all}) {|row|
+# CSV.foreach("C:/Users/e128289/Documents/July19-Feb20.csv", {encoding: "iso-8859-1:utf-8", headers: %w[sr_number	service_type	CLIENT	service_location	Tax_ID	case_note	GARBAGE_QUAD
+# ], header_converters: :symbol, converters: :all}) {|row|
 #   # binding.pry
 #   Cart.create(row.to_hash)
 #   # binding.pry
 # }
 # Cart.unique
-# # "run Cart.unique in Rails Console"
-# CSV.foreach("C:/Users/e128289/Documents/7-1-17-to-12-30-17-inventory-requests.csv", {encoding: "iso-8859-1:utf-8", headers: %w[SR_Number	Client	Service_Location	Status	Phone_Number	Client_Str_No	Client_Str_Name	Client_Zip_Code	Email_Address	Create_Date	Due_Date	Closed_Date	Overdue	Agent_Name	Super_Neighborhood	service_area	District	Key_Map	Management_District	tax_id	GARBAGE_ROUTE	GARBAGE_DAY	GARBAGE_QUAD	RECYCLE_ROUTE	RECYCLE_DAY	RECYCLE_QUAD	HEAVY_TRASH_DAY	HEAVY_TRASH_QUAD	Subject	Reason	service_type	Queue	SLA	Channel_Type	Case_Note	Resolution_Comment	LATITUDE	LONGITUDE	x	y], header_converters: :symbol, converters: :all}) {|row|
+# CSV.foreach("C:/Users/e128289/Documents/Jan2017-July17.csv", {encoding: "iso-8859-1:utf-8", headers: %w[sr_number	service_type	CLIENT	service_location	Tax_ID	case_note	GARBAGE_QUAD
+# ], header_converters: :symbol, converters: :all}) {|row|
 #   # binding.pry
 #   Cart.create(row.to_hash)
 #   # binding.pry
 # }
 # Cart.unique
-# # "run Cart.unique in Rails Console"
-# CSV.foreach("C:/Users/e128289/Documents/1-1-2018-to-6-30-118-inventory-requests.csv", {encoding: "iso-8859-1:utf-8", headers: %w[SR_Number	Client	Service_Location	Status	Phone_Number	Client_Str_No	Client_Str_Name	Client_Zip_Code	Email_Address	Create_Date	Due_Date	Closed_Date	Overdue	Agent_Name	Super_Neighborhood	service_area	District	Key_Map	Management_District	tax_id	GARBAGE_ROUTE	GARBAGE_DAY	GARBAGE_QUAD	RECYCLE_ROUTE	RECYCLE_DAY	RECYCLE_QUAD	HEAVY_TRASH_DAY	HEAVY_TRASH_QUAD	Subject	Reason	service_type	Queue	SLA	Channel_Type	Case_Note	Resolution_Comment	LATITUDE	LONGITUDE	x	y], header_converters: :symbol, converters: :all}) {|row|
+# CSV.foreach("C:/Users/e128289/Documents/July17-July18.csv", {encoding: "iso-8859-1:utf-8", headers: %w[sr_number	service_type	CLIENT	service_location	Tax_ID	case_note	GARBAGE_QUAD
+# ], header_converters: :symbol, converters: :all}) {|row|
 #   # binding.pry
 #   Cart.create(row.to_hash)
 #   # binding.pry
 # }
 # Cart.unique
-# # "run Cart.unique in Rails Console"
-# CSV.foreach("C:/Users/e128289/Documents/6-30-18-to12-30-18-Inventory-Requests.csv", {encoding: "iso-8859-1:utf-8", headers: %w[SR_Number	Client	Service_Location	Status	Phone_Number	Client_Str_No	Client_Str_Name	Client_Zip_Code	Email_Address	Create_Date	Due_Date	Closed_Date	Overdue	Agent_Name	Super_Neighborhood	service_area	District	Key_Map	Management_District	tax_id	GARBAGE_ROUTE	GARBAGE_DAY	GARBAGE_QUAD	RECYCLE_ROUTE	RECYCLE_DAY	RECYCLE_QUAD	HEAVY_TRASH_DAY	HEAVY_TRASH_QUAD	Subject	Reason	service_type	Queue	SLA	Channel_Type	Case_Note	Resolution_Comment	LATITUDE	LONGITUDE	x	y], header_converters: :symbol, converters: :all}) {|row|
-#   # binding.pry
-#   Cart.create(row.to_hash)
-#   # binding.pry
-# }
-# Cart.unique
-# CSV.foreach("C:/Users/e128289/Documents/12-30-18-to-7-11-19-Inventory-Requests.csv", {encoding: "iso-8859-1:utf-8", headers: %w[SR_Number	Client	Service_Location	Status	Phone_Number	Client_Str_No	Client_Str_Name	Client_Zip_Code	Email_Address	Create_Date	Due_Date	Closed_Date	Overdue	Agent_Name	Super_Neighborhood	service_area	District	Key_Map	Management_District	tax_id	GARBAGE_ROUTE	GARBAGE_DAY	GARBAGE_QUAD	RECYCLE_ROUTE	RECYCLE_DAY	RECYCLE_QUAD	HEAVY_TRASH_DAY	HEAVY_TRASH_QUAD	Subject	Reason	service_type	Queue	SLA	Channel_Type	Case_Note	Resolution_Comment	LATITUDE	LONGITUDE	x	y], header_converters: :symbol, converters: :all}) {|row|
-#   # binding.pry
-#   Cart.create(row.to_hash)
-#   # binding.pry
-# }
-# Cart.unique
-# CSV.foreach("C:/Users/e128289/Documents/07-12-19-to-2-27-20-Inventory-Requests.csv", {encoding: "iso-8859-1:utf-8", headers: %w[SR_Number	Client	Service_Location	Status	Phone_Number	Client_Str_No	Client_Str_Name	Client_Zip_Code	Email_Address	Create_Date	Due_Date	Closed_Date	Overdue	Agent_Name	Super_Neighborhood	service_area	District	Key_Map	Management_District	tax_id	GARBAGE_ROUTE	GARBAGE_DAY	GARBAGE_QUAD	RECYCLE_ROUTE	RECYCLE_DAY	RECYCLE_QUAD	HEAVY_TRASH_DAY	HEAVY_TRASH_QUAD	Subject	Reason	service_type	Queue	SLA	Channel_Type	Case_Note	Resolution_Comment	LATITUDE	LONGITUDE	x	y], header_converters: :symbol, converters: :all}) {|row|
-#   # binding.pry
-#   Cart.create(row.to_hash)
-#   # binding.pry
-# }
-# Cart.unique
-CSV.foreach("C:/Users/e128289/Documents/July18-July19.csv", {encoding: "iso-8859-1:utf-8", headers: %w[sr_number	service_type	CLIENT	service_location	Tax_ID	case_note	GARBAGE_QUAD
-], header_converters: :symbol, converters: :all}) {|row|
-  # binding.pry
-  Cart.create(row.to_hash)
-  # binding.pry
-}
-Cart.unique
-CSV.foreach("C:/Users/e128289/Documents/July19-Feb20.csv", {encoding: "iso-8859-1:utf-8", headers: %w[sr_number	service_type	CLIENT	service_location	Tax_ID	case_note	GARBAGE_QUAD
-], header_converters: :symbol, converters: :all}) {|row|
-  # binding.pry
-  Cart.create(row.to_hash)
-  # binding.pry
-}
-Cart.unique
-CSV.foreach("C:/Users/e128289/Documents/Jan2017-July17.csv", {encoding: "iso-8859-1:utf-8", headers: %w[sr_number	service_type	CLIENT	service_location	Tax_ID	case_note	GARBAGE_QUAD
-], header_converters: :symbol, converters: :all}) {|row|
-  # binding.pry
-  Cart.create(row.to_hash)
-  # binding.pry
-}
-Cart.unique
-CSV.foreach("C:/Users/e128289/Documents/July17-July18.csv", {encoding: "iso-8859-1:utf-8", headers: %w[sr_number	service_type	CLIENT	service_location	Tax_ID	case_note	GARBAGE_QUAD
-], header_converters: :symbol, converters: :all}) {|row|
-  # binding.pry
-  Cart.create(row.to_hash)
-  # binding.pry
-}
-Cart.unique
 
 
 # require 'open-uri'
@@ -134,5 +137,8 @@ Cart.unique
 #      Sr.create(c)
 #      # byebug
 #   }
+#   Sr.sla_nil_resolution
 #   Sr.overdue
 #   Sr.quad_expression
+#   Sr.sr_count
+#

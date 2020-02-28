@@ -1,36 +1,77 @@
 class Sr < ApplicationRecord
-  # attr_accessor :case_number, :sr_location, :county, :district, :neighborhood, :tax_id, :trash_quad, :recycle_quad, :trash_day, :heavy_trash_day, :recycle_day, :key_map, :management_district, :department, :division, :sr_type, :queue, :sla, :status, :sr_create_date, :due_date, :date_closed, :overdue, :title, :x, :y, :latitude, :longitude, :channel_type, :created_at, :updated_at
-  # def initialize(h)
-  #   h.each {|k,v| instance_variable_set("@#{k}",v)}
-  # end
-  # attr_accessor :ne_sr_total
-  # def initialize(ne_sr_total)
-  #   super
-  #   @ne_sr_total = ne_sr_total
-  # end
-  def self.quad_expression
-  open_sr = Sr.where(:department=> "SWM Solid Waste Management", :status => "Open")
-  open_sr.each{|sr|
-        if sr.expression == 'Overdue' && sr.trash_quad == 'NE'
-              sr.quad_status = 'NE_Overdue'
-        elsif sr.expression == 'Not Overdue' && sr.trash_quad == 'NE'
-              sr.quad_status = 'NE_Not_Overdue'
-        elsif sr.expression == 'Overdue' && sr.trash_quad == 'SE'
-              sr.quad_status = 'SE_Overdue'
-        elsif sr.expression == 'Not Overdue' && sr.trash_quad == 'SE'
-              sr.quad_status = 'SE_Not_Overdue'
-        elsif sr.expression == 'Overdue' && sr.trash_quad == 'SW'
-              sr.quad_status = 'SW_Overdue'
-        elsif sr.expression == 'Not Overdue' && sr.trash_quad == 'SW'
-              sr.quad_status = 'SW_Not_Overdue'
-        elsif sr.expression == 'Overdue' && sr.trash_quad == 'NW'
-              sr.quad_status = 'NW_Overdue'
-        elsif sr.expression == 'Not Overdue' && sr.trash_quad == 'NW'
-              sr.quad_status = 'NW_Not_Overdue'
+    def self.sla_nil_resolution
+      nil_quad = Sr.where(:status => 'Open', sla: [nil, ""])
+      nil_quad.each{|sr|
+        if sr.sr_type == 'Missed Garbage Pickup'
+          sr.sla = 4
+          sr.overdue = (sr.created_at - DateTime.now)/(60*60*24) + sr.sla
+          sr.save
+        elsif sr.sr_type == 'Missed Yard Waste Pickup'
+          sr.sla = 6
+          sr.overdue = (sr.created_at - DateTime.now)/(60*60*24) + sr.sla
+          sr.save
+        elsif sr.sr_type == 'Missed Heavy Trash Pickup'
+          sr.sla = 7
+          sr.overdue = (sr.created_at - DateTime.now)/(60*60*24) + sr.sla
+          sr.save
+        elsif sr.sr_type == 'Dead Animal Collection'
+          sr.sla = 4
+          sr.overdue = (sr.created_at - DateTime.now)/(60*60*24) + sr.sla
+          sr.save
+        elsif sr.sr_type == 'Missed Recycling Pickup'
+          sr.sla = 4
+          sr.overdue = (sr.created_at - DateTime.now)/(60*60*24) + sr.sla
+          sr.save
+        elsif sr.sr_type == 'Container Problem'
+          sr.sla = 10
+          sr.overdue = (sr.created_at - DateTime.now)/(60*60*24) + sr.sla
+          sr.save
         else
-              puts "#{sr}"
+          puts "#{sr}"
         end
-        sr.save}
+        }
+    end
+    def self.quad_expression
+      open_sr = Sr.where(:department=> "SWM Solid Waste Management", :status => "Open")
+      open_sr.each{|sr|
+            if sr.expression == 'Overdue' && sr.trash_quad == 'NE'
+                  sr.quad_status = 'NE_Overdue'
+            elsif sr.expression == 'Overdue' && sr.garbage_quad == 'NE'
+              # binding.pry
+                  sr.quad_status = 'NE_Overdue'
+            elsif sr.expression == 'Not Overdue' && sr.trash_quad == 'NE'
+                  sr.quad_status = 'NE_Not_Overdue'
+            elsif sr.expression == 'Not Overdue' && sr.garbage_quad == 'NE'
+                  sr.quad_status = 'NE_Not_Overdue'
+              # binding.pry
+            elsif sr.expression == 'Overdue' && sr.trash_quad == 'SE'
+                   sr.quad_status = 'SE_Overdue'
+            elsif sr.expression == 'Overdue' && sr.garbage_quad == 'SE'
+                  sr.quad_status = 'SE_Overdue'
+            elsif sr.expression == 'Not Overdue' && sr.trash_quad == 'SE'
+                  sr.quad_status = 'SE_Not_Overdue'
+            elsif sr.expression == 'Not Overdue' && sr.garbage_quad == 'SE'
+                  sr.quad_status = 'SE_Not_Overdue'
+            elsif sr.expression == 'Overdue' && sr.trash_quad == 'SW'
+                  sr.quad_status = 'SW_Overdue'
+            elsif sr.expression == 'Overdue' && sr.garbage_quad == 'SW'
+                  sr.quad_status = 'SW_Overdue'
+            elsif sr.expression == 'Not Overdue' && sr.trash_quad == 'SW'
+                  sr.quad_status = 'SW_Not_Overdue'
+            elsif sr.expression == 'Not Overdue' && sr.garbage_quad == 'SW'
+                  sr.quad_status = 'SW_Not_Overdue'
+            elsif sr.expression == 'Overdue' && sr.trash_quad == 'NW'
+                  sr.quad_status = 'NW_Overdue'
+            elsif sr.expression == 'Overdue' && sr.garbage_quad == 'NW'
+                  sr.quad_status = 'NW_Overdue'
+            elsif sr.expression == 'Not Overdue' && sr.trash_quad == 'NW'
+                  sr.quad_status = 'NW_Not_Overdue'
+            elsif sr.expression == 'Not Overdue' && sr.garbage_quad == 'NW'
+                  sr.quad_status = 'NW_Not_Overdue'
+            else
+                  puts "#{sr}"
+            end
+            sr.save}
   end
   def self.sr_count
   open_sr = Sr.where(:department=> "SWM Solid Waste Management", :status => "Open")
@@ -56,17 +97,6 @@ class Sr < ApplicationRecord
     }
   end
   def self.overdue
-    open_null=Sr.where(:department  => 'SWM Solid Waste Management',:status => 'Open',:overdue => 'NULL')
-    # binding.pry
-    open_null.each {|sr|
-      if sr.overdue.nil?
-          seconds = sr.due_date - Time.now
-          sr.overdue = seconds/(60*60*24)
-          sr.save
-      else
-        puts "#{sr}"
-      end
-    }
     overdue_open_srs = Sr.where(:overdue => 0..400,:department => 'SWM Solid Waste Management', :status => 'Open')
     overdue_open_srs.each{|sr|
       if sr.department == 'SWM Solid Waste Management'
