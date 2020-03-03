@@ -7,5 +7,8 @@ class SrsController < ApplicationController
       load_csv
       #binding.pry
   end
+  def test
+      redirect_to "C:/Users/e128289/searchwarranty/app/views/srs/test.html"
+  end
 
 end

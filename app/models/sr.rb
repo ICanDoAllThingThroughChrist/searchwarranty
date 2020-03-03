@@ -1,4 +1,5 @@
 class Sr < ApplicationRecord
+
     def self.add_tally
       open_quad = Sr.where(:status => 'Open')
       open_quad.each {|sr|

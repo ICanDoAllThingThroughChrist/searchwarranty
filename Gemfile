@@ -57,10 +57,10 @@ gem 'time_difference', '~> 0.4.2'
 # # fetch from the github master branch
 # # gem 'daru-view', '~> 0.1.0'
 
-gem 'daru', '~> 0.2.2'
-gem 'nyaplot', '~> 0.1.6'
-gem 'google_visualr', '~> 2.5', '>= 2.5.1'
-gem 'daru-data_tables', '~> 0.3.5'
+# gem 'daru', '~> 0.2.2'
+# gem 'nyaplot', '~> 0.1.6'
+# gem 'google_visualr', '~> 2.5', '>= 2.5.1'
+# gem 'daru-data_tables', '~> 0.3.5'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
