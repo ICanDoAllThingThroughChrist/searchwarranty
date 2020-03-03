@@ -51,6 +51,16 @@ gem 'pry-byebug', '~> 3.8'
 gem 'pivot_table', '~> 1.0'
 gem 'scenic', '~> 1.5', '>= 1.5.2'
 gem 'time_difference', '~> 0.4.2'
+# # gem 'rbczmq', '~> 1.7', '>= 1.7.9'
+# gem 'ffi-rzmq', '~> 2.0', '>= 2.0.7'
+# gem 'iruby', '~> 0.4.0'
+# # fetch from the github master branch
+# # gem 'daru-view', '~> 0.1.0'
+
+gem 'daru', '~> 0.2.2'
+gem 'nyaplot', '~> 0.1.6'
+gem 'google_visualr', '~> 2.5', '>= 2.5.1'
+gem 'daru-data_tables', '~> 0.3.5'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

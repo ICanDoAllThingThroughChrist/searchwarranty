@@ -1,4 +1,11 @@
 class Sr < ApplicationRecord
+    def self.add_tally
+      open_quad = Sr.where(:status => 'Open')
+      open_quad.each {|sr|
+        sr.tally = 1
+        sr.save
+      }
+    end
     def self.sla_nil_resolution
       nil_quad = Sr.where(:status => 'Open', sla: [nil, ""])
       nil_quad.each{|sr|

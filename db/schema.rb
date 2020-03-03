@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200225140357) do
+ActiveRecord::Schema.define(version: 20200303150930) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -196,6 +196,7 @@ ActiveRecord::Schema.define(version: 20200225140357) do
     t.integer "sw_not_overdue"
     t.integer "sw_sr_total"
     t.string "quad_status"
+    t.integer "tally"
   end
 
 
