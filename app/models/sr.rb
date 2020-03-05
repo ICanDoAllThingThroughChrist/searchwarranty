@@ -9,85 +9,22 @@ class Sr < ApplicationRecord
       CSV.open("NoQuadNotOverdue.csv", "wb", write_headers: true, headers: headers) do |csv| Sr.where(quad_status: "No_Quad_Not_Overdue").pluck(:id, :case_number, :sr_location, :county, :district, :neighborhood, :tax_id, :trash_quad, :recycle_quad, :trash_day, :heavy_trash_day, :recycle_day, :key_map, :management_district, :department, :division, :sr_type, :queue, :sla, :status, :sr_create_date, :due_date, :date_closed, :overdue, :title, :x, :y, :latitude, :longitude, :channel_type, :created_at, :updated_at, :field1, :field2, :client, :garbage_route, :heavy_trash_quad, :sr_owner, :sr_creator, :resolve_days, :street_num, :client_street, :city, :state, :zip, :phone_number, :email_address, :garbage_day1, :garbage_quad, :recycle_day1, :recycle_route, :resolution_time, :expression, :ne_overdue, :ne_not_overdue, :ne_sr_total, :nw_overdue, :nw_not_overdue, :nw_sr_total, :se_overdue, :se_not_overdue, :se_sr_total, :sw_overdue, :sw_not_overdue, :sw_sr_total, :quad_status, :tally).each do |row| csv << row end end
     end
     def self.quad_nil_resolution
-      # Spatial Join Performed and created "C:/Users/e128289/Desktop/Export_Output_4.txt"
-      # string_content = File.read("C:/Users/e128289/Desktop/Export_Output_4.txt")
-      # Assign Trash_Quad in CSV format
-      # CSV.open("C:/Users/e128289/Desktop/Export_Output_4.txt", :col_sep => ",").each {|row| puts row[2]}
-      # CSV.foreach("C:/Users/e128289/Desktop/quad_assignment.csv",{encoding: "iso-8859-1:utf-8", headers: %w[id case_number sr_location county district neighborhood tax_id trash_quad recycle_quad trash_day heavy_trash_day recycle_day key_map management_district department division sr_type queue sla status sr_create_date due_date date_closed overdue title x y latitude longitude channel_type created_at updated_at field1 field2 client garbage_route heavy_trash_quad sr_owner sr_creator resolve_days street_num client_street city state zip phone_number email_address garbage_day1 garbage_quad recycle_day1 recycle_route resolution_time],
-      #   header_converters: :symbol, converters: :all}){|row| binding.pry}
-        #ActiveRecord::RecordNotUnique: PG::UniqueViolation: ERROR:  duplicate key value violates unique constraint "srs_pkey"
-
-      # csv_array = []
-      # CSV.foreach('C:/Users/e128289/Desktop/quad_assignment.csv', headers: true) {|row| csv_array << row.to_hash}
-      # csv_array.to_ary
-      # quad_status_nil = []
-      # quad_status_nil = Sr.where(status: "Open", department: 'SWM Solid Waste Management', quad_status: [nil,""])
-      # quad_status_nil.to_ary
-      # quad_status_nil.each {|hash|
-      #   # binding.pry
-      #   hash[:case_number] == "101003469890"
-      #   case hash[:case_number]
-      #     when "101003469890"
-      #     binding.pry
-      #       hash[:trash_quad] = "SE"
-      #       hash.save
-      #     when "101003469895"
-      #       hash[:trash_quad] = "SE"
-      #       hash.save
-      #     when "101003469890"
-      #       hash[:trash_quad] = "SE"
-      #       hash.save
-      #     when "101003657626"
-      #       hash[:trash_quad] = "SE"
-      #       hash.save
-      #     when "101003886020"
-      #       hash[:trash_quad] = "SE"
-      #       hash.save
-      #     when "101003886486"
-      #       hash[:trash_quad] = "SE"
-      #       hash.save
-      #     when "391319-101003885282"
-      #       hash[:trash_quad] = "SE"
-      #       hash.save
-      #     when "101003469890"
-      #       hash[:trash_quad] = "SE"
-      #       hash.save
-      #     when "101003652306"
-      #       hash[:trash_quad] = "NE"
-      #       hash.save
-      #     when "101003747114"
-      #       hash[:trash_quad] = "NE"
-      #       hash.save
-      #     when "101003885344"
-      #       hash[:trash_quad] = "NE"
-      #       hash.save
-      #     when "101003885584"
-      #       hash[:trash_quad] = "NE"
-      #       hash.save
-      #     when "101003885875"
-      #       hash[:trash_quad] = "NE"
-      #       hash.save
-      #     when "101003886224"
-      #       hash[:trash_quad] = "NE"
-      #       hash.save
-      #     when "101003886381"
-      #       hash[:trash_quad] = "NE"
-      #       hash.save
-      #     when "101003886892"
-      #       hash[:trash_quad] = "NE"
-      #       hash.save
-      #     when "391439-101003885652"
-      #       hash[:trash_quad] = "NE"
-      #       hash.save
-      #     else
-      #       puts "#{hash}"
-      #   end
-      #   # binding.pry
+      csv_array = []
+      CSV.foreach('C:/Users/e128289/Desktop/quad_assignment.csv', headers: true) {|row| csv_array << row.to_hash}
+      csv_array.to_ary
+      # binding.pry
+      quad_status_nil = Sr.where(status: "Open", department: 'SWM Solid Waste Management', quad_status: [nil,""])
+      quad=quad_status_nil.to_ary
+      # binding.pry
+      quad.each {|hash|
+            binding.pry
+      }
     end
     def self.pivot
       Sr.sla_nil_resolution
       Sr.overdue
       Sr.quad_expression
+      Sr.quad_nil_resolution
       Sr.sr_count
       Sr.add_tally
       headers = %w[id case_number sr_location county district neighborhood tax_id trash_quad recycle_quad trash_day heavy_trash_day recycle_day key_map management_district department division sr_type queue sla status sr_create_date due_date date_closed overdue title x y latitude longitude channel_type created_at updated_at field1 field2 client garbage_route heavy_trash_quad sr_owner sr_creator resolve_days street_num client_street city state zip phone_number email_address garbage_day1 garbage_quad recycle_day1 recycle_route resolution_time expression ne_overdue ne_not_overdue ne_sr_total nw_overdue nw_not_overdue nw_sr_total se_overdue se_not_overdue se_sr_total sw_overdue sw_not_overdue sw_sr_total quad_status tally]
@@ -96,7 +33,6 @@ class Sr < ApplicationRecord
       list = sales.pivot_table(index:['sr_type'],values:'tally', vectors:['quad_status'],  agg:  :sum)
       File.open('C:/Users/e128289/searchwarranty/app/views/srs/test.html.erb', 'w+'){|f| f << list.to_html}
       File.open('C:/Users/e128289/searchwarranty/app/views/srs/test.html', 'w+'){|f| f << list.to_html}
-      Sr.no_quad_list
     end
     def self.add_tally
       open_quad = Sr.where(:status => 'Open')
@@ -132,6 +68,9 @@ class Sr < ApplicationRecord
           sr.sla = 10
           sr.overdue = (sr.created_at - DateTime.now)/(60*60*24) + sr.sla
           sr.save
+        # elsif sr.sr_type == 'SWM_MissComplaint'
+        #   sr.sla = 300
+        #   sr.overdue = (sr.created_at - DateTime.now)/(60*60*24) + sr.sla
         else
           puts "#{sr}"
         end
