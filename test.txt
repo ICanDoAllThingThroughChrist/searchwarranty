@@ -1,1 +1,74 @@
-#<Daru::DataFrame(30x9)>
+ Daru::DataFrame(17x9)  
+
+
+    tally
+
+
+    NE_Overdue
+
+    NE_Not_Overdue
+
+    SW_Not_Overdue
+
+    SE_Not_Overdue
+
+    NW_Not_Overdue
+
+    SE_Overdue
+
+    NW_Overdue
+
+    SW_Overdue
+
+
+
+    Add A Can
+      87721
+
+    Add A Can CANCELLATION
+      21
+
+    Container Problem
+      103352323153
+
+    Dead Animal Collection
+      1351769
+
+    Dumpster Complaint
+      243521
+
+    Miss Complaint
+      4
+
+    Missed Garbage Pickup
+      11222191
+
+    Missed Heavy Trash Pickup
+      3134323
+
+    Missed Recycling Pickup
+      5951111
+
+    Missed Yard Waste Pickup
+      1319
+
+    New Move In Service
+      11
+
+    New Resident Container
+      3516517154
+
+    Property Damage
+      115
+
+    Recycling Cart Repair or Replace
+      3646511
+
+    Recycling Participation NEW
+      15416144
+
+    SWM Escalation
+      1456
+
+    Trash Dumping or Illegal Dumpsite
+      629115
