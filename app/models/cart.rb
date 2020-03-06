@@ -1,4 +1,9 @@
 class Cart < ApplicationRecord
+    def self.carts_compliance_list
+      self.unique
+      headers = %w[sr_number client service_location status client_str_no client_str_name client_zip_code phone_number email_address create_date due_date closed_date overdue agent_name super_neighborhood tax_id service_area district key_map management_district garbage_route garbage_day garbage_quad recycle_route recycle_day recycle_quad heavy_trash_day heavy_trash_day subject reason service_type queue sla container_problem container_damage case_note resolution_comment channel_type other_description title x y latitude longitude tax_id1]
+      CSV.open("C:/Users/e128289/Documents/replaced.csv", "wb", write_headers: true, headers: headers) {|csv| Cart.find_by_sql("SELECT * FROM Carts WHERE replaced_cart = '1' OR delivered = '1' OR replace_wheel_lid = '1' OR serviced = '1'").pluck(:sr_number, :client, :service_location, :status, :client_str_no, :client_str_name, :client_zip_code, :phone_number, :email_address, :create_date, :due_date, :closed_date, :overdue, :agent_name, :super_neighborhood, :tax_id, :service_area, :district, :key_map, :management_district, :garbage_route, :garbage_day, :garbage_quad, :recycle_route, :recycle_day, :recycle_quad, :heavy_trash_day, :heavy_trash_day, :subject, :reason, :service_type, :queue, :sla, :container_problem, :container_damage, :case_note, :resolution_comment, :channel_type, :other_description, :title, :x, :y, :latitude, :longitude, :tax_id1).each {|row| csv << row }}
+    end
     def self.unique
       carts = []
       carts = Cart.all

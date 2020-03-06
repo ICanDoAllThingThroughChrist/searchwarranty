@@ -17,7 +17,7 @@ class Sr < ApplicationRecord
       quad=quad_status_nil.to_ary
       # binding.pry
       quad.each {|hash|
-            binding.pry
+            # binding.pry
       }
     end
     def self.pivot

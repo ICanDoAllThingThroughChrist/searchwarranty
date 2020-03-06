@@ -17,11 +17,7 @@
 #  Sr.create(row.to_hash)
 #   # binding.pry
 # }
-# Sr.sla_nil_resolution
-# Sr.overdue
-# Sr.quad_expression
-# Sr.sr_count
-# Sr.add_tally
+# Sr.pivot
 
 # # require 'csv'
 # For City of Houston sw3p environmental assignments data download
@@ -37,14 +33,13 @@
 # 2. Delete all Carts Related Records from rails DB;
 # encoding:iso-8859-1:utf-8
 require 'csv'
-CSV.foreach("C:/Users/e128289/Documents/containers-problems.csv", {encoding: "iso-8859-1:utf-8", headers: %w[SR_Number	Client	Service_Location	Status	Client_Str_No	Client_Str_Name	Client_Zip_Code	Phone_Number	Email_Address	Create_Date	Due_Date	Closed_Date	Overdue	Agent_Name	Super_Neighborhood	Tax_ID	Service_Area	District	Key_Map	Management_District	GARBAGE_ROUTE	GARBAGE_DAY	GARBAGE_QUAD	RECYCLE_ROUTE	RECYCLE_DAY	RECYCLE_QUAD	HEAVY_TRASH_DAY	HEAVY_TRASH_QUAD	Subject	Reason	service_type Queue	SLA	Container_Problem	Container_Damage	Case_Note	Resolution_Comment	Channel_Type	Other_Description	Title	x	y	LATITUDE	LONGITUDE	Tax_ID1
-], header_converters: :symbol, converters: :all}) {|row|
+CSV.foreach("C:/Users/e128289/Documents/containers-problems.csv", {encoding: "iso-8859-1:utf-8", headers: %w[sr_number client service_location status client_str_no client_str_name client_zip_code phone_number email_address create_date due_date closed_date overdue agent_name super_neighborhood tax_id service_area district key_map management_district garbage_route garbage_day garbage_quad recycle_route recycle_day recycle_quad heavy_trash_day heavy_trash_day subject reason service_type queue sla container_problem container_damage case_note resolution_comment channel_type other_description title x y latitude longitude tax_id1], header_converters: :symbol, converters: :all}) {|row|
   # binding.pry
   Cart.create(row.to_hash)
   # binding.pry
 }
-Cart.unique
-# # "run Cart.unique in Rails Console"
+Cart.carts_compliance_list
+# "run Cart.unique in Rails Console"
 
 
 # # CSV.foreach("C:/Users/e128289/Documents/1-1-2017-to-7-1-2017-inventory-requests.csv", {encoding: "iso-8859-1:utf-8", headers: %w[SR_Number	Client	Service_Location	Status	Phone_Number	Client_Str_No	Client_Str_Name	Client_Zip_Code	Email_Address	Create_Date	Due_Date	Closed_Date	Overdue	Agent_Name	Super_Neighborhood	service_area	District	Key_Map	Management_District	tax_id	GARBAGE_ROUTE	GARBAGE_DAY	GARBAGE_QUAD	RECYCLE_ROUTE	RECYCLE_DAY	RECYCLE_QUAD	HEAVY_TRASH_DAY	HEAVY_TRASH_QUAD	Subject	Reason	service_type	Queue	SLA	Channel_Type	Case_Note	Resolution_Comment	LATITUDE	LONGITUDE	x	y], header_converters: :symbol, converters: :all}) {|row|
