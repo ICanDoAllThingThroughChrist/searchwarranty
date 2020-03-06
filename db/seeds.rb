@@ -39,7 +39,7 @@ CSV.foreach("C:/Users/e128289/Documents/containers-problems.csv", {encoding: "is
   # binding.pry
 }
 Cart.carts_compliance_list
-# "run Cart.unique in Rails Console"
+# "run Cart.carts_compliance_list in Rails Console"
 
 
 # # CSV.foreach("C:/Users/e128289/Documents/1-1-2017-to-7-1-2017-inventory-requests.csv", {encoding: "iso-8859-1:utf-8", headers: %w[SR_Number	Client	Service_Location	Status	Phone_Number	Client_Str_No	Client_Str_Name	Client_Zip_Code	Email_Address	Create_Date	Due_Date	Closed_Date	Overdue	Agent_Name	Super_Neighborhood	service_area	District	Key_Map	Management_District	tax_id	GARBAGE_ROUTE	GARBAGE_DAY	GARBAGE_QUAD	RECYCLE_ROUTE	RECYCLE_DAY	RECYCLE_QUAD	HEAVY_TRASH_DAY	HEAVY_TRASH_QUAD	Subject	Reason	service_type	Queue	SLA	Channel_Type	Case_Note	Resolution_Comment	LATITUDE	LONGITUDE	x	y], header_converters: :symbol, converters: :all}) {|row|
@@ -103,6 +103,20 @@ Cart.carts_compliance_list
 # }
 # Cart.unique
 # CSV.foreach("C:/Users/e128289/Documents/July17-July18.csv", {encoding: "iso-8859-1:utf-8", headers: %w[sr_number	service_type	CLIENT	service_location	Tax_ID	case_note	GARBAGE_QUAD
+# ], header_converters: :symbol, converters: :all}) {|row|
+#   # binding.pry
+#   Cart.create(row.to_hash)
+#   # binding.pry
+# }
+# Cart.unique
+
+# For Spatial Join Class Data Import
+File.open("C:/Users/e128289/Documents/NoQuadNotOverdue.txt").readlines.each {|line|
+binding.pry
+new_line=line.chomp
+new_line.split(",")
+}
+# CSV.foreach("C:/Users/e128289/Documents/.csv", {encoding: "iso-8859-1:utf-8", headers: %w[sr_number	service_type	CLIENT	service_location	Tax_ID	case_note	GARBAGE_QUAD
 # ], header_converters: :symbol, converters: :all}) {|row|
 #   # binding.pry
 #   Cart.create(row.to_hash)
