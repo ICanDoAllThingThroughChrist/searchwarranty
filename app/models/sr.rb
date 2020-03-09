@@ -1,4 +1,13 @@
 class Sr < ApplicationRecord
+    def self.update_trash_quad
+      array = Sr.where(quad_status:"No_Quad_Not_Overdue").or(Sr.where(quad_status: "Quad_Not_Overdue")).or(Sr.where(quad_status: "No_Quad_Overdue")).or(Sr.where(quad_status: "Quad_Overdud"))
+      array.each{|sr|
+        quad = Spatial.where(case_numbe:"#{sr.case_number}").pluck(:quad)
+        sr.trash_quad = quad[0]
+        sr.garbage_quad = quad[0]
+        sr.save
+      }
+    end
     def self.no_quad_list
       # NoQuadOverdueResults=Sr.where(quad_status: "No_Quad_Overdue")
       # NoQuadNotOverdueResults=Sr.where(quad_status: "No_Quad_Not_Overdue")
@@ -8,23 +17,26 @@ class Sr < ApplicationRecord
       CSV.open("NoQuadOverdue.csv", "wb", write_headers: true, headers: headers) do |csv| Sr.where(quad_status: "No_Quad_Overdue").pluck(:id, :case_number, :sr_location, :county, :district, :neighborhood, :tax_id, :trash_quad, :recycle_quad, :trash_day, :heavy_trash_day, :recycle_day, :key_map, :management_district, :department, :division, :sr_type, :queue, :sla, :status, :sr_create_date, :due_date, :date_closed, :overdue, :title, :x, :y, :latitude, :longitude, :channel_type, :created_at, :updated_at, :field1, :field2, :client, :garbage_route, :heavy_trash_quad, :sr_owner, :sr_creator, :resolve_days, :street_num, :client_street, :city, :state, :zip, :phone_number, :email_address, :garbage_day1, :garbage_quad, :recycle_day1, :recycle_route, :resolution_time, :expression, :ne_overdue, :ne_not_overdue, :ne_sr_total, :nw_overdue, :nw_not_overdue, :nw_sr_total, :se_overdue, :se_not_overdue, :se_sr_total, :sw_overdue, :sw_not_overdue, :sw_sr_total, :quad_status, :tally).each do |row| csv << row end end
       CSV.open("NoQuadNotOverdue.csv", "wb", write_headers: true, headers: headers) do |csv| Sr.where(quad_status: "No_Quad_Not_Overdue").pluck(:id, :case_number, :sr_location, :county, :district, :neighborhood, :tax_id, :trash_quad, :recycle_quad, :trash_day, :heavy_trash_day, :recycle_day, :key_map, :management_district, :department, :division, :sr_type, :queue, :sla, :status, :sr_create_date, :due_date, :date_closed, :overdue, :title, :x, :y, :latitude, :longitude, :channel_type, :created_at, :updated_at, :field1, :field2, :client, :garbage_route, :heavy_trash_quad, :sr_owner, :sr_creator, :resolve_days, :street_num, :client_street, :city, :state, :zip, :phone_number, :email_address, :garbage_day1, :garbage_quad, :recycle_day1, :recycle_route, :resolution_time, :expression, :ne_overdue, :ne_not_overdue, :ne_sr_total, :nw_overdue, :nw_not_overdue, :nw_sr_total, :se_overdue, :se_not_overdue, :se_sr_total, :sw_overdue, :sw_not_overdue, :sw_sr_total, :quad_status, :tally).each do |row| csv << row end end
     end
-    def self.quad_nil_resolution
-      csv_array = []
-      CSV.foreach('C:/Users/e128289/Desktop/quad_assignment.csv', headers: true) {|row| csv_array << row.to_hash}
-      csv_array.to_ary
-      # binding.pry
-      quad_status_nil = Sr.where(status: "Open", department: 'SWM Solid Waste Management', quad_status: [nil,""])
-      quad=quad_status_nil.to_ary
-      # binding.pry
-      quad.each {|hash|
-            # binding.pry
-      }
-    end
+    # def self.quad_nil_resolution
+    #   csv_array = []
+    #   CSV.foreach('C:/Users/e128289/Desktop/quad_assignment.csv', headers: true) {|row| csv_array << row.to_hash}
+    #   csv_array.to_ary
+    #   # binding.pry
+    #   quad_status_nil = Sr.where(status: "Open", department: 'SWM Solid Waste Management', quad_status: [nil,""])
+    #   quad=quad_status_nil.to_ary
+    #   # binding.pry
+    #   quad.each {|hash|
+    #         # binding.pry
+    #   }
+    # end
     def self.pivot
       Sr.sla_nil_resolution
       Sr.overdue
       Sr.quad_expression
-      Sr.quad_nil_resolution
+      binding.pry #spatial join based on the generated csv
+      Sr.update_trash_quad
+      Sr.quad_expression
+      binding.pry
       Sr.sr_count
       Sr.add_tally
       headers = %w[id case_number sr_location county district neighborhood tax_id trash_quad recycle_quad trash_day heavy_trash_day recycle_day key_map management_district department division sr_type queue sla status sr_create_date due_date date_closed overdue title x y latitude longitude channel_type created_at updated_at field1 field2 client garbage_route heavy_trash_quad sr_owner sr_creator resolve_days street_num client_street city state zip phone_number email_address garbage_day1 garbage_quad recycle_day1 recycle_route resolution_time expression ne_overdue ne_not_overdue ne_sr_total nw_overdue nw_not_overdue nw_sr_total se_overdue se_not_overdue se_sr_total sw_overdue sw_not_overdue sw_sr_total quad_status tally]

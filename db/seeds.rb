@@ -32,13 +32,13 @@
 # 1. Before Running Report: In CSV File, rename attribute from "type" to "service_type"
 # 2. Delete all Carts Related Records from rails DB;
 # encoding:iso-8859-1:utf-8
-require 'csv'
-CSV.foreach("C:/Users/e128289/Documents/containers-problems.csv", {encoding: "iso-8859-1:utf-8", headers: %w[sr_number client service_location status client_str_no client_str_name client_zip_code phone_number email_address create_date due_date closed_date overdue agent_name super_neighborhood tax_id service_area district key_map management_district garbage_route garbage_day garbage_quad recycle_route recycle_day recycle_quad heavy_trash_day heavy_trash_day subject reason service_type queue sla container_problem container_damage case_note resolution_comment channel_type other_description title x y latitude longitude tax_id1], header_converters: :symbol, converters: :all}) {|row|
-  # binding.pry
-  Cart.create(row.to_hash)
-  # binding.pry
-}
-Cart.carts_compliance_list
+# require 'csv'
+# CSV.foreach("C:/Users/e128289/Documents/containers-problems.csv", {encoding: "iso-8859-1:utf-8", headers: %w[sr_number client service_location status client_str_no client_str_name client_zip_code phone_number email_address create_date due_date closed_date overdue agent_name super_neighborhood tax_id service_area district key_map management_district garbage_route garbage_day garbage_quad recycle_route recycle_day recycle_quad heavy_trash_day heavy_trash_day subject reason service_type queue sla container_problem container_damage case_note resolution_comment channel_type other_description title x y latitude longitude tax_id1], header_converters: :symbol, converters: :all}) {|row|
+#   # binding.pry
+#   Cart.create(row.to_hash)
+#   # binding.pry
+# }
+# Cart.carts_compliance_list
 # "run Cart.carts_compliance_list in Rails Console"
 
 
@@ -111,11 +111,12 @@ Cart.carts_compliance_list
 # Cart.unique
 
 # For Spatial Join Class Data Import
-File.open("C:/Users/e128289/Documents/NoQuadNotOverdue.txt").readlines.each {|line|
-binding.pry
-new_line=line.chomp
-new_line.split(",")
-}
+# File.open("C:/Users/e128289/Documents/NoQuadNotOverdue.txt").readlines.each {|line|
+# binding.pry
+# new_line=line.chomp
+# new_line.split(",")
+# }
+
 # CSV.foreach("C:/Users/e128289/Documents/.csv", {encoding: "iso-8859-1:utf-8", headers: %w[sr_number	service_type	CLIENT	service_location	Tax_ID	case_note	GARBAGE_QUAD
 # ], header_converters: :symbol, converters: :all}) {|row|
 #   # binding.pry
@@ -124,32 +125,32 @@ new_line.split(",")
 # }
 # Cart.unique
 
-# require 'open-uri'
-# require 'csvreader'
-# require 'byebug'
-# require 'csv'
-# web2 = open('https://hfdapp.houstontx.gov/311/311-Public-Data-Extract-2019-clean.txt'){|f| f.read}
-# web1 = open('https://hfdapp.houstontx.gov/311/311-Public-Data-Extract-monthly-clean.txt'){|f| f.read}
-# things1 = web1.split(/\n/)
-# things2 = web2.split(/\n/)
-#
-# columns = %i[case_number sr_location county district neighborhood tax_id trash_quad recycle_quad trash_day heavy_trash_day recycle_day key_map management_district department division sr_type queue sla status sr_create_date due_date date_closed overdue title x y latitude longitude channel_type created_at updated_at]
-#
-# things2.each {|sr|
-#     # byebug
-#     b=sr.split('|')
-#     c=Hash[columns.zip(b)]
-#     # byebug
-#     Sr.create(c)
-#     # byebug
-#  }
-#  things1.each {|sr|
-#      # byebug
-#      b=sr.split('|')
-#      c=Hash[columns.zip(b)]
-#      # byebugra
-#      Sr.create(c)
-#      # byebug
-#   }
-#
-# Sr.pivot
+require 'open-uri'
+require 'csvreader'
+require 'byebug'
+require 'csv'
+web2 = open('https://hfdapp.houstontx.gov/311/311-Public-Data-Extract-2019-clean.txt'){|f| f.read}
+web1 = open('https://hfdapp.houstontx.gov/311/311-Public-Data-Extract-monthly-clean.txt'){|f| f.read}
+things1 = web1.split(/\n/)
+things2 = web2.split(/\n/)
+
+columns = %i[case_number sr_location county district neighborhood tax_id trash_quad recycle_quad trash_day heavy_trash_day recycle_day key_map management_district department division sr_type queue sla status sr_create_date due_date date_closed overdue title x y latitude longitude channel_type created_at updated_at]
+
+things2.each {|sr|
+    # byebug
+    b=sr.split('|')
+    c=Hash[columns.zip(b)]
+    # byebug
+    Sr.create(c)
+    # byebug
+ }
+ things1.each {|sr|
+     # byebug
+     b=sr.split('|')
+     c=Hash[columns.zip(b)]
+     # byebugra
+     Sr.create(c)
+     # byebug
+  }
+
+Sr.pivot
