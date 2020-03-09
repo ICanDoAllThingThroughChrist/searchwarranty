@@ -1,10 +1,18 @@
 class Sr < ApplicationRecord
     def self.update_trash_quad
+      Spatial.delete_all
+      Spatial.seed
       array = Sr.where(quad_status:"No_Quad_Not_Overdue").or(Sr.where(quad_status: "Quad_Not_Overdue")).or(Sr.where(quad_status: "No_Quad_Overdue")).or(Sr.where(quad_status: "Quad_Overdud"))
       array.each{|sr|
-        quad = Spatial.where(case_numbe:"#{sr.case_number}").pluck(:quad)
-        sr.trash_quad = quad[0]
-        sr.garbage_quad = quad[0]
+        quad = Spatial.where(id:"#{sr.id}").pluck(:quad)
+        # quad2 = Spatial.where(case_numbe:"#{sr.case_number}").pluck(:quad)
+        # binding.pry
+        # sr.trash_quad = quad2[0]
+        # if sr.trash_quad == nil
+          sr.trash_quad = quad[0]
+        # else
+          sr.garbage_quad = quad[0]
+        # end
         sr.save
       }
     end
@@ -33,14 +41,16 @@ class Sr < ApplicationRecord
       Sr.sla_nil_resolution
       Sr.overdue
       Sr.quad_expression
-      binding.pry #spatial join based on the generated csv
+      Sr.no_quad_list
+      # binding.pry #spatial join based on the generated csv
       Sr.update_trash_quad
       Sr.quad_expression
-      binding.pry
+      # binding.pry#reperformed quad list
       Sr.sr_count
       Sr.add_tally
       headers = %w[id case_number sr_location county district neighborhood tax_id trash_quad recycle_quad trash_day heavy_trash_day recycle_day key_map management_district department division sr_type queue sla status sr_create_date due_date date_closed overdue title x y latitude longitude channel_type created_at updated_at field1 field2 client garbage_route heavy_trash_quad sr_owner sr_creator resolve_days street_num client_street city state zip phone_number email_address garbage_day1 garbage_quad recycle_day1 recycle_route resolution_time expression ne_overdue ne_not_overdue ne_sr_total nw_overdue nw_not_overdue nw_sr_total se_overdue se_not_overdue se_sr_total sw_overdue sw_not_overdue sw_sr_total quad_status tally]
-      CSV.open("testing.csv", "wb", write_headers: true, headers: headers) do |csv| Sr.where(status: "Open", department: 'SWM Solid Waste Management').pluck(:id, :case_number, :sr_location, :county, :district, :neighborhood, :tax_id, :trash_quad, :recycle_quad, :trash_day, :heavy_trash_day, :recycle_day, :key_map, :management_district, :department, :division, :sr_type, :queue, :sla, :status, :sr_create_date, :due_date, :date_closed, :overdue, :title, :x, :y, :latitude, :longitude, :channel_type, :created_at, :updated_at, :field1, :field2, :client, :garbage_route, :heavy_trash_quad, :sr_owner, :sr_creator, :resolve_days, :street_num, :client_street, :city, :state, :zip, :phone_number, :email_address, :garbage_day1, :garbage_quad, :recycle_day1, :recycle_route, :resolution_time, :expression, :ne_overdue, :ne_not_overdue, :ne_sr_total, :nw_overdue, :nw_not_overdue, :nw_sr_total, :se_overdue, :se_not_overdue, :se_sr_total, :sw_overdue, :sw_not_overdue, :sw_sr_total, :quad_status, :tally).each do |row| csv << row end end
+      CSV.open("testing.csv", "wb", write_headers: true, headers: headers) do |csv| Sr.where(status: "Open", department: 'SWM Solid Waste Management').pluck(:id, :case_number, :sr_location, :county, :district, :neighborhood, :tax_id, :trash_quad, :recycle_quad, :trash_day, :heavy_trash_day, :recycle_day, :key_map, :management_district, :department, :division, :sr_type, :queue, :sla, :status, :sr_create_date, :due_date, :date_closed, :overdue, :title, :x, :y, :latitude, :longitude, :channel_type, :created_at, :updated_at, :field1, :field2, :client, :garbage_route, :heavy_trash_quad, :sr_owner, :sr_creator, :resolve_days, :street_num, :client_street, :city, :state, :zip, :phone_number, :email_address, :garbage_day1, :garbage_quad, :recycle_day1, :recycle_route, :resolution_time, :expression, :ne_overdue, :ne_not_overdue, :ne_sr_total, :nw_overdue, :nw_not_overdue, :nw_sr_total, :se_overdue, :se_not_overdue, :se_sr_total, :sw_overdue, :sw_not_overdue, :sw_sr_total, :quad_status, :tally).each
+         do |row| csv << row end end
       sales = Daru::DataFrame.from_csv 'C:/Users/e128289/searchwarranty/testing.csv'
       list = sales.pivot_table(index:['sr_type'],values:'tally', vectors:['quad_status'],  agg:  :sum)
       File.open('C:/Users/e128289/searchwarranty/app/views/srs/test.html.erb', 'w+'){|f| f << list.to_html}
