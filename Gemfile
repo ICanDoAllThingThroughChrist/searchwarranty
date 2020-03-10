@@ -60,6 +60,7 @@ gem 'daru', '~> 0.2.2'
 # gem 'nyaplot', '~> 0.1.6'
 # gem 'google_visualr', '~> 2.5', '>= 2.5.1'
 # gem 'daru-data_tables', '~> 0.3.5'
+# gem 'thamble', '~> 1.0', '>= 1.0.2'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

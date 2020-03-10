@@ -10,5 +10,8 @@ class SrsController < ApplicationController
   def test
       render('/srs/test.html.erb')
   end
+  def executive
+    render('/srs/executive.html.erb')
+  end
 
 end
