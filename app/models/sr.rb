@@ -42,7 +42,7 @@ class Sr < ApplicationRecord
       Sr.overdue
       Sr.quad_expression
       Sr.no_quad_list
-      # binding.pry #spatial join based on the generated csv
+      binding.pry #spatial join based on the generated csv
       Sr.update_trash_quad
       Sr.quad_expression
       # binding.pry#reperformed quad list
