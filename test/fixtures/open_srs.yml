@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  case_number: MyString
+  sr_type: MyString
+  sec_name: MyString
+  quad: MyString
+
+two:
+  case_number: MyString
+  sr_type: MyString
+  sec_name: MyString
+  quad: MyString
