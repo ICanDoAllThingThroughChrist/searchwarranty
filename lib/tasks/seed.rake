@@ -42,6 +42,7 @@ namespace :seed do
       # binding.pry
     }
     Sr.pivot
+  end
   task import_cart_cases: :environment  do
     # require 'csv'
     # for City of Houston Container Problems by Residents Service Request download
@@ -57,6 +58,4 @@ namespace :seed do
     Cart.carts_compliance_list
     # "run Cart.carts_compliance_list in Rails Console"
   end
-  end
-
 end

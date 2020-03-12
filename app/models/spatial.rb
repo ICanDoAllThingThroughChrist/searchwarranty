@@ -1,5 +1,6 @@
 class Spatial < ApplicationRecord
   def self.seed
+    Spatial.delete_all
     headers = %i[id case_number QUAD]
     #import with Copy and Paste from NoQuadOverdue and NoQuadNotOverdue into below file
     #"C:\Users\e128289\Documents\NoQuadOverdue.txt"
