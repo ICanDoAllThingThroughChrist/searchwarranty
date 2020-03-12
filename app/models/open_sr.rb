@@ -98,7 +98,7 @@ class OpenSr < ApplicationRecord
     open_sr_pivot7 = thursday2_open_sr.pivot_table(index:['sec_name'],values:'tally', vectors: ['quad_statu', 'sr_type'], agg: :sum)
     open_sr_pivot8 = tuesday2_open_sr.pivot_table(index:['sec_name'],values:'tally', vectors: ['quad_statu', 'sr_type'], agg: :sum)
     open_sr_pivot9 = monday2_open_sr.pivot_table(index:['sec_name'],values:'tally', vectors: ['quad_statu', 'sr_type'], agg: :sum)
-    # binding.pry
+    binding.pry
     File.open('C:/Users/e128289/searchwarranty/app/views/open_srs/test.html', 'w+'){|f| f << open_sr_pivot.to_html }
     File.open('C:/Users/e128289/searchwarranty/app/views/open_srs/test2.html', 'w+'){|f| f << open_sr_pivot2.to_html }
     File.open('C:/Users/e128289/searchwarranty/app/views/open_srs/test3.html', 'w+'){|f| f << open_sr_pivot3.to_html }
