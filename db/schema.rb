@@ -160,7 +160,7 @@ ActiveRecord::Schema.define(version: 2020_03_12_165428) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "tally"
-    t.string "quad_status"
+    t.string "quad_statu"
   end
 
   create_table "spatial_ref_sys", primary_key: "srid", id: :integer, default: nil, force: :cascade do |t|

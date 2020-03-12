@@ -1,0 +1,2 @@
+module OpenSrsHelper
+end
