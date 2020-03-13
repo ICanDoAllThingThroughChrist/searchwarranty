@@ -160,15 +160,15 @@ class OpenSrsController < ApplicationController
     order(:sec_name)
   end
   def test35
-    @result35 = OpenSr.where(day: ['TUESDAY'], sr_type:['Missed Recycling Pickup'], quad_statu: ['SW_Overdue']).
+    @result35 = OpenSr.where(day: ['THURSDAY'], sr_type:['Missed Recycling Pickup'], quad_statu: ['SW_Overdue']).
     order(:sec_name)
   end
   def test36
-    @result36 = OpenSr.where(day: ['TUESDAY'], sr_type:['Missed Yard Waste Pickup'], quad_statu: ['SW_Overdue']).
+    @result36 = OpenSr.where(day: ['THURSDAY'], sr_type:['Missed Yard Waste Pickup'], quad_statu: ['SW_Overdue']).
     order(:sec_name)
   end
   def test37
-    @result37 = OpenSr.where(day: ['TUESDAY'], sr_type:['Missed Heavy Trash Pickup'], quad_statu: ['SW_Overdue']).
+    @result37 = OpenSr.where(day: ['THURSDAY'], sr_type:['Missed Heavy Trash Pickup'], quad_statu: ['SW_Overdue']).
     order(:sec_name)
   end
   def test38
