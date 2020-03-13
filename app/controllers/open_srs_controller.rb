@@ -321,8 +321,72 @@ class OpenSrsController < ApplicationController
     @result73 = OpenSr.where(day: ['FRIDAY'], sr_type:['Missed Heavy Trash Pickup'], quad_statu: ['NE_Overdue']).
     order(:sec_name)
   end
+  def test74
+    @result74 = OpenSr.where(day: ['MONDAY'], sr_type:['Missed Garbage Pickup'], quad_statu: ['NW_Overdue']).
+    order(:sec_name)
+  end
 
+  def test75
+    @result75 = OpenSr.where(day: ['MONDAY'], sr_type:['Missed Recycling Pickup'], quad_statu: ['NW_Overdue']).
+    order(:sec_name)
+  end
 
+  def test76
+    @result76 = OpenSr.where(day: ['MONDAY'], sr_type:['Missed Yard Waste Pickup'], quad_statu: ['NW_Overdue']).
+    order(:sec_name)
+  end
 
+  def test77
+    @result77 = OpenSr.where(day: ['MONDAY'], sr_type:['Missed Heavy Trash'], quad_statu: ['NW_Overdue']).
+    order(:sec_name)
+  end
+  def test78
+    @result78 = OpenSr.where(day: ['TUESDAY'], sr_type:['Missed Garbage Pickup'], quad_statu: ['NW_Overdue']).
+    order(:sec_name)
+  end
+  def test79
+    @result79 = OpenSr.where(day: ['TUESDAY'], sr_type:['Missed Recycling Pickup'], quad_statu: ['NW_Overdue']).
+    order(:sec_name)
+  end
+  def test80
+    @result80 = OpenSr.where(day: ['TUESDAY'], sr_type:['Missed Yard Waste Pickup'], quad_statu: ['NW_Overdue']).
+    order(:sec_name)
+  end
+  def test81
+    @result81 = OpenSr.where(day: ['TUESDAY'], sr_type:['Missed Heavy Trash Pickup'], quad_statu: ['NW_Overdue']).
+    order(:sec_name)
+  end
+  def test82
+    @result82 = OpenSr.where(day: ['THURSDAY'], sr_type:['Missed Garbage Pickup'], quad_statu: ['NW_Overdue']).
+    order(:sec_name)
+  end
+  def test83
+    @result83 = OpenSr.where(day: ['THURSDAY'], sr_type:['Missed Recycling Pickup'], quad_statu: ['NW_Overdue']).
+    order(:sec_name)
+  end
+  def test84
+    @result84 = OpenSr.where(day: ['THURSDAY'], sr_type:['Missed Yard Waste Pickup'], quad_statu: ['NE_Overdue']).
+    order(:sec_name)
+  end
+  def test85
+    @result85 = OpenSr.where(day: ['THURSDAY'], sr_type:['Missed Heavy Trash Pickup'], quad_statu: ['NW_Overdue']).
+    order(:sec_name)
+  end
+  def test86
+    @result86 = OpenSr.where(day: ['FRIDAY'], sr_type:['Missed Garbage Pickup'], quad_statu: ['NW_Overdue']).
+    order(:sec_name)
+  end
+  def test87
+    @result87 = OpenSr.where(day: ['FRIDAY'], sr_type:['Missed Recycling Pickup'], quad_statu: ['NW_Overdue']).
+    order(:sec_name)
+  end
+  def test89
+    @result89 = OpenSr.where(day: ['FRIDAY'], sr_type:['Missed Yard Waste Pickup'], quad_statu: ['NW_Overdue']).
+    order(:sec_name)
+  end
+  def test90
+    @result90 = OpenSr.where(day: ['FRIDAY'], sr_type:['Missed Heavy Trash Pickup'], quad_statu: ['NW_Overdue']).
+    order(:sec_name)
+  end
 
 end
