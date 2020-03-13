@@ -1,4 +1,21 @@
 Rails.application.routes.draw do
+  get 'open_srs/test25'
+  get 'open_srs/test24'
+  get 'open_srs/test23'
+  get 'open_srs/test22'
+  get 'open_srs/Overdue'
+  get 'open_srs/test21'
+  get 'open_srs/test20'
+  get 'open_srs/test19'
+  get 'open_srs/test18'
+  get 'open_srs/test17'
+  get 'open_srs/test16'
+  get 'open_srs/test15'
+  get 'open_srs/test14'
+  get 'open_srs/test13'
+  get 'open_srs/test12'
+  get 'open_srs/test11'
+  get 'open_srs/test10'
   resources :carts, only: [:new, :create]
   get 'srs/result', to: 'srs#result'
   get 'srs/test', to: 'srs#test'
@@ -11,5 +28,8 @@ Rails.application.routes.draw do
   get 'open_srs/test7', to: 'open_srs#test7'
   get 'open_srs/test8', to: 'open_srs#test8'
   get 'open_srs/test9', to: 'open_srs#test9'
+  get 'open_srs/test10', to: 'open_srs#test10'
+  get 'open_srs/test11', to: 'open_srs#test11'
+  get 'open_srs/Overdue', to: 'open_srs#overdue'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

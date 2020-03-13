@@ -16,6 +16,20 @@ class OpenSr < ApplicationRecord
         t.save
       }
     header2 = %w[case_numbe sr_type quad_statu day sec_name quad tally]
+    CSV.open("C:/Users/e128289/Documents/ThursdayGarbageYardSr.csv", "wb", write_headers: true, headers: header2) { |csv|
+          OpenSr.where(day: ['THURSDAY'], sr_type:['Missed Garbage Pickup', 'Missed Yard Waste Pickup'], quad_statu: ['NE_Overdue', 'NW_Overdue', 'SE_Overdue', 'SW_Overdue']).order(:sec_name)
+          pluck(:case_numbe, :sr_type, :quad_statu, :day, :sec_name, :quad, :tally).
+          each { |row|
+            csv << row
+          }
+        }
+    CSV.open("C:/Users/e128289/Documents/FridayGarbageYardSr.csv", "wb", write_headers: true, headers: header2) { |csv|
+          OpenSr.where(day: ['FRIDAY'], sr_type:['Missed Garbage Pickup', 'Missed Yard Waste Pickup'], quad_statu: ['NE_Overdue', 'NW_Overdue', 'SE_Overdue', 'SW_Overdue']).order(:sec_name)
+          pluck(:case_numbe, :sr_type, :quad_statu, :day, :sec_name, :quad, :tally).
+          each { |row|
+            csv << row
+          }
+        }
     CSV.open("C:/Users/e128289/Documents/OpenSr.csv", "wb", write_headers: true, headers: header2) { |csv|
           OpenSr.where(sr_type: ['Missed Heavy Trash Pickup','Missed Garbage Pickup','Missed Recycling Pickup','Missed Yard Waste Pickup']).
           pluck(:case_numbe, :sr_type, :quad_statu, :day, :sec_name, :quad, :tally).
@@ -88,6 +102,7 @@ class OpenSr < ApplicationRecord
     thursday2_open_sr = Daru::DataFrame.from_csv 'C:/Users/e128289/Documents/OpenSrSThursdayRoutes.csv'
     tuesday2_open_sr = Daru::DataFrame.from_csv 'C:/Users/e128289/Documents/OpenSrSTuesdayRoutes.csv'
     monday2_open_sr = Daru::DataFrame.from_csv 'C:/Users/e128289/Documents/OpenSrSMondayRoutes.csv'
+    friday3_open_sr = Daru::DataFrame.from_csv 'C:/Users/e128289/Documents/FridayGarbageYardSr.csv'
     # binding.pry
     open_sr_pivot = open_sr.pivot_table(index:['sr_type'],values:'tally', vectors: ['quad_statu'], agg: :sum)
     open_sr_pivot2 = friday_open_sr.pivot_table(index:['sec_name'],values:'tally', vectors: ['quad_statu', 'sr_type'], agg: :sum)

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th, td {
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {background-color: #f2f2f2;}
+</style>
+</head>
+<body>
+<h1>Tuesday Missed Recycling Case Numbers</h1>
+<table cellspacing="15">
+  <%@result24.each do |r|%>
+  <tr>
+    <td><%=r.case_numbe%></td>
+    <td><%=r.sr_type%></td>
+    <td><%=r.sec_name%></td>
+    <td><%=r.day%></td>
+    <td><%=r.quad_statu%></td>
+  </tr>
+  <%end%>
+</table>
+</body>
+</html>
