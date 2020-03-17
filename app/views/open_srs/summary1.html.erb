@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <style>
+  table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+
+  th, td {
+    text-align: left;
+    padding: 8px;
+  }
+
+  tr:nth-child(even) {background-color: #f2f2f2;}
+  </style>
+</head>
+  <body>
+      <h2>Executive Summary Report</h2>
+    <table cellspacing="15", exclass="table table-striped">
+      <tr>
+        <th>Area</th>
+        <th>Service Requests Total</th>
+        <th>Overdue</th>
+        <th>%Overdue</th>
+        <th>%NotOverdue</th>
+        <th>Quality Grade</th>
+      </tr>
+      <tr><td>North</td><td><%=@North%></td><td><%=@NorthOverdue%></td><td><%=@PercentOverdueNorth%></td><td><%=@PercentNotOverdueNorth%></td><td><%=@NQualityGrade%></td></tr>
+      <tr><td>South</td><td><%=@South%></td><td><%=@SouthOverdue%></td><td><%=@PercentOverdueSouth%></td><td><%=@PercentNotOverdueSouth%></td><td><%=@SQualityGrade%></td></tr>
+    </table>
+  </body>
+</html>

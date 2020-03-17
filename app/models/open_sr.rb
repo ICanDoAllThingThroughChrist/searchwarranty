@@ -1,4 +1,5 @@
 class OpenSr < ApplicationRecord
+
   def self.sr_route
     OpenSr.delete_all
     @input = File.open("C:/Users/e128289/Documents/OpenSRRoute.txt")

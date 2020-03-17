@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'open_srs/summary1'
   get 'open_srs/test89'
   get 'open_srs/test88'
   get 'open_srs/test87'

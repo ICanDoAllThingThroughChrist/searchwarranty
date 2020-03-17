@@ -1,4 +1,57 @@
 class OpenSrsController < ApplicationController
+  def NorthQualityGrade
+    @NNotOverdue= Sr.where(expression: 'Not Overdue',status: 'Open', department:'SWM Solid Waste Management', trash_quad: ['NE','NW'], expression: 'Not Overdue',sr_type: ['Missed Heavy Trash Pickup','Container Problem','New Resident Container','Recycling Participation NEW' ,'Recycling Cart Repair or Replace','SWM Escalation','Missed Garbage Pickup ','Trash Dumping or Illegal Dumpsite', 'Add A Can', 'Storm Debris Collection', 'Dead Animal Collection', 'Add A Can CANCELLATION', 'Missed Recycling Pickup', 'Personnel or Vehicle Complaint','Physically Challenged Pickup']).count
+    @North = Sr.where(status: 'Open', department:'SWM Solid Waste Management', trash_quad:['NW','NE'],sr_type: ['Missed Heavy Trash Pickup','Container Problem','New Resident Container','Recycling Participation NEW' ,'Recycling Cart Repair or Replace','SWM Escalation','Missed Garbage Pickup ','Trash Dumping or Illegal Dumpsite', 'Add A Can', 'Storm Debris Collection', 'Dead Animal Collection', 'Add A Can CANCELLATION', 'Missed Recycling Pickup', 'Personnel or Vehicle Complaint','Physically Challenged Pickup']).count
+    @NorthQuality = @NNotOverdue.to_f.round(2) / @North.to_f.round(2)
+    @NQualityGrad
+    if @NorthQuality >= 0.9
+      @NQualityGrade = 'A'
+    elsif @NorthQuality >= 0.8
+      @NQualityGrade = 'B'
+    elsif @NorthQuality >= 0.7
+      @NQualityGrade = 'C'
+    else
+      @NQualityGrade = 'F'
+    end
+    @NQualityGrade
+    binding.pry
+  end
+  def SouthQualityGrade
+    @SNotOverdue= Sr.where(expression: 'Not Overdue', status: 'Open', department:'SWM Solid Waste Management', trash_quad: ['SE','SW'], expression: 'Not Overdue',sr_type: ['Missed Heavy Trash Pickup','Container Problem','New Resident Container','Recycling Participation NEW' ,'Recycling Cart Repair or Replace','SWM Escalation','Missed Garbage Pickup ','Trash Dumping or Illegal Dumpsite', 'Add A Can', 'Storm Debris Collection', 'Dead Animal Collection', 'Add A Can CANCELLATION', 'Missed Recycling Pickup', 'Personnel or Vehicle Complaint','Physically Challenged Pickup']).count
+    @South = Sr.where(status: 'Open', department:'SWM Solid Waste Management', trash_quad:['SW','SE'],sr_type: ['Missed Heavy Trash Pickup','Container Problem','New Resident Container','Recycling Participation NEW' ,'Recycling Cart Repair or Replace','SWM Escalation','Missed Garbage Pickup ','Trash Dumping or Illegal Dumpsite', 'Add A Can', 'Storm Debris Collection', 'Dead Animal Collection', 'Add A Can CANCELLATION', 'Missed Recycling Pickup', 'Personnel or Vehicle Complaint','Physically Challenged Pickup']).count
+    @SouthQuality = @SNotOverdue.to_f.round(2) / @South.to_f.round(2)
+    if @SouthQuality >= 0.9
+      @SQualityGrade = 'A'
+    elsif @SouthQuality >= 0.8
+      @SQualityGrade = 'B'
+    elsif @SouthQuality >= 0.7
+      @SQualityGrade = 'C'
+    else
+      @SQualityGrade = 'F'
+    end
+    @SQualityGrade
+    binding.pry
+  end
+  def summary1
+    @North = Sr.where(status: 'Open', department:'SWM Solid Waste Management', trash_quad:['NW','NE'],sr_type: ['Missed Heavy Trash Pickup','Container Problem','New Resident Container','Recycling Participation NEW' ,'Recycling Cart Repair or Replace','SWM Escalation','Missed Garbage Pickup ','Trash Dumping or Illegal Dumpsite', 'Add A Can', 'Storm Debris Collection', 'Dead Animal Collection', 'Add A Can CANCELLATION', 'Missed Recycling Pickup', 'Personnel or Vehicle Complaint','Physically Challenged Pickup']).count
+    @South = Sr.where(status: 'Open', department:'SWM Solid Waste Management', trash_quad: ['SW','SE'],sr_type: ['Missed Heavy Trash Pickup','Container Problem','New Resident Container','Recycling Participation NEW' ,'Recycling Cart Repair or Replace','SWM Escalation','Missed Garbage Pickup ','Trash Dumping or Illegal Dumpsite', 'Add A Can', 'Storm Debris Collection', 'Dead Animal Collection', 'Add A Can CANCELLATION', 'Missed Recycling Pickup', 'Personnel or Vehicle Complaint','Physically Challenged Pickup']).count
+    @NorthOverdue=Sr.where(status: 'Open', department:'SWM Solid Waste Management', trash_quad: ['NE','NW'], expression: 'Overdue',sr_type: ['Missed Heavy Trash Pickup','Container Problem','New Resident Container','Recycling Participation NEW' ,'Recycling Cart Repair or Replace','SWM Escalation','Missed Garbage Pickup ','Trash Dumping or Illegal Dumpsite', 'Add A Can', 'Storm Debris Collection', 'Dead Animal Collection', 'Add A Can CANCELLATION', 'Missed Recycling Pickup', 'Personnel or Vehicle Complaint','Physically Challenged Pickup']).count
+    @NorthNotOverdue=Sr.where(status: 'Open', department:'SWM Solid Waste Management', trash_quad: ['NE','NW'], expression: 'Not Overdue',sr_type: ['Missed Heavy Trash Pickup','Container Problem','New Resident Container','Recycling Participation NEW' ,'Recycling Cart Repair or Replace','SWM Escalation','Missed Garbage Pickup ','Trash Dumping or Illegal Dumpsite', 'Add A Can', 'Storm Debris Collection', 'Dead Animal Collection', 'Add A Can CANCELLATION', 'Missed Recycling Pickup', 'Personnel or Vehicle Complaint','Physically Challenged Pickup']).count
+    @SouthOverdue=Sr.where(status: 'Open', department:'SWM Solid Waste Management', trash_quad: ['SW','SE'], expression: 'Overdue',sr_type: ['Missed Heavy Trash Pickup','Container Problem','New Resident Container','Recycling Participation NEW' ,'Recycling Cart Repair or Replace','SWM Escalation','Missed Garbage Pickup ','Trash Dumping or Illegal Dumpsite', 'Add A Can', 'Storm Debris Collection', 'Dead Animal Collection', 'Add A Can CANCELLATION', 'Missed Recycling Pickup', 'Personnel or Vehicle Complaint','Physically Challenged Pickup']).count
+    @SouthNotOverdue=Sr.where(status: 'Open', department:'SWM Solid Waste Management', trash_quad: ['SW','SE'], expression: 'Not Overdue',sr_type: ['Missed Heavy Trash Pickup','Container Problem','New Resident Container','Recycling Participation NEW' ,'Recycling Cart Repair or Replace','SWM Escalation','Missed Garbage Pickup ','Trash Dumping or Illegal Dumpsite', 'Add A Can', 'Storm Debris Collection', 'Dead Animal Collection', 'Add A Can CANCELLATION', 'Missed Recycling Pickup', 'Personnel or Vehicle Complaint','Physically Challenged Pickup']).count
+    @NPercentRound=(@NorthOverdue.to_f.round(2) / @North.to_f.round(2))*100
+    @PercentOverdueNorth="#{@NPercentRound.round(2)}%"
+    @NPercentNotRound=(@NorthNotOverdue.to_f.round(2) / @North.to_f.round(2))*100
+    @PercentNotOverdueNorth="#{@NPercentNotRound.round(2)}%"
+    @SPercentRound=(@SouthOverdue.to_f.round(2) / @South.to_f.round(2))*100
+    @PercentOverdueSouth="#{@SPercentRound.round(2)}%"
+    @SPercentNotRound= ((1-((@SouthOverdue.to_f.round(2)/@South.to_f.round(2))))*100)
+    @PercentNotOverdueSouth="#{@SPercentNotRound.round(2)}%"
+    @NQualityGrade = self.NorthQualityGrade
+    binding.pry
+    @SouthQualityGrade = self.SouthQualityGrade
+  end
+
   def test
       render '/open_srs/test.html'
   end

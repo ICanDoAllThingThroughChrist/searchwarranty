@@ -2,7 +2,7 @@ class Sr < ApplicationRecord
     def self.update_trash_quad
       Spatial.delete_all
       Spatial.seed
-      array = Sr.where(quad_status:"No_Quad_Not_Overdue").or(Sr.where(quad_status: "Quad_Not_Overdue")).or(Sr.where(quad_status: "No_Quad_Overdue")).or(Sr.where(quad_status: "Quad_Overdud"))
+      array = Sr.where(quad_status:"No_Quad_Not_Overdue").or(Sr.where(quad_status: "Quad_Not_Overdue")).or(Sr.where(quad_status: "No_Quad_Overdue")).or(Sr.where(quad_status: "Quad_Overdue"))
       array.each{|sr|
         quad = Spatial.where(id:"#{sr.id}").pluck(:quad)
         # quad2 = Spatial.where(case_numbe:"#{sr.case_number}").pluck(:quad)
