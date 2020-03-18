@@ -16,9 +16,19 @@ class OpenSrsController < ApplicationController
     @PercentNotOverdueSouth="#{@SPercentNotRound.round(2)}%"
     @NorthQualityGrade = OpenSr.northQualityGrade
     @SouthQualityGrade = OpenSr.southQualityGrade
-    # binding.pry
+    @missedHvySWTotal = Sr.where(trash_quad: 'SW',sr_type:'Missed Heavy Trash Pickup', expression:['Overdue','Not Overdue']).count
+    @missedHvySWOverdue = Sr.where(trash_quad: 'SW',sr_type:'Missed Heavy Trash Pickup', expression:['Overdue']).count
+    @missedHvySWPercentOverdue = "#{((@missedHvySWOverdue.to_f.round(2)/@missedHvySWTotal.to_f.round(2))*100).round(2)}%"
+    @missedHvySWPercentNotOverdue = "#{((1-(@missedHvySWOverdue.to_f.round(2)/@missedHvySWTotal.to_f.round(2)))*100).round(2)}%"
+    @missedHvySWNotOverdue = Sr.where(trash_quad: 'SW',sr_type:'Missed Heavy Trash Pickup', expression:['Not Overdue']).count
+    @missedHvyOverdueDigits = @missedHvySWNotOverdue.to_f/@missedHvySWTotal.to_f
+    @missedHvySWGrade= OpenSr.qualityGrade(@missedHvyOverdueDigits)
+    binding.pry
   end
 
+  def missedHvySWTotal
+    # @missedHvySWTotal = Sr.where(trash_quad: 'SW',sr_type:'Missed Heavy Trash Pickup', expression:['Overdue','Not Overdue']).count
+  end
 
   def test
       render '/open_srs/test.html'

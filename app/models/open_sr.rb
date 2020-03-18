@@ -1,4 +1,15 @@
 class OpenSr < ApplicationRecord
+  def self.qualityGrade(grade)
+    if grade >= 0.9
+       return  "A"
+    elsif grade >= 0.8
+      return  "B"
+    elsif grade >= 0.7
+      return  "C"
+    else
+      return  "F"
+    end
+  end
   def self.northQualityGrade
     @NNotOverdue= Sr.where(trash_quad: ['NE','NW'], expression: 'Not Overdue',sr_type: ['Missed Heavy Trash Pickup','Container Problem','New Resident Container','Recycling Participation NEW' ,'Recycling Cart Repair or Replace','SWM Escalation','Missed Garbage Pickup','Trash Dumping or Illegal Dumpsite', 'Add A Can', 'Storm Debris Collection', 'Dead Animal Collection', 'Add A Can CANCELLATION', 'Missed Recycling Pickup', 'Personnel or Vehicle Complaint','Physically Challenged Pickup']).count
     @North = Sr.where(status: 'Open', trash_quad:['NW','NE'],sr_type: ['Missed Heavy Trash Pickup','Container Problem','New Resident Container','Recycling Participation NEW' ,'Recycling Cart Repair or Replace','SWM Escalation','Missed Garbage Pickup','Trash Dumping or Illegal Dumpsite', 'Add A Can', 'Storm Debris Collection', 'Dead Animal Collection', 'Add A Can CANCELLATION', 'Missed Recycling Pickup', 'Personnel or Vehicle Complaint','Physically Challenged Pickup']).count
