@@ -1,6 +1,13 @@
 class OpenSr < ApplicationRecord
   def self.qualityGrade(grade)
-    if grade >= 0.9
+    # binding.pry
+    if grade == nil
+      return "No Value"
+    elsif grade == 0
+        return "No Value"
+    elsif grade.nan?
+          return "No Value"
+    elsif grade >= 0.9
        return  "A"
     elsif grade >= 0.8
       return  "B"

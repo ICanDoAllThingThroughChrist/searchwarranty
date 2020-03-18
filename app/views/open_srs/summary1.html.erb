@@ -26,8 +26,20 @@
         <th>%NotOverdue</th>
         <th>Quality Grade</th>
       </tr>
-      <tr><td>North</td><td><%=@North%></td><td><%=@NorthOverdue%></td><td><%=@PercentOverdueNorth%></td><td><%=@PercentNotOverdueNorth%></td><td><%=@NorthQualityGrade%></td></tr>
-      <tr><td>South</td><td><%=@South%></td><td><%=@SouthOverdue%></td><td><%=@PercentOverdueSouth%></td><td><%=@PercentNotOverdueSouth%></td><td><%=@SouthQualityGrade%></td></tr>
+      <tr><td>North</td><td><%=@North%></td>
+        <td><%=@NorthOverdue%></td>
+        <td><%=@PercentOverdueNorth%></td>
+        <td><%=@PercentNotOverdueNorth%></td>
+        <td><%=@NorthQualityGrade%></td>
+      </tr>
+      <tr>
+        <td>South</td>
+        <td><%=@South%></td>
+        <td><%=@SouthOverdue%></td>
+        <td><%=@PercentOverdueSouth%></td>
+        <td><%=@PercentNotOverdueSouth%></td>
+        <td><%=@SouthQualityGrade%></td>
+      </tr>
     </table>
     <table>
     <h3>Southwest Quadrant</h3>
@@ -40,95 +52,128 @@
           <th>SW-Grade</th>
         </tr>
         <% binding.pry %>
-        <tr><td>Missed Heavy Trash Pickup</td><td><%=@missedHvySWTotal%></td><td><%=@missedHvySWOverdue%></td><td><%=@missedHvySWPercentOverdue%></td><td><%=@missedHvySWPercentNotOverdue%></td><td><%=@missedHvySWGrade%></td></tr>
-        <tr><td>Container Problem</td></tr>
-        <tr><td>New Resident Container</td></tr>
-        <tr><td>Recycling Participation NEW</td></tr>
-        <tr><td>Recycling Cart Repair or Replace</td></tr>
-        <tr><td>SWM Escalation</td></tr>
-        <tr><td>Missed Garbage Pickup</td></tr>
-        <tr><td>Trash Dumping or Illegal Dumpsite</td></tr>
-        <tr><td>Add A Can</td></tr>
-        <tr><td>Storm Debris Collection</td></tr>
-        <tr><td>Dead Animal Collection</td></tr>
-        <tr><td>Add A Can CANCELLATION</td></tr>
-        <tr><td>Personnel or Vehicle Complaint</td></tr>
-        <tr><td>Physically Challenged Pickup</td></tr>
+        <tr><td>Missed Heavy Trash Pickup</td>
+          <td><%=@missedHvySWTotal%></td>
+          <td><%=@missedHvySWOverdue%></td>
+          <td><%=@missedHvySWPercentOverdue%></td>
+          <td><%=@missedHvySWPercentNotOverdue%></td>
+          <td><%=@missedHvySWGrade%></td>
+        </tr>
+        <tr>
+          <td>Container Problem</td>
+          <td><%=@missedConProbSWTotal%></td>
+          <td><%=@missedConProbSWOverdue%></td>
+          <td><%=@missedConProbSWPercentOverdue%></td>
+          <td><%=@missedConProbSWPercentNotOverdue%></td>
+          <td><%=@missedConProbSWGrade%></td>
+        </tr>
+        <tr>
+          <td>New Resident Container</td>
+          <td><%=@missedNewResSWTotal%></td>
+          <td><%=@missedNewResSWOverdue%></td>
+          <td><%=@missedNewesSWPercentOverdue%></td>
+          <td><%=@missedNewResSWPercentNotOverdue%></td>
+          <td><%=@missedNewResSWGrade%></td>
+        </tr>
+        <tr>
+          <td>Recycling Participation NEW</td>
+          <td><%=@missedRecNewSWTotal%></td>
+          <td><%=@missedRecNewSWOverdue%></td>
+          <td><%=@missedRecNewSWPercentOverdue%></td>
+          <td><%=@missedRecNewSWPercentNotOverdue%></td>
+          <td><%=@missedRecNewSWGrade%></td>
+        </tr>
+        <tr>
+          <td>Recycling Cart Repair or Replace</td>
+          <td><%=@missedRecCarRepSWTotal%></td>
+          <td><%=@missedRecCarRepSWOverdue%></td>
+          <td><%=@missedRecCarRepSWPercentOverdue%></td>
+          <td><%=@missedRecCarRepSWPercentNotOverdue%></td>
+          <td><%=@missedRecCarRepSWGrade%></td>
+        </tr>
+        <tr>
+          <td>SWM Escalation</td>
+          <td><%=@missedSWMEscaSWTotal%></td>
+          <td><%=@missedSWMEscaSWOverdue%></td>
+          <td><%=@missedSWMEscaSWPercentOverdue%></td>
+          <td><%=@missedSWMEscaSWPercentNotOverdue%></td>
+          <td><%=@missedSWMEscaSWGrade%></td>
+        </tr>
+        <tr>
+          <td>Missed Garbage Pickup</td>
+          <td><%=@missedMisGarbSWTotal%></td>
+          <td><%=@missedMisGarbSWOverdue%></td>
+          <td><%=@missedMisGarbSWPercentOverdue%></td>
+          <td><%=@missedMisGarbSWPercentNotOverdue%></td>
+          <td><%=@missedMisGarbSWGrade%></td>
+        </tr>
+        <tr>
+          <td>Trash Dumping or Illegal Dumpsite</td>
+          <td><%=@missedTrashDumpSWTotal%></td>
+          <td><%=@missedTrashDumpSWOverdue%></td>
+          <td><%=@missedTrashDumpSWPercentOverdue%></td>
+          <td><%=@missedTrashDumpSWPercentNotOverdue%></td>
+          <td><%=@missedTrashDumpSWGrade%></td>
+        </tr>
+        <tr>
+          <td>Add A Can</td>
+          <td><%=@missedAddACanSWTotal%></td>
+          <td><%=@missedAddACanSWOverdue%></td>
+          <td><%=@missedAddACanSWPercentOverdue%></td>
+          <td><%=@missedAddACanSWPercentNotOverdue%></td>
+          <td><%=@missedAddACanSWGrade%></td>
+        </tr>
+        <tr>
+          <td>Storm Debris Collection</td>
+          <td><%=@missedStormDebSWTotal%></td>
+          <td><%=@missedStormDebSWOverdue%></td>
+          <td><%=@missedStormDebSWPercentOverdue%></td>
+          <td><%=@missedStormDebSWPercentNotOverdue%></td>
+          <td><%=@missedStormDebSWGrade%></td>
+        </tr>
+        <tr>
+          <td>Dead Animal Collection</td>
+          <td><%=@missedDeadAniColSWTotal%></td>
+          <td><%=@missedDeadAniColSWOverdue%></td>
+          <td><%=@missedDeadAniColSWPercentOverdue%></td>
+          <td><%=@missedDeadAniColSWPercentNotOverdue%></td>
+          <td><%=@missedDeadAniColSWGrade%></td>
+        </tr>
+        <tr>
+          <td>Add A Can CANCELLATION</td>
+          <td><%=@missedAddACanCancelSWTotal%></td>
+          <td><%=@missedAddACanCancelSWOverdue%></td>
+          <td><%=@missedAddACanCancelSWPercentOverdue%></td>
+          <td><%=@missedAddACanCancelSWPercentNotOverdue%></td>
+          <td><%=@missedAddACanCancelSWGrade%></td>
+        </tr>
+        <tr>
+          <td>Personnel or Vehicle Complaint</td>
+          <td><%=@missedPOrVCompSWTotal%></td>
+          <td><%=@missedPOrVCompSWOverdue%></td>
+          <td><%=@missedPOrVCompSWPercentOverdue%></td>
+          <td><%=@missedPOrVCompSWPercentNotOverdue%></td>
+          <td><%=@missedPOrVCompSWGrade%></td>
+        </tr>
+        <tr>
+          <td>Physically Challenged Pickup</td>
+          <td><%=@missedPhyChaPikSWTotal%></td>
+          <td><%=@missedPhyChaPikSWOverdue%></td>
+          <td><%=@missedPhyChaPikSWPercentOverdue%></td>
+          <td><%=@missedPhyChaPikSWPercentNotOverdue%></td>
+          <td><%=@missedPhyChaPikSWGrade%></td>
+        </tr>
+        <tr>
+          <td>Quad  Total</td>
+          <td><%=@SWQuadSrTotal%></td>
+          <td><%=@SWQuadSrOverdue%></td>
+          <td><%=@SWQuadPercentOverdue%></td>
+          <td><%=@SWQuadPercentNotOverdue%></td>
+          <td><%=@SWQuadQualityGrade%></td>
+        </tr>
     </table>
-    <table>
-      <h3>Southeast Quadrant</h3>
-      <tr>
-        <th>Service Request Type</th>
-        <th>SE-Total SR</th>
-        <th>SE-Outstanding</th>
-        <th>SE-%Overdue</th>
-        <th>SE-Not Overdue</th>
-        <th>SE-Grade</th>
-      </tr>
-      <tr><td>Missed Heavy Trash Pickup</td></tr>
-      <tr><td>Container Problem</td></tr>
-      <tr><td>New Resident Container</td></tr>
-      <tr><td>Recycling Participation NEW</td></tr>
-      <tr><td>Recycling Cart Repair or Replace</td></tr>
-      <tr><td>SWM Escalation</td></tr>
-      <tr><td>Missed Garbage Pickup</td></tr>
-      <tr><td>Trash Dumping or Illegal Dumpsite</td></tr>
-      <tr><td>Add A Can</td></tr>
-      <tr><td>Storm Debris Collection</td></tr>
-      <tr><td>Dead Animal Collection</td></tr>
-      <tr><td>Add A Can CANCELLATION</td></tr>
-      <tr><td>Personnel or Vehicle Complaint</td></tr>
-      <tr><td>Physically Challenged Pickup</td></tr>
-    </table>
-    <table>
-      <h3>Northeast Quadrant</h3>
-      <tr>
-        <th>Service Request Type</th>
-        <th>NE-Total SR</th>
-        <th>NE-Outstanding</th>
-        <th>NE-%Overdue</th>
-        <th>NE-Not Overdue</th>
-        <th>NE-Grade</th>
-      </tr>
-      <tr><td>Missed Heavy Trash Pickup</td></tr>
-      <tr><td>Container Problem</td></tr>
-      <tr><td>New Resident Container</td></tr>
-      <tr><td>Recycling Participation NEW</td></tr>
-      <tr><td>Recycling Cart Repair or Replace</td></tr>
-      <tr><td>SWM Escalation</td></tr>
-      <tr><td>Missed Garbage Pickup</td></tr>
-      <tr><td>Trash Dumping or Illegal Dumpsite</td></tr>
-      <tr><td>Add A Can</td></tr>
-      <tr><td>Storm Debris Collection</td></tr>
-      <tr><td>Dead Animal Collection</td></tr>
-      <tr><td>Add A Can CANCELLATION</td></tr>
-      <tr><td>Personnel or Vehicle Complaint</td></tr>
-      <tr><td>Physically Challenged Pickup</td></tr>
-    </table>
-    <table>
-      <h3>Northwest Quadrant</h3>
-      <tr>
-        <th>Service Request Type</th>
-        <th>NW-Total SR</th>
-        <th>NW-Outstanding</th>
-        <th>NW-%Overdue</th>
-        <th>NW-Not Overdue</th>
-        <th>NW-Grade</th>
-      </tr>
-      <tr><td>Missed Heavy Trash Pickup</td></tr>
-      <tr><td>Container Problem</td></tr>
-      <tr><td>New Resident Container</td></tr>
-      <tr><td>Recycling Participation NEW</td></tr>
-      <tr><td>Recycling Cart Repair or Replace</td></tr>
-      <tr><td>SWM Escalation</td></tr>
-      <tr><td>Missed Garbage Pickup</td></tr>
-      <tr><td>Trash Dumping or Illegal Dumpsite</td></tr>
-      <tr><td>Add A Can</td></tr>
-      <tr><td>Storm Debris Collection</td></tr>
-      <tr><td>Dead Animal Collection</td></tr>
-      <tr><td>Add A Can CANCELLATION</td></tr>
-      <tr><td>Personnel or Vehicle Complaint</td></tr>
-      <tr><td>Physically Challenged Pickup</td></tr>
-    </table>
+    <%= render partial: "SE_Quad"%>
+    <%= render partial: "NE_Quad"%>
+    <%= render partial: "NW_Quad"%>
   </body>
 </html>

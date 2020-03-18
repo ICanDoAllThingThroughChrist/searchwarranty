@@ -1,0 +1,131 @@
+<table>
+  <h3>Northeast Quadrant</h3>
+  <tr>
+    <th>Service Request Type</th>
+    <th>NE-Total SR</th>
+    <th>NE-Outstanding</th>
+    <th>NE-%Overdue</th>
+    <th>NE-Not Overdue</th>
+    <th>NE-Grade</th>
+  </tr>
+  <% binding.pry %>
+  <tr><td>Missed Heavy Trash Pickup</td>
+    <td><%=@missedHvyNETotal%></td>
+    <td><%=@missedHvyNEOverdue%></td>
+    <td><%=@missedHvyNEPercentOverdue%></td>
+    <td><%=@missedHvyNEPercentNotOverdue%></td>
+    <td><%=@missedHvyNEGrade%></td>
+  </tr>
+  <tr>
+    <td>Container Problem</td>
+    <td><%=@missedConProbNETotal%></td>
+    <td><%=@missedConProbNEOverdue%></td>
+    <td><%=@missedConProbNEPercentOverdue%></td>
+    <td><%=@missedConProbNEPercentNotOverdue%></td>
+    <td><%=@missedConProbNEGrade%></td>
+  </tr>
+  <tr>
+    <td>New Resident Container</td>
+    <td><%=@missedNewResNETotal%></td>
+    <td><%=@missedNewResNEOverdue%></td>
+    <td><%=@missedNewesNEPercentOverdue%></td>
+    <td><%=@missedNewResNEPercentNotOverdue%></td>
+    <td><%=@missedNewResNEGrade%></td>
+  </tr>
+  <tr>
+    <td>Recycling Participation NEW</td>
+    <td><%=@missedRecNewNETotal%></td>
+    <td><%=@missedRecNewNEOverdue%></td>
+    <td><%=@missedRecNewNEPercentOverdue%></td>
+    <td><%=@missedRecNewNEPercentNotOverdue%></td>
+    <td><%=@missedRecNewNEGrade%></td>
+  </tr>
+  <tr>
+    <td>Recycling Cart Repair or Replace</td>
+    <td><%=@missedRecCarRepNETotal%></td>
+    <td><%=@missedRecCarRepNEOverdue%></td>
+    <td><%=@missedRecCarRepNEPercentOverdue%></td>
+    <td><%=@missedRecCarRepNEPercentNotOverdue%></td>
+    <td><%=@missedRecCarRepNEGrade%></td>
+  </tr>
+  <tr>
+    <td>SWM Escalation</td>
+    <td><%=@missedSWMEscaNETotal%></td>
+    <td><%=@missedSWMEscaNEOverdue%></td>
+    <td><%=@missedSWMEscaNEPercentOverdue%></td>
+    <td><%=@missedSWMEscaNEPercentNotOverdue%></td>
+    <td><%=@missedSWMEscaNEGrade%></td>
+  </tr>
+  <tr>
+    <td>Missed Garbage Pickup</td>
+    <td><%=@missedMisGarbNETotal%></td>
+    <td><%=@missedMisGarbNEOverdue%></td>
+    <td><%=@missedMisGarbNEPercentOverdue%></td>
+    <td><%=@missedMisGarbNEPercentNotOverdue%></td>
+    <td><%=@missedMisGarbNEGrade%></td>
+  </tr>
+  <tr>
+    <td>Trash Dumping or Illegal Dumpsite</td>
+    <td><%=@missedTrashDumpNETotal%></td>
+    <td><%=@missedTrashDumpNEOverdue%></td>
+    <td><%=@missedTrashDumpNEPercentOverdue%></td>
+    <td><%=@missedTrashDumpNEPercentNotOverdue%></td>
+    <td><%=@missedTrashDumpNEGrade%></td>
+  </tr>
+  <tr>
+    <td>Add A Can</td>
+    <td><%=@missedAddACanNETotal%></td>
+    <td><%=@missedAddACanNEOverdue%></td>
+    <td><%=@missedAddACanNEPercentOverdue%></td>
+    <td><%=@missedAddACanNEPercentNotOverdue%></td>
+    <td><%=@missedAddACanNEGrade%></td>
+  </tr>
+  <tr>
+    <td>Storm Debris Collection</td>
+    <td><%=@missedStormDebNETotal%></td>
+    <td><%=@missedStormDebNEOverdue%></td>
+    <td><%=@missedStormDebNEPercentOverdue%></td>
+    <td><%=@missedStormDebNEPercentNotOverdue%></td>
+    <td><%=@missedStormDebNEGrade%></td>
+  </tr>
+  <tr>
+    <td>Dead Animal Collection</td>
+    <td><%=@missedDeadAniColNETotal%></td>
+    <td><%=@missedDeadAniColNEOverdue%></td>
+    <td><%=@missedDeadAniColNEPercentOverdue%></td>
+    <td><%=@missedDeadAniColNEPercentNotOverdue%></td>
+    <td><%=@missedDeadAniColNEGrade%></td>
+  </tr>
+  <tr>
+    <td>Add A Can CANCELLATION</td>
+    <td><%=@missedAddACanCancelNETotal%></td>
+    <td><%=@missedAddACanCancelNEOverdue%></td>
+    <td><%=@missedAddACanCancelNEPercentOverdue%></td>
+    <td><%=@missedAddACanCancelNEPercentNotOverdue%></td>
+    <td><%=@missedAddACanCancelNEGrade%></td>
+  </tr>
+  <tr>
+    <td>Personnel or Vehicle Complaint</td>
+    <td><%=@missedPOrVCompNETotal%></td>
+    <td><%=@missedPOrVCompNEOverdue%></td>
+    <td><%=@missedPOrVCompNEPercentOverdue%></td>
+    <td><%=@missedPOrVCompNEPercentNotOverdue%></td>
+    <td><%=@missedPOrVCompNEGrade%></td>
+  </tr>
+  <tr>
+    <td>Physically Challenged Pickup</td>
+    <td><%=@missedPhyChaPikNETotal%></td>
+    <td><%=@missedPhyChaPikNEOverdue%></td>
+    <td><%=@missedPhyChaPikNEPercentOverdue%></td>
+    <td><%=@missedPhyChaPikNEPercentNotOverdue%></td>
+    <td><%=@missedPhyChaPikSEGrade%></td>
+  </tr>
+  <tr>
+    <td>Quad  Total</td>
+    <td><%=@NEQuadSrTotal%></td>
+    <td><%=@NEQuadSrOverdue%></td>
+    <td><%=@NEQuadPercentOverdue%></td>
+    <td><%=@NEQuadPercentNotOverdue%></td>
+    <td><%=@NEQuadQualityGrade%></td>
+  </tr>
+</table>
