@@ -1,5 +1,30 @@
 {
   "name": "searchwarranty",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "ol": "^6.2.1"
+  },
+  "description": "This README would normally document whatever steps are necessary to get the\r application up and running.",
+  "version": "1.0.0",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib",
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ICanDoAllThingThroughChrist/searchwarranty.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ICanDoAllThingThroughChrist/searchwarranty/issues"
+  },
+  "homepage": "https://github.com/ICanDoAllThingThroughChrist/searchwarranty#readme",
+  "devDependencies": {
+    "parcel-bundler": "^1.12.4"
+  }
 }
