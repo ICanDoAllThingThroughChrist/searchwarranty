@@ -1,20 +1,18 @@
 import 'ol/ol.css';
 import {Map, View} from 'ol';
 import TileLayer from 'ol/layer/Tile';
-import XYZSource from 'ol/source/XYZ';
+import OSMSource from 'ol/source/OSM';
 import {fromLonLat} from 'ol/proj';
 
-new Map({
-  target: 'map-container',
-  layers: [
-    new TileLayer({
-      source: new XYZSource({
-        url: 'http://tile.stamen.com/terrain/{z}/{x}/{y}.jpg'
-      })
-    })
-  ],
-  view: new View({
-    center: fromLonLat([-95.358421, 29.749907]),
-    zoom: 2
+var map = new ol.Map({
+target: 'map',
+layers: [
+  new ol.layer.Tile({
+    source: new ol.source.OSM()
   })
+],
+view: new ol.View({
+  center: ol.proj.fromLonLat([-95.358421, 29.749907]),
+  zoom: 12
+})
 });

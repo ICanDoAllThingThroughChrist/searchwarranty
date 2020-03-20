@@ -8,7 +8,6 @@
     <th>NE-Not Overdue</th>
     <th>NE-Grade</th>
   </tr>
-  <% binding.pry %>
   <tr><td>Missed Heavy Trash Pickup</td>
     <td><%=@missedHvyNETotal%></td>
     <td><%=@missedHvyNEOverdue%></td>
@@ -28,7 +27,7 @@
     <td>New Resident Container</td>
     <td><%=@missedNewResNETotal%></td>
     <td><%=@missedNewResNEOverdue%></td>
-    <td><%=@missedNewesNEPercentOverdue%></td>
+    <td><%=@missedNewResNEPercentOverdue%></td>
     <td><%=@missedNewResNEPercentNotOverdue%></td>
     <td><%=@missedNewResNEGrade%></td>
   </tr>
@@ -81,6 +80,14 @@
     <td><%=@missedAddACanNEGrade%></td>
   </tr>
   <tr>
+    <td>Missed Recycling Pickup</td>
+    <td><%=@missedMisRecPicUpNETotal%></td>
+    <td><%=@missedMisRecPicUpNEOverdue%></td>
+    <td><%=@missedMisRecPicUpNEPercentOverdue%></td>
+    <td><%=@missedMisRecPicUpNEPercentNotOverdue%></td>
+    <td><%=@missedMisRecPicUpNEGrade%></td>
+  </tr>
+  <tr>
     <td>Storm Debris Collection</td>
     <td><%=@missedStormDebNETotal%></td>
     <td><%=@missedStormDebNEOverdue%></td>
@@ -103,6 +110,14 @@
     <td><%=@missedAddACanCancelNEPercentOverdue%></td>
     <td><%=@missedAddACanCancelNEPercentNotOverdue%></td>
     <td><%=@missedAddACanCancelNEGrade%></td>
+  </tr>
+  <tr>
+    <td>Missed Recycling Pickup</td>
+    <td><%=@missedMisRecPicUpNETotal%></td>
+    <td><%=@missedMisRecPicUpNEOverdue%></td>
+    <td><%=@missedMisRecPicUpNEPercentOverdue%></td>
+    <td><%=@missedMisRecPicUpNEPercentNotOverdue%></td>
+    <td><%=@missedMisRecPicUpNEGrade%></td>
   </tr>
   <tr>
     <td>Personnel or Vehicle Complaint</td>

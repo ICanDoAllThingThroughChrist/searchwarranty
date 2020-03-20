@@ -65,20 +65,20 @@ class OpenSr < ApplicationRecord
         OpenSr.create(b)
       }
     particular = OpenSr.where(sr_type: ['Missed Heavy Trash Pickup','Missed Garbage Pickup','Missed Recycling Pickup','Missed Yard Waste Pickup'])
-      particular.each {|t|
+    particular.each {|t|
         t.tally = 1
         t.save
       }
     header2 = %w[case_numbe sr_type quad_statu day sec_name quad tally]
     CSV.open("C:/Users/e128289/Documents/ThursdayGarbageYardSr.csv", "wb", write_headers: true, headers: header2) { |csv|
-          OpenSr.where(day: ['THURSDAY'], sr_type:['Missed Garbage Pickup', 'Missed Yard Waste Pickup'], quad_statu: ['NE_Overdue', 'NW_Overdue', 'SE_Overdue', 'SW_Overdue']).order(:sec_name)
+          OpenSr.where(day: ['THURSDAY'], sr_type:['Missed Garbage Pickup', 'Missed Yard Waste Pickup'], quad_statu: ['NE_Overdue', 'NW_Overdue', 'SE_Overdue', 'SW_Overdue']).order(:sec_name).
           pluck(:case_numbe, :sr_type, :quad_statu, :day, :sec_name, :quad, :tally).
           each { |row|
             csv << row
           }
         }
     CSV.open("C:/Users/e128289/Documents/FridayGarbageYardSr.csv", "wb", write_headers: true, headers: header2) { |csv|
-          OpenSr.where(day: ['FRIDAY'], sr_type:['Missed Garbage Pickup', 'Missed Yard Waste Pickup'], quad_statu: ['NE_Overdue', 'NW_Overdue', 'SE_Overdue', 'SW_Overdue']).order(:sec_name)
+          OpenSr.where(day: ['FRIDAY'], sr_type:['Missed Garbage Pickup', 'Missed Yard Waste Pickup'], quad_statu: ['NE_Overdue', 'NW_Overdue', 'SE_Overdue', 'SW_Overdue']).order(:sec_name).
           pluck(:case_numbe, :sr_type, :quad_statu, :day, :sec_name, :quad, :tally).
           each { |row|
             csv << row

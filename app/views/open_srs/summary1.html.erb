@@ -78,7 +78,6 @@
           <th>SW-Not Overdue</th>
           <th>SW-Grade</th>
         </tr>
-        <% binding.pry %>
         <tr><td>Missed Heavy Trash Pickup</td>
           <td><%=@missedHvySWTotal%></td>
           <td><%=@missedHvySWOverdue%></td>
@@ -98,7 +97,7 @@
           <td>New Resident Container</td>
           <td><%=@missedNewResSWTotal%></td>
           <td><%=@missedNewResSWOverdue%></td>
-          <td><%=@missedNewesSWPercentOverdue%></td>
+          <td><%=@missedNewResSWPercentOverdue%></td>
           <td><%=@missedNewResSWPercentNotOverdue%></td>
           <td><%=@missedNewResSWGrade%></td>
         </tr>
@@ -149,6 +148,14 @@
           <td><%=@missedAddACanSWPercentOverdue%></td>
           <td><%=@missedAddACanSWPercentNotOverdue%></td>
           <td><%=@missedAddACanSWGrade%></td>
+        </tr>
+        <tr>
+          <td>Missed Recycling Pickup</td>
+          <td><%=@missedMisRecPicUpSWTotal%></td>
+          <td><%=@missedMisRecPicUpSWOverdue%></td>
+          <td><%=@missedMisRecPicUpSWPercentOverdue%></td>
+          <td><%=@missedMisRecPicUpSWPercentNotOverdue%></td>
+          <td><%=@missedMisRecPicUpSWGrade%></td>
         </tr>
         <tr>
           <td>Storm Debris Collection</td>

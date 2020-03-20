@@ -8,7 +8,6 @@
     <th>NW-Not Overdue</th>
     <th>NW-Grade</th>
   </tr>
-  <% binding.pry %>
   <tr><td>Missed Heavy Trash Pickup</td>
     <td><%=@missedHvyNWTotal%></td>
     <td><%=@missedHvyNWOverdue%></td>
@@ -28,7 +27,7 @@
     <td>New Resident Container</td>
     <td><%=@missedNewResNWTotal%></td>
     <td><%=@missedNewResNWOverdue%></td>
-    <td><%=@missedNewesNWPercentOverdue%></td>
+    <td><%=@missedNewResNWPercentOverdue%></td>
     <td><%=@missedNewResNWPercentNotOverdue%></td>
     <td><%=@missedNewResNWGrade%></td>
   </tr>
@@ -103,6 +102,14 @@
     <td><%=@missedAddACanCancelNWPercentOverdue%></td>
     <td><%=@missedAddACanCancelNWPercentNotOverdue%></td>
     <td><%=@missedAddACanCancelNWGrade%></td>
+  </tr>
+  <tr>
+    <td>Missed Recycling Pickup</td>
+    <td><%=@missedMisRecPicUpNWTotal%></td>
+    <td><%=@missedMisRecPicUpNWOverdue%></td>
+    <td><%=@missedMisRecPicUpNWPercentOverdue%></td>
+    <td><%=@missedMisRecPicUpNWPercentNotOverdue%></td>
+    <td><%=@missedMisRecPicUpNWGrade%></td>
   </tr>
   <tr>
     <td>Personnel or Vehicle Complaint</td>

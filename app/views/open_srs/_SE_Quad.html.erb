@@ -8,7 +8,6 @@
     <th>SE-Not Overdue</th>
     <th>SE-Grade</th>
   </tr>
-  <% binding.pry %>
   <tr><td>Missed Heavy Trash Pickup</td>
     <td><%=@missedHvySETotal%></td>
     <td><%=@missedHvySEOverdue%></td>
@@ -28,7 +27,7 @@
     <td>New Resident Container</td>
     <td><%=@missedNewResSETotal%></td>
     <td><%=@missedNewResSEOverdue%></td>
-    <td><%=@missedNewesSEPercentOverdue%></td>
+    <td><%=@missedNewResSEPercentOverdue%></td>
     <td><%=@missedNewResSEPercentNotOverdue%></td>
     <td><%=@missedNewResSEGrade%></td>
   </tr>
@@ -79,6 +78,14 @@
     <td><%=@missedAddACanSEPercentOverdue%></td>
     <td><%=@missedAddACanSEPercentNotOverdue%></td>
     <td><%=@missedAddACanSEGrade%></td>
+  </tr>
+  <tr>
+    <td>Missed Recycling Pickup</td>
+    <td><%=@missedMisRecPicUpSETotal%></td>
+    <td><%=@missedMisRecPicUpSEOverdue%></td>
+    <td><%=@missedMisRecPicUpSEPercentOverdue%></td>
+    <td><%=@missedMisRecPicUpSEPercentNotOverdue%></td>
+    <td><%=@missedMisRecPicUpSEGrade%></td>
   </tr>
   <tr>
     <td>Storm Debris Collection</td>
