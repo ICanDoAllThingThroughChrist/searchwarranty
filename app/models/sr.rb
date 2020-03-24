@@ -40,7 +40,9 @@ class Sr < ApplicationRecord
       Sr.overdue
       Sr.quad_expression
       Sr.no_quad_list
-      binding.pry #spatial join based on the generated csv
+      binding.pry
+      #spatial join based on the generated csv
+      #perform import copy and paste from NoQuadOverdue and NoQuadNotOverdue text file to spatial join quad assignment
       Sr.update_trash_quad
       Sr.quad_expression
       # binding.pry#reperformed quad list
