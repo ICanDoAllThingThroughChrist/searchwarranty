@@ -1,0 +1,131 @@
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+      <!-- Leaflet 0.5: https://github.com/CloudMade/Leaflet-->
+			<link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+	    integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+	    crossorigin=""/>
+		<!--[if lte IE 8]> <link rel="stylesheet" href="../../lib/leaflet.ie.css" />  <![endif]-->
+		<script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
+	integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
+	crossorigin=""></script>
+
+		<!-- MarkerCluster https://github.com/danzel/Leaflet.markercluster -->
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.4.1/MarkerCluster.css" />
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.4.1/MarkerCluster.css" />
+		<!--[if lte IE 8]> <link rel="stylesheet" href="../../lib/MarkerCluster.Default.ie.css" /> <![endif]-->
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.4.1/leaflet.markercluster.js"></script>
+
+		<!-- GeoCSV: https://github.com/joker-x/Leaflet.geoCSV -->
+		<script src=""../searchwarranty/app/assets/javascripts/leaflet.geocsv.js""></script>
+
+		<!-- jQuery 1.8.3: http://jquery.com/ -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+		<style>
+		html, body, #mapa {
+			margin: 0;
+			padding: 0;
+			width: 100%;
+			height: 100%;
+			font-family: Arial, sans-serif;
+			font-color: #38383;
+		}
+
+		#button {
+			position:fixed;
+			top:10px;
+			left:50px;
+			z-index: 2;
+		}
+
+		#loading {
+			position:fixed;
+			top:0;
+			left:0;
+			width:100%;
+			height:100%;
+			background-color:#666;
+			color:#fff;
+			font-size:2em;
+			padding:20% 40%;
+			z-index:10;
+		}
+
+		.button {
+			border: 1px solid #96d1f8;
+			background: #65a9d7;
+			background: -webkit-gradient(linear, left top, left bottom, from(#3e779d), to(#65a9d7));
+			background: -webkit-linear-gradient(top, #3e779d, #65a9d7);
+			background: -moz-linear-gradient(top, #3e779d, #65a9d7);
+			background: -ms-linear-gradient(top, #3e779d, #65a9d7);
+			background: -o-linear-gradient(top, #3e779d, #65a9d7);
+			padding: 12px 24px;
+			-webkit-border-radius: 10px;
+			-moz-border-radius: 10px;
+			border-radius: 10px;
+			-webkit-box-shadow: rgba(0,0,0,1) 0 1px 0;
+			-moz-box-shadow: rgba(0,0,0,1) 0 1px 0;
+			box-shadow: rgba(0,0,0,1) 0 1px 0;
+			text-shadow: rgba(0,0,0,.4) 0 1px 0;
+			color: white;
+			font-size: 17px;
+			/*font-family: Helvetica, Arial, Sans-Serif;*/
+			text-decoration: none;
+			vertical-align: middle;
+		}
+		.button:hover {
+			border-top-color: #28597a;
+			background: #28597a;
+			color: #ccc;
+		}
+		.button:active {
+			border-top-color: #1b435e;
+			background: #1b435e;
+		}
+		</style>
+	</head>
+	<body>
+		<div id="mapa"></div>
+		<div id="cargando">Cargando...</div>
+
+		<div id="botonera">
+			<button id="localizame" class="boton">Bankias cercanos</button>
+		</div>
+
+<script>
+
+//;$(function() {
+
+var mapa = L.map('mapa', {attributionControl:false}).setView([29.749907, -95.358421], 12);
+
+L.tileLayer('http://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+	maxZoom: 18
+}).addTo(mapa);
+
+// upload CSV file from local directory and display latitude and longitude coordinates as default blue markers on map
+
+  var customLayer = L.geoJson(null, {
+    onEachFeature: function(feature, layer) {
+      layer.bindPopup(feature.properties.Title);
+      }
+  });
+
+  var runLayer = omnivore.csv('data.csv', null, customLayer)
+      .on('ready', function() {
+          // http://leafletjs.com/reference.html#map-fitbounds
+          map.fitBounds(runLayer.getBounds());
+      })
+      .addTo(map);
+
+
+//});
+</script>
+
+	</body>
+</html>
