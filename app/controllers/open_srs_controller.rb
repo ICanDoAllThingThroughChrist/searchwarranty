@@ -30,8 +30,9 @@ class OpenSrsController < ApplicationController
 
     @missedConProbSWTotal = Sr.where(trash_quad: 'SW',sr_type:'Container Problem', expression:['Overdue','Not Overdue']).count
     @missedConProbSWOverdue = Sr.where(trash_quad: 'SW',sr_type:'Container Problem', expression:['Overdue']).count
+    @missedConProbSWNotOverdue = Sr.where(trash_quad: 'SW',sr_type:'Container Problem', expression:['Not Overdue']).count
     @missedConProbSWPercentOverdue = "#{((@missedConProbSWOverdue.to_f.round(2)/@missedConProbSWTotal.to_f.round(2))*100).round(2)}%"
-    @missedConProbSWPercentNotOverdue = "#{((1-(@missedConProbSWOverdue.to_f.round(2)/@missedConProbSWTotal.to_f.round(2)))*100).round(2)}%"
+    @missedConProbSWPercentNotOverdue = "#{((@missedConProbSWNotOverdue.to_f.round(2)/@missedConProbSWTotal.to_f.round(2))*100).round(2)}%"
     @missedConProbSWNotOverdue = Sr.where(trash_quad: 'SW',sr_type:'Container Problem', expression:['Not Overdue']).count
     @missedConProbOverdueDigits = @missedConProbSWNotOverdue.to_f/@missedConProbSWTotal.to_f
     @missedConProbSWGrade= OpenSr.qualityGrade(@missedConProbOverdueDigits)
@@ -40,7 +41,7 @@ class OpenSrsController < ApplicationController
     @missedNewResSWOverdue = Sr.where(trash_quad: 'SW',sr_type:'New Resident Container', expression:['Overdue']).count
     @missedNewResSWNotOverdue = Sr.where(trash_quad: 'SW',sr_type:'New Resident Container', expression:['Not Overdue']).count
     @missedNewResSWPercentOverdue = "#{((@missedNewResSWOverdue.to_f.round(2)/@missedNewResSWTotal.to_f.round(2))*100).round(2)}%"
-    @missedNewResSWPercentNotOverdue = "#{((@missedNewResSWNotOverdue.to_f.round(2)/@missedNewResSWTotal.to_f.round(2)))*100.round(2)}%"
+    @missedNewResSWPercentNotOverdue = "#{((@missedNewResSWNotOverdue.to_f.round(2)/@missedNewResSWTotal.to_f.round(2))*100).round(2)}%"
     @missedNewResSWNotOverdue = Sr.where(trash_quad: 'SW',sr_type:'New Resident Container', expression:['Not Overdue']).count
     @missedNewResOverdueDigits = @missedNewResSWNotOverdue.to_f/@missedNewResSWTotal.to_f
     @missedNewResSWGrade= OpenSr.qualityGrade(@missedNewResOverdueDigits)

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_12_165428) do
+ActiveRecord::Schema.define(version: 2020_03_26_184331) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -161,6 +161,7 @@ ActiveRecord::Schema.define(version: 2020_03_12_165428) do
     t.datetime "updated_at", null: false
     t.integer "tally"
     t.string "quad_statu"
+    t.string "sr_locatio"
   end
 
   create_table "spatial_ref_sys", primary_key: "srid", id: :integer, default: nil, force: :cascade do |t|

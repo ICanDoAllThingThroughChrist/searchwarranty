@@ -37,8 +37,11 @@ class OpenSr < ApplicationRecord
   end
 
   def self.southQualityGrade
-    @SNotOverdue= Sr.where(expression: 'Not Overdue', status: 'Open', trash_quad: ['SE','SW'], expression: 'Not Overdue',sr_type: ['Missed Heavy Trash Pickup','Container Problem','New Resident Container','Recycling Participation NEW' ,'Recycling Cart Repair or Replace','SWM Escalation','Missed Garbage Pickup','Trash Dumping or Illegal Dumpsite', 'Add A Can', 'Storm Debris Collection', 'Dead Animal Collection', 'Add A Can CANCELLATION', 'Missed Recycling Pickup', 'Personnel or Vehicle Complaint','Physically Challenged Pickup']).count
-    @South = Sr.where(status: 'Open', trash_quad:['SW','SE'],sr_type: ['Missed Heavy Trash Pickup','Container Problem','New Resident Container','Recycling Participation NEW' ,'Recycling Cart Repair or Replace','SWM Escalation','Missed Garbage Pickup','Trash Dumping or Illegal Dumpsite', 'Add A Can', 'Storm Debris Collection', 'Dead Animal Collection', 'Add A Can CANCELLATION', 'Missed Recycling Pickup', 'Personnel or Vehicle Complaint','Physically Challenged Pickup']).count
+    @SNotOverdue = Sr.
+    where(expression: 'Not Overdue', status: 'Open', trash_quad: ['SE','SW'], sr_type: ['Missed Heavy Trash Pickup','Container Problem','New Resident Container','Recycling Participation NEW' ,'Recycling Cart Repair or Replace','SWM Escalation','Missed Garbage Pickup','Trash Dumping or Illegal Dumpsite', 'Add A Can', 'Storm Debris Collection', 'Dead Animal Collection', 'Add A Can CANCELLATION', 'Missed Recycling Pickup', 'Personnel or Vehicle Complaint','Physically Challenged Pickup']).
+    count
+    @South = Sr.where(status: 'Open', trash_quad:['SW','SE'], sr_type: ['Missed Heavy Trash Pickup','Container Problem','New Resident Container','Recycling Participation NEW' ,'Recycling Cart Repair or Replace','SWM Escalation','Missed Garbage Pickup','Trash Dumping or Illegal Dumpsite', 'Add A Can', 'Storm Debris Collection', 'Dead Animal Collection', 'Add A Can CANCELLATION', 'Missed Recycling Pickup', 'Personnel or Vehicle Complaint','Physically Challenged Pickup']).
+    count
     @SouthQuality = @SNotOverdue.to_f.round(2) / @South.to_f.round(2)
     if @SouthQuality >= 0.9
       @SQualityGrade = 'A'
@@ -70,25 +73,28 @@ class OpenSr < ApplicationRecord
         t.tally = 1
         t.save
       }
+    binding.pry
     header2 = %w[case_numbe sr_type quad_statu day sec_name quad tally]
     CSV.open("../searchwarranty/ThursdayGarbageYardSr.csv", "wb", write_headers: true, headers: header2) { |csv|
-          OpenSr.where(day: ['THURSDAY'], sr_type:['Missed Garbage Pickup', 'Missed Yard Waste Pickup'], quad_statu: ['NE_Overdue', 'NW_Overdue', 'SE_Overdue', 'SW_Overdue']).order(:sec_name).
+          OpenSr.where(day: ['THURSDAY'], sr_type:['Missed Garbage Pickup', 'Missed Yard Waste Pickup'], quad_statu: ['NE_Overdue', 'NW_Overdue', 'SE_Overdue', 'SW_Overdue']).
+          order(:sec_name).
           pluck(:case_numbe, :sr_type, :quad_statu, :day, :sec_name, :quad, :tally).
           each { |row|
             csv << row
           }
         }
     CSV.open("../searchwarranty/FridayGarbageYardSr.csv", "wb", write_headers: true, headers: header2) { |csv|
-          OpenSr.where(day: ['FRIDAY'], sr_type:['Missed Garbage Pickup', 'Missed Yard Waste Pickup'], quad_statu: ['NE_Overdue', 'NW_Overdue', 'SE_Overdue', 'SW_Overdue']).order(:sec_name).
+          OpenSr.where(day: ['FRIDAY'], sr_type:['Missed Garbage Pickup', 'Missed Yard Waste Pickup'], quad_statu: ['NE_Overdue', 'NW_Overdue', 'SE_Overdue', 'SW_Overdue']).
+          order(:sec_name).
           pluck(:case_numbe, :sr_type, :quad_statu, :day, :sec_name, :quad, :tally).
           each { |row|
             csv << row
           }
         }
     CSV.open("../searchwarranty/OpenSr.csv", "wb", write_headers: true, headers: header2) { |csv|
-          OpenSr.where(sr_type: ['Missed Heavy Trash Pickup','Missed Garbage Pickup','Missed Recycling Pickup','Missed Yard Waste Pickup']).
-          pluck(:case_numbe, :sr_type, :quad_statu, :day, :sec_name, :quad, :tally).
-          each { |row|
+        OpenSr.where(sr_type: ['Missed Heavy Trash Pickup','Missed Garbage Pickup','Missed Recycling Pickup','Missed Yard Waste Pickup']).
+        pluck(:case_numbe, :sr_type, :quad_statu, :day, :sec_name, :quad, :tally).
+        each { |row|
             csv << row
           }
         }
@@ -125,33 +131,38 @@ class OpenSr < ApplicationRecord
               pluck(:case_numbe, :sr_type, :quad_statu, :day, :sec_name, :quad, :tally).
               each { |row|
                 csv << row
-                }
-              }
+            }
+          }
     CSV.open("../searchwarranty/OpenSrSTuesdayRoutes.csv", "wb", write_headers: true, headers: header2) { |csv|
                   OpenSr.where(sr_type: ['Missed Heavy Trash Pickup','Missed Garbage Pickup','Missed Recycling Pickup','Missed Yard Waste Pickup'],  day:['TUESDAY'], quad:['SE',  'SW'], quad_statu:['SE_Overdue', 'SW_Overdue']).
                   pluck(:case_numbe, :sr_type, :quad_statu, :day, :sec_name, :quad, :tally).
                   each { |row|
                     csv << row
-                  }
-                }
+            }
+          }
    CSV.open("../searchwarranty/OpenSrSThursdayRoutes.csv", "wb", write_headers: true, headers: header2) { |csv|
                   OpenSr.where(sr_type: ['Missed Heavy Trash Pickup','Missed Garbage Pickup','Missed Recycling Pickup','Missed Yard Waste Pickup'],  day:['THURSDAY'], quad:['SE',  'SW'], quad_statu:['SE_Overdue', 'SW_Overdue']).
                   pluck(:case_numbe, :sr_type, :quad_statu, :day, :sec_name, :quad, :tally).
                   each { |row|
                     csv << row
-                  }
-                }
+            }
+          }
    CSV.open("../searchwarranty/OpenSrSFridayRoutes.csv", "wb", write_headers: true, headers: header2) { |csv|
                       OpenSr.where(sr_type: ['Missed Heavy Trash Pickup','Missed Garbage Pickup','Missed Recycling Pickup','Missed Yard Waste Pickup'],  day:['FRIDAY'], quad:['SE',  'SW'], quad_statu:['SE_Overdue', 'SW_Overdue']).
                       pluck(:case_numbe, :sr_type, :quad_statu, :day, :sec_name, :quad, :tally).
                       each { |row|
                         csv << row
-                  }
-                }
+            }
+          }
+    # byebug
     open_sr = Daru::DataFrame.from_csv '../searchwarranty/OpenSr.csv'
+    # binding.pry
+    # self.OpenSrNFridayRoutes
     friday_open_sr = Daru::DataFrame.from_csv '../searchwarranty/OpenSrNFridayRoutes.csv'
     thursday_open_sr = Daru::DataFrame.from_csv '../searchwarranty/OpenSrNThursdayRoutes.csv'
+    # self.OpenSrNThursdayRoutes
     tuesday_open_sr = Daru::DataFrame.from_csv '../searchwarranty/OpenSrNTuesdayRoutes.csv'
+    # self.OpenSrNTuesdayRoutes
     monday_open_sr = Daru::DataFrame.from_csv '../searchwarranty/OpenSrNMondayRoutes.csv'
     friday2_open_sr = Daru::DataFrame.from_csv '../searchwarranty/OpenSrSFridayRoutes.csv'
     thursday2_open_sr = Daru::DataFrame.from_csv '../searchwarranty/OpenSrSThursdayRoutes.csv'

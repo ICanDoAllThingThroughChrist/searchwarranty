@@ -1,4 +1,10 @@
 class Sr < ApplicationRecord
+  def self.update_sr_location_for_open_sr
+    array = Sr.where(status:'Open', department: 'SWM Solid Waste Management')
+    array.each_with_index {|e,i|
+      e['sr_location'] = e['sr_location'].split(",").join(" ")
+    }
+  end
     def self.update_trash_quad
       Spatial.delete_all
       Spatial.seed

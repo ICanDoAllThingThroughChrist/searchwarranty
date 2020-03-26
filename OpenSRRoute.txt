@@ -1,0 +1,1677 @@
+101003927219,Missed Yard Waste Pickup,SW_Not_Overdue,TUESDAY,SWTU113,SW,1
+101003930094,Recycling Cart Repair or Replace,SW_Not_Overdue,TUESDAY,SWTU113,SW,1
+101003908412,Recycling Cart Repair or Replace,SW_Overdue,TUESDAY,SWTU113,SW,1
+101003931327,Dead Animal Collection,SW_Not_Overdue,TUESDAY,SWTU121,SW,1
+101003931612,Add A Can,SW_Not_Overdue,TUESDAY,SWTU121,SW,1
+101003931611,Container Problem,SW_Not_Overdue,TUESDAY,SWTU121,SW,1
+101003922978,New Move In Service,SW_Not_Overdue,TUESDAY,SWTU118,SW,1
+101003927237,Missed Yard Waste Pickup,SW_Not_Overdue,TUESDAY,SWTU118,SW,1
+101003919650,Container Problem,SW_Overdue,TUESDAY,SWTU118,SW,1
+101003929003,Missed Garbage Pickup,SW_Not_Overdue,THURSDAY,SWTH103,SW,1
+101003926128,Missed Yard Waste Pickup,SW_Overdue,MONDAY,SWMO105,SW,1
+101003930524,Container Problem,SW_Not_Overdue,MONDAY,SWMO105,SW,1
+101003927352,Container Problem,SW_Not_Overdue,THURSDAY,SWTH108,SW,1
+101003926037,Missed Yard Waste Pickup,SW_Overdue,THURSDAY,SWTH104,SW,1
+101003924101,Container Problem,SW_Not_Overdue,MONDAY,SWMO110,SW,1
+101003926981,Missed Yard Waste Pickup,SW_Not_Overdue,TUESDAY,SWTU105,SW,1
+101003927114,Missed Yard Waste Pickup,SW_Not_Overdue,TUESDAY,SWTU105,SW,1
+101003924360,Missed Recycling Pickup,SW_Overdue,MONDAY,SWMO102,SW,1
+101003925504,Missed Yard Waste Pickup,SW_Overdue,THURSDAY,SWTH104,SW,1
+101003929677,Recycling Cart Repair or Replace,SW_Not_Overdue,TUESDAY,SWTU112,SW,1
+101003924914,Missed Yard Waste Pickup,SW_Overdue,TUESDAY,SWTU112,SW,1
+101003927069,Missed Yard Waste Pickup,SW_Not_Overdue,MONDAY,SWMO113,SW,1
+101003929746,Missed Garbage Pickup,SW_Not_Overdue,MONDAY,SWMO113,SW,1
+101003930257,Recycling Cart Repair or ,SW_Not_Overdue,MONDAY,SWMO109,SW,1
+Replace
+101003929762,New Resident Container,SW_Not_Overdue,MONDAY,SWMO103,SW,1
+101003927434,Missed Garbage Pickup,SW_Overdue,THURSDAY,SWTH102,SW,1
+101003930616,Recycling Cart Repair or Replace,SW_Not_Overdue,MONDAY,SWMO110,SW,1
+101003932749,Missed Garbage Pickup,SW_Not_Overdue,MONDAY,SWMO110,SW,1
+101003919614,Recycling Cart Repair or Replace,SW_Overdue,MONDAY,SWMO110,SW,1
+101003920351,Container Problem,SW_Overdue,TUESDAY,SWTU108,SW,1
+101003909245,Recycling Participation NEW,SW_Not_Overdue,MONDAY,SWMO116,SW,1
+101003906819,Missed Heavy Trash Pickup,SW_Overdue,MONDAY,SWMO115,SW,1
+101003906195,Missed Heavy Trash Pickup,SW_Overdue,MONDAY,SWMO115,SW,1
+101003930406,Missed Yard Waste Pickup,SW_Not_Overdue,TUESDAY,SWTU105,SW,1
+101003925387,Missed Recycling Pickup,SW_Overdue,TUESDAY,SWTU105,SW,1
+101003929924,Missed Garbage Pickup,SW_Not_Overdue,MONDAY,SWMO113,SW,1
+101003926120,Missed Yard Waste Pickup,SW_Overdue,MONDAY,SWMO113,SW,1
+101003932006,Missed Garbage Pickup,SW_Not_Overdue,TUESDAY,SWTU103,SW,1
+101003926469,Missed Yard Waste Pickup,SW_Not_Overdue,TUESDAY,SWTU120,SW,1
+101003927273,Missed Garbage Pickup,SW_Overdue,THURSDAY,SWTH109,SW,1
+101003927029,Missed Yard Waste Pickup,SW_Not_Overdue,THURSDAY,SWTH105,SW,1
+101003932492,Container Problem,SW_Not_Overdue,TUESDAY,SWTU104,SW,1
+101003932379,Missed Recycling Pickup,SW_Not_Overdue,MONDAY,SWMO116,SW,1
+101003932193,Missed Garbage Pickup,SW_Not_Overdue,TUESDAY,SWTU108,SW,1
+101003924496,Container Problem,SW_Not_Overdue,TUESDAY,SWTU101,SW,1
+101003927036,Missed Yard Waste Pickup,SW_Not_Overdue,TUESDAY,SWTU101,SW,1
+101003926100,Missed Yard Waste Pickup,SW_Overdue,TUESDAY,SWTU102,SW,1
+101003927121,Missed Garbage Pickup,SW_Overdue,THURSDAY,SWTH103,SW,1
+101003784292,Missed Garbage ,SW_Overdue,MONDAY,SWMO116,SW,1
+Pickup
+101003927867,Container Problem,SW_Not_Overdue,TUESDAY,SWTU121,SW,1
+101003923377,Missed Yard Waste Pickup,SW_Overdue,THURSDAY,SWTH101,SW,1
+394501-101003930719,Trash Dumping or Illegal Dumpsite,SW_Not_Overdue,THURSDAY,SWTH104,SW,1
+101003904435,Recycling Cart Repair or Replace,SW_Overdue,TUESDAY,SWTU108,SW,1
+101003928201,Missed Yard Waste Pickup,SW_Not_Overdue,THURSDAY,SWTH107,SW,1
+101003928232,Missed Yard Waste Pickup,SW_Not_Overdue,THURSDAY,SWTH107,SW,1
+101003922014,Missed Yard Waste Pickup,SW_Overdue,THURSDAY,SWTH107,SW,1
+101003908814,Add A Can,SW_Overdue,FRIDAY,SWFR112,SW,1
+101003652135,Miss Complaint, ,FRIDAY,SWFR115,SW,1
+101003932093,Missed Heavy Trash Pickup,SW_Not_Overdue,FRIDAY,SWFR115,SW,1
+101003927714,Missed Garbage Pickup,SW_Overdue,THURSDAY,SWTH111,SW,1
+101003930763,Missed Yard Waste Pickup,SW_Not_Overdue,THURSDAY,SWTH118,SW,1
+101003932041,Missed Yard Waste Pickup,SW_Not_Overdue,THURSDAY,SWTH113,SW,1
+101003925403,Missed Recycling Pickup,SW_Overdue,THURSDAY,SWTH111,SW,1
+101003929837,Missed Yard Waste Pickup,SW_Not_Overdue,FRIDAY,SWFR116,SW,1
+101003920031,Container Problem,SW_Overdue,FRIDAY,SWFR101,SW,1
+101003928916,Missed Garbage Pickup,SW_Not_Overdue,FRIDAY,SWFR108,SW,1
+101003930127,Container Problem,SW_Not_Overdue,THURSDAY,SWTH110,SW,1
+101003932606,Container Problem,SW_Not_Overdue,THURSDAY,SWTH110,SW,1
+101003930333,Container Problem,SW_Not_Overdue,THURSDAY,SWTH112,SW,1
+101003921492,Missed Yard Waste Pickup,SW_Overdue,THURSDAY,SWTH112,SW,1
+101003926623,Missed Garbage Pickup,SW_Overdue,THURSDAY,SWTH112,SW,1
+101003890321,Missed Heavy Trash Pickup,SW_Overdue,FRIDAY,SWFR116,SW,1
+101003928826,Missed Garbage Pickup,SW_Not_Overdue,THURSDAY,SWTH103,SW,1
+101003929179,Missed Yard Waste Pickup,SW_Not_Overdue,THURSDAY,SWTH103,SW,1
+101003929791,Missed Yard Waste Pickup,SW_Not_Overdue,THURSDAY,SWTH103,SW,1
+101003932594,Trash Dumping or Illegal Dumpsite,SW_Not_Overdue,THURSDAY,SWTH103,SW,1
+101003930404,Container Problem,SW_Not_Overdue,FRIDAY,SWFR105,SW,1
+101003931809,Dead Animal Collection,SW_Not_Overdue,FRIDAY,SWFR105,SW,1
+101003921282,Missed Recycling Pickup,SW_Overdue,FRIDAY,SWFR105,SW,1
+101003927448,Missed Garbage Pickup,SW_Overdue,FRIDAY,SWFR105,SW,1
+101003927133,Container Problem,SW_Not_Overdue,FRIDAY,SWFR110,SW,1
+101003928624,Missed Garbage Pickup,SW_Overdue,FRIDAY,SWFR110,SW,1
+101003886537,Add A Can CANCELLATION,SW_Overdue,FRIDAY,SWFR115,SW,1
+101003923126,Missed Yard Waste Pickup,SW_Overdue,THURSDAY,SWTH116,SW,1
+101003927451,Missed Garbage Pickup,SW_Overdue,THURSDAY,SWTH117,SW,1
+101003931450,Dead Animal Collection,SW_Not_Overdue,FRIDAY,SWFR113,SW,1
+101003927177,Missed Recycling Pickup,SW_Overdue,FRIDAY,SWFR112,SW,1
+101003932338,Recycling Cart Repair or Replace,SW_Not_Overdue,THURSDAY,SWTH112,SW,1
+101003921687,Missed Yard Waste Pickup,SW_Overdue,THURSDAY,SWTH112,SW,1
+101003927171,Recycling Cart Repair or Replace,SE_Not_Overdue,MONDAY,SEMO113,SE,1
+101003931180,Missed Recycling Pickup,SE_Not_Overdue,MONDAY,SEMO113,SE,1
+101003931459,Dead Animal Collection,SW_Not_Overdue,FRIDAY,SWFR112,SW,1
+101003930366,Missed Yard Waste Pickup,SW_Not_Overdue,FRIDAY,SWFR112,SW,1
+101003928657,Missed Garbage Pickup,SW_Overdue,FRIDAY,SWFR122,SW,1
+101003927590,Missed Garbage Pickup,SW_Overdue,THURSDAY,SWTH114,SW,1
+101003928172,Missed Garbage Pickup,SW_Overdue,THURSDAY,SWTH114,SW,1
+101003931354,Add A Can,SW_Not_Overdue,FRIDAY,SWFR106,SW,1
+101003928297,Container Problem,SW_Not_Overdue,FRIDAY,SWFR115,SW,1
+101003930676,Missed Yard Waste Pickup,SW_Not_Overdue,THURSDAY,SWTH117,SW,1
+101003932160,Missed Heavy Trash Pickup,SW_Not_Overdue,THURSDAY,SWTH117,SW,1
+101003926961,Missed Garbage Pickup,SW_Overdue,THURSDAY,SWTH103,SW,1
+101003927524,Missed Garbage Pickup,SW_Overdue,THURSDAY,SWTH103,SW,1
+101003919364,Recycling Cart Repair or Replace,SW_Overdue,FRIDAY,SWFR122,SW,1
+101003925114,Missed Recycling Pickup,SW_Overdue,FRIDAY,SWFR107,SW,1
+101003925316,Missed Recycling Pickup,SW_Overdue,FRIDAY,SWFR107,SW,1
+101003929794,Container Problem,SE_Not_Overdue,MONDAY,SEMO105,SE,1
+101003932524,Missed Heavy Trash Pickup,SW_Not_Overdue,FRIDAY,SWFR120,SW,1
+101003929215,Missed Yard Waste Pickup,SW_Not_Overdue,THURSDAY,SWTH113,SW,1
+101003925803,Missed Yard Waste Pickup,SW_Overdue,THURSDAY,SWTH112,SW,1
+101003928967,Missed Garbage Pickup,SW_Not_Overdue,FRIDAY,SWFR118,SW,1
+101003928635,Missed Garbage Pickup,SW_Overdue,FRIDAY,SWFR118,SW,1
+101003888751,Recycling Cart Repair or Replace,SE_Overdue,MONDAY,SEMO105,SE,1
+101003928863,Missed Garbage Pickup,SW_Not_Overdue,FRIDAY,SWFR118,SW,1
+101003929330,Missed Garbage Pickup,SW_Not_Overdue,FRIDAY,SWFR118,SW,1
+101003928609,Missed Garbage Pickup,SW_Overdue,FRIDAY,SWFR118,SW,1
+101003931005,Container Problem,SW_Not_Overdue,FRIDAY,SWFR106,SW,1
+393049-101003908308,Trash Dumping or Illegal Dumpsite,SW_Not_Overdue,FRIDAY,SWFR105,SW,1
+101003928573,Container Problem,SW_Not_Overdue,FRIDAY,SWFR109,SW,1
+101003920445,Container Problem,SW_Overdue,FRIDAY,SWFR109,SW,1
+101003920715,Missed Recycling Pickup,SW_Overdue,FRIDAY,SWFR109,SW,1
+101003929958,Missed Yard Waste Pickup,SW_Not_Overdue,THURSDAY,SWTH120,SW,1
+101003928786,Missed Recycling Pickup,SW_Not_Overdue,THURSDAY,SWTH111,SW,1
+101003930268,Missed Recycling ,SW_Not_Overdue,THURSDAY,SWTH111,SW,1
+Pickup
+101003929957,SWM Escalation,SW_Overdue,THURSDAY,SWTH111,SW,1
+101003929140,Recycling Cart Repair or Replace,SW_Not_Overdue,MONDAY,SWMO116,SW,1
+101003922674,New Move In Service,SW_Not_Overdue,FRIDAY,SWFR103,SW,1
+101003928561,Container Problem,SW_Not_Overdue,THURSDAY,SWTH114,SW,1
+101003927468,Missed Garbage Pickup,SW_Overdue,THURSDAY,SWTH114,SW,1
+101003932043,Missed Heavy Trash Pickup,SW_Not_Overdue,FRIDAY,SWFR103,SW,1
+101003890151,Missed Heavy Trash Pickup,SE_Overdue,MONDAY,SEMO108,SE,1
+101003932753,Container Problem,SE_Not_Overdue,MONDAY,SEMO106,SE,1
+101003932826,Recycling Cart Repair or Replace,SE_Not_Overdue,MONDAY,SEMO106,SE,1
+101003932599,Recycling Cart Repair or Replace,SE_Not_Overdue,MONDAY,SEMO103,SE,1
+101003907277,Recycling Cart Repair or Replace,SE_Overdue,MONDAY,SEMO104,SE,1
+101003887934,Missed Heavy Trash Pickup,SE_Overdue,MONDAY,SEMO120,SE,1
+101003888617,Missed Heavy Trash Pickup,SE_Overdue,MONDAY,SEMO120,SE,1
+101003890586,Missed Heavy Trash Pickup,SE_Overdue,MONDAY,SEMO106,SE,1
+101003930384,Recycling Cart Repair or Replace,SE_Not_Overdue,MONDAY,SEMO106,SE,1
+101003932723,Dead Animal Collection,SE_Not_Overdue,MONDAY,SEMO120,SE,1
+101003930860,New Resident Container,SE_Not_Overdue,MONDAY,SEMO107,SE,1
+101003925392,Recycling Participation NEW,SE_Not_Overdue,MONDAY,SEMO121,SE,1
+101003888574,Missed Heavy Trash Pickup,SE_Overdue,MONDAY,SEMO121,SE,1
+101003892163,Missed Heavy Trash Pickup,SE_Overdue,MONDAY,SEMO116,SE,1
+101003891343,Missed Heavy Trash Pickup,SE_Overdue,MONDAY,SEMO118,SE,1
+394474-101003929882,Trash Dumping or Illegal Dumpsite,SE_Not_Overdue,MONDAY,SEMO111,SE,1
+101003932610,Dead Animal Collection,SE_Not_Overdue,MONDAY,SEMO111,SE,1
+101003932050,Recycling Cart ,SE_Not_Overdu,MONDAY,SEMO103,SE,1
+Repair or Replace,e
+101003890492,Missed Heavy Trash Pickup,SE_Overdue,MONDAY,SEMO120,SE,1
+101003890511,Missed Heavy Trash Pickup,SE_Overdue,MONDAY,SEMO120,SE,1
+101003926934,Trash Dumping or Illegal Dumpsite,SE_Not_Overdue,MONDAY,SEMO111,SE,1
+101003927059,Recycling Participation NEW,SE_Not_Overdue,MONDAY,SEMO111,SE,1
+101003890899,Missed Heavy Trash Pickup,SE_Overdue,MONDAY,SEMO107,SE,1
+101003893438,Recycling Cart Repair or Replace,SE_Overdue,MONDAY,SEMO113,SE,1
+101003890903,Missed Heavy Trash Pickup,SE_Overdue,MONDAY,SEMO105,SE,1
+101003599646,Dumpster Complaint,SE_Overdue,MONDAY,SEMO114,SE,1
+101003621380,Dumpster Complaint,SE_Overdue,MONDAY,SEMO114,SE,1
+101003628894,Property Damage,SE_Overdue,MONDAY,SEMO114,SE,1
+101003932817,Recycling Cart Repair or Replace,SE_Not_Overdue,MONDAY,SEMO105,SE,1
+101003932858,Missed Garbage Pickup,SE_Not_Overdue,MONDAY,SEMO105,SE,1
+101003923337,Recycling Participation NEW,SE_Not_Overdue,TUESDAY,SETU112,SE,1
+101003923335,Recycling Participation NEW,SE_Not_Overdue,TUESDAY,SETU112,SE,1
+101003932674,Container Problem,SE_Not_Overdue,TUESDAY,SETU112,SE,1
+101003931755,Container Problem,SE_Not_Overdue,TUESDAY,SETU109,SE,1
+101003709591,Property Damage,SE_Overdue,TUESDAY,SETU101,SE,1
+101003890082,Missed Heavy Trash Pickup,SE_Overdue,TUESDAY,SETU101,SE,1
+392980-101003907665,Trash Dumping or Illegal Dumpsite,SE_Not_Overdue,TUESDAY,SETU110,SE,1
+101003931276,Container Problem,SE_Not_Overdue,TUESDAY,SETU103,SE,1
+101003506631,Property Damage,SE_Overdue,TUESDAY,SETU104,SE,1
+101003931887,Container Problem,SE_Not_Overdue,TUESDAY,SETU110,SE,1
+101003932476,Missed Recycling Pickup,SE_Not_Overdue,TUESDAY,SETU107,SE,1
+101003932690,Missed Recycling Pickup,SE_Not_Overdue,TUESDAY,SETU113,SE,1
+101003931973,Missed Garbage Pickup,SE_Not_Overdue,TUESDAY,SETU115,SE,1
+101003932269,Recycling Cart Repair or Replace,SE_Not_Overdue,TUESDAY,SETU115,SE,1
+101003889986,Missed Heavy Trash Pickup,SE_Overdue,TUESDAY,SETU115,SE,1
+101003931880,Container Problem,SE_Not_Overdue,TUESDAY,SETU101,SE,1
+101003932455,Missed Garbage Pickup,SE_Not_Overdue,TUESDAY,SETU115,SE,1
+101003907145,Container Problem,SE_Overdue,TUESDAY,SETU122,SE,1
+101003472465,Property Damage,SE_Overdue,FRIDAY,SEFR113,SE,1
+101003925780,Container Problem,SE_Not_Overdue,TUESDAY,SETU118,SE,1
+101003931978,Missed Garbage Pickup,SE_Not_Overdue,TUESDAY,SETU118,SE,1
+101003931324,Recycling Participation NEW,SE_Not_Overdue,TUESDAY,SETU116,SE,1
+101003932751,New Resident Container,SE_Not_Overdue,TUESDAY,SETU116,SE,1
+101003932775,Recycling Participation NEW,SE_Not_Overdue,TUESDAY,SETU116,SE,1
+101003891795,Recycling Cart Repair or Replace,SE_Overdue,FRIDAY,SEFR120,SE,1
+101003930598,Missed Heavy Trash Pickup,SE_Not_Overdue,FRIDAY,SEFR102,SE,1
+101003932740,Add A Can,SE_Not_Overdue,FRIDAY,SEFR102,SE,1
+101003932741,Missed Heavy Trash Pickup,SE_Not_Overdue,FRIDAY,SEFR102,SE,1
+101003885720,Recycling Cart Repair or Replace,SE_Overdue,FRIDAY,SEFR102,SE,1
+101003929248,Missed Recycling Pickup,SE_Not_Overdue,FRIDAY,SEFR117,SE,1
+101003908152,Recycling Cart Repair or Replace,SE_Overdue,FRIDAY,SEFR120,SE,1
+101003920898,Recycling Cart Repair or Replace,SE_Not_Overdue,FRIDAY,SEFR120,SE,1
+101003920281,Recycling Participation NEW,SE_Not_Overdue,TUESDAY,SETU117,SE,1
+101003890007,Container Problem,SE_Overdue,FRIDAY,SEFR117,SE,1
+101003922185,Trash Dumping or Illegal Dumpsite,SE_Not_Overdue,FRIDAY,SEFR107,SE,1
+101003932458,Container Problem,SE_Not_Overdue,FRIDAY,SEFR112,SE,1
+101003931075,Missed Heavy Trash Pickup,SE_Not_Overdue,TUESDAY,SETU123,SE,1
+101003932092,Missed Yard Waste Pickup,SE_Not_Overdue,TUESDAY,SETU123,SE,1
+101003886679,Missed Heavy Trash Pickup,SE_Overdue,FRIDAY,SEFR115,SE,1
+101003931002,Trash Dumping or Illegal Dumpsite,SE_Not_Overdue,TUESDAY,SETU116,SE,1
+101003932116,Missed Garbage Pickup,SE_Not_Overdue,TUESDAY,SETU116,SE,1
+101003930011,Container Problem,SE_Not_Overdue,FRIDAY,SEFR121,SE,1
+101003922737,Missed Heavy Trash Pickup,SE_Overdue,FRIDAY,SEFR121,SE,1
+101003932401,Recycling Cart Repair or Replace,SE_Not_Overdue,FRIDAY,SEFR114,SE,1
+101003932371,Container Problem,SE_Not_Overdue,FRIDAY,SEFR111,SE,1
+101003932839,Missed Garbage Pickup,SE_Not_Overdue,TUESDAY,SETU116,SE,1
+101003440412,Property Damage,SE_Overdue,TUESDAY,SETU116,SE,1
+393723-101003923487,Trash Dumping or Illegal Dumpsite,SE_Not_Overdue,FRIDAY,SEFR109,SE,1
+101003930054,Missed Heavy Trash Pickup,SE_Not_Overdue,TUESDAY,SETU118,SE,1
+101003930815,Container Problem,SE_Not_Overdue,TUESDAY,SETU118,SE,1
+101003932078,Missed Yard Waste Pickup,SE_Not_Overdue,TUESDAY,SETU118,SE,1
+101003922584,New Resident Container,SE_Not_Overdue,FRIDAY,SEFR106,SE,1
+393726-101003923513,Trash Dumping or Illegal Dumpsite,SE_Not_Overdue,TUESDAY,SETU117,SE,1
+101003889438,Recycling Cart Repair or Replace,SE_Overdue,FRIDAY,SEFR101,SE,1
+101003925173,Container Problem,SE_Not_Overdue,TUESDAY,SETU117,SE,1
+101003885481,Dumpster Complaint,SE_Not_Overdue,TUESDAY,SETU112,SE,1
+101003932188,Missed Garbage Pickup,SE_Not_Overdue,TUESDAY,SETU112,SE,1
+101003932294,Dead Animal Collection,SE_Not_Overdue,FRIDAY,SEFR120,SE,1
+101003925784,Container ,SE_Not_Overdu,FRIDAY,SEFR104,SE,1
+Problem,e
+101003928228,Missed Garbage Pickup,SE_Overdue,FRIDAY,SEFR109,SE,1
+101003926726,Trash Dumping or Illegal Dumpsite,SE_Not_Overdue,FRIDAY,SEFR108,SE,1
+101003932376,Missed Heavy Trash Pickup,SE_Not_Overdue,FRIDAY,SEFR108,SE,1
+101003893690,Container Problem,SE_Overdue,FRIDAY,SEFR108,SE,1
+101003909048,Trash Dumping or Illegal Dumpsite,SE_Not_Overdue,TUESDAY,SETU116,SE,1
+101003932797,Missed Recycling Pickup,SE_Not_Overdue,TUESDAY,SETU118,SE,1
+101003923412,Trash Dumping or Illegal Dumpsite,SE_Not_Overdue,FRIDAY,SEFR109,SE,1
+101003931529,New Resident Container,SE_Not_Overdue,FRIDAY,SEFR109,SE,1
+101003932718,New Resident Container,SE_Not_Overdue,FRIDAY,SEFR109,SE,1
+101003932720,Recycling Participation NEW,SE_Not_Overdue,FRIDAY,SEFR109,SE,1
+101003777565,Missed Recycling Pickup,SE_Overdue,FRIDAY,SEFR109,SE,1
+101003931995,Trash Dumping or Illegal Dumpsite,SE_Not_Overdue,FRIDAY,SEFR120,SE,1
+101003886417,Missed Heavy Trash Pickup,SE_Overdue,FRIDAY,SEFR120,SE,1
+101003925810,Container Problem,SE_Not_Overdue,FRIDAY,SEFR105,SE,1
+101003908810,Container Problem,SE_Overdue,FRIDAY,SEFR105,SE,1
+101003742620,Container Problem,NE_Overdue,THURSDAY,NETH103,NE,1
+101003782456,Container Problem,NE_Overdue,THURSDAY,NETH103,NE,1
+101003931156,Recycling Cart Repair or Replace,NE_Not_Overdue,MONDAY,NEMO113,NE,1
+101003784728,Add A Can,NE_Overdue,MONDAY,NEMO113,NE,1
+101003784977,Container Problem,NE_Overdue,TUESDAY,NETU107,NE,1
+101003777358,Container Problem,NE_Overdue,TUESDAY,NETU111,NE,1
+101003928341,Container Problem,NW_Not_Overdue,THURSDAY,NWTH116,NW,1
+101003931567,Container Problem,NW_Not_Overdue,TUESDAY,NWTU117,NW,1
+101003931805,Missed Garbage ,NW_Not_Overd,TUESDAY,NWTU117,NW,1
+Pickup,ue
+101003927311,Recycling Participation NEW,NW_Not_Overdue,MONDAY,NWMO115,NW,1
+101003929741,Recycling Participation NEW,NW_Not_Overdue,MONDAY,NWMO115,NW,1
+101003929982,Container Problem,NW_Not_Overdue,MONDAY,NWMO115,NW,1
+101003930098,Container Problem,NW_Not_Overdue,MONDAY,NWMO115,NW,1
+101003930505,Container Problem,NW_Not_Overdue,MONDAY,NWMO115,NW,1
+101003931974,Missed Recycling Pickup,NW_Not_Overdue,MONDAY,NWMO115,NW,1
+101003920210,Missed Recycling Pickup,NW_Overdue,MONDAY,NWMO115,NW,1
+101003926529,Missed Yard Waste Pickup,SW_Not_Overdue,TUESDAY,SWTU122,SW,1
+101003885564,Recycling Participation NEW,SW_Overdue,TUESDAY,SWTU122,SW,1
+101003932066,Dead Animal Collection,NE_Not_Overdue,THURSDAY,NETH106,NE,1
+101003885617,Trash Dumping or Illegal Dumpsite,NW_Not_Overdue,TUESDAY,NWTU115,NW,1
+101003932612,Container Problem,NW_Not_Overdue,TUESDAY,NWTU115,NW,1
+101003931029,Container Problem,NE_Not_Overdue,TUESDAY,NETU105,NE,1
+101003782425,Add A Can,NE_Overdue,TUESDAY,NETU105,NE,1
+101003930804,Container Problem,NW_Not_Overdue,TUESDAY,NWTU113,NW,1
+101003931674,Missed Garbage Pickup,NW_Not_Overdue,TUESDAY,NWTU113,NW,1
+101003932387,Missed Heavy Trash Pickup,NW_Not_Overdue,TUESDAY,NWTU113,NW,1
+101003925062,Missed Garbage Pickup,NW_Overdue,TUESDAY,NWTU113,NW,1
+394191-101003927717,Trash Dumping or Illegal Dumpsite,NE_Not_Overdue,THURSDAY,NETH112,NE,1
+101003785313,Container Problem,NE_Overdue,TUESDAY,NETU119,NE,1
+101003921529,Recycling Participation NEW,NE_Not_Overdue,TUESDAY,NETU119,NE,1
+101003932828,Recycling Participation NEW,NE_Not_Overdue,TUESDAY,NETU119,NE,1
+101003740240,Container Problem,NE_Overdue,TUESDAY,NETU112,NE,1
+101003746205,Container Problem,NE_Overdue,TUESDAY,NETU112,NE,1
+101003932406,New Resident Container,SE_Not_Overdue,FRIDAY,SEFR115,SE,1
+101003930381,Trash Dumping or Illegal Dumpsite,NE_Not_Overdue,TUESDAY,NETU107,NE,1
+101003908370,Trash Dumping or Illegal Dumpsite,NE_Not_Overdue,TUESDAY,NETU110,NE,1
+101003931312,Container Problem,NW_Not_Overdue,THURSDAY,NWTH115,NW,1
+101003929586,Missed Garbage Pickup,SW_Not_Overdue,FRIDAY,SWFR120,SW,1
+101003930379,Missed Garbage Pickup,SW_Not_Overdue,FRIDAY,SWFR120,SW,1
+101003920294,Missed Heavy Trash Pickup,NE_Overdue,TUESDAY,NETU107,NE,1
+101003930592,Container Problem,NE_Not_Overdue,FRIDAY,NEFR106,NE,1
+101003742277,Container Problem,NE_Overdue,FRIDAY,NEFR106,NE,1
+101003782220,Container Problem,NE_Overdue,FRIDAY,NEFR106,NE,1
+101003784675,Container Problem,NE_Overdue,FRIDAY,NEFR106,NE,1
+101003931522,Container Problem,NE_Not_Overdue,TUESDAY,NETU104,NE,1
+101003785167,Add A Can,NE_Overdue,TUESDAY,NETU104,NE,1
+101003737600,New Resident Container,NE_Overdue,THURSDAY,NETH102,NE,1
+101003886825,Missed Heavy Trash Pickup,NW_Overdue,FRIDAY,NWFR119,NW,1
+101003920813,Missed Heavy Trash Pickup,NW_Overdue,FRIDAY,NWFR119,NW,1
+101003890869,Missed Heavy Trash Pickup,NW_Overdue,FRIDAY,NWFR118,NW,1
+101003932365,Add A Can,NE_Not_Overdue,THURSDAY,NETH109,NE,1
+393363-101003921090,Trash Dumping or Illegal Dumpsite,NE_Not_Overdue,TUESDAY,NETU119,NE,1
+101003923849,Trash Dumping or Illegal Dumpsite,NE_Not_Overdue,TUESDAY,NETU113,NE,1
+101003774309,Container Problem,NE_Overdue,TUESDAY,NETU113,NE,1
+101003772080,Container Problem,NE_Overdue,THURSDAY,NETH102,NE,1
+101003931516,Missed Garbage Pickup,NW_Not_Overdue,TUESDAY,NWTU102,NW,1
+101003931788,Missed Garbage Pickup,NW_Not_Overdue,TUESDAY,NWTU102,NW,1
+101003932525,New Resident Container,NW_Not_Overdue,TUESDAY,NWTU102,NW,1
+101003932526,Recycling Participation NEW,NW_Not_Overdue,TUESDAY,NWTU102,NW,1
+101003931326,Container Problem,NE_Not_Overdue,THURSDAY,NETH112,NE,1
+101003932861,Missed Garbage Pickup,NE_Not_Overdue,TUESDAY,NETU108,NE,1
+101003773262,Container Problem,NE_Overdue,TUESDAY,NETU108,NE,1
+101003928703,Container Problem,NW_Not_Overdue,THURSDAY,NWTH124,NW,1
+101003932223,Container Problem,NW_Not_Overdue,THURSDAY,NWTH124,NW,1
+101003932232,New Move In Service,NW_Not_Overdue,THURSDAY,NWTH124,NW,1
+101003919597,Missed Heavy Trash Pickup,NW_Overdue,THURSDAY,NWTH124,NW,1
+101003929053,Missed Recycling Pickup,SW_Not_Overdue,FRIDAY,SWFR117,SW,1
+101003929048,Missed Recycling Pickup,SW_Not_Overdue,FRIDAY,SWFR117,SW,1
+101003931982,Dead Animal Collection,NW_Not_Overdue,FRIDAY,NWFR108,NW,1
+101003923937,Recycling Participation NEW,NW_Not_Overdue,TUESDAY,NWTU101,NW,1
+101003886398,Trash Dumping or Illegal Dumpsite,NW_Not_Overdue,TUESDAY,NWTU101,NW,1
+101003932082,Missed Garbage Pickup,NW_Not_Overdue,TUESDAY,NWTU101,NW,1
+101003932229,Missed Garbage Pickup,NW_Not_Overdue,TUESDAY,NWTU101,NW,1
+101003932372,New Resident Container,NW_Not_Overdue,TUESDAY,NWTU101,NW,1
+101003932373,Recycling Participation NEW,NW_Not_Overdue,TUESDAY,NWTU101,NW,1
+101003932561,New Resident Container,NW_Not_Overdue,TUESDAY,NWTU101,NW,1
+101003768336,Container Problem,NE_Overdue,THURSDAY,NETH113,NE,1
+101003908703,Missed Heavy Trash Pickup,NE_Overdue,THURSDAY,NETH113,NE,1
+101003929918,Dumpster Complaint,NE_Overdue,THURSDAY,NETH113,NE,1
+101003931532,Dead Animal Collection,SW_Not_Overdue,FRIDAY,SWFR121,SW,1
+101003931983,Missed Heavy Trash Pickup,SW_Not_Overdue,FRIDAY,SWFR121,SW,1
+101003930413,Add A Can,NE_Not_Overdue,FRIDAY,NEFR102,NE,1
+101003777133,Container ,NE_Overdue,FRIDAY,NEFR102,NE,1
+Problem
+101003782019,Container Problem,NE_Overdue,FRIDAY,NEFR102,NE,1
+101003782434,Container Problem,NE_Overdue,FRIDAY,NEFR102,NE,1
+101003927066,Recycling Participation NEW,NE_Not_Overdue,THURSDAY,NETH117,NE,1
+101003931179,Container Problem,NE_Not_Overdue,THURSDAY,NETH117,NE,1
+101003931333,New Resident Container,NE_Not_Overdue,THURSDAY,NETH117,NE,1
+101003769397,Container Problem,NE_Overdue,THURSDAY,NETH117,NE,1
+101003925669,Recycling Cart Repair or Replace,NE_Not_Overdue,THURSDAY,NETH107,NE,1
+101003926454,Container Problem,NE_Not_Overdue,THURSDAY,NETH107,NE,1
+101003922467,Missed Heavy Trash Pickup,NE_Overdue,THURSDAY,NETH107,NE,1
+101003772652,Container Problem,NE_Overdue,MONDAY,NEMO111,NE,1
+101003931757,Missed Heavy Trash Pickup,NE_Not_Overdue,MONDAY,NEMO109,NE,1
+101003745740,Container Problem,NE_Overdue,MONDAY,NEMO109,NE,1
+101003769333,Container Problem,NE_Overdue,MONDAY,NEMO109,NE,1
+101003773686,Container Problem,NE_Overdue,MONDAY,NEMO109,NE,1
+101003932454,Missed Garbage Pickup,NE_Not_Overdue,TUESDAY,NETU109,NE,1
+101003780607,New Resident Container,NE_Overdue,TUESDAY,NETU109,NE,1
+101003930903,Container Problem,NE_Not_Overdue,TUESDAY,NETU115,NE,1
+101003746736,New Resident Container,NE_Overdue,TUESDAY,NETU118,NE,1
+101003932214,Recycling Cart Repair or Replace,NE_Not_Overdue,TUESDAY,NETU103,NE,1
+101003747364,Container Problem,NE_Overdue,TUESDAY,NETU103,NE,1
+101003777927,Container Problem,NE_Overdue,TUESDAY,NETU103,NE,1
+101003929843,Container Problem,NE_Not_Overdue,FRIDAY,NEFR112,NE,1
+393372-101003921097,Trash Dumping or Illegal Dumpsite,NE_Not_Overdue,TUESDAY,NETU114,NE,1
+101003932675,Missed Recycling Pickup,NE_Not_Overdue,TUESDAY,NETU114,NE,1
+101003737338,Container ,NE_Overdue,TUESDAY,NETU114,NE,1
+Problem
+101003773351,Container Problem,NE_Overdue,TUESDAY,NETU114,NE,1
+101003779351,Container Problem,NE_Overdue,TUESDAY,NETU114,NE,1
+101003779748,Container Problem,NE_Overdue,TUESDAY,NETU114,NE,1
+101003909258,Container Problem,NE_Overdue,THURSDAY,NETH104,NE,1
+101003931602,Missed Yard Waste Pickup,NW_Not_Overdue,MONDAY,NWMO118,NW,1
+101003932083,Container Problem,NW_Not_Overdue,MONDAY,1-WAY,NW,1
+101003907530,New Resident Container,NE_Overdue,TUESDAY,NETU114,NE,1
+101003745002,Container Problem,NE_Overdue,TUESDAY,NETU111,NE,1
+101003785053,Add A Can,NE_Overdue,TUESDAY,NETU111,NE,1
+101003920141,Missed Heavy Trash Pickup,NE_Overdue,MONDAY,NEMO119,NE,1
+101003919373,New Resident Container,NE_Overdue,THURSDAY,NETH101,NE,1
+101003907068,Missed Heavy Trash Pickup,NE_Overdue,THURSDAY,NETH101,NE,1
+101003908952,Missed Heavy Trash Pickup,NE_Overdue,TUESDAY,NETU119,NE,1
+101003907401,Missed Recycling Pickup,SE_Overdue,TUESDAY,SETU101,SE,1
+101003887022,Recycling Participation NEW,SE_Not_Overdue,TUESDAY,SETU109,SE,1
+101003931078,Container Problem,SE_Not_Overdue,TUESDAY,SETU109,SE,1
+101003932838,Container Problem,SE_Not_Overdue,TUESDAY,SETU109,SE,1
+101003929844,New Resident Container,SW_Not_Overdue,TUESDAY,SWTU105,SW,1
+394225-101003928226,Trash Dumping or Illegal Dumpsite,NE_Not_Overdue,FRIDAY,NEFR111,NE,1
+101003930863,Container Problem,SE_Not_Overdue,TUESDAY,SETU109,SE,1
+101003747372,Container Problem,NE_Overdue,THURSDAY,NETH113,NE,1
+393388-101003921106,Trash Dumping or Illegal Dumpsite,NE_Not_Overdue,THURSDAY,NETH113,NE,1
+393389-101003921107,Trash Dumping or Illegal Dumpsite,NE_Not_Overdue,THURSDAY,NETH113,NE,1
+393393-101003921110,Trash Dumping or Illegal Dumpsite,NE_Not_Overdue,THURSDAY,NETH113,NE,1
+101003928592,Trash Dumping ,NE_Not_Overd,THURSDAY,NETH113,NE,1
+or Illegal Dumpsite,ue
+394595-101003930859,Trash Dumping or Illegal Dumpsite,NE_Not_Overdue,THURSDAY,NETH113,NE,1
+101003932296,Add A Can,NE_Not_Overdue,THURSDAY,NETH113,NE,1
+101003930766,Container Problem,SW_Not_Overdue,TUESDAY,SWTU116,SW,1
+101003930538,Container Problem,NE_Not_Overdue,FRIDAY,NEFR114,NE,1
+394629-101003931040,Trash Dumping or Illegal Dumpsite,NE_Not_Overdue,FRIDAY,NEFR114,NE,1
+101003736903,New Resident Container,NE_Overdue,FRIDAY,NEFR114,NE,1
+101003741122,Container Problem,NE_Overdue,FRIDAY,NEFR114,NE,1
+101003744018,Container Problem,NE_Overdue,FRIDAY,NEFR114,NE,1
+101003770387,Recycling Cart Repair or Replace,NE_Overdue,FRIDAY,NEFR114,NE,1
+101003768521,New Resident Container,NE_Overdue,FRIDAY,NEFR112,NE,1
+101003777509,Container Problem,NE_Overdue,FRIDAY,NEFR112,NE,1
+101003776243,New Resident Container,NE_Overdue,FRIDAY,NEFR112,NE,1
+101003783523,Container Problem,NE_Overdue,FRIDAY,NEFR112,NE,1
+101003932667,Trash Dumping or Illegal Dumpsite,NE_Not_Overdue,MONDAY,NEMO116,NE,1
+101003930245,Add A Can,NE_Not_Overdue,MONDAY,NEMO101,NE,1
+101003932210,Recycling Participation NEW,NE_Not_Overdue,MONDAY,NEMO101,NE,1
+101003726434,Container Problem,NE_Overdue,MONDAY,NEMO101,NE,1
+101003771249,Container Problem,NE_Overdue,MONDAY,NEMO101,NE,1
+101003909068,Trash Dumping or Illegal Dumpsite,NE_Not_Overdue,FRIDAY,NEFR116,NE,1
+101003927722,Trash Dumping or Illegal Dumpsite,NE_Not_Overdue,FRIDAY,NEFR116,NE,1
+101003931526,Missed Heavy Trash Pickup,SE_Not_Overdue,TUESDAY,SETU113,SE,1
+101003927254,Missed Yard Waste Pickup,SW_Not_Overdue,TUESDAY,SWTU120,SW,1
+101003921311,Container Problem,SW_Overdue,TUESDAY,SWTU120,SW,1
+101003930258,Add A Can,NE_Not_Overdue,THURSDAY,NETH106,NE,1
+101003731723,Container Problem,NE_Overdue,THURSDAY,NETH106,NE,1
+101003920099,Trash Dumping or Illegal Dumpsite,NE_Not_Overdue,THURSDAY,NETH110,NE,1
+101003927015,Recycling Cart Repair or Replace,NE_Not_Overdue,THURSDAY,NETH110,NE,1
+101003932805,New Resident Container,SW_Not_Overdue,TUESDAY,SWTU101,SW,1
+101003922863,Trash Dumping or Illegal Dumpsite,SE_Not_Overdue,MONDAY,SEMO123,SE,1
+101003927046,New Resident Container,SW_Not_Overdue,TUESDAY,SWTU104,SW,1
+101003932878,Missed Yard Waste Pickup,SW_Not_Overdue,TUESDAY,SWTU104,SW,1
+101003928587,Recycling Cart Repair or Replace,NE_Not_Overdue,MONDAY,NEMO101,NE,1
+101003928586,Container Problem,NE_Not_Overdue,MONDAY,NEMO101,NE,1
+101003928595,Non Residential Collection Service NEW,NE_Not_Overdue,MONDAY,NEMO101,NE,1
+101003784690,New Resident Container,NE_Overdue,MONDAY,NEMO102,NE,1
+101003923171,Missed Heavy Trash Pickup,NE_Overdue,MONDAY,NEMO102,NE,1
+101003746231,Container Problem,NE_Overdue,MONDAY,NEMO102,NE,1
+101003784089,Container Problem,NE_Overdue,MONDAY,NEMO102,NE,1
+101003919828,Missed Heavy Trash Pickup,NE_Overdue,MONDAY,NEMO102,NE,1
+101003744383,Container Problem,NE_Overdue,TUESDAY,NETU102,NE,1
+101003776150,New Resident Container,NE_Overdue,TUESDAY,NETU102,NE,1
+101003782322,New Resident Container,NE_Overdue,TUESDAY,NETU102,NE,1
+101003886356,Recycling Participation NEW,NE_Overdue,TUESDAY,NETU102,NE,1
+101003904172,Dead Animal Collection,NE_Overdue,TUESDAY,NETU102,NE,1
+101003908770,Missed Heavy Trash Pickup,NE_Overdue,TUESDAY,NETU102,NE,1
+101003925459,Missed Heavy Trash Pickup,NE_Not_Overdue,FRIDAY,NEFR117,NE,1
+101003929195,New Resident Container,NE_Not_Overdue,FRIDAY,NEFR117,NE,1
+101003735269,Container ,NE_Overdue,FRIDAY,NEFR117,NE,1
+Problem
+101003739712,New Resident Container,NE_Overdue,FRIDAY,NEFR117,NE,1
+101003744556,Container Problem,NE_Overdue,FRIDAY,NEFR117,NE,1
+101003743996,Recycling Cart Repair or Replace,NE_Overdue,MONDAY,NEMO112,NE,1
+394743-101003932940,Trash Dumping or Illegal Dumpsite,NE_Not_Overdue,MONDAY,NEMO106,NE,1
+101003925914,Recycling Cart Repair or Replace,SE_Not_Overdue,FRIDAY,SEFR113,SE,1
+101003928613,Container Problem,NE_Not_Overdue,FRIDAY,NEFR103,NE,1
+101003932429,Dead Animal Collection,NE_Not_Overdue,FRIDAY,NEFR103,NE,1
+101003742681,Container Problem,NE_Overdue,FRIDAY,NEFR103,NE,1
+101003781749,Container Problem,NE_Overdue,FRIDAY,NEFR103,NE,1
+101003782596,Container Problem,NE_Overdue,FRIDAY,NEFR103,NE,1
+101003784530,Add A Can,NE_Overdue,MONDAY,NEMO112,NE,1
+101003931763,Recycling Cart Repair or Replace,NE_Not_Overdue,TUESDAY,NETU106,NE,1
+101003926038,Recycling Cart Repair or Replace,NE_Not_Overdue,FRIDAY,NEFR107,NE,1
+101003768964,Container Problem,NE_Overdue,FRIDAY,NEFR105,NE,1
+101003777305,Container Problem,NE_Overdue,FRIDAY,NEFR105,NE,1
+101003769461,New Resident Container,NE_Overdue,FRIDAY,NEFR109,NE,1
+393765-101003924966,Trash Dumping or Illegal Dumpsite,NE_Not_Overdue,FRIDAY,NEFR115,NE,1
+101003769719,Container Problem,NE_Overdue,FRIDAY,NEFR115,NE,1
+101003925702,Recycling Participation NEW,SE_Not_Overdue,FRIDAY,SEFR113,SE,1
+101003920056,Missed Heavy Trash Pickup,NE_Overdue,TUESDAY,NETU105,NE,1
+101003739746,Container Problem,NE_Overdue,TUESDAY,NETU105,NE,1
+101003931151,Container Problem,NE_Not_Overdue,MONDAY,NEMO115,NE,1
+101003931947,Missed Garbage Pickup,NE_Not_Overdue,MONDAY,NEMO115,NE,1
+101003932056,Container Problem,NE_Not_Overdue,MONDAY,NEMO115,NE,1
+101003744620,New Resident Container,NE_Overdue,MONDAY,NEMO115,NE,1
+101003929170,Recycling Participation NEW,NW_Not_Overdue,THURSDAY,NWTH121,NW,1
+394077-101003926308,Trash Dumping or Illegal Dumpsite,NE_Not_Overdue,FRIDAY,NEFR103,NE,1
+394583-101003930756,Trash Dumping or Illegal Dumpsite,NE_Not_Overdue,FRIDAY,NEFR103,NE,1
+101003924582,Missed Heavy Trash Pickup,NE_Overdue,FRIDAY,NEFR103,NE,1
+101003931932,Missed Garbage Pickup,SE_Not_Overdue,TUESDAY,SETU102,SE,1
+101003930202,Container Problem,SE_Not_Overdue,MONDAY,SEMO122,SE,1
+101003886716,Recycling Participation NEW,SE_Overdue,MONDAY,SEMO122,SE,1
+101003929494,New Resident Container,SW_Not_Overdue,TUESDAY,SWTU105,SW,1
+101003931164,Add A Can,NE_Not_Overdue,MONDAY,NEMO103,NE,1
+101003923294,Recycling Participation NEW,NE_Not_Overdue,FRIDAY,NEFR120,NE,1
+101003930231,New Resident Container,NE_Not_Overdue,FRIDAY,NEFR120,NE,1
+101003742198,New Resident Container,NE_Overdue,FRIDAY,NEFR120,NE,1
+101003744530,Container Problem,NE_Overdue,FRIDAY,NEFR120,NE,1
+101003768895,Container Problem,NE_Overdue,FRIDAY,NEFR120,NE,1
+101003780868,Container Problem,NE_Overdue,FRIDAY,NEFR120,NE,1
+101003892130,Missed Heavy Trash Pickup,NE_Overdue,FRIDAY,NEFR120,NE,1
+101003906091,Missed Heavy Trash Pickup,NE_Overdue,FRIDAY,NEFR120,NE,1
+101003932038,Dead Animal Collection,NE_Not_Overdue,FRIDAY,NEFR119,NE,1
+101003784018,Container Problem,NE_Overdue,FRIDAY,NEFR119,NE,1
+101003746883,Container Problem,NE_Overdue,MONDAY,NEMO110,NE,1
+101003772034,Container Problem,NE_Overdue,MONDAY,NEMO110,NE,1
+101003887064,Missed Heavy Trash Pickup,NE_Overdue,MONDAY,NEMO110,NE,1
+101003885917,Recycling Participation NEW,SE_Overdue,TUESDAY,SETU108,SE,1
+101003771252,New Resident ,NE_Overdue,MONDAY,NEMO104,NE,1
+Container
+101003886470,Missed Heavy Trash Pickup,NE_Overdue,MONDAY,NEMO104,NE,1
+101003922938,Missed Heavy Trash Pickup,NE_Overdue,FRIDAY,NEFR117,NE,1
+101003785300,Container Problem,NE_Overdue,FRIDAY,NEFR117,NE,1
+101003921522,Trash Dumping or Illegal Dumpsite,NE_Not_Overdue,FRIDAY,NEFR104,NE,1
+101003922887,Trash Dumping or Illegal Dumpsite,NE_Not_Overdue,FRIDAY,NEFR104,NE,1
+101003930170,New Resident Container,NE_Not_Overdue,FRIDAY,NEFR104,NE,1
+101003930230,Missed Heavy Trash Pickup,NE_Not_Overdue,FRIDAY,NEFR104,NE,1
+101003740491,Container Problem,NE_Overdue,FRIDAY,NEFR104,NE,1
+101003783591,Container Problem,NE_Overdue,FRIDAY,NEFR104,NE,1
+101003925320,Trash Dumping or Illegal Dumpsite,NE_Not_Overdue,FRIDAY,NEFR118,NE,1
+101003736849,Container Problem,NE_Overdue,FRIDAY,NEFR118,NE,1
+101003781052,Container Problem,NE_Overdue,FRIDAY,NEFR118,NE,1
+101003926358,Missed Heavy Trash Pickup,NE_Not_Overdue,MONDAY,NEMO103,NE,1
+101003923365,Missed Heavy Trash Pickup,NE_Overdue,MONDAY,NEMO103,NE,1
+393200-101003919888,Trash Dumping or Illegal Dumpsite,NE_Not_Overdue,MONDAY,NEMO120,NE,1
+393199-101003919887,Trash Dumping or Illegal Dumpsite,NE_Not_Overdue,MONDAY,NEMO120,NE,1
+101003932348,Dead Animal Collection,NE_Not_Overdue,MONDAY,NEMO120,NE,1
+101003925594,Container Problem,SW_Not_Overdue,TUESDAY,SWTU121,SW,1
+101003927194,New Resident Container,SW_Not_Overdue,TUESDAY,SWTU121,SW,1
+101003931460,Container Problem,SW_Not_Overdue,TUESDAY,SWTU121,SW,1
+101003923465,Container Problem,SW_Overdue,TUESDAY,SWTU117,SW,1
+101003907774,Trash Dumping or Illegal Dumpsite,NE_Not_Overdue,FRIDAY,NEFR111,NE,1
+101003742125,Container Problem,NE_Overdue,FRIDAY,NEFR111,NE,1
+101003742551,Container Problem,NE_Overdue,FRIDAY,NEFR111,NE,1
+101003744461,New Resident Container,NE_Overdue,FRIDAY,NEFR116,NE,1
+101003780812,Container Problem,NE_Overdue,FRIDAY,NEFR116,NE,1
+101003771250,New Resident Container,NE_Overdue,MONDAY,NEMO106,NE,1
+101003931518,Missed Garbage Pickup,NE_Not_Overdue,MONDAY,NEMO106,NE,1
+393168-101003919867,Trash Dumping or Illegal Dumpsite,NE_Not_Overdue,FRIDAY,NEFR118,NE,1
+393169-101003919869,Trash Dumping or Illegal Dumpsite,NE_Not_Overdue,FRIDAY,NEFR118,NE,1
+393171-101003919870,Trash Dumping or Illegal Dumpsite,NE_Not_Overdue,FRIDAY,NEFR118,NE,1
+101003744258,Container Problem,NE_Overdue,FRIDAY,NEFR118,NE,1
+101003769411,New Resident Container,NE_Overdue,FRIDAY,NEFR118,NE,1
+101003769656,Container Problem,NE_Overdue,FRIDAY,NEFR118,NE,1
+101003773758,Container Problem,NE_Overdue,FRIDAY,NEFR118,NE,1
+393775-101003924975,Trash Dumping or Illegal Dumpsite,NE_Not_Overdue,FRIDAY,NEFR115,NE,1
+101003932400,Container Problem,NE_Not_Overdue,FRIDAY,NEFR115,NE,1
+101003738452,New Resident Container,NE_Overdue,FRIDAY,NEFR115,NE,1
+101003780740,Container Problem,NE_Overdue,FRIDAY,NEFR115,NE,1
+101003781978,Container Problem,NE_Overdue,FRIDAY,NEFR115,NE,1
+101003931830,Missed Recycling Pickup,SW_Not_Overdue,TUESDAY,SWTU104,SW,1
+101003932660,Add A Can,SW_Not_Overdue,FRIDAY,SWFR121,SW,1
+101003904303,Trash Dumping or Illegal Dumpsite,SE_Not_Overdue,TUESDAY,SETU102,SE,1
+101003931554,Container Problem,SE_Not_Overdue,TUESDAY,SETU102,SE,1
+101003919980,Missed Recycling Pickup,SW_Overdue,THURSDAY,SWTH108,SW,1
+393377-101003921101,Trash Dumping or Illegal Dumpsite,NE_Not_Overdue,THURSDAY,NETH114,NE,1
+393382-101003921103,Trash Dumping or Illegal Dumpsite,NE_Not_Overdue,THURSDAY,NETH114,NE,1
+393375-101003921099,Trash Dumping or Illegal Dumpsite,NE_Not_Overdue,THURSDAY,NETH114,NE,1
+101003891243,Recycling Cart Repair or Replace,SW_Overdue,THURSDAY,SWTH121,SW,1
+101003892150,Recycling Participation NEW,SE_Not_Overdue,FRIDAY,SEFR123,SE,1
+101003932481,Dead Animal Collection,SE_Not_Overdue,FRIDAY,SEFR123,SE,1
+101003932350,Container Problem,SW_Not_Overdue,TUESDAY,SWTU102,SW,1
+101003906052,Recycling Cart Repair or Replace,SW_Overdue,TUESDAY,SWTU115,SW,1
+101003927284,Recycling Participation NEW,NW_Not_Overdue,TUESDAY,NWTU104,NW,1
+101003927287,Container Problem,NW_Not_Overdue,TUESDAY,NWTU104,NW,1
+101003931030,New Resident Container,NW_Not_Overdue,TUESDAY,NWTU104,NW,1
+101003932486,Missed Garbage Pickup,NW_Not_Overdue,TUESDAY,NWTU104,NW,1
+101003932527,Missed Garbage Pickup,NW_Not_Overdue,TUESDAY,NWTU104,NW,1
+101003926298,Missed Yard Waste Pickup,SW_Not_Overdue,TUESDAY,SWTU112,SW,1
+101003903924,Recycling Cart Repair or Replace,SW_Overdue,TUESDAY,SWTU112,SW,1
+101003890860,Container Problem,SE_Overdue,TUESDAY,SETU103,SE,1
+101003908622,Trash Dumping or Illegal Dumpsite,NE_Not_Overdue,FRIDAY,NEFR110,NE,1
+101003757959,Container Problem,NE_Overdue,FRIDAY,NEFR110,NE,1
+101003930997,Container Problem,NE_Not_Overdue,TUESDAY,NETU109,NE,1
+101003931288,Property Damage,NE_Not_Overdue,TUESDAY,NETU109,NE,1
+101003781462,Container Problem,NE_Overdue,TUESDAY,NETU109,NE,1
+101003929587,Missed Yard Waste Pickup,NW_Not_Overdue,THURSDAY,NWTH117,NW,1
+101003888753,New Resident Container,NW_Overdue,THURSDAY,NWTH119,NW,1
+101003926807,Container Problem,NW_Not_Overdue,THURSDAY,NWTH119,NW,1
+101003931023,New Resident Container,NW_Not_Overdue,THURSDAY,NWTH119,NW,1
+101003932467,Recycling Cart Repair or ,NW_Not_Overdue,THURSDAY,NWTH119,NW,1
+Replace
+394744-101003932941,Trash Dumping or Illegal Dumpsite,NW_Not_Overdue,THURSDAY,NWTH119,NW,1
+101003923087,Recycling Cart Repair or Replace,SE_Not_Overdue,MONDAY,SEMO108,SE,1
+101003886449,Recycling Cart Repair or Replace,SE_Overdue,MONDAY,SEMO119,SE,1
+101003927436,Missed Garbage Pickup,SW_Overdue,THURSDAY,SWTH106,SW,1
+101003928456,Missed Garbage Pickup,SW_Overdue,THURSDAY,SWTH106,SW,1
+101003928076,Container Problem,SW_Not_Overdue,FRIDAY,SWFR104,SW,1
+101003926420,Container Problem,SW_Not_Overdue,MONDAY,SWMO102,SW,1
+101003932821,Missed Recycling Pickup,SW_Not_Overdue,MONDAY,SWMO102,SW,1
+101003926269,Missed Yard Waste Pickup,SW_Not_Overdue,TUESDAY,SWTU113,SW,1
+101003926751,Missed Yard Waste Pickup,SW_Not_Overdue,TUESDAY,SWTU113,SW,1
+101003891487,Recycling Participation NEW,SE_Not_Overdue,MONDAY,SEMO118,SE,1
+101003889029,Missed Heavy Trash Pickup,SE_Overdue,MONDAY,SEMO118,SE,1
+101003889363,Missed Heavy Trash Pickup,SE_Overdue,MONDAY,SEMO118,SE,1
+101003929879,Missed Garbage Pickup,SW_Not_Overdue,FRIDAY,SWFR114,SW,1
+101003932318,Add A Can,SW_Not_Overdue,FRIDAY,SWFR114,SW,1
+101003931929,Missed Garbage Pickup,NW_Not_Overdue,TUESDAY,NWTU119,NW,1
+101003932065,Missed Yard Waste Pickup,NW_Not_Overdue,TUESDAY,NWTU119,NW,1
+101003930994,Missed Heavy Trash Pickup,NW_Not_Overdue,THURSDAY,NWTH101,NW,1
+101003932023,Dead Animal Collection,NW_Not_Overdue,THURSDAY,NWTH101,NW,1
+101003926105,Recycling Cart Repair or Replace,NW_Not_Overdue,THURSDAY,NWTH123,NW,1
+101003927318,Recycling Participation NEW,NW_Not_Overdue,THURSDAY,NWTH123,NW,1
+101003928625,Container Problem,NW_Not_Overdue,THURSDAY,NWTH123,NW,1
+101003928627,Recycling Cart Repair or Replace,NW_Not_Overdue,THURSDAY,NWTH123,NW,1
+101003929770,Missed Yard Waste Pickup,NW_Not_Overdue,THURSDAY,NWTH123,NW,1
+101003742911,Recycling Cart Repair or Replace,NW_Overdue,THURSDAY,NWTH123,NW,1
+101003905825,Missed Heavy Trash Pickup,NW_Overdue,THURSDAY,NWTH123,NW,1
+393330-101003921072,Trash Dumping or Illegal Dumpsite,NW_Not_Overdue,THURSDAY,NWTH120,NW,1
+101003926399,Recycling Cart Repair or Replace,NW_Not_Overdue,THURSDAY,NWTH120,NW,1
+101003890966,Missed Heavy Trash Pickup,SE_Overdue,MONDAY,SEMO118,SE,1
+101003889765,Missed Heavy Trash Pickup,SE_Overdue,MONDAY,SEMO118,SE,1
+101003393405,Property Damage,SE_Overdue,FRIDAY,SEFR120,SE,1
+101003928735,Missed Recycling Pickup,SE_Overdue,FRIDAY,SEFR120,SE,1
+101003886041,Missed Heavy Trash Pickup,SE_Overdue,FRIDAY,SEFR120,SE,1
+101003920900,New Resident Container,SE_Overdue,FRIDAY,SEFR120,SE,1
+101003921254,Missed Recycling Pickup,SE_Overdue,FRIDAY,SEFR120,SE,1
+101003931200,Recycling Cart Repair or Replace,SE_Not_Overdue,TUESDAY,SETU114,SE,1
+101003932304,Container Problem,SE_Not_Overdue,TUESDAY,SETU114,SE,1
+101003924371,Recycling Participation NEW,NW_Not_Overdue,THURSDAY,NWTH105,NW,1
+101003926661,Container Problem,NW_Not_Overdue,THURSDAY,NWTH105,NW,1
+101003932466,Missed Heavy Trash Pickup,NW_Not_Overdue,THURSDAY,NWTH105,NW,1
+101003907755,Add A Cart CANCELLATION,NW_Not_Overdue,THURSDAY,NWTH118,NW,1
+101003930548,Container Problem,SW_Not_Overdue,MONDAY,SWMO117,SW,1
+101003931986,Dead Animal Collection,NW_Not_Overdue,TUESDAY,NWTU118,NW,1
+101003932183,Dead Animal Collection,NW_Not_Overdue,TUESDAY,NWTU118,NW,1
+101003932362,Missed Garbage Pickup,NW_Not_Overdue,TUESDAY,NWTU118,NW,1
+101003932463,Dead Animal Collection,NW_Not_Overdue,TUESDAY,NWTU118,NW,1
+101003932670,Missed Garbage ,NW_Not_Overd,TUESDAY,NWTU118,NW,1
+Pickup,ue
+101003919781,SWM Escalation,NW_Overdue,TUESDAY,NWTU118,NW,1
+101003932726,Missed Recycling Pickup,SE_Not_Overdue,TUESDAY,SETU102,SE,1
+101003930690,Container Problem,SW_Not_Overdue,TUESDAY,SWTU116,SW,1
+101003931402,Missed Yard Waste Pickup,SW_Not_Overdue,FRIDAY,SWFR116,SW,1
+101003928179,Container Problem,SW_Not_Overdue,TUESDAY,SWTU106,SW,1
+101003887542,New Move In Service,SW_Overdue,TUESDAY,SWTU106,SW,1
+101003885772,Recycling Participation NEW,SE_Overdue,MONDAY,SEMO123,SE,1
+101003927116,Missed Yard Waste Pickup,SW_Not_Overdue,TUESDAY,SWTU122,SW,1
+101003932559,Missed Garbage Pickup,SE_Not_Overdue,FRIDAY,SEFR108,SE,1
+101003919529,Recycling Participation NEW,SW_Not_Overdue,MONDAY,SWMO114,SW,1
+101003904148,Dead Animal Collection,SW_Overdue,MONDAY,SWMO114,SW,1
+101003931163,Container Problem,SW_Not_Overdue,TUESDAY,SWTU108,SW,1
+101003931894,Container Problem,SW_Not_Overdue,TUESDAY,SWTU108,SW,1
+101003924053,Container Problem,SW_Not_Overdue,TUESDAY,SWTU110,SW,1
+101003926103,Container Problem,SW_Not_Overdue,TUESDAY,SWTU109,SW,1
+101003931262,Container Problem,SW_Not_Overdue,TUESDAY,SWTU109,SW,1
+101003926895,Missed Heavy Trash Pickup,SE_Not_Overdue,TUESDAY,SETU114,SE,1
+101003926053,Container Problem,SE_Not_Overdue,TUESDAY,SETU104,SE,1
+101003921516,Recycling Participation NEW,NW_Not_Overdue,THURSDAY,NWTH111,NW,1
+101003925446,Recycling Participation NEW,NW_Not_Overdue,THURSDAY,NWTH111,NW,1
+101003925463,Container Problem,NW_Not_Overdue,THURSDAY,NWTH111,NW,1
+101003925919,Recycling Participation NEW,NW_Not_Overdue,THURSDAY,NWTH111,NW,1
+101003928290,Recycling Participation NEW,NW_Not_Overdue,THURSDAY,NWTH111,NW,1
+101003928968,Container ,NW_Not_Overd,THURSDAY,NWTH111,NW,1
+Problem,ue
+101003929162,Container Problem,NW_Not_Overdue,THURSDAY,NWTH111,NW,1
+101003929932,New Resident Container,NW_Not_Overdue,THURSDAY,NWTH111,NW,1
+101003930478,Container Problem,NW_Not_Overdue,THURSDAY,NWTH111,NW,1
+101003930636,Recycling Participation NEW,NW_Not_Overdue,THURSDAY,NWTH111,NW,1
+101003930855,New Resident Container,NW_Not_Overdue,THURSDAY,NWTH111,NW,1
+101003930856,Recycling Participation NEW,NW_Not_Overdue,THURSDAY,NWTH111,NW,1
+101003932018,Dead Animal Collection,NW_Not_Overdue,THURSDAY,NWTH111,NW,1
+101003932922,Container Problem,NW_Not_Overdue,THURSDAY,NWTH111,NW,1
+101003930602,New Resident Container,NE_Not_Overdue,TUESDAY,NETU112,NE,1
+101003932801,Missed Heavy Trash Pickup,SW_Not_Overdue,THURSDAY,SWTH108,SW,1
+101003930695,Missed Recycling Pickup,NW_Not_Overdue,MONDAY,NWMO120,NW,1
+101003926810,Missed Garbage Pickup,SW_Overdue,THURSDAY,SWTH121,SW,1
+101003892441,Recycling Cart Repair or Replace,SE_Overdue,FRIDAY,SEFR112,SE,1
+101003928189,Recycling Participation NEW,NE_Not_Overdue,THURSDAY,NETH108,NE,1
+101003931814,Trash Dumping or Illegal Dumpsite,NE_Not_Overdue,FRIDAY,NEFR101,NE,1
+101003932804,Recycling Cart Repair or Replace,NE_Not_Overdue,FRIDAY,NEFR101,NE,1
+101003932803,Container Problem,NE_Not_Overdue,FRIDAY,NEFR101,NE,1
+101003771112,New Resident Container,NE_Overdue,FRIDAY,NEFR101,NE,1
+101003771229,New Resident Container,NE_Overdue,FRIDAY,NEFR101,NE,1
+101003778378,Container Problem,NE_Overdue,FRIDAY,NEFR101,NE,1
+101003907843,Recycling Cart Repair or Replace,SW_Overdue,MONDAY,SWMO111,SW,1
+101003928023,Container Problem,SW_Not_Overdue,THURSDAY,SWTH113,SW,1
+101003384955,Property Damage,SE_Overdue,TUESDAY,SETU105,SE,1
+101003780872,New Resident Container,NE_Overdue,THURSDAY,NETH116,NE,1
+393634-101003922403,Trash Dumping or Illegal Dumpsite,NE_Not_Overdue,THURSDAY,NETH116,NE,1
+101003930998,Container Problem,NE_Not_Overdue,THURSDAY,NETH116,NE,1
+101003931503,Recycling Participation NEW,NE_Not_Overdue,TUESDAY,NETU110,NE,1
+101003925994,Missed Yard Waste Pickup,SW_Overdue,THURSDAY,SWTH121,SW,1
+101003925498,Container Problem,NE_Not_Overdue,MONDAY,NEMO118,NE,1
+101003779909,Add A Can,NE_Overdue,MONDAY,NEMO118,NE,1
+101003907762,Add A Can CANCELLATION,SW_Not_Overdue,TUESDAY,SWTU120,SW,1
+101003927323,Container Problem,SW_Not_Overdue,TUESDAY,SWTU120,SW,1
+101003932473,New Resident Container,SW_Not_Overdue,FRIDAY,SWFR111,SW,1
+101003652310,Miss Complaint, ,THURSDAY,SWTH116,SW,1
+101003768200,Container Problem,NE_Overdue,THURSDAY,NETH106,NE,1
+101003930116,Missed Garbage Pickup,SW_Not_Overdue,MONDAY,SWMO112,SW,1
+101003931729,Missed Recycling Pickup,SE_Not_Overdue,MONDAY,SEMO106,SE,1
+101003932314,Missed Garbage Pickup,SE_Not_Overdue,MONDAY,SEMO106,SE,1
+101003932319,Missed Recycling Pickup,SE_Not_Overdue,MONDAY,SEMO106,SE,1
+101003928385,Missed Garbage Pickup,SW_Overdue,THURSDAY,SWTH108,SW,1
+101003891235,Missed Heavy Trash Pickup,SE_Overdue,MONDAY,SEMO107,SE,1
+101003927866,Container Problem,NW_Not_Overdue,MONDAY,NWMO112,NW,1
+101003930378,SWM Escalation,NW_Overdue,MONDAY,NWMO112,NW,1
+101003920027,Trash Dumping or Illegal Dumpsite,NE_Not_Overdue,MONDAY,NEMO105,NE,1
+101003926932,Container Problem,NE_Not_Overdue,MONDAY,NEMO105,NE,1
+101003781228,New Resident Container,NE_Overdue,MONDAY,NEMO105,NE,1
+101003919795,Missed Heavy Trash Pickup,NE_Overdue,MONDAY,NEMO105,NE,1
+101003932484,Missed Garbage Pickup,SW_Not_Overdue,TUESDAY,SWTU111,SW,1
+394741-101003932939,Trash Dumping or Illegal Dumpsite,SW_Not_Overdue,TUESDAY,SWTU111,SW,1
+101003929953,Missed Recycling Pickup,SW_Not_Overdue,THURSDAY,SWTH108,SW,1
+101003931079,Missed Garbage Pickup,SW_Not_Overdue,TUESDAY,SWTU119,SW,1
+101003932015,Missed Garbage Pickup,SW_Not_Overdue,TUESDAY,SWTU119,SW,1
+101003930780,Missed Recycling Pickup,SW_Not_Overdue,THURSDAY,SWTH107,SW,1
+101003922865,Missed Recycling Pickup,SW_Overdue,THURSDAY,SWTH107,SW,1
+101003925178,Missed Yard Waste Pickup,SW_Overdue,THURSDAY,SWTH107,SW,1
+101003922788,Missed Recycling Pickup,SW_Overdue,THURSDAY,SWTH107,SW,1
+101003931479,Dead Animal Collection,NW_Not_Overdue,MONDAY,NWMO103,NW,1
+101003921010,New Resident Container,NW_Overdue,MONDAY,NWMO103,NW,1
+101003926813,Spilled Debris,SW_Overdue,TUESDAY,SWTU119,SW,1
+101003926362,Container Problem,SW_Not_Overdue,THURSDAY,SWTH101,SW,1
+101003926801,Missed Yard Waste Pickup,SW_Not_Overdue,THURSDAY,SWTH101,SW,1
+101003931604,Dead Animal Collection,SW_Not_Overdue,THURSDAY,SWTH101,SW,1
+394686-101003931779,Dead Animal Collection,SW_Not_Overdue,THURSDAY,SWTH101,SW,1
+101003932678,Missed Garbage Pickup,SW_Not_Overdue,TUESDAY,SWTU114,SW,1
+101003931347,Recycling Participation NEW,SE_Not_Overdue,TUESDAY,SETU115,SE,1
+101003932399,Missed Recycling Pickup,SE_Not_Overdue,TUESDAY,SETU115,SE,1
+101003930261,Container Problem,NW_Not_Overdue,TUESDAY,NWTU124,NW,1
+101003932137,Container Problem,NW_Not_Overdue,TUESDAY,NWTU124,NW,1
+101003932139,Add A Can,NW_Not_Overdue,TUESDAY,NWTU124,NW,1
+101003932123,Missed Yard Waste Pickup,NW_Not_Overdue,TUESDAY,NWTU124,NW,1
+101003932126,Missed Yard Waste Pickup,NW_Not_Overdue,TUESDAY,NWTU124,NW,1
+101003929868,Recycling Participation NEW,NE_Not_Overdue,TUESDAY,NETU113,NE,1
+101003932545,SWM Escalation,SW_Not_Overdue,MONDAY,SWMO122,SW,1
+101003906529,Trash Dumping or Illegal Dumpsite,SW_Not_Overdue,FRIDAY,SWFR114,SW,1
+101003925602,Recycling Cart Repair or Replace,NW_Not_Overdue,FRIDAY,NWFR115,NW,1
+101003931475,Missed Heavy Trash Pickup,NW_Not_Overdue,FRIDAY,NWFR115,NW,1
+101003886689,Missed Heavy Trash Pickup,NW_Overdue,FRIDAY,NWFR115,NW,1
+101003885966,Missed Heavy Trash Pickup,NW_Overdue,FRIDAY,NWFR115,NW,1
+101003887831,Missed Heavy Trash Pickup,NW_Overdue,FRIDAY,NWFR115,NW,1
+101003889856,Missed Heavy Trash Pickup,NW_Overdue,FRIDAY,NWFR115,NW,1
+101003890057,Missed Heavy Trash Pickup,NW_Overdue,FRIDAY,NWFR115,NW,1
+101003892655,Missed Heavy Trash Pickup,NW_Overdue,FRIDAY,NWFR115,NW,1
+101003921419,Missed Heavy Trash Pickup,NW_Overdue,FRIDAY,NWFR115,NW,1
+101003906233,Container Problem,SE_Overdue,MONDAY,SEMO121,SE,1
+101003927028,Trash Dumping or Illegal Dumpsite,SE_Not_Overdue,FRIDAY,SEFR116,SE,1
+101003931937,Container Problem,SW_Not_Overdue,MONDAY,SWMO120,SW,1
+101003925422,Recycling Cart Repair or Replace,NE_Not_Overdue,MONDAY,NEMO108,NE,1
+101003931007,Container Problem,NE_Not_Overdue,MONDAY,NEMO108,NE,1
+101003739631,Container Problem,NE_Overdue,MONDAY,NEMO108,NE,1
+101003738661,Container Problem,NE_Overdue,MONDAY,NEMO108,NE,1
+101003746071,Container Problem,NE_Overdue,MONDAY,NEMO108,NE,1
+101003772892,Container Problem,NE_Overdue,MONDAY,NEMO108,NE,1
+101003784820,New Resident Container,NE_Overdue,MONDAY,NEMO108,NE,1
+101003928186,Missed Garbage Pickup,SW_Overdue,THURSDAY,SWTH119,SW,1
+101003888843,New Move In Service,SW_Overdue,THURSDAY,SWTH119,SW,1
+101003770674,Container Problem,NE_Overdue,MONDAY,NEMO120,NE,1
+101003924198,Container Problem,NE_Not_Overdue,MONDAY,NEMO120,NE,1
+101003931908,Missed Heavy ,NE_Not_Overd,MONDAY,NEMO120,NE,1
+Trash Pickup,ue
+101003772235,Container Problem,NE_Overdue,MONDAY,NEMO120,NE,1
+101003922212,Trash Dumping or Illegal Dumpsite,NW_Not_Overdue,MONDAY,NWMO121,NW,1
+101003929197,New Resident Container,NW_Not_Overdue,MONDAY,NWMO121,NW,1
+101003929508,Container Problem,NW_Not_Overdue,MONDAY,NWMO121,NW,1
+101003932097,Spilled Debris,NW_Not_Overdue,MONDAY,NWMO121,NW,1
+101003908617,Missed Heavy Trash Pickup,NW_Overdue,MONDAY,NWMO121,NW,1
+101003891646,Recycling Cart Repair or Replace,SE_Overdue,MONDAY,SEMO122,SE,1
+101003773139,Container Problem,NE_Overdue,MONDAY,NEMO117,NE,1
+101003924488,Recycling Cart Repair or Replace,SW_Not_Overdue,TUESDAY,SWTU110,SW,1
+101003926256,Missed Yard Waste Pickup,SW_Not_Overdue,TUESDAY,SWTU110,SW,1
+101003928006,Recycling Participation NEW,NW_Not_Overdue,THURSDAY,NWTH110,NW,1
+101003930665,Container Problem,NW_Not_Overdue,THURSDAY,NWTH110,NW,1
+101003925648,SWM Escalation,NW_Overdue,THURSDAY,NWTH110,NW,1
+101003926121,Missed Yard Waste Pickup,SW_Overdue,TUESDAY,SWTU114,SW,1
+101003924193,Container Problem,SW_Not_Overdue,MONDAY,SWMO101,SW,1
+101003886341,Trash Dumping or Illegal Dumpsite,NW_Not_Overdue,TUESDAY,NWTU103,NW,1
+101003931365,Container Problem,NW_Not_Overdue,TUESDAY,NWTU103,NW,1
+101003932381,Container Problem,SW_Not_Overdue,MONDAY,SWMO118,SW,1
+101003775460,New Resident Container,NE_Overdue,THURSDAY,NETH118,NE,1
+101003885734,Trash Dumping or Illegal Dumpsite,SE_Not_Overdue,MONDAY,SEMO109,SE,1
+101003922077,New Resident Container,NW_Not_Overdue,TUESDAY,NWTU116,NW,1
+101003931723,Container Problem,NW_Not_Overdue,TUESDAY,NWTU116,NW,1
+101003932094,Missed Garbage Pickup,NW_Not_Overdue,TUESDAY,NWTU116,NW,1
+101003932156,Container Problem,NW_Not_Overdue,TUESDAY,NWTU116,NW,1
+101003932717,Missed Recycling Pickup,NW_Not_Overdue,TUESDAY,NWTU116,NW,1
+101003888847,Add A Can,NW_Overdue,TUESDAY,NWTU116,NW,1
+101003928803,Container Problem,SW_Not_Overdue,THURSDAY,SWTH116,SW,1
+101003927626,Container Problem,NW_Not_Overdue,FRIDAY,NWFR103,NW,1
+101003930749,Recycling Participation NEW,NW_Not_Overdue,FRIDAY,NWFR103,NW,1
+101003931645,Recycling Cart Repair or Replace,SW_Not_Overdue,THURSDAY,SWTH113,SW,1
+101003927428,Missed Garbage Pickup,SW_Overdue,THURSDAY,SWTH106,SW,1
+101003927190,Container Problem,NW_Not_Overdue,TUESDAY,NWTU107,NW,1
+101003930123,New Resident Container,NW_Not_Overdue,TUESDAY,NWTU107,NW,1
+101003932019,Missed Garbage Pickup,NW_Not_Overdue,TUESDAY,NWTU107,NW,1
+101003909006,Missed Heavy Trash Pickup,NW_Overdue,TUESDAY,NWTU107,NW,1
+101003923230,Missed Recycling Pickup,SW_Overdue,FRIDAY,SWFR104,SW,1
+101003929747,Trash Dumping or Illegal Dumpsite,SE_Not_Overdue,FRIDAY,SEFR101,SE,1
+101003926802,Missed Heavy Trash Pickup,SE_Not_Overdue,TUESDAY,SETU107,SE,1
+101003930103,Container Problem,SW_Not_Overdue,MONDAY,SWMO104,SW,1
+101003931287,Missed Recycling Pickup,SE_Not_Overdue,MONDAY,SEMO123,SE,1
+101003889599,Missed Heavy Trash Pickup,SE_Overdue,MONDAY,SEMO123,SE,1
+101003928240,Container Problem,SW_Not_Overdue,FRIDAY,SWFR106,SW,1
+391770-101003890152,Trash Dumping or Illegal Dumpsite,SE_Not_Overdue,TUESDAY,SETU105,SE,1
+101003926069,Recycling Cart Repair or Replace,SE_Not_Overdue,TUESDAY,SETU105,SE,1
+101003923823,New Resident Container,NW_Not_Overdue,TUESDAY,NWTU123,NW,1
+101003931798,Missed Heavy Trash Pickup,NW_Not_Overdue,TUESDAY,NWTU123,NW,1
+101003932091,Missed Garbage Pickup,NW_Not_Overdue,TUESDAY,NWTU123,NW,1
+101003932105,Missed Yard Waste Pickup,NW_Not_Overdue,TUESDAY,NWTU123,NW,1
+101003932260,Missed Garbage Pickup,NW_Not_Overdue,TUESDAY,NWTU123,NW,1
+101003932266,Missed Garbage Pickup,NW_Not_Overdue,TUESDAY,NWTU123,NW,1
+101003932863,Container Problem,SW_Not_Overdue,MONDAY,SWMO121,SW,1
+101003922221,Missed Recycling Pickup,SW_Overdue,FRIDAY,SWFR110,SW,1
+101003747114,Container Problem,NE_Overdue,MONDAY,NEMO120,NE,1
+101003889604,Recycling Cart Repair or Replace,SW_Overdue,THURSDAY,SWTH108,SW,1
+101003887026,Container Problem,SW_Overdue,FRIDAY,SWFR119,SW,1
+101003932152,Missed Yard Waste Pickup,SW_Not_Overdue,FRIDAY,SWFR104,SW,1
+101003928064,Container Problem,SW_Not_Overdue,THURSDAY,SWTH106,SW,1
+101003889247,Recycling Cart Repair or Replace,SW_Overdue,TUESDAY,SWTU109,SW,1
+101003923075,Container Problem,SW_Overdue,TUESDAY,SWTU109,SW,1
+101003932141,Missed Heavy Trash Pickup,SW_Not_Overdue,FRIDAY,SWFR104,SW,1
+101003923170,Missed Recycling Pickup,SE_Overdue,MONDAY,SEMO115,SE,1
+101003932584,Container Problem,SW_Not_Overdue,TUESDAY,SWTU108,SW,1
+101003927098,Missed Heavy Trash Pickup,NW_Not_Overdue,MONDAY,NWMO107,NW,1
+101003932457,Missed Recycling Pickup,NW_Not_Overdue,MONDAY,NWMO107,NW,1
+101003932528,Missed Recycling Pickup,NW_Not_Overdue,MONDAY,NWMO107,NW,1
+101003905899,Missed Heavy Trash Pickup,SW_Overdue,MONDAY,SWMO115,SW,1
+101003925814,Recycling Participation NEW,NW_Not_Overdue,TUESDAY,NWTU120,NW,1
+101003931186,Dead Animal Collection,SW_Not_Overdue,TUESDAY,SWTU107,SW,1
+101003929917,Container Problem,SE_Not_Overdue,THURSDAY,SETH112B,SE,1
+101003884970,Recycling Participation NEW,SE_Overdue,THURSDAY,SETH106B,SE,1
+101003931919,Container Problem,SW_Not_Overdue,TUESDAY,SWTU116,SW,1
+101003926372,Missed ,SW_Overdue,TUESDAY,SWTU116,SW,1
+Recycling Pickup
+101003904839,Missed Heavy Trash Pickup,SW_Overdue,FRIDAY,SWFR118,SW,1
+101003932133,Trash Dumping or Illegal Dumpsite,SW_Not_Overdue,THURSDAY,SWTH105,SW,1
+101003926441,Missed Yard Waste Pickup,SW_Not_Overdue,TUESDAY,SWTU114,SW,1
+101003891169,Container Problem,SW_Overdue,TUESDAY,SWTU114,SW,1
+101003905960,Container Problem,SW_Overdue,TUESDAY,SWTU114,SW,1
+101003930000,SWM Escalation,SW_Overdue,TUESDAY,SWTU114,SW,1
+101003924517,Container Problem,NW_Not_Overdue,TUESDAY,NWTU125,NW,1
+101003928576,Missed Garbage Pickup,SW_Overdue,TUESDAY,SWTU101,SW,1
+101003920036,Missed Heavy Trash Pickup,SE_Overdue,THURSDAY,SETH108A,SE,1
+101003737847,Container Problem,NE_Overdue,TUESDAY,NETU120,NE,1
+101003906884,Missed Heavy Trash Pickup,SW_Overdue,FRIDAY,SWFR121,SW,1
+101003908554,New Resident Container,SW_Overdue,FRIDAY,SWFR108,SW,1
+101003889811,Recycling Cart Repair or Replace,SE_Overdue,THURSDAY,SETH101B,SE,1
+101003886360,Recycling Participation NEW,SW_Overdue,FRIDAY,SWFR122,SW,1
+101003929952,Missed Garbage Pickup,SW_Not_Overdue,FRIDAY,SWFR122,SW,1
+101003930550,New Move In Service,SW_Not_Overdue,FRIDAY,SWFR122,SW,1
+101003931928,Container Problem,SW_Not_Overdue,FRIDAY,SWFR122,SW,1
+101003930400,SWM Escalation,SW_Overdue,FRIDAY,SWFR122,SW,1
+101003929373,Recycling Cart Repair or Replace,SE_Not_Overdue,THURSDAY,SETH105B,SE,1
+101003927450,Container Problem,SE_Not_Overdue,THURSDAY,SETH107B,SE,1
+101003927452,Recycling Cart Repair or Replace,SE_Not_Overdue,THURSDAY,SETH107B,SE,1
+101003919551,Missed Heavy Trash Pickup,SE_Overdue,THURSDAY,SETH107B,SE,1
+101003929288,SWM Escalation,SW_Overdue,MONDAY,SWMO101,SW,1
+101003770663,Container Problem,NE_Overdue,FRIDAY,NEFR113,NE,1
+101003774400,New Resident Container,NE_Overdue,FRIDAY,NEFR113,NE,1
+101003771955,Container Problem,NE_Overdue,FRIDAY,NEFR113,NE,1
+101003923626,Missed Heavy Trash Pickup,NE_Overdue,FRIDAY,NEFR113,NE,1
+101003401296,Property Damage,SE_Overdue,THURSDAY,SETH113A,SE,1
+101003927796,Missed Garbage Pickup,SE_Overdue,THURSDAY,SETH113A,SE,1
+101003919513,Missed Heavy Trash Pickup,SE_Overdue,THURSDAY,SETH113A,SE,1
+101003926969,Missed Garbage Pickup,SE_Overdue,THURSDAY,SETH113A,SE,1
+101003927420,Missed Garbage Pickup,SE_Overdue,THURSDAY,SETH113A,SE,1
+101003930784,Container Problem,NW_Not_Overdue,MONDAY,NWMO122,NW,1
+101003931918,Container Problem,NW_Not_Overdue,MONDAY,NWMO122,NW,1
+101003469895,New Resident Container,SE_Overdue,THURSDAY,SETH106B,SE,1
+101003469890,New Resident Container,SE_Overdue,THURSDAY,SETH106B,SE,1
+101003907903,Missed Heavy Trash Pickup,SE_Overdue,THURSDAY,SETH106B,SE,1
+101003928483,Missed Garbage Pickup,SE_Overdue,THURSDAY,SETH106B,SE,1
+101003928056,Missed Heavy Trash Pickup,SE_Not_Overdue,THURSDAY,SETH102A,SE,1
+101003908303,Dumpster Complaint,SE_Overdue,THURSDAY,SETH104A,SE,1
+101003928282,Missed Garbage Pickup,SE_Overdue,THURSDAY,SETH109A,SE,1
+101003904701,Add A Can CANCELLATION,SE_Not_Overdue,THURSDAY,SETH103B,SE,1
+101003926045,Missed Heavy Trash Pickup,SE_Not_Overdue,THURSDAY,SETH103B,SE,1
+101003906538,Recycling Cart Repair or Replace,SE_Overdue,THURSDAY,SETH103B,SE,1
+101003926473,Missed Heavy Trash Pickup,NW_Not_Overdue,MONDAY,NWMO124,NW,1
+101003929198,New Resident Container,NW_Not_Overdue,MONDAY,NWMO124,NW,1
+101003929672,Trash Dumping or Illegal Dumpsite,NW_Not_Overdue,MONDAY,NWMO124,NW,1
+101003930857,Dead Animal Collection,NW_Not_Overdue,MONDAY,NWMO124,NW,1
+101003929193,Missed Garbage Pickup,NW_Not_Overdue,TUESDAY,NWTU106,NW,1
+101003930796,Missed Garbage Pickup,NW_Not_Overdue,TUESDAY,NWTU106,NW,1
+101003931642,Add A Can,NW_Not_Overdue,TUESDAY,NWTU106,NW,1
+101003932227,Missed Garbage Pickup,NW_Not_Overdue,TUESDAY,NWTU106,NW,1
+101003929893,Container Problem,NW_Not_Overdue,THURSDAY,NWTH113,NW,1
+101003928245,Missed Garbage Pickup,SE_Overdue,THURSDAY,SETH101A,SE,1
+101003927369,Missed Garbage Pickup,SE_Overdue,THURSDAY,SETH101A,SE,1
+101003930632,Container Problem,SE_Not_Overdue,MONDAY,SEMO102,SE,1
+101003929448,Container Problem,NW_Not_Overdue,MONDAY,NWMO117,NW,1
+101003929507,Container Problem,NW_Not_Overdue,MONDAY,NWMO117,NW,1
+101003930806,Missed Yard Waste Pickup,NW_Not_Overdue,MONDAY,NWMO117,NW,1
+101003927399,Recycling Cart Repair or Replace,NW_Not_Overdue,THURSDAY,NWTH112,NW,1
+101003929245,Recycling Cart Repair or Replace,NW_Not_Overdue,THURSDAY,NWTH112,NW,1
+101003930066,Container Problem,NW_Not_Overdue,THURSDAY,NWTH112,NW,1
+101003930739,New Resident Container,NW_Not_Overdue,THURSDAY,NWTH112,NW,1
+101003932733,Recycling Participation NEW,NW_Not_Overdue,THURSDAY,NWTH112,NW,1
+101003885517,Missed Heavy Trash Pickup,NW_Overdue,FRIDAY,NWFR120,NW,1
+101003928213,Container Problem,NW_Not_Overdue,FRIDAY,NWFR120,NW,1
+101003928948,Missed Garbage Pickup,NW_Not_Overdue,FRIDAY,NWFR120,NW,1
+101003885741,Missed Heavy Trash Pickup,NW_Overdue,FRIDAY,NWFR120,NW,1
+101003886325,Missed Heavy Trash Pickup,NW_Overdue,FRIDAY,NWFR120,NW,1
+101003887629,Missed Heavy Trash Pickup,NW_Overdue,FRIDAY,NWFR120,NW,1
+101003925512,Add A Can,NW_Not_Overdue,MONDAY,NWMO113,NW,1
+101003744261,Container Problem,NE_Overdue,TUESDAY,NETU108,NE,1
+101003931473,New Resident Container,NE_Not_Overdue,TUESDAY,NETU108,NE,1
+101003778640,Container Problem,NE_Overdue,TUESDAY,NETU108,NE,1
+101003926259,Container Problem,SE_Not_Overdue,THURSDAY,SETH102B,SE,1
+101003891488,Recycling Cart Repair or ,SE_Overdue,THURSDAY,SETH102B,SE,1
+Replace
+101003931286,Container Problem,NW_Not_Overdue,TUESDAY,NWTU111,NW,1
+101003908139,Recycling Cart Repair or Replace,SW_Overdue,THURSDAY,SWTH120,SW,1
+101003932395,Missed Garbage Pickup,NW_Not_Overdue,MONDAY,NWMO119,NW,1
+101003926435,Recycling Participation NEW,NW_Not_Overdue,MONDAY,NWMO105,NW,1
+101003929897,Container Problem,NW_Not_Overdue,MONDAY,NWMO105,NW,1
+101003924049,Recycling Participation NEW,NW_Not_Overdue,MONDAY,NWMO110,NW,1
+101003930912,Recycling Cart Repair or Replace,NW_Not_Overdue,MONDAY,NWMO110,NW,1
+101003908376,Recycling Cart Repair or Replace,SE_Overdue,THURSDAY,SETH110B,SE,1
+101003928812,New Resident Container,NW_Not_Overdue,TUESDAY,NWTU108,NW,1
+101003928813,Recycling Participation NEW,NW_Not_Overdue,TUESDAY,NWTU108,NW,1
+101003931368,Container Problem,NW_Not_Overdue,TUESDAY,NWTU108,NW,1
+101003931528,Missed Garbage Pickup,NW_Not_Overdue,TUESDAY,NWTU108,NW,1
+101003932820,Missed Yard Waste Pickup,NW_Not_Overdue,TUESDAY,NWTU108,NW,1
+101003931358,Dead Animal Collection,SW_Not_Overdue,TUESDAY,SWTU107,SW,1
+101003929165,New Resident Container,NW_Not_Overdue,MONDAY,NWMO109,NW,1
+101003929166,Recycling Participation NEW,NW_Not_Overdue,MONDAY,NWMO109,NW,1
+101003932417,Missed Garbage Pickup,NW_Not_Overdue,MONDAY,NWMO109,NW,1
+101003927079,Container Problem,SE_Not_Overdue,THURSDAY,SETH118,SE,1
+101003929642,Container Problem,SE_Not_Overdue,THURSDAY,SETH118,SE,1
+101003891410,Recycling Cart Repair or Replace,SE_Overdue,THURSDAY,SETH118,SE,1
+101003906833,Add A Can,NW_Overdue,FRIDAY,NWFR113,NW,1
+101003928306,Recycling Participation NEW,NW_Not_Overdue,THURSDAY,NWTH109,NW,1
+101003928473,Recycling Cart Repair or ,SE_Not_Overdue,THURSDAY,SETH106A,SE,1
+Replace
+101003907831,Missed Heavy Trash Pickup,SE_Overdue,THURSDAY,SETH106A,SE,1
+101003932433,Container Problem,SE_Not_Overdue,THURSDAY,SETH112A,SE,1
+101003388516,Property Damage,SE_Overdue,THURSDAY,SETH112A,SE,1
+101003394468,Property Damage,SE_Overdue,THURSDAY,SETH112A,SE,1
+101003932809,Recycling Cart Repair or Replace,SE_Not_Overdue,THURSDAY,SETH122,SE,1
+101003930196,New Resident Container,NW_Not_Overdue,TUESDAY,NWTU110,NW,1
+101003931153,Container Problem,NW_Not_Overdue,TUESDAY,NWTU110,NW,1
+101003931275,Container Problem,NW_Not_Overdue,TUESDAY,NWTU110,NW,1
+101003931841,Missed Garbage Pickup,NW_Not_Overdue,TUESDAY,NWTU110,NW,1
+101003923266,Recycling Participation NEW,NW_Not_Overdue,MONDAY,NWMO111,NW,1
+101003923537,Recycling Participation NEW,NW_Not_Overdue,MONDAY,NWMO111,NW,1
+101003931054,Recycling Participation NEW,NW_Not_Overdue,MONDAY,NWMO111,NW,1
+101003931587,SWM Escalation,NW_Not_Overdue,MONDAY,NWMO111,NW,1
+101003908983,Missed Heavy Trash Pickup,NW_Overdue,MONDAY,NWMO111,NW,1
+101003924513,Container Problem,NW_Not_Overdue,THURSDAY,NWTH107,NW,1
+101003927223,Add A Can CANCELLATION,NW_Not_Overdue,THURSDAY,NWTH107,NW,1
+101003776155,New Resident Container,NE_Overdue,TUESDAY,NETU101,NE,1
+101003746987,New Resident Container,NE_Overdue,TUESDAY,NETU101,NE,1
+101003785044,New Resident Container,NE_Overdue,TUESDAY,NETU101,NE,1
+101003908963,Add A Can,SE_Overdue,THURSDAY,SETH119,SE,1
+101003931780,Container Problem,SE_Not_Overdue,THURSDAY,SETH119,SE,1
+101003927899,Missed Garbage Pickup,SE_Overdue,THURSDAY,SETH117,SE,1
+101003927336,Container Problem,NW_Not_Overdue,FRIDAY,NWFR105,NW,1
+101003928577,Container Problem,NW_Not_Overdue,FRIDAY,NWFR105,NW,1
+101003885513,Missed Heavy Trash Pickup,NW_Overdue,FRIDAY,NWFR105,NW,1
+101003887722,Missed Heavy Trash Pickup,NW_Overdue,FRIDAY,NWFR105,NW,1
+101003930928,Dumpster Complaint,NE_Overdue,MONDAY,NEMO107,NE,1
+101003733560,Container Problem,NE_Overdue,MONDAY,NEMO107,NE,1
+101003736680,Container Problem,NE_Overdue,MONDAY,NEMO107,NE,1
+101003770826,Container Problem,NE_Overdue,MONDAY,NEMO107,NE,1
+101003923834,New Resident Container,NW_Not_Overdue,THURSDAY,NWTH103,NW,1
+101003927829,Recycling Cart Repair or Replace,NW_Not_Overdue,THURSDAY,NWTH103,NW,1
+101003772666,New Resident Container,NE_Overdue,THURSDAY,NETH115,NE,1
+101003925388,Trash Dumping or Illegal Dumpsite,NW_Not_Overdue,FRIDAY,NWFR102,NW,1
+393970-101003925410,Trash Dumping or Illegal Dumpsite,NW_Not_Overdue,FRIDAY,NWFR102,NW,1
+101003924035,Container Problem,NW_Not_Overdue,TUESDAY,NWTU120,NW,1
+101003927769,Container Problem,SE_Not_Overdue,THURSDAY,SETH107A,SE,1
+101003906432,Missed Heavy Trash Pickup,SE_Overdue,THURSDAY,SETH107A,SE,1
+101003927321,Missed Garbage Pickup,SE_Overdue,THURSDAY,SETH107A,SE,1
+101003923651,Dumpster Complaint,NE_Not_Overdue,FRIDAY,NEFR105,NE,1
+101003924617,Recycling Participation NEW,NE_Not_Overdue,FRIDAY,NEFR105,NE,1
+101003930017,Recycling Participation NEW,NE_Not_Overdue,FRIDAY,NEFR105,NE,1
+101003772057,Container Problem,NE_Overdue,FRIDAY,NEFR105,NE,1
+101003777665,New Resident Container,NE_Overdue,FRIDAY,NEFR105,NE,1
+101003925607,Recycling Participation NEW,SE_Not_Overdue,THURSDAY,SETH109B,SE,1
+101003890836,Recycling Cart Repair or Replace,SE_Overdue,THURSDAY,SETH109B,SE,1
+101003906735,Recycling Cart Repair or Replace,SE_Overdue,THURSDAY,SETH109B,SE,1
+101003923084,Recycling Participation NEW,NW_Not_Overdue,MONDAY,NWMO108,NW,1
+101003930685,New Resident Container,NW_Not_Overdue,MONDAY,NWMO108,NW,1
+101003931161,SWM Escalation,NW_Not_Overdue,MONDAY,NWMO108,NW,1
+101003931172,Missed Recycling Pickup,NW_Not_Overdue,MONDAY,NWMO108,NW,1
+101003932407,Container Problem,NW_Not_Overdue,MONDAY,NWMO108,NW,1
+101003932707,Recycling Participation NEW,NW_Not_Overdue,MONDAY,NWMO108,NW,1
+101003928862,Missed Garbage Pickup,NW_Not_Overdue,FRIDAY,NWFR124,NW,1
+101003927928,Container Problem,NW_Not_Overdue,MONDAY,NWMO116,NW,1
+101003931392,Missed Garbage Pickup,NW_Not_Overdue,TUESDAY,NWTU112,NW,1
+101003932719,Container Problem,NW_Not_Overdue,TUESDAY,NWTU112,NW,1
+101003909178,Add A Can,NW_Overdue,TUESDAY,NWTU112,NW,1
+101003927044,Container Problem,NW_Not_Overdue,FRIDAY,NWFR106,NW,1
+101003928497,Container Problem,NW_Not_Overdue,FRIDAY,NWFR106,NW,1
+101003888774,Missed Heavy Trash Pickup,NW_Overdue,FRIDAY,NWFR106,NW,1
+101003931034,Container Problem,NW_Not_Overdue,TUESDAY,NWTU114,NW,1
+101003926532,Recycling Cart Repair or Replace,SE_Not_Overdue,THURSDAY,SETH123,SE,1
+101003927922,Container Problem,SE_Not_Overdue,THURSDAY,SETH123,SE,1
+101003928309,Recycle Bin/Cart Retrieve,SE_Not_Overdue,THURSDAY,SETH123,SE,1
+101003373144,Property Damage,SE_Overdue,THURSDAY,SETH123,SE,1
+101003373342,Property Damage,SE_Overdue,THURSDAY,SETH123,SE,1
+101003886463,Recycling Participation NEW,SE_Overdue,THURSDAY,SETH114B,SE,1
+101003891338,Recycling Participation NEW,SE_Not_Overdue,THURSDAY,SETH114B,SE,1
+101003925694,Recycle Bin/Cart Retrieve,SE_Not_Overdue,THURSDAY,SETH114B,SE,1
+101003927293,Recycling Participation NEW,SE_Not_Overdue,THURSDAY,SETH114B,SE,1
+101003928430,Recycling Participation ,SE_Not_Overdue,THURSDAY,SETH114B,SE,1
+NEW
+101003929772,Recycling Participation NEW,SE_Not_Overdue,THURSDAY,SETH114B,SE,1
+101003926624,Container Problem,NW_Not_Overdue,THURSDAY,NWTH102,NW,1
+101003904100,New Resident Container,NW_Overdue,THURSDAY,NWTH102,NW,1
+101003928147,Container Problem,NW_Not_Overdue,FRIDAY,NWFR114,NW,1
+101003929194,Container Problem,NW_Not_Overdue,FRIDAY,NWFR114,NW,1
+101003925834,Recycling Participation NEW,NW_Not_Overdue,THURSDAY,NWTH108,NW,1
+394651-101003931329,Trash Dumping or Illegal Dumpsite,NW_Not_Overdue,THURSDAY,NWTH108,NW,1
+101003906401,Trash Dumping or Illegal Dumpsite,NW_Not_Overdue,FRIDAY,NWFR104,NW,1
+101003928921,Missed Heavy Trash Pickup,NW_Not_Overdue,FRIDAY,NWFR104,NW,1
+101003929766,Missed Garbage Pickup,NW_Not_Overdue,FRIDAY,NWFR104,NW,1
+101003931074,New Resident Container,NW_Not_Overdue,FRIDAY,NWFR104,NW,1
+101003931077,Recycling Participation NEW,NW_Not_Overdue,FRIDAY,NWFR104,NW,1
+101003885443,Missed Heavy Trash Pickup,NW_Overdue,FRIDAY,NWFR104,NW,1
+101003928294,Container Problem,NW_Not_Overdue,FRIDAY,NWFR111,NW,1
+101003931283,Recycling Participation NEW,NW_Not_Overdue,FRIDAY,NWFR111,NW,1
+101003932327,Container Problem,NW_Not_Overdue,FRIDAY,NWFR111,NW,1
+101003928861,Recycling Cart Repair or Replace,NE_Not_Overdue,THURSDAY,NETH111,NE,1
+101003932823,Dead Animal Collection,NE_Not_Overdue,THURSDAY,NETH111,NE,1
+101003932825,Dead Animal Collection,NE_Not_Overdue,THURSDAY,NETH111,NE,1
+101003770570,Container Problem,NE_Overdue,THURSDAY,NETH111,NE,1
+101003906912,Add A Can CANCELLATION,NW_Not_Overdue,MONDAY,NWMO104,NW,1
+101003929831,New Resident Container,NW_Not_Overdue,MONDAY,NWMO104,NW,1
+101003929833,Recycling Participation NEW,NW_Not_Overdue,MONDAY,NWMO104,NW,1
+101003930510,Missed Yard Waste Pickup,NW_Not_Overdue,MONDAY,NWMO104,NW,1
+101003931227,Recycling Cart Repair or Replace,NW_Not_Overdue,MONDAY,NWMO104,NW,1
+101003927688,Container Problem,NW_Not_Overdue,FRIDAY,NWFR112,NW,1
+101003930375,Missed Garbage Pickup,NW_Not_Overdue,FRIDAY,NWFR112,NW,1
+101003890021,Recycling Participation NEW,SE_Not_Overdue,MONDAY,SEMO103,SE,1
+101003904688,Recycling Cart Repair or Replace,NW_Overdue,MONDAY,NWMO114,NW,1
+101003930659,New Resident Container,NW_Not_Overdue,MONDAY,NWMO114,NW,1
+101003930660,Recycling Participation NEW,NW_Not_Overdue,MONDAY,NWMO114,NW,1
+101003930982,Recycling Cart Repair or Replace,NW_Not_Overdue,MONDAY,NWMO114,NW,1
+101003928427,Recycling Cart Repair or Replace,SE_Not_Overdue,THURSDAY,SETH120,SE,1
+101003930545,Missed Heavy Trash Pickup,SE_Not_Overdue,THURSDAY,SETH120,SE,1
+101003930715,Recycling Cart Repair or Replace,SE_Not_Overdue,THURSDAY,SETH120,SE,1
+101003608931,Property Damage,SE_Overdue,THURSDAY,SETH120,SE,1
+101003925274,New Resident Container,NW_Not_Overdue,FRIDAY,NWFR116,NW,1
+101003929171,Container Problem,NW_Not_Overdue,FRIDAY,NWFR116,NW,1
+101003885768,Missed Heavy Trash Pickup,NW_Overdue,FRIDAY,NWFR121,NW,1
+101003929276,Missed Yard Waste Pickup,NW_Not_Overdue,FRIDAY,NWFR121,NW,1
+101003932192,Missed Heavy Trash Pickup,NW_Not_Overdue,FRIDAY,NWFR121,NW,1
+101003886407,Missed Heavy Trash Pickup,NW_Overdue,FRIDAY,NWFR121,NW,1
+101003927790,Missed Yard Waste Pickup,NW_Not_Overdue,MONDAY,NWMO106,NW,1
+101003888122,Add A Can CANCELLATION,NW_Overdue,MONDAY,NWMO106,NW,1
+101003930656,Recycling Participation NEW,NW_Not_Overdue,TUESDAY,NWTU122,NW,1
+101003929567,Recycling Participation NEW,NW_Not_Overdue,MONDAY,NWMO101,NW,1
+101003932829,Missed Heavy Trash Pickup,NW_Not_Overdue,MONDAY,NWMO101,NW,1
+101003884999,Recycling Participation NEW,NW_Overdue,MONDAY,NWMO101,NW,1
+101003768338,Dumpster Complaint,NW_Not_Overdue,FRIDAY,NWFR107,NW,1
+101003885767,Trash Dumping or Illegal Dumpsite,NW_Not_Overdue,FRIDAY,NWFR107,NW,1
+101003929498,Recycling Participation NEW,NW_Not_Overdue,FRIDAY,NWFR107,NW,1
+101003931675,New Resident Container,NW_Not_Overdue,FRIDAY,NWFR107,NW,1
+101003920089,SWM Escalation,NW_Overdue,FRIDAY,NWFR107,NW,1
+394167-101003927497,Trash Dumping or Illegal Dumpsite,NW_Not_Overdue,MONDAY,NWMO123,NW,1
+101003929948,New Resident Container,NW_Not_Overdue,MONDAY,NWMO123,NW,1
+101003930858,Container Problem,NW_Not_Overdue,MONDAY,NWMO123,NW,1
+391419-101003885570,Trash Dumping or Illegal Dumpsite,NW_Not_Overdue,MONDAY,NWMO102,NW,1
+101003929346,Recycling Participation NEW,NW_Not_Overdue,MONDAY,NWMO102,NW,1
+101003930733,Container Problem,NW_Not_Overdue,MONDAY,NWMO102,NW,1
+101003925972,Missed Yard Waste Pickup,NW_Overdue,MONDAY,NWMO102,NW,1
+101003927266,Recycling Participation NEW,SE_Not_Overdue,THURSDAY,SETH121,SE,1
+101003921288,Missed Heavy Trash Pickup,SE_Overdue,THURSDAY,SETH121,SE,1
+101003928325,Recycling Participation NEW,NE_Not_Overdue,TUESDAY,NETU107,NE,1
+101003775803,New Resident Container,NE_Overdue,TUESDAY,NETU107,NE,1
+101003920126,Missed Heavy Trash Pickup,NE_Overdue,TUESDAY,NETU107,NE,1
+101003924873,Container Problem,SW_Not_Overdue,TUESDAY,SWTU113,SW,1
+101003928436,Container Problem,SW_Not_Overdue,TUESDAY,SWTU118,SW,1
+101003927351,Missed Garbage Pickup,SW_Overdue,THURSDAY,SWTH103,SW,1
+101003931892,Dead Animal Collection,SW_Not_Overdue,THURSDAY,SWTH102,SW,1
+101003925348,Missed Yard ,SW_Overdue,THURSDAY,SWTH104,SW,1
+Waste Pickup
+101003932857,SWM Escalation,SW_Not_Overdue,MONDAY,SWMO110,SW,1
+101003927021,Missed Yard Waste Pickup,SW_Not_Overdue,MONDAY,SWMO112,SW,1
+394718-101003931955,Dead Animal Collection,SW_Not_Overdue,THURSDAY,SWTH102,SW,1
+391534-101003886959,Trash Dumping or Illegal Dumpsite,SW_Not_Overdue,MONDAY,SWMO110,SW,1
+101003932382,Missed Garbage Pickup,SW_Not_Overdue,MONDAY,SWMO110,SW,1
+101003931924,Recycling Participation NEW,SW_Not_Overdue,MONDAY,SWMO111,SW,1
+101003928010,Container Problem,SW_Not_Overdue,THURSDAY,SWTH105,SW,1
+101003930100,Missed Garbage Pickup,SW_Not_Overdue,MONDAY,SWMO109,SW,1
+101003926767,Missed Yard Waste Pickup,SW_Not_Overdue,MONDAY,SWMO102,SW,1
+101003904985,Recycling Participation NEW,SW_Not_Overdue,TUESDAY,SWTU102,SW,1
+101003920463,Recycling Participation NEW,SW_Not_Overdue,MONDAY,SWMO116,SW,1
+101003925122,New Resident Container,SW_Not_Overdue,TUESDAY,SWTU101,SW,1
+101003889146,Dumpster Complaint,SW_Not_Overdue,MONDAY,SWMO109,SW,1
+101003907432,Add A Can CANCELLATION,SW_Not_Overdue,TUESDAY,SWTU106,SW,1
+101003927654,Recycling Participation NEW,SW_Not_Overdue,TUESDAY,SWTU106,SW,1
+101003921451,Recycling Cart Repair or Replace,SW_Not_Overdue,TUESDAY,SWTU108,SW,1
+101003932055,Missed Garbage Pickup,SW_Not_Overdue,TUESDAY,SWTU102,SW,1
+101003929732,Missed Garbage Pickup,SW_Not_Overdue,MONDAY,SWMO106,SW,1
+101003930782,Missed Recycling Pickup,SW_Not_Overdue,THURSDAY,SWTH107,SW,1
+101003929398,Missed Yard Waste Pickup,SW_Not_Overdue,FRIDAY,SWFR116,SW,1
+101003928920,SWM Escalation,SW_Overdue,FRIDAY,SWFR105,SW,1
+101003928785,Missed Yard Waste Pickup,SW_Not_Overdue,THURSDAY,SWTH114,SW,1
+101003931448,Recycling Participation NEW,SW_Not_Overdue,THURSDAY,SWTH119,SW,1
+101003926914,Container Problem,SW_Not_Overdue,THURSDAY,SWTH111,SW,1
+101003931059,Missed Recycling Pickup,SE_Not_Overdue,MONDAY,SEMO113,SE,1
+101003904470,Recycling Cart Repair or Replace,SE_Overdue,MONDAY,SEMO107,SE,1
+101003927410,Container Problem,SW_Not_Overdue,FRIDAY,SWFR122,SW,1
+101003927412,Recycling Cart Repair or Replace,SW_Not_Overdue,FRIDAY,SWFR122,SW,1
+101003930898,Missed Garbage Pickup,SW_Not_Overdue,FRIDAY,SWFR103,SW,1
+101003929068,Missed Garbage Pickup,SW_Not_Overdue,FRIDAY,SWFR103,SW,1
+101003927106,Recycling Cart Repair or Replace,SW_Not_Overdue,FRIDAY,SWFR122,SW,1
+393740-101003924950,Trash Dumping or Illegal Dumpsite,SE_Not_Overdue,MONDAY,SEMO105,SE,1
+101003927623,Missed Yard Waste Pickup,SW_Not_Overdue,THURSDAY,SWTH109,SW,1
+101003904485,Trash Dumping or Illegal Dumpsite,SW_Not_Overdue,FRIDAY,SWFR122,SW,1
+101003929097,Missed Garbage Pickup,SW_Not_Overdue,FRIDAY,SWFR122,SW,1
+101003930047,Recycling Cart Repair or Replace,SE_Not_Overdue,MONDAY,SEMO105,SE,1
+101003930195,Recycling Cart Repair or Replace,SE_Not_Overdue,MONDAY,SEMO105,SE,1
+101003929020,Missed Garbage Pickup,SW_Not_Overdue,FRIDAY,SWFR106,SW,1
+101003928990,Missed Garbage Pickup,SW_Not_Overdue,FRIDAY,SWFR106,SW,1
+101003927231,Container Problem,SW_Not_Overdue,THURSDAY,SWTH120,SW,1
+101003927754,Container Problem,SW_Not_Overdue,THURSDAY,SWTH120,SW,1
+101003929130,Missed Yard Waste Pickup,SW_Not_Overdue,THURSDAY,SWTH120,SW,1
+101003904908,Recycling Participation NEW,SW_Not_Overdue,THURSDAY,SWTH111,SW,1
+101003929820,Missed Yard Waste Pickup,SW_Not_Overdue,THURSDAY,SWTH111,SW,1
+101003930151,Recycling Cart Repair or Replace,SE_Not_Overdue,MONDAY,SEMO106,SE,1
+101003921900,Trash Dumping or Illegal ,SE_Not_Overdue,MONDAY,SEMO106,SE,1
+Dumpsite
+101003932247,Container Problem,SE_Not_Overdue,MONDAY,SEMO112,SE,1
+101003924329,Recycling Cart Repair or Replace,SE_Not_Overdue,MONDAY,SEMO113,SE,1
+101003904681,Missed Heavy Trash Pickup,SE_Overdue,MONDAY,SEMO121,SE,1
+101003928811,Missed Heavy Trash Pickup,SE_Not_Overdue,MONDAY,SEMO106,SE,1
+101003892807,Missed Heavy Trash Pickup,SE_Overdue,MONDAY,SEMO104,SE,1
+101003889886,Recycling Participation NEW,SE_Not_Overdue,MONDAY,SEMO117,SE,1
+101003932462,Container Problem,SE_Not_Overdue,MONDAY,SEMO117,SE,1
+101003930521,Container Problem,SE_Not_Overdue,MONDAY,SEMO116,SE,1
+101003657626,Dumpster Complaint,SE_Not_Overdue,MONDAY,SEMO116,SE,1
+101003930861,Recycling Participation NEW,SE_Not_Overdue,MONDAY,SEMO107,SE,1
+101003932791,Missed Garbage Pickup,SE_Not_Overdue,MONDAY,SEMO107,SE,1
+101003925893,Container Problem,SE_Not_Overdue,MONDAY,SEMO107,SE,1
+101003930476,Container Problem,SE_Not_Overdue,MONDAY,SEMO114,SE,1
+101003889708,Missed Heavy Trash Pickup,SE_Overdue,MONDAY,SEMO118,SE,1
+101003925396,Container Problem,SE_Not_Overdue,MONDAY,SEMO111,SE,1
+101003921921,Dumpster Complaint,SE_Not_Overdue,MONDAY,SEMO120,SE,1
+101003651894,Miss Complaint, ,MONDAY,SEMO103,SE,1
+101003889794,Recycling Participation NEW,SE_Not_Overdue,MONDAY,SEMO107,SE,1
+391656-101003888692,Trash Dumping or Illegal Dumpsite,SE_Not_Overdue,MONDAY,SEMO103,SE,1
+101003930214,Recycling Cart Repair or Replace,SE_Not_Overdue,MONDAY,SEMO105,SE,1
+101003889725,Trash Dumping or Illegal Dumpsite,SE_Not_Overdue,MONDAY,SEMO103,SE,1
+101003926424,Missed Heavy Trash Pickup,SE_Not_Overdue,MONDAY,SEMO103,SE,1
+101003923334,Recycling Participation NEW,SE_Not_Overdue,TUESDAY,SETU112,SE,1
+101003904523,Recycling ,SE_Not_Overdu,TUESDAY,SETU111,SE,1
+Participation NEW,e
+391769-101003888884,Trash Dumping or Illegal Dumpsite,SE_Not_Overdue,TUESDAY,SETU105,SE,1
+101003924090,Recycling Participation NEW,SE_Not_Overdue,TUESDAY,SETU109,SE,1
+101003638878,Dumpster Complaint,SE_Not_Overdue,TUESDAY,SETU101,SE,1
+101003931128,Trash Dumping or Illegal Dumpsite,SE_Not_Overdue,TUESDAY,SETU101,SE,1
+392981-101003908497,Trash Dumping or Illegal Dumpsite,SE_Not_Overdue,TUESDAY,SETU110,SE,1
+101003931996,Missed Garbage Pickup,SE_Not_Overdue,TUESDAY,SETU110,SE,1
+392979-101003907666,Trash Dumping or Illegal Dumpsite,SE_Not_Overdue,TUESDAY,SETU110,SE,1
+101003930805,Recycling Participation NEW,SE_Not_Overdue,TUESDAY,SETU110,SE,1
+101003929668,Missed Heavy Trash Pickup,SE_Not_Overdue,TUESDAY,SETU114,SE,1
+101003888758,Recycling Participation NEW,SE_Not_Overdue,TUESDAY,SETU114,SE,1
+101003923298,Missed Heavy Trash Pickup,SE_Overdue,TUESDAY,SETU113,SE,1
+101003925442,Recycling Cart Repair or Replace,SE_Not_Overdue,TUESDAY,SETU101,SE,1
+101003931582,Recycling Participation NEW,SE_Not_Overdue,TUESDAY,SETU115,SE,1
+101003930549,SWM Escalation,SE_Not_Overdue,TUESDAY,SETU115,SE,1
+101003887622,Recycling Participation NEW,SE_Not_Overdue,TUESDAY,SETU115,SE,1
+393526-101003921807,Trash Dumping or Illegal Dumpsite,SE_Not_Overdue,TUESDAY,SETU115,SE,1
+101003929500,Recycling Participation NEW,SE_Not_Overdue,TUESDAY,SETU115,SE,1
+101003906027,Trash Dumping or Illegal Dumpsite,SE_Not_Overdue,TUESDAY,SETU106,SE,1
+101003932307,Missed Garbage Pickup,SE_Not_Overdue,TUESDAY,SETU103,SE,1
+101003929609,Missed Heavy Trash Pickup,SE_Not_Overdue,FRIDAY,SEFR123,SE,1
+101003925778,Container ,SE_Not_Overdu,TUESDAY,SETU118,SE,1
+Problem,e
+101003932773,New Resident Container,SE_Not_Overdue,TUESDAY,SETU116,SE,1
+101003931756,Recycling Cart Repair or Replace,SE_Not_Overdue,TUESDAY,SETU116,SE,1
+101003931323,New Resident Container,SE_Not_Overdue,TUESDAY,SETU116,SE,1
+101003885214,Trash Dumping or Illegal Dumpsite,SE_Not_Overdue,FRIDAY,SEFR120,SE,1
+101003932416,Missed Heavy Trash Pickup,SE_Not_Overdue,FRIDAY,SEFR117,SE,1
+101003925426,Container Problem,SE_Not_Overdue,FRIDAY,SEFR104,SE,1
+101003932697,Missed Garbage Pickup,SE_Not_Overdue,TUESDAY,SETU117,SE,1
+392517-101003904081,Trash Dumping or Illegal Dumpsite,SE_Not_Overdue,TUESDAY,SETU117,SE,1
+101003920279,Recycling Participation NEW,SE_Not_Overdue,TUESDAY,SETU117,SE,1
+101003930979,Container Problem,SE_Not_Overdue,FRIDAY,SEFR111,SE,1
+101003925506,Trash Dumping or Illegal Dumpsite,SE_Not_Overdue,FRIDAY,SEFR111,SE,1
+101003887541,Trash Dumping or Illegal Dumpsite,SE_Not_Overdue,FRIDAY,SEFR115,SE,1
+101003922574,Recycling Participation NEW,SE_Not_Overdue,TUESDAY,SETU112,SE,1
+101003931509,Container Problem,SE_Not_Overdue,FRIDAY,SEFR121,SE,1
+101003577067,Dumpster Complaint,SE_Not_Overdue,FRIDAY,SEFR111,SE,1
+393979-101003925528,Trash Dumping or Illegal Dumpsite,SE_Not_Overdue,FRIDAY,SEFR111,SE,1
+101003932843,Missed Garbage Pickup,SE_Not_Overdue,TUESDAY,SETU116,SE,1
+101003932178,New Resident Container,SE_Not_Overdue,FRIDAY,SEFR102,SE,1
+101003928936,Container Problem,SE_Not_Overdue,FRIDAY,SEFR122,SE,1
+101003932509,Missed Garbage Pickup,SE_Not_Overdue,TUESDAY,SETU118,SE,1
+101003926270,Trash Dumping or Illegal Dumpsite,SE_Not_Overdue,TUESDAY,SETU112,SE,1
+393632-101003922402,Trash Dumping or Illegal Dumpsite,SE_Not_Overdue,TUESDAY,SETU117,SE,1
+393633-,Trash Dumping ,SE_Not_Overdu,TUESDAY,SETU117,SE,1
+101003922405,or Illegal Dumpsite,e
+101003906387,Trash Dumping or Illegal Dumpsite,SE_Not_Overdue,TUESDAY,SETU112,SE,1
+101003891006,Recycling Participation NEW,SE_Not_Overdue,FRIDAY,SEFR120,SE,1
+101003922031,Recycling Participation NEW,SE_Not_Overdue,FRIDAY,SEFR120,SE,1
+101003929364,Recycling Participation NEW,SE_Not_Overdue,FRIDAY,SEFR120,SE,1
+101003931944,Missed Heavy Trash Pickup,SE_Not_Overdue,FRIDAY,SEFR118,SE,1
+101003904744,Trash Dumping or Illegal Dumpsite,SE_Not_Overdue,FRIDAY,SEFR117,SE,1
+101003922972,Trash Dumping or Illegal Dumpsite,SE_Not_Overdue,FRIDAY,SEFR117,SE,1
+101003932026,Missed Heavy Trash Pickup,SE_Not_Overdue,FRIDAY,SEFR117,SE,1
+101003885765,Recycling Cart Repair or Replace,SE_Overdue,FRIDAY,SEFR104,SE,1
+101003907134,Trash Dumping or Illegal Dumpsite,SE_Not_Overdue,FRIDAY,SEFR109,SE,1
+101003932087,Missed Heavy Trash Pickup,SE_Not_Overdue,FRIDAY,SEFR108,SE,1
+101003926228,Missed Heavy Trash Pickup,SE_Not_Overdue,FRIDAY,SEFR120,SE,1
+393720-101003923486,Trash Dumping or Illegal Dumpsite,SE_Not_Overdue,FRIDAY,SEFR105,SE,1
+101003932567,Dead Animal Collection,SE_Not_Overdue,FRIDAY,SEFR107,SE,1
+101003909044,Trash Dumping or Illegal Dumpsite,SE_Not_Overdue,TUESDAY,SETU120,SE,1
+101003930677,Container Problem,SE_Not_Overdue,FRIDAY,SEFR109,SE,1
+101003932483,Trash Dumping or Illegal Dumpsite,SE_Not_Overdue,FRIDAY,SEFR109,SE,1
+101003930427,Missed Garbage Pickup,SE_Not_Overdue,FRIDAY,SEFR119,SE,1
+101003927687,Container Problem,SE_Not_Overdue,FRIDAY,SEFR105,SE,1
+101003922807,Trash Dumping or Illegal Dumpsite,SE_Not_Overdue,FRIDAY,SEFR110,SE,1
+101003929161,Container Problem,NE_Not_Overdue,FRIDAY,NEFR109,NE,1
+101003932513,Dead Animal Collection,NE_Not_Overdue,THURSDAY,NETH103,NE,1
+392574-101003904281,Trash Dumping or Illegal Dumpsite,NE_Not_Overdue,MONDAY,NEMO119,NE,1
+101003920245,SWM Escalation,NE_Overdue,MONDAY,NEMO113,NE,1
+101003889686,Trash Dumping or Illegal Dumpsite,NE_Not_Overdue,THURSDAY,NETH105,NE,1
+101003928340,Recycling Participation NEW,NW_Not_Overdue,THURSDAY,NWTH116,NW,1
+101003885592,Trash Dumping or Illegal Dumpsite,NW_Not_Overdue,TUESDAY,NWTU117,NW,1
+101003930991,Missed Heavy Trash Pickup,NW_Not_Overdue,TUESDAY,NWTU117,NW,1
+101003931341,Missed Garbage Pickup,NW_Not_Overdue,TUESDAY,NWTU117,NW,1
+101003929800,SWM Escalation,NW_Overdue,MONDAY,NWMO115,NW,1
+101003923027,Recycling Participation NEW,NW_Not_Overdue,MONDAY,NWMO115,NW,1
+101003929738,New Resident Container,NW_Not_Overdue,MONDAY,NWMO115,NW,1
+101003930101,Recycling Cart Repair or Replace,NW_Not_Overdue,MONDAY,NWMO115,NW,1
+101003930703,Missed Recycling Pickup,NW_Not_Overdue,MONDAY,NWMO115,NW,1
+101003929971,Recycling Participation NEW,NW_Not_Overdue,MONDAY,NWMO115,NW,1
+101003930509,Recycling Cart Repair or Replace,NW_Not_Overdue,MONDAY,NWMO115,NW,1
+101003922174,New Resident Container,SW_Not_Overdue,TUESDAY,SWTU122,SW,1
+101003932638,Missed Yard Waste Pickup,NW_Not_Overdue,TUESDAY,NWTU115,NW,1
+101003931000,Missed Heavy Trash Pickup,NW_Not_Overdue,TUESDAY,NWTU115,NW,1
+101003926051,Trash Dumping or Illegal Dumpsite,NE_Not_Overdue,TUESDAY,NETU105,NE,1
+101003932728,Add A Can,NW_Not_Overdue,TUESDAY,NWTU113,NW,1
+101003925434,Container Problem,NW_Not_Overdue,TUESDAY,NWTU113,NW,1
+101003929501,Missed Garbage Pickup,NW_Not_Overdue,TUESDAY,NWTU113,NW,1
+101003931271,Recycle Bin/Cart ,NW_Not_Overdue,TUESDAY,NWTU113,NW,1
+Retrieve
+101003932730,Missed Garbage Pickup,NW_Not_Overdue,TUESDAY,NWTU113,NW,1
+101003932895,Container Problem,NW_Not_Overdue,TUESDAY,NWTU113,NW,1
+101003922492,Recycling Participation NEW,NE_Not_Overdue,TUESDAY,NETU119,NE,1
+101003932827,New Resident Container,NE_Not_Overdue,TUESDAY,NETU119,NE,1
+101003925901,Trash Dumping or Illegal Dumpsite,NE_Not_Overdue,TUESDAY,NETU110,NE,1
+101003923374,Missed Heavy Trash Pickup,NE_Overdue,THURSDAY,NETH118,NE,1
+101003776678,Container Problem,NE_Overdue,FRIDAY,NEFR106,NE,1
+101003893366,Trash Dumping or Illegal Dumpsite,NE_Not_Overdue,TUESDAY,NETU104,NE,1
+101003932668,SWM Escalation,NE_Not_Overdue,TUESDAY,NETU104,NE,1
+101003923763,Container Problem,NW_Not_Overdue,THURSDAY,NWTH106,NW,1
+101003784343,Container Problem,NE_Overdue,THURSDAY,NETH119,NE,1
+101003928555,Container Problem,NW_Not_Overdue,FRIDAY,NWFR118,NW,1
+101003928183,Container Problem,NW_Not_Overdue,FRIDAY,NWFR118,NW,1
+394087-101003927481,Trash Dumping or Illegal Dumpsite,NE_Not_Overdue,THURSDAY,NETH109,NE,1
+101003930004,Recycling Cart Repair or Replace,NW_Not_Overdue,FRIDAY,NWFR109,NW,1
+101003925262,Recycling Participation NEW,NE_Not_Overdue,TUESDAY,NETU113,NE,1
+101003932128,Add A Can,NE_Not_Overdue,TUESDAY,NETU113,NE,1
+101003920412,Trash Dumping or Illegal Dumpsite,NE_Not_Overdue,THURSDAY,NETH102,NE,1
+101003925210,Trash Dumping or Illegal Dumpsite,NW_Not_Overdue,TUESDAY,NWTU102,NW,1
+101003929202,New Resident Container,NW_Not_Overdue,TUESDAY,NWTU102,NW,1
+101003931534,Add A Can CANCELLATION,NW_Not_Overdue,TUESDAY,NWTU102,NW,1
+101003923938,Recycling Participation NEW,NW_Not_Overdue,TUESDAY,NWTU102,NW,1
+101003927476,Recycling ,NW_Not_Overd,TUESDAY,NWTU102,NW,1
+Participation NEW,ue
+101003931070,Trash Dumping or Illegal Dumpsite,NE_Not_Overdue,THURSDAY,NETH112,NE,1
+101003931171,Trash Dumping or Illegal Dumpsite,NE_Not_Overdue,THURSDAY,NETH112,NE,1
+101003932145,Missed Yard Waste Pickup,SW_Not_Overdue,THURSDAY,SWTH115,SW,1
+101003931839,Missed Recycling Pickup,NE_Not_Overdue,TUESDAY,NETU108,NE,1
+101003929596,SWM Escalation,NW_Overdue,THURSDAY,NWTH124,NW,1
+101003926994,Recycling Participation NEW,NW_Not_Overdue,THURSDAY,NWTH124,NW,1
+101003929121,Missed Garbage Pickup,NW_Not_Overdue,FRIDAY,NWFR108,NW,1
+101003923933,Recycling Participation NEW,NW_Not_Overdue,TUESDAY,NWTU101,NW,1
+101003932564,Recycling Participation NEW,NW_Not_Overdue,TUESDAY,NWTU101,NW,1
+101003928543,Recycling Participation NEW,NW_Not_Overdue,TUESDAY,NWTU101,NW,1
+101003932673,Dead Animal Collection,NW_Not_Overdue,TUESDAY,NWTU101,NW,1
+101003929203,New Resident Container,NW_Not_Overdue,TUESDAY,NWTU101,NW,1
+101003932798,Missed Heavy Trash Pickup,SW_Not_Overdue,FRIDAY,SWFR121,SW,1
+101003890346,Recycling Participation NEW,NW_Not_Overdue,THURSDAY,NWTH104,NW,1
+101003921755,Recycling Participation NEW,NW_Not_Overdue,THURSDAY,NWTH104,NW,1
+101003931133,Missed Yard Waste Pickup,NW_Not_Overdue,THURSDAY,NWTH104,NW,1
+394805-101003932965,Trash Dumping or Illegal Dumpsite,NE_Not_Overdue,THURSDAY,NETH117,NE,1
+393985-101003926163,Trash Dumping or Illegal Dumpsite,NE_Not_Overdue,THURSDAY,NETH117,NE,1
+101003921702,Trash Dumping or Illegal Dumpsite,NE_Not_Overdue,THURSDAY,NETH117,NE,1
+101003652306,Miss Complaint, ,THURSDAY,NETH117,NE,1
+101003926635,Trash Dumping or Illegal Dumpsite,NE_Not_Overdue,THURSDAY,NETH107,NE,1
+101003924674,Recycling Cart Repair or Replace,NE_Not_Overdue,MONDAY,NEMO111,NE,1
+101003931969,Missed Garbage Pickup,NE_Not_Overdue,MONDAY,NEMO111,NE,1
+101003932543,Missed Heavy Trash Pickup,NE_Not_Overdue,MONDAY,NEMO111,NE,1
+101003922614,Recycling Participation NEW,NE_Not_Overdue,TUESDAY,NETU116,NE,1
+101003738427,Container Problem,NE_Overdue,MONDAY,NEMO109,NE,1
+101003922414,Trash Dumping or Illegal Dumpsite,NE_Not_Overdue,TUESDAY,NETU109,NE,1
+101003784622,New Resident Container,NE_Overdue,TUESDAY,NETU109,NE,1
+101003923715,Trash Dumping or Illegal Dumpsite,NE_Not_Overdue,TUESDAY,NETU109,NE,1
+393368-101003921095,Trash Dumping or Illegal Dumpsite,NE_Not_Overdue,TUESDAY,NETU115,NE,1
+393811-101003924998,Trash Dumping or Illegal Dumpsite,NE_Not_Overdue,TUESDAY,NETU115,NE,1
+101003931515,Container Problem,NE_Not_Overdue,TUESDAY,NETU115,NE,1
+393365-101003921092,Trash Dumping or Illegal Dumpsite,NE_Not_Overdue,TUESDAY,NETU103,NE,1
+101003931845,Missed Garbage Pickup,NE_Not_Overdue,TUESDAY,NETU103,NE,1
+101003919441,Missed Heavy Trash Pickup,NE_Overdue,TUESDAY,NETU103,NE,1
+101003886134,Trash Dumping or Illegal Dumpsite,NE_Not_Overdue,TUESDAY,NETU103,NE,1
+101003926385,Missed Heavy Trash Pickup,NW_Not_Overdue,THURSDAY,NWTH114,NW,1
+101003930729,New Resident Container,NW_Not_Overdue,THURSDAY,NWTH114,NW,1
+391431-101003885612,Trash Dumping or Illegal Dumpsite,NE_Not_Overdue,TUESDAY,NETU114,NE,1
+393371-101003921096,Trash Dumping or Illegal Dumpsite,NE_Not_Overdue,TUESDAY,NETU114,NE,1
+101003931217,Container Problem,NE_Not_Overdue,THURSDAY,NETH104,NE,1
+101003929560,SWM Escalation,NE_Overdue,THURSDAY,NETH104,NE,1
+392734-101003905617,Trash Dumping or Illegal Dumpsite,NW_Not_Overdue,MONDAY,NWMO118,NW,1
+101003926811,Container ,NW_Not_Overd,MONDAY,NWMO118,NW,1
+Problem,ue
+394205-101003927826,Trash Dumping or Illegal Dumpsite,NW_Not_Overdue,MONDAY,1-WAY,NW,1
+101003922075,Recycling Participation NEW,NE_Not_Overdue,THURSDAY,NETH112,NE,1
+101003932339,Container Problem,NE_Not_Overdue,MONDAY,NEMO119,NE,1
+392276-101003893471,Trash Dumping or Illegal Dumpsite,NE_Not_Overdue,THURSDAY,NETH101,NE,1
+101003925877,Trash Dumping or Illegal Dumpsite,NE_Not_Overdue,THURSDAY,NETH101,NE,1
+101003928138,Trash Dumping or Illegal Dumpsite,NE_Not_Overdue,THURSDAY,NETH101,NE,1
+101003906618,Trash Dumping or Illegal Dumpsite,SE_Not_Overdue,TUESDAY,SETU113,SE,1
+101003888951,Trash Dumping or Illegal Dumpsite,SE_Not_Overdue,TUESDAY,SETU108,SE,1
+101003890540,Container Problem,SE_Overdue,TUESDAY,SETU109,SE,1
+101003924065,Recycling Participation NEW,SE_Not_Overdue,TUESDAY,SETU109,SE,1
+101003930221,Container Problem,SE_Not_Overdue,TUESDAY,SETU109,SE,1
+393043-101003908278,Trash Dumping or Illegal Dumpsite,NE_Not_Overdue,FRIDAY,NEFR116,NE,1
+101003747762,Container Problem,NE_Overdue,FRIDAY,NEFR116,NE,1
+101003929600,Recycling Participation NEW,NE_Not_Overdue,FRIDAY,NEFR116,NE,1
+101003932367,Missed Garbage Pickup,SE_Not_Overdue,TUESDAY,SETU111,SE,1
+101003742914,Container Problem,NE_Overdue,FRIDAY,NEFR111,NE,1
+101003930535,Recycling Participation NEW,NE_Not_Overdue,FRIDAY,NEFR114,NE,1
+101003929040,Recycling Cart Repair or Replace,NE_Not_Overdue,FRIDAY,NEFR114,NE,1
+101003775559,Container Problem,NE_Overdue,FRIDAY,NEFR114,NE,1
+393750-101003924954,Trash Dumping or Illegal Dumpsite,NE_Not_Overdue,FRIDAY,NEFR112,NE,1
+101003928687,Container Problem,NE_Not_Overdue,FRIDAY,NEFR112,NE,1
+101003932352,Dead Animal Collection,NE_Not_Overdue,MONDAY,NEMO101,NE,1
+101003932209,New Resident Container,NE_Not_Overdue,MONDAY,NEMO101,NE,1
+101003903977,Trash Dumping or Illegal Dumpsite,SE_Not_Overdue,TUESDAY,SETU113,SE,1
+101003925382,Missed Heavy Trash Pickup,NE_Not_Overdue,THURSDAY,NETH110,NE,1
+101003932727,Recycle Bin/Cart Retrieve,NE_Not_Overdue,THURSDAY,NETH110,NE,1
+101003928250,Container Problem,SW_Not_Overdue,TUESDAY,SWTU101,SW,1
+101003926582,Missed Heavy Trash Pickup,NE_Not_Overdue,FRIDAY,NEFR102,NE,1
+101003931663,Trash Dumping or Illegal Dumpsite,NE_Not_Overdue,MONDAY,NEMO102,NE,1
+101003931231,Container Problem,NE_Not_Overdue,MONDAY,NEMO102,NE,1
+101003744206,Recycling Cart Repair or Replace,NE_Overdue,MONDAY,NEMO112,NE,1
+393937-101003926161,Trash Dumping or Illegal Dumpsite,NE_Not_Overdue,FRIDAY,NEFR103,NE,1
+101003932468,Trash Dumping or Illegal Dumpsite,NE_Not_Overdue,FRIDAY,NEFR103,NE,1
+101003927337,Trash Dumping or Illegal Dumpsite,NE_Not_Overdue,FRIDAY,NEFR103,NE,1
+101003923819,Recycling Cart Repair or Replace,NE_Not_Overdue,MONDAY,NEMO112,NE,1
+101003922958,Trash Dumping or Illegal Dumpsite,NE_Not_Overdue,FRIDAY,NEFR107,NE,1
+101003887916,Recycling Participation NEW,SE_Not_Overdue,TUESDAY,SETU114,SE,1
+101003546995,Property Damage,SE_Overdue,TUESDAY,SETU114,SE,1
+101003925614,Recycling Participation NEW,NE_Not_Overdue,FRIDAY,NEFR109,NE,1
+101003908713,Trash Dumping or Illegal Dumpsite,NE_Not_Overdue,FRIDAY,NEFR109,NE,1
+101003907320,Trash Dumping or Illegal Dumpsite,NE_Not_Overdue,FRIDAY,NEFR109,NE,1
+393764-101003924965,Trash Dumping or Illegal Dumpsite,NE_Not_Overdue,FRIDAY,NEFR115,NE,1
+101003922501,Trash Dumping or Illegal Dumpsite,NE_Not_Overdue,TUESDAY,NETU105,NE,1
+101003925601,Trash Dumping or Illegal Dumpsite,NE_Not_Overdue,TUESDAY,NETU105,NE,1
+101003929169,New Resident Container,NW_Not_Overdue,THURSDAY,NWTH121,NW,1
+394076-101003927482,Trash Dumping or Illegal Dumpsite,NE_Not_Overdue,FRIDAY,NEFR103,NE,1
+394582-101003930755,Trash Dumping or Illegal Dumpsite,NE_Not_Overdue,FRIDAY,NEFR103,NE,1
+101003921517,Missed Heavy Trash Pickup,NE_Overdue,FRIDAY,NEFR103,NE,1
+394078-101003926309,Trash Dumping or Illegal Dumpsite,NE_Not_Overdue,FRIDAY,NEFR103,NE,1
+392017-101003891511,Trash Dumping or Illegal Dumpsite,SE_Not_Overdue,MONDAY,SEMO122,SE,1
+101003926673,Missed Heavy Trash Pickup,SE_Not_Overdue,MONDAY,SEMO122,SE,1
+101003771067,Container Problem,NE_Overdue,MONDAY,NEMO103,NE,1
+101003923065,Recycling Participation NEW,NE_Not_Overdue,FRIDAY,NEFR120,NE,1
+101003931222,Trash Dumping or Illegal Dumpsite,NE_Not_Overdue,FRIDAY,NEFR120,NE,1
+101003932117,Container Problem,NE_Not_Overdue,FRIDAY,NEFR120,NE,1
+101003930801,Recycling Participation NEW,NE_Not_Overdue,MONDAY,NEMO110,NE,1
+101003928690,Trash Dumping or Illegal Dumpsite,SE_Not_Overdue,TUESDAY,SETU108,SE,1
+391843-101003890176,Trash Dumping or Illegal Dumpsite,NE_Not_Overdue,MONDAY,NEMO104,NE,1
+391559-101003886971,Trash Dumping or Illegal Dumpsite,NE_Not_Overdue,MONDAY,NEMO104,NE,1
+101003925399,Add A Can CANCELLATION,NE_Not_Overdue,MONDAY,NEMO104,NE,1
+101003920189,Missed Heavy Trash Pickup,NE_Overdue,MONDAY,NEMO104,NE,1
+101003924939,Recycling Cart Repair or Replace,NE_Not_Overdue,FRIDAY,NEFR117,NE,1
+393185-101003919880,Trash Dumping or Illegal ,NE_Not_Overdue,TUESDAY,NETU117,NE,1
+Dumpsite
+101003908312,New Resident Container,NE_Overdue,TUESDAY,NETU117,NE,1
+393803-101003924995,Trash Dumping or Illegal Dumpsite,NE_Not_Overdue,FRIDAY,NEFR104,NE,1
+101003930607,Trash Dumping or Illegal Dumpsite,NE_Not_Overdue,FRIDAY,NEFR104,NE,1
+101003921056,Trash Dumping or Illegal Dumpsite,NE_Not_Overdue,FRIDAY,NEFR104,NE,1
+101003922635,Missed Heavy Trash Pickup,NE_Overdue,MONDAY,NEMO103,NE,1
+101003931900,Trash Dumping or Illegal Dumpsite,NE_Not_Overdue,MONDAY,NEMO103,NE,1
+101003925568,Container Problem,SW_Not_Overdue,TUESDAY,SWTU117,SW,1
+101003907574,Trash Dumping or Illegal Dumpsite,NE_Not_Overdue,FRIDAY,NEFR111,NE,1
+101003784152,New Resident Container,NE_Overdue,FRIDAY,NEFR111,NE,1
+394617-101003931012,Trash Dumping or Illegal Dumpsite,NE_Not_Overdue,FRIDAY,NEFR116,NE,1
+101003922903,Recycling Participation NEW,NE_Not_Overdue,FRIDAY,NEFR116,NE,1
+101003932597,Dead Animal Collection,NE_Not_Overdue,FRIDAY,NEFR116,NE,1
+393167-101003919866,Trash Dumping or Illegal Dumpsite,NE_Not_Overdue,FRIDAY,NEFR118,NE,1
+101003926479,Recycling Participation NEW,NE_Not_Overdue,FRIDAY,NEFR118,NE,1
+101003771828,Container Problem,NE_Overdue,FRIDAY,NEFR118,NE,1
+101003929313,Recycling Participation NEW,NE_Not_Overdue,FRIDAY,NEFR115,NE,1
+101003783879,Container Problem,NE_Overdue,FRIDAY,NEFR115,NE,1
+101003904298,Trash Dumping or Illegal Dumpsite,SE_Not_Overdue,TUESDAY,SETU102,SE,1
+101003925482,Missed Heavy Trash Pickup,SE_Not_Overdue,TUESDAY,SETU102,SE,1
+101003925592,Missed Heavy Trash Pickup,SE_Not_Overdue,TUESDAY,SETU102,SE,1
+101003931637,Recycling Participation NEW,NE_Not_Overdue,THURSDAY,NETH114,NE,1
+101003778322,Container ,NE_Overdue,THURSDAY,NETH114,NE,1
+Problem
+101003926553,Missed Yard Waste Pickup,SW_Not_Overdue,TUESDAY,SWTU102,SW,1
+101003931053,Container Problem,NW_Not_Overdue,TUESDAY,NWTU104,NW,1
+101003930239,Recycling Cart Repair or Replace,SW_Not_Overdue,TUESDAY,SWTU112,SW,1
+101003927049,Recycling Cart Repair or Replace,SE_Not_Overdue,MONDAY,SEMO102,SE,1
+101003931022,New Resident Container,SW_Not_Overdue,TUESDAY,SWTU109,SW,1
+101003931024,Recycling Participation NEW,SW_Not_Overdue,TUESDAY,SWTU109,SW,1
+393742-101003924949,Trash Dumping or Illegal Dumpsite,NE_Not_Overdue,FRIDAY,NEFR110,NE,1
+101003909069,Trash Dumping or Illegal Dumpsite,NE_Not_Overdue,FRIDAY,NEFR110,NE,1
+101003922362,Trash Dumping or Illegal Dumpsite,NE_Not_Overdue,FRIDAY,NEFR110,NE,1
+394270-101003928856,Trash Dumping or Illegal Dumpsite,NE_Not_Overdue,FRIDAY,NEFR110,NE,1
+101003932295,Add A Can,SE_Not_Overdue,TUESDAY,SETU105,SE,1
+101003927596,Recycling Cart Repair or Replace,NW_Not_Overdue,THURSDAY,NWTH117,NW,1
+101003926343,Container Problem,NW_Not_Overdue,THURSDAY,NWTH119,NW,1
+101003930276,Add A Can,SW_Not_Overdue,MONDAY,SWMO102,SW,1
+101003932315,SWM Escalation,SW_Not_Overdue,FRIDAY,SWFR114,SW,1
+101003932643,Missed Heavy Trash Pickup,SW_Not_Overdue,FRIDAY,SWFR116,SW,1
+101003923628,New Resident Container,NW_Not_Overdue,TUESDAY,NWTU119,NW,1
+101003923629,Recycling Participation NEW,NW_Not_Overdue,TUESDAY,NWTU119,NW,1
+392109-101003892262,Trash Dumping or Illegal Dumpsite,NW_Not_Overdue,THURSDAY,NWTH101,NW,1
+101003930326,Add A Can,NW_Not_Overdue,THURSDAY,NWTH122,NW,1
+101003931486,Container Problem,NW_Not_Overdue,THURSDAY,NWTH122,NW,1
+101003927196,Container Problem,NW_Not_Overdue,THURSDAY,NWTH123,NW,1
+393329-,Trash Dumping ,NW_Not_Overd,THURSDAY,NWTH120,NW,1
+101003921071,or Illegal Dumpsite,ue
+101003926572,Recycling Participation NEW,SE_Not_Overdue,MONDAY,SEMO118,SE,1
+101003892081,Recycling Participation NEW,SE_Not_Overdue,FRIDAY,SEFR120,SE,1
+101003926452,Missed Heavy Trash Pickup,SE_Not_Overdue,FRIDAY,SEFR120,SE,1
+101003928838,Missed Recycling Pickup,SE_Not_Overdue,FRIDAY,SEFR120,SE,1
+101003932621,Dead Animal Collection,SE_Not_Overdue,FRIDAY,SEFR120,SE,1
+101003926355,Trash Dumping or Illegal Dumpsite,SE_Not_Overdue,FRIDAY,SEFR120,SE,1
+101003931198,Container Problem,SE_Not_Overdue,TUESDAY,SETU114,SE,1
+101003548178,Property Damage,SE_Overdue,TUESDAY,SETU114,SE,1
+101003926656,Container Problem,NW_Not_Overdue,THURSDAY,NWTH105,NW,1
+101003932914,Container Problem,NW_Not_Overdue,THURSDAY,NWTH105,NW,1
+101003932811,Container Problem,NW_Not_Overdue,THURSDAY,NWTH118,NW,1
+101003931748,Missed Garbage Pickup,NW_Not_Overdue,TUESDAY,NWTU118,NW,1
+101003932002,Dead Animal Collection,NW_Not_Overdue,TUESDAY,NWTU118,NW,1
+101003930229,Missed Garbage Pickup,SW_Not_Overdue,FRIDAY,SWFR116,SW,1
+101003932291,Dead Animal Collection,SW_Not_Overdue,FRIDAY,SWFR116,SW,1
+101003905462,Add A Can CANCELLATION,SW_Not_Overdue,FRIDAY,SWFR116,SW,1
+101003924599,Trash Dumping or Illegal Dumpsite,SE_Not_Overdue,FRIDAY,SEFR108,SE,1
+101003932560,Missed Heavy Trash Pickup,SE_Not_Overdue,FRIDAY,SEFR108,SE,1
+101003905633,Recycling Participation NEW,SW_Not_Overdue,MONDAY,SWMO114,SW,1
+394466-101003929759,Trash Dumping or Illegal Dumpsite,SE_Not_Overdue,MONDAY,SEMO116,SE,1
+101003925821,Missed Heavy Trash Pickup,SE_Not_Overdue,TUESDAY,SETU114,SE,1
+101003925684,Container Problem,SE_Not_Overdue,TUESDAY,SETU104,SE,1
+101003929547,Missed Heavy Trash Pickup,SE_Not_Overdue,TUESDAY,SETU104,SE,1
+101003921377,Recycling Participation NEW,NW_Not_Overdue,THURSDAY,NWTH111,NW,1
+101003928001,Recycling Cart Repair or Replace,NW_Not_Overdue,THURSDAY,NWTH111,NW,1
+101003929702,Container Problem,NW_Not_Overdue,THURSDAY,NWTH111,NW,1
+101003928819,Container Problem,NW_Not_Overdue,THURSDAY,NWTH111,NW,1
+101003932073,Container Problem,NW_Not_Overdue,MONDAY,NWMO120,NW,1
+101003930318,Missed Recycling Pickup,NW_Not_Overdue,MONDAY,NWMO120,NW,1
+101003928154,Missed Recycling Pickup,SW_Overdue,TUESDAY,SWTU118,SW,1
+101003907527,Trash Dumping or Illegal Dumpsite,NE_Not_Overdue,TUESDAY,NETU120,NE,1
+101003931596,Dead Animal Collection,SW_Not_Overdue,THURSDAY,SWTH113,SW,1
+101003931316,Container Problem,SE_Not_Overdue,TUESDAY,SETU105,SE,1
+101003906802,Trash Dumping or Illegal Dumpsite,NE_Not_Overdue,THURSDAY,NETH116,NE,1
+101003919321,Missed Heavy Trash Pickup,NE_Overdue,MONDAY,NEMO118,NE,1
+101003932443,Recycling Participation NEW,NE_Not_Overdue,THURSDAY,NETH106,NE,1
+101003768190,New Resident Container,NE_Overdue,THURSDAY,NETH106,NE,1
+101003929002,Missed Garbage Pickup,NW_Not_Overdue,FRIDAY,NWFR101,NW,1
+101003891113,Recycling Participation NEW,SW_Not_Overdue,THURSDAY,SWTH108,SW,1
+101003929001,Container Problem,SW_Not_Overdue,THURSDAY,SWTH119,SW,1
+101003930347,Container Problem,NW_Not_Overdue,MONDAY,NWMO112,NW,1
+101003931876,Recycling Cart Repair or Replace,NW_Not_Overdue,MONDAY,NWMO112,NW,1
+101003932095,Container Problem,NW_Not_Overdue,MONDAY,NWMO112,NW,1
+101003928966,Missed Garbage Pickup,SW_Not_Overdue,FRIDAY,SWFR109,SW,1
+101003931897,Container Problem,SE_Not_Overdue,TUESDAY,SETU121,SE,1
+101003932410,Container Problem,SE_Not_Overdue,TUESDAY,SETU121,SE,1
+101003930056,Missed Yard Waste Pickup,SW_Not_Overdue,THURSDAY,SWTH117,SW,1
+101003931683,Recycling Cart Repair or Replace,SW_Not_Overdue,THURSDAY,SWTH117,SW,1
+101003925397,Container Problem,SW_Not_Overdue,TUESDAY,SWTU119,SW,1
+101003929640,Missed Yard Waste Pickup,SW_Not_Overdue,THURSDAY,SWTH107,SW,1
+101003930776,Missed Recycling Pickup,SW_Not_Overdue,THURSDAY,SWTH107,SW,1
+101003929899,Recycling Cart Repair or Replace,NW_Not_Overdue,MONDAY,NWMO103,NW,1
+101003924033,Add A Can,SW_Not_Overdue,TUESDAY,SWTU119,SW,1
+101003930087,Container Problem,SW_Not_Overdue,TUESDAY,SWTU119,SW,1
+101003892908,Recycling Participation NEW,SW_Not_Overdue,THURSDAY,SWTH101,SW,1
+101003931150,Missed Heavy Trash Pickup,NW_Not_Overdue,TUESDAY,NWTU124,NW,1
+394150-101003927493,Trash Dumping or Illegal Dumpsite,NW_Not_Overdue,FRIDAY,NWFR115,NW,1
+101003887476,Missed Heavy Trash Pickup,NW_Overdue,FRIDAY,NWFR115,NW,1
+101003919303,Add A Can,NW_Overdue,FRIDAY,NWFR115,NW,1
+101003925424,Add A Bin,NE_Not_Overdue,MONDAY,NEMO108,NE,1
+101003924189,Recycling Cart Repair or Replace,NE_Not_Overdue,MONDAY,NEMO108,NE,1
+101003923728,Recycling Cart Repair or Replace,NE_Not_Overdue,MONDAY,NEMO108,NE,1
+101003925727,Recycling Cart Repair or Replace,NE_Not_Overdue,MONDAY,NEMO108,NE,1
+101003924790,Recycling Participation NEW,NE_Not_Overdue,MONDAY,NEMO108,NE,1
+101003922206,Recycling Participation NEW,SW_Not_Overdue,THURSDAY,SWTH119,SW,1
+101003923245,SWM Escalation,SW_Overdue,THURSDAY,SWTH119,SW,1
+101003929341,Container Problem,NW_Not_Overdue,MONDAY,NWMO121,NW,1
+101003928345,Container Problem,SW_Not_Overdue,THURSDAY,SWTH107,SW,1
+101003926766,Missed Garbage Pickup,SW_Overdue,THURSDAY,SWTH107,SW,1
+101003924124,Container Problem,SW_Not_Overdue,TUESDAY,SWTU110,SW,1
+101003924487,Container Problem,SW_Not_Overdue,TUESDAY,SWTU110,SW,1
+101003890366,Recycling Participation NEW,SE_Not_Overdue,TUESDAY,SETU121,SE,1
+101003929180,New Resident Container,NW_Not_Overdue,THURSDAY,NWTH110,NW,1
+101003885468,Trash Dumping or Illegal Dumpsite,NW_Not_Overdue,TUESDAY,NWTU116,NW,1
+101003931148,Missed Garbage Pickup,NW_Not_Overdue,TUESDAY,NWTU116,NW,1
+101003929919,Add A Can,NW_Not_Overdue,TUESDAY,NWTU116,NW,1
+101003923898,Container Problem,NW_Not_Overdue,FRIDAY,NWFR110,NW,1
+101003356723,Dumpster Complaint,NW_Overdue,TUESDAY,NWTU105,NW,1
+101003891893,Recycling Participation NEW,SW_Not_Overdue,THURSDAY,SWTH115,SW,1
+101003932228,Container Problem,NW_Not_Overdue,FRIDAY,NWFR103,NW,1
+101003930748,New Resident Container,NW_Not_Overdue,FRIDAY,NWFR103,NW,1
+101003886568,Missed Heavy Trash Pickup,NW_Overdue,FRIDAY,NWFR103,NW,1
+101003928739,Recycling Participation NEW,SW_Not_Overdue,THURSDAY,SWTH113,SW,1
+101003892180,Recycle Bin/Cart Retrieve,SW_Not_Overdue,FRIDAY,SWFR114,SW,1
+101003929327,Missed Yard Waste Pickup,NW_Not_Overdue,TUESDAY,NWTU107,NW,1
+101003928570,Container Problem,SW_Not_Overdue,FRIDAY,SWFR104,SW,1
+101003929038,New Resident Container,NE_Not_Overdue,THURSDAY,NETH120,NE,1
+101003930262,Missed Heavy Trash Pickup,SE_Not_Overdue,FRIDAY,SEFR121,SE,1
+101003931775,Missed Heavy Trash Pickup,SE_Not_Overdue,FRIDAY,SEFR121,SE,1
+101003929044,Container Problem,SW_Not_Overdue,FRIDAY,SWFR106,SW,1
+391638-101003888685,Trash Dumping or Illegal Dumpsite,SE_Not_Overdue,TUESDAY,SETU105,SE,1
+394196-101003927752,Trash Dumping or Illegal Dumpsite,SE_Not_Overdue,TUESDAY,SETU105,SE,1
+101003923957,Container Problem,NW_Not_Overdue,TUESDAY,NWTU123,NW,1
+101003924129,Container Problem,NW_Not_Overdue,TUESDAY,NWTU123,NW,1
+101003931820,Missed Garbage Pickup,NW_Not_Overdue,TUESDAY,NWTU123,NW,1
+101003928416,Recycling Participation NEW,SE_Not_Overdue,FRIDAY,SEFR118,SE,1
+101003926212,Trash Dumping or Illegal Dumpsite,SE_Not_Overdue,FRIDAY,SEFR118,SE,1
+101003928714,Container Problem,SW_Not_Overdue,FRIDAY,SWFR110,SW,1
+101003923907,Container Problem,SW_Not_Overdue,FRIDAY,SWFR104,SW,1
+101003929244,Container Problem,SW_Not_Overdue,MONDAY,SWMO106,SW,1
+101003922935,Container Problem,SW_Overdue,MONDAY,SWMO102,SW,1
+101003925783,Container Problem,SW_Not_Overdue,TUESDAY,SWTU108,SW,1
+101003921936,Recycling Cart Repair or Replace,SW_Not_Overdue,TUESDAY,SWTU109,SW,1
+101003929832,Missed Yard Waste Pickup,NW_Not_Overdue,MONDAY,NWMO107,NW,1
+101003922879,Recycling Participation NEW,SW_Not_Overdue,TUESDAY,SWTU109,SW,1
+101003924765,Container Problem,SW_Not_Overdue,TUESDAY,SWTU107,SW,1
+101003926418,Missed Yard Waste Pickup,NW_Not_Overdue,MONDAY,NWMO113,NW,1
+101003929950,Container Problem,NW_Not_Overdue,MONDAY,NWMO113,NW,1
+101003929901,Missed Garbage Pickup,SW_Not_Overdue,FRIDAY,SWFR110,SW,1
+101003925150,Recycling Participation NEW,SE_Not_Overdue,MONDAY,SEMO101,SE,1
+101003930870,Container Problem,SE_Not_Overdue,MONDAY,SEMO101,SE,1
+101003932014,SWM Escalation,SE_Not_Overdue,MONDAY,SEMO101,SE,1
+101003929571,Missed Garbage Pickup,SW_Not_Overdue,MONDAY,SWMO101,SW,1
+101003646126,Dumpster Complaint,SW_Not_Overdue,MONDAY,SWMO114,SW,1
+101003887368,Recycling Participation NEW,SW_Not_Overdue,TUESDAY,SWTU117,SW,1
+101003926251,Missed Yard Waste Pickup,SW_Not_Overdue,TUESDAY,SWTU109,SW,1
+101003926417,Missed Yard Waste Pickup,SW_Not_Overdue,TUESDAY,SWTU114,SW,1
+101003930386,Missed Heavy ,SE_Not_Overdu,THURSDAY,SETH108A,SE,1
+Trash Pickup,e
+101003930157,Container Problem,SW_Not_Overdue,TUESDAY,SWTU111,SW,1
+101003906815,Missed Heavy Trash Pickup,SE_Overdue,THURSDAY,SETH111B,SE,1
+101003930426,Recycling Cart Repair or Replace,SE_Not_Overdue,THURSDAY,SETH110A,SE,1
+101003907764,Recycling Cart Repair or Replace,SE_Overdue,THURSDAY,SETH101B,SE,1
+101003928198,Missed Heavy Trash Pickup,SE_Not_Overdue,THURSDAY,SETH103A,SE,1
+101003920645,Recycling Cart Repair or Replace,SW_Not_Overdue,FRIDAY,SWFR122,SW,1
+101003930584,Missed Garbage Pickup,SW_Not_Overdue,FRIDAY,SWFR122,SW,1
+101003931927,Recycling Participation NEW,SW_Not_Overdue,FRIDAY,SWFR122,SW,1
+101003891289,Recycling Participation NEW,SW_Not_Overdue,FRIDAY,SWFR122,SW,1
+101003929266,Missed Garbage Pickup,SW_Not_Overdue,FRIDAY,SWFR122,SW,1
+101003930281,Missed Garbage Pickup,SW_Not_Overdue,FRIDAY,SWFR122,SW,1
+101003930255,Container Problem,SW_Not_Overdue,MONDAY,SWMO101,SW,1
+101003932650,Missed Recycling Pickup,SW_Not_Overdue,MONDAY,SWMO115,SW,1
+101003931442,Container Problem,NE_Not_Overdue,FRIDAY,NEFR113,NE,1
+101003925689,Trash Dumping or Illegal Dumpsite,NE_Not_Overdue,FRIDAY,NEFR113,NE,1
+101003932283,Dead Animal Collection,SW_Not_Overdue,TUESDAY,SWTU117,SW,1
+101003923196,Recycling Cart Repair or Replace,SE_Not_Overdue,THURSDAY,SETH113A,SE,1
+101003927077,Missed Heavy Trash Pickup,SE_Not_Overdue,THURSDAY,SETH113A,SE,1
+101003932760,Recycling Participation NEW,NW_Not_Overdue,MONDAY,NWMO122,NW,1
+101003907584,Add A Can CANCELLATION,NW_Not_Overdue,MONDAY,NWMO122,NW,1
+394214-101003928034,Trash Dumping or Illegal Dumpsite,SE_Not_Overdue,FRIDAY,SEFR121,SE,1
+394215-101003928765,Trash Dumping or Illegal ,SE_Not_Overdue,FRIDAY,SEFR121,SE,1
+Dumpsite
+101003926294,Recycling Cart Repair or Replace,SE_Not_Overdue,THURSDAY,SETH104B,SE,1
+101003926134,Container Problem,SE_Not_Overdue,THURSDAY,SETH104B,SE,1
+101003931796,Missed Heavy Trash Pickup,SE_Not_Overdue,THURSDAY,SETH102A,SE,1
+101003920372,Missed Heavy Trash Pickup,SE_Overdue,THURSDAY,SETH102A,SE,1
+101003926890,Recycling Cart Repair or Replace,SE_Not_Overdue,THURSDAY,SETH104A,SE,1
+101003929047,Recycling Cart Repair or Replace,SE_Not_Overdue,THURSDAY,SETH104A,SE,1
+101003932711,Container Problem,SE_Not_Overdue,THURSDAY,SETH104A,SE,1
+101003922746,Trash Dumping or Illegal Dumpsite,SE_Not_Overdue,MONDAY,SEMO101,SE,1
+101003920915,Trash Dumping or Illegal Dumpsite,SE_Not_Overdue,MONDAY,SEMO101,SE,1
+101003925942,Container Problem,NW_Not_Overdue,MONDAY,NWMO124,NW,1
+101003923894,Container Problem,NW_Not_Overdue,TUESDAY,NWTU106,NW,1
+101003928788,Container Problem,NW_Not_Overdue,TUESDAY,NWTU106,NW,1
+101003931564,Missed Garbage Pickup,NW_Not_Overdue,TUESDAY,NWTU106,NW,1
+101003931362,New Resident Container,NW_Not_Overdue,THURSDAY,NWTH113,NW,1
+101003932735,Container Problem,NW_Not_Overdue,THURSDAY,NWTH113,NW,1
+101003926769,Container Problem,NW_Not_Overdue,THURSDAY,NWTH113,NW,1
+101003929375,Missed Garbage Pickup,SE_Not_Overdue,THURSDAY,SETH101A,SE,1
+101003929861,Missed Heavy Trash Pickup,SE_Not_Overdue,THURSDAY,SETH108B,SE,1
+101003927853,Recycling Participation NEW,SE_Not_Overdue,MONDAY,SEMO102,SE,1
+393643-101003922670,Trash Dumping or Illegal Dumpsite,NW_Not_Overdue,MONDAY,NWMO117,NW,1
+101003929196,New Resident Container,NW_Not_Overdue,MONDAY,NWMO117,NW,1
+101003923406,Trash Dumping or Illegal Dumpsite,NW_Not_Overdue,MONDAY,NWMO117,NW,1
+101003885850,Trash Dumping or Illegal Dumpsite,NW_Not_Overdue,MONDAY,NWMO117,NW,1
+101003932520,Dead Animal Collection,SE_Not_Overdue,THURSDAY,SETH115B,SE,1
+101003930901,Recycling Participation NEW,NW_Not_Overdue,THURSDAY,NWTH112,NW,1
+101003926513,Missed Heavy Trash Pickup,NW_Not_Overdue,FRIDAY,NWFR120,NW,1
+101003885897,Missed Heavy Trash Pickup,NW_Overdue,FRIDAY,NWFR120,NW,1
+101003888925,Missed Heavy Trash Pickup,NW_Overdue,FRIDAY,NWFR120,NW,1
+101003925519,Recycling Participation NEW,NW_Not_Overdue,MONDAY,NWMO113,NW,1
+101003887091,Recycling Participation NEW,NW_Not_Overdue,TUESDAY,NWTU111,NW,1
+101003926495,New Resident Container,NW_Not_Overdue,TUESDAY,NWTU111,NW,1
+101003928144,Container Problem,SE_Not_Overdue,THURSDAY,SETH105A,SE,1
+101003731493,Dumpster Complaint,NW_Not_Overdue,MONDAY,NWMO119,NW,1
+393679-101003923508,Trash Dumping or Illegal Dumpsite,NW_Not_Overdue,MONDAY,NWMO119,NW,1
+101003931297,Missed Yard Waste Pickup,NW_Not_Overdue,MONDAY,NWMO119,NW,1
+101003929480,Container Problem,NW_Not_Overdue,MONDAY,NWMO105,NW,1
+101003929888,Container Problem,NW_Not_Overdue,MONDAY,NWMO105,NW,1
+101003930126,Container Problem,NW_Not_Overdue,MONDAY,NWMO110,NW,1
+101003927393,Missed Yard Waste Pickup,NW_Not_Overdue,MONDAY,NWMO109,NW,1
+101003927720,Container Problem,SE_Not_Overdue,THURSDAY,SETH114A,SE,1
+101003924901,Container Problem,SE_Not_Overdue,THURSDAY,SETH118,SE,1
+101003929967,Container Problem,NW_Not_Overdue,FRIDAY,NWFR113,NW,1
+101003930885,SWM Escalation,NW_Not_Overdue,TUESDAY,NWTU109,NW,1
+101003604897,Dumpster Complaint,NW_Not_Overdue,THURSDAY,NWTH109,NW,1
+101003930769,Missed Yard Waste Pickup,NW_Not_Overdue,THURSDAY,NWTH109,NW,1
+101003905828,Trash Dumping or Illegal Dumpsite,SE_Not_Overdue,THURSDAY,SETH106A,SE,1
+101003892509,Property Damage,SE_Not_Overdue,THURSDAY,SETH112A,SE,1
+101003891177,Recycling Cart Repair or ,SE_Overdue,THURSDAY,SETH122,SE,1
+Replace
+101003927665,Container Problem,NW_Not_Overdue,FRIDAY,NWFR122,NW,1
+101003928019,Recycling Cart Repair or Replace,NW_Not_Overdue,FRIDAY,NWFR122,NW,1
+101003905368,Recycling Participation NEW,NW_Not_Overdue,TUESDAY,NWTU110,NW,1
+101003925760,Container Problem,NW_Not_Overdue,TUESDAY,NWTU110,NW,1
+101003928072,Container Problem,NW_Not_Overdue,TUESDAY,NWTU110,NW,1
+101003932048,Container Problem,NW_Not_Overdue,TUESDAY,NWTU110,NW,1
+101003932153,Missed Garbage Pickup,NW_Not_Overdue,TUESDAY,NWTU110,NW,1
+101003932579,Container Problem,NW_Not_Overdue,TUESDAY,NWTU110,NW,1
+101003926696,Missed Yard Waste Pickup,NW_Not_Overdue,MONDAY,NWMO111,NW,1
+101003931770,Container Problem,NW_Not_Overdue,MONDAY,NWMO111,NW,1
+101003932205,Missed Yard Waste Pickup,NW_Not_Overdue,MONDAY,NWMO111,NW,1
+101003929608,Container Problem,NW_Not_Overdue,THURSDAY,NWTH107,NW,1
+101003617248,Dumpster Complaint,SW_Not_Overdue,TUESDAY,SWTU107,SW,1
+101003647997,Dumpster Complaint,SW_Not_Overdue,TUESDAY,SWTU107,SW,1
+101003920261,Container Problem,SW_Overdue,TUESDAY,SWTU107,SW,1
+101003927253,Missed Yard Waste Pickup,SW_Not_Overdue,TUESDAY,SWTU107,SW,1
+101003893290,Trash Dumping or Illegal Dumpsite,NE_Not_Overdue,TUESDAY,NETU101,NE,1
+101003929438,Container Problem,NE_Not_Overdue,TUESDAY,NETU101,NE,1
+101003932394,New Resident Container,NE_Not_Overdue,TUESDAY,NETU101,NE,1
+101003738209,Container Problem,NE_Overdue,TUESDAY,NETU101,NE,1
+101003776086,Container Problem,NE_Overdue,TUESDAY,NETU101,NE,1
+101003780842,New Resident Container,NE_Overdue,TUESDAY,NETU101,NE,1
+101003773763,Container Problem,NE_Overdue,TUESDAY,NETU101,NE,1
+101003932258,Dead Animal Collection,SE_Not_Overdue,THURSDAY,SETH117,SE,1
+101003932891,Dead Animal Collection,SE_Not_Overdue,THURSDAY,SETH117,SE,1
+101003925668,Container ,SE_Not_Overdu,THURSDAY,SETH117,SE,1
+Problem,e
+101003890747,Trash Dumping or Illegal Dumpsite,NW_Not_Overdue,FRIDAY,NWFR105,NW,1
+101003924510,Container Problem,NW_Not_Overdue,FRIDAY,NWFR105,NW,1
+101003931299,Container Problem,NW_Not_Overdue,FRIDAY,NWFR105,NW,1
+101003925346,Recycling Cart Repair or Replace,NE_Not_Overdue,MONDAY,NEMO107,NE,1
+101003781574,Add A Can,NE_Overdue,MONDAY,NEMO107,NE,1
+101003925349,Trash Dumping or Illegal Dumpsite,NE_Not_Overdue,MONDAY,NEMO107,NE,1
+101003923833,New Resident Container,NW_Not_Overdue,THURSDAY,NWTH103,NW,1
+101003931260,Trash Dumping or Illegal Dumpsite,NE_Not_Overdue,THURSDAY,NETH115,NE,1
+101003920669,Trash Dumping or Illegal Dumpsite,NE_Not_Overdue,THURSDAY,NETH115,NE,1
+394723-101003932944,Trash Dumping or Illegal Dumpsite,NW_Not_Overdue,FRIDAY,NWFR102,NW,1
+101003932446,Missed Yard Waste Pickup,NW_Not_Overdue,TUESDAY,NWTU120,NW,1
+101003932919,Container Problem,NW_Not_Overdue,TUESDAY,NWTU120,NW,1
+101003927909,Container Problem,SE_Not_Overdue,THURSDAY,SETH107A,SE,1
+394441-101003929468,Trash Dumping or Illegal Dumpsite,SE_Not_Overdue,THURSDAY,SETH107A,SE,1
+101003926680,Container Problem,SE_Not_Overdue,THURSDAY,SETH107A,SE,1
+393418-101003921644,Trash Dumping or Illegal Dumpsite,SE_Not_Overdue,THURSDAY,SETH109B,SE,1
+101003925842,Recycling Participation NEW,NW_Not_Overdue,MONDAY,NWMO108,NW,1
+101003926612,Missed Yard Waste Pickup,NW_Not_Overdue,MONDAY,NWMO108,NW,1
+101003932705,New Resident Container,NW_Not_Overdue,MONDAY,NWMO108,NW,1
+101003930686,Recycling Participation NEW,NW_Not_Overdue,MONDAY,NWMO108,NW,1
+101003924148,New Resident Container,NW_Not_Overdue,FRIDAY,NWFR123,NW,1
+101003931721,Missed Garbage Pickup,NW_Not_Overdue,FRIDAY,NWFR124,NW,1
+101003919478,Add A Can ,NW_Not_Overd,MONDAY,NWMO116,NW,1
+CANCELLATION,ue
+394054-101003926168,Trash Dumping or Illegal Dumpsite,NW_Not_Overdue,MONDAY,NWMO116,NW,1
+101003931389,Container Problem,NW_Not_Overdue,TUESDAY,NWTU112,NW,1
+101003906767,Trash Dumping or Illegal Dumpsite,NW_Not_Overdue,FRIDAY,NWFR106,NW,1
+101003928046,Container Problem,NW_Not_Overdue,FRIDAY,NWFR106,NW,1
+101003928503,Recycling Cart Repair or Replace,NW_Not_Overdue,FRIDAY,NWFR106,NW,1
+101003906772,Trash Dumping or Illegal Dumpsite,NW_Not_Overdue,FRIDAY,NWFR106,NW,1
+101003927045,Container Problem,NW_Not_Overdue,FRIDAY,NWFR106,NW,1
+101003909075,Trash Dumping or Illegal Dumpsite,NW_Not_Overdue,FRIDAY,NWFR106,NW,1
+101003930297,Recycling Participation NEW,SE_Not_Overdue,THURSDAY,SETH114B,SE,1
+101003890768,Trash Dumping or Illegal Dumpsite,SE_Not_Overdue,THURSDAY,SETH111A,SE,1
+101003931211,Container Problem,SE_Not_Overdue,THURSDAY,SETH111A,SE,1
+101003927294,Container Problem,NW_Not_Overdue,THURSDAY,NWTH102,NW,1
+101003923717,Recycling Cart Repair or Replace,NW_Not_Overdue,THURSDAY,NWTH102,NW,1
+101003928994,Missed Garbage Pickup,NW_Not_Overdue,FRIDAY,NWFR114,NW,1
+101003892970,Trash Dumping or Illegal Dumpsite,NW_Not_Overdue,FRIDAY,NWFR104,NW,1
+101003924897,Container Problem,NW_Not_Overdue,FRIDAY,NWFR104,NW,1
+101003928958,Missed Garbage Pickup,NW_Not_Overdue,FRIDAY,NWFR104,NW,1
+101003929875,Missed Garbage Pickup,NW_Not_Overdue,FRIDAY,NWFR104,NW,1
+101003930820,Trash Dumping or Illegal Dumpsite,NW_Not_Overdue,FRIDAY,NWFR104,NW,1
+101003889728,Trash Dumping or Illegal Dumpsite,NW_Not_Overdue,FRIDAY,NWFR104,NW,1
+101003923535,Recycling Participation NEW,NE_Not_Overdue,MONDAY,NEMO114,NE,1
+101003927127,Container Problem,NW_Not_Overdue,FRIDAY,NWFR111,NW,1
+101003928860,Container Problem,NE_Not_Overdue,THURSDAY,NETH111,NE,1
+101003891216,Trash Dumping or Illegal Dumpsite,NW_Not_Overdue,FRIDAY,NWFR112,NW,1
+101003931469,Container Problem,NW_Not_Overdue,FRIDAY,NWFR112,NW,1
+101003930662,New Move In Service,NW_Not_Overdue,MONDAY,NWMO114,NW,1
+101003888005,Recycling Participation NEW,SE_Not_Overdue,THURSDAY,SETH120,SE,1
+101003906311,Trash Dumping or Illegal Dumpsite,SE_Not_Overdue,THURSDAY,SETH120,SE,1
+101003925456,Container Problem,SE_Not_Overdue,THURSDAY,SETH120,SE,1
+101003929871,Recycling Participation NEW,SE_Not_Overdue,THURSDAY,SETH120,SE,1
+101003927776,Container Problem,NW_Not_Overdue,FRIDAY,NWFR116,NW,1
+101003925269,Missed Heavy Trash Pickup,NW_Not_Overdue,FRIDAY,NWFR121,NW,1
+101003924846,Recycling Participation NEW,NW_Not_Overdue,MONDAY,NWMO106,NW,1
+394220-101003928122,Trash Dumping or Illegal Dumpsite,NW_Not_Overdue,MONDAY,NWMO106,NW,1
+101003928303,Missed Yard Waste Pickup,NW_Not_Overdue,MONDAY,NWMO106,NW,1
+101003927945,Recycling Participation NEW,NW_Not_Overdue,MONDAY,NWMO106,NW,1
+101003930626,Container Problem,NW_Not_Overdue,MONDAY,NWMO106,NW,1
+394735-101003932938,Trash Dumping or Illegal Dumpsite,NW_Not_Overdue,MONDAY,NWMO106,NW,1
+101003932530,Add A Can CANCELLATION,NW_Not_Overdue,MONDAY,NWMO106,NW,1
+101003930850,Missed Heavy Trash Pickup,NW_Not_Overdue,TUESDAY,NWTU122,NW,1
+101003930655,Add A Can,NW_Not_Overdue,TUESDAY,NWTU122,NW,1
+101003922994,Trash Dumping or Illegal Dumpsite,NW_Not_Overdue,MONDAY,NWMO101,NW,1
+101003932835,SWM Escalation,NW_Not_Overdue,MONDAY,NWMO101,NW,1
+101003929497,New Resident Container,NW_Not_Overdue,FRIDAY,NWFR107,NW,1
+101003931677,Recycling Participation NEW,NW_Not_Overdue,FRIDAY,NWFR107,NW,1
+101003931725,Container Problem,NW_Not_Overdue,FRIDAY,NWFR107,NW,1
+101003905527,Recycling Participation NEW,NW_Not_Overdue,MONDAY,NWMO123,NW,1
+101003906670,Trash Dumping or Illegal Dumpsite,NW_Not_Overdue,MONDAY,NWMO123,NW,1
+101003926722,New Move In Service,NW_Not_Overdue,MONDAY,NWMO123,NW,1
+101003924165,Container Problem,NW_Not_Overdue,MONDAY,NWMO102,NW,1
+101003928954,Recycling Participation NEW,NW_Not_Overdue,MONDAY,NWMO102,NW,1
+101003930501,Recycling Participation NEW,NW_Not_Overdue,MONDAY,NWMO102,NW,1
+101003932866,Missed Heavy Trash Pickup,NW_Not_Overdue,MONDAY,NWMO102,NW,1
+101003930562,Missed Yard Waste Pickup,SE_Not_Overdue,THURSDAY,SETH121,SE,1
+101003927200,Container Problem,SE_Not_Overdue,THURSDAY,SETH116,SE,1
+101003739507,Add A Can,NE_Overdue,TUESDAY,NETU107,NE,1

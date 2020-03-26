@@ -1,31 +1,11 @@
 case_numbe,sr_type,quad_statu,day,sec_name,quad,tally
+101003924914,Missed Yard Waste Pickup,SW_Overdue,TUESDAY,SWTU112,SW,1
 101003925387,Missed Recycling Pickup,SW_Overdue,TUESDAY,SWTU105,SW,1
-101003906820,Missed Recycling Pickup,SE_Overdue,TUESDAY,SETU104,SE,1
-101003924302,Missed Recycling Pickup,SE_Overdue,TUESDAY,SETU116,SE,1
-101003919395,Missed Recycling Pickup,SE_Overdue,TUESDAY,SETU120,SE,1
-101003920246,Missed Recycling Pickup,SE_Overdue,TUESDAY,SETU119,SE,1
-101003925288,Missed Garbage Pickup,SW_Overdue,TUESDAY,SWTU105,SW,1
-101003925116,Missed Garbage Pickup,SW_Overdue,TUESDAY,SWTU117,SW,1
-101003924857,Missed Garbage Pickup,SW_Overdue,TUESDAY,SWTU101,SW,1
-101003925452,Missed Garbage Pickup,SW_Overdue,TUESDAY,SWTU113,SW,1
-101003924283,Missed Garbage Pickup,SW_Overdue,TUESDAY,SWTU102,SW,1
-101003891038,Missed Heavy Trash Pickup,SE_Overdue,TUESDAY,SETU111,SE,1
+101003926100,Missed Yard Waste Pickup,SW_Overdue,TUESDAY,SWTU102,SW,1
 101003890082,Missed Heavy Trash Pickup,SE_Overdue,TUESDAY,SETU101,SE,1
 101003889986,Missed Heavy Trash Pickup,SE_Overdue,TUESDAY,SETU115,SE,1
-101003919622,Missed Recycling Pickup,SE_Overdue,TUESDAY,SETU118,SE,1
-101003920243,Missed Recycling Pickup,SE_Overdue,TUESDAY,SETU118,SE,1
-101003906573,Missed Recycling Pickup,SE_Overdue,TUESDAY,SETU112,SE,1
-101003919425,Missed Recycling Pickup,SE_Overdue,TUESDAY,SETU116,SE,1
-101003908734,Missed Recycling Pickup,SE_Overdue,TUESDAY,SETU117,SE,1
-101003924884,Missed Recycling Pickup,SE_Overdue,TUESDAY,SETU117,SE,1
-101003926046,Missed Recycling Pickup,SE_Overdue,TUESDAY,SETU120,SE,1
-101003908390,Missed Recycling Pickup,SE_Overdue,TUESDAY,SETU119,SE,1
-101003923801,Missed Garbage Pickup,SW_Overdue,TUESDAY,SWTU122,SW,1
 101003907401,Missed Recycling Pickup,SE_Overdue,TUESDAY,SETU101,SE,1
-101003925054,Missed Garbage Pickup,SW_Overdue,TUESDAY,SWTU101,SW,1
-101003925164,Missed Garbage Pickup,SW_Overdue,TUESDAY,SWTU119,SW,1
-101003920536,Missed Recycling Pickup,SE_Overdue,TUESDAY,SETU119,SE,1
-101003926138,Missed Garbage Pickup,SW_Overdue,TUESDAY,SWTU117,SW,1
-101003925333,Missed Garbage Pickup,SW_Overdue,TUESDAY,SWTU117,SW,1
-101003926006,Missed Garbage Pickup,SW_Overdue,TUESDAY,SWTU115,SW,1
-101003925542,Missed Recycling Pickup,SW_Overdue,TUESDAY,SWTU111,SW,1
+101003926121,Missed Yard Waste Pickup,SW_Overdue,TUESDAY,SWTU114,SW,1
+101003928576,Missed Garbage Pickup,SW_Overdue,TUESDAY,SWTU101,SW,1
+101003923298,Missed Heavy Trash Pickup,SE_Overdue,TUESDAY,SETU113,SE,1
+101003928154,Missed Recycling Pickup,SW_Overdue,TUESDAY,SWTU118,SW,1
