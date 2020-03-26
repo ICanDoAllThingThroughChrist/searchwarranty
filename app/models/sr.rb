@@ -1,11 +1,5 @@
 class Sr < ApplicationRecord
-  def self.update_sr_location_for_open_sr
-    array = Sr.where(status:'Open', department: 'SWM Solid Waste Management')
-    array.each_with_index {|e,i|
-      e['sr_location'] = e['sr_location'].split(",").join(" ")
-    }
-  end
-    def self.update_trash_quad
+      def self.update_trash_quad
       Spatial.delete_all
       Spatial.seed
       array = Sr.where(quad_status:"No_Quad_Not_Overdue").or(Sr.where(quad_status: "Quad_Not_Overdue")).or(Sr.where(quad_status: "No_Quad_Overdue")).or(Sr.where(quad_status: "Quad_Overdue"))
@@ -56,7 +50,16 @@ class Sr < ApplicationRecord
       #TYPE "next at prompt"
       Sr.add_tally
       #TYPE "next at prompt"
+      Sr.update_sr_location_for_open_sr
       Sr.html_pivot
+    end
+
+    def self.update_sr_location_for_open_sr
+      array = Sr.where(status:'Open', department: 'SWM Solid Waste Management')
+      array.each_with_index {|e,i|
+        e['sr_location'] = e['sr_location'].split(",").join(" ")
+        e.save
+      }
     end
 
     def self.html_pivot
