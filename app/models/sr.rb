@@ -56,10 +56,10 @@ class Sr < ApplicationRecord
     def self.html_pivot
       headers = %w[id case_number sr_location county district neighborhood tax_id trash_quad recycle_quad trash_day heavy_trash_day recycle_day key_map management_district department division sr_type queue sla status sr_create_date due_date date_closed overdue title x y latitude longitude channel_type created_at updated_at field1 field2 client garbage_route heavy_trash_quad sr_owner sr_creator resolve_days street_num client_street city state zip phone_number email_address garbage_day1 garbage_quad recycle_day1 recycle_route resolution_time expression ne_overdue ne_not_overdue ne_sr_total nw_overdue nw_not_overdue nw_sr_total se_overdue se_not_overdue se_sr_total sw_overdue sw_not_overdue sw_sr_total quad_status tally]
       CSV.open("testing.csv", "wb", write_headers: true, headers: headers) do |csv| Sr.where(status: "Open", department: 'SWM Solid Waste Management').pluck(:id, :case_number, :sr_location, :county, :district, :neighborhood, :tax_id, :trash_quad, :recycle_quad, :trash_day, :heavy_trash_day, :recycle_day, :key_map, :management_district, :department, :division, :sr_type, :queue, :sla, :status, :sr_create_date, :due_date, :date_closed, :overdue, :title, :x, :y, :latitude, :longitude, :channel_type, :created_at, :updated_at, :field1, :field2, :client, :garbage_route, :heavy_trash_quad, :sr_owner, :sr_creator, :resolve_days, :street_num, :client_street, :city, :state, :zip, :phone_number, :email_address, :garbage_day1, :garbage_quad, :recycle_day1, :recycle_route, :resolution_time, :expression, :ne_overdue, :ne_not_overdue, :ne_sr_total, :nw_overdue, :nw_not_overdue, :nw_sr_total, :se_overdue, :se_not_overdue, :se_sr_total, :sw_overdue, :sw_not_overdue, :sw_sr_total, :quad_status, :tally).each do |row| csv << row end end
-      sales = Daru::DataFrame.from_csv 'C:/Users/e128289/searchwarranty/testing.csv'
+      sales = Daru::DataFrame.from_csv '../searchwarranty/testing.csv'
       list = sales.pivot_table(index:['sr_type'],values:'tally', vectors:['quad_status'],  agg:  :sum)
-      File.open('C:/Users/e128289/searchwarranty/app/views/srs/test.html.erb', 'w+'){|f| f << list.to_html}
-      File.open('C:/Users/e128289/searchwarranty/app/views/srs/test.html', 'w+'){|f| f << list.to_html}
+      File.open('../searchwarranty/app/views/srs/test.html.erb', 'w+'){|f| f << list.to_html}
+      File.open('../searchwarranty/app/views/srs/test.html', 'w+'){|f| f << list.to_html}
     end
     def self.add_tally
       open_quad = Sr.where(:status => 'Open')

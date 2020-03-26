@@ -56,7 +56,7 @@ class OpenSr < ApplicationRecord
   def self.sr_route
     OpenSr.delete_all
     @input = File.open("../searchwarranty/OpenSRRoute.txt")
-    # @input = File.open("../searchwarranty/OpenSRRoute.txt")
+    # @input = File.open("../searchwarranty/OpenSRRoute.txt") as a result of Spatial Join of All Overdue Cases with No Missing Quad Assignments
     header=%w[case_numbe sr_type quad_statu day sec_name quad tally]
       @input.each_line {|row|
         a= row.chomp
