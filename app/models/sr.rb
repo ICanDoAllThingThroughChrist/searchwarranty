@@ -209,9 +209,62 @@ class Sr < ApplicationRecord
     open_srs = Sr.where(:overdue => -400..400,:department => 'SWM Solid Waste Management', :status => 'Open')
     open_srs
   end
+
+  def self.grade(g)
+    if g >= 0.9
+      g = 'A'
+    elsif g >= 0.8
+      g = 'B'
+    elsif g >= 0.7
+      g = 'C'
+    else
+      g = 'F'
+    end
+      return "#{g}"
+    # binding.pry
+  end
+
+  def self.aug_2019_historical_grade
+    deptSWwide_aug_2019_sla_due_cases = Sr.between_fields('2019-08-01 00:00:00', :sr_create_date, :date_closed).where(department: 'SWM Solid Waste Management', trash_quad: 'SW', sr_type: ['Missed Heavy Trash Pickup
+', 'Container Problem', 'New Resident Container', 'Recycling Participation NEW', 'Recycling Cart Repair or Replace', 'SWM Escalation', 'Missed Garbage Pickup', 'Trash Dumping or Illegal Dumpsite', 'Add A Can', 'Storm Debris Collection', 'Dead Animal Collection',  'Add A Can CANCELLATION', 'Missed Recycling Pickup', 'Personnel or Vehicle Complaint', 'Physically Challenged Pickup']).count
+    deptSWwide_aug_2019_actual__due_and_closed_cases = Sr.between_fields('2019-08-01 00:00:00', :due_date, :date_closed).where(department: 'SWM Solid Waste Management', status: 'Closed', trash_quad: 'SW', sr_type: ['Missed Heavy Trash Pickup
+', 'Container Problem', 'New Resident Container', 'Recycling Participation NEW', 'Recycling Cart Repair or Replace', 'SWM Escalation', 'Missed Garbage Pickup', 'Trash Dumping or Illegal Dumpsite', 'Add A Can', 'Storm Debris Collection', 'Dead Animal Collection',  'Add A Can CANCELLATION', 'Missed Recycling Pickup', 'Personnel or Vehicle Complaint', 'Physically Challenged Pickup']).count
+    deptSWwide_aug_2019_sla_percent_complete = deptSWwide_aug_2019_actual__due_and_closed_cases.to_f.round(2)/deptSWwide_aug_2019_sla_due_cases.to_f.round(2)
+    self.grade(deptSWwide_aug_2019_sla_percent_complete)
+    @sw_grade_aug_2019 = self.grade(deptSWwide_aug_2019_sla_percent_complete)
+    binding.pry
+    deptSEwide_aug_2019_sla_due_cases = Sr.between_fields('2019-08-01 00:00:00', :sr_create_date, :date_closed).where(department: 'SWM Solid Waste Management', trash_quad: 'SE', sr_type: ['Missed Heavy Trash Pickup
+', 'Container Problem', 'New Resident Container', 'Recycling Participation NEW', 'Recycling Cart Repair or Replace', 'SWM Escalation', 'Missed Garbage Pickup', 'Trash Dumping or Illegal Dumpsite', 'Add A Can', 'Storm Debris Collection', 'Dead Animal Collection',  'Add A Can CANCELLATION', 'Missed Recycling Pickup', 'Personnel or Vehicle Complaint', 'Physically Challenged Pickup']).count
+    deptSEwide_aug_2019_actual__due_and_closed_cases = Sr.between_fields('2019-08-01 00:00:00', :due_date, :date_closed).where(department: 'SWM Solid Waste Management', trash_quad: 'SE', sr_type: ['Missed Heavy Trash Pickup
+', 'Container Problem', 'New Resident Container', 'Recycling Participation NEW', 'Recycling Cart Repair or Replace', 'SWM Escalation', 'Missed Garbage Pickup', 'Trash Dumping or Illegal Dumpsite', 'Add A Can', 'Storm Debris Collection', 'Dead Animal Collection',  'Add A Can CANCELLATION', 'Missed Recycling Pickup', 'Personnel or Vehicle Complaint', 'Physically Challenged Pickup']).count
+    deptSEwide_aug_2019_sla_percent_complete = deptSEwide_aug_2019_actual__due_and_closed_cases.to_f.round(2)/deptSEwide_aug_2019_sla_due_cases.to_f.round(2)
+    self.se_grade_aug_2019 = self.grade(deptSEwide_aug_2019_sla_percent_complete)
+
+    deptNEwide_aug_2019_sla_due_cases = Sr.between_fields('2019-08-01 00:00:00', :sr_create_date, :date_closed).where(department: 'SWM Solid Waste Management', trash_quad: 'NE', sr_type: ['Missed Heavy Trash Pickup
+', 'Container Problem', 'New Resident Container', 'Recycling Participation NEW', 'Recycling Cart Repair or Replace', 'SWM Escalation', 'Missed Garbage Pickup', 'Trash Dumping or Illegal Dumpsite', 'Add A Can', 'Storm Debris Collection', 'Dead Animal Collection',  'Add A Can CANCELLATION', 'Missed Recycling Pickup', 'Personnel or Vehicle Complaint', 'Physically Challenged Pickup']).count
+    deptNEwide_aug_2019_actual__due_and_closed_cases = Sr.between_fields('2019-08-01 00:00:00', :due_date, :date_closed).where(department: 'SWM Solid Waste Management', trash_quad: 'NE', sr_type: ['Missed Heavy Trash Pickup
+', 'Container Problem', 'New Resident Container', 'Recycling Participation NEW', 'Recycling Cart Repair or Replace', 'SWM Escalation', 'Missed Garbage Pickup', 'Trash Dumping or Illegal Dumpsite', 'Add A Can', 'Storm Debris Collection', 'Dead Animal Collection',  'Add A Can CANCELLATION', 'Missed Recycling Pickup', 'Personnel or Vehicle Complaint', 'Physically Challenged Pickup']).count
+    deptNEwide_aug_2019_sla_percent_complete = deptNEwide_aug_2019_actual__due_and_closed_cases.to_f.round(2)/deptNEwide_aug_2019_sla_due_cases.to_f.round(2)
+    self.ne_grade_aug_2019 = self.grade(deptNEwide_aug_2019_sla_percent_complete)
+
+    deptNWwide_aug_2019_sla_due_cases = Sr.between_fields('2019-08-01 00:00:00', :sr_create_date, :date_closed).where(department: 'SWM Solid Waste Management', trash_quad: 'NW', sr_type: ['Missed Heavy Trash Pickup
+', 'Container Problem', 'New Resident Container', 'Recycling Participation NEW', 'Recycling Cart Repair or Replace', 'SWM Escalation', 'Missed Garbage Pickup', 'Trash Dumping or Illegal Dumpsite', 'Add A Can', 'Storm Debris Collection', 'Dead Animal Collection',  'Add A Can CANCELLATION', 'Missed Recycling Pickup', 'Personnel or Vehicle Complaint', 'Physically Challenged Pickup']).count
+    deptNWwide_aug_2019_actual__due_and_closed_cases = Sr.between_fields('2019-08-01 00:00:00', :due_date, :date_closed).where(department: 'SWM Solid Waste Management', trash_quad: 'NW', sr_type: ['Missed Heavy Trash Pickup
+', 'Container Problem', 'New Resident Container', 'Recycling Participation NEW', 'Recycling Cart Repair or Replace', 'SWM Escalation', 'Missed Garbage Pickup', 'Trash Dumping or Illegal Dumpsite', 'Add A Can', 'Storm Debris Collection', 'Dead Animal Collection',  'Add A Can CANCELLATION', 'Missed Recycling Pickup', 'Personnel or Vehicle Complaint', 'Physically Challenged Pickup']).count
+    deptNWwide_aug_2019_sla_percent_complete = deptNWwide_aug_2019_actual__due_and_closed_cases.to_f.round(2)/deptNWwide_aug_2019_sla_due_cases.to_f.round(2)
+    self.grade(deptNWwide_aug_2019_sla_percent_complete)
+    self.nw_grade_aug_2019 = self.grade(deptNWwide_aug_2019_sla_percent_complete)
+  end
+
+  def self.grade_by_month
+    self.historical_grade
+  end
   def self.sent_chain(methods)
     methods.inject(self, :send)
   end
+  scope :between_fields, -> (value, initial_date, final_date) {
+  where "('#{value}' BETWEEN #{initial_date} AND #{final_date})"
+ }
   scope :OpenOverdue, ->{(where(:overdue => 1..300, :department => "SWM Solid Waste Management", :status => "Open").count)}
   scope :OpenGrandTotal, ->{(where(:department=> "SWM Solid Waste Management", :status => "Open").count)}
   scope :NEOpenOverdue,  ->{(where(:overdue => 1..300, :department => "SWM Solid Waste Management", :status => "Open", :trash_quad => "NE").count)}

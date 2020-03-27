@@ -11,6 +11,8 @@ gem 'rails', '~> 5.0'
 # gem 'activerecord-postgis-adapter', '~> 6.0'
 # gem 'rails', '~> 5.0', '>= 5.2.1'
 # Use postgresql as the database for Active Record
+gem 'by_star'
+gem 'chronic'
 gem 'pg', '>= 0.18', '< 2.0'
 # Use Puma as the app server
 gem 'puma', '~> 3.7'

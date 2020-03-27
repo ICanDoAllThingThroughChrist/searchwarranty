@@ -1,15 +1,1 @@
-case_numbe,sr_type,quad_statu,day,sec_name,quad,tally
-101003920210,Missed Recycling Pickup,NW_Overdue,MONDAY,NWMO115,NW,1
-101003920141,Missed Heavy Trash Pickup,NE_Overdue,MONDAY,NEMO119,NE,1
-101003923171,Missed Heavy Trash Pickup,NE_Overdue,MONDAY,NEMO102,NE,1
-101003919828,Missed Heavy Trash Pickup,NE_Overdue,MONDAY,NEMO102,NE,1
-101003887064,Missed Heavy Trash Pickup,NE_Overdue,MONDAY,NEMO110,NE,1
-101003886470,Missed Heavy Trash Pickup,NE_Overdue,MONDAY,NEMO104,NE,1
-101003923365,Missed Heavy Trash Pickup,NE_Overdue,MONDAY,NEMO103,NE,1
-101003919795,Missed Heavy Trash Pickup,NE_Overdue,MONDAY,NEMO105,NE,1
-101003908617,Missed Heavy Trash Pickup,NW_Overdue,MONDAY,NWMO121,NW,1
-101003908983,Missed Heavy Trash Pickup,NW_Overdue,MONDAY,NWMO111,NW,1
-101003925972,Missed Yard Waste Pickup,NW_Overdue,MONDAY,NWMO102,NW,1
-101003920189,Missed Heavy Trash Pickup,NE_Overdue,MONDAY,NEMO104,NE,1
-101003922635,Missed Heavy Trash Pickup,NE_Overdue,MONDAY,NEMO103,NE,1
-101003919321,Missed Heavy Trash Pickup,NE_Overdue,MONDAY,NEMO118,NE,1
+case_numbe,sr_locatio,sr_type,quad_statu,day,sec_name,quad,tally

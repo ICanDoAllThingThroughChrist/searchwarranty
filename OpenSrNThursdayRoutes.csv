@@ -1,7 +1,1 @@
-case_numbe,sr_type,quad_statu,day,sec_name,quad,tally
-101003919597,Missed Heavy Trash Pickup,NW_Overdue,THURSDAY,NWTH124,NW,1
-101003908703,Missed Heavy Trash Pickup,NE_Overdue,THURSDAY,NETH113,NE,1
-101003922467,Missed Heavy Trash Pickup,NE_Overdue,THURSDAY,NETH107,NE,1
-101003907068,Missed Heavy Trash Pickup,NE_Overdue,THURSDAY,NETH101,NE,1
-101003905825,Missed Heavy Trash Pickup,NW_Overdue,THURSDAY,NWTH123,NW,1
-101003923374,Missed Heavy Trash Pickup,NE_Overdue,THURSDAY,NETH118,NE,1
+case_numbe,sr_locatio,sr_type,quad_statu,day,sec_name,quad,tally

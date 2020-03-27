@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <style>
+  table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+
+  th, td {
+    text-align: left;
+    padding: 8px;
+  }
+
+  tr:nth-child(even) {background-color: #f2f2f2;}
+  </style>
+</head>
+<body>
+    <h2>Aug 2019 Report</h2>
+  <table cellspacing="15", exclass="table table-striped">
+    <tr>
+      <th>Category</th>
+      <th>Value</th>
+      </tr>
+    <tr>
+      <td>SW:Number of Srs: Created by Resident And Closed by Quad during Month</td>
+      <td><%=@deptSWwide_aug_2019_sla_due_cases%></td>
+    <tr>
+      <td>SW:Number Srs: SLA Due during the Month and Closed by Quad during the month</td>
+      <td><%=@deptSWwide_aug_2019_actual_due_and_closed_cases%></td>
+    <tr>
+      <td>SW:Grade</td>
+      <td><%=@deptSWWide_aug_2019_grade%></td>
+    </tr>
+    <tr>
+      <td>NW:Number of Srs: Created by Resident And Closed by Quad during Month</td>
+      <td><%=@deptNWwide_aug_2019_sla_due_cases%></td>
+    <tr>
+      <td>NW:Number Srs: SLA Due during the Month and Closed by Quad during the month</td>
+      <td><%=@deptNWwide_aug_2019_actual_due_and_closed_cases%></td>
+    <tr>
+      <td>NW:Grade</td>
+      <td><%=@deptNWWide_aug_2019_grade%></td>
+    </tr>
+    <tr>
+    <tr>
+      <td>SE:Number of Srs: Created by Resident And Closed by Quad during Month</td>
+      <td><%=@deptSEwide_aug_2019_sla_due_cases%></td>
+    <tr>
+      <td>SE:Number Srs: SLA Due during the Month and Closed by Quad during the month</td>
+      <td><%=@deptSEwide_aug_2019_actual_due_and_closed_cases%></td>
+    <tr>
+      <td>SE:Grade</td>
+      <td><%=@deptSEWide_aug_2019_grade%></td>
+    </tr>
+    <tr>
+      <td>NE:Number of Srs: Created by Resident And Closed by Quad during Month</td>
+      <td><%=@deptNEwide_aug_2019_sla_due_cases%></td>
+    <tr>
+      <td>NE:Number Srs: SLA Due during the Month and Closed by Quad during the month</td>
+      <td><%=@deptNEwide_aug_2019_actual_due_and_closed_cases%></td>
+    <tr>
+      <td>NE:Grade</td>
+      <td><%=@deptNEWide_aug_2019_grade%></td>
+    </tr>
+  </table>
+  </html>

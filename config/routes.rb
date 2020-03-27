@@ -1,4 +1,13 @@
 Rails.application.routes.draw do
+  get 'open_srs/monthly_quality_grade'
+  get 'open_srs/march_2020'
+  get 'open_srs/february_2020'
+  get 'open_srs/january_2020'
+  get 'open_srs/december_2019'
+  get 'open_srs/november_2019'
+  get 'open_srs/october_2019'
+  get 'open_srs/september_2019'
+  get 'open_srs/august_2019'
   get 'open_srs/map'
   get 'open_srs/summary1'
   get 'open_srs/test89'

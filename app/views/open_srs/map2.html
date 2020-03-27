@@ -26,6 +26,11 @@
 
 		<!-- jQuery 1.8.3: http://jquery.com/ -->
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+		<!-- This recipe shows how to use the most common controls that have a visual representation.
+		 The list includes the OverviewMap control, the Scale and ScaleLine controls,
+		 the Graticule control, the LayerSwitcher control, the PanZoomBar control,
+		 the MousePosition control, and the Permalink control -->
+		<script src="//ajax.googleapis.com/ajax/libs/dojo/1.14.1/dojo/dojo.js"></script>
 
 		<style>
 		html, body, #mapa {
@@ -97,7 +102,14 @@
 		<div id="botonera">
 			<button id="localizame" class="boton">Bankias cercanos</button>
 		</div>
-
+		<button data-dojo-type="dijit.form.ToggleButton" data-dojo-props="iconClass:'dijitCheckBoxIcon', checked: true, onChange: layerSwitcherChanged">LayerSwitcher</button>
+		<button data-dojo-type="dijit.form.ToggleButton" data-dojo-props="iconClass:'dijitCheckBoxIcon', checked: true, onChange: panZoomBarChanged">PanZoomBar</button>
+		<button data-dojo-type="dijit.form.ToggleButton" data-dojo-props="iconClass:'dijitCheckBoxIcon', checked: true, onChange: mousePositionChanged">MousePosition</button>
+		<button data-dojo-type="dijit.form.ToggleButton" data-dojo-props="iconClass:'dijitCheckBoxIcon', checked: true, onChange: overviewMapChanged">OverviewMap</button>
+		<button data-dojo-type="dijit.form.ToggleButton" data-dojo-props="iconClass:'dijitCheckBoxIcon', checked: true, onChange: graticuleChanged">Graticule</button>
+		<button data-dojo-type="dijit.form.ToggleButton" data-dojo-props="iconClass:'dijitCheckBoxIcon', checked: true, onChange: scaleChanged">Scale</button>
+		<button data-dojo-type="dijit.form.ToggleButton" data-dojo-props="iconClass:'dijitCheckBoxIcon', checked: true, onChange: scaleLineChanged">ScaleLine</button>
+		<button data-dojo-type="dijit.form.ToggleButton" data-dojo-props="iconClass:'dijitCheckBoxIcon', checked: true, onChange: permalinkChanged">Permalink</button>
 <script>
 
 //;$(function() {

@@ -60,7 +60,7 @@ class OpenSr < ApplicationRecord
     OpenSr.delete_all
     @input = File.open("../searchwarranty/OpenSRRoute.txt")
     # @input = File.open("../searchwarranty/OpenSRRoute.txt") as a result of Spatial Join of All Overdue Cases with No Missing Quad Assignments
-    header=%w[case_numbe sr_type quad_statu day sec_name quad tally]
+    header=%w[case_numbe sr_locatio sr_type quad_statu day sec_name quad tally]
       @input.each_line {|row|
         a= row.chomp
         # binding.pry
@@ -74,11 +74,11 @@ class OpenSr < ApplicationRecord
         t.save
       }
     binding.pry
-    header2 = %w[case_numbe sr_type quad_statu day sec_name quad tally]
+    header2 = %w[case_numbe sr_locatio sr_type quad_statu day sec_name quad tally]
     CSV.open("../searchwarranty/ThursdayGarbageYardSr.csv", "wb", write_headers: true, headers: header2) { |csv|
           OpenSr.where(day: ['THURSDAY'], sr_type:['Missed Garbage Pickup', 'Missed Yard Waste Pickup'], quad_statu: ['NE_Overdue', 'NW_Overdue', 'SE_Overdue', 'SW_Overdue']).
           order(:sec_name).
-          pluck(:case_numbe, :sr_type, :quad_statu, :day, :sec_name, :quad, :tally).
+          pluck(:case_numbe, :sr_locatio, :sr_type, :quad_statu, :day, :sec_name, :quad, :tally).
           each { |row|
             csv << row
           }
@@ -86,70 +86,70 @@ class OpenSr < ApplicationRecord
     CSV.open("../searchwarranty/FridayGarbageYardSr.csv", "wb", write_headers: true, headers: header2) { |csv|
           OpenSr.where(day: ['FRIDAY'], sr_type:['Missed Garbage Pickup', 'Missed Yard Waste Pickup'], quad_statu: ['NE_Overdue', 'NW_Overdue', 'SE_Overdue', 'SW_Overdue']).
           order(:sec_name).
-          pluck(:case_numbe, :sr_type, :quad_statu, :day, :sec_name, :quad, :tally).
+          pluck(:case_numbe, :sr_locatio, :sr_type, :quad_statu, :day, :sec_name, :quad, :tally).
           each { |row|
             csv << row
           }
         }
     CSV.open("../searchwarranty/OpenSr.csv", "wb", write_headers: true, headers: header2) { |csv|
         OpenSr.where(sr_type: ['Missed Heavy Trash Pickup','Missed Garbage Pickup','Missed Recycling Pickup','Missed Yard Waste Pickup']).
-        pluck(:case_numbe, :sr_type, :quad_statu, :day, :sec_name, :quad, :tally).
+        pluck(:case_numbe, :sr_locatio, :sr_type, :quad_statu, :day, :sec_name, :quad, :tally).
         each { |row|
             csv << row
           }
         }
     CSV.open("../searchwarranty/OpenSrNMondayRoutes.csv", "wb", write_headers: true, headers: header2) { |csv|
         OpenSr.where(sr_type: ['Missed Heavy Trash Pickup','Missed Garbage Pickup','Missed Recycling Pickup','Missed Yard Waste Pickup'],  day:['MONDAY'], quad:['NE',  'NW'], quad_statu:['NE_Overdue', 'NW_Overdue']).
-        pluck(:case_numbe, :sr_type, :quad_statu, :day, :sec_name, :quad, :tally).
+        pluck(:case_numbe, :sr_locatio, :sr_type, :quad_statu, :day, :sec_name, :quad, :tally).
         each { |row|
           csv << row
           }
         }
     CSV.open("../searchwarranty/OpenSrNTuesdayRoutes.csv", "wb", write_headers: true, headers: header2) { |csv|
             OpenSr.where(sr_type: ['Missed Heavy Trash Pickup','Missed Garbage Pickup','Missed Recycling Pickup','Missed Yard Waste Pickup'],  day:['TUESDAY'], quad:['NE',  'NW'], quad_statu:['NE_Overdue', 'NW_Overdue']).
-            pluck(:case_numbe, :sr_type, :quad_statu, :day, :sec_name, :quad, :tally).
+            pluck(:case_numbe, :sr_locatio, :sr_type, :quad_statu, :day, :sec_name, :quad, :tally).
             each { |row|
               csv << row
             }
           }
     CSV.open("../searchwarranty/OpenSrNThursdayRoutes.csv", "wb", write_headers: true, headers: header2) { |csv|
             OpenSr.where(sr_type: ['Missed Heavy Trash Pickup','Missed Garbage Pickup','Missed Recycling Pickup','Missed Yard Waste Pickup'],  day:['THURSDAY'], quad:['NE',  'NW'], quad_statu:['NE_Overdue', 'NW_Overdue']).
-            pluck(:case_numbe, :sr_type, :quad_statu, :day, :sec_name, :quad, :tally).
+            pluck(:case_numbe, :sr_locatio, :sr_type, :quad_statu, :day, :sec_name, :quad, :tally).
             each { |row|
               csv << row
             }
           }
     CSV.open("../searchwarranty/OpenSrNFridayRoutes.csv", "wb", write_headers: true, headers: header2) { |csv|
                 OpenSr.where(sr_type: ['Missed Heavy Trash Pickup','Missed Garbage Pickup','Missed Recycling Pickup','Missed Yard Waste Pickup'],  day:['FRIDAY'], quad:['NE',  'NW'], quad_statu:['NE_Overdue', 'NW_Overdue']).
-                pluck(:case_numbe, :sr_type, :quad_statu, :day, :sec_name, :quad, :tally).
+                pluck(:case_numbe, :sr_locatio, :sr_type, :quad_statu, :day, :sec_name, :quad, :tally).
                 each { |row|
                   csv << row
             }
           }
     CSV.open("../searchwarranty/OpenSrSMondayRoutes.csv", "wb", write_headers: true, headers: header2) { |csv|
               OpenSr.where(sr_type: ['Missed Heavy Trash Pickup','Missed Garbage Pickup','Missed Recycling Pickup','Missed Yard Waste Pickup'],  day:['MONDAY'], quad:['SE',  'SW'], quad_statu:['SE_Overdue', 'SW_Overdue']).
-              pluck(:case_numbe, :sr_type, :quad_statu, :day, :sec_name, :quad, :tally).
+              pluck(:case_numbe, :sr_locatio, :sr_type, :quad_statu, :day, :sec_name, :quad, :tally).
               each { |row|
                 csv << row
             }
           }
     CSV.open("../searchwarranty/OpenSrSTuesdayRoutes.csv", "wb", write_headers: true, headers: header2) { |csv|
                   OpenSr.where(sr_type: ['Missed Heavy Trash Pickup','Missed Garbage Pickup','Missed Recycling Pickup','Missed Yard Waste Pickup'],  day:['TUESDAY'], quad:['SE',  'SW'], quad_statu:['SE_Overdue', 'SW_Overdue']).
-                  pluck(:case_numbe, :sr_type, :quad_statu, :day, :sec_name, :quad, :tally).
+                  pluck(:case_numbe, :sr_locatio, :sr_type, :quad_statu, :day, :sec_name, :quad, :tally).
                   each { |row|
                     csv << row
             }
           }
    CSV.open("../searchwarranty/OpenSrSThursdayRoutes.csv", "wb", write_headers: true, headers: header2) { |csv|
                   OpenSr.where(sr_type: ['Missed Heavy Trash Pickup','Missed Garbage Pickup','Missed Recycling Pickup','Missed Yard Waste Pickup'],  day:['THURSDAY'], quad:['SE',  'SW'], quad_statu:['SE_Overdue', 'SW_Overdue']).
-                  pluck(:case_numbe, :sr_type, :quad_statu, :day, :sec_name, :quad, :tally).
+                  pluck(:case_numbe, :sr_locatio, :sr_type, :quad_statu, :day, :sec_name, :quad, :tally).
                   each { |row|
                     csv << row
             }
           }
    CSV.open("../searchwarranty/OpenSrSFridayRoutes.csv", "wb", write_headers: true, headers: header2) { |csv|
                       OpenSr.where(sr_type: ['Missed Heavy Trash Pickup','Missed Garbage Pickup','Missed Recycling Pickup','Missed Yard Waste Pickup'],  day:['FRIDAY'], quad:['SE',  'SW'], quad_statu:['SE_Overdue', 'SW_Overdue']).
-                      pluck(:case_numbe, :sr_type, :quad_statu, :day, :sec_name, :quad, :tally).
+                      pluck(:case_numbe, :sr_locatio, :sr_type, :quad_statu, :day, :sec_name, :quad, :tally).
                       each { |row|
                         csv << row
             }

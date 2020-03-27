@@ -1,7 +1,1 @@
-case_numbe,sr_type,quad_statu,day,sec_name,quad,tally
-101003928228,Missed Garbage Pickup,SE_Overdue,FRIDAY,SEFR109,SE,1
-101003927448,Missed Garbage Pickup,SW_Overdue,FRIDAY,SWFR105,SW,1
-101003928624,Missed Garbage Pickup,SW_Overdue,FRIDAY,SWFR110,SW,1
-101003928635,Missed Garbage Pickup,SW_Overdue,FRIDAY,SWFR118,SW,1
-101003928609,Missed Garbage Pickup,SW_Overdue,FRIDAY,SWFR118,SW,1
-101003928657,Missed Garbage Pickup,SW_Overdue,FRIDAY,SWFR122,SW,1
+case_numbe,sr_locatio,sr_type,quad_statu,day,sec_name,quad,tally
