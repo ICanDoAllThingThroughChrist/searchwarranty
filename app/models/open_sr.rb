@@ -40,6 +40,8 @@ class OpenSr < ApplicationRecord
     # binding.pry
     if grade == nil
       return "No Value"
+    elsif grade == BigDecimal('Infinity')
+      return "No Value"
     elsif grade == 0
         return "No Value"
     elsif grade.nan?
