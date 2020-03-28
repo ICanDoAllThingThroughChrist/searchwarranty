@@ -30,7 +30,7 @@
       <th>March 2020</th>
       </tr>
     <tr>
-      <td>SW:Number of Srs: Created by Resident and Updated by Quad</td>
+      <td>SW:Number of Srs: Updated By Quad And After SLA Due Date</td>
       <td></td>
       <td></td>
       <td></td>
@@ -72,7 +72,7 @@
       <td><%=@deptSWWide_mar_2020_grade%></td>
     </tr>
     <tr>
-      <td>NW:Number of Srs: Created by Resident and Updated by Quad</td>
+      <td>NW:Number of Srs: Updated By Quad And After SLA Due Date</td>
       <td></td>
       <td></td>
       <td></td>
@@ -114,7 +114,7 @@
       <td><%=@deptNWWide_mar_2020_grade%></td>
     </tr>
     <tr>
-      <td>SE:Number of Srs: Created by Resident and Updated by Quad</td>
+      <td>SE:Number of Srs: Updated By Quad And After SLA Due Date</td>
       <td></td>
       <td></td>
       <td></td>
@@ -154,6 +154,17 @@
       <td><%=@deptSEWide_jan_2020_grade%></td>
       <td><%=@deptSEWide_feb_2020_grade%></td>
       <td><%=@deptSEWide_mar_2020_grade%></td>
+    </tr>
+    <tr>
+      <td>NE:Number of Srs: % Updated By Quad And After SLA Due Date</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td><%=%></td>
+      <td><%="#{@deptNEwide_mar_2020_sla_due_and_updated_cases.to_f.round(2)/@deptNEwide_mar_2020_sla_updated_cases.to_f.round(2)}%"%></td>
     </tr>
     <tr>
       <td>NE:Number of Srs: Created by Resident And Closed by Quad</td>
