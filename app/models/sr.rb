@@ -259,12 +259,28 @@ class Sr < ApplicationRecord
   def self.grade_by_month
     self.historical_grade
   end
+
   def self.sent_chain(methods)
     methods.inject(self, :send)
   end
+  # 2.6.3 :013 > date2 = Date.parse('2019-12-01')
+  #  => Sun, 01 Dec 2019
+  # 2.6.3 :014 > date = Date.parse('2019-12-01')
+  #  => Sun, 01 Dec 2019
+  # 2.6.3 :015 > date2 = Date.parse('2019-12-31')
+  #  => Tue, 31 Dec 2019
+  # 2.6.3 :016 > Sr.where(sr_create_date: date..date2).count
+  #    (119.8ms)  SELECT COUNT(*) FROM "srs" WHERE "srs"."sr_create_date" BETWEEN $1 AND $2  [["sr_create_date", "2019-12-01"], ["sr_create_date", "2019-12-31"]]
+  #  => 25581
+  # https://ryanbigg.com/2016/03/working-with-date-ranges-in-active-record
+  scope :created_between, lambda {|start_date, end_date| where("created_at >= ? AND created_at <= ?", start_date, end_date )}
+  # Then to query created between:
+  # @comment.created_between(1.year.ago, Time.now)
   scope :between_fields, -> (value, initial_date, final_date) {
   where "('#{value}' BETWEEN #{initial_date} AND #{final_date})"
  }
+#  @clients = Client.between_fields(params[:date], :start_date, :final_date)
+# # SELECT * FROM clients WHERE ('2017-02-16 00:00:00' BETWEEN start_date AND final_date)
   scope :OpenOverdue, ->{(where(:overdue => 1..300, :department => "SWM Solid Waste Management", :status => "Open").count)}
   scope :OpenGrandTotal, ->{(where(:department=> "SWM Solid Waste Management", :status => "Open").count)}
   scope :NEOpenOverdue,  ->{(where(:overdue => 1..300, :department => "SWM Solid Waste Management", :status => "Open", :trash_quad => "NE").count)}
