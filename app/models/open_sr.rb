@@ -1,53 +1,128 @@
 class OpenSr < ApplicationRecord
   def self.neMar2020_sla_cases_closed_but_updated_later
     start_date_mar_20 = Date.parse('2020-3-01')
-    due_date_mar_20 = Date.parse('2020-3-31')
-    Sr.where(updated_at: start_date_mar_20..due_date_mar_20).where(date_closed: start_date_mar_20..due_date_mar_20).where(sr_create_date: start_date_mar_20..due_date_mar_20).where(due_date: start_date_mar_20..due_date_mar_20).where(department: 'SWM Solid Waste Management', trash_quad: 'NE', sr_type: ['Missed Heavy Trash Pickup', 'Container Problem', 'New Resident Container', 'Recycling Participation NEW', 'Recycling Cart Repair or Replace', 'SWM Escalation', 'Missed Garbage Pickup', 'Trash Dumping or Illegal Dumpsite', 'Add A Can', 'Storm Debris Collection', 'Dead Animal Collection',  'Add A Can CANCELLATION', 'Missed Recycling Pickup', 'Personnel or Vehicle Complaint', 'Physically Challenged Pickup']).count
+    due_date_mar_20 = Date.parse('2020-4-01')
+    Sr.where("updated_at >= ? AND updated_at <= ?", start_date_mar_20, due_date_mar_20).where(date_closed: start_date_mar_20..due_date_mar_20).where(sr_create_date: start_date_mar_20..due_date_mar_20).where(due_date: start_date_mar_20..due_date_mar_20).where(department: 'SWM Solid Waste Management', trash_quad: 'NE', sr_type: ['Missed Heavy Trash Pickup', 'Container Problem', 'New Resident Container', 'Recycling Participation NEW', 'Recycling Cart Repair or Replace', 'SWM Escalation', 'Missed Garbage Pickup', 'Trash Dumping or Illegal Dumpsite', 'Add A Can', 'Storm Debris Collection', 'Dead Animal Collection',  'Add A Can CANCELLATION', 'Missed Recycling Pickup', 'Personnel or Vehicle Complaint', 'Physically Challenged Pickup', 'Add A Can CANCELLATION']).count
   end
   def self.neMar2020_sla_due_cases
     start_date_mar_20 = Date.parse('2020-3-01')
     due_date_mar_20 = Date.parse('2020-3-31')
-     Sr.where(sr_create_date: start_date_mar_20..due_date_mar_20).where(department: 'SWM Solid Waste Management', trash_quad: 'NE', sr_type: ['Missed Heavy Trash Pickup
+     Sr.where("sr_create_date >= ? AND sr_create_date <= ?", start_date_mar_20, due_date_mar_20).where(department: 'SWM Solid Waste Management', trash_quad: 'NE', sr_type: ['Missed Heavy Trash Pickup
 ', 'Container Problem', 'New Resident Container', 'Recycling Participation NEW', 'Recycling Cart Repair or Replace', 'SWM Escalation', 'Missed Garbage Pickup', 'Trash Dumping or Illegal Dumpsite', 'Add A Can', 'Storm Debris Collection', 'Dead Animal Collection',  'Add A Can CANCELLATION', 'Missed Recycling Pickup', 'Personnel or Vehicle Complaint', 'Physically Challenged Pickup']).count
   end
   def self.seMar2020_sla_cases_closed_but_updated_later
     start_date_mar_20 = Date.parse('2020-3-01')
     due_date_mar_20 = Date.parse('2020-3-31')
-    Sr.where(updated_at: start_date_mar_20..due_date_mar_20).where(date_closed: start_date_mar_20..due_date_mar_20).where(sr_create_date: start_date_mar_20..due_date_mar_20).where(due_date: start_date_mar_20..due_date_mar_20).where(department: 'SWM Solid Waste Management', trash_quad: 'SE', sr_type: ['Missed Heavy Trash Pickup', 'Container Problem', 'New Resident Container', 'Recycling Participation NEW', 'Recycling Cart Repair or Replace', 'SWM Escalation', 'Missed Garbage Pickup', 'Trash Dumping or Illegal Dumpsite', 'Add A Can', 'Storm Debris Collection', 'Dead Animal Collection',  'Add A Can CANCELLATION', 'Missed Recycling Pickup', 'Personnel or Vehicle Complaint', 'Physically Challenged Pickup']).count
+    Sr.where("updated_at >= ? AND updated_at <= ?", start_date_mar_20, due_date_mar_20).where(date_closed: start_date_mar_20..due_date_mar_20).where(sr_create_date: start_date_mar_20..due_date_mar_20).where(due_date: start_date_mar_20..due_date_mar_20).where(department: 'SWM Solid Waste Management', trash_quad: 'SE', sr_type: ['Missed Heavy Trash Pickup', 'Container Problem', 'New Resident Container', 'Recycling Participation NEW', 'Recycling Cart Repair or Replace', 'SWM Escalation', 'Missed Garbage Pickup', 'Trash Dumping or Illegal Dumpsite', 'Add A Can', 'Storm Debris Collection', 'Dead Animal Collection',  'Add A Can CANCELLATION', 'Missed Recycling Pickup', 'Personnel or Vehicle Complaint', 'Physically Challenged Pickup', 'Add A Can CANCELLATION']).count
   end
   def self.seMar2020_sla_due_cases
     start_date_mar_20 = Date.parse('2020-3-01')
     due_date_mar_20 = Date.parse('2020-3-31')
-    Sr.where(sr_create_date: start_date_mar_20..due_date_mar_20).where(department: 'SWM Solid Waste Management', trash_quad: 'SE', sr_type: ['Missed Heavy Trash Pickup', 'Container Problem', 'New Resident Container', 'Recycling Participation NEW', 'Recycling Cart Repair or Replace', 'SWM Escalation', 'Missed Garbage Pickup', 'Trash Dumping or Illegal Dumpsite', 'Add A Can', 'Storm Debris Collection', 'Dead Animal Collection',  'Add A Can CANCELLATION', 'Missed Recycling Pickup', 'Personnel or Vehicle Complaint', 'Physically Challenged Pickup']).count
+    Sr.where("sr_create_date >= ? AND sr_create_date <= ?", start_date_mar_20, due_date_mar_20).where(department: 'SWM Solid Waste Management', trash_quad: 'SE', sr_type: ['Missed Heavy Trash Pickup', 'Container Problem', 'New Resident Container', 'Recycling Participation NEW', 'Recycling Cart Repair or Replace', 'SWM Escalation', 'Missed Garbage Pickup', 'Trash Dumping or Illegal Dumpsite', 'Add A Can', 'Storm Debris Collection', 'Dead Animal Collection',  'Add A Can CANCELLATION', 'Missed Recycling Pickup', 'Personnel or Vehicle Complaint', 'Physically Challenged Pickup', 'Add A Can CANCELLATION']).count
   end
   def self.nwMar2020_sla_cases_closed_but_updated_later
     start_date_mar_20 = Date.parse('2020-3-01')
     due_date_mar_20 = Date.parse('2020-3-31')
-    Sr.where(updated_at: start_date_mar_20..due_date_mar_20).where(date_closed: start_date_mar_20..due_date_mar_20).where(sr_create_date: start_date_mar_20..due_date_mar_20).where(due_date: start_date_mar_20..due_date_mar_20).where(department: 'SWM Solid Waste Management', trash_quad: 'NW', sr_type: ['Missed Heavy Trash Pickup', 'Container Problem', 'New Resident Container', 'Recycling Participation NEW', 'Recycling Cart Repair or Replace', 'SWM Escalation', 'Missed Garbage Pickup', 'Trash Dumping or Illegal Dumpsite', 'Add A Can', 'Storm Debris Collection', 'Dead Animal Collection',  'Add A Can CANCELLATION', 'Missed Recycling Pickup', 'Personnel or Vehicle Complaint', 'Physically Challenged Pickup']).count
+    Sr.where("updated_at >= ? AND updated_at <= ?", start_date_mar_20, due_date_mar_20).where(date_closed: start_date_mar_20..due_date_mar_20).where(sr_create_date: start_date_mar_20..due_date_mar_20).where(due_date: start_date_mar_20..due_date_mar_20).where(department: 'SWM Solid Waste Management', trash_quad: 'NW', sr_type: ['Missed Heavy Trash Pickup', 'Container Problem', 'New Resident Container', 'Recycling Participation NEW', 'Recycling Cart Repair or Replace', 'SWM Escalation', 'Missed Garbage Pickup', 'Trash Dumping or Illegal Dumpsite', 'Add A Can', 'Storm Debris Collection', 'Dead Animal Collection',  'Add A Can CANCELLATION', 'Missed Recycling Pickup', 'Personnel or Vehicle Complaint', 'Physically Challenged Pickup', 'Add A Can CANCELLATION']).count
+  end
+
+  def self.seMar2020_sla_cases_closed_but_updated_later
+    start_date_mar_20 = Date.parse('2020-3-01')
+    due_date_mar_20 = Date.parse('2020-3-31')
+    Sr.where("updated_at >= ? AND updated_at <= ?", start_date_mar_20, due_date_mar_20).where(date_closed: start_date_mar_20..due_date_mar_20).where(sr_create_date: start_date_mar_20..due_date_mar_20).where(due_date: start_date_mar_20..due_date_mar_20).where(department: 'SWM Solid Waste Management', trash_quad: 'SE', sr_type: ['Missed Heavy Trash Pickup', 'Container Problem', 'New Resident Container', 'Recycling Participation NEW', 'Recycling Cart Repair or Replace', 'SWM Escalation', 'Missed Garbage Pickup', 'Trash Dumping or Illegal Dumpsite', 'Add A Can', 'Storm Debris Collection', 'Dead Animal Collection',  'Add A Can CANCELLATION', 'Missed Recycling Pickup', 'Personnel or Vehicle Complaint', 'Physically Challenged Pickup', 'Add A Can CANCELLATION']).count
   end
   def self.nwMar2020_sla_due_cases
     start_date_mar_20 = Date.parse('2020-3-01')
     due_date_mar_20 = Date.parse('2020-3-31')
-    Sr.where(sr_create_date: start_date_mar_20..due_date_mar_20).where(department: 'SWM Solid Waste Management', trash_quad: 'NW', sr_type: ['Missed Heavy Trash Pickup', 'Container Problem', 'New Resident Container', 'Recycling Participation NEW', 'Recycling Cart Repair or Replace', 'SWM Escalation', 'Missed Garbage Pickup', 'Trash Dumping or Illegal Dumpsite', 'Add A Can', 'Storm Debris Collection', 'Dead Animal Collection',  'Add A Can CANCELLATION', 'Missed Recycling Pickup', 'Personnel or Vehicle Complaint', 'Physically Challenged Pickup']).count
+    Sr.where("sr_create_date >= ? AND sr_create_date <= ?", start_date_mar_20, due_date_mar_20).where(department: 'SWM Solid Waste Management', trash_quad: 'NW', sr_type: ['Missed Heavy Trash Pickup', 'Container Problem', 'New Resident Container', 'Recycling Participation NEW', 'Recycling Cart Repair or Replace', 'SWM Escalation', 'Missed Garbage Pickup', 'Trash Dumping or Illegal Dumpsite', 'Add A Can', 'Storm Debris Collection', 'Dead Animal Collection',  'Add A Can CANCELLATION', 'Missed Recycling Pickup', 'Personnel or Vehicle Complaint', 'Physically Challenged Pickup', 'Add A Can CANCELLATION']).count
   end
 
   def self.swMar2020_sla_cases_closed_but_updated_later
     start_date_mar_20 = Date.parse('2020-3-01')
     due_date_mar_20 = Date.parse('2020-3-31')
-    Sr.where(updated_at: start_date_mar_20..due_date_mar_20).where(date_closed: start_date_mar_20..due_date_mar_20).where(sr_create_date: start_date_mar_20..due_date_mar_20).where(due_date: start_date_mar_20..due_date_mar_20).where(department: 'SWM Solid Waste Management', trash_quad: 'SW', sr_type: ['Missed Heavy Trash Pickup', 'Container Problem', 'New Resident Container', 'Recycling Participation NEW', 'Recycling Cart Repair or Replace', 'SWM Escalation', 'Missed Garbage Pickup', 'Trash Dumping or Illegal Dumpsite', 'Add A Can', 'Storm Debris Collection', 'Dead Animal Collection',  'Add A Can CANCELLATION', 'Missed Recycling Pickup', 'Personnel or Vehicle Complaint', 'Physically Challenged Pickup']).count
+    Sr.where("updated_at >= ? AND updated_at <= ?", start_date_mar_20, due_date_mar_20).where(date_closed: start_date_mar_20..due_date_mar_20).where(sr_create_date: start_date_mar_20..due_date_mar_20).where(due_date: start_date_mar_20..due_date_mar_20).where(department: 'SWM Solid Waste Management', trash_quad: 'SW', sr_type: ['Missed Heavy Trash Pickup', 'Container Problem', 'New Resident Container', 'Recycling Participation NEW', 'Recycling Cart Repair or Replace', 'SWM Escalation', 'Missed Garbage Pickup', 'Trash Dumping or Illegal Dumpsite', 'Add A Can', 'Storm Debris Collection', 'Dead Animal Collection',  'Add A Can CANCELLATION', 'Missed Recycling Pickup', 'Personnel or Vehicle Complaint', 'Physically Challenged Pickup', 'Add A Can CANCELLATION']).count
   end
   def self.swMar2020_sla_due_cases
     start_date_mar_20 = Date.parse('2020-3-01')
     due_date_mar_20 = Date.parse('2020-3-31')
-     Sr.where(sr_create_date: start_date_mar_20..due_date_mar_20).where(department: 'SWM Solid Waste Management', trash_quad: 'SW', sr_type: ['Missed Heavy Trash Pickup', 'Container Problem', 'New Resident Container', 'Recycling Participation NEW', 'Recycling Cart Repair or Replace', 'SWM Escalation', 'Missed Garbage Pickup', 'Trash Dumping or Illegal Dumpsite', 'Add A Can', 'Storm Debris Collection', 'Dead Animal Collection',  'Add A Can CANCELLATION', 'Missed Recycling Pickup', 'Personnel or Vehicle Complaint', 'Physically Challenged Pickup']).count
+     Sr.where("sr_create_date >= ? AND sr_create_date <= ?", start_date_mar_20, due_date_mar_20).where(department: 'SWM Solid Waste Management', trash_quad: 'SW', sr_type: ['Missed Heavy Trash Pickup', 'Container Problem', 'New Resident Container', 'Recycling Participation NEW', 'Recycling Cart Repair or Replace', 'SWM Escalation', 'Missed Garbage Pickup', 'Trash Dumping or Illegal Dumpsite', 'Add A Can', 'Storm Debris Collection', 'Dead Animal Collection',  'Add A Can CANCELLATION', 'Missed Recycling Pickup', 'Personnel or Vehicle Complaint', 'Physically Challenged Pickup', 'Add A Can CANCELLATION']).count
   end
 
   def self.nwFeb2020_sla_due_cases
     start_date_feb_20 = Date.parse('2020-2-01')
-    due_date_feb_20 = Date.parse('2020-2-29')
-     Sr.where(due_date: start_date_feb_20..due_date_feb_20 ).where(department: 'SWM Solid Waste Management', trash_quad: 'SW', sr_type: ['Missed Heavy Trash Pickup', 'Container Problem', 'New Resident Container', 'Recycling Participation NEW', 'Recycling Cart Repair or Replace', 'SWM Escalation', 'Missed Garbage Pickup', 'Trash Dumping or Illegal Dumpsite', 'Add A Can', 'Storm Debris Collection', 'Dead Animal Collection',  'Add A Can CANCELLATION', 'Missed Recycling Pickup', 'Personnel or Vehicle Complaint', 'Physically Challenged Pickup']).count
+    due_date_feb_20 = Date.parse('2020-3-01')
+     Sr.where("due_date >= ? AND due_date <= ?", start_date_feb_20, due_date_feb_20 ).where(department: 'SWM Solid Waste Management', trash_quad: 'SW', sr_type: ['Missed Heavy Trash Pickup', 'Container Problem', 'New Resident Container', 'Recycling Participation NEW', 'Recycling Cart Repair or Replace', 'SWM Escalation', 'Missed Garbage Pickup', 'Trash Dumping or Illegal Dumpsite', 'Add A Can', 'Storm Debris Collection', 'Dead Animal Collection',  'Add A Can CANCELLATION', 'Missed Recycling Pickup', 'Personnel or Vehicle Complaint', 'Physically Challenged Pickup', 'Add A Can CANCELLATION']).count
   end
 
+  def self.deptSEwide_mar_2020_actual_due_and_closed_cases
+    start_date_mar_20 = Date.parse('2020-3-01')
+    due_date_mar_20 = Date.parse('2020-3-31')
+    Sr.where("sr_create_date >= ? AND sr_create_date <= ?", start_date_mar_20, due_date_mar_20).where(overdue:[-30..-0.05],department: 'SWM Solid Waste Management', status: 'Closed', trash_quad: 'SE', sr_type: ['Missed Heavy Trash Pickup
+', 'Container Problem', 'New Resident Container', 'Recycling Participation NEW', 'Recycling Cart Repair or Replace', 'SWM Escalation', 'Missed Garbage Pickup', 'Trash Dumping or Illegal Dumpsite', 'Add A Can', 'Storm Debris Collection', 'Dead Animal Collection',  'Add A Can CANCELLATION', 'Missed Recycling Pickup', 'Personnel or Vehicle Complaint', 'Physically Challenged Pickup']).count
+  end
+
+  def self.deptNEwide_mar_2020_actual_due_and_closed_cases
+    start_date_mar_20 = Date.parse('2020-3-01')
+    due_date_mar_20 = Date.parse('2020-3-31')
+    Sr.where("sr_create_date >= ? AND sr_create_date <= ?", start_date_mar_20, due_date_mar_20).where(overdue:[-30..-0.05],department: 'SWM Solid Waste Management', status: 'Closed', trash_quad: 'NE', sr_type: ['Missed Heavy Trash Pickup
+', 'Container Problem', 'New Resident Container', 'Recycling Participation NEW', 'Recycling Cart Repair or Replace', 'SWM Escalation', 'Missed Garbage Pickup', 'Trash Dumping or Illegal Dumpsite', 'Add A Can', 'Storm Debris Collection', 'Dead Animal Collection',  'Add A Can CANCELLATION', 'Missed Recycling Pickup', 'Personnel or Vehicle Complaint', 'Physically Challenged Pickup']).count
+  end
+
+  def self.deptNWwide_mar_2020_actual_due_and_closed_cases
+    start_date_mar_20 = Date.parse('2020-3-01')
+    due_date_mar_20 = Date.parse('2020-4-01')
+    Sr.where("sr_create_date >= ? AND sr_create_date <= ?", start_date_mar_20, due_date_mar_20).where(overdue:[-30..-0.05],department: 'SWM Solid Waste Management', status: 'Closed', trash_quad: 'NW', sr_type: ['Missed Heavy Trash Pickup
+', 'Container Problem', 'New Resident Container', 'Recycling Participation NEW', 'Recycling Cart Repair or Replace', 'SWM Escalation', 'Missed Garbage Pickup', 'Trash Dumping or Illegal Dumpsite', 'Add A Can', 'Storm Debris Collection', 'Dead Animal Collection',  'Add A Can CANCELLATION', 'Missed Recycling Pickup', 'Personnel or Vehicle Complaint', 'Physically Challenged Pickup']).count
+  end
+
+  def self.deptSWwide_mar_2020_actual_due_and_closed_cases
+    start_date_mar_20 = Date.parse('2020-3-01')
+    due_date_mar_20 = Date.parse('2020-4-01')
+    Sr.where("sr_create_date >= ? AND sr_create_date <= ?", start_date_mar_20, due_date_mar_20).where(overdue:[-30..-0.05],department: 'SWM Solid Waste Management', status: 'Closed', trash_quad: 'SW', sr_type: ['Missed Heavy Trash Pickup
+  ', 'Container Problem', 'New Resident Container', 'Recycling Participation NEW', 'Recycling Cart Repair or Replace', 'SWM Escalation', 'Missed Garbage Pickup', 'Trash Dumping or Illegal Dumpsite', 'Add A Can', 'Storm Debris Collection', 'Dead Animal Collection',  'Add A Can CANCELLATION', 'Missed Recycling Pickup', 'Personnel or Vehicle Complaint', 'Physically Challenged Pickup']).count
+  end
+
+  def self.deptSWwide_dec_2019_actual_due_and_closed_cases
+    start_date_dec_19 = Date.parse('2019-12-1')
+    due_date_dec_19 = Date.parse('2020-1-1')
+    Sr.where("sr_create_date >= ? AND  sr_create_date<= ?", start_date_dec_19, due_date_dec_19).where(overdue:[-30..-0.05],department: 'SWM Solid Waste Management', status: 'Closed', trash_quad: 'SW', sr_type: ['Missed Heavy Trash Pickup
+', 'Container Problem', 'New Resident Container', 'Recycling Participation NEW', 'Recycling Cart Repair or Replace', 'SWM Escalation', 'Missed Garbage Pickup', 'Trash Dumping or Illegal Dumpsite', 'Add A Can', 'Storm Debris Collection', 'Dead Animal Collection',  'Add A Can CANCELLATION', 'Missed Recycling Pickup', 'Personnel or Vehicle Complaint', 'Physically Challenged Pickup']).count
+  end
+
+  def self.deptNWwide_dec_2019_actual_due_and_closed_cases
+    start_date_dec_19 = Date.parse('2019-12-1')
+    due_date_dec_19 = Date.parse('2020-1-1')
+    Sr.where("sr_create_date >= ? AND sr_create_date <= ?", start_date_dec_19, due_date_dec_19).where(overdue:[-30..-0.05],department: 'SWM Solid Waste Management', status: 'Closed', trash_quad: 'NW', sr_type: ['Missed Heavy Trash Pickup
+', 'Container Problem', 'New Resident Container', 'Recycling Participation NEW', 'Recycling Cart Repair or Replace', 'SWM Escalation', 'Missed Garbage Pickup', 'Trash Dumping or Illegal Dumpsite', 'Add A Can', 'Storm Debris Collection', 'Dead Animal Collection',  'Add A Can CANCELLATION', 'Missed Recycling Pickup', 'Personnel or Vehicle Complaint', 'Physically Challenged Pickup']).count
+  end
+
+  def self.deptSEwide_dec_2019_actual_due_and_closed_cases
+    start_date_dec_19 = Date.parse('2019-12-1')
+    due_date_dec_19 = Date.parse('2020-1-1')
+    Sr.where("sr_create_date >= ? AND sr_create_date <= ?", start_date_dec_19, due_date_dec_19).where(overdue:[-30..-0.05],department: 'SWM Solid Waste Management', status: 'Closed', trash_quad: 'SE', sr_type: ['Missed Heavy Trash Pickup
+', 'Container Problem', 'New Resident Container', 'Recycling Participation NEW', 'Recycling Cart Repair or Replace', 'SWM Escalation', 'Missed Garbage Pickup', 'Trash Dumping or Illegal Dumpsite', 'Add A Can', 'Storm Debris Collection', 'Dead Animal Collection',  'Add A Can CANCELLATION', 'Missed Recycling Pickup', 'Personnel or Vehicle Complaint', 'Physically Challenged Pickup']).count
+  end
+
+  def self.deptNEwide_dec_2019_actual_due_and_closed_cases
+    start_date_dec_19 = Date.parse('2019-12-1')
+    due_date_dec_19 = Date.parse('2020-1-1')
+    Sr.where("sr_create_date >= ? AND sr_create_date <= ?", start_date_dec_19, due_date_dec_19).where(overdue:[-30..-0.05],department: 'SWM Solid Waste Management', status: 'Closed', trash_quad: 'NE', sr_type: ['Missed Heavy Trash Pickup
+', 'Container Problem', 'New Resident Container', 'Recycling Participation NEW', 'Recycling Cart Repair or Replace', 'SWM Escalation', 'Missed Garbage Pickup', 'Trash Dumping or Illegal Dumpsite', 'Add A Can', 'Storm Debris Collection', 'Dead Animal Collection',  'Add A Can CANCELLATION', 'Missed Recycling Pickup', 'Personnel or Vehicle Complaint', 'Physically Challenged Pickup']).count
+  end
+
+  def self.deptNEwide_oct_2019_sla_due_cases
+    start_date_oct_19 = Date.parse('2019-10-01')
+    due_date_oct_19 = Date.parse('2019-11-01')
+    Sr.where(sr_create_date: start_date_oct_19..due_date_oct_19).where(department: 'SWM Solid Waste Management', trash_quad: 'NE', sr_type: ['Missed Heavy Trash Pickup
+', 'Container Problem', 'New Resident Container', 'Recycling Participation NEW', 'Recycling Cart Repair or Replace', 'SWM Escalation', 'Missed Garbage Pickup', 'Trash Dumping or Illegal Dumpsite', 'Add A Can', 'Storm Debris Collection', 'Dead Animal Collection',  'Add A Can CANCELLATION', 'Missed Recycling Pickup', 'Personnel or Vehicle Complaint', 'Physically Challenged Pickup']).count
+  end
+
+  def self.deptSWwide_dec_2019_sla_due_cases
+    start_date_dec_19 = Date.parse('2019-12-01')
+    due_date_dec_19 = Date.parse('2020-1-01')
+    Sr.where(sr_create_date: start_date_dec_19..due_date_dec_19).where(department: 'SWM Solid Waste Management', trash_quad: 'SW', sr_type: ['Missed Heavy Trash Pickup
+', 'Container Problem', 'New Resident Container', 'Recycling Participation NEW', 'Recycling Cart Repair or Replace', 'SWM Escalation', 'Missed Garbage Pickup', 'Trash Dumping or Illegal Dumpsite', 'Add A Can', 'Storm Debris Collection', 'Dead Animal Collection',  'Add A Can CANCELLATION', 'Missed Recycling Pickup', 'Personnel or Vehicle Complaint', 'Physically Challenged Pickup']).count
+  end
   def self.qualityGrade(grade)
     # binding.pry
     if grade == nil
