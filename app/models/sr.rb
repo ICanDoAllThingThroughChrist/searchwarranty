@@ -1,22 +1,30 @@
 class Sr < ApplicationRecord
       def self.update_trash_quad_v2
-        trash_quad_nil_list =  Sr.where(department: 'SWM Solid Waste Management',status: ['Open', 'Closed'],trash_quad:[nil,""])
-        queue_list_value = Sr.where(department: 'SWM Solid Waste Management').distinct.pluck(:queue)
+        trash_quad_nil_list =
+        Sr.where(department: 'SWM Solid Waste Management',
+          status: ['Open', 'Closed'],trash_quad:[nil,""])
+        queue_list_value =
+        Sr.where(department: 'SWM Solid Waste Management').
+        distinct.pluck(:queue)
         trash_quad_nil_list.each_with_index{|item, index|
           # binding.pry
-          if item['queue'] == "SWM_RecyclingNW" || item['queue'] =="SWM_CollectionsNW"
+          if item['queue'] == "SWM_RecyclingNW" ||
+            item['queue'] =="SWM_CollectionsNW"
             item['trash_quad'] = "NW"
             item.save
           elsif
-            item['queue'] == "SWM_RecyclingSW" || item['queue'] =="SWM_CollectionsSW"
+            item['queue'] == "SWM_RecyclingSW" ||
+            item['queue'] =="SWM_CollectionsSW"
             item['trash_quad'] = "SW"
             item.save
           elsif
-            item['queue'] == "SWM_CollectionsSE" || item['queue'] == "SWM_RecyclingSE"
+            item['queue'] == "SWM_CollectionsSE" ||
+            item['queue'] == "SWM_RecyclingSE"
             item['trash_quad'] = "SE"
             item.save
           elsif
-            item['queue'] == "SWM_RecyclingNE" || item['queue'] == "SWM_CollectionsNE"
+            item['queue'] == "SWM_RecyclingNE" ||
+            item['queue'] == "SWM_CollectionsNE"
             item['trash_quad'] = "NE"
             item.save
           else
@@ -29,53 +37,62 @@ class Sr < ApplicationRecord
       def self.update_trash_quad
       Spatial.delete_all
       Spatial.seed
-      array = Sr.where(quad_status:"No_Quad_Not_Overdue").
-      or(Sr.where(quad_status: "Quad_Not_Overdue")).
-      or(Sr.where(quad_status: "No_Quad_Overdue")).
-      or(Sr.where(quad_status: "Quad_Overdue"))
+      array = Sr.where(trash_quad:[nil,""])
       array.each{|sr|
         quad = Spatial.where(id:"#{sr.id}").pluck(:quad)
-        # quad2 = Spatial.where(case_numbe:"#{sr.case_number}").pluck(:quad)
-        # binding.pry
-        # sr.trash_quad = quad2[0]
-        # if sr.trash_quad == nil
           sr.trash_quad = quad[0]
           sr.garbage_quad = quad[0]
           sr.save
       }
     end
     def self.no_quad_list
-      # NoQuadOverdueResults=Sr.where(quad_status: "No_Quad_Overdue")
-      # NoQuadNotOverdueResults=Sr.where(quad_status: "No_Quad_Not_Overdue")
-      #psql: \copy (SELECT * FROM srs WHERE quad_status = 'No_Quad_Not_Overdue') TO 'C:/Users/e128289/Documents/NoQuadNotOverdue.csv' CSV HEADER;
-      #psql \copy (SELECT * FROM srs WHERE quad_status = 'No_Quad_Overdue') TO 'C:/Users/e128289/Documents/NoQuadOverdue.csv' CSV HEADER;
-      headers = %w[id case_number sr_location county district neighborhood tax_id trash_quad recycle_quad trash_day heavy_trash_day recycle_day key_map management_district department division sr_type queue sla status sr_create_date due_date date_closed overdue title x y latitude longitude channel_type created_at updated_at field1 field2 client garbage_route heavy_trash_quad sr_owner sr_creator resolve_days street_num client_street city state zip phone_number email_address garbage_day1 garbage_quad recycle_day1 recycle_route resolution_time expression ne_overdue ne_not_overdue ne_sr_total nw_overdue nw_not_overdue nw_sr_total se_overdue se_not_overdue se_sr_total sw_overdue sw_not_overdue sw_sr_total quad_status tally]
-      CSV.open("NoQuadOverdue.csv", "wb", write_headers: true, headers: headers) do |csv| Sr.where(quad_status: "No_Quad_Overdue").pluck(:id, :case_number, :sr_location, :county, :district, :neighborhood, :tax_id, :trash_quad, :recycle_quad, :trash_day, :heavy_trash_day, :recycle_day, :key_map, :management_district, :department, :division, :sr_type, :queue, :sla, :status, :sr_create_date, :due_date, :date_closed, :overdue, :title, :x, :y, :latitude, :longitude, :channel_type, :created_at, :updated_at, :field1, :field2, :client, :garbage_route, :heavy_trash_quad, :sr_owner, :sr_creator, :resolve_days, :street_num, :client_street, :city, :state, :zip, :phone_number, :email_address, :garbage_day1, :garbage_quad, :recycle_day1, :recycle_route, :resolution_time, :expression, :ne_overdue, :ne_not_overdue, :ne_sr_total, :nw_overdue, :nw_not_overdue, :nw_sr_total, :se_overdue, :se_not_overdue, :se_sr_total, :sw_overdue, :sw_not_overdue, :sw_sr_total, :quad_status, :tally).each do |row| csv << row end end
-      CSV.open("NoQuadNotOverdue.csv", "wb", write_headers: true, headers: headers) do |csv| Sr.where(quad_status: "No_Quad_Not_Overdue").pluck(:id, :case_number, :sr_location, :county, :district, :neighborhood, :tax_id, :trash_quad, :recycle_quad, :trash_day, :heavy_trash_day, :recycle_day, :key_map, :management_district, :department, :division, :sr_type, :queue, :sla, :status, :sr_create_date, :due_date, :date_closed, :overdue, :title, :x, :y, :latitude, :longitude, :channel_type, :created_at, :updated_at, :field1, :field2, :client, :garbage_route, :heavy_trash_quad, :sr_owner, :sr_creator, :resolve_days, :street_num, :client_street, :city, :state, :zip, :phone_number, :email_address, :garbage_day1, :garbage_quad, :recycle_day1, :recycle_route, :resolution_time, :expression, :ne_overdue, :ne_not_overdue, :ne_sr_total, :nw_overdue, :nw_not_overdue, :nw_sr_total, :se_overdue, :se_not_overdue, :se_sr_total, :sw_overdue, :sw_not_overdue, :sw_sr_total, :quad_status, :tally).each do |row| csv << row end end
+      headers = %w[id case_number sr_location county district
+        neighborhood tax_id trash_quad recycle_quad trash_day heavy_trash_day
+        recycle_day key_map management_district department division sr_type
+        queue sla status sr_create_date due_date date_closed overdue title
+        x y latitude longitude channel_type created_at updated_at field1
+        field2 client garbage_route heavy_trash_quad sr_owner sr_creator
+        resolve_days street_num client_street city state zip phone_number
+        email_address garbage_day1 garbage_quad recycle_day1 recycle_route
+        resolution_time expression ne_overdue ne_not_overdue ne_sr_total
+        nw_overdue nw_not_overdue nw_sr_total se_overdue se_not_overdue
+        se_sr_total sw_overdue sw_not_overdue sw_sr_total quad_status tally]
+      CSV.open("NoQuadList.csv", "wb",
+        write_headers: true, headers: headers) do |csv|
+          Sr.where(trash_quad: [nil, ""]).
+          pluck(:id, :case_number,
+            :sr_location, :county,:district, :neighborhood, :tax_id,
+            :trash_quad, :recycle_quad, :trash_day, :heavy_trash_day,
+            :recycle_day, :key_map, :management_district, :department,
+            :division, :sr_type, :queue, :sla, :status, :sr_create_date,
+            :due_date, :date_closed, :overdue, :title, :x, :y, :latitude,
+            :longitude, :channel_type, :created_at, :updated_at, :field1,
+            :field2, :client, :garbage_route, :heavy_trash_quad, :sr_owner,
+            :sr_creator, :resolve_days, :street_num, :client_street,
+            :city, :state, :zip, :phone_number, :email_address,
+            :garbage_day1, :garbage_quad, :recycle_day1, :recycle_route,
+            :resolution_time, :expression, :ne_overdue, :ne_not_overdue,
+            :ne_sr_total, :nw_overdue, :nw_not_overdue, :nw_sr_total,
+            :se_overdue, :se_not_overdue, :se_sr_total, :sw_overdue,
+            :sw_not_overdue, :sw_sr_total, :quad_status, :tally).
+            each do |row|
+              csv << row
+            end
+          end
     end
-    # def self.quad_nil_resolution
-    #   csv_array = []
-    #   CSV.foreach('C:/Users/e128289/Desktop/quad_assignment.csv', headers: true) {|row| csv_array << row.to_hash}
-    #   csv_array.to_ary
-    #   # binding.pry
-    #   quad_status_nil = Sr.where(status: "Open", department: 'SWM Solid Waste Management', quad_status: [nil,""])
-    #   quad=quad_status_nil.to_ary
-    #   # binding.pry
-    #   quad.each {|hash|
-    #         # binding.pry
-    #   }
-    # end
+
     def self.pivot
       Sr.sla_nil_resolution
-      Sr.overdue
-      Sr.quad_expression
-      Sr.no_quad_list
       Sr.update_trash_quad_v2
-      binding.pry
+      Sr.no_quad_list
       #spatial join based on the generated csv
-      #perform import copy and paste from NoQuadOverdue and NoQuadNotOverdue text file to spatial join quad assignment
+      #perform import copy and paste from NoQuadList text
+      #file to spatial join quad assignment
+      binding.pry
       Sr.update_trash_quad
-      Sr.quad_expression
+      Sr.expression_quad_status_assignment
+      # Sr.quad_expression
+      binding.pry
       # binding.pry#reperformed quad list
       Sr.sr_count
       #TYPE "next at prompt"
@@ -90,14 +107,30 @@ class Sr < ApplicationRecord
 
     def self.update_sr_location_for_open_sr
       array = Sr.where(status:'Open', department: 'SWM Solid Waste Management')
-      array.each_with_index {|e,i|
-        e['sr_location'] = e['sr_location'].split(",").join(" ")
-        e.save
+      array.each {|e|
+        if e['sr_location'] != nil
+          e['sr_location'] = e['sr_location'].split(",").join(" ")
+          e.save
+        else
+          puts "#{e}"
+        end
       }
     end
 
     def self.html_pivot
-      headers = %w[id case_number sr_location county district neighborhood tax_id trash_quad recycle_quad trash_day heavy_trash_day recycle_day key_map management_district department division sr_type queue sla status sr_create_date due_date date_closed overdue title x y latitude longitude channel_type created_at updated_at field1 field2 client garbage_route heavy_trash_quad sr_owner sr_creator resolve_days street_num client_street city state zip phone_number email_address garbage_day1 garbage_quad recycle_day1 recycle_route resolution_time expression ne_overdue ne_not_overdue ne_sr_total nw_overdue nw_not_overdue nw_sr_total se_overdue se_not_overdue se_sr_total sw_overdue sw_not_overdue sw_sr_total quad_status tally]
+      headers = %w[id case_number sr_location county district
+        neighborhood tax_id trash_quad recycle_quad trash_day
+        heavy_trash_day recycle_day key_map management_district
+        department division sr_type queue sla status sr_create_date
+        due_date date_closed overdue title x y latitude longitude
+        channel_type created_at updated_at field1 field2 client
+        garbage_route heavy_trash_quad sr_owner sr_creator resolve_days
+        street_num client_street city state zip phone_number
+        email_address garbage_day1 garbage_quad recycle_day1
+        recycle_route resolution_time expression ne_overdue
+        ne_not_overdue ne_sr_total nw_overdue nw_not_overdue
+        nw_sr_total se_overdue se_not_overdue se_sr_total
+        sw_overdue sw_not_overdue sw_sr_total quad_status tally]
       CSV.open("testing.csv", "wb", write_headers: true, headers: headers) do |csv|
          Sr.where(status: "Open", department: 'SWM Solid Waste Management').
          pluck(:id, :case_number, :sr_location, :county, :district,
@@ -115,11 +148,17 @@ class Sr < ApplicationRecord
             :ne_not_overdue, :ne_sr_total, :nw_overdue, :nw_not_overdue,
             :nw_sr_total, :se_overdue, :se_not_overdue, :se_sr_total,
             :sw_overdue, :sw_not_overdue, :sw_sr_total, :quad_status,
-            :tally).each do |row| csv << row end end
+            :tally).each do |row| csv << row
+            end
+          end
       sales = Daru::DataFrame.from_csv '../searchwarranty/testing.csv'
-      list = sales.pivot_table(index:['sr_type'],values:'tally', vectors:['quad_status'],  agg:  :sum)
-      File.open('../searchwarranty/app/views/srs/test.html.erb', 'w+'){|f| f << list.to_html}
-      File.open('../searchwarranty/app/views/srs/test.html', 'w+'){|f| f << list.to_html}
+      list = sales.pivot_table(index:['sr_type'],
+        values:'tally', vectors:['trash_quad','expression'],
+        agg:  :sum)
+      File.open('../searchwarranty/app/views/srs/test.html.erb',
+        'w+'){|f| f << list.to_html}
+      File.open('../searchwarranty/app/views/srs/test.html',
+        'w+'){|f| f << list.to_html}
       #august-aug_2019_end_date
     end
     def self.add_tally
@@ -134,27 +173,33 @@ class Sr < ApplicationRecord
       nil_quad.each{|sr|
         if sr.sr_type == 'Missed Garbage Pickup'
           sr.sla = 4
-          sr.overdue = (sr.created_at - DateTime.now)/(60*60*24) + sr.sla
+          sr.overdue = (sr.created_at - DateTime.now)/(60*60*24) +
+          sr.sla
           sr.save
         elsif sr.sr_type == 'Missed Yard Waste Pickup'
           sr.sla = 6
-          sr.overdue = (sr.created_at - DateTime.now)/(60*60*24) + sr.sla
+          sr.overdue = (sr.created_at - DateTime.now)/(60*60*24) +
+          sr.sla
           sr.save
         elsif sr.sr_type == 'Missed Heavy Trash Pickup'
           sr.sla = 7
-          sr.overdue = (sr.created_at - DateTime.now)/(60*60*24) + sr.sla
+          sr.overdue = (sr.created_at - DateTime.now)/(60*60*24) +
+          sr.sla
           sr.save
         elsif sr.sr_type == 'Dead Animal Collection'
           sr.sla = 4
-          sr.overdue = (sr.created_at - DateTime.now)/(60*60*24) + sr.sla
+          sr.overdue = (sr.created_at - DateTime.now)/(60*60*24) +
+          sr.sla
           sr.save
         elsif sr.sr_type == 'Missed Recycling Pickup'
           sr.sla = 4
-          sr.overdue = (sr.created_at - DateTime.now)/(60*60*24) + sr.sla
+          sr.overdue = (sr.created_at - DateTime.now)/(60*60*24) +
+          sr.sla
           sr.save
         elsif sr.sr_type == 'Container Problem'
           sr.sla = 10
-          sr.overdue = (sr.created_at - DateTime.now)/(60*60*24) + sr.sla
+          sr.overdue = (sr.created_at - DateTime.now)/(60*60*24) +
+          sr.sla
           sr.save
         # elsif sr.sr_type == 'SWM_MissComplaint'
         #   sr.sla = 300
@@ -164,56 +209,21 @@ class Sr < ApplicationRecord
         end
         }
     end
-    def self.quad_expression
-      open_sr = Sr.where(:department=> "SWM Solid Waste Management", :status => "Open")
-      open_sr.each{|sr|
-            if sr.expression == 'Overdue' && sr.trash_quad == 'NE'
-                  sr.quad_status = 'NE_Overdue'
-            elsif sr.expression == 'Overdue' && sr.garbage_quad == 'NE'
-              # binding.pry
-                  sr.quad_status = 'NE_Overdue'
-            elsif sr.expression == 'Not Overdue' && sr.trash_quad == 'NE'
-                  sr.quad_status = 'NE_Not_Overdue'
-            elsif sr.expression == 'Not Overdue' && sr.garbage_quad == 'NE'
-                  sr.quad_status = 'NE_Not_Overdue'
-              # binding.pry
-            elsif sr.expression == 'Overdue' && sr.trash_quad == 'SE'
-                   sr.quad_status = 'SE_Overdue'
-            elsif sr.expression == 'Overdue' && sr.garbage_quad == 'SE'
-                  sr.quad_status = 'SE_Overdue'
-            elsif sr.expression == 'Not Overdue' && sr.trash_quad == 'SE'
-                  sr.quad_status = 'SE_Not_Overdue'
-            elsif sr.expression == 'Not Overdue' && sr.garbage_quad == 'SE'
-                  sr.quad_status = 'SE_Not_Overdue'
-            elsif sr.expression == 'Overdue' && sr.trash_quad == 'SW'
-                  sr.quad_status = 'SW_Overdue'
-            elsif sr.expression == 'Overdue' && sr.garbage_quad == 'SW'
-                  sr.quad_status = 'SW_Overdue'
-            elsif sr.expression == 'Not Overdue' && sr.trash_quad == 'SW'
-                  sr.quad_status = 'SW_Not_Overdue'
-            elsif sr.expression == 'Not Overdue' && sr.garbage_quad == 'SW'
-                  sr.quad_status = 'SW_Not_Overdue'
-            elsif sr.expression == 'Overdue' && sr.trash_quad == 'NW'
-                  sr.quad_status = 'NW_Overdue'
-            elsif sr.expression == 'Overdue' && sr.garbage_quad == 'NW'
-                  sr.quad_status = 'NW_Overdue'
-            elsif sr.expression == 'Not Overdue' && sr.trash_quad == 'NW'
-                  sr.quad_status = 'NW_Not_Overdue'
-            elsif sr.expression == 'Not Overdue' && sr.garbage_quad == 'NW'
-                  sr.quad_status = 'NW_Not_Overdue'
-            elsif sr.expression == 'Not Overdue' && sr.garbage_quad == nil
-                  sr.quad_status = 'No_Quad_Not_Overdue'
-            elsif sr.expression == 'Not Overdue' && sr.trash_quad == nil
-                  sr.quad_status = 'No_Quad_Not_Overdue'
-            elsif sr.expression == 'Overdue' && sr.garbage_quad == nil
-                  sr.quad_status = 'No_Quad_Overdue'
-            elsif sr.expression == 'Overdue' && sr.trash_quad == nil
-                  sr.quad_status = 'No_Quad_Overdue'
-            else
-                  puts "#{sr}"
-            end
-            sr.save}
-  end
+  #   def self.quad_expression
+  #     open_sr = Sr.where(:department=> "SWM Solid Waste Management",
+  #       :status => "Open")
+  #     open_sr.each{|sr|
+  #           if sr.expression == 'Not Overdue' && sr.trash_quad == nil
+  #                 sr.quad_status = 'No_Quad_Not_Overdue'
+  #           elsif sr.expression == 'Overdue' && sr.garbage_quad == nil
+  #                 sr.quad_status = 'No_Quad_Overdue'
+  #           elsif sr.expression == 'Overdue' && sr.trash_quad == nil
+  #                 sr.quad_status = 'No_Quad_Overdue'
+  #           else
+  #                 puts "#{sr}"
+  #           end
+  #           sr.save}
+  # end
   def self.sr_count
   open_sr = Sr.where(:department=> "SWM Solid Waste Management", :status => "Open")
   open_sr.each{|sr|
@@ -237,28 +247,85 @@ class Sr < ApplicationRecord
     sr.save
     }
   end
-  def self.overdue
-    overdue_open_srs = Sr.where(:overdue => 0..400,:department => 'SWM Solid Waste Management', :status => 'Open')
+  def self.expression__quad_status_assignment
+    overdue_open_srs = Sr.
+    where(:overdue => 0..400,
+      :department => 'SWM Solid Waste Management',
+      :status => 'Open')
     overdue_open_srs.each{|sr|
-      if sr.department == 'SWM Solid Waste Management'
+      if sr.department == 'SWM Solid Waste Management' &&
+        sr.trash_quad == 'NE'
       then
         sr.expression = "Overdue"
+        sr.quad_expression = "NE_Overdue"
+        sr.tally = 1
+        sr.save
+      elsif sr.department == 'SWM Solid Waste Management' &&
+        sr.trash_quad == 'NW'
+      then
+        sr.expression = "Overdue"
+        sr.quad_expression = "NW_Overdue"
+        sr.tally = 1
+        sr.save
+      elsif sr.department == 'SWM Solid Waste Management' &&
+        sr.trash_quad == 'SW'
+      then
+        sr.expression = "Overdue"
+        sr.quad_expression = "SW_Overdue"
+        sr.tally = 1
+        sr.save
+      elsif sr.department == 'SWM Solid Waste Management' &&
+        sr.trash_quad == 'SE'
+      then
+        sr.expression = "Overdue"
+        sr.quad_expression = "SE_Overdue"
+        sr.tally = 1
         sr.save
       else
         puts "#{sr}"
       end
       }
-    not_overdue_open_srs = Sr.where(:overdue => -400..-1,:department => 'SWM Solid Waste Management', :status => 'Open')
+    not_overdue_open_srs =
+    Sr.where(:overdue => -400..-0.01,
+      :department => 'SWM Solid Waste Management',
+      :status => 'Open')
     not_overdue_open_srs.each{|sr|
-      if sr.department == 'SWM Solid Waste Management'
+      if sr.department == 'SWM Solid Waste Management' &&
+        sr.trash_quad == 'NE'
       then
         sr.expression = "Not Overdue"
+        sr.quad_status = 'NE_Not_Overdue'
+        sr.tally = 1
+        sr.save
+      elsif sr.department == 'SWM Solid Waste Management' &&
+        sr.trash_quad == 'NW'
+      then
+        sr.expression = "Not Overdue"
+        sr.quad_status = 'NW_Not_Overdue'
+        sr.tally = 1
+        sr.save
+      elsif sr.department == 'SWM Solid Waste Management' &&
+        sr.trash_quad == 'SW'
+      then
+        sr.expression = "Not Overdue"
+        sr.quad_status = 'SW_Not_Overdue'
+        sr.tally = 1
+        sr.save
+      elsif sr.department == 'SWM Solid Waste Management' &&
+        sr.trash_quad == 'SE'
+      then
+        sr.expression = "Not Overdue"
+        sr.quad_status = 'SE_Not_Overdue'
+        sr.tally = 1
         sr.save
       else
         puts "#{sr}"
       end
     }
-    open_srs = Sr.where(:overdue => -400..400,:department => 'SWM Solid Waste Management', :status => 'Open')
+    open_srs =
+    Sr.where(:overdue => -400..400,
+      :department => 'SWM Solid Waste Management',
+      :status => 'Open')
     open_srs
   end
 
@@ -299,7 +366,9 @@ class Sr < ApplicationRecord
     deptNEwide_aug_2019_sla_percent_complete = deptNEwide_aug_2019_actual__due_and_closed_cases.to_f.round(2)/deptNEwide_aug_2019_sla_due_cases.to_f.round(2)
     self.ne_grade_aug_2019 = self.grade(deptNEwide_aug_2019_sla_percent_complete)
     binding.pry
-    deptNWwide_aug_2019_sla_due_cases = Sr.between_fields('2019-08-01 00:00:00', :sr_create_date, :date_closed).where(department: 'SWM Solid Waste Management', trash_quad: 'NW', sr_type: ['Missed Heavy Trash Pickup
+    deptNWwide_aug_2019_sla_due_cases = Sr.between_fields('2019-08-01 00:00:00',
+      :sr_create_date, :date_closed).where(department: 'SWM Solid Waste Management',
+        trash_quad: 'NW', sr_type: ['Missed Heavy Trash Pickup
 ', 'Container Problem', 'New Resident Container', 'Recycling Participation NEW', 'Recycling Cart Repair or Replace', 'SWM Escalation', 'Missed Garbage Pickup', 'Trash Dumping or Illegal Dumpsite', 'Add A Can', 'Storm Debris Collection', 'Dead Animal Collection',  'Add A Can CANCELLATION', 'Missed Recycling Pickup', 'Personnel or Vehicle Complaint', 'Physically Challenged Pickup']).count
     deptNWwide_aug_2019_actual__due_and_closed_cases = Sr.between_fields('2019-08-01 00:00:00', :due_date, :date_closed).where(department: 'SWM Solid Waste Management', trash_quad: 'NW', sr_type: ['Missed Heavy Trash Pickup
 ', 'Container Problem', 'New Resident Container', 'Recycling Participation NEW', 'Recycling Cart Repair or Replace', 'SWM Escalation', 'Missed Garbage Pickup', 'Trash Dumping or Illegal Dumpsite', 'Add A Can', 'Storm Debris Collection', 'Dead Animal Collection',  'Add A Can CANCELLATION', 'Missed Recycling Pickup', 'Personnel or Vehicle Complaint', 'Physically Challenged Pickup']).count
@@ -332,14 +401,54 @@ class Sr < ApplicationRecord
     self.historical_grade
   end
 
-  def self.closed_but_nil_quad_list
-    start_date = Date.parse('2019-08-01')
-    last_date = Time.now
-    tally_list = Sr.where(trash_quad: [nil, ""], department: 'SWM Solid Waste Management', status: 'Closed').where("sr_create_date >= ? AND sr_create_date <= ?", start_date,  last_date).count
-    tally_list_values = Sr.where("sr_create_date >= ? AND sr_create_date <= ?", start_date,  last_date).where(status: 'Closed', department: 'SWM Solid Waste Management', trash_quad: [nil, ""], sr_type: ['Missed Heavy Trash Pickup
-', 'Container Problem', 'New Resident Container', 'Recycling Participation NEW', 'Recycling Cart Repair or Replace', 'SWM Escalation', 'Missed Garbage Pickup', 'Trash Dumping or Illegal Dumpsite', 'Add A Can', 'Storm Debris Collection', 'Dead Animal Collection', 'Add A Can CANCELLATION', 'Missed Recycling Pickup', 'Personnel or Vehicle Complaint', 'Physically Challenged Pickup']).pluck(:id, :case_number, :sr_location, :county, :district, :neighborhood, :tax_id, :trash_quad, :recycle_quad, :trash_day, :heavy_trash_day, :recycle_day, :key_map, :management_district, :department, :division, :sr_type, :queue, :sla, :status, :sr_create_date, :due_date, :date_closed, :overdue, :title, :x, :y, :latitude, :longitude, :channel_type, :created_at, :updated_at, :field1, :field2, :client, :garbage_route, :heavy_trash_quad, :sr_owner, :sr_creator, :resolve_days, :street_num, :client_street, :city, :state, :zip, :phone_number, :email_address, :garbage_day1, :garbage_quad, :recycle_day1, :recycle_route, :resolution_time, :expression, :ne_overdue, :ne_not_overdue, :ne_sr_total, :nw_overdue, :nw_not_overdue, :nw_sr_total, :se_overdue, :se_not_overdue, :se_sr_total, :sw_overdue, :sw_not_overdue, :sw_sr_total, :quad_status, :tally)
-    headers = %w[id case_number sr_location county district neighborhood tax_id trash_quad recycle_quad trash_day heavy_trash_day recycle_day key_map management_district department division sr_type queue sla status sr_create_date due_date date_closed overdue title x y latitude longitude channel_type created_at updated_at field1 field2 client garbage_route heavy_trash_quad sr_owner sr_creator resolve_days street_num client_street city state zip phone_number email_address garbage_day1 garbage_quad recycle_day1 recycle_route resolution_time expression ne_overdue ne_not_overdue ne_sr_total nw_overdue nw_not_overdue nw_sr_total se_overdue se_not_overdue se_sr_total sw_overdue sw_not_overdue sw_sr_total quad_status tally]
-    CSV.open("../searchwarranty/no_quad_08_2019_now.csv", "wb", write_headers: true, headers: headers) do |csv| tally_list_values.each do |row| csv << row end end
+#   def self.closed_but_nil_quad_list
+#     start_date = Date.parse('2019-08-01')
+#     last_date = Time.now
+#     tally_list = Sr.where(trash_quad: [nil, ""], department: 'SWM Solid Waste Management', status: 'Closed').where("sr_create_date >= ? AND sr_create_date <= ?", start_date,  last_date).count
+#     tally_list_values = Sr.where("sr_create_date >= ? AND sr_create_date <= ?", start_date,  last_date).where(status: 'Closed', department: 'SWM Solid Waste Management', trash_quad: [nil, ""], sr_type: ['Missed Heavy Trash Pickup
+# ', 'Container Problem', 'New Resident Container', 'Recycling Participation NEW', 'Recycling Cart Repair or Replace', 'SWM Escalation', 'Missed Garbage Pickup', 'Trash Dumping or Illegal Dumpsite', 'Add A Can', 'Storm Debris Collection', 'Dead Animal Collection', 'Add A Can CANCELLATION', 'Missed Recycling Pickup', 'Personnel or Vehicle Complaint', 'Physically Challenged Pickup']).pluck(:id, :case_number, :sr_location, :county, :district, :neighborhood, :tax_id, :trash_quad, :recycle_quad, :trash_day, :heavy_trash_day, :recycle_day, :key_map, :management_district, :department, :division, :sr_type, :queue, :sla, :status, :sr_create_date, :due_date, :date_closed, :overdue, :title, :x, :y, :latitude, :longitude, :channel_type, :created_at, :updated_at, :field1, :field2, :client, :garbage_route, :heavy_trash_quad, :sr_owner, :sr_creator, :resolve_days, :street_num, :client_street, :city, :state, :zip, :phone_number, :email_address, :garbage_day1, :garbage_quad, :recycle_day1, :recycle_route, :resolution_time, :expression, :ne_overdue, :ne_not_overdue, :ne_sr_total, :nw_overdue, :nw_not_overdue, :nw_sr_total, :se_overdue, :se_not_overdue, :se_sr_total, :sw_overdue, :sw_not_overdue, :sw_sr_total, :quad_status, :tally)
+#     headers = %w[id case_number sr_location county district neighborhood tax_id trash_quad recycle_quad trash_day heavy_trash_day recycle_day key_map management_district department division sr_type queue sla status sr_create_date due_date date_closed overdue title x y latitude longitude channel_type created_at updated_at field1 field2 client garbage_route heavy_trash_quad sr_owner sr_creator resolve_days street_num client_street city state zip phone_number email_address garbage_day1 garbage_quad recycle_day1 recycle_route resolution_time expression ne_overdue ne_not_overdue ne_sr_total nw_overdue nw_not_overdue nw_sr_total se_overdue se_not_overdue se_sr_total sw_overdue sw_not_overdue sw_sr_total quad_status tally]
+#     CSV.open("../searchwarranty/no_quad_08_2019_now.csv", "wb", write_headers: true, headers: headers) do |csv| tally_list_values.each do |row| csv << row end end
+#   end
+
+  def self.new_services_list
+    start_date = Date.parse('2019-07-01')
+    end_date= Time.now
+    new_services_list = Sr.where(sr_type: ['New Move In Service',
+      'New Resident Container','Recycling Participation NEW']).
+      where("sr_create_date >= ? AND sr_create_date <= ?",start_date, end_date).
+      pluck(:id, :case_number, :sr_location, :county, :district, :neighborhood,
+         :tax_id, :trash_quad, :recycle_quad, :trash_day, :heavy_trash_day,
+          :recycle_day, :key_map, :management_district, :department,
+           :division, :sr_type, :queue, :sla, :status, :sr_create_date,
+            :due_date, :date_closed, :overdue, :title, :x, :y, :latitude,
+             :longitude, :channel_type, :created_at, :updated_at, :field1,
+              :field2, :client, :garbage_route, :heavy_trash_quad, :sr_owner,
+               :sr_creator, :resolve_days, :street_num, :client_street, :city,
+                :state, :zip, :phone_number, :email_address, :garbage_day1,
+                 :garbage_quad, :recycle_day1, :recycle_route, :resolution_time,
+                  :expression, :ne_overdue, :ne_not_overdue, :ne_sr_total,
+                   :nw_overdue, :nw_not_overdue, :nw_sr_total, :se_overdue,
+                    :se_not_overdue, :se_sr_total, :sw_overdue, :sw_not_overdue,
+                     :sw_sr_total, :quad_status, :tally)
+      headers = %w[id case_number sr_location county district neighborhood
+         tax_id trash_quad recycle_quad trash_day heavy_trash_day recycle_day
+          key_map management_district department division sr_type queue sla
+           status sr_create_date due_date date_closed overdue title x y
+            latitude longitude channel_type created_at updated_at field1
+             field2 client garbage_route heavy_trash_quad sr_owner sr_creator
+              resolve_days street_num client_street city state zip phone_number
+               email_address garbage_day1 garbage_quad recycle_day1
+                recycle_route resolution_time expression ne_overdue
+                 ne_not_overdue ne_sr_total nw_overdue nw_not_overdue
+                  nw_sr_total se_overdue se_not_overdue se_sr_total sw_overdue
+                   sw_not_overdue sw_sr_total quad_status tally]
+      CSV.open("../searchwarranty/new_services_list.csv", "wb",
+         write_headers: true, headers: headers) do |csv|
+           new_services_list.each do |row|
+             csv << row
+           end
+         end
   end
 
   def self.updated_nil_trash_quad_in_monthly_grade
@@ -347,15 +456,41 @@ class Sr < ApplicationRecord
     Spatial.seed2
     start_date = Date.parse('2019-08-01')
     last_date = Time.now
-    tally_list = Sr.where(trash_quad: [nil, ""], department: 'SWM Solid Waste Management', status: 'Closed').
+    tally_list = Sr.where(trash_quad: [nil, ""],
+      department: 'SWM Solid Waste Management',
+      status: 'Closed').
     where("sr_create_date >= ? AND sr_create_date <= ?", start_date,  last_date)
     tally_list.each{|sr| quad = Spatial.where(id:"#{sr.id}").pluck(:quad)
       sr.trash_quad = quad [0]
       sr.garbage_quad = quad [0]
       sr.save
     }
-    updated_list = Sr.where(trash_quad: [nil, ""], department: 'SWM Solid Waste Management', status: 'Closed').where("sr_create_date >= ? AND sr_create_date <= ?", start_date,  last_date).count
-    updated_list_values = Sr.where(trash_quad: [nil, ""], department: 'SWM Solid Waste Management', status: 'Closed').where("sr_create_date >= ? AND sr_create_date <= ?", start_date,  last_date).pluck(:id, :case_number, :sr_location, :county, :district, :neighborhood, :tax_id, :trash_quad, :recycle_quad, :trash_day, :heavy_trash_day, :recycle_day, :key_map, :management_district, :department, :division, :sr_type, :queue, :sla, :status, :sr_create_date, :due_date, :date_closed, :overdue, :title, :x, :y, :latitude, :longitude, :channel_type, :created_at, :updated_at, :field1, :field2, :client, :garbage_route, :heavy_trash_quad, :sr_owner, :sr_creator, :resolve_days, :street_num, :client_street, :city, :state, :zip, :phone_number, :email_address, :garbage_day1, :garbage_quad, :recycle_day1, :recycle_route, :resolution_time, :expression, :ne_overdue, :ne_not_overdue, :ne_sr_total, :nw_overdue, :nw_not_overdue, :nw_sr_total, :se_overdue, :se_not_overdue, :se_sr_total, :sw_overdue, :sw_not_overdue, :sw_sr_total, :quad_status, :tally)
+    updated_list = Sr.where(trash_quad: [nil, ""],
+      department: 'SWM Solid Waste Management',
+      status: 'Closed').
+      where("sr_create_date >= ? AND sr_create_date <= ?",
+        start_date,  last_date).count
+    updated_list_values =
+    Sr.where(trash_quad: [nil, ""],
+      department: 'SWM Solid Waste Management',
+      status: 'Closed').
+      where("sr_create_date >= ? AND sr_create_date <= ?",
+        start_date,  last_date).
+        pluck(:id, :case_number, :sr_location, :county, :district,
+          :neighborhood, :tax_id, :trash_quad, :recycle_quad, :trash_day,
+          :heavy_trash_day, :recycle_day, :key_map, :management_district,
+          :department, :division, :sr_type, :queue, :sla, :status,
+          :sr_create_date, :due_date, :date_closed, :overdue, :title,
+          :x, :y, :latitude, :longitude, :channel_type, :created_at,
+          :updated_at, :field1, :field2, :client, :garbage_route,
+          :heavy_trash_quad, :sr_owner, :sr_creator, :resolve_days,
+          :street_num, :client_street, :city, :state, :zip, :phone_number,
+          :email_address, :garbage_day1, :garbage_quad, :recycle_day1,
+          :recycle_route, :resolution_time, :expression, :ne_overdue,
+          :ne_not_overdue, :ne_sr_total, :nw_overdue, :nw_not_overdue,
+          :nw_sr_total, :se_overdue, :se_not_overdue, :se_sr_total,
+          :sw_overdue, :sw_not_overdue, :sw_sr_total, :quad_status,
+          :tally)
   end
 
   def self.sent_chain(methods)

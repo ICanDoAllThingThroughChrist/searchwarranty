@@ -12,9 +12,10 @@ class OpenSr < ApplicationRecord
          'New Resident Container', 'Recycling Participation NEW',
          'Recycling Cart Repair or Replace', 'SWM Escalation',
          'Missed Garbage Pickup', 'Trash Dumping or Illegal Dumpsite',
-         'Add A Can', 'Storm Debris Collection', 'Dead Animal Collection',
-         'Add A Can CANCELLATION', 'Missed Recycling Pickup',
-         'Personnel or Vehicle Complaint', 'Physically Challenged Pickup']).
+         'Add A Can', 'Storm Debris Collection',
+         'Dead Animal Collection','Add A Can CANCELLATION',
+         'Missed Recycling Pickup','Personnel or Vehicle Complaint',
+         'Physically Challenged Pickup']).
           count
   end
   def self.neMar2020_sla_due_cases
@@ -24,6 +25,7 @@ class OpenSr < ApplicationRecord
        start_date_mar_20, due_date_mar_20).
     where(department: 'SWM Solid Waste Management',
       trash_quad: 'NE',
+      status: 'Closed',
       sr_type: ['Missed Heavy Trash Pickup', 'Container Problem',
         'New Resident Container', 'Recycling Participation NEW',
         'Recycling Cart Repair or Replace', 'SWM Escalation',
@@ -109,6 +111,7 @@ class OpenSr < ApplicationRecord
     where(due_date: start_date_mar_20..due_date_mar_20).
     where(department: 'SWM Solid Waste Management',
        trash_quad: 'SE',
+       status: 'Closed',
        sr_type: ['Missed Heavy Trash Pickup', 'Container Problem',
          'New Resident Container', 'Recycling Participation NEW',
          'Recycling Cart Repair or Replace', 'SWM Escalation',
@@ -125,6 +128,7 @@ class OpenSr < ApplicationRecord
        start_date_mar_20, due_date_mar_20).
     where(department: 'SWM Solid Waste Management',
       trash_quad: 'SE',
+      status: 'Closed',
       sr_type: ['Missed Heavy Trash Pickup', 'Container Problem',
          'New Resident Container', 'Recycling Participation NEW',
          'Recycling Cart Repair or Replace', 'SWM Escalation',
@@ -144,6 +148,7 @@ class OpenSr < ApplicationRecord
     where(due_date: start_date_mar_20..due_date_mar_20).
     where(department: 'SWM Solid Waste Management',
        trash_quad: 'NW',
+       status: 'Closed',
        sr_type: ['Missed Heavy Trash Pickup', 'Container Problem',
           'New Resident Container', 'Recycling Participation NEW',
           'Recycling Cart Repair or Replace', 'SWM Escalation',
@@ -164,6 +169,7 @@ class OpenSr < ApplicationRecord
     where(due_date: start_date_mar_20..due_date_mar_20).
     where(department: 'SWM Solid Waste Management',
        trash_quad: 'SE',
+       status: 'Closed',
        sr_type: ['Missed Heavy Trash Pickup', 'Container Problem',
          'New Resident Container', 'Recycling Participation NEW',
          'Recycling Cart Repair or Replace', 'SWM Escalation',
@@ -180,6 +186,7 @@ class OpenSr < ApplicationRecord
        start_date_mar_20, due_date_mar_20).
     where(department: 'SWM Solid Waste Management',
       trash_quad: 'NW',
+      status: 'Closed',
       sr_type: ['Missed Heavy Trash Pickup', 'Container Problem',
         'New Resident Container', 'Recycling Participation NEW',
         'Recycling Cart Repair or Replace', 'SWM Escalation',
@@ -200,6 +207,7 @@ class OpenSr < ApplicationRecord
     where(due_date: start_date_mar_20..due_date_mar_20).
     where(department: 'SWM Solid Waste Management',
       trash_quad: 'SW',
+      status: 'Closed',
       sr_type: ['Missed Heavy Trash Pickup', 'Container Problem',
          'New Resident Container', 'Recycling Participation NEW',
          'Recycling Cart Repair or Replace', 'SWM Escalation',
@@ -216,6 +224,7 @@ class OpenSr < ApplicationRecord
        start_date_mar_20, due_date_mar_20).
      where(department: 'SWM Solid Waste Management',
        trash_quad: 'SW',
+       status: 'Closed',
        sr_type: ['Missed Heavy Trash Pickup','Container Problem',
          'New Resident Container', 'Recycling Participation NEW',
          'Recycling Cart Repair or Replace', 'SWM Escalation',
@@ -233,6 +242,7 @@ class OpenSr < ApplicationRecord
         start_date_feb_20, due_date_feb_20 ).
      where(department: 'SWM Solid Waste Management',
        trash_quad: 'NW',
+       status: 'Closed',
        sr_type: ['Missed Heavy Trash Pickup', 'Container Problem',
          'New Resident Container', 'Recycling Participation NEW',
          'Recycling Cart Repair or Replace', 'SWM Escalation',
@@ -401,6 +411,7 @@ class OpenSr < ApplicationRecord
     Sr.where(sr_create_date: start_date_oct_19..due_date_oct_19).
     where(department: 'SWM Solid Waste Management',
       trash_quad: 'NE',
+      status: 'Closed',
       sr_type: ['Missed Heavy Trash Pickup', 'Container Problem',
         'New Resident Container', 'Recycling Participation NEW',
         'Recycling Cart Repair or Replace', 'SWM Escalation',
@@ -417,6 +428,7 @@ class OpenSr < ApplicationRecord
     Sr.where(sr_create_date: start_date_dec_19..due_date_dec_19).
     where(department: 'SWM Solid Waste Management',
       trash_quad: 'SW',
+      status: 'Closed',
       sr_type: ['Missed Heavy Trash Pickup', 'Container Problem',
         'New Resident Container', 'Recycling Participation NEW',
         'Recycling Cart Repair or Replace', 'SWM Escalation',
