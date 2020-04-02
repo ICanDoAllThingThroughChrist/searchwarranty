@@ -2,8 +2,7 @@ class OpenSr < ApplicationRecord
   def self.neMar2020_sla_cases_closed_but_updated_later
     start_date_mar_20 = Date.parse('2020-3-01')
     due_date_mar_20 = Date.parse('2020-3-31')
-    Sr.where("updated_at >= ? AND updated_at <= ?",
-       start_date_mar_20, due_date_mar_20).
+    Sr.where("updated_at >= ? AND updated_at <= ?",start_date_mar_20, due_date_mar_20).
     where(date_closed: start_date_mar_20..due_date_mar_20).
     where(sr_create_date: start_date_mar_20..due_date_mar_20).
     where(due_date: start_date_mar_20..due_date_mar_20).

@@ -4,8 +4,8 @@ class OpenSrsController < ApplicationController
     end
 
     def monthly_quality_grade
-      start_date_mar_20 = Date.parse('2020-3-01')
-      due_date_mar_20 = Date.parse('2020-4-01')
+      # start_date_mar_20 = Date.parse('2020-3-01')
+      # due_date_mar_20 = Date.parse('2020-4-01')
       @deptSWwide_mar_2020_sla_cases_closed_but_updated_later = OpenSr.swMar2020_sla_cases_closed_but_updated_later
       @deptSWwide_mar_2020_sla_due_cases = OpenSr.swMar2020_sla_due_cases
       @deptSWwide_updated_as_percent_of_closed_cases = @deptSWwide_mar_2020_sla_cases_closed_but_updated_later.to_f.round(2)/@deptSWwide_mar_2020_sla_due_cases.to_f.round(2)
@@ -43,7 +43,7 @@ class OpenSrsController < ApplicationController
 
 
       feb_2020_start_date = Date.parse('2020-02-01')
-      feb_2020_end_date = Date.parse('2020-03-01')
+      feb_2020_end_date = Date.parse('2020-02-29')
       @deptSWwide_feb_2020_sla_due_cases = Sr.where(due_date: feb_2020_start_date..feb_2020_end_date).where(department: 'SWM Solid Waste Management', trash_quad: 'SW', sr_type: ['Missed Heavy Trash Pickup', 'Container Problem', 'New Resident Container', 'Recycling Participation NEW', 'Recycling Cart Repair or Replace', 'SWM Escalation', 'Missed Garbage Pickup', 'Trash Dumping or Illegal Dumpsite', 'Add A Can', 'Storm Debris Collection', 'Dead Animal Collection',  'Add A Can CANCELLATION', 'Missed Recycling Pickup', 'Personnel or Vehicle Complaint', 'Physically Challenged Pickup', 'Add A Can CANCELLATION']).count
       @deptSWwide_feb_2020_actual_due_and_closed_cases = Sr.where(date_closed: feb_2020_start_date..feb_2020_end_date).where(overdue:[-30..-0.05],department: 'SWM Solid Waste Management', status: 'Closed', trash_quad: 'SW', sr_type: ['Missed Heavy Trash Pickup', 'Container Problem', 'New Resident Container', 'Recycling Participation NEW', 'Recycling Cart Repair or Replace', 'SWM Escalation', 'Missed Garbage Pickup', 'Trash Dumping or Illegal Dumpsite', 'Add A Can', 'Storm Debris Collection', 'Dead Animal Collection',  'Add A Can CANCELLATION', 'Missed Recycling Pickup', 'Personnel or Vehicle Complaint', 'Physically Challenged Pickup', 'Add A Can CANCELLATION']).count
       @deptSWwide_feb_2020_sla_percent_complete = @deptSWwide_feb_2020_actual_due_and_closed_cases.to_f.round(2)/@deptSWwide_feb_2020_sla_due_cases.to_f.round(2)
@@ -65,7 +65,7 @@ class OpenSrsController < ApplicationController
       @deptNEWide_feb_2020_grade= OpenSr.qualityGrade(@deptNEwide_feb_2020_sla_percent_complete)
 
       start_date_jan_20 = Date.parse('2020-1-01')
-      due_date_jan_20 = Date.parse('2020-2-01')
+      due_date_jan_20 = Date.parse('2020-1-31')
       @deptSWwide_jan_2020_sla_updated_cases = Sr.where(due_date: start_date_jan_20..due_date_jan_20).where(department: 'SWM Solid Waste Management', trash_quad: 'SW', sr_type: ['Missed Heavy Trash Pickup', 'Container Problem', 'New Resident Container', 'Recycling Participation NEW', 'Recycling Cart Repair or Replace', 'SWM Escalation', 'Missed Garbage Pickup', 'Trash Dumping or Illegal Dumpsite', 'Add A Can', 'Storm Debris Collection', 'Dead Animal Collection',  'Add A Can CANCELLATION', 'Missed Recycling Pickup', 'Personnel or Vehicle Complaint', 'Physically Challenged Pickup', 'Add A Can CANCELLATION']).count
       @deptSWwide_jan_2020_sla_due_cases = Sr.where(date_closed: start_date_jan_20..due_date_jan_20).where(department: 'SWM Solid Waste Management', trash_quad: 'SW', sr_type: ['Missed Heavy Trash Pickup', 'Container Problem', 'New Resident Container', 'Recycling Participation NEW', 'Recycling Cart Repair or Replace', 'SWM Escalation', 'Missed Garbage Pickup', 'Trash Dumping or Illegal Dumpsite', 'Add A Can', 'Storm Debris Collection', 'Dead Animal Collection',  'Add A Can CANCELLATION', 'Missed Recycling Pickup', 'Personnel or Vehicle Complaint', 'Physically Challenged Pickup', 'Add A Can CANCELLATION']).count
       @deptSWwide_jan_2020_actual_due_and_closed_cases = Sr.where("sr_create_date <= ? AND sr_create_date >= ?", start_date_jan_20, due_date_jan_20).where(overdue:[-30..-0.05],department: 'SWM Solid Waste Management', status: 'Closed', trash_quad: 'SW', sr_type: ['Missed Heavy Trash Pickup', 'Container Problem', 'New Resident Container', 'Recycling Participation NEW', 'Recycling Cart Repair or Replace', 'SWM Escalation', 'Missed Garbage Pickup', 'Trash Dumping or Illegal Dumpsite', 'Add A Can', 'Storm Debris Collection', 'Dead Animal Collection',  'Add A Can CANCELLATION', 'Missed Recycling Pickup', 'Personnel or Vehicle Complaint', 'Physically Challenged Pickup', 'Add A Can CANCELLATION']).count
@@ -89,7 +89,7 @@ class OpenSrsController < ApplicationController
 
 
       start_date_dec_19 = Date.parse('2019-12-1')
-      due_date_dec_19 = Date.parse('2020-1-1')
+      due_date_dec_19 = Date.parse('2020-12-31')
       @deptSWwide_dec_2019_sla_due_cases = OpenSr.deptSWwide_dec_2019_sla_due_cases
       @deptSWwide_dec_2019_actual_due_and_closed_cases = OpenSr.deptSWwide_dec_2019_actual_due_and_closed_cases
       @deptSWwide_dec_2019_sla_percent_complete = @deptSWwide_dec_2019_actual_due_and_closed_cases.to_f.round(2)/@deptSWwide_dec_2019_sla_due_cases.to_f.round(2)
@@ -114,7 +114,7 @@ class OpenSrsController < ApplicationController
       @deptNEWide_dec_2019_grade= OpenSr.qualityGrade(@deptNEwide_dec_2019_sla_percent_complete)
 
       start_date_nov_19 = Date.parse('2019-11-01')
-      due_date_nov_19 = Date.parse('2019-12-01')
+      due_date_nov_19 = Date.parse('2019-11-30')
       @deptSWwide_nov_2019_sla_due_cases = Sr.where(sr_create_date: start_date_nov_19..due_date_nov_19).where(department: 'SWM Solid Waste Management', trash_quad: 'SW', sr_type: ['Missed Heavy Trash Pickup
   ', 'Container Problem', 'New Resident Container', 'Recycling Participation NEW', 'Recycling Cart Repair or Replace', 'SWM Escalation', 'Missed Garbage Pickup', 'Trash Dumping or Illegal Dumpsite', 'Add A Can', 'Storm Debris Collection', 'Dead Animal Collection',  'Add A Can CANCELLATION', 'Missed Recycling Pickup', 'Personnel or Vehicle Complaint', 'Physically Challenged Pickup']).count
       @deptSWwide_nov_2019_actual_due_and_closed_cases = Sr.where("sr_create_date >= ? AND sr_create_date <= ?", start_date_nov_19, due_date_nov_19).where(overdue:[-30..-0.05],department: 'SWM Solid Waste Management', status: 'Closed', trash_quad: 'SW', sr_type: ['Missed Heavy Trash Pickup
@@ -144,7 +144,7 @@ class OpenSrsController < ApplicationController
       @deptNEWide_nov_2019_grade= OpenSr.qualityGrade(@deptNEwide_nov_2019_sla_percent_complete)
 
       start_date_oct_19 = Date.parse('2019-10-01')
-      due_date_oct_19 = Date.parse('2019-11-01')
+      due_date_oct_19 = Date.parse('2019-10-31')
       @deptSWwide_oct_2019_sla_due_cases = OpenSr.deptNEwide_oct_2019_sla_due_cases
       @deptSWwide_oct_2019_actual_due_and_closed_cases = Sr.where("sr_create_date >= ? AND sr_create_date <= ?", start_date_oct_19, due_date_oct_19).where(overdue:[-30..-0.05],department: 'SWM Solid Waste Management', status: 'Closed', trash_quad: 'SW', sr_type: ['Missed Heavy Trash Pickup
   ', 'Container Problem', 'New Resident Container', 'Recycling Participation NEW', 'Recycling Cart Repair or Replace', 'SWM Escalation', 'Missed Garbage Pickup', 'Trash Dumping or Illegal Dumpsite', 'Add A Can', 'Storm Debris Collection', 'Dead Animal Collection',  'Add A Can CANCELLATION', 'Missed Recycling Pickup', 'Personnel or Vehicle Complaint', 'Physically Challenged Pickup']).count
@@ -173,7 +173,7 @@ class OpenSrsController < ApplicationController
       @deptNEWide_oct_2019_grade= OpenSr.qualityGrade(@deptNEwide_oct_2019_sla_percent_complete)
 
       sept_2019_start_date = Date.parse('2019-09-01')
-      sept_2019_end_date = Date.parse('2019-10-01')
+      sept_2019_end_date = Date.parse('2019-09-30')
       @deptSWwide_sept_2019_sla_due_cases = Sr.where("sr_create_date >= ? AND sr_create_date <= ?", sept_2019_start_date, sept_2019_end_date).where(department: 'SWM Solid Waste Management', trash_quad: 'SW', sr_type: ['Missed Heavy Trash Pickup
   ', 'Container Problem', 'New Resident Container', 'Recycling Participation NEW', 'Recycling Cart Repair or Replace', 'SWM Escalation', 'Missed Garbage Pickup', 'Trash Dumping or Illegal Dumpsite', 'Add A Can', 'Storm Debris Collection', 'Dead Animal Collection',  'Add A Can CANCELLATION', 'Missed Recycling Pickup', 'Personnel or Vehicle Complaint', 'Physically Challenged Pickup']).count
       @deptSWwide_sept_2019_actual_due_and_closed_cases = Sr.where("sr_create_date >= ? AND sr_create_date <= ?", sept_2019_start_date, sept_2019_end_date).where(overdue:[-30..-0.05],department: 'SWM Solid Waste Management', status: 'Closed', trash_quad: 'SW', sr_type: ['Missed Heavy Trash Pickup
@@ -202,34 +202,170 @@ class OpenSrsController < ApplicationController
       @deptNEWide_sept_2019_grade= OpenSr.qualityGrade(@deptNEwide_sept_2019_sla_percent_complete)
 
       aug_2019_start_date = Date.parse('2019-08-01')
-      aug_2019_end_date = Date.parse('2019-09-01')
+      aug_2019_end_date = Date.parse('2019-08-31')
       @deptSWwide_aug_2019_sla_due_cases = Sr.where("sr_create_date >= ? AND sr_create_date <= ?", aug_2019_start_date, aug_2019_end_date).where(department: 'SWM Solid Waste Management', trash_quad: 'SW', sr_type: ['Missed Heavy Trash Pickup', 'Container Problem', 'New Resident Container', 'Recycling Participation NEW', 'Recycling Cart Repair or Replace', 'SWM Escalation', 'Missed Garbage Pickup', 'Trash Dumping or Illegal Dumpsite', 'Add A Can', 'Storm Debris Collection', 'Dead Animal Collection',  'Add A Can CANCELLATION', 'Missed Recycling Pickup', 'Personnel or Vehicle Complaint', 'Physically Challenged Pickup', 'Add A Can CANCELLATION']).count
       @deptSWwide_aug_2019_actual_due_and_closed_cases = Sr.where("sr_create_date >= ? AND sr_create_date <= ?", aug_2019_start_date, aug_2019_end_date).where(overdue:[-30..-0.05],department: 'SWM Solid Waste Management', status: 'Closed', trash_quad: 'SW', sr_type: ['Missed Heavy Trash Pickup', 'Container Problem', 'New Resident Container', 'Recycling Participation NEW', 'Recycling Cart Repair or Replace', 'SWM Escalation', 'Missed Garbage Pickup', 'Trash Dumping or Illegal Dumpsite', 'Add A Can', 'Storm Debris Collection', 'Dead Animal Collection',  'Add A Can CANCELLATION', 'Missed Recycling Pickup', 'Personnel or Vehicle Complaint', 'Physically Challenged Pickup', 'Add A Can CANCELLATION']).count
-      @deptSWwide_aug_2019_sla_percent_complete = @deptSWwide_aug_2019_actual_due_and_closed_cases.to_f.round(2)/@deptSWwide_aug_2019_sla_due_cases.to_f.round(2)
-      @deptSWWide_aug_2019_grade= OpenSr.qualityGrade(@deptSWwide_aug_2019_sla_percent_complete)
+      @deptSWwide_aug_2019_sla_percent_complete =
+      @deptSWwide_aug_2019_actual_due_and_closed_cases.
+      to_f.round(2)/
+      @deptSWwide_aug_2019_sla_due_cases.
+      to_f.round(2)
+      @deptSWWide_aug_2019_grade=
+      OpenSr.qualityGrade(@deptSWwide_aug_2019_sla_percent_complete)
 
-      @deptNWwide_aug_2019_sla_due_cases = Sr.where("sr_create_date >= ? AND sr_create_date <= ?",  aug_2019_start_date, aug_2019_end_date).where(department: 'SWM Solid Waste Management', trash_quad: 'NW', sr_type: ['Missed Heavy Trash Pickup', 'Container Problem', 'New Resident Container', 'Recycling Participation NEW', 'Recycling Cart Repair or Replace', 'SWM Escalation', 'Missed Garbage Pickup', 'Trash Dumping or Illegal Dumpsite', 'Add A Can', 'Storm Debris Collection', 'Dead Animal Collection',  'Add A Can CANCELLATION', 'Missed Recycling Pickup', 'Personnel or Vehicle Complaint', 'Physically Challenged Pickup', 'Add A Can CANCELLATION']).count
+      @deptNWwide_aug_2019_sla_due_cases = Sr.
+      where("sr_create_date >= ? AND sr_create_date <= ?",
+        aug_2019_start_date, aug_2019_end_date).
+        where(department: 'SWM Solid Waste Management',
+          trash_quad: 'NW',
+          sr_type: ['Missed Heavy Trash Pickup', 'Container Problem',
+            'New Resident Container', 'Recycling Participation NEW',
+            'Recycling Cart Repair or Replace', 'SWM Escalation',
+            'Missed Garbage Pickup', 'Trash Dumping or Illegal Dumpsite',
+            'Add A Can', 'Storm Debris Collection', 'Dead Animal Collection',
+            'Add A Can CANCELLATION', 'Missed Recycling Pickup',
+            'Personnel or Vehicle Complaint', 'Physically Challenged Pickup',
+            'Add A Can CANCELLATION']).
+            count
       @deptNWwide_aug_2019_actual_due_and_closed_cases = Sr.where("sr_create_date >= ? AND sr_create_date <= ?", aug_2019_start_date, aug_2019_end_date).where(overdue:[-30..-0.05],department: 'SWM Solid Waste Management', status: 'Closed', trash_quad: 'NW', sr_type: ['Missed Heavy Trash Pickup', 'Container Problem', 'New Resident Container', 'Recycling Participation NEW', 'Recycling Cart Repair or Replace', 'SWM Escalation', 'Missed Garbage Pickup', 'Trash Dumping or Illegal Dumpsite', 'Add A Can', 'Storm Debris Collection', 'Dead Animal Collection',  'Add A Can CANCELLATION', 'Missed Recycling Pickup', 'Personnel or Vehicle Complaint', 'Physically Challenged Pickup', 'Add A Can CANCELLATION']).count
       @deptNWwide_aug_2019_sla_percent_complete = @deptNWwide_aug_2019_actual_due_and_closed_cases.to_f.round(2)/@deptNWwide_aug_2019_sla_due_cases.to_f.round(2)
       @deptNWWide_aug_2019_grade= OpenSr.qualityGrade(@deptNWwide_aug_2019_sla_percent_complete)
 
-      @deptSEwide_aug_2019_sla_due_cases = Sr.where("sr_create_date >= ? AND sr_create_date <= ?", aug_2019_start_date, aug_2019_end_date).where(department: 'SWM Solid Waste Management', trash_quad: 'SE', sr_type: ['Missed Heavy Trash Pickup', 'Container Problem', 'New Resident Container', 'Recycling Participation NEW', 'Recycling Cart Repair or Replace', 'SWM Escalation', 'Missed Garbage Pickup', 'Trash Dumping or Illegal Dumpsite', 'Add A Can', 'Storm Debris Collection', 'Dead Animal Collection',  'Add A Can CANCELLATION', 'Missed Recycling Pickup', 'Personnel or Vehicle Complaint', 'Physically Challenged Pickup', 'Add A Can CANCELLATION']).count
-      @deptSEwide_aug_2019_actual_due_and_closed_cases = Sr.where("sr_create_date >= ? AND sr_create_date <= ?", aug_2019_start_date, aug_2019_end_date).where(overdue:[-30..-0.05],department: 'SWM Solid Waste Management', status: 'Closed', trash_quad: 'SE', sr_type: ['Missed Heavy Trash Pickup', 'Container Problem', 'New Resident Container', 'Recycling Participation NEW', 'Recycling Cart Repair or Replace', 'SWM Escalation', 'Missed Garbage Pickup', 'Trash Dumping or Illegal Dumpsite', 'Add A Can', 'Storm Debris Collection', 'Dead Animal Collection',  'Add A Can CANCELLATION', 'Missed Recycling Pickup', 'Personnel or Vehicle Complaint', 'Physically Challenged Pickup', 'Add A Can CANCELLATION']).count
-      @deptSEwide_aug_2019_sla_percent_complete = @deptSEwide_aug_2019_actual_due_and_closed_cases.to_f.round(2)/@deptSEwide_aug_2019_sla_due_cases.to_f.round(2)
-      @deptSEWide_aug_2019_grade= OpenSr.qualityGrade(@deptSEwide_aug_2019_sla_percent_complete)
+      @deptSEwide_aug_2019_sla_due_cases = Sr.
+      where("sr_create_date >= ? AND sr_create_date <= ?", aug_2019_start_date,
+         aug_2019_end_date).
+         where(department: 'SWM Solid Waste Management',
+           trash_quad: 'SE',
+           sr_type: ['Missed Heavy Trash Pickup', 'Container Problem',
+             'New Resident Container', 'Recycling Participation NEW',
+             'Recycling Cart Repair or Replace', 'SWM Escalation',
+             'Missed Garbage Pickup', 'Trash Dumping or Illegal Dumpsite',
+             'Add A Can', 'Storm Debris Collection', 'Dead Animal Collection',
+             'Add A Can CANCELLATION', 'Missed Recycling Pickup',
+             'Personnel or Vehicle Complaint', 'Physically Challenged Pickup',
+             'Add A Can CANCELLATION']).
+             count
+      @deptSEwide_aug_2019_actual_due_and_closed_cases = Sr.
+      where("sr_create_date >= ? AND sr_create_date <= ?",
+         aug_2019_start_date, aug_2019_end_date).
+         where(overdue:[-30..-0.05],
+           department: 'SWM Solid Waste Management',
+           status: 'Closed', trash_quad: 'SE',
+           sr_type: ['Missed Heavy Trash Pickup', 'Container Problem',
+             'New Resident Container', 'Recycling Participation NEW',
+             'Recycling Cart Repair or Replace', 'SWM Escalation',
+             'Missed Garbage Pickup', 'Trash Dumping or Illegal Dumpsite',
+             'Add A Can', 'Storm Debris Collection', 'Dead Animal Collection',
+             'Add A Can CANCELLATION', 'Missed Recycling Pickup',
+             'Personnel or Vehicle Complaint', 'Physically Challenged Pickup',
+             'Add A Can CANCELLATION']).
+             count
+      @deptSEwide_aug_2019_sla_percent_complete =
+      @deptSEwide_aug_2019_actual_due_and_closed_cases.
+      to_f.round(2)/
+      @deptSEwide_aug_2019_sla_due_cases.
+      to_f.round(2)
+      @deptSEWide_aug_2019_grade= OpenSr.
+      qualityGrade(@deptSEwide_aug_2019_sla_percent_complete)
 
-      @deptNEwide_aug_2019_sla_due_cases = Sr.where("sr_create_date >= ? AND sr_create_date <= ?", aug_2019_start_date, aug_2019_end_date).where(department: 'SWM Solid Waste Management', trash_quad: 'NE', sr_type: ['Missed Heavy Trash Pickup', 'Container Problem', 'New Resident Container', 'Recycling Participation NEW', 'Recycling Cart Repair or Replace', 'SWM Escalation', 'Missed Garbage Pickup', 'Trash Dumping or Illegal Dumpsite', 'Add A Can', 'Storm Debris Collection', 'Dead Animal Collection',  'Add A Can CANCELLATION', 'Missed Recycling Pickup', 'Personnel or Vehicle Complaint', 'Physically Challenged Pickup', 'Add A Can CANCELLATION']).count
-      @deptNEwide_aug_2019_actual_due_and_closed_cases = Sr.where("sr_create_date >= ? AND sr_create_date <= ?", aug_2019_start_date, aug_2019_end_date).where(overdue:[-30..-0.05],department: 'SWM Solid Waste Management', status: 'Closed', trash_quad: 'NE', sr_type: ['Missed Heavy Trash Pickup', 'Container Problem', 'New Resident Container', 'Recycling Participation NEW', 'Recycling Cart Repair or Replace', 'SWM Escalation', 'Missed Garbage Pickup', 'Trash Dumping or Illegal Dumpsite', 'Add A Can', 'Storm Debris Collection', 'Dead Animal Collection',  'Add A Can CANCELLATION', 'Missed Recycling Pickup', 'Personnel or Vehicle Complaint', 'Physically Challenged Pickup', 'Add A Can CANCELLATION']).count
-      @deptNEwide_aug_2019_sla_percent_complete = @deptNEwide_aug_2019_actual_due_and_closed_cases.to_f.round(2)/@deptNEwide_aug_2019_sla_due_cases.to_f.round(2)
-      @deptNEWide_aug_2019_grade= OpenSr.qualityGrade(@deptNEwide_aug_2019_sla_percent_complete)
+      @deptNEwide_aug_2019_sla_due_cases = Sr.
+      where("sr_create_date >= ? AND sr_create_date <= ?",
+        aug_2019_start_date, aug_2019_end_date).
+      where(department: 'SWM Solid Waste Management',
+         trash_quad: 'NE',
+          sr_type: ['Missed Heavy Trash Pickup', 'Container Problem',
+            'New Resident Container', 'Recycling Participation NEW',
+            'Recycling Cart Repair or Replace', 'SWM Escalation',
+            'Missed Garbage Pickup', 'Trash Dumping or Illegal Dumpsite',
+            'Add A Can', 'Storm Debris Collection', 'Dead Animal Collection',
+            'Add A Can CANCELLATION', 'Missed Recycling Pickup',
+            'Personnel or Vehicle Complaint', 'Physically Challenged Pickup',
+            'Add A Can CANCELLATION']).
+            count
+      @deptNEwide_aug_2019_actual_due_and_closed_cases = Sr.
+      where("sr_create_date >= ? AND sr_create_date <= ?",
+        aug_2019_start_date, aug_2019_end_date).
+      where(overdue:[-30..-0.05],
+        department: 'SWM Solid Waste Management',
+        status: 'Closed', trash_quad: 'NE',
+        sr_type: ['Missed Heavy Trash Pickup', 'Container Problem',
+          'New Resident Container', 'Recycling Participation NEW',
+          'Recycling Cart Repair or Replace', 'SWM Escalation',
+          'Missed Garbage Pickup', 'Trash Dumping or Illegal Dumpsite',
+          'Add A Can', 'Storm Debris Collection', 'Dead Animal Collection',
+          'Add A Can CANCELLATION', 'Missed Recycling Pickup',
+          'Personnel or Vehicle Complaint', 'Physically Challenged Pickup',
+          'Add A Can CANCELLATION']).
+          count
+      @deptNEwide_aug_2019_sla_percent_complete =
+      @deptNEwide_aug_2019_actual_due_and_closed_cases.
+      to_f.round(2)/
+      @deptNEwide_aug_2019_sla_due_cases.
+      to_f.round(2)
+      @deptNEWide_aug_2019_grade=
+      OpenSr.qualityGrade(@deptNEwide_aug_2019_sla_percent_complete)
     end
     def summary1
-    @North = Sr.where(status: 'Open', trash_quad:['NW','NE'],sr_type: ['Missed Heavy Trash Pickup','Container Problem','New Resident Container','Recycling Participation NEW' ,'Recycling Cart Repair or Replace','SWM Escalation','Missed Garbage Pickup','Trash Dumping or Illegal Dumpsite', 'Add A Can', 'Storm Debris Collection', 'Dead Animal Collection', 'Add A Can CANCELLATION', 'Missed Recycling Pickup', 'Personnel or Vehicle Complaint','Physically Challenged Pickup']).count
-    @South = Sr.where(status: 'Open', trash_quad:['SW','SE'],sr_type: ['Missed Heavy Trash Pickup','Container Problem','New Resident Container','Recycling Participation NEW' ,'Recycling Cart Repair or Replace','SWM Escalation','Missed Garbage Pickup','Trash Dumping or Illegal Dumpsite', 'Add A Can', 'Storm Debris Collection', 'Dead Animal Collection', 'Add A Can CANCELLATION', 'Missed Recycling Pickup', 'Personnel or Vehicle Complaint','Physically Challenged Pickup']).count
-    @NorthOverdue=  Sr.where(trash_quad: ['NE','NW'], expression: 'Overdue',sr_type: ['Missed Heavy Trash Pickup','Container Problem','New Resident Container','Recycling Participation NEW' ,'Recycling Cart Repair or Replace','SWM Escalation','Missed Garbage Pickup','Trash Dumping or Illegal Dumpsite', 'Add A Can', 'Storm Debris Collection', 'Dead Animal Collection', 'Add A Can CANCELLATION', 'Missed Recycling Pickup', 'Personnel or Vehicle Complaint','Physically Challenged Pickup']).count
-    @NorthNotOverdue=  Sr.where(trash_quad: ['NE','NW'], expression: 'Not Overdue',sr_type: ['Missed Heavy Trash Pickup','Container Problem','New Resident Container','Recycling Participation NEW' ,'Recycling Cart Repair or Replace','SWM Escalation','Missed Garbage Pickup','Trash Dumping or Illegal Dumpsite', 'Add A Can', 'Storm Debris Collection', 'Dead Animal Collection', 'Add A Can CANCELLATION', 'Missed Recycling Pickup', 'Personnel or Vehicle Complaint','Physically Challenged Pickup']).count
-    @SouthOverdue=  Sr.where(status: 'Open', trash_quad: ['SE','SW'], expression: 'Overdue',sr_type: ['Missed Heavy Trash Pickup','Container Problem','New Resident Container','Recycling Participation NEW' ,'Recycling Cart Repair or Replace','SWM Escalation','Missed Garbage Pickup','Trash Dumping or Illegal Dumpsite', 'Add A Can', 'Storm Debris Collection', 'Dead Animal Collection', 'Add A Can CANCELLATION', 'Missed Recycling Pickup', 'Personnel or Vehicle Complaint','Physically Challenged Pickup']).count
-    @SouthNotOverdue=Sr.where(status: 'Open', trash_quad: ['SW','SE'], expression: 'Not Overdue',sr_type: ['Missed Heavy Trash Pickup','Container Problem','New Resident Container','Recycling Participation NEW' ,'Recycling Cart Repair or Replace','SWM Escalation','Missed Garbage Pickup ','Trash Dumping or Illegal Dumpsite', 'Add A Can', 'Storm Debris Collection', 'Dead Animal Collection', 'Add A Can CANCELLATION', 'Missed Recycling Pickup', 'Personnel or Vehicle Complaint','Physically Challenged Pickup']).count
+    @North = Sr.where(status: 'Open',
+      trash_quad:['NW','NE'],
+      sr_type: ['Missed Heavy Trash Pickup','Container Problem',
+        'New Resident Container','Recycling Participation NEW',
+        'Recycling Cart Repair or Replace','SWM Escalation',
+        'Missed Garbage Pickup','Trash Dumping or Illegal Dumpsite',
+        'Add A Can', 'Storm Debris Collection', 'Dead Animal Collection',
+        'Add A Can CANCELLATION', 'Missed Recycling Pickup',
+        'Personnel or Vehicle Complaint','Physically Challenged Pickup']).
+        count
+    @South = Sr.where(status: 'Open', trash_quad:['SW','SE'],
+      sr_type: ['Missed Heavy Trash Pickup','Container Problem',
+        'New Resident Container','Recycling Participation NEW',
+        'Recycling Cart Repair or Replace','SWM Escalation',
+        'Missed Garbage Pickup','Trash Dumping or Illegal Dumpsite',
+        'Add A Can', 'Storm Debris Collection', 'Dead Animal Collection',
+        'Add A Can CANCELLATION', 'Missed Recycling Pickup',
+        'Personnel or Vehicle Complaint','Physically Challenged Pickup']).
+        count
+    @NorthOverdue=  Sr.where(trash_quad: ['NE','NW'],
+      expression: 'Overdue',
+      sr_type: ['Missed Heavy Trash Pickup','Container Problem',
+        'New Resident Container','Recycling Participation NEW',
+        'Recycling Cart Repair or Replace','SWM Escalation',
+        'Missed Garbage Pickup','Trash Dumping or Illegal Dumpsite',
+        'Add A Can', 'Storm Debris Collection', 'Dead Animal Collection',
+        'Add A Can CANCELLATION', 'Missed Recycling Pickup',
+        'Personnel or Vehicle Complaint','Physically Challenged Pickup']).
+        count
+    @NorthNotOverdue=  Sr.where(trash_quad: ['NE','NW'],
+      expression: 'Not Overdue',
+      sr_type: ['Missed Heavy Trash Pickup','Container Problem',
+        'New Resident Container','Recycling Participation NEW',
+        'Recycling Cart Repair or Replace','SWM Escalation',
+        'Missed Garbage Pickup','Trash Dumping or Illegal Dumpsite',
+        'Add A Can', 'Storm Debris Collection', 'Dead Animal Collection',
+        'Add A Can CANCELLATION', 'Missed Recycling Pickup',
+        'Personnel or Vehicle Complaint','Physically Challenged Pickup']).
+        count
+    @SouthOverdue=  Sr.where(status: 'Open', trash_quad: ['SE','SW'],
+      expression: 'Overdue',
+      sr_type: ['Missed Heavy Trash Pickup','Container Problem',
+        'New Resident Container','Recycling Participation NEW',
+        'Recycling Cart Repair or Replace','SWM Escalation',
+        'Missed Garbage Pickup','Trash Dumping or Illegal Dumpsite',
+        'Add A Can', 'Storm Debris Collection', 'Dead Animal Collection',
+        'Add A Can CANCELLATION', 'Missed Recycling Pickup',
+        'Personnel or Vehicle Complaint','Physically Challenged Pickup']).
+        count
+    @SouthNotOverdue=Sr.where(status: 'Open',
+      trash_quad: ['SW','SE'],
+      expression: 'Not Overdue',
+      sr_type: ['Missed Heavy Trash Pickup','Container Problem',
+        'New Resident Container','Recycling Participation NEW',
+        'Recycling Cart Repair or Replace','SWM Escalation',
+        'Missed Garbage Pickup ','Trash Dumping or Illegal Dumpsite',
+        'Add A Can', 'Storm Debris Collection', 'Dead Animal Collection',
+        'Add A Can CANCELLATION', 'Missed Recycling Pickup',
+        'Personnel or Vehicle Complaint','Physically Challenged Pickup']).
+        count
     @NPercentRound=(@NorthOverdue.to_f.round(2) / @North.to_f.round(2))*100
     @PercentOverdueNorth="#{@NPercentRound.round(2)}%"
     @NPercentNotRound=(@NorthNotOverdue.to_f.round(2) / @North.to_f.round(2))*100
@@ -241,21 +377,68 @@ class OpenSrsController < ApplicationController
     @NorthQualityGrade = OpenSr.northQualityGrade
     @SouthQualityGrade = OpenSr.southQualityGrade
     #SW QUAD
-    @missedHvySWTotal = Sr.where(trash_quad: 'SW',sr_type:'Missed Heavy Trash Pickup', expression:['Overdue','Not Overdue']).count
-    @missedHvySWOverdue = Sr.where(trash_quad: 'SW',sr_type:'Missed Heavy Trash Pickup', expression:['Overdue']).count
-    @missedHvySWPercentOverdue = "#{((@missedHvySWOverdue.to_f.round(2)/@missedHvySWTotal.to_f.round(2))*100).round(2)}%"
-    @missedHvySWPercentNotOverdue = "#{((1-(@missedHvySWOverdue.to_f.round(2)/@missedHvySWTotal.to_f.round(2)))*100).round(2)}%"
-    @missedHvySWNotOverdue = Sr.where(trash_quad: 'SW',sr_type:'Missed Heavy Trash Pickup', expression:['Not Overdue']).count
-    @missedHvyOverdueDigits = @missedHvySWNotOverdue.to_f/@missedHvySWTotal.to_f
-    @missedHvySWGrade= OpenSr.qualityGrade(@missedHvyOverdueDigits)
 
-    @missedConProbSWTotal = Sr.where(trash_quad: 'SW',sr_type:'Container Problem', expression:['Overdue','Not Overdue']).count
-    @missedConProbSWOverdue = Sr.where(trash_quad: 'SW',sr_type:'Container Problem', expression:['Overdue']).count
-    @missedConProbSWNotOverdue = Sr.where(trash_quad: 'SW',sr_type:'Container Problem', expression:['Not Overdue']).count
-    @missedConProbSWPercentOverdue = "#{((@missedConProbSWOverdue.to_f.round(2)/@missedConProbSWTotal.to_f.round(2))*100).round(2)}%"
-    @missedConProbSWPercentNotOverdue = "#{((@missedConProbSWNotOverdue.to_f.round(2)/@missedConProbSWTotal.to_f.round(2))*100).round(2)}%"
-    @missedConProbSWNotOverdue = Sr.where(trash_quad: 'SW',sr_type:'Container Problem', expression:['Not Overdue']).count
-    @missedConProbOverdueDigits = @missedConProbSWNotOverdue.to_f/@missedConProbSWTotal.to_f
+    @missedHvySWTotal = Sr.where(trash_quad: 'SW',
+      sr_type:'Missed Heavy Trash Pickup',
+      expression:['Overdue','Not Overdue']).
+      count
+
+    @missedHvySWOverdue = Sr.where(trash_quad: 'SW',
+      sr_type:'Missed Heavy Trash Pickup',
+      expression:['Overdue']).count
+
+    @missedHvySWPercentOverdue =
+    "#{((@missedHvySWOverdue.to_f.round(2)/
+    @missedHvySWTotal.to_f.round(2))*100).round(2)}%"
+
+    @missedHvySWPercentNotOverdue =
+    "#{((1-(@missedHvySWOverdue.to_f.round(2)/
+    @missedHvySWTotal.to_f.round(2)))*100).round(2)}%"
+
+    @missedHvySWNotOverdue = Sr.
+    where(trash_quad: 'SW',
+      sr_type:'Missed Heavy Trash Pickup',
+      expression:['Not Overdue']).
+      count
+
+    @missedHvyOverdueDigits =
+    @missedHvySWNotOverdue.to_f/
+    @missedHvySWTotal.to_f
+
+    @missedHvySWGrade=
+    OpenSr.qualityGrade(@missedHvyOverdueDigits)
+
+    @missedConProbSWTotal =
+    Sr.where(trash_quad: 'SW',
+      sr_type:'Container Problem',
+      expression:['Overdue','Not Overdue']).count
+
+    @missedConProbSWOverdue =
+    Sr.where(trash_quad: 'SW',
+      sr_type:'Container Problem',
+      expression:['Overdue']).count
+
+    @missedConProbSWNotOverdue =
+    Sr.where(trash_quad: 'SW',
+      sr_type:'Container Problem',
+      expression:['Not Overdue']).count
+
+    @missedConProbSWPercentOverdue =
+    "#{((@missedConProbSWOverdue.to_f.round(2)/
+    @missedConProbSWTotal.to_f.round(2))*100).round(2)}%"
+
+    @missedConProbSWPercentNotOverdue =
+    "#{((@missedConProbSWNotOverdue.to_f.round(2)/
+    @missedConProbSWTotal.to_f.round(2))*100).round(2)}%"
+
+    @missedConProbSWNotOverdue =
+    Sr.where(trash_quad: 'SW',
+      sr_type:'Container Problem',
+      expression:['Not Overdue']).count
+
+    @missedConProbOverdueDigits =
+    @missedConProbSWNotOverdue.to_f/@missedConProbSWTotal.to_f
+
     @missedConProbSWGrade= OpenSr.qualityGrade(@missedConProbOverdueDigits)
 
     @missedNewResSWTotal = Sr.where(trash_quad: 'SW',sr_type:'New Resident Container', expression:['Overdue','Not Overdue']).count
