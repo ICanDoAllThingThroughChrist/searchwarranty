@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'srs/misc_summary'
   get 'open_srs/monthly_quality_grade'
   get 'open_srs/march_2020'
   get 'open_srs/february_2020'

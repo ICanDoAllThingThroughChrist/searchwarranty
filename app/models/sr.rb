@@ -35,9 +35,10 @@ class Sr < ApplicationRecord
 
       end
       def self.update_trash_quad
-      Spatial.delete_all
       Spatial.seed
-      array = Sr.where(trash_quad:[nil,""])
+      array = Sr.where(department:'SWM Solid Waste Management',
+        status: 'Open',
+        trash_quad:[nil,""])
       array.each{|sr|
         quad = Spatial.where(id:"#{sr.id}").pluck(:quad)
           sr.trash_quad = quad[0]
@@ -59,7 +60,9 @@ class Sr < ApplicationRecord
         se_sr_total sw_overdue sw_not_overdue sw_sr_total quad_status tally]
       CSV.open("NoQuadList.csv", "wb",
         write_headers: true, headers: headers) do |csv|
-          Sr.where(trash_quad: [nil, ""]).
+          Sr.where(department: 'SWM Solid Waste Management',
+            status: 'Open',
+            trash_quad: [nil, ""]).
           pluck(:id, :case_number,
             :sr_location, :county,:district, :neighborhood, :tax_id,
             :trash_quad, :recycle_quad, :trash_day, :heavy_trash_day,
@@ -91,18 +94,9 @@ class Sr < ApplicationRecord
       binding.pry
       Sr.update_trash_quad
       Sr.expression_quad_status_assignment
-      # Sr.quad_expression
-      binding.pry
-      # binding.pry#reperformed quad list
-      Sr.sr_count
-      #TYPE "next at prompt"
-      Sr.add_tally
-      #TYPE "next at prompt"
-      Sr.update_sr_location_for_open_sr
+      Sr.no_quad_list
+      Sr.update_trash_quad
       Sr.html_pivot
-      #need to revise trash quad nil method to
-      #include queue quad
-
     end
 
     def self.update_sr_location_for_open_sr
@@ -247,7 +241,7 @@ class Sr < ApplicationRecord
     sr.save
     }
   end
-  def self.expression__quad_status_assignment
+  def self.expression_quad_status_assignment
     overdue_open_srs = Sr.
     where(:overdue => 0..400,
       :department => 'SWM Solid Waste Management',
@@ -257,28 +251,28 @@ class Sr < ApplicationRecord
         sr.trash_quad == 'NE'
       then
         sr.expression = "Overdue"
-        sr.quad_expression = "NE_Overdue"
+        sr.quad_status = "NE_Overdue"
         sr.tally = 1
         sr.save
       elsif sr.department == 'SWM Solid Waste Management' &&
         sr.trash_quad == 'NW'
       then
         sr.expression = "Overdue"
-        sr.quad_expression = "NW_Overdue"
+        sr.quad_status = "NW_Overdue"
         sr.tally = 1
         sr.save
       elsif sr.department == 'SWM Solid Waste Management' &&
         sr.trash_quad == 'SW'
       then
         sr.expression = "Overdue"
-        sr.quad_expression = "SW_Overdue"
+        sr.quad_status = "SW_Overdue"
         sr.tally = 1
         sr.save
       elsif sr.department == 'SWM Solid Waste Management' &&
         sr.trash_quad == 'SE'
       then
         sr.expression = "Overdue"
-        sr.quad_expression = "SE_Overdue"
+        sr.quad_status = "SE_Overdue"
         sr.tally = 1
         sr.save
       else

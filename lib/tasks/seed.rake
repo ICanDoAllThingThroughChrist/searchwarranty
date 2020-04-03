@@ -11,7 +11,11 @@ namespace :seed do
     # things1 = web1.split(/\n/)
     things2 = web2.split(/\n/)
 
-    columns = %i[case_number sr_location county district neighborhood tax_id trash_quad recycle_quad trash_day heavy_trash_day recycle_day key_map management_district department division sr_type queue sla status sr_create_date due_date date_closed overdue title x y latitude longitude channel_type created_at updated_at]
+    columns = %i[case_number sr_location county district neighborhood tax_id
+       trash_quad recycle_quad trash_day heavy_trash_day recycle_day
+        key_map management_district department division sr_type queue
+         sla status sr_create_date due_date date_closed overdue title
+          x y latitude longitude channel_type created_at updated_at]
 
     things2.each {|sr|
         # byebug
@@ -29,7 +33,6 @@ namespace :seed do
      #     Sr.create(c)
      #     # byebug
      #  }
-
     Sr.pivot
   end
   task import_all_data_sr: :environment do
@@ -61,6 +64,25 @@ namespace :seed do
       # binding.pry
     }
     Sr.pivot
+  end
+  task import_monthly_cases: :environment do
+    web1 = open('https://hfdapp.houstontx.gov/311/311-Public-Data-Extract-monthly-clean.txt'){|f| f.read}
+    things1 = web1.split(/\n/)
+    columns = %i[case_number sr_location county district neighborhood tax_id
+       trash_quad recycle_quad trash_day heavy_trash_day recycle_day
+        key_map management_district department division sr_type queue
+         sla status sr_create_date due_date date_closed overdue title
+          x y latitude longitude channel_type created_at updated_at]
+
+      things1.each {|sr|
+              # byebug
+              b=sr.split('|')
+              c=Hash[columns.zip(b)]
+              # byebugra
+              Sr.create(c)
+              # byebug
+      }
+      Sr.pivot
   end
   task import_cart_cases: :environment  do
     # require 'csv'

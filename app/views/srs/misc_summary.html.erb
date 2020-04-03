@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <style>
+    table {
+       border-collapse:collapse;
+       border: 2px #0080ff solid;
+       }
+  th, td {
+    text-align: left;
+    padding: 8px;
+  }
+
+  tr:nth-child(even) {background-color: #f2f2f2;}
+  </style>
+</head>
+  <body>
+      <h2>Executive Miscellaneous Summary Report</h2>
+<table>
+  <tr>
+    <th>Service Request Type</th>
+    <th>Total - SR</th>
+    <th>Outstanding SR</th>
+    <th>% Overdue</th>
+    <th>% Not Overdue</th>
+    <th>Grade</th>
+  </tr>
+  <tr><td>SWM_Collections/Recycling</td></tr>
+  <tr><td>New Resident Container</td>
+    <td> <%=@NewResidentContainerTotal%> </td>
+    <td> <%=@NewResidentContainerOverdue%> </td>
+    <td> <%=@NewResidentContainerPercentOverdue%> </td>
+    <td> <%=@NewResidentContainerPercentNotOverdue%> </td>
+    <td> <%=@NewResidentContainerGrade%></td>
+  </tr>
+  <tr>
+    <td>Personnel or Vehicle Complaint</td>
+    <td><%=@PerOrVecComplaintTotal%></td>
+    <td><%=@PerOrVecComplaintOverdue%></td>
+    <td><%=@PerOrVecComplaintPercentOverdue%></td>
+    <td><%=@PerOrVecComplaintPercentNotOverdue%></td>
+    <td><%=@PerOrVecComplaintGrade%></td>
+  </tr>
+  <tr> <td>Property Damage</td>
+    <td><%=@PropDamTotal%></td>
+    <td><%=@PropDamOverdue%></td>
+    <td><%=@PropDamPercentOverdue%></td>
+    <td><%=@PropDamPercentNotOverdue%></td>
+    <td><%=@PropDamGrade%></td>
+  </tr>
+  <tr><td>Recycle Bin/Cart Retrieve</td>
+    <td><%=@RecBinCarRetrieveTotal%></td>
+    <td><%=@RecBinCarRetrieveOverdue%></td>
+    <td><%=@RecBinCarRetrievePercentOverdue%></td>
+    <td><%=@RecBinCarRetrievePercentNotOverdue%></td>
+    <td><%=@RecBinCarRetrieveGrade%></td>
+  </tr>
+  <tr><td>Storm Debris Collection</td>
+      <td><%=@StormDebrisCollectTotal%></td>
+      <td><%=@StormDebrisCollectOverdue%></td>
+      <td><%=@StormDebrisCollectPercentOverdue%></td>
+      <td><%=@StormDebrisCollectPercentNotOverdue%></td>
+      <td><%=@StormDebrisCollectGrade%></td>
+  </tr>
+  <tr>
+    <td>Trash Dumping or Illegal Dumpsite..........</td>
+    <td><%=@TrashDumpingOrIllegalDumpSiteTotal%></td>
+    <td><%=@TrashDumpingOrIllegalDumpSiteOverdue%></td>
+    <td><%=@TrashDumpingOrIllegalDumpSitePercentOverdue%></td>
+    <td><%=@TrashDumpingOrIllegalDumpSitePercentNotOverdue%></td>
+    <td><%=@TrashDumpingOrIllegalDumpSiteGrade%></td>
+  </tr>
+  <tr>
+    <td>Add A Can</td>
+    <td><%=@AddACanTotal%></td>
+    <td><%=@AddACanOverdue%></td>
+    <td><%=@AddACanPercentOverdue%></td>
+    <td><%=@AddACanPercentNotOverdue%></td>
+    <td><%=@AddACanGrade%></td>
+  </tr>
+  <tr>
+    <td>SWM_Customer Escalation</td>
+    <td><%=@SWM_CustomerEscalationTotal%></td>
+    <td><%=@SWM_CustomerEscalationOverdue%></td>
+    <td><%=@SWM_CustomerEscalationPercentOverdue%></td>
+    <td><%=@SWM_CustomerEscalationPercentNotOverdue%></td>
+    <td><%=@SWM_CustomerEscalationGrade%></td>
+  </tr>
+  <tr>
+    <td>SWM Escalation</td>
+    <td><%=@SWM_EscalationTotal%></td>
+    <td><%=@SWM_EscalationOverdue%></td>
+    <td><%=@SWM_EscalationPercentOverdue%></td>
+    <td><%=@SWM_EscalationPercentNotOverdue%></td>
+    <td><%=@SWM_EscalationGrade%></td>
+  </tr>
+  <tr>
+    </table>
+    <table>
+      <tr>
+        <th>Service Request Type</th>
+        <th>Total - SR</th>
+        <th>Outstanding SR</th>
+        <th>% Overdue</th>
+        <th>% Not Overdue</th>
+        <th>Grade</th>
+      </tr>
+    <td>SWM_GenSupportServ...................</td>
+  </tr>
+  <tr>
+    <td>Add A Can</td>
+    <td><%=@AddACanTotal%></td>
+    <td><%=@AddACanOverdue%></td>
+    <td><%=@AddACanPercentOverdue%></td>
+    <td><%=@AddACanPercentNotOverdue%></td>
+    <td><%=@AddACanGrade%></td>
+  </tr>
+  <tr>
+    <td>Non Residential Collection Service NEW</td>
+    <td><%=@NonResidentialCollectionServiceNEWTotal%></td>
+    <td><%=@NonResidentialCollectionServiceNEWOverdue%></td>
+    <td><%=@NonResidentialCollectionServiceNEWPercentOverdue%></td>
+    <td><%=@NonResidentialCollectionServiceNEWPercentNotOverdue%></td>
+    <td><%=@NonResidentialCollectionServiceNEWGrade%></td>
+  </tr>
+  <tr>
+    <td>Physically Challenged Pickup</td>
+    <td><%=@PhysicallyChallengedPickupTotal%></td>
+    <td><%=@PhysicallyChallengedPickupOverdue%></td>
+    <td><%=@PhysicallyChallengedPickupPercentOverdue%></td>
+    <td><%=@PhysicallyChallengedPickupPercentNotOverdue%></td>
+    <td><%=@PhysicallyChallengedPickupGrade%></td>
+  </tr>
+</table>
+<table>
+  <tr>
+    <th>Service Request Type</th>
+    <th>Total - SR</th>
+    <th>Outstanding SR</th>
+    <th>% Overdue</th>
+    <th>% Not Overdue</th>
+    <th>Grade</th>
+  </tr>
+  <tr>
+    <td>SWM_Complaints.....................................</td>
+  </tr>
+  <tr>
+    <td>Dumpster Complaint</td>
+    <td> <%=@DumpsterComplaintTotal%> </td>
+    <td> <%=@DumpsterComplaintOverdue%> </td>
+    <td> <%=@DumpsterComplaintPercentOverdue%> </td>
+    <td> <%=@DumpsterComplaintPercentNotOverdue%> </td>
+    <td> <%=@DumpsterComplaintGrade%></td>
+  </tr>
+  <tr>
+    <td>Dumpster Permit</td>
+    <td> <%=@DumpsterPermitTotal%> </td>
+    <td> <%=@DumpsterPermitOverdue%> </td>
+    <td> <%=@DumpsterPermitPercentOverdue%> </td>
+    <td> <%=@DumpsterPermitPercentNotOverdue%> </td>
+    <td> <%=@DumpsterPermitGrade%></td>
+  </tr>
+  <tr>
+    <td>SWM_Uncollected</td>
+    <td> <%=@SWM_UncollectedTotal%> </td>
+    <td> <%=@SWM_UncollectedOverdue%> </td>
+    <td> <%=@SWM_UncollectedPercentOverdue%> </td>
+    <td> <%=@SWM_UncollectedPercentNotOverdue%> </td>
+    <td> <%=@SWM_UncollectedGrade%></td>
+  </tr>
+  <tr>
+    <td>Uncollected Service Units</td>
+    <td> <%=@UncollectedServiceUnitsTotal%> </td>
+    <td> <%=@UncollectedServiceUnitsOverdue%> </td>
+    <td> <%=@UncollectedServiceUnitsPercentOverdue%> </td>
+    <td> <%=@UncollectedServiceUnitsPercentNotOverdue%> </td>
+    <td> <%=@UncollectedServiceUnitsGrade%></td>
+  </tr>
+  <tr>
+    <td>SWM_MissComplaint</td>
+    <td> <%=@SWM_MissComplaintTotal%> </td>
+    <td> <%=@SWM_MissComplaintOverdue%> </td>
+    <td> <%=@SWM_MissComplaintPercentOverdue%> </td>
+    <td> <%=@SWM_MissComplaintPercentNotOverdue%> </td>
+    <td> <%=@SWM_MissComplaintGrade%></td>
+  </tr>
+  <tr>
+    <td>Miss Complaint</td>
+    <td> <%=@NewResidentContainerTotal%> </td>
+    <td> <%=@NewResidentContainerOverdue%> </td>
+    <td> <%=@NewResidentContainerPercentOverdue%> </td>
+    <td> <%=@NewResidentContainerPercentNotOverdue%> </td>
+    <td> <%=@NewResidentContainerGrade%></td>
+  </tr>
+</table>
+</body>
