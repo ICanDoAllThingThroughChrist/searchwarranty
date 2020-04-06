@@ -1,4 +1,5 @@
 class Sr < ApplicationRecord
+
       def self.update_trash_quad_v2
         trash_quad_nil_list =
         Sr.where(department: 'SWM Solid Waste Management',
@@ -338,58 +339,1018 @@ class Sr < ApplicationRecord
   end
 
   def self.aug_2019_historical_grade
-    deptSWwide_aug_2019_sla_due_cases = Sr.between_fields('2019-08-01 00:00:00', :sr_create_date, :date_closed).where(department: 'SWM Solid Waste Management', trash_quad: 'SW', sr_type: ['Missed Heavy Trash Pickup
-', 'Container Problem', 'New Resident Container', 'Recycling Participation NEW', 'Recycling Cart Repair or Replace', 'SWM Escalation', 'Missed Garbage Pickup', 'Trash Dumping or Illegal Dumpsite', 'Add A Can', 'Storm Debris Collection', 'Dead Animal Collection',  'Add A Can CANCELLATION', 'Missed Recycling Pickup', 'Personnel or Vehicle Complaint', 'Physically Challenged Pickup']).count
-    deptSWwide_aug_2019_actual__due_and_closed_cases = Sr.between_fields('2019-08-01 00:00:00', :due_date, :date_closed).where(department: 'SWM Solid Waste Management', status: 'Closed', trash_quad: 'SW', sr_type: ['Missed Heavy Trash Pickup
-', 'Container Problem', 'New Resident Container', 'Recycling Participation NEW', 'Recycling Cart Repair or Replace', 'SWM Escalation', 'Missed Garbage Pickup', 'Trash Dumping or Illegal Dumpsite', 'Add A Can', 'Storm Debris Collection', 'Dead Animal Collection',  'Add A Can CANCELLATION', 'Missed Recycling Pickup', 'Personnel or Vehicle Complaint', 'Physically Challenged Pickup']).count
-    deptSWwide_aug_2019_sla_percent_complete = deptSWwide_aug_2019_actual__due_and_closed_cases.to_f.round(2)/deptSWwide_aug_2019_sla_due_cases.to_f.round(2)
+    deptSWwide_aug_2019_sla_due_cases = Sr.between_fields('2019-08-01 00:00:00',
+       :sr_create_date, :date_closed).
+    where(department: 'SWM Solid Waste Management', trash_quad: 'SW',
+       sr_type: ['Missed Heavy Trash Pickup', 'Container Problem',
+          'New Resident Container', 'Recycling Participation NEW',
+           'Recycling Cart Repair or Replace', 'SWM Escalation',
+            'Missed Garbage Pickup', 'Trash Dumping or Illegal Dumpsite',
+             'Add A Can', 'Storm Debris Collection', 'Dead Animal Collection',
+               'Add A Can CANCELLATION', 'Missed Recycling Pickup',
+                'Personnel or Vehicle Complaint',
+                 'Physically Challenged Pickup']).count
+
+    deptSWwide_aug_2019_actual__due_and_closed_cases = Sr.
+    between_fields('2019-08-01 00:00:00', :due_date, :date_closed).
+    where(department: 'SWM Solid Waste Management', status: 'Closed',
+       trash_quad: 'SW', sr_type: ['Missed Heavy Trash Pickup',
+          'Container Problem', 'New Resident Container',
+           'Recycling Participation NEW', 'Recycling Cart Repair or Replace',
+            'SWM Escalation', 'Missed Garbage Pickup',
+             'Trash Dumping or Illegal Dumpsite', 'Add A Can',
+              'Storm Debris Collection', 'Dead Animal Collection',
+               'Add A Can CANCELLATION', 'Missed Recycling Pickup',
+                'Personnel or Vehicle Complaint',
+                 'Physically Challenged Pickup']).count
+
+    deptSWwide_aug_2019_sla_percent_complete =
+    deptSWwide_aug_2019_actual__due_and_closed_cases.
+    to_f.round(2)/deptSWwide_aug_2019_sla_due_cases.to_f.round(2)
+
     self.grade(deptSWwide_aug_2019_sla_percent_complete)
     @sw_grade_aug_2019 = self.grade(deptSWwide_aug_2019_sla_percent_complete)
     binding.pry
-    deptSEwide_aug_2019_sla_due_cases = Sr.between_fields('2019-08-01 00:00:00', :sr_create_date, :date_closed).where(department: 'SWM Solid Waste Management', trash_quad: 'SE', sr_type: ['Missed Heavy Trash Pickup
-', 'Container Problem', 'New Resident Container', 'Recycling Participation NEW', 'Recycling Cart Repair or Replace', 'SWM Escalation', 'Missed Garbage Pickup', 'Trash Dumping or Illegal Dumpsite', 'Add A Can', 'Storm Debris Collection', 'Dead Animal Collection',  'Add A Can CANCELLATION', 'Missed Recycling Pickup', 'Personnel or Vehicle Complaint', 'Physically Challenged Pickup']).count
-    deptSEwide_aug_2019_actual__due_and_closed_cases = Sr.between_fields('2019-08-01 00:00:00', :due_date, :date_closed).where(department: 'SWM Solid Waste Management', trash_quad: 'SE', sr_type: ['Missed Heavy Trash Pickup
-', 'Container Problem', 'New Resident Container', 'Recycling Participation NEW', 'Recycling Cart Repair or Replace', 'SWM Escalation', 'Missed Garbage Pickup', 'Trash Dumping or Illegal Dumpsite', 'Add A Can', 'Storm Debris Collection', 'Dead Animal Collection',  'Add A Can CANCELLATION', 'Missed Recycling Pickup', 'Personnel or Vehicle Complaint', 'Physically Challenged Pickup']).count
-    deptSEwide_aug_2019_sla_percent_complete = deptSEwide_aug_2019_actual__due_and_closed_cases.to_f.round(2)/deptSEwide_aug_2019_sla_due_cases.to_f.round(2)
-    self.se_grade_aug_2019 = self.grade(deptSEwide_aug_2019_sla_percent_complete)
+    deptSEwide_aug_2019_sla_due_cases = Sr.
+    between_fields('2019-08-01 00:00:00', :sr_create_date,
+       :date_closed).
+       where(department: 'SWM Solid Waste Management',
+         trash_quad: 'SE', sr_type: ['Missed Heavy Trash Pickup',
+            'Container Problem', 'New Resident Container',
+            'Recycling Participation NEW', 'Recycling Cart Repair or Replace',
+            'SWM Escalation', 'Missed Garbage Pickup',
+            'Trash Dumping or Illegal Dumpsite', 'Add A Can',
+            'Storm Debris Collection', 'Dead Animal Collection',
+            'Add A Can CANCELLATION', 'Missed Recycling Pickup',
+            'Personnel or Vehicle Complaint',
+            'Physically Challenged Pickup']).count
+    deptSEwide_aug_2019_actual__due_and_closed_cases = Sr.
+    between_fields('2019-08-01 00:00:00', :due_date, :date_closed).
+    where(department: 'SWM Solid Waste Management', trash_quad: 'SE',
+      sr_type: ['Missed Heavy Trash Pickup', 'Container Problem',
+        'New Resident Container', 'Recycling Participation NEW',
+        'Recycling Cart Repair or Replace', 'SWM Escalation',
+        'Missed Garbage Pickup', 'Trash Dumping or Illegal Dumpsite',
+        'Add A Can', 'Storm Debris Collection', 'Dead Animal Collection',
+        'Add A Can CANCELLATION', 'Missed Recycling Pickup',
+        'Personnel or Vehicle Complaint',
+        'Physically Challenged Pickup']).count
+    deptSEwide_aug_2019_sla_percent_complete =
+    deptSEwide_aug_2019_actual__due_and_closed_cases.
+    to_f.round(2)/deptSEwide_aug_2019_sla_due_cases.to_f.round(2)
+    @se_grade_aug_2019= self.grade(deptSEwide_aug_2019_sla_percent_complete)
     binding.pry
-    deptNEwide_aug_2019_sla_due_cases = Sr.between_fields('2019-08-01 00:00:00', :sr_create_date, :date_closed).where(department: 'SWM Solid Waste Management', trash_quad: 'NE', sr_type: ['Missed Heavy Trash Pickup
-', 'Container Problem', 'New Resident Container', 'Recycling Participation NEW', 'Recycling Cart Repair or Replace', 'SWM Escalation', 'Missed Garbage Pickup', 'Trash Dumping or Illegal Dumpsite', 'Add A Can', 'Storm Debris Collection', 'Dead Animal Collection',  'Add A Can CANCELLATION', 'Missed Recycling Pickup', 'Personnel or Vehicle Complaint', 'Physically Challenged Pickup']).count
-    deptNEwide_aug_2019_actual__due_and_closed_cases = Sr.between_fields('2019-08-01 00:00:00', :due_date, :date_closed).where(department: 'SWM Solid Waste Management', trash_quad: 'NE', sr_type: ['Missed Heavy Trash Pickup
-', 'Container Problem', 'New Resident Container', 'Recycling Participation NEW', 'Recycling Cart Repair or Replace', 'SWM Escalation', 'Missed Garbage Pickup', 'Trash Dumping or Illegal Dumpsite', 'Add A Can', 'Storm Debris Collection', 'Dead Animal Collection',  'Add A Can CANCELLATION', 'Missed Recycling Pickup', 'Personnel or Vehicle Complaint', 'Physically Challenged Pickup']).count
-    deptNEwide_aug_2019_sla_percent_complete = deptNEwide_aug_2019_actual__due_and_closed_cases.to_f.round(2)/deptNEwide_aug_2019_sla_due_cases.to_f.round(2)
-    self.ne_grade_aug_2019 = self.grade(deptNEwide_aug_2019_sla_percent_complete)
+    deptNEwide_aug_2019_sla_due_cases = Sr.
+    between_fields('2019-08-01 00:00:00', :sr_create_date, :date_closed).
+    where(department: 'SWM Solid Waste Management',
+       trash_quad: 'NE',
+        sr_type: ['Missed Heavy Trash Pickup', 'Container Problem',
+           'New Resident Container', 'Recycling Participation NEW',
+            'Recycling Cart Repair or Replace', 'SWM Escalation',
+            'Missed Garbage Pickup', 'Trash Dumping or Illegal Dumpsite',
+            'Add A Can', 'Storm Debris Collection', 'Dead Animal Collection',
+            'Add A Can CANCELLATION', 'Missed Recycling Pickup',
+            'Personnel or Vehicle Complaint',
+            'Physically Challenged Pickup']).count
+    deptNEwide_aug_2019_actual__due_and_closed_cases = Sr.
+    between_fields('2019-08-01 00:00:00', :due_date, :date_closed).
+    where(department: 'SWM Solid Waste Management',
+      trash_quad: 'NE',
+      sr_type: ['Missed Heavy Trash Pickup', 'Container Problem',
+        'New Resident Container', 'Recycling Participation NEW',
+        'Recycling Cart Repair or Replace', 'SWM Escalation',
+        'Missed Garbage Pickup', 'Trash Dumping or Illegal Dumpsite',
+        'Add A Can', 'Storm Debris Collection', 'Dead Animal Collection',
+        'Add A Can CANCELLATION', 'Missed Recycling Pickup',
+        'Personnel or Vehicle Complaint',
+        'Physically Challenged Pickup']).count
+    deptNEwide_aug_2019_sla_percent_complete =
+    deptNEwide_aug_2019_actual__due_and_closed_cases.
+    to_f.round(2)/deptNEwide_aug_2019_sla_due_cases.to_f.round(2)
+    @ne_grade_aug_2019 = self.grade(deptNEwide_aug_2019_sla_percent_complete)
     binding.pry
     deptNWwide_aug_2019_sla_due_cases = Sr.between_fields('2019-08-01 00:00:00',
-      :sr_create_date, :date_closed).where(department: 'SWM Solid Waste Management',
-        trash_quad: 'NW', sr_type: ['Missed Heavy Trash Pickup
-', 'Container Problem', 'New Resident Container', 'Recycling Participation NEW', 'Recycling Cart Repair or Replace', 'SWM Escalation', 'Missed Garbage Pickup', 'Trash Dumping or Illegal Dumpsite', 'Add A Can', 'Storm Debris Collection', 'Dead Animal Collection',  'Add A Can CANCELLATION', 'Missed Recycling Pickup', 'Personnel or Vehicle Complaint', 'Physically Challenged Pickup']).count
-    deptNWwide_aug_2019_actual__due_and_closed_cases = Sr.between_fields('2019-08-01 00:00:00', :due_date, :date_closed).where(department: 'SWM Solid Waste Management', trash_quad: 'NW', sr_type: ['Missed Heavy Trash Pickup
-', 'Container Problem', 'New Resident Container', 'Recycling Participation NEW', 'Recycling Cart Repair or Replace', 'SWM Escalation', 'Missed Garbage Pickup', 'Trash Dumping or Illegal Dumpsite', 'Add A Can', 'Storm Debris Collection', 'Dead Animal Collection',  'Add A Can CANCELLATION', 'Missed Recycling Pickup', 'Personnel or Vehicle Complaint', 'Physically Challenged Pickup']).count
-    deptNWwide_aug_2019_sla_percent_complete = deptNWwide_aug_2019_actual__due_and_closed_cases.to_f.round(2)/deptNWwide_aug_2019_sla_due_cases.to_f.round(2)
+      :sr_create_date, :date_closed).
+      where(department: 'SWM Solid Waste Management',
+        trash_quad: 'NW', sr_type: ['Missed Heavy Trash Pickup',
+          'Container Problem', 'New Resident Container',
+          'Recycling Participation NEW', 'Recycling Cart Repair or Replace',
+          'SWM Escalation', 'Missed Garbage Pickup',
+          'Trash Dumping or Illegal Dumpsite', 'Add A Can',
+          'Storm Debris Collection', 'Dead Animal Collection',
+          'Add A Can CANCELLATION', 'Missed Recycling Pickup',
+          'Personnel or Vehicle Complaint',
+          'Physically Challenged Pickup']).count
+    deptNWwide_aug_2019_actual__due_and_closed_cases = Sr.
+    between_fields('2019-08-01 00:00:00', :due_date, :date_closed).
+    where(department: 'SWM Solid Waste Management',
+      trash_quad: 'NW',
+      sr_type: ['Missed Heavy Trash Pickup', 'Container Problem',
+        'New Resident Container', 'Recycling Participation NEW',
+        'Recycling Cart Repair or Replace', 'SWM Escalation',
+        'Missed Garbage Pickup', 'Trash Dumping or Illegal Dumpsite',
+        'Add A Can', 'Storm Debris Collection', 'Dead Animal Collection',
+        'Add A Can CANCELLATION', 'Missed Recycling Pickup',
+        'Personnel or Vehicle Complaint',
+        'Physically Challenged Pickup']).count
+    deptNWwide_aug_2019_sla_percent_complete =
+    deptNWwide_aug_2019_actual__due_and_closed_cases.
+    to_f.round(2)/deptNWwide_aug_2019_sla_due_cases.to_f.round(2)
     self.grade(deptNWwide_aug_2019_sla_percent_complete)
-    self.nw_grade_aug_2019 = self.grade(deptNWwide_aug_2019_sla_percent_complete)
+    @nw_grade_aug_2019 = self.grade(deptNWwide_aug_2019_sla_percent_complete)
   end
 
   def self.august_2019_html
     aug_2019_start_date = Chronic.parse('2019-08-01')
     aug_2019_end_date = Chronic.parse('2019-08-31')
-    tally_list = Sr.where("sr_create_date >= ? AND sr_create_date <= ?", aug_2019_start_date, aug_2019_end_date).where(status: ['Closed','Open'], department: 'SWM Solid Waste Management', trash_quad: 'SW', sr_type: ['Missed Heavy Trash Pickup
-', 'Container Problem', 'New Resident Container', 'Recycling Participation NEW', 'Recycling Cart Repair or Replace', 'SWM Escalation', 'Missed Garbage Pickup', 'Trash Dumping or Illegal Dumpsite', 'Add A Can', 'Storm Debris Collection', 'Dead Animal Collection', 'Add A Can CANCELLATION', 'Missed Recycling Pickup', 'Personnel or Vehicle Complaint', 'Physically Challenged Pickup'])
+    tally_list = Sr.
+    where("sr_create_date >= ? AND sr_create_date <= ?",
+      aug_2019_start_date, aug_2019_end_date).
+      where(status: ['Closed'],
+        department: 'SWM Solid Waste Management',
+        trash_quad: ['SW','SE','NW','NE'],
+        sr_type: ['Missed Heavy Trash Pickup', 'Container Problem',
+          'New Resident Container', 'Recycling Participation NEW',
+          'Recycling Cart Repair or Replace', 'SWM Escalation',
+          'Missed Garbage Pickup', 'Trash Dumping or Illegal Dumpsite',
+          'Add A Can', 'Storm Debris Collection', 'Dead Animal Collection',
+          'Add A Can CANCELLATION', 'Missed Recycling Pickup',
+          'Personnel or Vehicle Complaint', 'Physically Challenged Pickup'])
     tally_list.each{|sr|
       sr.tally = 1
       sr.save}
-    tally_list_values = Sr.where("sr_create_date >= ? AND sr_create_date <= ?", aug_2019_start_date, aug_2019_end_date).where(status: ['Closed','Open'], department: 'SWM Solid Waste Management', trash_quad: 'SW', sr_type: ['Missed Heavy Trash Pickup
-', 'Container Problem', 'New Resident Container', 'Recycling Participation NEW', 'Recycling Cart Repair or Replace', 'SWM Escalation', 'Missed Garbage Pickup', 'Trash Dumping or Illegal Dumpsite', 'Add A Can', 'Storm Debris Collection', 'Dead Animal Collection', 'Add A Can CANCELLATION', 'Missed Recycling Pickup', 'Personnel or Vehicle Complaint', 'Physically Challenged Pickup']).pluck(:id, :case_number, :sr_location, :county, :district, :neighborhood, :tax_id, :trash_quad, :recycle_quad, :trash_day, :heavy_trash_day, :recycle_day, :key_map, :management_district, :department, :division, :sr_type, :queue, :sla, :status, :sr_create_date, :due_date, :date_closed, :overdue, :title, :x, :y, :latitude, :longitude, :channel_type, :created_at, :updated_at, :field1, :field2, :client, :garbage_route, :heavy_trash_quad, :sr_owner, :sr_creator, :resolve_days, :street_num, :client_street, :city, :state, :zip, :phone_number, :email_address, :garbage_day1, :garbage_quad, :recycle_day1, :recycle_route, :resolution_time, :expression, :ne_overdue, :ne_not_overdue, :ne_sr_total, :nw_overdue, :nw_not_overdue, :nw_sr_total, :se_overdue, :se_not_overdue, :se_sr_total, :sw_overdue, :sw_not_overdue, :sw_sr_total, :quad_status, :tally)
-    headers = %w[id case_number sr_location county district neighborhood tax_id trash_quad recycle_quad trash_day heavy_trash_day recycle_day key_map management_district department division sr_type queue sla status sr_create_date due_date date_closed overdue title x y latitude longitude channel_type created_at updated_at field1 field2 client garbage_route heavy_trash_quad sr_owner sr_creator resolve_days street_num client_street city state zip phone_number email_address garbage_day1 garbage_quad recycle_day1 recycle_route resolution_time expression ne_overdue ne_not_overdue ne_sr_total nw_overdue nw_not_overdue nw_sr_total se_overdue se_not_overdue se_sr_total sw_overdue sw_not_overdue sw_sr_total quad_status tally]
-    CSV.open("../searchwarranty/august_2019.csv", "wb", write_headers: true, headers: headers) do |csv| tally_list_values.each do |row| csv << row end end
-    binding.pry
+    tally_list_values = Sr.
+    where("sr_create_date >= ? AND sr_create_date <= ?",
+      aug_2019_start_date, aug_2019_end_date).
+      where(status: ['Closed'], department: 'SWM Solid Waste Management',
+        trash_quad: ['SW','SE','NW','NE'],
+        sr_type: ['Missed Heavy Trash Pickup', 'Container Problem',
+          'New Resident Container', 'Recycling Participation NEW',
+          'Recycling Cart Repair or Replace', 'SWM Escalation',
+          'Missed Garbage Pickup', 'Trash Dumping or Illegal Dumpsite',
+          'Add A Can', 'Storm Debris Collection', 'Dead Animal Collection',
+          'Add A Can CANCELLATION', 'Missed Recycling Pickup',
+          'Personnel or Vehicle Complaint', 'Physically Challenged Pickup'])
+          .pluck(:id, :case_number, :sr_location, :county, :district,
+            :neighborhood, :tax_id, :trash_quad, :recycle_quad, :trash_day,
+            :heavy_trash_day, :recycle_day, :key_map, :management_district,
+            :department, :division, :sr_type, :queue, :sla, :status,
+            :sr_create_date, :due_date, :date_closed, :overdue, :title,
+            :x, :y, :latitude, :longitude, :channel_type, :created_at,
+            :updated_at, :field1, :field2, :client, :garbage_route,
+            :heavy_trash_quad, :sr_owner, :sr_creator, :resolve_days,
+            :street_num, :client_street, :city, :state, :zip, :phone_number,
+            :email_address, :garbage_day1, :garbage_quad, :recycle_day1,
+            :recycle_route, :resolution_time, :expression, :ne_overdue,
+            :ne_not_overdue, :ne_sr_total, :nw_overdue, :nw_not_overdue,
+            :nw_sr_total, :se_overdue, :se_not_overdue, :se_sr_total,
+            :sw_overdue, :sw_not_overdue, :sw_sr_total, :quad_status, :tally)
+    headers = %w[id case_number sr_location county district neighborhood
+      tax_id trash_quad recycle_quad trash_day heavy_trash_day recycle_day
+      key_map management_district department division sr_type queue
+      sla status sr_create_date due_date date_closed overdue title x y
+      latitude longitude channel_type created_at updated_at field1 field2
+      client garbage_route heavy_trash_quad sr_owner sr_creator resolve_days
+      street_num client_street city state zip phone_number email_address
+      garbage_day1 garbage_quad recycle_day1 recycle_route resolution_time
+      expression ne_overdue ne_not_overdue ne_sr_total nw_overdue
+      nw_not_overdue nw_sr_total se_overdue se_not_overdue se_sr_total
+      sw_overdue sw_not_overdue sw_sr_total quad_status tally]
+    CSV.open("../searchwarranty/august_2019.csv", "wb", write_headers: true,
+      headers: headers) do |csv| tally_list_values.each do |row|
+        csv << row
+      end
+    end
+    # binding.pry
     sales2 = Daru::DataFrame.from_csv '../searchwarranty/august_2019.csv'
-    list2 = sales2.pivot_table(index:['sr_type'],values:'tally', vectors:['trash_quad'],  agg:  :sum)
-    File.open('../searchwarranty/app/views/srs/august_2019.html.erb', 'w+'){|f| f << list2.to_html}
-    File.open('../searchwarranty/app/views/srs/august_2019.html', 'w+'){|f| f << list2.to_html}
+    list2 = sales2.pivot_table(index:['sr_type'],values:'tally',
+      vectors:['trash_quad'],  agg:  :sum)
+    File.open('../searchwarranty/app/views/srs/august_2019.html.erb',
+      'w+'){|f| f << list2.to_html}
+    File.open('../searchwarranty/app/views/srs/august_2019.html',
+      'w+'){|f| f << list2.to_html}
     #august-aug_2019_end_date
   end
+
+  def self.september_2019_html
+    start_date = Chronic.parse('2019-09-01')
+    end_date = Chronic.parse('2019-09-30')
+    tally_list = Sr.where("sr_create_date >= ? AND sr_create_date <= ?",
+      start_date, end_date).where(status: ['Closed'],
+        department: 'SWM Solid Waste Management',
+        trash_quad: ['SW','SE','NW','NE'],
+        sr_type: ['Missed Heavy Trash Pickup', 'Container Problem',
+          'New Resident Container', 'Recycling Participation NEW',
+          'Recycling Cart Repair or Replace', 'SWM Escalation',
+          'Missed Garbage Pickup', 'Trash Dumping or Illegal Dumpsite',
+          'Add A Can', 'Storm Debris Collection', 'Dead Animal Collection',
+          'Add A Can CANCELLATION', 'Missed Recycling Pickup',
+          'Personnel or Vehicle Complaint', 'Physically Challenged Pickup'])
+    tally_list.each{|sr|
+      sr.tally = 1
+      sr.save}
+    tally_list_values = Sr.where("sr_create_date >= ? AND sr_create_date <= ?",
+      start_date, end_date).
+      where(status: ['Closed'],
+        department: 'SWM Solid Waste Management',
+        trash_quad: ['SW','SE','NW','NE'],
+        sr_type: ['Missed Heavy Trash Pickup', 'Container Problem',
+          'New Resident Container', 'Recycling Participation NEW',
+          'Recycling Cart Repair or Replace', 'SWM Escalation',
+          'Missed Garbage Pickup', 'Trash Dumping or Illegal Dumpsite',
+          'Add A Can', 'Storm Debris Collection',
+          'Dead Animal Collection', 'Add A Can CANCELLATION',
+          'Missed Recycling Pickup', 'Personnel or Vehicle Complaint',
+          'Physically Challenged Pickup']).
+          pluck(:id, :case_number, :sr_location, :county, :district,
+            :neighborhood, :tax_id, :trash_quad, :recycle_quad, :trash_day,
+            :heavy_trash_day, :recycle_day, :key_map, :management_district,
+            :department, :division, :sr_type, :queue, :sla, :status,
+            :sr_create_date, :due_date, :date_closed, :overdue, :title,
+            :x, :y, :latitude, :longitude, :channel_type, :created_at,
+            :updated_at, :field1, :field2, :client, :garbage_route,
+            :heavy_trash_quad, :sr_owner, :sr_creator, :resolve_days,
+            :street_num, :client_street, :city, :state, :zip, :phone_number,
+            :email_address, :garbage_day1, :garbage_quad, :recycle_day1,
+            :recycle_route, :resolution_time, :expression, :ne_overdue,
+            :ne_not_overdue, :ne_sr_total, :nw_overdue, :nw_not_overdue,
+            :nw_sr_total, :se_overdue, :se_not_overdue, :se_sr_total,
+            :sw_overdue, :sw_not_overdue, :sw_sr_total, :quad_status, :tally)
+    headers = %w[id case_number sr_location county district neighborhood
+      tax_id trash_quad recycle_quad trash_day heavy_trash_day recycle_day
+      key_map management_district department division sr_type queue sla
+      status sr_create_date due_date date_closed overdue title x y latitude
+      longitude channel_type created_at updated_at field1 field2 client
+      garbage_route heavy_trash_quad sr_owner sr_creator resolve_days
+      street_num client_street city state zip phone_number email_address
+      garbage_day1 garbage_quad recycle_day1 recycle_route resolution_time
+      expression ne_overdue ne_not_overdue ne_sr_total nw_overdue
+      nw_not_overdue nw_sr_total se_overdue se_not_overdue se_sr_total
+      sw_overdue sw_not_overdue sw_sr_total quad_status tally]
+    CSV.open("../searchwarranty/september_2019.csv", "wb",
+      write_headers: true, headers: headers) do |csv|
+        tally_list_values.each do |row|
+          csv << row
+        end
+      end
+    # binding.pry
+    sales2 = Daru::DataFrame.from_csv '../searchwarranty/september_2019.csv'
+    list2 = sales2.pivot_table(index:['sr_type'],
+      values:'tally',
+      vectors:['trash_quad'],
+      agg:  :sum)
+    File.open('../searchwarranty/app/views/srs/september_2019.html.erb',
+      'w+'){|f| f << list2.to_html}
+    File.open('../searchwarranty/app/views/srs/september_2019.html',
+      'w+'){|f| f << list2.to_html}
+    #august-aug_2019_end_date
+  end
+
+  def self.october_2019_html
+    start_date = Chronic.parse('2019-10-01')
+    end_date = Chronic.parse('2019-10-31')
+    tally_list = Sr.where("sr_create_date >= ? AND sr_create_date <= ?",
+      start_date, end_date).
+      where(status: ['Closed'],
+        department: 'SWM Solid Waste Management',
+        trash_quad: ['SW','SE','NW','NE'],
+        sr_type: ['Missed Heavy Trash Pickup', 'Container Problem',
+          'New Resident Container', 'Recycling Participation NEW',
+          'Recycling Cart Repair or Replace', 'SWM Escalation',
+          'Missed Garbage Pickup', 'Trash Dumping or Illegal Dumpsite',
+          'Add A Can', 'Storm Debris Collection',
+          'Dead Animal Collection', 'Add A Can CANCELLATION',
+          'Missed Recycling Pickup', 'Personnel or Vehicle Complaint',
+          'Physically Challenged Pickup'])
+    tally_list.each{|sr|
+      sr.tally = 1
+      sr.save}
+    tally_list_values = Sr.
+    where("sr_create_date >= ? AND sr_create_date <= ?",
+      start_date, end_date).where(status: ['Closed'],
+        department: 'SWM Solid Waste Management',
+        trash_quad: ['SW','SE','NW','NE'],
+        sr_type: ['Missed Heavy Trash Pickup', 'Container Problem',
+          'New Resident Container', 'Recycling Participation NEW',
+          'Recycling Cart Repair or Replace', 'SWM Escalation',
+          'Missed Garbage Pickup', 'Trash Dumping or Illegal Dumpsite',
+          'Add A Can', 'Storm Debris Collection', 'Dead Animal Collection',
+          'Add A Can CANCELLATION', 'Missed Recycling Pickup',
+          'Personnel or Vehicle Complaint', 'Physically Challenged Pickup']).
+          pluck(:id, :case_number, :sr_location, :county, :district,
+            :neighborhood, :tax_id, :trash_quad, :recycle_quad, :trash_day,
+            :heavy_trash_day, :recycle_day, :key_map, :management_district,
+            :department, :division, :sr_type, :queue, :sla, :status,
+            :sr_create_date, :due_date, :date_closed, :overdue, :title,
+            :x, :y, :latitude, :longitude, :channel_type, :created_at,
+            :updated_at, :field1, :field2, :client, :garbage_route,
+            :heavy_trash_quad, :sr_owner, :sr_creator, :resolve_days,
+            :street_num, :client_street, :city, :state, :zip, :phone_number,
+            :email_address, :garbage_day1, :garbage_quad, :recycle_day1,
+            :recycle_route, :resolution_time, :expression, :ne_overdue,
+            :ne_not_overdue, :ne_sr_total, :nw_overdue, :nw_not_overdue,
+            :nw_sr_total, :se_overdue, :se_not_overdue, :se_sr_total,
+            :sw_overdue, :sw_not_overdue, :sw_sr_total, :quad_status, :tally)
+    headers = %w[id case_number sr_location county district neighborhood
+      tax_id trash_quad recycle_quad trash_day heavy_trash_day recycle_day
+      key_map management_district department division sr_type queue sla
+      status sr_create_date due_date date_closed overdue title x y
+      latitude longitude channel_type created_at updated_at field1 field2
+      client garbage_route heavy_trash_quad sr_owner sr_creator resolve_days
+      street_num client_street city state zip phone_number email_address
+      garbage_day1 garbage_quad recycle_day1 recycle_route resolution_time
+      expression ne_overdue ne_not_overdue ne_sr_total nw_overdue
+      nw_not_overdue nw_sr_total se_overdue se_not_overdue se_sr_total
+      sw_overdue sw_not_overdue sw_sr_total quad_status tally]
+    CSV.open("../searchwarranty/october_2019.csv", "wb",
+      write_headers: true, headers: headers) do |csv|
+        tally_list_values.each do |row|
+          csv << row
+        end
+      end
+    # binding.pry
+    sales2 = Daru::DataFrame.from_csv '../searchwarranty/october_2019.csv'
+    list2 = sales2.pivot_table(index:['sr_type'],values:'tally',
+      vectors:['trash_quad'],  agg:  :sum)
+    File.open('../searchwarranty/app/views/srs/october_2019.html.erb',
+      'w+'){|f| f << list2.to_html}
+    File.open('../searchwarranty/app/views/srs/october_2019.html',
+      'w+'){|f| f << list2.to_html}
+    #august-aug_2019_end_date
+  end
+
+  def self.november_2019_html
+    start_date = Chronic.parse('2019-11-01')
+    end_date = Chronic.parse('2019-11-30')
+    tally_list = Sr.where("sr_create_date >= ? AND sr_create_date <= ?",
+      start_date, end_date).
+      where(status: ['Closed'],
+        department: 'SWM Solid Waste Management',
+        trash_quad: ['SW','SE','NW','NE'],
+        sr_type: ['Missed Heavy Trash Pickup', 'Container Problem',
+          'New Resident Container', 'Recycling Participation NEW',
+          'Recycling Cart Repair or Replace', 'SWM Escalation',
+          'Missed Garbage Pickup', 'Trash Dumping or Illegal Dumpsite',
+          'Add A Can', 'Storm Debris Collection', 'Dead Animal Collection',
+          'Add A Can CANCELLATION', 'Missed Recycling Pickup',
+          'Personnel or Vehicle Complaint', 'Physically Challenged Pickup'])
+    tally_list.each{|sr|
+      sr.tally = 1
+      sr.save}
+    tally_list_values = Sr.where("sr_create_date >= ? AND sr_create_date <= ?",
+       start_date, end_date).
+       where(status: ['Closed'],
+         department: 'SWM Solid Waste Management',
+         trash_quad: ['SW','SE','NW','NE'],
+         sr_type: ['Missed Heavy Trash Pickup', 'Container Problem',
+           'New Resident Container', 'Recycling Participation NEW',
+           'Recycling Cart Repair or Replace', 'SWM Escalation',
+           'Missed Garbage Pickup', 'Trash Dumping or Illegal Dumpsite',
+           'Add A Can', 'Storm Debris Collection',
+           'Dead Animal Collection', 'Add A Can CANCELLATION',
+           'Missed Recycling Pickup', 'Personnel or Vehicle Complaint',
+           'Physically Challenged Pickup']).
+           pluck(:id, :case_number, :sr_location, :county, :district,
+             :neighborhood, :tax_id, :trash_quad, :recycle_quad, :trash_day,
+             :heavy_trash_day, :recycle_day, :key_map, :management_district,
+             :department, :division, :sr_type, :queue, :sla, :status,
+             :sr_create_date, :due_date, :date_closed, :overdue, :title,
+             :x, :y, :latitude, :longitude, :channel_type, :created_at,
+             :updated_at, :field1, :field2, :client, :garbage_route,
+             :heavy_trash_quad, :sr_owner, :sr_creator, :resolve_days,
+             :street_num, :client_street, :city, :state, :zip,
+             :phone_number, :email_address, :garbage_day1, :garbage_quad,
+             :recycle_day1, :recycle_route, :resolution_time, :expression,
+             :ne_overdue, :ne_not_overdue, :ne_sr_total, :nw_overdue,
+             :nw_not_overdue, :nw_sr_total, :se_overdue, :se_not_overdue,
+             :se_sr_total, :sw_overdue, :sw_not_overdue, :sw_sr_total,
+             :quad_status, :tally)
+    headers = %w[id case_number sr_location county district neighborhood
+      tax_id trash_quad recycle_quad trash_day heavy_trash_day recycle_day
+      key_map management_district department division sr_type queue sla
+      status sr_create_date due_date date_closed overdue title x y latitude
+      longitude channel_type created_at updated_at field1 field2 client
+      garbage_route heavy_trash_quad sr_owner sr_creator resolve_days
+      street_num client_street city state zip phone_number email_address
+      garbage_day1 garbage_quad recycle_day1 recycle_route resolution_time
+      expression ne_overdue ne_not_overdue ne_sr_total nw_overdue
+      nw_not_overdue nw_sr_total se_overdue se_not_overdue se_sr_total
+      sw_overdue sw_not_overdue sw_sr_total quad_status tally]
+    CSV.open("../searchwarranty/november_2019.csv", "wb",
+      write_headers: true, headers: headers) do |csv|
+        tally_list_values.each do |row|
+          csv << row
+        end
+      end
+    # binding.pry
+    sales2 = Daru::DataFrame.from_csv '../searchwarranty/november_2019.csv'
+    list2 = sales2.pivot_table(index:['sr_type'],
+      values:'tally',
+      vectors:['trash_quad'],
+      agg:  :sum)
+    File.open('../searchwarranty/app/views/srs/november_2019.html.erb',
+      'w+'){|f| f << list2.to_html}
+    File.open('../searchwarranty/app/views/srs/november_2019.html',
+      'w+'){|f| f << list2.to_html}
+    #august-aug_2019_end_date
+  end
+
+  def self.december_2019_html
+    start_date = Chronic.parse('2019-11-01')
+    end_date = Chronic.parse('2019-11-30')
+    tally_list = Sr.where("sr_create_date >= ? AND sr_create_date <= ?",
+      start_date, end_date).where(status: ['Closed'],
+        department: 'SWM Solid Waste Management',
+        trash_quad: ['SW','SE','NW','NE'],
+        sr_type: ['Missed Heavy Trash Pickup', 'Container Problem',
+          'New Resident Container', 'Recycling Participation NEW',
+          'Recycling Cart Repair or Replace', 'SWM Escalation',
+          'Missed Garbage Pickup', 'Trash Dumping or Illegal Dumpsite',
+          'Add A Can', 'Storm Debris Collection',
+          'Dead Animal Collection', 'Add A Can CANCELLATION',
+          'Missed Recycling Pickup', 'Personnel or Vehicle Complaint',
+          'Physically Challenged Pickup'])
+    tally_list.each{|sr|
+      sr.tally = 1
+      sr.save}
+    tally_list_values = Sr.where("sr_create_date >= ? AND sr_create_date <= ?",
+      start_date, end_date).where(status: ['Closed'],
+        department: 'SWM Solid Waste Management',
+        trash_quad: ['SW','SE','NW','NE'],
+        sr_type: ['Missed Heavy Trash Pickup', 'Container Problem',
+          'New Resident Container', 'Recycling Participation NEW',
+          'Recycling Cart Repair or Replace', 'SWM Escalation',
+          'Missed Garbage Pickup', 'Trash Dumping or Illegal Dumpsite',
+          'Add A Can', 'Storm Debris Collection',
+          'Dead Animal Collection', 'Add A Can CANCELLATION',
+          'Missed Recycling Pickup', 'Personnel or Vehicle Complaint',
+          'Physically Challenged Pickup']).
+          pluck(:id, :case_number, :sr_location, :county, :district,
+            :neighborhood, :tax_id, :trash_quad, :recycle_quad, :trash_day,
+            :heavy_trash_day, :recycle_day, :key_map, :management_district,
+            :department, :division, :sr_type, :queue, :sla, :status,
+            :sr_create_date, :due_date, :date_closed, :overdue, :title,
+            :x, :y, :latitude, :longitude, :channel_type, :created_at,
+            :updated_at, :field1, :field2, :client, :garbage_route,
+            :heavy_trash_quad, :sr_owner, :sr_creator, :resolve_days,
+            :street_num, :client_street, :city, :state, :zip, :phone_number,
+            :email_address, :garbage_day1, :garbage_quad, :recycle_day1,
+            :recycle_route, :resolution_time, :expression, :ne_overdue,
+            :ne_not_overdue, :ne_sr_total, :nw_overdue, :nw_not_overdue,
+            :nw_sr_total, :se_overdue, :se_not_overdue, :se_sr_total,
+            :sw_overdue, :sw_not_overdue, :sw_sr_total, :quad_status, :tally)
+    headers = %w[id case_number sr_location county district neighborhood
+      tax_id trash_quad recycle_quad trash_day heavy_trash_day recycle_day
+      key_map management_district department division sr_type queue sla
+      status sr_create_date due_date date_closed overdue title x y latitude
+      longitude channel_type created_at updated_at field1 field2 client
+      garbage_route heavy_trash_quad sr_owner sr_creator resolve_days
+      street_num client_street city state zip phone_number email_address
+      garbage_day1 garbage_quad recycle_day1 recycle_route resolution_time
+      expression ne_overdue ne_not_overdue ne_sr_total nw_overdue
+      nw_not_overdue nw_sr_total se_overdue se_not_overdue se_sr_total
+      sw_overdue sw_not_overdue sw_sr_total quad_status tally]
+    CSV.open("../searchwarranty/december_2019.csv", "wb",
+      write_headers: true, headers: headers) do |csv|
+        tally_list_values.each do |row|
+          csv << row
+        end
+      end
+    # binding.pry
+    sales2 = Daru::DataFrame.from_csv '../searchwarranty/december_2019.csv'
+    list2 = sales2.pivot_table(index:['sr_type'],values:'tally',
+      vectors:['trash_quad'],  agg:  :sum)
+    File.open('../searchwarranty/app/views/srs/december_2019.html.erb',
+      'w+'){|f| f << list2.to_html}
+    File.open('../searchwarranty/app/views/srs/december_2019.html',
+      'w+'){|f| f << list2.to_html}
+    #august-aug_2019_end_date
+  end
+
+  def self.jan_2020_html
+    start_date = Chronic.parse('2020-1-01')
+    end_date = Chronic.parse('2020-1-31')
+    tally_list = Sr.where("sr_create_date >= ? AND sr_create_date <= ?",
+      start_date, end_date).where(status: ['Closed'],
+        department: 'SWM Solid Waste Management',
+        trash_quad: ['SW','SE','NW','NE'],
+        sr_type: ['Missed Heavy Trash Pickup', 'Container Problem',
+          'New Resident Container', 'Recycling Participation NEW',
+          'Recycling Cart Repair or Replace', 'SWM Escalation',
+          'Missed Garbage Pickup', 'Trash Dumping or Illegal Dumpsite',
+          'Add A Can', 'Storm Debris Collection', 'Dead Animal Collection',
+          'Add A Can CANCELLATION', 'Missed Recycling Pickup',
+          'Personnel or Vehicle Complaint', 'Physically Challenged Pickup'])
+    tally_list.each{|sr|
+      sr.tally = 1
+      sr.save}
+    tally_list_values = Sr.where("sr_create_date >= ? AND sr_create_date <= ?",
+      start_date, end_date).where(status: ['Closed'],
+        department: 'SWM Solid Waste Management',
+        trash_quad: ['SW','SE','NW','NE'],
+        sr_type: ['Missed Heavy Trash Pickup', 'Container Problem',
+          'New Resident Container', 'Recycling Participation NEW',
+          'Recycling Cart Repair or Replace', 'SWM Escalation',
+          'Missed Garbage Pickup', 'Trash Dumping or Illegal Dumpsite',
+          'Add A Can', 'Storm Debris Collection', 'Dead Animal Collection',
+          'Add A Can CANCELLATION', 'Missed Recycling Pickup',
+          'Personnel or Vehicle Complaint', 'Physically Challenged Pickup']).
+          pluck(:id, :case_number, :sr_location, :county, :district,
+            :neighborhood, :tax_id, :trash_quad, :recycle_quad, :trash_day,
+            :heavy_trash_day, :recycle_day, :key_map, :management_district,
+            :department, :division, :sr_type, :queue, :sla, :status,
+            :sr_create_date, :due_date, :date_closed, :overdue, :title,
+            :x, :y, :latitude, :longitude, :channel_type, :created_at,
+            :updated_at, :field1, :field2, :client, :garbage_route,
+            :heavy_trash_quad, :sr_owner, :sr_creator, :resolve_days,
+            :street_num, :client_street, :city, :state, :zip, :phone_number,
+            :email_address, :garbage_day1, :garbage_quad, :recycle_day1,
+            :recycle_route, :resolution_time, :expression, :ne_overdue,
+            :ne_not_overdue, :ne_sr_total, :nw_overdue, :nw_not_overdue,
+            :nw_sr_total, :se_overdue, :se_not_overdue, :se_sr_total,
+            :sw_overdue, :sw_not_overdue, :sw_sr_total, :quad_status,
+            :tally)
+    headers = %w[id case_number sr_location county district neighborhood
+      tax_id trash_quad recycle_quad trash_day heavy_trash_day recycle_day
+      key_map management_district department division sr_type queue sla
+      status sr_create_date due_date date_closed overdue title x y
+      latitude longitude channel_type created_at updated_at field1 field2
+      client garbage_route heavy_trash_quad sr_owner sr_creator resolve_days
+      street_num client_street city state zip phone_number email_address
+      garbage_day1 garbage_quad recycle_day1 recycle_route resolution_time
+      expression ne_overdue ne_not_overdue ne_sr_total nw_overdue
+      nw_not_overdue nw_sr_total se_overdue se_not_overdue se_sr_total
+      sw_overdue sw_not_overdue sw_sr_total quad_status tally]
+    CSV.open("../searchwarranty/jan_2020.csv", "wb",
+      write_headers: true, headers: headers) do |csv|
+        tally_list_values.each do |row|
+          csv << row
+        end
+      end
+    # binding.pry
+    sales2 = Daru::DataFrame.from_csv '../searchwarranty/jan_2020.csv'
+    list2 = sales2.pivot_table(index:['sr_type'],
+      values:'tally',
+      vectors:['trash_quad'],
+      agg:  :sum)
+    File.open('../searchwarranty/app/views/srs/jan_2020.html.erb',
+      'w+'){|f| f << list2.to_html}
+    File.open('../searchwarranty/app/views/srs/jan_2020.html',
+      'w+'){|f| f << list2.to_html}
+    #august-aug_2019_end_date
+  end
+
+  def self.feb_2020_html
+    start_date = Chronic.parse('2020-2-01')
+    end_date = Chronic.parse('2020-2-29')
+    tally_list = Sr.where("sr_create_date >= ? AND sr_create_date <= ?",
+      start_date, end_date).
+      where(status: ['Closed'],
+        department: 'SWM Solid Waste Management',
+        trash_quad: ['SW','SE','NW','NE'],
+        sr_type: ['Missed Heavy Trash Pickup', 'Container Problem',
+          'New Resident Container', 'Recycling Participation NEW',
+          'Recycling Cart Repair or Replace', 'SWM Escalation',
+          'Missed Garbage Pickup', 'Trash Dumping or Illegal Dumpsite',
+          'Add A Can', 'Storm Debris Collection',
+          'Dead Animal Collection', 'Add A Can CANCELLATION',
+          'Missed Recycling Pickup', 'Personnel or Vehicle Complaint',
+          'Physically Challenged Pickup'])
+    tally_list.each{|sr|
+      sr.tally = 1
+      sr.save}
+    tally_list_values = Sr.where("sr_create_date >= ? AND sr_create_date <= ?",
+      start_date, end_date).where(status: ['Closed'],
+        department: 'SWM Solid Waste Management',
+        trash_quad: ['SW','SE','NW','NE'],
+        sr_type: ['Missed Heavy Trash Pickup', 'Container Problem',
+          'New Resident Container', 'Recycling Participation NEW',
+          'Recycling Cart Repair or Replace', 'SWM Escalation',
+          'Missed Garbage Pickup', 'Trash Dumping or Illegal Dumpsite',
+          'Add A Can', 'Storm Debris Collection',
+          'Dead Animal Collection', 'Add A Can CANCELLATION',
+          'Missed Recycling Pickup', 'Personnel or Vehicle Complaint',
+          'Physically Challenged Pickup']).
+          pluck(:id, :case_number, :sr_location, :county, :district,
+            :neighborhood, :tax_id, :trash_quad, :recycle_quad, :trash_day,
+            :heavy_trash_day, :recycle_day, :key_map, :management_district,
+            :department, :division, :sr_type, :queue, :sla, :status,
+            :sr_create_date, :due_date, :date_closed, :overdue, :title,
+            :x, :y, :latitude, :longitude, :channel_type, :created_at,
+            :updated_at, :field1, :field2, :client, :garbage_route,
+            :heavy_trash_quad, :sr_owner, :sr_creator, :resolve_days,
+            :street_num, :client_street, :city, :state, :zip, :phone_number,
+            :email_address, :garbage_day1, :garbage_quad, :recycle_day1,
+            :recycle_route, :resolution_time, :expression, :ne_overdue,
+            :ne_not_overdue, :ne_sr_total, :nw_overdue, :nw_not_overdue,
+            :nw_sr_total, :se_overdue, :se_not_overdue, :se_sr_total,
+            :sw_overdue, :sw_not_overdue, :sw_sr_total, :quad_status, :tally)
+    headers = %w[id case_number sr_location county district neighborhood
+      tax_id trash_quad recycle_quad trash_day heavy_trash_day recycle_day
+      key_map management_district department division sr_type queue sla
+      status sr_create_date due_date date_closed overdue title x y latitude
+      longitude channel_type created_at updated_at field1 field2 client
+      garbage_route heavy_trash_quad sr_owner sr_creator resolve_days
+      street_num client_street city state zip phone_number email_address
+      garbage_day1 garbage_quad recycle_day1 recycle_route resolution_time
+      expression ne_overdue ne_not_overdue ne_sr_total nw_overdue
+      nw_not_overdue nw_sr_total se_overdue se_not_overdue se_sr_total
+      sw_overdue sw_not_overdue sw_sr_total quad_status tally]
+    CSV.open("../searchwarranty/feb_2020.csv", "wb",
+      write_headers: true, headers: headers) do |csv|
+        tally_list_values.each do |row|
+          csv << row
+        end
+    end
+    # binding.pry
+    sales2 = Daru::DataFrame.from_csv '../searchwarranty/feb_2020.csv'
+    list2 = sales2.pivot_table(index:['sr_type'],
+      values:'tally', vectors:['trash_quad'],  agg:  :sum)
+    File.open('../searchwarranty/app/views/srs/feb_2020.html.erb',
+      'w+'){|f| f << list2.to_html}
+    File.open('../searchwarranty/app/views/srs/feb_2020.html',
+      'w+'){|f| f << list2.to_html}
+    #august-aug_2019_end_date
+  end
+
+
+    def self.mar_2020_html
+      start_date = Chronic.parse('2020-3-01')
+      end_date = Chronic.parse('2020-3-31')
+      tally_list = Sr.where("sr_create_date >= ? AND sr_create_date <= ?",
+        start_date, end_date).where(status: ['Closed'],
+          department: 'SWM Solid Waste Management',
+          trash_quad: ['SW','SE','NW','NE'],
+          sr_type: ['Missed Heavy Trash Pickup', 'Container Problem',
+            'New Resident Container', 'Recycling Participation NEW',
+            'Recycling Cart Repair or Replace', 'SWM Escalation',
+            'Missed Garbage Pickup', 'Trash Dumping or Illegal Dumpsite',
+            'Add A Can', 'Storm Debris Collection',
+            'Dead Animal Collection', 'Add A Can CANCELLATION',
+            'Missed Recycling Pickup', 'Personnel or Vehicle Complaint',
+            'Physically Challenged Pickup'])
+      tally_list.each{|sr|
+        sr.tally = 1
+        sr.save}
+      tally_list_values = Sr.
+      where("sr_create_date >= ? AND sr_create_date <= ?",
+        start_date, end_date).where(status: ['Closed'],
+          department: 'SWM Solid Waste Management',
+          trash_quad: ['SW','SE','NW','NE'],
+          sr_type: ['Missed Heavy Trash Pickup', 'Container Problem',
+            'New Resident Container', 'Recycling Participation NEW',
+            'Recycling Cart Repair or Replace', 'SWM Escalation',
+            'Missed Garbage Pickup', 'Trash Dumping or Illegal Dumpsite',
+            'Add A Can', 'Storm Debris Collection',
+            'Dead Animal Collection', 'Add A Can CANCELLATION',
+            'Missed Recycling Pickup', 'Personnel or Vehicle Complaint',
+            'Physically Challenged Pickup']).
+            pluck(:id, :case_number, :sr_location, :county, :district,
+              :neighborhood, :tax_id, :trash_quad, :recycle_quad,
+              :trash_day, :heavy_trash_day, :recycle_day, :key_map,
+              :management_district, :department, :division, :sr_type,
+              :queue, :sla, :status, :sr_create_date, :due_date,
+              :date_closed, :overdue, :title, :x, :y, :latitude,
+              :longitude, :channel_type, :created_at, :updated_at,
+              :field1, :field2, :client, :garbage_route, :heavy_trash_quad,
+              :sr_owner, :sr_creator, :resolve_days, :street_num,
+              :client_street, :city, :state, :zip, :phone_number,
+              :email_address, :garbage_day1, :garbage_quad, :recycle_day1,
+              :recycle_route, :resolution_time, :expression, :ne_overdue,
+              :ne_not_overdue, :ne_sr_total, :nw_overdue, :nw_not_overdue,
+              :nw_sr_total, :se_overdue, :se_not_overdue, :se_sr_total,
+              :sw_overdue, :sw_not_overdue, :sw_sr_total, :quad_status, :tally)
+      headers = %w[id case_number sr_location county district neighborhood
+        tax_id trash_quad recycle_quad trash_day heavy_trash_day recycle_day
+        key_map management_district department division sr_type queue sla
+        status sr_create_date due_date date_closed overdue title x y
+        latitude longitude channel_type created_at updated_at field1 field2
+        client garbage_route heavy_trash_quad sr_owner sr_creator
+        resolve_days street_num client_street city state zip phone_number
+        email_address garbage_day1 garbage_quad recycle_day1 recycle_route
+        resolution_time expression ne_overdue ne_not_overdue ne_sr_total
+        nw_overdue nw_not_overdue nw_sr_total se_overdue se_not_overdue
+        se_sr_total sw_overdue sw_not_overdue sw_sr_total quad_status tally]
+      CSV.open("../searchwarranty/mar_2020.csv", "wb",
+        write_headers: true, headers: headers) do |csv|
+          tally_list_values.each do |row|
+            csv << row
+          end
+        end
+      # binding.pry
+      sales2 = Daru::DataFrame.from_csv '../searchwarranty/mar_2020.csv'
+      list2 = sales2.pivot_table(index:['sr_type'],values:'tally',
+        vectors:['trash_quad'],  agg:  :sum)
+      File.open('../searchwarranty/app/views/srs/mar_2020.html.erb',
+        'w+'){|f| f << list2.to_html}
+      File.open('../searchwarranty/app/views/srs/mar_2020.html',
+        'w+'){|f| f << list2.to_html}
+      #august-aug_2019_end_date
+    end
+
+    def self.april_2020_html
+      start_date = Chronic.parse('2020-4-01')
+      end_date = Chronic.parse('2020-4-30')
+      tally_list = Sr.where("sr_create_date >= ? AND sr_create_date <= ?",
+        start_date, end_date).
+        where(status: ['Closed'],
+          department: 'SWM Solid Waste Management',
+          trash_quad: ['SW','SE','NW','NE'],
+          sr_type: ['Missed Heavy Trash Pickup', 'Container Problem',
+            'New Resident Container', 'Recycling Participation NEW',
+            'Recycling Cart Repair or Replace', 'SWM Escalation',
+            'Missed Garbage Pickup', 'Trash Dumping or Illegal Dumpsite',
+            'Add A Can', 'Storm Debris Collection',
+            'Dead Animal Collection', 'Add A Can CANCELLATION',
+            'Missed Recycling Pickup', 'Personnel or Vehicle Complaint',
+            'Physically Challenged Pickup'])
+      tally_list.each{|sr|
+        sr.tally = 1
+        sr.save}
+      tally_list_values = Sr.
+      where("sr_create_date >= ? AND sr_create_date <= ?",
+        start_date, end_date).
+        where(status: ['Closed'],
+          department: 'SWM Solid Waste Management',
+          trash_quad: ['SW','SE','NW','NE'],
+          sr_type: ['Missed Heavy Trash Pickup', 'Container Problem',
+            'New Resident Container', 'Recycling Participation NEW',
+            'Recycling Cart Repair or Replace', 'SWM Escalation',
+            'Missed Garbage Pickup', 'Trash Dumping or Illegal Dumpsite',
+            'Add A Can', 'Storm Debris Collection',
+            'Dead Animal Collection', 'Add A Can CANCELLATION',
+            'Missed Recycling Pickup', 'Personnel or Vehicle Complaint',
+            'Physically Challenged Pickup']).
+            pluck(:id, :case_number, :sr_location, :county, :district,
+              :neighborhood, :tax_id, :trash_quad, :recycle_quad,
+              :trash_day, :heavy_trash_day, :recycle_day, :key_map,
+              :management_district, :department, :division, :sr_type,
+              :queue, :sla, :status, :sr_create_date, :due_date,
+              :date_closed, :overdue, :title, :x, :y, :latitude,
+              :longitude, :channel_type, :created_at, :updated_at,
+              :field1, :field2, :client, :garbage_route, :heavy_trash_quad,
+              :sr_owner, :sr_creator, :resolve_days, :street_num,
+              :client_street, :city, :state, :zip, :phone_number,
+              :email_address, :garbage_day1, :garbage_quad, :recycle_day1,
+              :recycle_route, :resolution_time, :expression, :ne_overdue,
+              :ne_not_overdue, :ne_sr_total, :nw_overdue, :nw_not_overdue,
+              :nw_sr_total, :se_overdue, :se_not_overdue, :se_sr_total,
+              :sw_overdue, :sw_not_overdue, :sw_sr_total, :quad_status, :tally)
+      headers = %w[id case_number sr_location county district neighborhood
+        tax_id trash_quad recycle_quad trash_day heavy_trash_day recycle_day
+        key_map management_district department division sr_type queue
+        sla status sr_create_date due_date date_closed overdue title x y
+        latitude longitude channel_type created_at updated_at field1 field2
+        client garbage_route heavy_trash_quad sr_owner sr_creator
+        resolve_days street_num client_street city state zip phone_number
+        email_address garbage_day1 garbage_quad recycle_day1 recycle_route
+        resolution_time expression ne_overdue ne_not_overdue ne_sr_total
+        nw_overdue nw_not_overdue nw_sr_total se_overdue se_not_overdue
+        se_sr_total sw_overdue sw_not_overdue sw_sr_total quad_status tally]
+      CSV.open("../searchwarranty/april_2020.csv",
+        "wb", write_headers: true, headers: headers) do |csv|
+          tally_list_values.each do |row|
+            csv << row
+          end
+        end
+      # binding.pry
+      sales2 = Daru::DataFrame.from_csv '../searchwarranty/april_2020.csv'
+      list2 = sales2.pivot_table(index:['sr_type'],
+        values:'tally',
+        vectors:['trash_quad'],  agg:  :sum)
+      File.open('../searchwarranty/app/views/srs/april_2020.html.erb',
+        'w+'){|f| f << list2.to_html}
+      File.open('../searchwarranty/app/views/srs/april_2020.html',
+        'w+'){|f| f << list2.to_html}
+      #august-aug_2019_end_date
+    end
+
+    def self.may_2020_html
+      start_date = Chronic.parse('2020-5-01')
+      end_date = Chronic.parse('2020-5-31')
+      tally_list = Sr.where("sr_create_date >= ? AND sr_create_date <= ?",
+        start_date, end_date).
+        where(status: ['Closed'],
+          department: 'SWM Solid Waste Management',
+          trash_quad: ['SW','SE','NW','NE'],
+          sr_type: ['Missed Heavy Trash Pickup', 'Container Problem',
+            'New Resident Container', 'Recycling Participation NEW',
+            'Recycling Cart Repair or Replace', 'SWM Escalation',
+            'Missed Garbage Pickup', 'Trash Dumping or Illegal Dumpsite',
+            'Add A Can', 'Storm Debris Collection',
+            'Dead Animal Collection', 'Add A Can CANCELLATION',
+            'Missed Recycling Pickup', 'Personnel or Vehicle Complaint',
+            'Physically Challenged Pickup'])
+      tally_list.each{|sr|
+        sr.tally = 1
+        sr.save}
+      tally_list_values = Sr.
+      where("sr_create_date >= ? AND sr_create_date <= ?",
+        start_date, end_date).
+        where(status: ['Closed'],
+          department: 'SWM Solid Waste Management',
+          trash_quad: ['SW','SE','NW','NE'],
+          sr_type: ['Missed Heavy Trash Pickup', 'Container Problem',
+            'New Resident Container', 'Recycling Participation NEW',
+            'Recycling Cart Repair or Replace', 'SWM Escalation',
+            'Missed Garbage Pickup', 'Trash Dumping or Illegal Dumpsite',
+            'Add A Can', 'Storm Debris Collection',
+            'Dead Animal Collection', 'Add A Can CANCELLATION',
+            'Missed Recycling Pickup', 'Personnel or Vehicle Complaint',
+            'Physically Challenged Pickup']).
+            pluck(:id, :case_number, :sr_location, :county, :district,
+              :neighborhood, :tax_id, :trash_quad, :recycle_quad, :trash_day,
+              :heavy_trash_day, :recycle_day, :key_map, :management_district,
+              :department, :division, :sr_type, :queue, :sla, :status,
+              :sr_create_date, :due_date, :date_closed, :overdue, :title,
+              :x, :y, :latitude, :longitude, :channel_type, :created_at,
+              :updated_at, :field1, :field2, :client, :garbage_route,
+              :heavy_trash_quad, :sr_owner, :sr_creator, :resolve_days,
+              :street_num, :client_street, :city, :state, :zip, :phone_number,
+              :email_address, :garbage_day1, :garbage_quad, :recycle_day1,
+              :recycle_route, :resolution_time, :expression, :ne_overdue,
+              :ne_not_overdue, :ne_sr_total, :nw_overdue, :nw_not_overdue,
+              :nw_sr_total, :se_overdue, :se_not_overdue, :se_sr_total,
+              :sw_overdue, :sw_not_overdue, :sw_sr_total, :quad_status, :tally)
+      headers = %w[id case_number sr_location county district neighborhood
+        tax_id trash_quad recycle_quad trash_day heavy_trash_day recycle_day
+        key_map management_district department division sr_type queue sla
+        status sr_create_date due_date date_closed overdue title x y latitude
+        longitude channel_type created_at updated_at field1 field2 client
+        garbage_route heavy_trash_quad sr_owner sr_creator resolve_days
+        street_num client_street city state zip phone_number email_address
+        garbage_day1 garbage_quad recycle_day1 recycle_route resolution_time
+        expression ne_overdue ne_not_overdue ne_sr_total nw_overdue
+        nw_not_overdue nw_sr_total se_overdue se_not_overdue se_sr_total
+        sw_overdue sw_not_overdue sw_sr_total quad_status tally]
+      CSV.open("../searchwarranty/may_2020.csv", "wb",
+        write_headers: true, headers: headers) do |csv|
+          tally_list_values.each do |row|
+            csv << row
+          end
+        end
+      # binding.pry
+      sales2 = Daru::DataFrame.from_csv '../searchwarranty/may_2020.csv'
+      list2 = sales2.pivot_table(index:['sr_type'],
+        values:'tally', vectors:['trash_quad'],  agg:  :sum)
+      File.open('../searchwarranty/app/views/srs/may_2020.html.erb',
+        'w+'){|f| f << list2.to_html}
+      File.open('../searchwarranty/app/views/srs/may_2020.html',
+        'w+'){|f| f << list2.to_html}
+      #august-aug_2019_end_date
+    end
+
+    def self.june_2020_html
+      start_date = Chronic.parse('2020-06-01')
+      end_date = Chronic.parse('2020-06-30')
+      tally_list = Sr.where("sr_create_date >= ? AND sr_create_date <= ?",
+        start_date, end_date).
+        where(status: ['Closed'],
+          department: 'SWM Solid Waste Management',
+          trash_quad: ['SW','SE','NW','NE'],
+          sr_type: ['Missed Heavy Trash Pickup', 'Container Problem',
+            'New Resident Container', 'Recycling Participation NEW',
+            'Recycling Cart Repair or Replace', 'SWM Escalation',
+            'Missed Garbage Pickup', 'Trash Dumping or Illegal Dumpsite',
+            'Add A Can', 'Storm Debris Collection',
+            'Dead Animal Collection', 'Add A Can CANCELLATION',
+            'Missed Recycling Pickup', 'Personnel or Vehicle Complaint',
+            'Physically Challenged Pickup'])
+      tally_list.each{|sr|
+        sr.tally = 1
+        sr.save}
+      tally_list_values = Sr.
+      where("sr_create_date >= ? AND sr_create_date <= ?",
+        start_date, end_date).
+        where(status: ['Closed'],
+          department: 'SWM Solid Waste Management',
+          trash_quad: ['SW','SE','NW','NE'],
+          sr_type: ['Missed Heavy Trash Pickup', 'Container Problem',
+            'New Resident Container', 'Recycling Participation NEW',
+            'Recycling Cart Repair or Replace', 'SWM Escalation',
+            'Missed Garbage Pickup', 'Trash Dumping or Illegal Dumpsite',
+            'Add A Can', 'Storm Debris Collection',
+            'Dead Animal Collection', 'Add A Can CANCELLATION',
+            'Missed Recycling Pickup', 'Personnel or Vehicle Complaint',
+            'Physically Challenged Pickup']).
+            pluck(:id, :case_number, :sr_location, :county, :district,
+              :neighborhood, :tax_id, :trash_quad, :recycle_quad, :trash_day,
+              :heavy_trash_day, :recycle_day, :key_map, :management_district,
+              :department, :division, :sr_type, :queue, :sla, :status,
+              :sr_create_date, :due_date, :date_closed, :overdue, :title,
+              :x, :y, :latitude, :longitude, :channel_type, :created_at,
+              :updated_at, :field1, :field2, :client, :garbage_route,
+              :heavy_trash_quad, :sr_owner, :sr_creator, :resolve_days,
+              :street_num, :client_street, :city, :state, :zip, :phone_number,
+              :email_address, :garbage_day1, :garbage_quad, :recycle_day1,
+              :recycle_route, :resolution_time, :expression, :ne_overdue,
+              :ne_not_overdue, :ne_sr_total, :nw_overdue, :nw_not_overdue,
+              :nw_sr_total, :se_overdue, :se_not_overdue, :se_sr_total,
+              :sw_overdue, :sw_not_overdue, :sw_sr_total, :quad_status, :tally)
+      headers = %w[id case_number sr_location county district neighborhood
+        tax_id trash_quad recycle_quad trash_day heavy_trash_day recycle_day
+        key_map management_district department division sr_type queue sla
+        status sr_create_date due_date date_closed overdue title x y latitude
+        longitude channel_type created_at updated_at field1 field2 client
+        garbage_route heavy_trash_quad sr_owner sr_creator resolve_days
+        street_num client_street city state zip phone_number email_address
+        garbage_day1 garbage_quad recycle_day1 recycle_route
+        resolution_time expression ne_overdue ne_not_overdue ne_sr_total
+        nw_overdue nw_not_overdue nw_sr_total se_overdue se_not_overdue
+        se_sr_total sw_overdue sw_not_overdue sw_sr_total quad_status tally]
+      CSV.open("../searchwarranty/june_2020.csv", "wb",
+        write_headers: true, headers: headers) do |csv|
+          tally_list_values.each do |row|
+            csv << row
+          end
+        end
+      # binding.pry
+      sales2 = Daru::DataFrame.from_csv '../searchwarranty/june_2020.csv'
+      list2 = sales2.pivot_table(index:['sr_type'],
+        values:'tally', vectors:['trash_quad'],  agg:  :sum)
+      File.open('../searchwarranty/app/views/srs/june_2020.html.erb',
+        'w+'){|f| f << list2.to_html}
+      File.open('../searchwarranty/app/views/srs/june_2020.html',
+        'w+'){|f| f << list2.to_html}
+      #august-aug_2019_end_date
+    end
+
+    def self.fy_2020_html
+      start_date = Chronic.parse('2019-07-01')
+      end_date = Chronic.parse('2020-06-30')
+      tally_list = Sr.where("sr_create_date >= ? AND sr_create_date <= ?",
+        start_date, end_date).
+        where(status: ['Closed'],
+          department: 'SWM Solid Waste Management',
+          trash_quad: ['SW','SE','NW','NE'],
+          sr_type: ['Missed Heavy Trash Pickup', 'Container Problem',
+            'New Resident Container', 'Recycling Participation NEW',
+            'Recycling Cart Repair or Replace', 'SWM Escalation',
+            'Missed Garbage Pickup', 'Trash Dumping or Illegal Dumpsite',
+            'Add A Can', 'Storm Debris Collection',
+            'Dead Animal Collection', 'Add A Can CANCELLATION',
+            'Missed Recycling Pickup', 'Personnel or Vehicle Complaint',
+            'Physically Challenged Pickup'])
+      tally_list.each{|sr|
+        sr.tally = 1
+        sr.save}
+      tally_list_values = Sr.
+      where("sr_create_date >= ? AND sr_create_date <= ?",
+        start_date, end_date).
+        where(status: ['Closed'],
+          department: 'SWM Solid Waste Management',
+          trash_quad: ['SW','SE','NW','NE'],
+          sr_type: ['Missed Heavy Trash Pickup', 'Container Problem',
+            'New Resident Container', 'Recycling Participation NEW',
+            'Recycling Cart Repair or Replace', 'SWM Escalation',
+            'Missed Garbage Pickup', 'Trash Dumping or Illegal Dumpsite',
+            'Add A Can', 'Storm Debris Collection',
+            'Dead Animal Collection', 'Add A Can CANCELLATION',
+            'Missed Recycling Pickup', 'Personnel or Vehicle Complaint',
+            'Physically Challenged Pickup']).
+            pluck(:id, :case_number, :sr_location, :county, :district,
+              :neighborhood, :tax_id, :trash_quad, :recycle_quad, :trash_day,
+              :heavy_trash_day, :recycle_day, :key_map, :management_district,
+              :department, :division, :sr_type, :queue, :sla, :status,
+              :sr_create_date, :due_date, :date_closed, :overdue, :title,
+              :x, :y, :latitude, :longitude, :channel_type, :created_at,
+              :updated_at, :field1, :field2, :client, :garbage_route,
+              :heavy_trash_quad, :sr_owner, :sr_creator, :resolve_days,
+              :street_num, :client_street, :city, :state, :zip, :phone_number,
+              :email_address, :garbage_day1, :garbage_quad, :recycle_day1,
+              :recycle_route, :resolution_time, :expression, :ne_overdue,
+              :ne_not_overdue, :ne_sr_total, :nw_overdue, :nw_not_overdue,
+              :nw_sr_total, :se_overdue, :se_not_overdue, :se_sr_total,
+              :sw_overdue, :sw_not_overdue, :sw_sr_total, :quad_status, :tally)
+      headers = %w[id case_number sr_location county district neighborhood
+        tax_id trash_quad recycle_quad trash_day heavy_trash_day recycle_day
+        key_map management_district department division sr_type queue sla
+        status sr_create_date due_date date_closed overdue title x y latitude
+        longitude channel_type created_at updated_at field1 field2 client
+        garbage_route heavy_trash_quad sr_owner sr_creator resolve_days
+        street_num client_street city state zip phone_number email_address
+        garbage_day1 garbage_quad recycle_day1 recycle_route resolution_time
+        expression ne_overdue ne_not_overdue ne_sr_total nw_overdue
+        nw_not_overdue nw_sr_total se_overdue se_not_overdue se_sr_total
+        sw_overdue sw_not_overdue sw_sr_total quad_status tally]
+      CSV.open("../searchwarranty/fy_2020.csv", "wb",
+        write_headers: true, headers: headers) do |csv|
+          tally_list_values.each do |row|
+            csv << row
+          end
+        end
+      # binding.pry
+      sales2 = Daru::DataFrame.from_csv '../searchwarranty/fy_2020.csv'
+      list2 = sales2.pivot_table(index:['sr_type'],
+        values:'tally',
+        vectors:['trash_quad'],  agg:  :sum)
+      File.open('../searchwarranty/app/views/srs/fy_2020.html.erb',
+        'w+'){|f| f << list2.to_html}
+      File.open('../searchwarranty/app/views/srs/fy_2020.html',
+        'w+'){|f| f << list2.to_html}
+      #august-aug_2019_end_date
+    end
+
 
   def self.grade_by_month
     self.historical_grade
@@ -404,13 +1365,210 @@ class Sr < ApplicationRecord
 #     headers = %w[id case_number sr_location county district neighborhood tax_id trash_quad recycle_quad trash_day heavy_trash_day recycle_day key_map management_district department division sr_type queue sla status sr_create_date due_date date_closed overdue title x y latitude longitude channel_type created_at updated_at field1 field2 client garbage_route heavy_trash_quad sr_owner sr_creator resolve_days street_num client_street city state zip phone_number email_address garbage_day1 garbage_quad recycle_day1 recycle_route resolution_time expression ne_overdue ne_not_overdue ne_sr_total nw_overdue nw_not_overdue nw_sr_total se_overdue se_not_overdue se_sr_total sw_overdue sw_not_overdue sw_sr_total quad_status tally]
 #     CSV.open("../searchwarranty/no_quad_08_2019_now.csv", "wb", write_headers: true, headers: headers) do |csv| tally_list_values.each do |row| csv << row end end
 #   end
+def self.new_services_list_2020
+  start_date = Date.parse('2019-07-01')
+  end_date= Time.now
+  new_services_list = Sr.where(sr_type: ['New Move In Service',
+    'New Resident Container','Recycling Participation NEW']).
+    where("sr_create_date >= ? AND sr_create_date <= ?",start_date, end_date)
+    new_services_list.each{|sr|
+      # binding.pry
+    sr.tally = 1
+    sr.save}
+    new_services_list_values = Sr.
+    where("sr_create_date >= ? AND sr_create_date <= ?",
+      start_date, end_date).
+      where(status: ['Closed'],
+        department: 'SWM Solid Waste Management',
+        trash_quad: ['SW','SE','NW','NE'],
+        sr_type: ['New Move In Service',
+          'New Resident Container', 'Recycling Participation NEW']).
+          pluck(:id, :case_number, :sr_location, :county, :district,
+            :neighborhood, :tax_id, :trash_quad, :recycle_quad, :trash_day,
+            :heavy_trash_day, :recycle_day, :key_map, :management_district,
+            :department, :division, :sr_type, :queue, :sla, :status,
+            :sr_create_date, :due_date, :date_closed, :overdue, :title,
+            :x, :y, :latitude, :longitude, :channel_type, :created_at,
+            :updated_at, :field1, :field2, :client, :garbage_route,
+            :heavy_trash_quad, :sr_owner, :sr_creator, :resolve_days,
+            :street_num, :client_street, :city, :state, :zip, :phone_number,
+            :email_address, :garbage_day1, :garbage_quad, :recycle_day1,
+            :recycle_route, :resolution_time, :expression, :ne_overdue,
+            :ne_not_overdue, :ne_sr_total, :nw_overdue, :nw_not_overdue,
+            :nw_sr_total, :se_overdue, :se_not_overdue, :se_sr_total,
+            :sw_overdue, :sw_not_overdue, :sw_sr_total, :quad_status, :tally)
 
-  def self.new_services_list
-    start_date = Date.parse('2019-07-01')
-    end_date= Time.now
+    headers = %w[id case_number sr_location county district neighborhood
+       tax_id trash_quad recycle_quad trash_day heavy_trash_day recycle_day
+        key_map management_district department division sr_type queue sla
+         status sr_create_date due_date date_closed overdue title x y
+          latitude longitude channel_type created_at updated_at field1
+           field2 client garbage_route heavy_trash_quad sr_owner sr_creator
+            resolve_days street_num client_street city state zip phone_number
+             email_address garbage_day1 garbage_quad recycle_day1
+              recycle_route resolution_time expression ne_overdue
+               ne_not_overdue ne_sr_total nw_overdue nw_not_overdue
+                nw_sr_total se_overdue se_not_overdue se_sr_total sw_overdue
+                 sw_not_overdue sw_sr_total quad_status tally]
+    CSV.open("../searchwarranty/new_services_list_2020.csv", "wb",
+       write_headers: true, headers: headers) do |csv|
+         new_services_list_values.each do |row|
+           csv << row
+         end
+       end
+       sales2 = Daru::DataFrame.from_csv '../searchwarranty/new_services_list_2020.csv'
+       list2 = sales2.pivot_table(index:['sr_type'],
+         values:'tally',
+         vectors:['trash_quad'],  agg:  :sum)
+       File.open('../searchwarranty/app/views/srs/new_svc_list_2020.html.erb',
+         'w+'){|f| f << list2.to_html}
+       File.open('../searchwarranty/app/views/srs/new_svc_list_2020.html',
+         'w+'){|f| f << list2.to_html}
+       #august-aug_2019_end_date
+  end
+  def self.new_services_list_2019
+    start_date = Date.parse('2018-07-01')
+    end_date= Date.parse('2019-06-30')
+    new_services_list = Sr.where(status: ['Closed'],
+      department: 'SWM Solid Waste Management',
+      trash_quad: ['SW','SE','NW','NE'],sr_type: ['New Move In Service',
+      'New Resident Container','Recycling Participation NEW']).
+      where("sr_create_date >= ? AND sr_create_date <= ?",start_date, end_date)
+      new_services_list.each{|sr|
+        # binding.pry
+      sr.tally = 1
+      sr.save}
+      new_services_list_values = Sr.
+      where("sr_create_date >= ? AND sr_create_date <= ?",
+        start_date, end_date).
+        where(status: ['Closed'],
+          department: 'SWM Solid Waste Management',
+          trash_quad: ['SW','SE','NW','NE'],
+          sr_type: ['New Move In Service',
+            'New Resident Container', 'Recycling Participation NEW']).
+            pluck(:id, :case_number, :sr_location, :county, :district,
+              :neighborhood, :tax_id, :trash_quad, :recycle_quad, :trash_day,
+              :heavy_trash_day, :recycle_day, :key_map, :management_district,
+              :department, :division, :sr_type, :queue, :sla, :status,
+              :sr_create_date, :due_date, :date_closed, :overdue, :title,
+              :x, :y, :latitude, :longitude, :channel_type, :created_at,
+              :updated_at, :field1, :field2, :client, :garbage_route,
+              :heavy_trash_quad, :sr_owner, :sr_creator, :resolve_days,
+              :street_num, :client_street, :city, :state, :zip, :phone_number,
+              :email_address, :garbage_day1, :garbage_quad, :recycle_day1,
+              :recycle_route, :resolution_time, :expression, :ne_overdue,
+              :ne_not_overdue, :ne_sr_total, :nw_overdue, :nw_not_overdue,
+              :nw_sr_total, :se_overdue, :se_not_overdue, :se_sr_total,
+              :sw_overdue, :sw_not_overdue, :sw_sr_total, :quad_status, :tally)
+      headers = %w[id case_number sr_location county district neighborhood
+         tax_id trash_quad recycle_quad trash_day heavy_trash_day recycle_day
+          key_map management_district department division sr_type queue sla
+           status sr_create_date due_date date_closed overdue title x y
+            latitude longitude channel_type created_at updated_at field1
+             field2 client garbage_route heavy_trash_quad sr_owner sr_creator
+              resolve_days street_num client_street city state zip phone_number
+               email_address garbage_day1 garbage_quad recycle_day1
+                recycle_route resolution_time expression ne_overdue
+                 ne_not_overdue ne_sr_total nw_overdue nw_not_overdue
+                  nw_sr_total se_overdue se_not_overdue se_sr_total sw_overdue
+                   sw_not_overdue sw_sr_total quad_status tally]
+      CSV.open("../searchwarranty/new_services_list_2019.csv", "wb",
+         write_headers: true, headers: headers) do |csv|
+           new_services_list_values.each do |row|
+             csv << row
+           end
+         end
+         sales2 = Daru::DataFrame.from_csv '../searchwarranty/new_services_list_2019.csv'
+         list2 = sales2.pivot_table(index:['sr_type'],
+           values:'tally',
+           vectors:['trash_quad'],  agg:  :sum)
+         File.open('../searchwarranty/app/views/srs/new_svc_list_2019.html.erb',
+           'w+'){|f| f << list2.to_html}
+         File.open('../searchwarranty/app/views/srs/new_svc_list_2019.html',
+           'w+'){|f| f << list2.to_html}
+  end
+
+  def self.new_services_list_2018
+    start_date = Date.parse('2017-07-01')
+    end_date= Date.parse('2018-06-30')
     new_services_list = Sr.where(sr_type: ['New Move In Service',
       'New Resident Container','Recycling Participation NEW']).
-      where("sr_create_date >= ? AND sr_create_date <= ?",start_date, end_date).
+      where("sr_create_date >= ? AND sr_create_date <= ?",start_date, end_date)
+
+      new_services_list.each{|sr|
+        # binding.pry
+      sr.tally = 1
+      sr.save}
+
+      new_services_list_values = Sr.
+      where("sr_create_date >= ? AND sr_create_date <= ?",
+        start_date, end_date).
+        where(status: ['Closed'],
+          department: 'SWM Solid Waste Management',
+          trash_quad: ['SW','SE','NW','NE'],
+          sr_type: ['New Move In Service',
+            'New Resident Container', 'Recycling Participation NEW']).
+            pluck(:id, :case_number, :sr_location, :county, :district,
+              :neighborhood, :tax_id, :trash_quad, :recycle_quad, :trash_day,
+              :heavy_trash_day, :recycle_day, :key_map, :management_district,
+              :department, :division, :sr_type, :queue, :sla, :status,
+              :sr_create_date, :due_date, :date_closed, :overdue, :title,
+              :x, :y, :latitude, :longitude, :channel_type, :created_at,
+              :updated_at, :field1, :field2, :client, :garbage_route,
+              :heavy_trash_quad, :sr_owner, :sr_creator, :resolve_days,
+              :street_num, :client_street, :city, :state, :zip, :phone_number,
+              :email_address, :garbage_day1, :garbage_quad, :recycle_day1,
+              :recycle_route, :resolution_time, :expression, :ne_overdue,
+              :ne_not_overdue, :ne_sr_total, :nw_overdue, :nw_not_overdue,
+              :nw_sr_total, :se_overdue, :se_not_overdue, :se_sr_total,
+              :sw_overdue, :sw_not_overdue, :sw_sr_total, :quad_status, :tally)
+      headers = %w[id case_number sr_location county district neighborhood
+         tax_id trash_quad recycle_quad trash_day heavy_trash_day recycle_day
+          key_map management_district department division sr_type queue sla
+           status sr_create_date due_date date_closed overdue title x y
+            latitude longitude channel_type created_at updated_at field1
+             field2 client garbage_route heavy_trash_quad sr_owner sr_creator
+              resolve_days street_num client_street city state zip phone_number
+               email_address garbage_day1 garbage_quad recycle_day1
+                recycle_route resolution_time expression ne_overdue
+                 ne_not_overdue ne_sr_total nw_overdue nw_not_overdue
+                  nw_sr_total se_overdue se_not_overdue se_sr_total sw_overdue
+                   sw_not_overdue sw_sr_total quad_status tally]
+      CSV.open("../searchwarranty/new_services_list_2018.csv", "wb",
+         write_headers: true, headers: headers) do |csv|
+           new_services_list_values.each do |row|
+             csv << row
+           end
+         end
+     sales2 = Daru::DataFrame.from_csv '../searchwarranty/new_services_list_2018.csv'
+     list2 = sales2.pivot_table(index:['sr_type'],
+           values:'tally',
+           vectors:['trash_quad'],  agg:  :sum)
+     File.open('../searchwarranty/app/views/srs/new_svc_list_2018.html.erb',
+           'w+'){|f| f << list2.to_html}
+     File.open('../searchwarranty/app/views/srs/new_svc_list_2018.html',
+           'w+'){|f| f << list2.to_html}
+  end
+
+  def self.new_services_list_2017
+    start_date = Date.parse('2016-07-01')
+    end_date= Date.parse('2017-06-30')
+    new_services_list = Sr.where(sr_type: ['New Move In Service',
+      'New Resident Container','Recycling Participation NEW']).
+      where("sr_create_date >= ? AND sr_create_date <= ?",start_date, end_date)
+
+      new_services_list.each{|sr|
+        # binding.pry
+      sr.tally = 1
+      sr.save}
+      new_services_list_values = Sr.
+      where("sr_create_date >= ? AND sr_create_date <= ?",
+        start_date, end_date).
+        where(status: ['Closed'],
+          department: 'SWM Solid Waste Management',
+          trash_quad: ['SW','SE','NW','NE'],
+          sr_type: ['New Move In Service',
+            'New Resident Container', 'Recycling Participation NEW']).
       pluck(:id, :case_number, :sr_location, :county, :district, :neighborhood,
          :tax_id, :trash_quad, :recycle_quad, :trash_day, :heavy_trash_day,
           :recycle_day, :key_map, :management_district, :department,
@@ -437,13 +1595,392 @@ class Sr < ApplicationRecord
                  ne_not_overdue ne_sr_total nw_overdue nw_not_overdue
                   nw_sr_total se_overdue se_not_overdue se_sr_total sw_overdue
                    sw_not_overdue sw_sr_total quad_status tally]
-      CSV.open("../searchwarranty/new_services_list.csv", "wb",
+      CSV.open("../searchwarranty/new_services_list_2017.csv", "wb",
          write_headers: true, headers: headers) do |csv|
-           new_services_list.each do |row|
+           new_services_list_values.each do |row|
              csv << row
            end
          end
+      sales2 = Daru::DataFrame.from_csv '../searchwarranty/new_services_list_2017.csv'
+      list2 = sales2.pivot_table(index:['sr_type'],
+           values:'tally',
+           vectors:['trash_quad'],  agg:  :sum)
+      File.open('../searchwarranty/app/views/srs/new_svc_list_2017.html.erb',
+           'w+'){|f| f << list2.to_html}
+      File.open('../searchwarranty/app/views/srs/new_svc_list_2017.html',
+           'w+'){|f| f << list2.to_html}
   end
+
+  def self.new_services_list_2016
+    start_date = Date.parse('2015-07-01')
+    end_date= Date.parse('2016-06-30')
+    new_services_list = Sr.where(sr_type: ['New Move In Service',
+      'New Resident Container','Recycling Participation NEW']).
+      where("sr_create_date >= ? AND sr_create_date <= ?",start_date, end_date)
+
+      new_services_list.each{|sr|
+        # binding.pry
+      sr.tally = 1
+      sr.save}
+      new_services_list_values = Sr.
+      where("sr_create_date >= ? AND sr_create_date <= ?",
+        start_date, end_date).
+        where(status: ['Closed'],
+          department: 'SWM Solid Waste Management',
+          trash_quad: ['SW','SE','NW','NE'],
+          sr_type: ['New Move In Service',
+            'New Resident Container', 'Recycling Participation NEW']).
+      pluck(:id, :case_number, :sr_location, :county, :district, :neighborhood,
+         :tax_id, :trash_quad, :recycle_quad, :trash_day, :heavy_trash_day,
+          :recycle_day, :key_map, :management_district, :department,
+           :division, :sr_type, :queue, :sla, :status, :sr_create_date,
+            :due_date, :date_closed, :overdue, :title, :x, :y, :latitude,
+             :longitude, :channel_type, :created_at, :updated_at, :field1,
+              :field2, :client, :garbage_route, :heavy_trash_quad, :sr_owner,
+               :sr_creator, :resolve_days, :street_num, :client_street, :city,
+                :state, :zip, :phone_number, :email_address, :garbage_day1,
+                 :garbage_quad, :recycle_day1, :recycle_route, :resolution_time,
+                  :expression, :ne_overdue, :ne_not_overdue, :ne_sr_total,
+                   :nw_overdue, :nw_not_overdue, :nw_sr_total, :se_overdue,
+                    :se_not_overdue, :se_sr_total, :sw_overdue, :sw_not_overdue,
+                     :sw_sr_total, :quad_status, :tally)
+      headers = %w[id case_number sr_location county district neighborhood
+         tax_id trash_quad recycle_quad trash_day heavy_trash_day recycle_day
+          key_map management_district department division sr_type queue sla
+           status sr_create_date due_date date_closed overdue title x y
+            latitude longitude channel_type created_at updated_at field1
+             field2 client garbage_route heavy_trash_quad sr_owner sr_creator
+              resolve_days street_num client_street city state zip phone_number
+               email_address garbage_day1 garbage_quad recycle_day1
+                recycle_route resolution_time expression ne_overdue
+                 ne_not_overdue ne_sr_total nw_overdue nw_not_overdue
+                  nw_sr_total se_overdue se_not_overdue se_sr_total sw_overdue
+                   sw_not_overdue sw_sr_total quad_status tally]
+      CSV.open("../searchwarranty/new_services_list_2016.csv", "wb",
+         write_headers: true, headers: headers) do |csv|
+           new_services_list_values.each do |row|
+             csv << row
+           end
+         end
+
+      sales2 = Daru::DataFrame.from_csv '../searchwarranty/new_services_list_2016.csv'
+      list2 = sales2.pivot_table(index:['sr_type'],
+           values:'tally',
+           vectors:['trash_quad'],  agg:  :sum)
+     File.open('../searchwarranty/app/views/srs/new_svc_list_2016.html.erb',
+           'w+'){|f| f << list2.to_html}
+      File.open('../searchwarranty/app/views/srs/new_svc_list_2016.html',
+           'w+'){|f| f << list2.to_html}
+  end
+
+  def self.new_services_list_2015
+    start_date = Date.parse('2014-07-01')
+    end_date= Date.parse('2015-06-30')
+    new_services_list = Sr.where(sr_type: ['New Move In Service',
+      'New Resident Container','Recycling Participation NEW']).
+      where("sr_create_date >= ? AND sr_create_date <= ?",start_date, end_date)
+
+      new_services_list.each{|sr|
+        # binding.pry
+      sr.tally = 1
+      sr.save}
+      new_services_list_values = Sr.
+      where("sr_create_date >= ? AND sr_create_date <= ?",
+        start_date, end_date).
+        where(status: ['Closed'],
+          department: 'SWM Solid Waste Management',
+          trash_quad: ['SW','SE','NW','NE'],
+          sr_type: ['New Move In Service',
+            'New Resident Container', 'Recycling Participation NEW']).
+      pluck(:id, :case_number, :sr_location, :county, :district, :neighborhood,
+         :tax_id, :trash_quad, :recycle_quad, :trash_day, :heavy_trash_day,
+          :recycle_day, :key_map, :management_district, :department,
+           :division, :sr_type, :queue, :sla, :status, :sr_create_date,
+            :due_date, :date_closed, :overdue, :title, :x, :y, :latitude,
+             :longitude, :channel_type, :created_at, :updated_at, :field1,
+              :field2, :client, :garbage_route, :heavy_trash_quad, :sr_owner,
+               :sr_creator, :resolve_days, :street_num, :client_street, :city,
+                :state, :zip, :phone_number, :email_address, :garbage_day1,
+                 :garbage_quad, :recycle_day1, :recycle_route, :resolution_time,
+                  :expression, :ne_overdue, :ne_not_overdue, :ne_sr_total,
+                   :nw_overdue, :nw_not_overdue, :nw_sr_total, :se_overdue,
+                    :se_not_overdue, :se_sr_total, :sw_overdue, :sw_not_overdue,
+                     :sw_sr_total, :quad_status, :tally)
+      headers = %w[id case_number sr_location county district neighborhood
+         tax_id trash_quad recycle_quad trash_day heavy_trash_day recycle_day
+          key_map management_district department division sr_type queue sla
+           status sr_create_date due_date date_closed overdue title x y
+            latitude longitude channel_type created_at updated_at field1
+             field2 client garbage_route heavy_trash_quad sr_owner sr_creator
+              resolve_days street_num client_street city state zip phone_number
+               email_address garbage_day1 garbage_quad recycle_day1
+                recycle_route resolution_time expression ne_overdue
+                 ne_not_overdue ne_sr_total nw_overdue nw_not_overdue
+                  nw_sr_total se_overdue se_not_overdue se_sr_total sw_overdue
+                   sw_not_overdue sw_sr_total quad_status tally]
+      CSV.open("../searchwarranty/new_services_list_2015.csv", "wb",
+         write_headers: true, headers: headers) do |csv|
+           new_services_list_values.each do |row|
+             csv << row
+           end
+         end
+      sales2 = Daru::DataFrame.from_csv '../searchwarranty/new_services_list_2015.csv'
+      list2 = sales2.pivot_table(index:['sr_type'],
+           values:'tally',
+           vectors:['trash_quad'],  agg:  :sum)
+      File.open('../searchwarranty/app/views/srs/new_svc_list_2015.html.erb',
+           'w+'){|f| f << list2.to_html}
+      File.open('../searchwarranty/app/views/srs/new_svc_list_2015.html',
+           'w+'){|f| f << list2.to_html}
+  end
+
+  def self.new_services_list_2014
+      start_date = Date.parse('2013-07-01')
+      end_date= Date.parse('2014-06-30')
+      new_services_list = Sr.where(sr_type: ['New Move In Service',
+        'New Resident Container','Recycling Participation NEW']).
+        where("sr_create_date >= ? AND sr_create_date <= ?",start_date, end_date)
+
+        new_services_list.each{|sr|
+          # binding.pry
+        sr.tally = 1
+        sr.save}
+        new_services_list_values = Sr.
+        where("sr_create_date >= ? AND sr_create_date <= ?",
+          start_date, end_date).
+          where(status: ['Closed'],
+            department: 'SWM Solid Waste Management',
+            trash_quad: ['SW','SE','NW','NE'],
+            sr_type: ['New Move In Service',
+              'New Resident Container', 'Recycling Participation NEW']).
+        pluck(:id, :case_number, :sr_location, :county, :district, :neighborhood,
+           :tax_id, :trash_quad, :recycle_quad, :trash_day, :heavy_trash_day,
+            :recycle_day, :key_map, :management_district, :department,
+             :division, :sr_type, :queue, :sla, :status, :sr_create_date,
+              :due_date, :date_closed, :overdue, :title, :x, :y, :latitude,
+               :longitude, :channel_type, :created_at, :updated_at, :field1,
+                :field2, :client, :garbage_route, :heavy_trash_quad, :sr_owner,
+                 :sr_creator, :resolve_days, :street_num, :client_street, :city,
+                  :state, :zip, :phone_number, :email_address, :garbage_day1,
+                   :garbage_quad, :recycle_day1, :recycle_route, :resolution_time,
+                    :expression, :ne_overdue, :ne_not_overdue, :ne_sr_total,
+                     :nw_overdue, :nw_not_overdue, :nw_sr_total, :se_overdue,
+                      :se_not_overdue, :se_sr_total, :sw_overdue, :sw_not_overdue,
+                       :sw_sr_total, :quad_status, :tally)
+        headers = %w[id case_number sr_location county district neighborhood
+           tax_id trash_quad recycle_quad trash_day heavy_trash_day recycle_day
+            key_map management_district department division sr_type queue sla
+             status sr_create_date due_date date_closed overdue title x y
+              latitude longitude channel_type created_at updated_at field1
+               field2 client garbage_route heavy_trash_quad sr_owner sr_creator
+                resolve_days street_num client_street city state zip phone_number
+                 email_address garbage_day1 garbage_quad recycle_day1
+                  recycle_route resolution_time expression ne_overdue
+                   ne_not_overdue ne_sr_total nw_overdue nw_not_overdue
+                    nw_sr_total se_overdue se_not_overdue se_sr_total sw_overdue
+                     sw_not_overdue sw_sr_total quad_status tally]
+        CSV.open("../searchwarranty/new_services_list_2014.csv", "wb",
+           write_headers: true, headers: headers) do |csv|
+             new_services_list_values.each do |row|
+               csv << row
+             end
+           end
+
+      sales2 = Daru::DataFrame.from_csv '../searchwarranty/new_services_list_2014.csv'
+      list2 = sales2.pivot_table(index:['sr_type'],
+             values:'tally',
+             vectors:['trash_quad'],  agg:  :sum)
+      File.open('../searchwarranty/app/views/srs/new_svc_list_2014.html.erb',
+             'w+'){|f| f << list2.to_html}
+      File.open('../searchwarranty/app/views/srs/new_svc_list_2014.html',
+             'w+'){|f| f << list2.to_html}
+  end
+
+  def self.new_services_list_2013
+      start_date = Date.parse('2012-07-01')
+      end_date= Date.parse('2013-06-30')
+      new_services_list = Sr.where(sr_type: ['New Move In Service',
+        'New Resident Container','Recycling Participation NEW']).
+        where("sr_create_date >= ? AND sr_create_date <= ?",start_date, end_date)
+
+        new_services_list.each{|sr|
+          # binding.pry
+        sr.tally = 1
+        sr.save}
+        new_services_list_values = Sr.
+        where("sr_create_date >= ? AND sr_create_date <= ?",
+          start_date, end_date).
+          where(status: ['Closed'],
+            department: 'SWM Solid Waste Management',
+            trash_quad: ['SW','SE','NW','NE'],
+            sr_type: ['New Move In Service',
+              'New Resident Container', 'Recycling Participation NEW']).
+        pluck(:id, :case_number, :sr_location, :county, :district, :neighborhood,
+           :tax_id, :trash_quad, :recycle_quad, :trash_day, :heavy_trash_day,
+            :recycle_day, :key_map, :management_district, :department,
+             :division, :sr_type, :queue, :sla, :status, :sr_create_date,
+              :due_date, :date_closed, :overdue, :title, :x, :y, :latitude,
+               :longitude, :channel_type, :created_at, :updated_at, :field1,
+                :field2, :client, :garbage_route, :heavy_trash_quad, :sr_owner,
+                 :sr_creator, :resolve_days, :street_num, :client_street, :city,
+                  :state, :zip, :phone_number, :email_address, :garbage_day1,
+                   :garbage_quad, :recycle_day1, :recycle_route, :resolution_time,
+                    :expression, :ne_overdue, :ne_not_overdue, :ne_sr_total,
+                     :nw_overdue, :nw_not_overdue, :nw_sr_total, :se_overdue,
+                      :se_not_overdue, :se_sr_total, :sw_overdue, :sw_not_overdue,
+                       :sw_sr_total, :quad_status, :tally)
+        headers = %w[id case_number sr_location county district neighborhood
+           tax_id trash_quad recycle_quad trash_day heavy_trash_day recycle_day
+            key_map management_district department division sr_type queue sla
+             status sr_create_date due_date date_closed overdue title x y
+              latitude longitude channel_type created_at updated_at field1
+               field2 client garbage_route heavy_trash_quad sr_owner sr_creator
+                resolve_days street_num client_street city state zip phone_number
+                 email_address garbage_day1 garbage_quad recycle_day1
+                  recycle_route resolution_time expression ne_overdue
+                   ne_not_overdue ne_sr_total nw_overdue nw_not_overdue
+                    nw_sr_total se_overdue se_not_overdue se_sr_total sw_overdue
+                     sw_not_overdue sw_sr_total quad_status tally]
+        CSV.open("../searchwarranty/new_services_list_2013.csv", "wb",
+           write_headers: true, headers: headers) do |csv|
+             new_services_list_values.each do |row|
+               csv << row
+             end
+           end
+        sales2 = Daru::DataFrame.from_csv '../searchwarranty/new_services_list_2013.csv'
+        list2 = sales2.pivot_table(index:['sr_type'],
+             values:'tally',
+             vectors:['trash_quad'],  agg:  :sum)
+        File.open('../searchwarranty/app/views/srs/new_svc_list_2013.html.erb',
+             'w+'){|f| f << list2.to_html}
+        File.open('../searchwarranty/app/views/srs/new_svc_list_2013.html',
+             'w+'){|f| f << list2.to_html}
+  end
+
+
+  def self.new_services_list_2012
+        start_date = Date.parse('2011-07-01')
+        end_date= Date.parse('2012-06-30')
+        new_services_list = Sr.where(sr_type: ['New Move In Service',
+          'New Resident Container','Recycling Participation NEW']).
+          where("sr_create_date >= ? AND sr_create_date <= ?",start_date, end_date)
+
+          new_services_list.each{|sr|
+            # binding.pry
+          sr.tally = 1
+          sr.save}
+          new_services_list_values = Sr.
+          where("sr_create_date >= ? AND sr_create_date <= ?",
+            start_date, end_date).
+            where(status: ['Closed'],
+              department: 'SWM Solid Waste Management',
+              trash_quad: ['SW','SE','NW','NE'],
+              sr_type: ['New Move In Service',
+                'New Resident Container', 'Recycling Participation NEW']).
+          pluck(:id, :case_number, :sr_location, :county, :district, :neighborhood,
+             :tax_id, :trash_quad, :recycle_quad, :trash_day, :heavy_trash_day,
+              :recycle_day, :key_map, :management_district, :department,
+               :division, :sr_type, :queue, :sla, :status, :sr_create_date,
+                :due_date, :date_closed, :overdue, :title, :x, :y, :latitude,
+                 :longitude, :channel_type, :created_at, :updated_at, :field1,
+                  :field2, :client, :garbage_route, :heavy_trash_quad, :sr_owner,
+                   :sr_creator, :resolve_days, :street_num, :client_street, :city,
+                    :state, :zip, :phone_number, :email_address, :garbage_day1,
+                     :garbage_quad, :recycle_day1, :recycle_route, :resolution_time,
+                      :expression, :ne_overdue, :ne_not_overdue, :ne_sr_total,
+                       :nw_overdue, :nw_not_overdue, :nw_sr_total, :se_overdue,
+                        :se_not_overdue, :se_sr_total, :sw_overdue, :sw_not_overdue,
+                         :sw_sr_total, :quad_status, :tally)
+          headers = %w[id case_number sr_location county district neighborhood
+             tax_id trash_quad recycle_quad trash_day heavy_trash_day recycle_day
+              key_map management_district department division sr_type queue sla
+               status sr_create_date due_date date_closed overdue title x y
+                latitude longitude channel_type created_at updated_at field1
+                 field2 client garbage_route heavy_trash_quad sr_owner sr_creator
+                  resolve_days street_num client_street city state zip phone_number
+                   email_address garbage_day1 garbage_quad recycle_day1
+                    recycle_route resolution_time expression ne_overdue
+                     ne_not_overdue ne_sr_total nw_overdue nw_not_overdue
+                      nw_sr_total se_overdue se_not_overdue se_sr_total sw_overdue
+                       sw_not_overdue sw_sr_total quad_status tally]
+          CSV.open("../searchwarranty/new_services_list_2012.csv", "wb",
+             write_headers: true, headers: headers) do |csv|
+               new_services_list_values.each do |row|
+                 csv << row
+               end
+          end
+
+      sales2 = Daru::DataFrame.from_csv '../searchwarranty/new_services_list_2012.csv'
+      list2 = sales2.pivot_table(index:['sr_type'],
+            values:'tally',
+            vectors:['trash_quad'],  agg:  :sum)
+      File.open('../searchwarranty/app/views/srs/new_svc_list_2012.html.erb',
+            'w+'){|f| f << list2.to_html}
+      File.open('../searchwarranty/app/views/srs/new_svc_list_2012.html',
+            'w+'){|f| f << list2.to_html}
+    end
+
+    def self.new_services_list_2011
+          start_date = Date.parse('2010-07-01')
+          end_date= Date.parse('2011-06-30')
+          new_services_list = Sr.where(sr_type: ['New Move In Service',
+            'New Resident Container','Recycling Participation NEW']).
+            where("sr_create_date >= ? AND sr_create_date <= ?",start_date, end_date)
+
+            new_services_list.each{|sr|
+              # binding.pry
+            sr.tally = 1
+            sr.save}
+            new_services_list_values = Sr.
+            where("sr_create_date >= ? AND sr_create_date <= ?",
+              start_date, end_date).
+              where(status: ['Closed'],
+                department: 'SWM Solid Waste Management',
+                trash_quad: ['SW','SE','NW','NE'],
+                sr_type: ['New Move In Service',
+                  'New Resident Container', 'Recycling Participation NEW']).
+            pluck(:id, :case_number, :sr_location, :county, :district, :neighborhood,
+               :tax_id, :trash_quad, :recycle_quad, :trash_day, :heavy_trash_day,
+                :recycle_day, :key_map, :management_district, :department,
+                 :division, :sr_type, :queue, :sla, :status, :sr_create_date,
+                  :due_date, :date_closed, :overdue, :title, :x, :y, :latitude,
+                   :longitude, :channel_type, :created_at, :updated_at, :field1,
+                    :field2, :client, :garbage_route, :heavy_trash_quad, :sr_owner,
+                     :sr_creator, :resolve_days, :street_num, :client_street, :city,
+                      :state, :zip, :phone_number, :email_address, :garbage_day1,
+                       :garbage_quad, :recycle_day1, :recycle_route, :resolution_time,
+                        :expression, :ne_overdue, :ne_not_overdue, :ne_sr_total,
+                         :nw_overdue, :nw_not_overdue, :nw_sr_total, :se_overdue,
+                          :se_not_overdue, :se_sr_total, :sw_overdue, :sw_not_overdue,
+                           :sw_sr_total, :quad_status, :tally)
+            headers = %w[id case_number sr_location county district neighborhood
+               tax_id trash_quad recycle_quad trash_day heavy_trash_day recycle_day
+                key_map management_district department division sr_type queue sla
+                 status sr_create_date due_date date_closed overdue title x y
+                  latitude longitude channel_type created_at updated_at field1
+                   field2 client garbage_route heavy_trash_quad sr_owner sr_creator
+                    resolve_days street_num client_street city state zip phone_number
+                     email_address garbage_day1 garbage_quad recycle_day1
+                      recycle_route resolution_time expression ne_overdue
+                       ne_not_overdue ne_sr_total nw_overdue nw_not_overdue
+                        nw_sr_total se_overdue se_not_overdue se_sr_total sw_overdue
+                         sw_not_overdue sw_sr_total quad_status tally]
+            CSV.open("../searchwarranty/new_services_list_2012.csv", "wb",
+               write_headers: true, headers: headers) do |csv|
+                 new_services_list_values.each do |row|
+                   csv << row
+                 end
+            end
+
+        sales2 = Daru::DataFrame.from_csv '../searchwarranty/new_services_list_2012.csv'
+        list2 = sales2.pivot_table(index:['sr_type'],
+              values:'tally',
+              vectors:['trash_quad'],  agg:  :sum)
+        File.open('../searchwarranty/app/views/srs/new_svc_list_2012.html.erb',
+              'w+'){|f| f << list2.to_html}
+        File.open('../searchwarranty/app/views/srs/new_svc_list_2012.html',
+              'w+'){|f| f << list2.to_html}
+      end
 
   def self.updated_nil_trash_quad_in_monthly_grade
     Spatial.delete_all

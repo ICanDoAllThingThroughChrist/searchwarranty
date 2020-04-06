@@ -35,6 +35,135 @@ namespace :seed do
       }
     Sr.pivot
   end
+  task import_sr_2016_2018: :environment do
+    require 'open-uri'
+    require 'csvreader'
+    require 'byebug'
+    require 'csv'
+
+    web1 = open('https://hfdapp.houstontx.gov/311/311-Public-Data-Extract-2018-clean.txt'){|f| f.read}
+    web2 = open('https://hfdapp.houstontx.gov/311/311-Public-Data-Extract-2017-clean.txt'){|f| f.read}
+    web3 = open('https://hfdapp.houstontx.gov/311/311-Public-Data-Extract-2016-clean.txt'){|f| f.read}
+    things1 = web1.split(/\n/)
+    things2 = web2.split(/\n/)
+    things3 = web3.split(/\n/)
+
+    columns = %i[case_number sr_location county district neighborhood tax_id
+       trash_quad recycle_quad trash_day heavy_trash_day recycle_day
+        key_map management_district department division sr_type queue
+         sla status sr_create_date due_date date_closed overdue title
+          x y latitude longitude channel_type created_at updated_at]
+
+    things1.each {|sr|
+              # byebug
+              b=sr.split('|')
+              c=Hash[columns.zip(b)]
+              # byebugra
+              Sr.create(c)
+              # byebug
+           }
+
+    things2.each {|sr|
+        # byebug
+        b=sr.split('|')
+        c=Hash[columns.zip(b)]
+        # byebug
+        Sr.create(c)
+        # byebug
+     }
+     things3.each {|sr|
+         # byebug
+         b=sr.split('|')
+         c=Hash[columns.zip(b)]
+         # byebugra
+         Sr.create(c)
+         # byebug
+      }
+    Sr.pivot
+  end
+  task import_sr_2013_2015: :environment do
+    require 'open-uri'
+    require 'csvreader'
+    require 'byebug'
+    require 'csv'
+    # Sr.delete_all
+    web1 = open('https://hfdapp.houstontx.gov/311/311-Public-Data-Extract-2013-clean.txt'){|f| f.read}
+    web2 = open('https://hfdapp.houstontx.gov/311/311-Public-Data-Extract-2014-clean.txt'){|f| f.read}
+    web3 = open('https://hfdapp.houstontx.gov/311/311-Public-Data-Extract-2015-clean.txt'){|f| f.read}
+    things1 = web1.split(/\n/)
+    things2 = web2.split(/\n/)
+    things3 = web3.split(/\n/)
+
+    columns = %i[case_number sr_location county district neighborhood tax_id
+       trash_quad recycle_quad trash_day heavy_trash_day recycle_day
+        key_map management_district department division sr_type queue
+         sla status sr_create_date due_date date_closed overdue title
+          x y latitude longitude channel_type created_at updated_at]
+
+    things1.each {|sr|
+              # byebug
+              b=sr.split('|')
+              c=Hash[columns.zip(b)]
+              # byebugra
+              Sr.create(c)
+              # byebug
+           }
+
+    things2.each {|sr|
+        # byebug
+        b=sr.split('|')
+        c=Hash[columns.zip(b)]
+        # byebug
+        Sr.create(c)
+        # byebug
+     }
+     things3.each {|sr|
+         # byebug
+         b=sr.split('|')
+         c=Hash[columns.zip(b)]
+         # byebugra
+         Sr.create(c)
+         # byebug
+      }
+    Sr.pivot
+  end
+  task import_sr_2011_2012: :environment do
+    require 'open-uri'
+    require 'csvreader'
+    require 'byebug'
+    require 'csv'
+    # Sr.delete_all
+    web1 = open('https://hfdapp.houstontx.gov/311/311-Public-Data-Extract-2011-clean.txt'){|f| f.read}
+    web2 = open('https://hfdapp.houstontx.gov/311/311-Public-Data-Extract-2012-clean.txt'){|f| f.read}
+    things1 = web1.split(/\n/)
+    things2 = web2.split(/\n/)
+    # things3 = web3.split(/\n/)
+
+    columns = %i[case_number sr_location county district neighborhood tax_id
+       trash_quad recycle_quad trash_day heavy_trash_day recycle_day
+        key_map management_district department division sr_type queue
+         sla status sr_create_date due_date date_closed overdue title
+          x y latitude longitude channel_type created_at updated_at]
+
+    things1.each {|sr|
+              # byebug
+              b=sr.split('|')
+              c=Hash[columns.zip(b)]
+              # byebugra
+              Sr.create(c)
+              # byebug
+           }
+
+    things2.each {|sr|
+        # byebug
+        b=sr.split('|')
+        c=Hash[columns.zip(b)]
+        # byebug
+        Sr.create(c)
+        # byebug
+     }
+    Sr.pivot
+  end
   task import_all_data_sr: :environment do
     #download all data with resolution time from City BI
     require 'csv'
