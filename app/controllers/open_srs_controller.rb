@@ -1,9 +1,21 @@
 class OpenSrsController < ApplicationController
+    def self.daily_update
+
+    end
+
     def map
       render 'map2'
     end
 
     def monthly_quality_grade
+      #update DB files 180 days from today;
+      #remember to upload from Lagan last 3 months and name it
+      #accordingly
+      #C:/Users/e128289/Downloads/SWM All Data with Resolution Time-March2020.csv
+      #C:/Users/e128289/Downloads/SWM All Data with Resolution Time-January2020.csv
+      #C:/Users/e128289/Downloads/SWM All Data with Resolution Time-February2020.csv
+      #presumes no spatial analysis is needed.
+      OpenSr.daily_update
       # start_date_mar_20 = Date.parse('2020-3-01')
       # due_date_mar_20 = Date.parse('2020-4-01')
       @deptSWwide_mar_2020_sla_cases_closed_but_updated_later =
