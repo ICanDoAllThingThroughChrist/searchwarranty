@@ -1,9 +1,14 @@
 class OpenSr < ApplicationRecord
-  #delete records over the last 180 calendar days.
-  def self.daily_update
+
+  def self.delete_180_days_from_now
     start_date = DateTime.now
     endDate = Date.parse('2019-01-01')
-    Sr.where("sr_create_date <=? AND sr_create_date >= ?", start_date, endDate).destroy_all
+    #delete records over the last 180 calendar days
+    Sr.where("sr_create_date <=? AND sr_create_date >= ?", start_date, endDate).delete_all
+  end
+
+  def self.daily_update
+    OpenSr.delete_180_days_from_now
     web2 = open('https://hfdapp.houstontx.gov/311/311-Public-Data-Extract-2019-clean.txt'){|f| f.read}
     web1 = open('https://hfdapp.houstontx.gov/311/311-Public-Data-Extract-monthly-clean.txt'){|f| f.read}
     things1 = web1.split(/\n/)
@@ -31,7 +36,16 @@ class OpenSr < ApplicationRecord
          Sr.create(c)
          # byebug
       }
-      columns = %i[CASE_NUMBER	SR_LOCATION	COUNTY	CLIENT	STREET_NUM	CLIENT_STREET	CITY	STATE	ZIP	PHONE_NUMBER	EMAIL_ADDRESS	DISTRICT	NEIGHBORHOOD	TAX_ID	GARBAGE_ROUTE	GARBAGE_DAY1	GARBAGE_QUAD	RECYCLE_DAY1	RECYCLE_ROUTE	RECYCLE_QUAD	HEAVY_TRASH_DAY	HEAVY_TRASH_QUAD	KEY_MAP	MANAGEMENT_DISTRICT	SR_OWNER	SR_CREATOR	DEPARTMENT	DIVISION	SR_TYPE	QUEUE	SLA	STATUS	SR_CREATE_DATE	DUE_DATE	DATE_CLOSED	RESOLUTION_TIME	OVERDUE]
+      columns = %i[CASE_NUMBER	SR_LOCATION	COUNTY	CLIENT
+        	STREET_NUM	CLIENT_STREET	CITY	STATE	ZIP	PHONE_NUMBER
+          	EMAIL_ADDRESS	DISTRICT	NEIGHBORHOOD	TAX_ID
+            	GARBAGE_ROUTE	GARBAGE_DAY1	GARBAGE_QUAD
+              	RECYCLE_DAY1	RECYCLE_ROUTE	RECYCLE_QUAD
+                	HEAVY_TRASH_DAY	HEAVY_TRASH_QUAD
+                  	KEY_MAP	MANAGEMENT_DISTRICT	SR_OWNER	SR_CREATOR
+                    	DEPARTMENT	DIVISION	SR_TYPE	QUEUE	SLA	STATUS
+                      	SR_CREATE_DATE	DUE_DATE	DATE_CLOSED
+                        	RESOLUTION_TIME	OVERDUE]
       CSV.foreach("C:/Users/e128289/Downloads/SWM All Data with Resolution Time-March2020.csv",
          { encoding: "iso-8859-1:utf-8",
             headers: true,
@@ -61,7 +75,8 @@ class OpenSr < ApplicationRecord
   def self.neMar2020_sla_cases_closed_but_updated_later
     start_date_mar_20 = Date.parse('2020-3-01')
     due_date_mar_20 = Date.parse('2020-3-31')
-    Sr.where("updated_at >= ? AND updated_at <= ?",start_date_mar_20, due_date_mar_20).
+    Sr.where("updated_at >= ? AND updated_at <= ?",
+      start_date_mar_20, due_date_mar_20).
     where(date_closed: start_date_mar_20..due_date_mar_20).
     where(sr_create_date: start_date_mar_20..due_date_mar_20).
     where(due_date: start_date_mar_20..due_date_mar_20).

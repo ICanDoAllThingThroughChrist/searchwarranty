@@ -1,6 +1,7 @@
 class OpenSrsController < ApplicationController
-    def self.daily_update
-
+    def daily_update
+      OpenSr.daily_update
+      render 'summary1'
     end
 
     def map
@@ -15,7 +16,7 @@ class OpenSrsController < ApplicationController
       #C:/Users/e128289/Downloads/SWM All Data with Resolution Time-January2020.csv
       #C:/Users/e128289/Downloads/SWM All Data with Resolution Time-February2020.csv
       #presumes no spatial analysis is needed.
-      OpenSr.daily_update
+      # OpenSr.daily_update
       # start_date_mar_20 = Date.parse('2020-3-01')
       # due_date_mar_20 = Date.parse('2020-4-01')
       @deptSWwide_mar_2020_sla_cases_closed_but_updated_later =

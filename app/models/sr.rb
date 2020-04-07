@@ -1,5 +1,14 @@
 class Sr < ApplicationRecord
 
+      def self.open_sla_over_30_days
+        sla_over_30_list = Sr.
+        where(department: 'SWM Solid Waste Management',
+          status: 'Open',
+          sr_type: ['Missed Garbage Pickup','Missed Heavy Trash Pickup',
+            'Missed Recycling Pickup','Missed Yard Waste Pickup'],
+            overdue: [0..374])
+      end
+
       def self.update_trash_quad_v2
         trash_quad_nil_list =
         Sr.where(department: 'SWM Solid Waste Management',
@@ -1368,21 +1377,28 @@ class Sr < ApplicationRecord
 def self.new_services_list_2020
   start_date = Date.parse('2019-07-01')
   end_date= Time.now
-  new_services_list = Sr.where(sr_type: ['New Move In Service',
-    'New Resident Container','Recycling Participation NEW']).
+  new_services_list = Sr.where(status: ['Closed','Open'],
+    department: 'SWM Solid Waste Management',
+    sr_type: ['New Move In Service',
+    'New Resident Container','Recycling Participation NEW',
+    'New Resident in Private Development','Add A Can',
+    'Non Residential Collection Service NEW']).
     where("sr_create_date >= ? AND sr_create_date <= ?",start_date, end_date)
+
     new_services_list.each{|sr|
       # binding.pry
     sr.tally = 1
     sr.save}
+
     new_services_list_values = Sr.
     where("sr_create_date >= ? AND sr_create_date <= ?",
       start_date, end_date).
-      where(status: ['Closed'],
+      where(status: ['Closed','Open'],
         department: 'SWM Solid Waste Management',
-        trash_quad: ['SW','SE','NW','NE'],
         sr_type: ['New Move In Service',
-          'New Resident Container', 'Recycling Participation NEW']).
+          'New Resident Container', 'Recycling Participation NEW',
+          'New Resident in Private Development','Add A Can',
+          'Non Residential Collection Service NEW']).
           pluck(:id, :case_number, :sr_location, :county, :district,
             :neighborhood, :tax_id, :trash_quad, :recycle_quad, :trash_day,
             :heavy_trash_day, :recycle_day, :key_map, :management_district,
@@ -1417,7 +1433,7 @@ def self.new_services_list_2020
          end
        end
        sales2 = Daru::DataFrame.from_csv '../searchwarranty/new_services_list_2020.csv'
-       list2 = sales2.pivot_table(index:['sr_type'],
+       list2 = sales2.pivot_table(index:['sr_type','status'],
          values:'tally',
          vectors:['trash_quad'],  agg:  :sum)
        File.open('../searchwarranty/app/views/srs/new_svc_list_2020.html.erb',
@@ -1429,11 +1445,14 @@ def self.new_services_list_2020
   def self.new_services_list_2019
     start_date = Date.parse('2018-07-01')
     end_date= Date.parse('2019-06-30')
-    new_services_list = Sr.where(status: ['Closed'],
+    new_services_list = Sr.where(status: ['Closed','Open'],
       department: 'SWM Solid Waste Management',
-      trash_quad: ['SW','SE','NW','NE'],sr_type: ['New Move In Service',
-      'New Resident Container','Recycling Participation NEW']).
+      sr_type: ['New Move In Service',
+      'New Resident Container','Recycling Participation NEW',
+      'New Resident in Private Development','Add A Can',
+      'Non Residential Collection Service NEW']).
       where("sr_create_date >= ? AND sr_create_date <= ?",start_date, end_date)
+
       new_services_list.each{|sr|
         # binding.pry
       sr.tally = 1
@@ -1441,11 +1460,12 @@ def self.new_services_list_2020
       new_services_list_values = Sr.
       where("sr_create_date >= ? AND sr_create_date <= ?",
         start_date, end_date).
-        where(status: ['Closed'],
+        where(status: ['Closed','Open'],
           department: 'SWM Solid Waste Management',
-          trash_quad: ['SW','SE','NW','NE'],
           sr_type: ['New Move In Service',
-            'New Resident Container', 'Recycling Participation NEW']).
+            'New Resident Container', 'Recycling Participation NEW',
+            'New Resident in Private Development','Add A Can',
+            'Non Residential Collection Service NEW']).
             pluck(:id, :case_number, :sr_location, :county, :district,
               :neighborhood, :tax_id, :trash_quad, :recycle_quad, :trash_day,
               :heavy_trash_day, :recycle_day, :key_map, :management_district,
@@ -1492,7 +1512,9 @@ def self.new_services_list_2020
     start_date = Date.parse('2017-07-01')
     end_date= Date.parse('2018-06-30')
     new_services_list = Sr.where(sr_type: ['New Move In Service',
-      'New Resident Container','Recycling Participation NEW']).
+      'New Resident Container','Recycling Participation NEW',
+      'New Resident in Private Development','Add A Can',
+      'Non Residential Collection Service NEW']).
       where("sr_create_date >= ? AND sr_create_date <= ?",start_date, end_date)
 
       new_services_list.each{|sr|
@@ -1505,9 +1527,10 @@ def self.new_services_list_2020
         start_date, end_date).
         where(status: ['Closed'],
           department: 'SWM Solid Waste Management',
-          trash_quad: ['SW','SE','NW','NE'],
           sr_type: ['New Move In Service',
-            'New Resident Container', 'Recycling Participation NEW']).
+            'New Resident Container', 'Recycling Participation NEW',
+            'New Resident in Private Development','Add A Can',
+            'Non Residential Collection Service NEW']).
             pluck(:id, :case_number, :sr_location, :county, :district,
               :neighborhood, :tax_id, :trash_quad, :recycle_quad, :trash_day,
               :heavy_trash_day, :recycle_day, :key_map, :management_district,
@@ -1554,7 +1577,9 @@ def self.new_services_list_2020
     start_date = Date.parse('2016-07-01')
     end_date= Date.parse('2017-06-30')
     new_services_list = Sr.where(sr_type: ['New Move In Service',
-      'New Resident Container','Recycling Participation NEW']).
+      'New Resident Container','Recycling Participation NEW',
+      'New Resident in Private Development','Add A Can',
+      'Non Residential Collection Service NEW']).
       where("sr_create_date >= ? AND sr_create_date <= ?",start_date, end_date)
 
       new_services_list.each{|sr|
@@ -1566,9 +1591,10 @@ def self.new_services_list_2020
         start_date, end_date).
         where(status: ['Closed'],
           department: 'SWM Solid Waste Management',
-          trash_quad: ['SW','SE','NW','NE'],
           sr_type: ['New Move In Service',
-            'New Resident Container', 'Recycling Participation NEW']).
+            'New Resident Container', 'Recycling Participation NEW',
+            'New Resident in Private Development','Add A Can',
+            'Non Residential Collection Service NEW']).
       pluck(:id, :case_number, :sr_location, :county, :district, :neighborhood,
          :tax_id, :trash_quad, :recycle_quad, :trash_day, :heavy_trash_day,
           :recycle_day, :key_map, :management_district, :department,
@@ -1615,7 +1641,9 @@ def self.new_services_list_2020
     start_date = Date.parse('2015-07-01')
     end_date= Date.parse('2016-06-30')
     new_services_list = Sr.where(sr_type: ['New Move In Service',
-      'New Resident Container','Recycling Participation NEW']).
+      'New Resident Container','Recycling Participation NEW',
+      'New Resident in Private Development','Add A Can',
+      'Non Residential Collection Service NEW']).
       where("sr_create_date >= ? AND sr_create_date <= ?",start_date, end_date)
 
       new_services_list.each{|sr|
@@ -1627,9 +1655,10 @@ def self.new_services_list_2020
         start_date, end_date).
         where(status: ['Closed'],
           department: 'SWM Solid Waste Management',
-          trash_quad: ['SW','SE','NW','NE'],
           sr_type: ['New Move In Service',
-            'New Resident Container', 'Recycling Participation NEW']).
+            'New Resident Container', 'Recycling Participation NEW',
+            'New Resident in Private Development','Add A Can',
+            'Non Residential Collection Service NEW']).
       pluck(:id, :case_number, :sr_location, :county, :district, :neighborhood,
          :tax_id, :trash_quad, :recycle_quad, :trash_day, :heavy_trash_day,
           :recycle_day, :key_map, :management_district, :department,
@@ -1677,7 +1706,9 @@ def self.new_services_list_2020
     start_date = Date.parse('2014-07-01')
     end_date= Date.parse('2015-06-30')
     new_services_list = Sr.where(sr_type: ['New Move In Service',
-      'New Resident Container','Recycling Participation NEW']).
+      'New Resident Container','Recycling Participation NEW',
+      'New Resident in Private Development','Add A Can',
+      'Non Residential Collection Service NEW']).
       where("sr_create_date >= ? AND sr_create_date <= ?",start_date, end_date)
 
       new_services_list.each{|sr|
@@ -1689,9 +1720,10 @@ def self.new_services_list_2020
         start_date, end_date).
         where(status: ['Closed'],
           department: 'SWM Solid Waste Management',
-          trash_quad: ['SW','SE','NW','NE'],
           sr_type: ['New Move In Service',
-            'New Resident Container', 'Recycling Participation NEW']).
+            'New Resident Container', 'Recycling Participation NEW',
+            'New Resident in Private Development','Add A Can',
+            'Non Residential Collection Service NEW']).
       pluck(:id, :case_number, :sr_location, :county, :district, :neighborhood,
          :tax_id, :trash_quad, :recycle_quad, :trash_day, :heavy_trash_day,
           :recycle_day, :key_map, :management_district, :department,
@@ -1738,7 +1770,9 @@ def self.new_services_list_2020
       start_date = Date.parse('2013-07-01')
       end_date= Date.parse('2014-06-30')
       new_services_list = Sr.where(sr_type: ['New Move In Service',
-        'New Resident Container','Recycling Participation NEW']).
+        'New Resident Container','Recycling Participation NEW',
+        'New Resident in Private Development','Add A Can',
+        'Non Residential Collection Service NEW']).
         where("sr_create_date >= ? AND sr_create_date <= ?",start_date, end_date)
 
         new_services_list.each{|sr|
@@ -1750,9 +1784,10 @@ def self.new_services_list_2020
           start_date, end_date).
           where(status: ['Closed'],
             department: 'SWM Solid Waste Management',
-            trash_quad: ['SW','SE','NW','NE'],
             sr_type: ['New Move In Service',
-              'New Resident Container', 'Recycling Participation NEW']).
+              'New Resident Container', 'Recycling Participation NEW',
+              'New Resident in Private Development','Add A Can',
+              'Non Residential Collection Service NEW']).
         pluck(:id, :case_number, :sr_location, :county, :district, :neighborhood,
            :tax_id, :trash_quad, :recycle_quad, :trash_day, :heavy_trash_day,
             :recycle_day, :key_map, :management_district, :department,
@@ -1800,7 +1835,9 @@ def self.new_services_list_2020
       start_date = Date.parse('2012-07-01')
       end_date= Date.parse('2013-06-30')
       new_services_list = Sr.where(sr_type: ['New Move In Service',
-        'New Resident Container','Recycling Participation NEW']).
+        'New Resident Container','Recycling Participation NEW',
+        'New Resident in Private Development','Add A Can',
+        'Non Residential Collection Service NEW']).
         where("sr_create_date >= ? AND sr_create_date <= ?",start_date, end_date)
 
         new_services_list.each{|sr|
@@ -1812,9 +1849,10 @@ def self.new_services_list_2020
           start_date, end_date).
           where(status: ['Closed'],
             department: 'SWM Solid Waste Management',
-            trash_quad: ['SW','SE','NW','NE'],
             sr_type: ['New Move In Service',
-              'New Resident Container', 'Recycling Participation NEW']).
+              'New Resident Container', 'Recycling Participation NEW',
+              'New Resident in Private Development','Add A Can',
+              'Non Residential Collection Service NEW']).
         pluck(:id, :case_number, :sr_location, :county, :district, :neighborhood,
            :tax_id, :trash_quad, :recycle_quad, :trash_day, :heavy_trash_day,
             :recycle_day, :key_map, :management_district, :department,
@@ -1862,7 +1900,9 @@ def self.new_services_list_2020
         start_date = Date.parse('2011-07-01')
         end_date= Date.parse('2012-06-30')
         new_services_list = Sr.where(sr_type: ['New Move In Service',
-          'New Resident Container','Recycling Participation NEW']).
+          'New Resident Container','Recycling Participation NEW',
+          'New Resident in Private Development','Add A Can',
+          'Non Residential Collection Service NEW']).
           where("sr_create_date >= ? AND sr_create_date <= ?",start_date, end_date)
 
           new_services_list.each{|sr|
@@ -1874,9 +1914,10 @@ def self.new_services_list_2020
             start_date, end_date).
             where(status: ['Closed'],
               department: 'SWM Solid Waste Management',
-              trash_quad: ['SW','SE','NW','NE'],
               sr_type: ['New Move In Service',
-                'New Resident Container', 'Recycling Participation NEW']).
+                'New Resident Container', 'Recycling Participation NEW',
+                'New Resident in Private Development','Add A Can',
+                'Non Residential Collection Service NEW']).
           pluck(:id, :case_number, :sr_location, :county, :district, :neighborhood,
              :tax_id, :trash_quad, :recycle_quad, :trash_day, :heavy_trash_day,
               :recycle_day, :key_map, :management_district, :department,
@@ -1924,7 +1965,9 @@ def self.new_services_list_2020
           start_date = Date.parse('2010-07-01')
           end_date= Date.parse('2011-06-30')
           new_services_list = Sr.where(sr_type: ['New Move In Service',
-            'New Resident Container','Recycling Participation NEW']).
+            'New Resident Container','Recycling Participation NEW',
+            'New Resident in Private Development','Add A Can',
+            'Non Residential Collection Service NEW']).
             where("sr_create_date >= ? AND sr_create_date <= ?",start_date, end_date)
 
             new_services_list.each{|sr|
@@ -1936,9 +1979,10 @@ def self.new_services_list_2020
               start_date, end_date).
               where(status: ['Closed'],
                 department: 'SWM Solid Waste Management',
-                trash_quad: ['SW','SE','NW','NE'],
                 sr_type: ['New Move In Service',
-                  'New Resident Container', 'Recycling Participation NEW']).
+                  'New Resident Container', 'Recycling Participation NEW',
+                  'New Resident in Private Development','Add A Can',
+                  'Non Residential Collection Service NEW']).
             pluck(:id, :case_number, :sr_location, :county, :district, :neighborhood,
                :tax_id, :trash_quad, :recycle_quad, :trash_day, :heavy_trash_day,
                 :recycle_day, :key_map, :management_district, :department,
