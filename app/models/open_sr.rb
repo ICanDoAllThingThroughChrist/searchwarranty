@@ -6,36 +6,46 @@ class OpenSr < ApplicationRecord
     #delete records over the last 180 calendar days
     Sr.where("sr_create_date <=? AND sr_create_date >= ?", start_date, endDate).delete_all
   end
-  # web2 = open('https://hfdapp.houstontx.gov/311/311-Public-Data-Extract-2019-clean.txt'){|f|
-  #    f.read
-  #  }
-  #  things2 = web2.split(/\n/)
-  # OpenSr.sr_create(things2)
   def self.daily_update_from_url
+    puts "expect 16 minutes upload time to DB"
     OpenSr.delete_180_days_from_now
+      web2 = open('https://hfdapp.houstontx.gov/311/311-Public-Data-Extract-2019-clean.txt'){|f|
+         f.read
+       }
+       things2 = web2.split(/\n/)
+     things2.in_groups_of(300000){|group|
+       OpenSr.sr_create(group)
+     }
+     array1 = []
+     array1.push things2[300001..400000]
+     array1.each{|group|
+       while group != nil
+        OpenSr.sr_create(group)
+      end
+     }
     web1 = open('https://hfdapp.houstontx.gov/311/311-Public-Data-Extract-monthly-clean.txt'){|f|
        f.read
      }
     things1 = web1.split(/\n/)
     OpenSr.sr_create(things1)
-    web2 = open('https://hfdapp.houstontx.gov/311/311-Public-Data-Extract-2019-clean.txt'){|f|
-       f.read
-     }
-     things2 = web2.split(/\n/)
-    OpenSr.sr_create(things2)
+    puts "thank you, daily upload process is completed"
   end
   def self.sr_create(array)
-        binding.pry
+        # binding.pry
         array2_count = array.count
         counter = 1
         master_array2=[]
         while counter < array2_count
           array.each_with_index{|item, index|
-             array1 = item.split("|")
-             master_array2.push array1
-              # binding.pry
-            counter = index +1
-           # binding.pry
+            if item != nil
+               array1 = item.split("|")
+               master_array2.push array1
+                # binding.pry
+              counter = index +1
+            else
+              puts "#{index}"
+            end
+             # binding.pry
           }
           # binding.pry
           master_array_to_import = master_array2.map {|case_number, sr_location,
@@ -61,7 +71,7 @@ class OpenSr < ApplicationRecord
           # binding.pry
           }
           # binding.pry
-          puts "#{master_array_to_import}"
+          # puts "#{master_array_to_import}"
           # binding.pry
           Sr.import master_array_to_import
           # binding.pry
