@@ -1,4 +1,5 @@
 class OpenSr < ApplicationRecord
+  
 
   def self.delete_180_days_from_now
     start_date = DateTime.now

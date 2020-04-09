@@ -1,4 +1,41 @@
 class Sr < ApplicationRecord
+      def self.sWM_call_volume_2017_2020
+        start_date = Date.parse('01-01-2017')
+        end_date = DateTime.now
+        Sr.where("sr_create_date >= ? AND sr_create_date <= ?", start_date, end_date).where(department: 'SWM Solid Waste Management').count
+      end
+      def self.trash_quad_nil_resolution_from_garbage_route
+        array1 = Sr.where(department: 'SWM Solid Waste Management',
+          status: 'Open', trash_quad: [nil, ""])
+        array1.each{|sr|
+            # counter = 0
+          # while counter < array1.count
+          #     binding.pry
+            if /[n..N]E/.match?(sr['garbage_route']) || sr['sr_owner'] == "Jacqueline Howard"
+              sr['trash_quad'] = "NE"
+              # bindining.pry
+              sr.save
+            elsif /[n..N]W/.match?(sr['garbage_route'])
+                sr['trash_quad'] = "NW"
+                # bindining.pry
+                sr.save
+            elsif /[s..S]W/.match?(sr['garbage_route']) || sr['sr_owner'] == "Racheal Manning"
+                sr['trash_quad'] = "SW"
+                # bindining.pry
+                sr.save
+            elsif /[s..S]E/.match?(sr['garbage_route']) || sr['sr_owner'] == "Yvonne Guillory"
+                sr['trash_quad'] = "SE"
+                # bindining.pry
+                sr.save
+            elsif sr['garbage_route'] == nil
+              puts "#{sr['garbage_route']}"
+                # bindining.pry
+                # sr.save
+            else
+              puts "#{sr['garbage_route']}"
+            end
+        }
+      end
 
       def self.open_sla_over_30_days
         sla_over_30_list = Sr.
