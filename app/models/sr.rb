@@ -1713,8 +1713,8 @@ def self.addACanCANCELLATION_cans_related_list_FY2020
     count
 end
 def self.newMoveInService_cans_related_list_FY2017
-  start_date = Date.parse('2017-07-01')
-  end_date= Date.parse('2018-06-30')
+  start_date = Date.parse('2016-07-01')
+  end_date= Date.parse('2017-06-30')
   new_services_list = Sr.where(status: ['Closed','Open'],
     department: 'SWM Solid Waste Management',
     sr_type: ['New Move In Service']).
