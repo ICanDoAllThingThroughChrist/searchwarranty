@@ -3,7 +3,7 @@ class OpenSrsController < ApplicationController
       @SWM_Escalation_cans_related_list_FY2020=
         Sr.sWM_Escalation_cans_related_list_FY2020
       @SWM_Escalation_cans_related_list_FY2019=
-        Sr.sWM_Escalation_cans_related_list_FY2019      
+        Sr.sWM_Escalation_cans_related_list_FY2019
       @SWM_Escalation_cans_related_list_FY2018=
         Sr.sWM_Escalation_cans_related_list_FY2018
       @SWM_Escalation_cans_related_list_FY2017=
@@ -1434,11 +1434,11 @@ class OpenSrsController < ApplicationController
       @missedRecNewSWNotOverdue.to_f/@missedRecNewSWTotal.to_f
     @missedRecNewSWGrade= OpenSr.qualityGrade(@missedRecNewOverdueDigits)
 
-    @missedRecCarRepSWTotal = Sr.where(trash_quad: 'SW',
+    @missedRecCarRepSWTotal = Sr.where(recycle_quad: 'SW',
       sr_type:'Recycling Cart Repair or Replace',
       expression:['Overdue','Not Overdue']).
       count
-    @missedRecCarRepSWOverdue = Sr.where(trash_quad: 'SW',
+    @missedRecCarRepSWOverdue = Sr.where(recycle_quad: 'SW',
       sr_type:'Recycling Cart Repair or Replace',
       expression:['Overdue']).count
     @missedRecCarRepSWPercentOverdue =
@@ -1447,7 +1447,7 @@ class OpenSrsController < ApplicationController
     @missedRecCarRepSWPercentNotOverdue =
       "#{((1-(@missedRecCarRepSWOverdue.to_f.round(2)/
       @missedRecCarRepSWTotal.to_f.round(2)))*100).round(2)}%"
-    @missedRecCarRepSWNotOverdue = Sr.where(trash_quad: 'SW',
+    @missedRecCarRepSWNotOverdue = Sr.where(recycle_quad: 'SW',
       sr_type:'Recycling Cart Repair or Replace',
       expression:['Not Overdue']).count
     @missedRecCarRepSWOverdueDigits =
@@ -1633,25 +1633,25 @@ class OpenSrsController < ApplicationController
       OpenSr.qualityGrade(@missedAddACanCancelSWOverdueDigits)
 
     @missedMisRecPicUpSWTotal =
-      Sr.where(trash_quad: 'SW',
+      Sr.where(recycle_quad: 'SW',
         sr_type:'Missed Recycling Pickup',
         expression:['Overdue','Not Overdue']).count
     @missedMisRecPicUpSWOverdue =
-      Sr.where(trash_quad: 'SW',
+      Sr.where(recycle_quad: 'SW',
         sr_type:'Missed Recycling Pickup',
         expression:['Overdue']).count
     @missedMisRecPicUpSWPercentOverdue =
       "#{((@missedMisRecPicUpSWOverdue.to_f.round(2)/
       @missedMisRecPicUpSWTotal.to_f.round(2))*100).round(2)}%"
     @missedMisRecPicUpSWNotOverdue =
-      Sr.where(trash_quad: 'SW',
+      Sr.where(recycle_quad: 'SW',
         sr_type:'Missed Recycling Pickup',
         expression:['Not Overdue']).count
     @missedMisRecPicUpSWPercentNotOverdue =
     "#{((@missedMisRecPicUpSWNotOverdue.to_f.round(2)/
     @missedMisRecPicUpSWTotal.to_f.round(2))*100).round(2)}%"
     @missedMisRecPicUpSWNotOverdue = Sr.
-      where(trash_quad: 'SW',
+      where(recycle_quad: 'SW',
         sr_type:'Missed Recycling Pickup',
          expression:['Not Overdue']).count
 
@@ -1755,11 +1755,11 @@ class OpenSrsController < ApplicationController
     @missedRecNewSEOverdueDigits = @missedRecNewSENotOverdue.to_f/@missedRecNewSETotal.to_f
     @missedRecNewSEGrade= OpenSr.qualityGrade(@missedRecNewSEOverdueDigits)
 
-    @missedRecCarRepSETotal = Sr.where(trash_quad: 'SE',sr_type:'Recycling Cart Repair or Replace', expression:['Overdue','Not Overdue']).count
-    @missedRecCarRepSEOverdue = Sr.where(trash_quad: 'SE',sr_type:'Recycling Cart Repair or Replace', expression:['Overdue']).count
+    @missedRecCarRepSETotal = Sr.where(recycle_quad: 'SE',sr_type:'Recycling Cart Repair or Replace', expression:['Overdue','Not Overdue']).count
+    @missedRecCarRepSEOverdue = Sr.where(recycle_quad: 'SE',sr_type:'Recycling Cart Repair or Replace', expression:['Overdue']).count
     @missedRecCarRepSEPercentOverdue = "#{((@missedRecCarRepSEOverdue.to_f.round(2)/@missedRecCarRepSETotal.to_f.round(2))*100).round(2)}%"
     @missedRecCarRepSEPercentNotOverdue = "#{((1-(@missedRecCarRepSEOverdue.to_f.round(2)/@missedRecCarRepSETotal.to_f.round(2)))*100).round(2)}%"
-    @missedRecCarRepSENotOverdue = Sr.where(trash_quad: 'SE',sr_type:'Recycling Cart Repair or Replace', expression:['Not Overdue']).count
+    @missedRecCarRepSENotOverdue = Sr.where(recycle_quad: 'SE',sr_type:'Recycling Cart Repair or Replace', expression:['Not Overdue']).count
     @missedRecCarRepSEOverdueDigits = @missedRecCarRepSENotOverdue.to_f/@missedRecCarRepSETotal.to_f
     @missedRecCarRepSEGrade= OpenSr.qualityGrade(@missedRecCarRepSEOverdueDigits)
 
@@ -1799,12 +1799,12 @@ class OpenSrsController < ApplicationController
     @missedAddACanSEOverdueDigits = @missedAddACanSENotOverdue.to_f/@missedAddACanSETotal.to_f
     @missedAddACanSEGrade= OpenSr.qualityGrade(@missedAddACanSEOverdueDigits)
 
-    @missedMisRecPicUpSETotal = Sr.where(trash_quad: 'SE',sr_type:'Missed Recycling Pickup', expression:['Overdue','Not Overdue']).count
-    @missedMisRecPicUpSEOverdue = Sr.where(trash_quad: 'SE',sr_type:'Missed Recycling Pickup', expression:['Overdue']).count
+    @missedMisRecPicUpSETotal = Sr.where(recycle_quad: 'SE',sr_type:'Missed Recycling Pickup', expression:['Overdue','Not Overdue']).count
+    @missedMisRecPicUpSEOverdue = Sr.where(recycle_quad: 'SE',sr_type:'Missed Recycling Pickup', expression:['Overdue']).count
     @missedMisRecPicUpSEPercentOverdue = "#{((@missedMisRecPicUpSEOverdue.to_f.round(2)/@missedMisRecPicUpSETotal.to_f.round(2))*100).round(2)}%"
-    @missedMisRecPicUpSENotOverdue = Sr.where(trash_quad: 'SE',sr_type:'Missed Recycling Pickup', expression:['Not Overdue']).count
+    @missedMisRecPicUpSENotOverdue = Sr.where(recycle_quad: 'SE',sr_type:'Missed Recycling Pickup', expression:['Not Overdue']).count
     @missedMisRecPicUpSEPercentNotOverdue = "#{((@missedMisRecPicUpSENotOverdue.to_f.round(2)/@missedMisRecPicUpSETotal.to_f.round(2))*100).round(2)}%"
-    @missedMisRecPicUpSENotOverdue = Sr.where(trash_quad: 'SE',sr_type:'Missed Recycling Pickup', expression:['Not Overdue']).count
+    @missedMisRecPicUpSENotOverdue = Sr.where(recycle_quad: 'SE',sr_type:'Missed Recycling Pickup', expression:['Not Overdue']).count
     @missedMisRecPicUpSEOverdueDigits = @missedMisRecPicUpSENotOverdue.to_f/@missedMisRecPicUpSETotal.to_f
     @missedMisRecPicUpSEGrade= OpenSr.qualityGrade(@missedMisRecPicUpSEOverdueDigits)
 
@@ -1903,8 +1903,8 @@ class OpenSrsController < ApplicationController
     @missedRecNewNEOverdueDigits = @missedRecNewNENotOverdue.to_f/@missedRecNewNETotal.to_f
     @missedRecNewNEGrade= OpenSr.qualityGrade(@missedRecNewNEOverdueDigits)
 
-    @missedRecCarRepNETotal = Sr.where(trash_quad: 'NE',sr_type:'Recycling Cart Repair or Replace', expression:['Overdue','Not Overdue']).count
-    @missedRecCarRepNEOverdue = Sr.where(trash_quad: 'NE',sr_type:'Recycling Cart Repair or Replace', expression:['Overdue']).count
+    @missedRecCarRepNETotal = Sr.where(recycle_quad: 'NE',sr_type:'Recycling Cart Repair or Replace', expression:['Overdue','Not Overdue']).count
+    @missedRecCarRepNEOverdue = Sr.where(recycle_quad: 'NE',sr_type:'Recycling Cart Repair or Replace', expression:['Overdue']).count
     @missedRecCarRepNEPercentOverdue = "#{((@missedRecCarRepNEOverdue.to_f.round(2)/@missedRecCarRepNETotal.to_f.round(2))*100).round(2)}%"
     @missedRecCarRepNEPercentNotOverdue = "#{((1-(@missedRecCarRepNEOverdue.to_f.round(2)/@missedRecCarRepNETotal.to_f.round(2)))*100).round(2)}%"
     @missedRecCarRepNENotOverdue = Sr.where(trash_quad: 'NE',sr_type:'Recycling Cart Repair or Replace', expression:['Not Overdue']).count
@@ -1945,12 +1945,12 @@ class OpenSrsController < ApplicationController
     @missedAddACanNEOverdueDigits = @missedAddACanNENotOverdue.to_f/@missedAddACanNETotal.to_f
     @missedAddACanNEGrade= OpenSr.qualityGrade(@missedAddACanNEOverdueDigits)
 
-    @missedMisRecPicUpNETotal = Sr.where(trash_quad: 'NE',sr_type:'Missed Recycling Pickup', expression:['Overdue','Not Overdue']).count
-    @missedMisRecPicUpNEOverdue = Sr.where(trash_quad: 'NE',sr_type:'Missed Recycling Pickup', expression:['Overdue']).count
+    @missedMisRecPicUpNETotal = Sr.where(recycle_quad: 'NE',sr_type:'Missed Recycling Pickup', expression:['Overdue','Not Overdue']).count
+    @missedMisRecPicUpNEOverdue = Sr.where(recycle_quad: 'NE',sr_type:'Missed Recycling Pickup', expression:['Overdue']).count
     @missedMisRecPicUpNEPercentOverdue = "#{((@missedMisRecPicUpNEOverdue.to_f.round(2)/@missedMisRecPicUpNETotal.to_f.round(2))*100).round(2)}%"
-    @missedMisRecPicUpNENotOverdue = Sr.where(trash_quad: 'NE',sr_type:'Missed Recycling Pickup', expression:['Not Overdue']).count
+    @missedMisRecPicUpNENotOverdue = Sr.where(recycle_quad: 'NE',sr_type:'Missed Recycling Pickup', expression:['Not Overdue']).count
     @missedMisRecPicUpNEPercentNotOverdue = "#{((@missedMisRecPicUpNENotOverdue.to_f.round(2)/@missedMisRecPicUpNETotal.to_f.round(2))*100).round(2)}%"
-    @missedMisRecPicUpNENotOverdue = Sr.where(trash_quad: 'NE',sr_type:'Missed Recycling Pickup', expression:['Not Overdue']).count
+    @missedMisRecPicUpNENotOverdue = Sr.where(recycle_quad: 'NE',sr_type:'Missed Recycling Pickup', expression:['Not Overdue']).count
     @missedMisRecPicUpNEOverdueDigits = @missedMisRecPicUpNENotOverdue.to_f/@missedMisRecPicUpNETotal.to_f
     @missedMisRecPicUpNEGrade= OpenSr.qualityGrade(@missedMisRecPicUpNEOverdueDigits)
 
@@ -2040,11 +2040,11 @@ class OpenSrsController < ApplicationController
         @missedRecNewNWOverdueDigits = @missedRecNewNWNotOverdue.to_f/@missedRecNewNWTotal.to_f
         @missedRecNewNWGrade= OpenSr.qualityGrade(@missedRecNewNWOverdueDigits)
 
-        @missedRecCarRepNWTotal = Sr.where(trash_quad: 'NW',sr_type:'Recycling Cart Repair or Replace', expression:['Overdue','Not Overdue']).count
-        @missedRecCarRepNWOverdue = Sr.where(trash_quad: 'NW',sr_type:'Recycling Cart Repair or Replace', expression:['Overdue']).count
+        @missedRecCarRepNWTotal = Sr.where(recycle_quad: 'NW',sr_type:'Recycling Cart Repair or Replace', expression:['Overdue','Not Overdue']).count
+        @missedRecCarRepNWOverdue = Sr.where(recycle_quad: 'NW',sr_type:'Recycling Cart Repair or Replace', expression:['Overdue']).count
         @missedRecCarRepNWPercentOverdue = "#{((@missedRecCarRepNWOverdue.to_f.round(2)/@missedRecCarRepNWTotal.to_f.round(2))*100).round(2)}%"
         @missedRecCarRepNWPercentNotOverdue = "#{((1-(@missedRecCarRepNWOverdue.to_f.round(2)/@missedRecCarRepNWTotal.to_f.round(2)))*100).round(2)}%"
-        @missedRecCarRepNWNotOverdue = Sr.where(trash_quad: 'NW',sr_type:'Recycling Cart Repair or Replace', expression:['Not Overdue']).count
+        @missedRecCarRepNWNotOverdue = Sr.where(recycle_quad: 'NW',sr_type:'Recycling Cart Repair or Replace', expression:['Not Overdue']).count
         @missedRecCarRepNWOverdueDigits = @missedRecCarRepNWNotOverdue.to_f/@missedRecCarRepNWTotal.to_f
         @missedRecCarRepNWGrade= OpenSr.qualityGrade(@missedRecCarRepNWOverdueDigits)
 
@@ -2082,12 +2082,12 @@ class OpenSrsController < ApplicationController
         @missedAddACanNWOverdueDigits = @missedAddACanNWNotOverdue.to_f/@missedAddACanNWTotal.to_f
         @missedAddACanNWGrade= OpenSr.qualityGrade(@missedAddACanNWOverdueDigits)
 
-        @missedMisRecPicUpNWTotal = Sr.where(trash_quad: 'NW',sr_type:'Missed Recycling Pickup', expression:['Overdue','Not Overdue']).count
-        @missedMisRecPicUpNWOverdue = Sr.where(trash_quad: 'NW',sr_type:'Missed Recycling Pickup', expression:['Overdue']).count
+        @missedMisRecPicUpNWTotal = Sr.where(recycle_quad: 'NW',sr_type:'Missed Recycling Pickup', expression:['Overdue','Not Overdue']).count
+        @missedMisRecPicUpNWOverdue = Sr.where(recycle_quad: 'NW',sr_type:'Missed Recycling Pickup', expression:['Overdue']).count
         @missedMisRecPicUpNWPercentOverdue = "#{((@missedMisRecPicUpNWOverdue.to_f.round(2)/@missedMisRecPicUpNWTotal.to_f.round(2))*100).round(2)}%"
-        @missedMisRecPicUpNWNotOverdue = Sr.where(trash_quad: 'NW',sr_type:'Missed Recycling Pickup', expression:['Not Overdue']).count
+        @missedMisRecPicUpNWNotOverdue = Sr.where(recycle_quad: 'NW',sr_type:'Missed Recycling Pickup', expression:['Not Overdue']).count
         @missedMisRecPicUpNWPercentNotOverdue = "#{((@missedMisRecPicUpNWNotOverdue.to_f.round(2)/@missedMisRecPicUpNWTotal.to_f.round(2))*100).round(2)}%"
-        @missedMisRecPicUpNWNotOverdue = Sr.where(trash_quad: 'NW',sr_type:'Missed Recycling Pickup', expression:['Not Overdue']).count
+        @missedMisRecPicUpNWNotOverdue = Sr.where(recycle_quad: 'NW',sr_type:'Missed Recycling Pickup', expression:['Not Overdue']).count
         @missedMisRecPicUpNWOverdueDigits = @missedMisRecPicUpNWNotOverdue.to_f/@missedMisRecPicUpNWTotal.to_f
         @missedMisRecPicUpNWGrade= OpenSr.qualityGrade(@missedMisRecPicUpNWOverdueDigits)
 
