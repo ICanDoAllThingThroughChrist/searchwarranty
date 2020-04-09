@@ -139,8 +139,11 @@ class Sr < ApplicationRecord
       #file to spatial join quad assignment
       binding.pry
       Sr.update_trash_quad
+      Sr.trash_quad_nil_resolution_from_garbage_route
       Sr.expression_quad_status_assignment
       Sr.no_quad_list
+      binding.pry
+      #perform Spatial Join on "NoQuadList.csv"
       Sr.update_trash_quad
       Sr.html_pivot
     end

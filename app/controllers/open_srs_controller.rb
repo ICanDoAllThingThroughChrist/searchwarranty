@@ -1323,12 +1323,12 @@ class OpenSrsController < ApplicationController
     @SouthQualityGrade = OpenSr.southQualityGrade
     #SW QUAD
 
-    @missedHvySWTotal = Sr.where(trash_quad: 'SW',
+    @missedHvySWTotal = Sr.where(heavy_trash_quad: 'SW',
       sr_type:'Missed Heavy Trash Pickup',
       expression:['Overdue','Not Overdue']).
       count
 
-    @missedHvySWOverdue = Sr.where(trash_quad: 'SW',
+    @missedHvySWOverdue = Sr.where(heavy_trash_quad: 'SW',
       sr_type:'Missed Heavy Trash Pickup',
       expression:['Overdue']).count
 
@@ -1341,7 +1341,7 @@ class OpenSrsController < ApplicationController
     @missedHvySWTotal.to_f.round(2)))*100).round(2)}%"
 
     @missedHvySWNotOverdue = Sr.
-    where(trash_quad: 'SW',
+    where(heavy_trash_quad: 'SW',
       sr_type:'Missed Heavy Trash Pickup',
       expression:['Not Overdue']).
       count
@@ -1721,11 +1721,11 @@ class OpenSrsController < ApplicationController
     @SWQuadNotOverdueDigits = @SWQuadSrNotOverdue.to_f/@SWQuadSrTotal.to_f
     @SWQuadQualityGrade = OpenSr.qualityGrade(@SWQuadNotOverdueDigits)
 #SE QUAD
-    @missedHvySETotal = Sr.where(trash_quad: 'SE',sr_type:'Missed Heavy Trash Pickup', expression:['Overdue','Not Overdue']).count
-    @missedHvySEOverdue = Sr.where(trash_quad: 'SE',sr_type:'Missed Heavy Trash Pickup', expression:['Overdue']).count
+    @missedHvySETotal = Sr.where(heavy_trash_quad: 'SE',sr_type:'Missed Heavy Trash Pickup', expression:['Overdue','Not Overdue']).count
+    @missedHvySEOverdue = Sr.where(heavy_trash_quad: 'SE',sr_type:'Missed Heavy Trash Pickup', expression:['Overdue']).count
     @missedHvySEPercentOverdue = "#{((@missedHvySEOverdue.to_f.round(2)/@missedHvySETotal.to_f.round(2))*100).round(2)}%"
     @missedHvySEPercentNotOverdue = "#{((1-(@missedHvySEOverdue.to_f.round(2)/@missedHvySETotal.to_f.round(2)))*100).round(2)}%"
-    @missedHvySENotOverdue = Sr.where(trash_quad: 'SE',sr_type:'Missed Heavy Trash Pickup', expression:['Not Overdue']).count
+    @missedHvySENotOverdue = Sr.where(heavy_trash_quad: 'SE',sr_type:'Missed Heavy Trash Pickup', expression:['Not Overdue']).count
     @missedHvySEOverdueDigits = @missedHvySENotOverdue.to_f/@missedHvySETotal.to_f
     @missedHvySEGrade= OpenSr.qualityGrade(@missedHvySEOverdueDigits)
 
@@ -1871,13 +1871,13 @@ class OpenSrsController < ApplicationController
     @SEQuadNotOverdueDigits = @SEQuadSrNotOverdue.to_f/@SEQuadSrTotal.to_f
     @SEQuadQualityGrade = OpenSr.qualityGrade(@SEQuadNotOverdueDigits)
 #NORTH EAST
-    @missedHvyNETotal = Sr.where(trash_quad: 'NE',sr_type:'Missed Heavy Trash Pickup', expression:['Overdue','Not Overdue']).count
-    @missedHvyNEOverdue = Sr.where(trash_quad: 'NE',sr_type:'Missed Heavy Trash Pickup', expression:['Overdue']).count
+    @missedHvyNETotal = Sr.where(heavy_trash_quad: 'NE',sr_type:'Missed Heavy Trash Pickup', expression:['Overdue','Not Overdue']).count
+    @missedHvyNEOverdue = Sr.where(heavy_trash_quad: 'NE',sr_type:'Missed Heavy Trash Pickup', expression:['Overdue']).count
     @missedHvyNEPercentOverdue = "#{((@missedHvyNEOverdue.to_f.round(2)/@missedHvyNETotal.to_f.round(2))*100).round(2)}%"
     @missedHvyNEPercentNotOverdue = "#{((1-(@missedHvyNEOverdue.to_f.round(2)/@missedHvyNETotal.to_f.round(2)))*100).round(2)}%"
-    @missedHvyNENotOverdue = Sr.where(trash_quad: 'NE',sr_type:'Missed Heavy Trash Pickup', expression:['Not Overdue']).count
+    @missedHvyNENotOverdue = Sr.where(heavy_trash_quad: 'NE',sr_type:'Missed Heavy Trash Pickup', expression:['Not Overdue']).count
     @missedHvyNEOverdueDigits = @missedHvyNENotOverdue.to_f/@missedHvyNETotal.to_f
-    @missedHvyNEGrade= OpenSr.qualityGrade(@missedHvyOverdueDigits)
+    @missedHvyNEGrade= OpenSr.qualityGrade(@missedHvyNEOverdueDigits)
 
     @missedConProbNETotal = Sr.where(trash_quad: 'NE',sr_type:'Container Problem', expression:['Overdue','Not Overdue']).count
     @missedConProbNEOverdue = Sr.where(trash_quad: 'NE',sr_type:'Container Problem', expression:['Overdue']).count
@@ -2008,11 +2008,11 @@ class OpenSrsController < ApplicationController
     @NEQuadQualityGrade = OpenSr.qualityGrade(@NEQuadNotOverdueDigits)
 
 #NORTH WEST
-        @missedHvyNWTotal = Sr.where(trash_quad: 'NW',sr_type:'Missed Heavy Trash Pickup', expression:['Overdue','Not Overdue']).count
-        @missedHvyNWOverdue = Sr.where(trash_quad: 'NW',sr_type:'Missed Heavy Trash Pickup', expression:['Overdue']).count
+        @missedHvyNWTotal = Sr.where(heavy_trash_quad: 'NW',sr_type:'Missed Heavy Trash Pickup', expression:['Overdue','Not Overdue']).count
+        @missedHvyNWOverdue = Sr.where(heavy_trash_quad: 'NW',sr_type:'Missed Heavy Trash Pickup', expression:['Overdue']).count
         @missedHvyNWPercentOverdue = "#{((@missedHvyNWOverdue.to_f.round(2)/@missedHvyNWTotal.to_f.round(2))*100).round(2)}%"
         @missedHvyNWPercentNotOverdue = "#{((1-(@missedHvyNWOverdue.to_f.round(2)/@missedHvyNWTotal.to_f.round(2)))*100).round(2)}%"
-        @missedHvyNWNotOverdue = Sr.where(trash_quad: 'NW',sr_type:'Missed Heavy Trash Pickup', expression:['Not Overdue']).count
+        @missedHvyNWNotOverdue = Sr.where(heavy_trash_quad: 'NW',sr_type:'Missed Heavy Trash Pickup', expression:['Not Overdue']).count
         @missedHvyNWOverdueDigits = @missedHvyNWNotOverdue.to_f/@missedHvyNWTotal.to_f
         @missedHvyNWGrade= OpenSr.qualityGrade(@missedHvyOverdueDigits)
 
