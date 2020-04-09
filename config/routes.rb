@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'open_srs/cans_related_requests'
   get 'open_srs/daily_update'
   get 'srs/misc_summary'
   get 'open_srs/monthly_quality_grade'

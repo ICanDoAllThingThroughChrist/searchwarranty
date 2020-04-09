@@ -1,4 +1,118 @@
 class OpenSrsController < ApplicationController
+    def cans_related_requests
+      @SWM_Escalation_cans_related_list_FY2020=
+        Sr.sWM_Escalation_cans_related_list_FY2020
+      @SWM_Escalation_cans_related_list_FY2019=
+        Sr.sWM_Escalation_cans_related_list_FY2019      
+      @SWM_Escalation_cans_related_list_FY2018=
+        Sr.sWM_Escalation_cans_related_list_FY2018
+      @SWM_Escalation_cans_related_list_FY2017=
+        Sr.sWM_Escalation_cans_related_list_FY2017
+
+
+      @UnauthorizedContainerRetrieval_cans_related_list_FY2020=
+        Sr.unauthorizedContainerRetrieval_cans_related_list_FY2020
+      @UnauthorizedContainerRetrieval_cans_related_list_FY2019=
+        Sr.unauthorizedContainerRetrieval_cans_related_list_FY2017
+      @UnauthorizedContainerRetrieval_cans_related_list_FY2018=
+        Sr.unauthorizedContainerRetrieval_cans_related_list_FY2018
+      @UnauthorizedContainerRetrieval_cans_related_list_FY2017=
+        Sr.unauthorizedContainerRetrieval_cans_related_list_FY2017
+
+      @RecyclingParticipationNEW_cans_related_list_FY2020=
+        Sr.recyclingParticipationNEW_cans_related_list_FY2020
+      @RecyclingParticipationNEW_cans_related_list_FY2019=
+        Sr.recyclingParticipationNEW_cans_related_list_FY2019
+      @RecyclingParticipationNEW_cans_related_list_FY2018=
+        Sr.recyclingParticipationNEW_cans_related_list_FY2018
+      @RecyclingParticipationNEW_cans_related_list_FY2017=
+        Sr.recyclingParticipationNEW_cans_related_list_FY2017
+
+      @RecyclingCartRepairorReplace_cans_related_list_FY2020=
+        Sr.recyclingCartRepairorReplace_cans_related_list_FY2020
+      @RecyclingCartRepairorReplace_cans_related_list_FY2019=
+        Sr.recyclingCartRepairorReplace_cans_related_list_FY2019
+      @RecyclingCartRepairorReplace_cans_related_list_FY2018=
+        Sr.recyclingCartRepairorReplace_cans_related_list_FY2018
+      @RecyclingCartRepairorReplace_cans_related_list_FY2017=
+        Sr.recyclingCartRepairorReplace_cans_related_list_FY2017
+
+      @RecycleBinCartRetrieve_cans_related_list_FY2020 =
+        Sr.recycleBinCartRetrieve_cans_related_list_FY2020
+      @RecycleBinCartRetrieve_cans_related_list_FY2019 =
+        Sr.recycleBinCartRetrieve_cans_related_list_FY2019
+      @RecycleBinCartRetrieve_cans_related_list_FY2018 =
+        Sr.recycleBinCartRetrieve_cans_related_list_FY2018
+      @RecycleBinCartRetrieve_cans_related_list_FY2017 =
+        Sr.recycleBinCartRetrieve_cans_related_list_FY2017
+
+
+      @NewResidentContainer_cans_related_list_FY2020 = Sr.
+      newResidentContainer_cans_related_list_FY2020
+      @NewResidentContainer_cans_related_list_FY2019 = Sr.
+      newResidentContainer_cans_related_list_FY2019
+      @NewResidentContainer_cans_related_list_FY2018 = Sr.
+      newResidentContainer_cans_related_list_FY2018
+      @NewResidentContainer_cans_related_list_FY2017 = Sr.
+      newResidentContainer_cans_related_list_FY2017
+
+
+
+      @ContainerProblem_cans_related_list_FY2020 = Sr.
+       containerProblem_cans_related_list_FY2020
+      @ContainerProblem_cans_related_list_FY2019 = Sr.
+       containerProblem_cans_related_list_FY2019
+      @ContainerProblem_cans_related_list_FY2018 = Sr.
+        containerProblem_cans_related_list_FY2018
+      @ContainerProblem_cans_related_list_FY2017 = Sr.
+       containerProblem_cans_related_list_FY2017
+
+      @AddACartCANCELLATION_cans_related_list_FY2020 = Sr.
+      addACartCANCELLATION_cans_related_list_FY2020
+      @AddACartCANCELLATION_cans_related_list_FY2019 = Sr.
+      addACartCANCELLATION_cans_related_list_FY2019
+      @AddACartCANCELLATION_cans_related_list_FY2018 = Sr.
+      addACartCANCELLATION_cans_related_list_FY2018
+      @AddACartCANCELLATION_cans_related_list_FY2017 = Sr.
+      addACanCANCELLATION_cans_related_list_FY2017
+
+      @AddACart_cans_related_list_FY2020 = Sr.
+      addACart_cans_related_list_FY2020
+      @AddACart_cans_related_list_FY2019 = Sr.
+      addACart_cans_related_list_FY2019
+      @AddACart_cans_related_list_FY2018 = Sr.
+      addACart_cans_related_list_FY2018
+      @AddACart_cans_related_list_FY2017 = Sr.
+      addACart_cans_related_list_FY2017
+
+      @AddACanCANCELLATION_cans_related_list_FY2020= Sr.
+      addACanCANCELLATION_cans_related_list_FY2020
+      @AddACanCANCELLATION_cans_related_list_FY2019 = Sr.
+      addACanCANCELLATION_cans_related_list_FY2019
+      @AddACanCANCELLATION_cans_related_list_FY2018 = Sr.
+      addACanCANCELLATION_cans_related_list_FY2018
+      @AddACanCANCELLATION_cans_related_list_FY2017 = Sr.
+      addACanCANCELLATION_cans_related_list_FY2017
+
+      @NewMoveInService_cans_related_list_FY2020 = Sr.
+      newMoveInService_cans_related_list_FY2020
+      @NewMoveInService_cans_related_list_FY2019 = Sr.
+      newMoveInService_cans_related_list_FY2019
+      @NewMoveInService_cans_related_list_FY2018 = Sr.
+      newMoveInService_cans_related_list_FY2018
+      @NewMoveInService_cans_related_list_FY2017 = Sr.
+      newMoveInService_cans_related_list_FY2017
+      @Total_cans_related_list_FY2020 = Sr.
+        cans_related_list_FY2020_count
+      @Total_cans_related_list_FY2019 = Sr.
+        cans_related_list_FY2019_count
+      @Total_cans_related_list_FY2018 = Sr.
+        cans_related_list_FY2018_count
+      @Total_cans_related_list_FY2017 = Sr.
+        cans_related_list_FY2017_count
+      render 'cans_related_requests'
+
+    end
     def daily_update
       OpenSr.daily_update
       render 'summary1'
@@ -1386,22 +1500,24 @@ class OpenSrsController < ApplicationController
     @missedMisGarbSWGrade= OpenSr.qualityGrade(@missedMisGarbSWOverdueDigits)
 
     @missedTrashDumpSWTotal = Sr.
-    where(trash_quad: 'SW',
-      sr_type:'Trash Dumping or Illegal Dumpsite',
-      expression:['Overdue','Not Overdue']).count
+      where(trash_quad: 'SW',
+        sr_type:'Trash Dumping or Illegal Dumpsite',
+        expression:['Overdue','Not Overdue']).count
     @missedTrashDumpSWOverdue = Sr.
-    where(trash_quad: 'SW',
-      sr_type:'Trash Dumping or Illegal Dumpsite',
-      expression:['Overdue']).count
+      where(trash_quad: 'SW',
+        sr_type:'Trash Dumping or Illegal Dumpsite',
+        expression:['Overdue']).count
     @missedTrashDumpSWPercentOverdue =
-    "#{((@missedTrashDumpSWOverdue.to_f.round(2)/
-    @missedTrashDumpSWTotal.to_f.round(2))*100).round(2)}%"
+      "#{((@missedTrashDumpSWOverdue.to_f.round(2)/
+      @missedTrashDumpSWTotal.to_f.round(2))*100).round(2)}%"
     @missedMTrashDumpSWNotOverdue =
-    Sr.where(trash_quad: 'SW',
-      sr_type:'Trash Dumping or Illegal Dumpsite',
-      expression:['Not Overdue']).count
+      Sr.where(trash_quad: 'SW',
+        sr_type:'Trash Dumping or Illegal Dumpsite',
+        expression:['Not Overdue']).count
     @missedTrashDumpSWPercentNotOverdue =
-    "#{((@missedMTrashDumpSWNotOverdue.to_f.round(2)/@missedTrashDumpSWTotal.to_f.round(2))*100).round(2)}%"
+    "#{((@missedMTrashDumpSWNotOverdue.to_f.round(2)/
+    @missedTrashDumpSWTotal.to_f.round(2))*100).round(2)}%"
+
     @missedTrashDumpSWNotOverdue =
     Sr.where(trash_quad: 'SW',
       sr_type:'Trash Dumping or Illegal Dumpsite',
@@ -1448,64 +1564,65 @@ class OpenSrsController < ApplicationController
     "#{((@missedStormDebSWOverdue.to_f.round(2)/
     @missedStormDebSWTotal.to_f.round(2))*100).round(2)}%"
     @missedStormDebSWNotOverdue = Sr.
-    where(trash_quad: 'SW',
-      sr_type:'Storm Debris Collection',
-      expression:['Not Overdue']).count
+      where(trash_quad: 'SW',
+        sr_type:'Storm Debris Collection',
+        expression:['Not Overdue']).count
     @missedStormDebSWPercentNotOverdue =
     "#{((@missedStormDebSWNotOverdue.to_f.round(2)/
     @missedStormDebSWTotal.to_f.round(2))*100).round(2)}%"
     @missedStormDebSWNotOverdue =
-    Sr.where(trash_quad: 'SW',
-      sr_type:'Storm Debris Collection',
-      expression:['Not Overdue']).count
+      Sr.where(trash_quad: 'SW',
+        sr_type:'Storm Debris Collection',
+        expression:['Not Overdue']).count
     @missedStormDebSWOverdueDigits =
     @missedStormDebSWNotOverdue.to_f/@missedStormDebSWTotal.to_f
     @missedStormDebSWGrade= OpenSr.qualityGrade(@missedStormDebSWOverdueDigits)
 
     @missedDeadAniColSWTotal =
-    Sr.where(trash_quad: 'SW',
-      sr_type:'Dead Animal Collection',
-      expression:['Overdue','Not Overdue']).count
+      Sr.where(trash_quad: 'SW',
+        sr_type:'Dead Animal Collection',
+        expression:['Overdue','Not Overdue']).count
     @missedDeadAniColSWOverdue =
-    Sr.where(trash_quad: 'SW',
-      sr_type:'Dead Animal Collection',
-      expression:['Overdue']).count
+      Sr.where(trash_quad: 'SW',
+        sr_type:'Dead Animal Collection',
+        expression:['Overdue']).count
     @missedDeadAniColSWPercentOverdue =
-    "#{((@missedDeadAniColSWOverdue.to_f.round(2)/
-    @missedDeadAniColSWTotal.to_f.round(2))*100).round(2)}%"
+      "#{((@missedDeadAniColSWOverdue.to_f.round(2)/
+      @missedDeadAniColSWTotal.to_f.round(2))*100).round(2)}%"
     @missedDeadAniColSWNotOverdue =
-    Sr.where(trash_quad: 'SW',
-      sr_type:'Dead Animal Collection',
-      expression:['Not Overdue']).count
+      Sr.where(trash_quad: 'SW',
+        sr_type:'Dead Animal Collection',
+        expression:['Not Overdue']).count
     @missedDeadAniColSWPercentNotOverdue =
-    "#{((@missedDeadAniColSWNotOverdue.to_f.round(2)/
-    @missedDeadAniColSWTotal.to_f.round(2))*100).round(2)}%"
+      "#{((@missedDeadAniColSWNotOverdue.to_f.round(2)/
+      @missedDeadAniColSWTotal.to_f.round(2))*100).round(2)}%"
     @missedDeadAniColSWNotOverdue =
-    Sr.where(trash_quad: 'SW',
-      sr_type:'Dead Animal Collection',
-      expression:['Not Overdue']).count
+      Sr.where(trash_quad: 'SW',
+        sr_type:'Dead Animal Collection',
+        expression:['Not Overdue']).count
     @missedDeadAniColSWOverdueDigits =
-    @missedDeadAniColSWNotOverdue.to_f/@missedDeadAniColSWTotal.to_f
+      @missedDeadAniColSWNotOverdue.to_f/@missedDeadAniColSWTotal.to_f
     @missedDeadAniColSWGrade=
-    OpenSr.qualityGrade(@missedDeadAniColSWOverdueDigits)
+      OpenSr.qualityGrade(@missedDeadAniColSWOverdueDigits)
 
     @missedAddACanCancelSWTotal =
-    Sr.where(trash_quad: 'SW',
-      sr_type:'Add A Can CANCELLATION',
-      expression:['Overdue','Not Overdue']).count
+      Sr.where(trash_quad: 'SW',
+        sr_type:'Add A Can CANCELLATION',
+        expression:['Overdue','Not Overdue']).count
     @missedAddACanCancelSWOverdue =
-    Sr.where(trash_quad: 'SW',
-      sr_type:'Add A Can CANCELLATION',
-      expression:['Overdue']).count
+      Sr.where(trash_quad: 'SW',
+        sr_type:'Add A Can CANCELLATION',
+        expression:['Overdue']).count
     @missedAddACanCancelSWPercentOverdue =
-    "#{((@missedAddACanCancelSWOverdue.to_f.round(2)/
-    @missedAddACanCancelSWTotal.to_f.round(2))*100).round(2)}%"
+      "#{((@missedAddACanCancelSWOverdue.to_f.round(2)/
+      @missedAddACanCancelSWTotal.to_f.round(2))*100).round(2)}%"
     @missedAddACanCancelSWNotOverdue =
     Sr.where(trash_quad: 'SW',
       sr_type:'Add A Can CANCELLATION',
       expression:['Not Overdue']).count
     @missedAddACanCancelSWPercentNotOverdue =
-    "#{((@missedAddACanCancelSWNotOverdue.to_f.round(2)/@missedAddACanCancelSWTotal.to_f.round(2))*100).round(2)}%"
+    "#{((@missedAddACanCancelSWNotOverdue.to_f.round(2)/
+    @missedAddACanCancelSWTotal.to_f.round(2))*100).round(2)}%"
     @missedAddACanCancelSWNotOverdue =
     Sr.where(trash_quad: 'SW',
       sr_type:'Add A Can CANCELLATION',
@@ -1513,44 +1630,88 @@ class OpenSrsController < ApplicationController
     @missedAddACanCancelSWOverdueDigits =
     @missedAddACanCancelSWNotOverdue.to_f/@missedAddACanCancelSWTotal.to_f
     @missedAddACanCancelSWGrade=
-    OpenSr.qualityGrade(@missedAddACanCancelSWOverdueDigits)
+      OpenSr.qualityGrade(@missedAddACanCancelSWOverdueDigits)
 
     @missedMisRecPicUpSWTotal =
-    Sr.where(trash_quad: 'SW',
-      sr_type:'Missed Recycling Pickup',
-      expression:['Overdue','Not Overdue']).count
+      Sr.where(trash_quad: 'SW',
+        sr_type:'Missed Recycling Pickup',
+        expression:['Overdue','Not Overdue']).count
     @missedMisRecPicUpSWOverdue =
-    Sr.where(trash_quad: 'SW',
-      sr_type:'Missed Recycling Pickup',
-      expression:['Overdue']).count
+      Sr.where(trash_quad: 'SW',
+        sr_type:'Missed Recycling Pickup',
+        expression:['Overdue']).count
     @missedMisRecPicUpSWPercentOverdue =
-    "#{((@missedMisRecPicUpSWOverdue.to_f.round(2)/@missedMisRecPicUpSWTotal.to_f.round(2))*100).round(2)}%"
+      "#{((@missedMisRecPicUpSWOverdue.to_f.round(2)/
+      @missedMisRecPicUpSWTotal.to_f.round(2))*100).round(2)}%"
     @missedMisRecPicUpSWNotOverdue =
-    Sr.where(trash_quad: 'SW',
-      sr_type:'Missed Recycling Pickup',
+      Sr.where(trash_quad: 'SW',
+        sr_type:'Missed Recycling Pickup',
+        expression:['Not Overdue']).count
+    @missedMisRecPicUpSWPercentNotOverdue =
+    "#{((@missedMisRecPicUpSWNotOverdue.to_f.round(2)/
+    @missedMisRecPicUpSWTotal.to_f.round(2))*100).round(2)}%"
+    @missedMisRecPicUpSWNotOverdue = Sr.
+      where(trash_quad: 'SW',
+        sr_type:'Missed Recycling Pickup',
+         expression:['Not Overdue']).count
+
+    @missedMisRecPicUpSWOverdueDigits =
+      @missedMisRecPicUpSWNotOverdue.to_f/@missedMisRecPicUpSWTotal.to_f
+    @missedMisRecPicUpSWGrade= OpenSr.
+      qualityGrade(@missedMisRecPicUpSWOverdueDigits)
+
+    @missedPOrVCompSWTotal = Sr.where(trash_quad: 'SW',
+      sr_type:'Personnel or Vehicle Complaint',
+       expression:['Overdue','Not Overdue']).count
+    @missedPOrVCompSWOverdue = Sr.
+      where(trash_quad: 'SW',
+        sr_type:'Personnel or Vehicle Complaint',
+         expression:['Overdue']).count
+    @missedPOrVCompSWPercentOverdue =
+      "#{((@missedPOrVCompSWOverdue.to_f.round(2)/
+      @missedPOrVCompSWTotal.to_f.round(2))*100).round(2)}%"
+    @missedPOrVCompSWNotOverdue = Sr.
+      where(trash_quad: 'SW',
+        sr_type:'Personnel or Vehicle Complaint',
+        expression:['Not Overdue']).count
+    @missedPOrVCompSWPercentNotOverdue =
+      "#{((@missedPOrVCompSWNotOverdue.to_f.round(2)/
+      @missedPOrVCompSWTotal.to_f.round(2))*100).round(2)}%"
+    @missedPOrVCompSWNotOverdue = Sr.
+      where(trash_quad: 'SW',
+        sr_type:'Personnel or Vehicle Complaint',
+        expression:['Not Overdue']).count
+    @missedPOrVCompSWOverdueDigits = @missedPOrVCompSWNotOverdue.to_f/
+    @missedPOrVCompSWTotal.to_f
+    @missedPOrVCompSWGrade= OpenSr.
+    qualityGrade(@missedPOrVCompSWOverdueDigits)
+
+    @missedPhyChaPikSWTotal = Sr.
+      where(trash_quad: 'SW',
+        sr_type:'Physically Challenged Pickup',
+         expression:['Overdue','Not Overdue']).count
+    @missedPhyChaPikSWOverdue = Sr.
+      where(trash_quad: 'SW',
+        sr_type:'Physically Challenged Pickup',
+         expression:['Overdue']).count
+    @missedPhyChaPikSWPercentOverdue =
+      "#{((@missedPhyChaPikSWOverdue.to_f.round(2)/
+      @missedPhyChaPikSWTotal.to_f.round(2))*100).round(2)}%"
+    @missedPhyChaPikSWNotOverdue = Sr.
+      where(trash_quad: 'SW',
+        sr_type:'Physically Challenged Pickup',
+         expression:['Not Overdue']).count
+    @missedPhyChaPikSWPercentNotOverdue =
+      "#{((@missedPhyChaPikSWNotOverdue.to_f.round(2)/
+      @missedPhyChaPikSWTotal.to_f.round(2))*100).round(2)}%"
+    @missedPhyChaPikSWNotOverdue = Sr.
+    where(trash_quad: 'SW',
+      sr_type:'Physically Challenged Pickup',
       expression:['Not Overdue']).count
-    @missedMisRecPicUpSWPercentNotOverdue = "#{((@missedMisRecPicUpSWNotOverdue.to_f.round(2)/@missedMisRecPicUpSWTotal.to_f.round(2))*100).round(2)}%"
-    @missedMisRecPicUpSWNotOverdue = Sr.where(trash_quad: 'SW',sr_type:'Missed Recycling Pickup', expression:['Not Overdue']).count
-    @missedMisRecPicUpSWOverdueDigits = @missedMisRecPicUpSWNotOverdue.to_f/@missedMisRecPicUpSWTotal.to_f
-    @missedMisRecPicUpSWGrade= OpenSr.qualityGrade(@missedMisRecPicUpSWOverdueDigits)
-
-    @missedPOrVCompSWTotal = Sr.where(trash_quad: 'SW',sr_type:'Personnel or Vehicle Complaint', expression:['Overdue','Not Overdue']).count
-    @missedPOrVCompSWOverdue = Sr.where(trash_quad: 'SW',sr_type:'Personnel or Vehicle Complaint', expression:['Overdue']).count
-    @missedPOrVCompSWPercentOverdue = "#{((@missedPOrVCompSWOverdue.to_f.round(2)/@missedPOrVCompSWTotal.to_f.round(2))*100).round(2)}%"
-    @missedPOrVCompSWNotOverdue = Sr.where(trash_quad: 'SW',sr_type:'Personnel or Vehicle Complaint', expression:['Not Overdue']).count
-    @missedPOrVCompSWPercentNotOverdue = "#{((@missedPOrVCompSWNotOverdue.to_f.round(2)/@missedPOrVCompSWTotal.to_f.round(2))*100).round(2)}%"
-    @missedPOrVCompSWNotOverdue = Sr.where(trash_quad: 'SW',sr_type:'Personnel or Vehicle Complaint', expression:['Not Overdue']).count
-    @missedPOrVCompSWOverdueDigits = @missedPOrVCompSWNotOverdue.to_f/@missedPOrVCompSWTotal.to_f
-    @missedPOrVCompSWGrade= OpenSr.qualityGrade(@missedPOrVCompSWOverdueDigits)
-
-    @missedPhyChaPikSWTotal = Sr.where(trash_quad: 'SW',sr_type:'Physically Challenged Pickup', expression:['Overdue','Not Overdue']).count
-    @missedPhyChaPikSWOverdue = Sr.where(trash_quad: 'SW',sr_type:'Physically Challenged Pickup', expression:['Overdue']).count
-    @missedPhyChaPikSWPercentOverdue = "#{((@missedPhyChaPikSWOverdue.to_f.round(2)/@missedPhyChaPikSWTotal.to_f.round(2))*100).round(2)}%"
-    @missedPhyChaPikSWNotOverdue = Sr.where(trash_quad: 'SW',sr_type:'Physically Challenged Pickup', expression:['Not Overdue']).count
-    @missedPhyChaPikSWPercentNotOverdue = "#{((@missedPhyChaPikSWNotOverdue.to_f.round(2)/@missedPhyChaPikSWTotal.to_f.round(2))*100).round(2)}%"
-    @missedPhyChaPikSWNotOverdue = Sr.where(trash_quad: 'SW',sr_type:'Physically Challenged Pickup', expression:['Not Overdue']).count
-    @missedPhyChaPikSWOverdueDigits = @missedPhyChaPikSWNotOverdue.to_f/@missedPhyChaPikSWTotal.to_f
-    @missedPhyChaPikSWGrade= OpenSr.qualityGrade(@missedPhyChaPikSWOverdueDigits)
+    @missedPhyChaPikSWOverdueDigits =
+      @missedPhyChaPikSWNotOverdue.to_f/@missedPhyChaPikSWTotal.to_f
+    @missedPhyChaPikSWGrade= OpenSr.
+    qualityGrade(@missedPhyChaPikSWOverdueDigits)
     # binding.pry
     @SWQuadSrTotal = Sr.where(status:'Open', expression:['Overdue', 'Not Overdue'], trash_quad: 'SW', sr_type: ['Missed Heavy Trash Pickup','Container Problem','New Resident Container','Recycling Participation NEW' ,'Recycling Cart Repair or Replace','SWM Escalation','Missed Garbage Pickup','Trash Dumping or Illegal Dumpsite', 'Add A Can', 'Storm Debris Collection', 'Dead Animal Collection', 'Add A Can CANCELLATION', 'Missed Recycling Pickup', 'Personnel or Vehicle Complaint','Physically Challenged Pickup']).count
     @SWQuadSrOverdue = Sr.where(status:'Open',  expression:'Overdue', trash_quad: 'SW', sr_type: ['Missed Heavy Trash Pickup','Container Problem','New Resident Container','Recycling Participation NEW' ,'Recycling Cart Repair or Replace','SWM Escalation','Missed Garbage Pickup','Trash Dumping or Illegal Dumpsite', 'Add A Can', 'Storm Debris Collection', 'Dead Animal Collection', 'Add A Can CANCELLATION', 'Missed Recycling Pickup', 'Personnel or Vehicle Complaint','Physically Challenged Pickup']).count
