@@ -1,5 +1,7 @@
 class OpenSr < ApplicationRecord
-  
+  def  self.quad_from_garbage_route(name)
+    # binding.pr
+  end
 
   def self.delete_180_days_from_now
     start_date = DateTime.now
