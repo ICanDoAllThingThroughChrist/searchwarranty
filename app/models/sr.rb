@@ -11,19 +11,19 @@ class Sr < ApplicationRecord
             # counter = 0
           # while counter < array1.count
           #     binding.pry
-            if /[n..N]E/.match?(sr['garbage_route']) || sr['sr_owner'] == "Jacqueline Howard"
+            if /[n..N]E/.match?(sr['garbage_route']) || /[n..N]E/.match?(sr['recycle_route']) || sr['sr_owner'] == "Jacqueline Howard" || sr['sr_owner'] == "Dee Fields" || /[n..N]E/.match?(sr['heavy_trash_quad'])
               sr['trash_quad'] = "NE"
               # bindining.pry
               sr.save
-            elsif /[n..N]W/.match?(sr['garbage_route'])
+            elsif /[n..N]W/.match?(sr['garbage_route']) || /[n..N]W/.match?(sr['recycle_route']) || sr['sr_owner'] == "Julane Curry" || /[n..N]W/.match?(sr['heavy_trash_quad'])
                 sr['trash_quad'] = "NW"
                 # bindining.pry
                 sr.save
-            elsif /[s..S]W/.match?(sr['garbage_route']) || sr['sr_owner'] == "Racheal Manning"
+            elsif /[s..S]W/.match?(sr['garbage_route']) || /[s..S]W/.match?(sr['recycle_route']) || sr['sr_owner'] == "Racheal Manning" || /[s..S]W/.match?(sr['heavy_trash_quad'])
                 sr['trash_quad'] = "SW"
                 # bindining.pry
                 sr.save
-            elsif /[s..S]E/.match?(sr['garbage_route']) || sr['sr_owner'] == "Yvonne Guillory"
+            elsif /[s..S]E/.match?(sr['garbage_route']) ||  /[s..S]E/.match?(sr['recycle_route']) || sr['sr_owner'] == "Yvonne Guillory" || /[s..S]E/.match?(sr['heavy_trash_quad'])
                 sr['trash_quad'] = "SE"
                 # bindining.pry
                 sr.save
