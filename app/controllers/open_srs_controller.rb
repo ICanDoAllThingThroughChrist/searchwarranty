@@ -113,8 +113,8 @@ class OpenSrsController < ApplicationController
       render 'cans_related_requests'
 
     end
-    def daily_update
-      OpenSr.daily_update
+    def daily_update_from_url
+      OpenSr.daily_update_from_url
       render 'summary1'
     end
 
@@ -210,7 +210,8 @@ class OpenSrsController < ApplicationController
       OpenSr.neMar2020_sla_due_cases
 
       @deptNEwide_updated_as_percent_of_closed_cases =
-      @deptNEwide_mar_2020_sla_cases_closed_but_updated_later.to_f.round(2)/@deptNEwide_mar_2020_sla_due_cases.to_f.round(2)
+      @deptNEwide_mar_2020_sla_cases_closed_but_updated_later.
+      to_f.round(2)/@deptNEwide_mar_2020_sla_due_cases.to_f.round(2)
 
       @deptNEwide_mar_2020_updated_grade =
       OpenSr.qualityGrade(@deptNEwide_updated_as_percent_of_closed_cases)
@@ -2244,6 +2245,8 @@ class OpenSrsController < ApplicationController
 
   def overdue
      render '/open_srs/overdue.html.erb'
+     #execute spatial join of Overdue Cases with Section Name(aka Route Name) 
+     #execute OpenSr.sr__route method
   end
 
   def test22
