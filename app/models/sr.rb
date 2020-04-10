@@ -2,7 +2,9 @@ class Sr < ApplicationRecord
       def self.sWM_call_volume_2017_2020
         start_date = Date.parse('01-01-2017')
         end_date = DateTime.now
-        Sr.where("sr_create_date >= ? AND sr_create_date <= ?", start_date, end_date).where(department: 'SWM Solid Waste Management').count
+        Sr.where("sr_create_date >= ? AND sr_create_date <= ?",
+           start_date, end_date).
+           where(department: 'SWM Solid Waste Management').count
       end
       def self.trash_quad_nil_resolution_from_garbage_route
         array1 = Sr.where(department: 'SWM Solid Waste Management',
@@ -11,19 +13,34 @@ class Sr < ApplicationRecord
             # counter = 0
           # while counter < array1.count
           #     binding.pry
-            if /[n..N]E/.match?(sr['garbage_route']) || /[n..N]E/.match?(sr['recycle_route']) || sr['sr_owner'] == "Jacqueline Howard" || sr['sr_owner'] == "Dee Fields" || /[n..N]E/.match?(sr['heavy_trash_quad'])
+            if /[n..N]E/.match?(sr['garbage_route']) ||
+               /[n..N]E/.match?(sr['recycle_route']) ||
+                sr['sr_owner'] == "Jacqueline Howard" ||
+                 sr['sr_owner'] == "Dee Fields" ||
+                  /[n..N]E/.match?(sr['heavy_trash_quad']) ||
+                  sr['sr_creator'] == "Jacqueline Howard" ||
+                   sr['sr_creator'] == "Dee Fields" 
               sr['trash_quad'] = "NE"
               # bindining.pry
               sr.save
-            elsif /[n..N]W/.match?(sr['garbage_route']) || /[n..N]W/.match?(sr['recycle_route']) || sr['sr_owner'] == "Julane Curry" || /[n..N]W/.match?(sr['heavy_trash_quad'])
+            elsif /[n..N]W/.match?(sr['garbage_route']) ||
+               /[n..N]W/.match?(sr['recycle_route']) ||
+                sr['sr_owner'] == "Julane Curry" ||
+                 /[n..N]W/.match?(sr['heavy_trash_quad'])
                 sr['trash_quad'] = "NW"
                 # bindining.pry
                 sr.save
-            elsif /[s..S]W/.match?(sr['garbage_route']) || /[s..S]W/.match?(sr['recycle_route']) || sr['sr_owner'] == "Racheal Manning" || /[s..S]W/.match?(sr['heavy_trash_quad'])
+            elsif /[s..S]W/.match?(sr['garbage_route']) ||
+               /[s..S]W/.match?(sr['recycle_route']) ||
+                sr['sr_owner'] == "Racheal Manning" ||
+                 /[s..S]W/.match?(sr['heavy_trash_quad'])
                 sr['trash_quad'] = "SW"
                 # bindining.pry
                 sr.save
-            elsif /[s..S]E/.match?(sr['garbage_route']) ||  /[s..S]E/.match?(sr['recycle_route']) || sr['sr_owner'] == "Yvonne Guillory" || /[s..S]E/.match?(sr['heavy_trash_quad'])
+            elsif /[s..S]E/.match?(sr['garbage_route']) ||
+                /[s..S]E/.match?(sr['recycle_route']) ||
+                 sr['sr_owner'] == "Yvonne Guillory" ||
+                  /[s..S]E/.match?(sr['heavy_trash_quad'])
                 sr['trash_quad'] = "SE"
                 # bindining.pry
                 sr.save
@@ -87,6 +104,7 @@ class Sr < ApplicationRecord
         trash_quad:[nil,""])
       array.each{|sr|
         quad = Spatial.where(id:"#{sr.id}").pluck(:quad)
+        # binding.pry
           sr.trash_quad = quad[0]
           sr.garbage_quad = quad[0]
           sr.save
@@ -133,19 +151,37 @@ class Sr < ApplicationRecord
     def self.pivot
       Sr.sla_nil_resolution
       Sr.update_trash_quad_v2
-      Sr.no_quad_list
-      #spatial join based on the generated csv
-      #perform import copy and paste from NoQuadList text
-      #file to spatial join quad assignment
-      binding.pry
-      Sr.update_trash_quad
       Sr.trash_quad_nil_resolution_from_garbage_route
+      Sr.update_trash_quad
       Sr.expression_quad_status_assignment
       Sr.no_quad_list
       binding.pry
-      #perform Spatial Join on "NoQuadList.csv"
+      #spatial join based on the generated csv
+      # #perform Spatial Join on "NoQuadList.csv"
       Sr.update_trash_quad
+      Sr.expression_quad_status_assignment
+      #perform following command to determine if sr_type includes missed garbage
+      binding.pry
+      Sr.
+      where(trash_quad: [nil], status: 'Open',
+         department:'SWM Solid Waste Management').distinct.pluck(:sr_type)
+      #repeated following command if sr_type includes missed garbage
+      #repeatt command to see if sr contains lat, lon,  x, y,
+      Sr.no_quad_list #repeat this command  to perform spatial join
+      #perform following
+      Sr.
+      where(trash_quad: [nil, ""], status: 'Open',
+         department:'SWM Solid Waste Management').count
+      Sr.where(trash_quad: [nil, ""], status: 'Open',
+            department:'SWM Solid Waste Management',
+            sr_type:['Missed Garbage Pickup']).distinct.pluck(:id)
+      # Spatial.find(:19342615)#can  not find  it in Spatial Join
+      Sr.update_trash_quad
+      Sr.expression_quad_status_assignment
+      #
+      #repeat spatialjoin
       Sr.html_pivot
+      Sr.no_quad_list
     end
 
     def self.update_sr_location_for_open_sr

@@ -21,5 +21,6 @@ class Spatial < ApplicationRecord
         header_converters: :symbol, converters: :all}) {|row|
       Spatial.create(row.to_hash)
     }
+    # binding.pry
   end
 end

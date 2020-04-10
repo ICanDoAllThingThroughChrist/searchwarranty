@@ -7,7 +7,8 @@ class OpenSr < ApplicationRecord
     start_date = DateTime.now
     endDate = Date.parse('2019-01-01')
     #delete records over the last 180 calendar days
-    Sr.where("sr_create_date <=? AND sr_create_date >= ?", start_date, endDate).delete_all
+    Sr.where("sr_create_date <=? AND sr_create_date >= ?",
+      start_date, endDate).delete_all
   end
   def self.daily_update_from_url
     puts "expect 16 minutes upload time to DB"
