@@ -56,9 +56,11 @@ class Cart < ApplicationRecord
       }
     end
     def cart_replaced_wheel_lid(cart)
-        if /[r..R]eplace/.match?(cart.case_note) == TRUE && /wheel/.match?(cart.case_note) == TRUE
+        if /[r..R]eplace/.match?(cart.case_note) == TRUE &&
+           /wheel/.match?(cart.case_note) == TRUE
           cart.replace_wheel_lid = 1
-        elsif /[r..R]eplace/.match?(cart.case_note) == TRUE && /lid/.match?(cart.case_note) == TRUE
+        elsif /[r..R]eplace/.match?(cart.case_note) == TRUE &&
+           /lid/.match?(cart.case_note) == TRUE
           cart.replace_wheel_lid = 1
         else
           cart.replace_wheel_lid = 0
@@ -81,9 +83,11 @@ class Cart < ApplicationRecord
         end
     end
     def cart_replaced(cart)
-        if /[r..R]eplace/.match?(cart.case_note) == TRUE &&  /[c..C]art/.match?(cart.case_note) == TRUE &&  cart.replace_wheel_lid = 0
-          cart.replaced_cart = 1
-        elsif /[r..R]eplacement/.match?(cart.case_note) == TRUE
+        if /[r..R]eplace/.match?(cart.case_note)  &&
+            /[c..C]art/.match?(cart.case_note) &&
+          cart.replace_wheel_lid = 0 &&
+           cart.replaced_cart = 1
+        elsif /[r..R]eplacement/.match?(cart.case_note)
           cart.replaced_cart = 1
         else
           cart.replaced_cart = 0
@@ -107,7 +111,7 @@ class Cart < ApplicationRecord
       end
     end
     def cart_service_location(cart)
-      if cart.service_location.nil? == TRUE
+      if cart.service_location.nil?
         # binding.pry
         cart.service_location = 0
         # binding.pry

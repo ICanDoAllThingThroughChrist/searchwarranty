@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  case1: 1
+  case2: 1
+  expiration_date: 2020-04-10
+
+two:
+  case1: 1
+  case2: 1
+  expiration_date: 2020-04-10

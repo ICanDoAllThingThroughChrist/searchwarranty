@@ -7,6 +7,7 @@ end
 # gem 'rmagick'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
+gem 'creek'
 gem "rgeo"
 gem 'rails', '~> 5.0'
 gem 'activerecord-import'
