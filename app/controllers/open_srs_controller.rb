@@ -123,16 +123,66 @@ class OpenSrsController < ApplicationController
     end
 
     def monthly_quality_grade
-      #update DB files 180 days from today;
-      #remember to upload from Lagan last 3 months and name it
-      #accordingly
-      #C:/Users/e128289/Downloads/SWM All Data with Resolution Time-March2020.csv
-      #C:/Users/e128289/Downloads/SWM All Data with Resolution Time-January2020.csv
-      #C:/Users/e128289/Downloads/SWM All Data with Resolution Time-February2020.csv
-      #presumes no spatial analysis is needed.
-      # OpenSr.daily_update
-      # start_date_mar_20 = Date.parse('2020-3-01')
-      # due_date_mar_20 = Date.parse('2020-4-01')
+
+      @deptNEwide_April_2020_actual_due_and_closed_cases =
+      OpenSr.neApril2020_actual_due_and_closed_cases
+
+      @deptNEwide_April_2020_sla_due_cases =
+      OpenSr.neApril2020_sla_due_cases
+
+      @deptNEwide_April_2020_updated_as_percent_of_closed_cases=
+      # binding.pry
+      @deptNEwide_April_2020_actual_due_and_closed_cases.to_f.round(2)/
+        @deptNEwide_April_2020_sla_due_cases.to_f.round(2)
+
+      @deptNEWide_April_2020_grade =
+      OpenSr.qualityGrade(
+        @deptNEwide_April_2020_updated_as_percent_of_closed_cases)
+
+        @deptSEwide_April_2020_actual_due_and_closed_cases =
+      OpenSr.seApril2020_actual_due_and_closed_cases
+
+      @deptSEwide_April_2020_sla_due_cases =
+      OpenSr.seApril2020_sla_due_cases
+
+      @deptSEwide_April_2020_updated_as_percent_of_closed_cases=
+      # binding.pry
+      @deptSEwide_April_2020_actual_due_and_closed_cases.to_f.round(2)/
+      @deptSEwide_April_2020_sla_due_cases.to_f.round(2)
+
+      @deptSEWide_April_2020_grade =
+      OpenSr.qualityGrade(
+        @deptSEwide_April_2020_updated_as_percent_of_closed_cases)
+
+      @deptNWwide_April_2020_actual_due_and_closed_cases =
+      OpenSr.nwApril2020_actual_due_and_closed_cases
+
+      @deptNWwide_April_2020_sla_due_cases =
+      OpenSr.nwApril2020_sla_due_cases
+
+      @deptNWwide_April_2020_updated_as_percent_of_closed_cases=
+      @deptNWwide_April_2020_actual_due_and_closed_cases.to_f.round(2)/
+      @deptNWwide_April_2020_sla_due_cases.to_f.round(2)
+
+      @deptNWWide_April_2020_grade=
+      OpenSr.qualityGrade(
+        @deptNWwide_April_2020_updated_as_percent_of_closed_cases)
+
+
+      @deptSWwide_April_2020_actual_due_and_closed_cases =
+      OpenSr.swApril2020_actual_due_and_closed_cases
+
+      @deptSWwide_April_2020_sla_due_cases =
+      OpenSr.swApril2020_sla_due_cases
+
+      @deptSWwide_April_2020_updated_as_percent_of_closed_cases=
+      @deptSWwide_April_2020_actual_due_and_closed_cases.to_f.round(2)/
+      @deptSWwide_April_2020_sla_due_cases.to_f.round(2)
+
+      @deptSWWide_April_2020_grade =
+        OpenSr.qualityGrade(
+          @deptSWwide_April_2020_updated_as_percent_of_closed_cases)
+
       @deptSWwide_mar_2020_sla_cases_closed_but_updated_later =
       OpenSr.swMar2020_sla_cases_closed_but_updated_later
 
@@ -2245,7 +2295,7 @@ class OpenSrsController < ApplicationController
 
   def overdue
      render '/open_srs/overdue.html.erb'
-     #execute spatial join of Overdue Cases with Section Name(aka Route Name) 
+     #execute spatial join of Overdue Cases with Section Name(aka Route Name)
      #execute OpenSr.sr__route method
   end
 
