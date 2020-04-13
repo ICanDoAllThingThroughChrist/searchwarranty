@@ -293,40 +293,21 @@ class Sr < ApplicationRecord
   def self.sr_count
   open_sr = Sr.where(:department=> "SWM Solid Waste Management", :status => "Open")
   open_sr.each{|sr|
-    if sr.department == 'SWM Solid Waste Management'
-      && sr.expression == 'Overdue'
-      && sr.trash_quad == 'NE'
+    if sr.department == 'SWM Solid Waste Management'&& sr.expression == 'Overdue' && sr.trash_quad == 'NE'
        sr.ne_overdue = 1
-    elsif sr.department == 'SWM Solid Waste Management'
-      && sr.expression == 'Overdue' && sr.trash_quad == 'NW'
+    elsif sr.department == 'SWM Solid Waste Management'&& sr.expression == 'Overdue' && sr.trash_quad == 'NW'
       sr.nw_overdue = 1
-    elsif sr.department == 'SWM Solid Waste Management'
-      && sr.expression == 'Overdue'
-      && sr.trash_quad == 'SW'
+    elsif sr.department == 'SWM Solid Waste Management' && sr.expression == 'Overdue' && sr.trash_quad == 'SW'
       sr.sw_overdue = 1
-    elsif sr.department == 'SWM Solid Waste Management'
-      && sr.expression == 'Overdue'
-      && sr.trash_quad == 'SE'
+    elsif sr.department == 'SWM Solid Waste Management' && sr.expression == 'Overdue' && sr.trash_quad == 'SE'
       sr.se_overdue = 1
-    elsif sr.department == 'SWM Solid Waste Management'
-      && sr.expression == 'Not Overdue'
-      && sr.trash_quad == 'SE'
-      && sr.se_overdue != 1
+    elsif sr.department == 'SWM Solid Waste Management' && sr.expression == 'Not Overdue'&& sr.trash_quad == 'SE' && sr.se_overdue != 1
       sr.se_not_overdue = 1
-    elsif sr.department == 'SWM Solid Waste Management'
-      && sr.expression == 'Not Overdue'
-      && sr.trash_quad == 'SW'
-      && sr.sw_overdue != 1
+    elsif sr.department == 'SWM Solid Waste Management' && sr.expression == 'Not Overdue' && sr.trash_quad == 'SW' && sr.sw_overdue != 1
       sr.sw_not_overdue = 1
-    elsif sr.department == 'SWM Solid Waste Management'
-      && sr.expression == 'Not Overdue'
-      && sr.trash_quad == 'NW'
-      && sr.nw_overdue != 1
+    elsif sr.department == 'SWM Solid Waste Management' && sr.expression == 'Not Overdue' && sr.trash_quad == 'NW' && sr.nw_overdue != 1
       sr.nw_not_overdue = 1
-    elsif sr.department == 'SWM Solid Waste Management'
-      && sr.expression == 'Not Overdue'
-      && sr.trash_quad == 'NE'
-      && sr.ne_overdue != 1
+    elsif sr.department == 'SWM Solid Waste Management' && sr.expression == 'Not Overdue' && sr.trash_quad == 'NE' && sr.ne_overdue != 1
       sr.ne_not_overdue = 1
     end
     sr.save
