@@ -19,7 +19,7 @@ class Sr < ApplicationRecord
                  sr['sr_owner'] == "Dee Fields" ||
                   /[n..N]E/.match?(sr['heavy_trash_quad']) ||
                   sr['sr_creator'] == "Jacqueline Howard" ||
-                   sr['sr_creator'] == "Dee Fields" 
+                   sr['sr_creator'] == "Dee Fields"
               sr['trash_quad'] = "NE"
               # bindining.pry
               sr.save
@@ -182,6 +182,8 @@ class Sr < ApplicationRecord
       #repeat spatialjoin
       Sr.html_pivot
       Sr.no_quad_list
+      #perform spatial join of Open Sr Testing.csv with Houston Automated
+      # Open.sr_route
     end
 
     def self.update_sr_location_for_open_sr
@@ -291,21 +293,40 @@ class Sr < ApplicationRecord
   def self.sr_count
   open_sr = Sr.where(:department=> "SWM Solid Waste Management", :status => "Open")
   open_sr.each{|sr|
-    if sr.department == 'SWM Solid Waste Management' && sr.expression == 'Overdue' && sr.trash_quad == 'NE'
+    if sr.department == 'SWM Solid Waste Management'
+      && sr.expression == 'Overdue'
+      && sr.trash_quad == 'NE'
        sr.ne_overdue = 1
-    elsif sr.department == 'SWM Solid Waste Management' && sr.expression == 'Overdue' && sr.trash_quad == 'NW'
+    elsif sr.department == 'SWM Solid Waste Management'
+      && sr.expression == 'Overdue' && sr.trash_quad == 'NW'
       sr.nw_overdue = 1
-    elsif sr.department == 'SWM Solid Waste Management' && sr.expression == 'Overdue' && sr.trash_quad == 'SW'
+    elsif sr.department == 'SWM Solid Waste Management'
+      && sr.expression == 'Overdue'
+      && sr.trash_quad == 'SW'
       sr.sw_overdue = 1
-    elsif sr.department == 'SWM Solid Waste Management' && sr.expression == 'Overdue' && sr.trash_quad == 'SE'
+    elsif sr.department == 'SWM Solid Waste Management'
+      && sr.expression == 'Overdue'
+      && sr.trash_quad == 'SE'
       sr.se_overdue = 1
-    elsif sr.department == 'SWM Solid Waste Management' && sr.expression == 'Not Overdue' && sr.trash_quad == 'SE' && sr.se_overdue != 1
+    elsif sr.department == 'SWM Solid Waste Management'
+      && sr.expression == 'Not Overdue'
+      && sr.trash_quad == 'SE'
+      && sr.se_overdue != 1
       sr.se_not_overdue = 1
-    elsif sr.department == 'SWM Solid Waste Management' && sr.expression == 'Not Overdue' && sr.trash_quad == 'SW' && sr.sw_overdue != 1
+    elsif sr.department == 'SWM Solid Waste Management'
+      && sr.expression == 'Not Overdue'
+      && sr.trash_quad == 'SW'
+      && sr.sw_overdue != 1
       sr.sw_not_overdue = 1
-    elsif sr.department == 'SWM Solid Waste Management' && sr.expression == 'Not Overdue' && sr.trash_quad == 'NW' && sr.nw_overdue != 1
+    elsif sr.department == 'SWM Solid Waste Management'
+      && sr.expression == 'Not Overdue'
+      && sr.trash_quad == 'NW'
+      && sr.nw_overdue != 1
       sr.nw_not_overdue = 1
-    elsif sr.department == 'SWM Solid Waste Management' && sr.expression == 'Not Overdue' && sr.trash_quad == 'NE' && sr.ne_overdue != 1
+    elsif sr.department == 'SWM Solid Waste Management'
+      && sr.expression == 'Not Overdue'
+      && sr.trash_quad == 'NE'
+      && sr.ne_overdue != 1
       sr.ne_not_overdue = 1
     end
     sr.save

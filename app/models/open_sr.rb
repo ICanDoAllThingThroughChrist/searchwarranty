@@ -737,6 +737,7 @@ class OpenSr < ApplicationRecord
   end
 
   def self.sr_route
+    #perform after html generated for quad status
     OpenSr.delete_all
     @input = File.open("../searchwarranty/OpenSRRoute.txt")
     # @input = File.open("../searchwarranty/OpenSRRoute.txt")
