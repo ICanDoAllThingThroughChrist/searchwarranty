@@ -1296,6 +1296,7 @@ class OpenSrsController < ApplicationController
       OpenSr.qualityGrade(@deptNEwide_aug_2019_sla_percent_complete)
     end
     def summary1
+      # OpenSr.daily_update_from_url
     @North = Sr.where(status: 'Open',
       trash_quad:['NW','NE'],
       sr_type: ['Missed Heavy Trash Pickup','Container Problem',
@@ -2580,12 +2581,255 @@ class OpenSrsController < ApplicationController
     order(:sec_name)
   end
   def test89
-    @result89 = OpenSr.where(day: ['FRIDAY'], sr_type:['Missed Yard Waste Pickup'], quad_statu: ['NW_Overdue']).
-    order(:sec_name)
+    @result89 = OpenSr.
+    where(day: ['FRIDAY'],
+      sr_type:['Missed Yard Waste Pickup'],
+      quad_statu: ['NW_Overdue']).
+      order(:sec_name)
   end
   def test90
-    @result90 = OpenSr.where(day: ['FRIDAY'], sr_type:['Missed Heavy Trash Pickup'], quad_statu: ['NW_Overdue']).
-    order(:sec_name)
+    @result90 = OpenSr.
+    where(day: ['FRIDAY'],
+      sr_type:['Missed Heavy Trash Pickup'],
+      quad_statu: ['NW_Overdue']).
+      order(:sec_name)
+  end
+  def over_30_days_srs
+    @cityWide30To60Over_for_container_problem =
+      Sr.where(department: 'SWM Solid Waste Management',
+      status: 'Open', sr_type: 'Container Problem',
+      overdue: [30..60]).count
+    @cityWide61To120Over_for_container_problem =
+      Sr.where(department: 'SWM Solid Waste Management',
+        status: 'Open', sr_type: 'Container Problem',
+        overdue: [60..120]).count
+    @cityWide121To240Over_for_container_problem =
+    Sr.where(department: 'SWM Solid Waste Management',
+      status: 'Open', sr_type: 'Container Problem',
+      overdue: [120..240]).count
+    @cityWide241To375Over_for_container_problem =
+    Sr.where(department: 'SWM Solid Waste Management',
+      status: 'Open', sr_type: 'Container Problem',
+      overdue: [241..375]).count
+
+      @cityWide30To60Over_for_missed_garbage =
+        Sr.where(department: 'SWM Solid Waste Management',
+        status: 'Open', sr_type: 'Missed Garbage Pickup',
+        overdue: [30..60]).count
+      @cityWide61To120Over_for_missed_garbage =
+        Sr.where(department: 'SWM Solid Waste Management',
+          status: 'Open', sr_type: 'Missed Garbage Pickup',
+          overdue: [60..120]).count
+      @cityWide121To240Over_for_missed_garbage =
+      Sr.where(department: 'SWM Solid Waste Management',
+        status: 'Open', sr_type: 'Missed Garbage Pickup',
+        overdue: [120..240]).count
+      @cityWide241To375Over_for_missed_garbage =
+      Sr.where(department: 'SWM Solid Waste Management',
+        status: 'Open', sr_type: 'Missed Garbage Pickup',
+        overdue: [241..375]).count
+
+      @cityWide30To60Over_for_missed_hvy =
+          Sr.where(department: 'SWM Solid Waste Management',
+          status: 'Open', sr_type: 'Missed Heavy Trash Pickup',
+          overdue: [30..60]).count
+      @cityWide61To120Over_for_missed_hvy =
+          Sr.where(department: 'SWM Solid Waste Management',
+            status: 'Open', sr_type: 'Missed Heavy Trash Pickup',
+            overdue: [60..120]).count
+      @cityWide121To240Over_for_missed_hvy =
+        Sr.where(department: 'SWM Solid Waste Management',
+          status: 'Open', sr_type: 'Missed Heavy Trash Pickup',
+          overdue: [120..240]).count
+      @cityWide241To375Over_for_missed_hvy =
+        Sr.where(department: 'SWM Solid Waste Management',
+          status: 'Open', sr_type: 'Missed Heavy Trash Pickup',
+          overdue: [241..375]).count
+
+      @cityWide30To60Over_for_missed_recycle_pu =
+              Sr.where(department: 'SWM Solid Waste Management',
+              status: 'Open', sr_type: 'Missed Recycling Pickup',
+              overdue: [30..60]).count
+      @cityWide61To120Over_for_missed_recycle_pu =
+              Sr.where(department: 'SWM Solid Waste Management',
+                status: 'Open', sr_type: 'Missed Recycling Pickup',
+                overdue: [60..120]).count
+      @cityWide121To240Over_for_missed_recycle_pu =
+            Sr.where(department: 'SWM Solid Waste Management',
+              status: 'Open', sr_type: 'Missed Recycling Pickup',
+              overdue: [120..240]).count
+      @cityWide241To375Over_for_missed_recycle_pu =
+            Sr.where(department: 'SWM Solid Waste Management',
+              status: 'Open', sr_type: 'Missed Recycling Pickup',
+              overdue: [241..375]).count
+
+    @cityWide30To60Over_for_recycling_o_m =
+            Sr.where(department: 'SWM Solid Waste Management',
+              status: 'Open', sr_type: 'Recycling Cart Repair or Replace',
+              overdue: [30..60]).count
+    @cityWide61To120Over_for_recycling_o_m =
+            Sr.where(department: 'SWM Solid Waste Management',
+              status: 'Open', sr_type: 'Recycling Cart Repair or Replace',
+              overdue: [60..120]).count
+    @cityWide121To240Over_for_recycling_o_m =
+            Sr.where(department: 'SWM Solid Waste Management',
+              status: 'Open', sr_type: 'Recycling Cart Repair or Replace',
+              overdue: [120..240]).count
+    @cityWide241To375Over_for_recycling_o_m =
+            Sr.where(department: 'SWM Solid Waste Management',
+              status: 'Open', sr_type: 'Recycling Cart Repair or Replace',
+              overdue: [241..375]).count
+
+      @cityWide30To60Over_for_recycling_new =
+            Sr.where(department: 'SWM Solid Waste Management',
+              status: 'Open', sr_type: 'Recycling Participation NEW',
+              overdue: [30..60]).count
+      @cityWide61To120Over_for_recycling_new =
+            Sr.where(department: 'SWM Solid Waste Management',
+                status: 'Open', sr_type: 'Recycling Participation NEW',
+                overdue: [60..120]).count
+      @cityWide121To240Over_for_recycling_new =
+            Sr.where(department: 'SWM Solid Waste Management',
+                status: 'Open', sr_type: 'Recycling Participation NEW',
+                overdue: [120..240]).count
+      @cityWide241To375Over_for_recycling_new =
+            Sr.where(department: 'SWM Solid Waste Management',
+                status: 'Open', sr_type: 'Recycling Participation NEW',
+                overdue: [241..375]).count
+
+      @cityWide30To60Over_for_add_a_can =
+            Sr.where(department: 'SWM Solid Waste Management',
+              status: 'Open', sr_type: 'Add A Can',
+              overdue: [30..60]).count
+      @cityWide61To120Over_for_add_a_can =
+          Sr.where(department: 'SWM Solid Waste Management',
+              status: 'Open', sr_type: 'Add A Can',
+              overdue: [60..120]).count
+      @cityWide121To240Over_for_add_a_can =
+            Sr.where(department: 'SWM Solid Waste Management',
+                status: 'Open', sr_type: 'Add A Can',
+                overdue: [120..240]).count
+      @cityWide241To375Over_for_add_a_can =
+            Sr.where(department: 'SWM Solid Waste Management',
+                status: 'Open', sr_type: 'Add A Can',
+                overdue: [241..375]).count
+
+    @cityWide30To60Over_for_dead_animal_pu =
+          Sr.where(department: 'SWM Solid Waste Management',
+            status: 'Open', sr_type: 'Dead Animal Collection',
+            overdue: [30..60]).count
+    @cityWide61To120Over_for_dead_animal_pu =
+          Sr.where(department: 'SWM Solid Waste Management',
+              status: 'Open', sr_type: 'Dead Animal Collection',
+              overdue: [60..120]).count
+    @cityWide121To240Over_for_dead_animal_pu =
+          Sr.where(department: 'SWM Solid Waste Management',
+              status: 'Open', sr_type: 'Dead Animal Collection',
+              overdue: [120..240]).count
+    @cityWide241To375Over_for_dead_animal_pu =
+          Sr.where(department: 'SWM Solid Waste Management',
+              status: 'Open', sr_type: 'Dead Animal Collection',
+              overdue: [241..375]).count
+
+    @cityWide30To60Over_for_dumpster_complaint =
+          Sr.where(department: 'SWM Solid Waste Management',
+              status: 'Open', sr_type: 'Dumpster Complaint',
+              overdue: [30..60]).count
+    @cityWide61To120Over_for_dumpster_complaint =
+          Sr.where(department: 'SWM Solid Waste Management',
+              status: 'Open', sr_type: 'Dumpster Complaint',
+              overdue: [60..120]).count
+    @cityWide121To240Over_for_dumpster_complaint =
+          Sr.where(department: 'SWM Solid Waste Management',
+              status: 'Open', sr_type: 'Dumpster Complaint',
+              overdue: [120..240]).count
+    @cityWide241To375Over_for_dumpster_complaint =
+          Sr.where(department: 'SWM Solid Waste Management',
+              status: 'Open', sr_type: 'Dumpster Complaint',
+              overdue: [241..375]).count
+
+
+  @cityWide30To60Over_for_vehicle_complaint =
+        Sr.where(department: 'SWM Solid Waste Management',
+            status: 'Open', sr_type: 'Personnel or Vehicle Complaint',
+            overdue: [30..60]).count
+  @cityWide61To120Over_for_vehicle_complaint =
+      Sr.where(department: 'SWM Solid Waste Management',
+            status: 'Open', sr_type: 'Personnel or Vehicle Complaint',
+            overdue: [60..120]).count
+  @cityWide121To240Over_for_vehicle_complaint =
+      Sr.where(department: 'SWM Solid Waste Management',
+        status: 'Open',
+        sr_type: 'Personnel or Vehicle Complaint',
+        overdue: [120..240]).count
+  @cityWide241To375Over_for_vehicle_complaint =
+      Sr.where(department: 'SWM Solid Waste Management',
+        status: 'Open',
+        sr_type: 'Personnel or Vehicle Complaint',
+        overdue: [241..375]).count
+
+  @cityWide30To60Over_for_prop_damage =
+      Sr.where(department: 'SWM Solid Waste Management',
+        status: 'Open',
+        sr_type: 'Property Damage',
+        overdue: [30..60]).count
+  @cityWide61To120Over_for_prop_damage =
+      Sr.where(department: 'SWM Solid Waste Management',
+        status: 'Open',
+        sr_type: 'Property Damage',
+        overdue: [60..120]).count
+  @cityWide121To240Over_for_prop_damage =
+      Sr.where(department: 'SWM Solid Waste Management',
+        status: 'Open',
+        sr_type: 'Property Damage',
+        overdue: [120..240]).count
+  @cityWide241To375Over_for_prop_damage =
+      Sr.where(department: 'SWM Solid Waste Management',
+        status: 'Open',
+        sr_type: 'Property Damage',
+        overdue: [241..375]).count
+
+  @cityWide30To60Over_for_dump_site =
+      Sr.where(department: 'SWM Solid Waste Management',
+        status: 'Open',
+        sr_type: 'Trash Dumping or Illegal Dumpsite',
+        overdue: [30..60]).count
+  @cityWide61To120Over_for_dump_site =
+      Sr.where(department: 'SWM Solid Waste Management',
+        status: 'Open',
+        sr_type: 'Trash Dumping or Illegal Dumpsite',
+        overdue: [60..120]).count
+  @cityWide121To240Over_for_dump_site =
+      Sr.where(department: 'SWM Solid Waste Management',
+        status: 'Open',
+        sr_type: 'Trash Dumping or Illegal Dumpsite',
+        overdue: [120..240]).count
+  @cityWide241To375Over_for_dump_site =
+      Sr.where(department: 'SWM Solid Waste Management',
+        status: 'Open',
+        sr_type: 'Trash Dumping or Illegal Dumpsite',
+        overdue: [241..375]).count
+
+@cityWide30To60Over_for_SWM_Information =
+    Sr.where(department: 'SWM Solid Waste Management',
+      status: 'Open',
+      sr_type: 'SWM Information',
+      overdue: [30..60]).count
+@cityWide61To120Over_for_SWM_Information =
+    Sr.where(department: 'SWM Solid Waste Management',
+      status: 'Open',
+      sr_type: 'SWM Information',
+      overdue: [60..120]).count
+@cityWide121To240Over_for_SWM_Information =
+    Sr.where(department: 'SWM Solid Waste Management',
+      status: 'Open',
+      sr_type: 'SWM Information',
+      overdue: [120..240]).count
+@cityWide241To375Over_for_SWM_Information =
+    Sr.where(department: 'SWM Solid Waste Management',
+      status: 'Open',
+      sr_type: 'SWM Information',
+      overdue: [241..375]).count
   end
 
 end

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <style>
+    table {
+       border-collapse:collapse;
+       border: 2px #0080ff solid;
+       }
+       td, th {
+       padding: 10px;
+       border-bottom: 2px solid #8ebf42;
+       border-radius: 5px;
+       text-align: left;
+       font-size: 18px;
+       }
+  tr:nth-child(even) {background-color: #f2f2f2;}
+  </style>
+</head>
+<body>
+    <h2>Open And Overdue Service Requests by Days(from 30 - 375) Over Service Level Agreements(days)</h2>
+  <table cellspacing="15", exclass="table table-striped">
+  </table>
+  <table>
+    <tr>
+      <th>Service Type Categories</th>
+      <th>Between 30 to 60 Over SLA</th>
+      <th>Between 61 to 120 Over SLA</th>
+      <th>Between 121 to 240 Over SLA</th>
+      <th>Between 241 to 375 Over SLA</th>
+    </tr>
+    <tr>
+      <td>Missed Garbage Pickup</td>
+      <td><%=@cityWide30To60Over_for_missed_garbage%></td>
+      <td><%=@cityWide61To120Over_for_missed_garbage%></td>
+      <td><%=@cityWide121To240Over_for_missed_garbage%></td>
+      <td><%=@cityWide241To375Over_for_missed_garbage%></td>
+    </tr>
+    <tr>
+      <td>Missed Heavy Trash Pickup</td>
+      <td><%=@cityWide30To60Over_for_missed_hvy%></td>
+      <td><%=@cityWide61To120Over_for_missed_hvy%></td>
+      <td><%=@cityWide121To240Over_for_missed_hvy%></td>
+      <td><%=@cityWide241To375Over_for_missed_hvy%></td>
+    </tr>
+    <tr>
+      <td>Missed Recycling Pickup</td>
+      <td><%=@cityWide30To60Over_for_missed_recycle_pu%></td>
+      <td><%=@cityWide61To120Over_for_missed_recycle_pu%></td>
+      <td><%=@cityWide121To240Over_for_missed_recycle_pu%></td>
+      <td><%=@cityWide241To375Over_for_missed_recycle_pu%></td>
+    </tr>
+    <tr>
+      <td>Dead Animal Collection</td>
+      <td><%=@cityWide30To60Over_for_dead_animal_pu%></td>
+      <td><%=@cityWide61To120Over_for_dead_animal_pu%></td>
+      <td><%=@cityWide121To240Over_for_dead_animal_pu%></td>
+      <td><%=@cityWide241To375Over_for_dead_animal_pu%></td>
+    </tr>
+    <tr>
+      <td>Container Problem</td>
+      <td><%=@cityWide30To60Over_for_container_problem%></td>
+      <td><%=@cityWide61To120Over_for_container_problem%></td>
+      <td><%=@cityWide121To240Over_for_container_problem%></td>
+      <td><%=@cityWide241To375Over_for_container_problem%></td>
+    </tr>
+    <tr>
+      <td>Recycling Cart Repair or Replace</td>
+      <td><%=@cityWide30To60Over_for_recycling_o_m%></td>
+      <td><%=@cityWide61To120Over_for_recycling_o_m%></td>
+      <td><%=@cityWide121To240Over_for_recycling_o_m%></td>
+      <td><%=@cityWide241To375Over_for_recycling_o_m%></td>
+    </tr>
+    <tr>
+      <td>Recycling Participation NEW</td>
+      <td><%=@cityWide30To60Over_for_recycling_new%></td>
+      <td><%=@cityWide61To120Over_for_recycling_new%></td>
+      <td><%=@cityWide121To240Over_for_recycling_new%></td>
+      <td><%=@cityWide241To375Over_for_recycling_new%></td>
+    </tr>
+    <tr>
+      <td>Add A Can</td>
+      <td><%=@cityWide30To60Over_for_add_a_can%></td>
+      <td><%=@cityWide61To120Over_for_add_a_can%></td>
+      <td><%=@cityWide121To240Over_for_add_a_can%></td>
+      <td><%=@cityWide241To375Over_for_add_a_can%></td>
+    </tr>
+    <tr>
+      <td>Dumpster Complaint</td>
+      <td><%=@cityWide30To60Over_for_dumpster_complaint%></td>
+      <td><%=@cityWide61To120Over_for_dumpster_complaint%></td>
+      <td><%=@cityWide121To240Over_for_dumpster_complaint%></td>
+      <td><%=@cityWide241To375Over_for_dumpster_complaint%></td>
+    </tr>
+    <tr>
+      <td>Personnel or Vehicle Complaint</td>
+      <td><%=@cityWide30To60Over_for_vehicle_complaint%></td>
+      <td><%=@cityWide61To120Over_for_vehicle_complaint%></td>
+      <td><%=@cityWide121To240Over_for_vehicle_complaint%></td>
+      <td><%=@cityWide241To375Over_for_vehicle_complaint%></td>
+    </tr>
+    <tr>
+      <td>Property Damage</td>
+      <td><%=@cityWide30To60Over_for_prop_damage%></td>
+      <td><%=@cityWide61To120Over_for_prop_damage%></td>
+      <td><%=@cityWide121To240Over_for_prop_damage%></td>
+      <td><%=@cityWide241To375Over_for_prop_damage%></td>
+    </tr>
+    <tr>
+      <td>Trash Dumping or Illegal Dumpsite</td>
+      <td><%=@cityWide30To60Over_for_dump_site%></td>
+      <td><%=@cityWide61To120Over_for_dump_site%></td>
+      <td><%=@cityWide121To240Over_for_dump_site%></td>
+      <td><%=@cityWide241To375Over_for_dump_site%></td>
+    </tr>
+    <tr>
+      <td>SWM Information</td>
+      <td><%=@cityWide30To60Over_for_SWM_Information%></td>
+      <td><%=@cityWide61To120Over_for_SWM_Information%></td>
+      <td><%=@cityWide121To240Over_for_SWM_Information%></td>
+      <td><%=@cityWide241To375Over_for_SWM_Information%></td>
+    </tr>
+  </table>
+  </html>

@@ -1,66 +1,81 @@
 class SrsController < ApplicationController
   def misc_summary
     @NewResidentContainerOverdue = Sr.
-    where(sr_type: 'New Resident Container',
-    status: 'Open', expression: 'Overdue').count
+      where(sr_type: 'New Resident Container',
+        status: 'Open', expression: 'Overdue').count
     @NewResidentContainerNotOverdue = Sr.
-    where(sr_type: 'New Resident Container',
-    status: 'Open', expression: 'Not Overdue').count
-    @NewResidentContainerTotal = @NewResidentContainerOverdue +
-    @NewResidentContainerNotOverdue
+      where(sr_type: 'New Resident Container',
+        status: 'Open', expression: 'Not Overdue').count
+    @NewResidentContainerTotal =
+      @NewResidentContainerOverdue +
+      @NewResidentContainerNotOverdue
     @NewResidentContainerPercentOverdue =
-    "#{((@NewResidentContainerOverdue.to_f/@NewResidentContainerTotal.to_f)*100).round(2)}%"
+      "#{((@NewResidentContainerOverdue.to_f/
+      @NewResidentContainerTotal.to_f)*100).round(2)}%"
     @NewResidentContainerPercentNotOverdue =
-    "#{((@NewResidentContainerNotOverdue.to_f/@NewResidentContainerTotal.to_f)*100).round(2)}%"
-    @NewResidentContainerDigits = @NewResidentContainerPercentNotOverdue.to_f/
-    @NewResidentContainerTotal.to_f
-    @NewResidentContainerGrade = OpenSr.qualityGrade(@NewResidentContainerDigits)
+      "#{((@NewResidentContainerNotOverdue.to_f/
+      @NewResidentContainerTotal.to_f)*100).round(2)}%"
+    @NewResidentContainerDigits =
+      @NewResidentContainerPercentNotOverdue.to_f/
+      @NewResidentContainerTotal.to_f
+    @NewResidentContainerGrade =
+      OpenSr.qualityGrade(@NewResidentContainerDigits)
 
     @PerOrVehComplaintOverdue = Sr.
-    where(sr_type: 'Personnel or Vehicle Complaint',
-    status: 'Open', expression: 'Overdue').count
+      where(sr_type: 'Personnel or Vehicle Complaint',
+        status: 'Open', expression: 'Overdue').count
     @PerOrVecComplaintNotOverdue = Sr.
-    where(sr_type: 'Personnel or Vehicle Complaint',
-    status: 'Open', expression: 'Not Overdue').count
+      where(sr_type: 'Personnel or Vehicle Complaint',
+        status: 'Open', expression: 'Not Overdue').count
     @PerOrVecComplaintTotal = @PerOrVehComplaintOverdue +
     @PerOrVecComplaintNotOverdue
     @PerOrVecComplaintPercentOverdue =
-    "#{((@PerOrVehComplaintOverdue.to_f/@NewResidentContainerTotal.to_f)*100).round(2)}%"
+      "#{((@PerOrVehComplaintOverdue.to_f/
+      @NewResidentContainerTotal.to_f)*100).round(2)}%"
     @PerOrVecComplaintPercentNotOverdue =
-    "#{((@PerOrVehComplaintNotOverdue.to_f/@NewResidentContainerTotal.to_f)*100).round(2)}%"
-    @PerOrVecComplaintDigits = @PerOrVehComplaintNotOverdue.to_f/
-    @PerOrVecComplaintNotOverdue.to_f
+      "#{((@PerOrVehComplaintNotOverdue.to_f/
+      @NewResidentContainerTotal.to_f)*100).round(2)}%"
+    @PerOrVecComplaintDigits =
+      @PerOrVehComplaintNotOverdue.to_f/
+      @PerOrVecComplaintNotOverdue.to_f
     @PerOrVecComplaintGrade = OpenSr.qualityGrade(@PerOrVecComplaintDigits)
 
     @PropDamOverdue = Sr.
-    where(sr_type: 'Property Damage',
-    status: 'Open', expression: 'Overdue').count
+      where(sr_type: 'Property Damage',
+        status: 'Open', expression: 'Overdue').count
     @PropDamNotOverdue = Sr.
-    where(sr_type: 'Property Damage',
-    status: 'Open', expression: 'Not Overdue').count
+      where(sr_type: 'Property Damage',
+        status: 'Open', expression: 'Not Overdue').count
     @PropDamTotal = @PropDamOverdue + @PropDamNotOverdue
     @PropDamPercentOverdue =
-    "#{((@PropDamOverdue.to_f/@PropDamTotal.to_f)*100).round(2)}"
+      "#{((@PropDamOverdue.to_f/
+      @PropDamTotal.to_f)*100).round(2)}"
     @PropDamPercentNotOverdue =
-    "#{((@PropDamNotOverdue.to_f/@PropDamTotal.to_f)*100).round(2)}"
-    @PropDamDigits = @PropDamNotOverdue.to_f/
-    @PropDamNotOverdue.to_f
+      "#{((@PropDamNotOverdue.to_f/
+      @PropDamTotal.to_f)*100).round(2)}"
+    @PropDamDigits =
+      @PropDamNotOverdue.to_f/
+      @PropDamNotOverdue.to_f
     @PropDamGrade = OpenSr.qualityGrade(@PropDamDigits)
 
     @RecBinCarRetrieveOverdue = Sr.
-    where(sr_type: 'Recycle Bin/Cart Retrieve',
-    status: 'Open', expression: 'Overdue').count
+      where(sr_type: 'Recycle Bin/Cart Retrieve',
+        status: 'Open', expression: 'Overdue').count
     @RecBinCarRetrieveNotOverdue = Sr.
-    where(sr_type: 'Recycle Bin/Cart Retrieve',
-    status: 'Open', expression: 'Overdue').count
-    @RecBinCarRetrieveTotal = @RecBinCarRetrieveOverdue +
-    @RecBinCarRetrieveNotOverdue
+      where(sr_type: 'Recycle Bin/Cart Retrieve',
+        status: 'Open', expression: 'Overdue').count
+    @RecBinCarRetrieveTotal =
+      @RecBinCarRetrieveOverdue +
+      @RecBinCarRetrieveNotOverdue
     @RecBinCarRetrievePercentOverdue =
-    "#{((@RecBinCarRetrieveOverdue.to_f/@RecBinCarRetrieveTotal.to_f)*100).round(2)}%"
+      "#{((@RecBinCarRetrieveOverdue.to_f/
+      @RecBinCarRetrieveTotal.to_f)*100).round(2)}%"
     @RecBinCarRetrievePercentNotOverdue =
-    "#{((@RecBinCarRetrieveNotOverdue.to_f/@RecBinCarRetrieveTotal.to_f)*100).round(2)}%"
-    @RecBinCarRetrieveDigits = @RecBinCarRetrieveNotOverdue.to_f/
-    @RecBinCarRetrieveNotOverdue.to_f
+      "#{((@RecBinCarRetrieveNotOverdue.to_f/
+      @RecBinCarRetrieveTotal.to_f)*100).round(2)}%"
+    @RecBinCarRetrieveDigits =
+      @RecBinCarRetrieveNotOverdue.to_f/
+      @RecBinCarRetrieveNotOverdue.to_f
     @RecBinCarRetrieveGrade = OpenSr.qualityGrade(@RecBinCarRetrieveDigits)
 
     @StormDebrisCollectOverdue = Sr.
@@ -69,64 +84,84 @@ class SrsController < ApplicationController
     @StormDebrisCollectNotOverdue = Sr.
     where(sr_type: 'Storm Debris Collection',
     status: 'Open', expression: 'Not Overdue').count
-    @StormDebrisCollectTotal = @StormDebrisCollectOverdue +
-    @StormDebrisCollectNotOverdue
+    @StormDebrisCollectTotal =
+      @StormDebrisCollectOverdue +
+      @StormDebrisCollectNotOverdue
     @StormDebrisCollectPercentOverdue =
-    "#{((@StormDebrisCollectOverdue.to_f/@StormDebrisCollectTotal.to_f)*100).round(2)}%"
+      "#{((@StormDebrisCollectOverdue.to_f/
+      @StormDebrisCollectTotal.to_f)*100).round(2)}%"
     @StormDebrisCollectPercentNotOverdue=
-    "#{((@StormDebrisCollectNotOverdue.to_f/@StormDebrisCollectTotal.to_f)*100).round(2)}%"
-    @StormDebrisCollectDigits = @StormDebrisCollectNotOverdue.to_f/
-    @StormDebrisCollectTotal.to_f
-    @StormDebrisCollectGrade = OpenSr.qualityGrade(@StormDebrisCollectDigits)
+      "#{((@StormDebrisCollectNotOverdue.to_f/
+      @StormDebrisCollectTotal.to_f)*100).round(2)}%"
+    @StormDebrisCollectDigits =
+      @StormDebrisCollectNotOverdue.to_f/
+      @StormDebrisCollectTotal.to_f
+    @StormDebrisCollectGrade =
+      OpenSr.qualityGrade(@StormDebrisCollectDigits)
 
     @TrashDumpingOrIllegalDumpSiteOverdue = Sr.
-    where(sr_type: 'Trash Dumping or Illegal Dumpsite',
-    status: 'Open', expression: 'Overdue').count
+      where(sr_type: 'Trash Dumping or Illegal Dumpsite',
+        status: 'Open', expression: 'Overdue').count
     @TrashDumpingOrIllegalDumpSiteNotOverdue = Sr.
-    where(sr_type: 'Trash Dumping or Illegal Dumpsite',
-    status: 'Open', expression: 'Not Overdue').count
+      where(sr_type: 'Trash Dumping or Illegal Dumpsite',
+        status: 'Open', expression: 'Not Overdue').count
     @TrashDumpingOrIllegalDumpSiteTotal =
-    @TrashDumpingOrIllegalDumpSiteOverdue +
-    @TrashDumpingOrIllegalDumpSiteNotOverdue
+      @TrashDumpingOrIllegalDumpSiteOverdue +
+      @TrashDumpingOrIllegalDumpSiteNotOverdue
     @TrashDumpingOrIllegalDumpSitePercentOverdue =
-    "#{((@TrashDumpingOrIllegalDumpSiteOverdue.to_f/
-    @TrashDumpingOrIllegalDumpSiteTotal.to_f)*100).round(2)}%"
+      "#{((@TrashDumpingOrIllegalDumpSiteOverdue.to_f/
+      @TrashDumpingOrIllegalDumpSiteTotal.to_f)*100).round(2)}%"
+
     @TrashDumpingOrIllegalDumpSitePercentNotOverdue =
-    "#{((@TrashDumpingOrIllegalDumpSiteNotOverdue.to_f/
-    @TrashDumpingOrIllegalDumpSiteTotal.to_f)*100).round(2)}%"
-    @TrashDumpingOrIllegalDumpSiteDigits = @TrashDumpingOrIllegalDumpSiteNotOverdue.to_f/
-    @TrashDumpingOrIllegalDumpSiteTotal.to_f
-    @TrashDumpingOrIllegalDumpSiteGrade = OpenSr.qualityGrade(@TrashDumpingOrIllegalDumpSiteDigits)
+      "#{((@TrashDumpingOrIllegalDumpSiteNotOverdue.to_f/
+      @TrashDumpingOrIllegalDumpSiteTotal.to_f)*100).round(2)}%"
+
+    @TrashDumpingOrIllegalDumpSiteDigits =
+      @TrashDumpingOrIllegalDumpSiteNotOverdue.to_f/
+      @TrashDumpingOrIllegalDumpSiteTotal.to_f
+    @TrashDumpingOrIllegalDumpSiteGrade =
+    OpenSr.qualityGrade(@TrashDumpingOrIllegalDumpSiteDigits)
 
     @AddACanOverdue = Sr.
     where(sr_type: 'Add A Can',
     status: 'Open', expression: 'Overdue').count
+
     @AddACanNotOverdue = Sr.
     where(sr_type: 'Add A Can',
     status: 'Open', expression: 'Not Overdue').count
+
     @AddACanTotal= @AddACanOverdue + @AddACanNotOverdue
+
     @AddACanPercentOverdue=
     "#{((@AddACanOverdue.to_f/@AddACanTotal.to_f)*100).round(2)}%"
     @AddACanPercentNotOverdue=
-    "#{((@AddACanNotOverdue.to_f/@AddACanTotal.to_f)*100).round(2)}%"
+      "#{((@AddACanNotOverdue.to_f/@AddACanTotal.to_f)*100).round(2)}%"
     @AddACanDigits = @AddACanNotOverdue.to_f/@AddACanTotal.to_f
     @AddACanGrade = OpenSr.qualityGrade(@AddACanDigits)
 
     @SWM_CustomerEscalationOverdue = Sr.
-    where(sr_type: 'SWM_CustomerEscalation',
-    status: 'Open', expression: 'Overdue').count
+      where(sr_type: 'SWM_CustomerEscalation',
+        status: 'Open', expression: 'Overdue').count
     @SWM_CustomerEscalationNotOverdue = Sr.
-    where(sr_type: 'SWM_CustomerEscalation',
-    status: 'Open', expression: 'Not Overdue').count
-    @SWM_CustomerEscalationTotal = @SWM_CustomerEscalationOverdue +
-    @SWM_CustomerEscalationNotOverdue
+      where(sr_type: 'SWM_CustomerEscalation',
+        status: 'Open', expression: 'Not Overdue').count
+    @SWM_CustomerEscalationTotal =
+      @SWM_CustomerEscalationOverdue +
+      @SWM_CustomerEscalationNotOverdue
     @SWM_CustomerEscalationPercentOverdue =
-    "#{((@SWM_CustomerEscalationOverdue.to_f/@SWM_CustomerEscalationTotal.to_f)*100).round(2)}"
+      "#{((@SWM_CustomerEscalationOverdue.to_f/
+      @SWM_CustomerEscalationTotal.to_f)*100).round(2)}"
+
     @SWM_CustomerEscalationPercentNotOverdue =
-    "#{((@SWM_CustomerEscalationNotOverdue.to_f/@SWM_CustomerEscalationTotal.to_f)*100).round(2)}"
-    @SWM_CustomerEscalationDigits = @SWM_CustomerEscalationNotOverdue.to_f/
-    @SWM_CustomerTotal.to_f
-    @SWM_CustomerEscalationGrade = OpenSr.qualityGrade(@SWM_CustomerEscalationDigits)
+      "#{((@SWM_CustomerEscalationNotOverdue.to_f/
+      @SWM_CustomerEscalationTotal.to_f)*100).round(2)}"
+
+    @SWM_CustomerEscalationDigits =
+      @SWM_CustomerEscalationNotOverdue.to_f/
+      @SWM_CustomerTotal.to_f
+
+    @SWM_CustomerEscalationGrade =
+    OpenSr.qualityGrade(@SWM_CustomerEscalationDigits)
 
     @SWM_EscalationOverdue = Sr.
     where(sr_type: 'SWM Escalation',
@@ -143,10 +178,12 @@ class SrsController < ApplicationController
     status: 'Open', expression: 'Not Overdue').count
 
     @SWM_EscalationPercentOverdue =
-    "#{((@SWM_EscalationOverdue.to_f/@SWM_EscalationTotal.to_f)*100).round(2)}%"
+    "#{((@SWM_EscalationOverdue.to_f/
+    @SWM_EscalationTotal.to_f)*100).round(2)}%"
 
     @SWM_EscalationPercentNotOverdue =
-    "#{((@SWM_EscalationNotOverdue.to_f/@SWM_EscalationTotal.to_f)*100).round(2)}%"
+    "#{((@SWM_EscalationNotOverdue.to_f/
+    @SWM_EscalationTotal.to_f)*100).round(2)}%"
 
     @SWM_EscalationDigits = @SWM_EscalationNotOverdue.to_f/
     @SWM_EscalationTotal.to_f
@@ -165,30 +202,39 @@ class SrsController < ApplicationController
     @NonResidentialCollectionServiceNEWNotOverdue
 
     @NonResidentialCollectionServiceNEWPercentOverdue =
-    "#{((@NonResidentialCollectionServiceNEWOverdue.to_f/@NonResidentialCollectionServiceNEWTotal.to_f)*100).round(2)}%"
+    "#{((@NonResidentialCollectionServiceNEWOverdue.to_f/
+    @NonResidentialCollectionServiceNEWTotal.to_f)*100).round(2)}%"
     @NonResidentialCollectionServiceNEWPercentNotOverdue =
-    "#{((@NonResidentialCollectionServiceNEWNotOverdue.to_f/@NonResidentialCollectionServiceNEWTotal.to_f)*100).round(2)}%"
+    "#{((@NonResidentialCollectionServiceNEWNotOverdue.to_f/
+    @NonResidentialCollectionServiceNEWTotal.to_f)*100).round(2)}%"
 
-    @NonResidentialCollectionServiceNEWDigits= @NonResidentialCollectionServiceNEWNotOverdue.to_f/
+    @NonResidentialCollectionServiceNEWDigits=
+    @NonResidentialCollectionServiceNEWNotOverdue.to_f/
     @NonResidentialCollectionServiceNEWTotal.to_f
 
-    @NonResidentialCollectionServiceNEWGrade = OpenSr.qualityGrade(@NonResidentialCollectionServiceNEWDigits)
+    @NonResidentialCollectionServiceNEWGrade =
+    OpenSr.qualityGrade(@NonResidentialCollectionServiceNEWDigits)
 
     @PhysicallyChallengedPickupOverdue = Sr.
-    where(sr_type: 'Physically Challenged Pickup',
-    status: 'Open',  expression: 'Overdue').count
+      where(sr_type: 'Physically Challenged Pickup',
+        status: 'Open',  expression: 'Overdue').count
     @PhysicallyChallengedPickupNotOverdue = Sr.
-    where(sr_type: 'Physically Challenged Pickup',
-    status: 'Open', expression: 'Not Overdue').count
-    @PhysicallyChallengedPickupTotal = @PhysicallyChallengedPickupOverdue +
-    @PhysicallyChallengedPickupNotOverdue
+      where(sr_type: 'Physically Challenged Pickup',
+        status: 'Open', expression: 'Not Overdue').count
+    @PhysicallyChallengedPickupTotal =
+      @PhysicallyChallengedPickupOverdue +
+      @PhysicallyChallengedPickupNotOverdue
     @PhysicallyChallengedPickupPercentOverdue =
-    "#{((@PhysicallyChallengedPickupOverdue.to_f/@PhysicallyChallengedPickupTotal.to_f)*100).round(2)}%"
+    "#{((@PhysicallyChallengedPickupOverdue.to_f/
+    @PhysicallyChallengedPickupTotal.to_f)*100).round(2)}%"
     @PhysicallyChallengedPickupPercentNotOverdue =
-    "#{((@PhysicallyChallengedPickupNotOverdue.to_f/@PhysicallyChallengedPickupTotal.to_f)*100).round(2)}%"
-    @PhysicallyChallengedPickupDigit = @PhysicallyChallengedPickupNotOverdue.to_f/
-    @PhysicallyChallengedPickupTotal.to_f
-    @PhysicallyChallengedPickupGrade = OpenSr.qualityGrade(@PhysicallyChallengedPickupDigit)
+    "#{((@PhysicallyChallengedPickupNotOverdue.to_f/
+    @PhysicallyChallengedPickupTotal.to_f)*100).round(2)}%"
+    @PhysicallyChallengedPickupDigit =
+      @PhysicallyChallengedPickupNotOverdue.to_f/
+      @PhysicallyChallengedPickupTotal.to_f
+    @PhysicallyChallengedPickupGrade =
+      OpenSr.qualityGrade(@PhysicallyChallengedPickupDigit)
 
     @DumpsterComplaintOverdue = Sr.
     where(sr_type: 'Dumpster Complaint',
