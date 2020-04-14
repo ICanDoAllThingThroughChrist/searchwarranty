@@ -649,7 +649,7 @@ class OpenSr < ApplicationRecord
     elsif grade == BigDecimal('Infinity')
       return "No Value"
     elsif grade == 0
-        return "No Value"
+        return "F"
     elsif grade.nan?
           return "No Value"
     elsif grade >= 0.9

@@ -163,7 +163,7 @@ class Sr < ApplicationRecord
       #perform following command to determine if sr_type includes missed garbage
       binding.pry
       Sr.
-      where(trash_quad: [nil], status: 'Open',
+      where(trash_quad: [nil, ""], status: 'Open',
          department:'SWM Solid Waste Management').distinct.pluck(:sr_type)
       #repeated following command if sr_type includes missed garbage
       #repeatt command to see if sr contains lat, lon,  x, y,
