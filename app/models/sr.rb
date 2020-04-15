@@ -101,7 +101,7 @@ class Sr < ApplicationRecord
       Spatial.seed
       array = Sr.where(department:'SWM Solid Waste Management',
         status: 'Open',
-        trash_quad:[nil,""])
+        trash_quad:['Unknown',nil,""])
       array.each{|sr|
         quad = Spatial.where(id:"#{sr.id}").pluck(:quad)
         # binding.pry
@@ -126,7 +126,7 @@ class Sr < ApplicationRecord
         write_headers: true, headers: headers) { |csv|
           Sr.where(department: 'SWM Solid Waste Management',
             status: 'Open',
-            trash_quad: [nil, ""]).
+            trash_quad: ['Unknown',nil, ""]).
           pluck(:id, :case_number,
             :sr_location, :county,:district, :neighborhood, :tax_id,
             :trash_quad, :recycle_quad, :trash_day, :heavy_trash_day,
@@ -162,17 +162,15 @@ class Sr < ApplicationRecord
       Sr.expression_quad_status_assignment
       #perform following command to determine if sr_type includes missed garbage
       binding.pry
-      Sr.
-      where(trash_quad: [nil, ""], status: 'Open',
-         department:'SWM Solid Waste Management').distinct.pluck(:sr_type)
+      Sr.where(trash_quad: ['Unknown',nil, ""], status: 'Open', department:'SWM Solid Waste Management').distinct.pluck(:sr_type)
       #repeated following command if sr_type includes missed garbage
       #repeatt command to see if sr contains lat, lon,  x, y,
       Sr.no_quad_list #repeat this command  to perform spatial join
       #perform following
       Sr.
-      where(trash_quad: [nil, ""], status: 'Open',
+      where(trash_quad: ['Unknown',nil, ""], status: 'Open',
          department:'SWM Solid Waste Management').count
-      Sr.where(trash_quad: [nil, ""], status: 'Open',
+      Sr.where(trash_quad: ['Unknown',nil, ""], status: 'Open',
             department:'SWM Solid Waste Management',
             sr_type:['Missed Garbage Pickup']).distinct.pluck(:id)
       # Spatial.find(:19342615)#can  not find  it in Spatial Join
