@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_10_162033) do
+ActiveRecord::Schema.define(version: 2020_04_15_201335) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -149,6 +149,45 @@ ActiveRecord::Schema.define(version: 2020_04_10_162033) do
     t.integer "replaced_cart"
     t.integer "serviced"
     t.integer "replace_wheel_lid"
+  end
+
+  create_table "gis_swmd_lists", force: :cascade do |t|
+    t.integer "OBJECTID"
+    t.integer "STREET_NUM"
+    t.text "FRACTION"
+    t.text "PREFIX"
+    t.text "STREET_NAME"
+    t.text "SUFFIX"
+    t.text "STREET_TYPE"
+    t.text "STATE"
+    t.text "CITY"
+    t.integer "ZIPCODE"
+    t.text "GlobalID"
+    t.text "synthetic"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "created_user"
+    t.datetime "created_date"
+    t.string "last_edited_user"
+    t.datetime "last_edited_date"
+    t.string "SEC_NAME"
+    t.string "COLLECT_DAY"
+    t.string "QUAD"
+    t.string "HELP_SECTION"
+    t.string "RECY_QUAD"
+    t.string "RECY_COLLECT_DAY"
+    t.string "RECY_SEC_NAME"
+    t.string "HVY_TRSH_SEC_NAME"
+    t.string "HVY_TRSH_COLLECT_DAY"
+    t.string "HVY_TRSH_QUAD"
+    t.integer "LIFT_COUNT"
+    t.string "SERV_TYPE"
+    t.float "X_COORD"
+    t.float "Y_COORD"
+    t.string "DESCR"
+    t.float "LAT"
+    t.float "LONG"
+    t.integer "Customer_ID"
   end
 
   create_table "open_srs", force: :cascade do |t|

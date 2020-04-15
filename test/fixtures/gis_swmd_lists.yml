@@ -1,0 +1,29 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  OBJECTID: 1
+  STREET_NUM: 1
+  FRACTION: MyText
+  PREFIX: MyText
+  STREET_NAME: MyText
+  SUFFIX: MyText
+  STREET_TYPE: MyText
+  STATE: MyText
+  CITY: MyText
+  ZIPCODE: 1
+  GlobalID: MyText
+  synthetic: MyText
+
+two:
+  OBJECTID: 1
+  STREET_NUM: 1
+  FRACTION: MyText
+  PREFIX: MyText
+  STREET_NAME: MyText
+  SUFFIX: MyText
+  STREET_TYPE: MyText
+  STATE: MyText
+  CITY: MyText
+  ZIPCODE: 1
+  GlobalID: MyText
+  synthetic: MyText
