@@ -389,11 +389,11 @@ class Sr < ApplicationRecord
         puts "#{sr}"
       end
     }
-    open_srs =
-    Sr.where(:overdue => -400..400,
-      :department => 'SWM Solid Waste Management',
-      :status => 'Open')
-    open_srs
+    # open_srs =
+    # Sr.where(:overdue => -400..400,
+    #   :department => 'SWM Solid Waste Management',
+    #   :status => 'Open')
+    # open_srs
   end
 
   def self.grade(g)
