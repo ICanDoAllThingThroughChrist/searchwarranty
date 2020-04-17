@@ -97,7 +97,7 @@ class Sr < ApplicationRecord
           # binding.pry
         }
       end
-      def self.update_trash_quad
+    def self.update_trash_quad
       Spatial.seed
       array = Sr.where(department:'SWM Solid Waste Management',
         status: 'Open',
@@ -109,7 +109,23 @@ class Sr < ApplicationRecord
           sr.garbage_quad = quad[0]
           sr.save
       }
-      end
+    end
+    def self.missed_hvy_trash_list
+      headers = %w[id case_number district sr_location
+         latitude longitude]
+      CSV.open("hvy_trash.csv", "wb",
+        write_headers: true, headers: headers) { |csv|
+          Sr.where(department: 'SWM Solid Waste Management',
+            status: 'Open',
+            sr_type: ['Missed Heavy Trash Pickup']).
+          pluck(:id, :case_number, :district,
+            :sr_location, :latitude,
+            :longitude).
+            each { |row|
+              csv << row
+            }
+          }
+    end
     def self.no_quad_list
       headers = %w[id case_number sr_location county district
         neighborhood tax_id trash_quad recycle_quad trash_day heavy_trash_day
@@ -315,10 +331,9 @@ class Sr < ApplicationRecord
     }
   end
   def self.expression_quad_status_assignment
-    overdue_open_srs = Sr.
-    where(:overdue => 0..400,
+    overdue_open_srs = Sr.where(:overdue => 0..400,
       :department => 'SWM Solid Waste Management',
-      :status => 'Open')
+      :status => 'Open').count
     overdue_open_srs.each{|sr|
       if sr.department == 'SWM Solid Waste Management' &&
         sr.trash_quad == 'NE'
