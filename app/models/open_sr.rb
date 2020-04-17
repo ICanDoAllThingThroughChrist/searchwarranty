@@ -115,6 +115,12 @@ class OpenSr < ApplicationRecord
          'Personnel or Vehicle Complaint', 'Physically Challenged Pickup']).
     where("sr_create_date >= ? AND sr_create_date <= ?", start, due).count
   end
+  def self.delete_from_start_of_yr_to_end_of_march
+    start = DateTime.parse('2020-01-01')
+    due = Date.parse('2020-03-31')
+    #delete records
+    Sr.where("sr_create_date >=? AND sr_create_date <= ?",start, due).delete_all
+  end
 
 
   def self.delete_180_days_from_now
@@ -127,10 +133,10 @@ class OpenSr < ApplicationRecord
   def self.daily_update_from_url
     puts "expect 16 minutes upload time to DB"
     OpenSr.delete_180_days_from_now
-      web2 = open('https://hfdapp.houstontx.gov/311/311-Public-Data-Extract-2019-clean.txt'){|f|
+     web2 = open('https://hfdapp.houstontx.gov/311/311-Public-Data-Extract-2019-clean.txt'){|f|
          f.read
        }
-       things2 = web2.split(/\n/)
+     things2 = web2.split(/\n/)
      things2.in_groups_of(300000){|group|
        OpenSr.sr_create(group)
      }
@@ -201,6 +207,41 @@ class OpenSr < ApplicationRecord
   #   :department, :division, :sr_type,:queue, :sla, :status,
   #   :sr_create_date, :due_date,:date_closed, :overdue, :title,
   #   :x, :y, :latitude, :longitude,:channel_type]
+def self.daily_update_from_lagan
+  # require 'csv'
+  columns = %i[CASE_NUMBER	SR_LOCATION	COUNTY	CLIENT
+    STREET_NUM	CLIENT_STREET	CITY	STATE	ZIP	PHONE_NUMBER
+    EMAIL_ADDRESS	DISTRICT	NEIGHBORHOOD	TAX_ID
+    GARBAGE_ROUTE	GARBAGE_DAY1	GARBAGE_QUAD	RECYCLE_DAY1
+    RECYCLE_ROUTE	RECYCLE_QUAD	HEAVY_TRASH_DAY	HEAVY_TRASH_QUAD
+    KEY_MAP	MANAGEMENT_DISTRICT	SR_OWNER	SR_CREATOR	DEPARTMENT
+    DIVISION	SR_TYPE	QUEUE	SLA	STATUS	SR_CREATE_DATE	DUE_DATE
+    DATE_CLOSED	RESOLUTION_TIME	OVERDUE]
+  CSV.foreach("C:/Users/e128289/Downloads/SWM All Data with Resolution Time-March2020.csv",
+     { encoding: "iso-8859-1:utf-8",
+        headers: true,
+        header_converters: :symbol,converters: :all}) {|row|
+    # binding.pry
+   Sr.create(row.to_hash)
+    # binding.pry
+  }
+  CSV.foreach("C:/Users/e128289/Downloads/SWM All Data with Resolution Time-January2020.csv",
+     { encoding: "iso-8859-1:utf-8",
+        headers: true,
+        header_converters: :symbol,converters: :all}) {|row|
+    # binding.pry
+   Sr.create(row.to_hash)
+    # binding.pry
+  }
+  CSV.foreach("C:/Users/e128289/Downloads/SWM All Data with Resolution Time-February2020.csv",
+     { encoding: "iso-8859-1:utf-8",
+        headers: true,
+        header_converters: :symbol,converters: :all}) {|row|
+    # binding.pry
+   Sr.create(row.to_hash)
+    # binding.pry
+  }
+end
 
  def self.neMar2020_sla_cases_closed_but_updated_later
     start_date_mar_20 = Date.parse('2020-3-01')

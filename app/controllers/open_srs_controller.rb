@@ -113,8 +113,10 @@ class OpenSrsController < ApplicationController
       render 'cans_related_requests'
 
     end
-    def daily_update_from_url
+    def daily_update
       OpenSr.daily_update_from_url
+      OpenSr.daily_update_from_lagan
+      Sr.pivot
       render 'summary1'
     end
 
