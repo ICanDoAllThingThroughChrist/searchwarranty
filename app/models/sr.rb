@@ -333,7 +333,7 @@ class Sr < ApplicationRecord
   def self.expression_quad_status_assignment
     overdue_open_srs = Sr.where(:overdue => 0..400,
       :department => 'SWM Solid Waste Management',
-      :status => 'Open').count
+      :status => 'Open')
     overdue_open_srs.each{|sr|
       if sr.department == 'SWM Solid Waste Management' &&
         sr.trash_quad == 'NE'

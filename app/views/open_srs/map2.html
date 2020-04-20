@@ -114,14 +114,15 @@
 
 //;$(function() {
 
-var mapa = L.map('mapa', {attributionControl:false}).
+var map = L.map('map', {attributionControl:false}).
 setView([29.749907, -95.358421], 12);
 
 L.tileLayer('http://tile.openstreetmap.org/{z}/{x}/{y}.png', {
 	maxZoom: 18
-}).addTo(mapa);
+}).addTo(map);
 
-// upload CSV file from local directory and display latitude and longitude coordinates as default blue markers on map
+// upload CSV file from local directory and
+//display latitude and longitude coordinates as default blue markers on map
 
   var customLayer = L.geoJson(null, {
     onEachFeature: function(feature, layer) {
@@ -129,7 +130,7 @@ L.tileLayer('http://tile.openstreetmap.org/{z}/{x}/{y}.png', {
       }
   });
 
-  var runLayer = omnivore.csv("../searchwarranty/hvy_trash.csv", null, customLayer)
+  var runLayer = omnivore.csv('airports.csv', null, customLayer)
 		console.log(`${runLayer}`)
       .on('ready', function() {
           // http://leafletjs.com/reference.html#map-fitbounds
