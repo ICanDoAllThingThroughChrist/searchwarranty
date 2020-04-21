@@ -13,7 +13,7 @@ class OpenSrsController < ApplicationController
       @UnauthorizedContainerRetrieval_cans_related_list_FY2020=
         Sr.unauthorizedContainerRetrieval_cans_related_list_FY2020
       @UnauthorizedContainerRetrieval_cans_related_list_FY2019=
-        Sr.unauthorizedContainerRetrieval_cans_related_list_FY2017
+        Sr.unauthorizedContainerRetrieval_cans_related_list_FY2019
       @UnauthorizedContainerRetrieval_cans_related_list_FY2018=
         Sr.unauthorizedContainerRetrieval_cans_related_list_FY2018
       @UnauthorizedContainerRetrieval_cans_related_list_FY2017=
@@ -102,6 +102,7 @@ class OpenSrsController < ApplicationController
       newMoveInService_cans_related_list_FY2018
       @NewMoveInService_cans_related_list_FY2017 = Sr.
       newMoveInService_cans_related_list_FY2017
+
       @Total_cans_related_list_FY2020 = Sr.
         cans_related_list_FY2020_count
       @Total_cans_related_list_FY2019 = Sr.

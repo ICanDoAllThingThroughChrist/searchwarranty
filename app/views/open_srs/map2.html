@@ -1,128 +1,52 @@
-
 <!DOCTYPE html>
-<html lang="en">
-	<head>
-		<meta charset="utf-8">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<html>
+<head>
+  <title>leaflet-map-csv</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
 
-      <!-- Leaflet 0.5: https://github.com/CloudMade/Leaflet-->
-			<link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
-	    integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
-	    crossorigin=""/>
-		<!--[if lte IE 8]> <link rel="stylesheet" href="../../lib/leaflet.ie.css" />  <![endif]-->
-		<script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
-	integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
-	crossorigin=""></script>
+  <!-- Load Leaflet code library - see updates at http://leafletjs.com/download.html -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.3/dist/leaflet.css"/>
+  <script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet.js"></script>
 
-		<!-- MarkerCluster https://github.com/danzel/Leaflet.markercluster -->
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.4.1/MarkerCluster.css" />
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.4.1/MarkerCluster.css" />
-		<!--[if lte IE 8]> <link rel="stylesheet" href="../../lib/MarkerCluster.Default.ie.css" /> <![endif]-->
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.4.1/leaflet.markercluster.js"></script>
+  <!-- Load Omnivore plugin to convert CSV to GeoJSON format -->
+  <script src='https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-omnivore/v0.3.1/leaflet-omnivore.min.js'></script>
 
-		<!-- GeoCSV: https://github.com/joker-x/Leaflet.geoCSV -->
-		<script src=""../searchwarranty/app/assets/javascripts/leaflet.geocsv.js""></script>
+  <!-- Position the map with Cascading Style Sheet (CSS) -->
+  <style>
+  body { margin:0; padding:0; }
+  #map { position: absolute; top:0; bottom:0; right:0; left:0; }
+  </style>
 
-		<!-- jQuery 1.8.3: http://jquery.com/ -->
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-		<!-- This recipe shows how to use the most common controls that have a visual representation.
-		 The list includes the OverviewMap control, the Scale and ScaleLine controls,
-		 the Graticule control, the LayerSwitcher control, the PanZoomBar control,
-		 the MousePosition control, and the Permalink control -->
-		<script src="//ajax.googleapis.com/ajax/libs/dojo/1.14.1/dojo/dojo.js"></script>
+</head>
+<body>
 
-		<style>
-		html, body, #mapa {
-			margin: 0;
-			padding: 0;
-			width: 100%;
-			height: 100%;
-			font-family: Arial, sans-serif;
-			font-color: #38383;
-		}
+  <!-- Insert HTML division tag to layout the map -->
+  <div id="map"></div>
 
-		#button {
-			position:fixed;
-			top:10px;
-			left:50px;
-			z-index: 2;
-		}
+  <!-- Insert Javascript (.js) code to create the map -->
+  <script>
 
-		#loading {
-			position:fixed;
-			top:0;
-			left:0;
-			width:100%;
-			height:100%;
-			background-color:#666;
-			color:#fff;
-			font-size:2em;
-			padding:20% 40%;
-			z-index:10;
-		}
+  // Set up initial map center and zoom level
+  var map = L.map('map', {
+    center: [41.77, -72.69], // EDIT latitude, longitude to re-center map
+    zoom: 8,  // EDIT from 1 to 18 -- decrease to zoom out, increase to zoom in
+    scrollWheelZoom: false
+  });
 
-		.button {
-			border: 1px solid #96d1f8;
-			background: #65a9d7;
-			background: -webkit-gradient(linear, left top, left bottom, from(#3e779d), to(#65a9d7));
-			background: -webkit-linear-gradient(top, #3e779d, #65a9d7);
-			background: -moz-linear-gradient(top, #3e779d, #65a9d7);
-			background: -ms-linear-gradient(top, #3e779d, #65a9d7);
-			background: -o-linear-gradient(top, #3e779d, #65a9d7);
-			padding: 12px 24px;
-			-webkit-border-radius: 10px;
-			-moz-border-radius: 10px;
-			border-radius: 10px;
-			-webkit-box-shadow: rgba(0,0,0,1) 0 1px 0;
-			-moz-box-shadow: rgba(0,0,0,1) 0 1px 0;
-			box-shadow: rgba(0,0,0,1) 0 1px 0;
-			text-shadow: rgba(0,0,0,.4) 0 1px 0;
-			color: white;
-			font-size: 17px;
-			/*font-family: Helvetica, Arial, Sans-Serif;*/
-			text-decoration: none;
-			vertical-align: middle;
-		}
-		.button:hover {
-			border-top-color: #28597a;
-			background: #28597a;
-			color: #ccc;
-		}
-		.button:active {
-			border-top-color: #1b435e;
-			background: #1b435e;
-		}
-		</style>
-	</head>
-	<body>
-		<div id="mapa"></div>
-		<div id="cargando">Cargando...</div>
+  // display Carto basemap tiles with light features and labels
+  L.tileLayer('https://cartodb-basemaps-{s}.global.ssl.fastly.net/light_all/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>, &copy; <a href="https://carto.com/attribution">CARTO</a>'
+  }).addTo(map); // EDIT - insert or remove ".addTo(map)" before last semicolon to display by default
 
-		<div id="botonera">
-			<button id="localizame" class="boton">Bankias cercanos</button>
-		</div>
-		<button data-dojo-type="dijit.form.ToggleButton" data-dojo-props="iconClass:'dijitCheckBoxIcon', checked: true, onChange: layerSwitcherChanged">LayerSwitcher</button>
-		<button data-dojo-type="dijit.form.ToggleButton" data-dojo-props="iconClass:'dijitCheckBoxIcon', checked: true, onChange: panZoomBarChanged">PanZoomBar</button>
-		<button data-dojo-type="dijit.form.ToggleButton" data-dojo-props="iconClass:'dijitCheckBoxIcon', checked: true, onChange: mousePositionChanged">MousePosition</button>
-		<button data-dojo-type="dijit.form.ToggleButton" data-dojo-props="iconClass:'dijitCheckBoxIcon', checked: true, onChange: overviewMapChanged">OverviewMap</button>
-		<button data-dojo-type="dijit.form.ToggleButton" data-dojo-props="iconClass:'dijitCheckBoxIcon', checked: true, onChange: graticuleChanged">Graticule</button>
-		<button data-dojo-type="dijit.form.ToggleButton" data-dojo-props="iconClass:'dijitCheckBoxIcon', checked: true, onChange: scaleChanged">Scale</button>
-		<button data-dojo-type="dijit.form.ToggleButton" data-dojo-props="iconClass:'dijitCheckBoxIcon', checked: true, onChange: scaleLineChanged">ScaleLine</button>
-		<button data-dojo-type="dijit.form.ToggleButton" data-dojo-props="iconClass:'dijitCheckBoxIcon', checked: true, onChange: permalinkChanged">Permalink</button>
-<script>
+  // display Stamen basemap tiles with colored terrain and labels
+  L.tileLayer('https://stamen-tiles.a.ssl.fastly.net/terrain/{z}/{x}/{y}.png', {
+    attribution: 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, under <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a>. Data by <a href="http://openstreetmap.org">OpenStreetMap</a>, under <a href="http://www.openstreetmap.org/copyright">ODbL</a>.'
+  }); // EDIT - insert or remove ".addTo(map)" before last semicolon to display by default
 
-//;$(function() {
+  // upload CSV file from local directory and display latitude and longitude coordinates as default blue markers on map
 
-var map = L.map('map', {attributionControl:false}).
-setView([29.749907, -95.358421], 12);
 
-L.tileLayer('http://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-	maxZoom: 18
-}).addTo(map);
-
-// upload CSV file from local directory and
-//display latitude and longitude coordinates as default blue markers on map
 
   var customLayer = L.geoJson(null, {
     onEachFeature: function(feature, layer) {
@@ -130,17 +54,13 @@ L.tileLayer('http://tile.openstreetmap.org/{z}/{x}/{y}.png', {
       }
   });
 
-  var runLayer = omnivore.csv('airports.csv', null, customLayer)
-		console.log(`${runLayer}`)
+  var runLayer = omnivore.csv('data.csv', null, customLayer)
       .on('ready', function() {
           // http://leafletjs.com/reference.html#map-fitbounds
           map.fitBounds(runLayer.getBounds());
       })
       .addTo(map);
 
-
-//});
-</script>
-
-	</body>
+  </script>
+</body>
 </html>
