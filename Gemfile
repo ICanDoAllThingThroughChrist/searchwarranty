@@ -11,10 +11,7 @@ gem 'creek'
 gem "rgeo"
 gem 'rails', '~> 5.0'
 gem 'activerecord-import'
-#retest for activerecord-postgis-adapter gem
-# gem 'activerecord-postgis-adapter', '~> 6.0'
-# gem 'rails', '~> 5.0', '>= 5.2.1'
-# Use postgresql as the database for Active Record
+
 gem 'by_star'
 gem 'chronic'
 gem 'pg', '>= 0.18', '< 2.0'
@@ -39,31 +36,16 @@ gem 'parse-server-sdk', '~> 2.3', '>= 2.3.3'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 gem 'pry'
-# Use Capistrano for deployment
-# gem 'capistrano-rails', group: :development
-# gem 'daru', '~> 0.1.5'
-# gem 'daru-view'
-# gem 'spreadsheet', '~> 1.1.1'
-# gem 'mechanize', '~> 2.7.5'
 gem 'seed_dump'
 gem 'foreman', '~> 0.82.0'
 gem 'csvreader', '~> 1.2', '>= 1.2.3'
-# gem 'pry-byebug', '~> 3.4'
-# gem 'open-uri'
-# gem 'csvreader'
-# gem 'byebug'
 gem 'csv'
-# gem 'hirb'
 gem 'table_print', '~> 1.5', '>= 1.5.6'
 gem 'pry-byebug', '~> 3.8'
 gem 'pivot_table', '~> 1.0'
 gem 'scenic', '~> 1.5', '>= 1.5.2'
 gem 'time_difference', '~> 0.4.2'
-# # gem 'rbczmq', '~> 1.7', '>= 1.7.9'
-# gem 'ffi-rzmq', '~> 2.0', '>= 2.0.7'
-# gem 'iruby', '~> 0.4.0'
-# # fetch from the github master branch
-# # gem 'daru-view', '~> 0.1.0'
+
 gem 'daru', '~> 0.2.2'
 # gem 'nyaplot', '~> 0.1.6'
 # gem 'google_visualr', '~> 2.5', '>= 2.5.1'

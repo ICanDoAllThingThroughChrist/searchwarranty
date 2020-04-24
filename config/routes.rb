@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'map/index'
+  get 'map/map_data', :defaults => { :format => 'json'}
   get 'open_srs/over_30_days_srs'
   get 'open_srs/cans_related_requests'
   get 'open_srs/daily_update'

@@ -1860,11 +1860,7 @@ def self.cans_related_list_FY2019_count
   end_date= Date.parse('2019-06-30')
   new_services_list = Sr.where(status: ['Closed','Open'],
     department: 'SWM Solid Waste Management',
-    sr_type: ['New Move In Service','Add A Can CANCELLATION',
-      'Add A Cart','Add A Cart CANCELLATION','Container Problem',
-      'New Resident Container','Recycle Bin/Cart Retrieve',
-      'Recycling Cart Repair or Replace','Recycling Participation NEW',
-      'Unauthorized Container Retrieval','SWM Escalation']).
+    sr_type: ['New Move In Service','Add A Can CANCELLATION','Add A Cart','Add A Cart CANCELLATION','Container Problem','New Resident Container','Recycle Bin/Cart Retrieve','Recycling Cart Repair or Replace','Recycling Participation NEW','Unauthorized Container Retrieval','SWM Escalation']).
     where("sr_create_date >= ? AND sr_create_date <= ?",start_date, end_date).
     count
 end
@@ -2859,6 +2855,57 @@ def self.new_services_list_2020
   def self.import_existing_gis_cases
     csv_text = File.read('"C:\Users\e128289\Downloads\Customer_Points_swd.csv"')
   end
+  def self.heavy_trash_overdue
+        start_date = Date.parse('2019-07-01')
+        end_date= Date.parse('2020-06-30')
+        services_list = Sr.where(sr_type: ['Missed Heavy Trash Pickup'],
+          status: 'Open', overdue: [0..120]).
+          where("sr_create_date >= ? AND sr_create_date <= ?",
+            start_date, end_date)
+
+          services_list.each{|sr|
+            # binding.pry
+          sr.tally = 1
+          sr.save}
+          services_list_values = Sr.
+          where("sr_create_date >= ? AND sr_create_date <= ?",
+            start_date, end_date).
+            where(status: ['Open'], overdue: [0..120],
+              department: 'SWM Solid Waste Management',
+              sr_type: ['Missed Heavy Trash Pickup']).
+          pluck(:id, :case_number, :sr_location, :county, :district, :neighborhood,
+             :tax_id, :trash_quad, :recycle_quad, :trash_day, :heavy_trash_day,
+              :recycle_day, :key_map, :management_district, :department,
+               :division, :sr_type, :queue, :sla, :status, :sr_create_date,
+                :due_date, :date_closed, :overdue, :title, :x, :y, :latitude,
+                 :longitude, :channel_type, :created_at, :updated_at, :field1,
+                  :field2, :client, :garbage_route, :heavy_trash_quad, :sr_owner,
+                   :sr_creator, :resolve_days, :street_num, :client_street, :city,
+                    :state, :zip, :phone_number, :email_address, :garbage_day1,
+                     :garbage_quad, :recycle_day1, :recycle_route, :resolution_time,
+                      :expression, :ne_overdue, :ne_not_overdue, :ne_sr_total,
+                       :nw_overdue, :nw_not_overdue, :nw_sr_total, :se_overdue,
+                        :se_not_overdue, :se_sr_total, :sw_overdue, :sw_not_overdue,
+                         :sw_sr_total, :quad_status, :tally)
+          headers = %w[id case_number sr_location county district neighborhood
+             tax_id trash_quad recycle_quad trash_day heavy_trash_day recycle_day
+              key_map management_district department division sr_type queue sla
+               status sr_create_date due_date date_closed overdue title x y
+                latitude longitude channel_type created_at updated_at field1
+                 field2 client garbage_route heavy_trash_quad sr_owner sr_creator
+                  resolve_days street_num client_street city state zip phone_number
+                   email_address garbage_day1 garbage_quad recycle_day1
+                    recycle_route resolution_time expression ne_overdue
+                     ne_not_overdue ne_sr_total nw_overdue nw_not_overdue
+                      nw_sr_total se_overdue se_not_overdue se_sr_total sw_overdue
+                       sw_not_overdue sw_sr_total quad_status tally]
+          CSV.open("../searchwarranty/overdue_hvy_trash.csv", "wb",
+             write_headers: true, headers: headers) { |csv|
+               services_list_values.each { |row|
+                 csv << row
+                 }
+          }
+      end
 
 #   def self.sent_chain(methods)
 #     methods.inject(self, :send)

@@ -1,6 +1,6 @@
 namespace :seed do
   desc "TODO"
-  task import_sr_monthly_update: :environment do
+  task daily_update: :environment do
     require 'open-uri'
     require 'csvreader'
     require 'byebug'
@@ -68,6 +68,7 @@ namespace :seed do
         #  Sr.create(row.to_hash)
         #   # binding.pry
         # }
+        # Sr.pivot
 
   end
   task import_sr_2017_2018: :environment do
@@ -106,17 +107,14 @@ namespace :seed do
      }
     Sr.pivot
   end
-  task import_sr_2011_2016: :environment do
+  task import_sr_2016: :environment do
     require 'open-uri'
     require 'csvreader'
     require 'byebug'
     require 'csv'
 
-    # web1 = open('https://hfdapp.houstontx.gov/311/311-Public-Data-Extract-2018-clean.txt'){|f| f.read}
-    # web2 = open('https://hfdapp.houstontx.gov/311/311-Public-Data-Extract-2017-clean.txt'){|f| f.read}
     web3 = open('https://hfdapp.houstontx.gov/311/311-Public-Data-Extract-2016-clean.txt'){|f| f.read}
-    # things1 = web1.split(/\n/)
-    # things2 = web2.split(/\n/)
+
     things3 = web3.split(/\n/)
 
     columns = %i[case_number sr_location county district neighborhood tax_id
@@ -125,23 +123,6 @@ namespace :seed do
          sla status sr_create_date due_date date_closed overdue title
           x y latitude longitude channel_type created_at updated_at]
 
-    # things1.each {|sr|
-    #           # byebug
-    #           b=sr.split('|')
-    #           c=Hash[columns.zip(b)]
-    #           # byebugra
-    #           Sr.create(c)
-    #           # byebug
-    #        }
-    #
-    # things2.each {|sr|
-    #     # byebug
-    #     b=sr.split('|')
-    #     c=Hash[columns.zip(b)]
-    #     # byebug
-    #     Sr.create(c)
-    #     # byebug
-    #  }
      things3.each {|sr|
          # byebug
          b=sr.split('|')
@@ -150,7 +131,31 @@ namespace :seed do
          Sr.create(c)
          # byebug
       }
+    end
+    task import_sr_2011_2016: :environment do
+        require 'open-uri'
+        require 'csvreader'
+        require 'byebug'
+        require 'csv'
     # Sr.delete_all
+    web3 = open('https://hfdapp.houstontx.gov/311/311-Public-Data-Extract-2016-clean.txt'){|f| f.read}
+
+    things3 = web3.split(/\n/)
+
+    columns = %i[case_number sr_location county district neighborhood tax_id
+       trash_quad recycle_quad trash_day heavy_trash_day recycle_day
+        key_map management_district department division sr_type queue
+         sla status sr_create_date due_date date_closed overdue title
+          x y latitude longitude channel_type created_at updated_at]
+
+     things3.each {|sr|
+         # byebug
+         b=sr.split('|')
+         c=Hash[columns.zip(b)]
+         # byebugra
+         Sr.create(c)
+         # byebug
+      }
     web4 = open('https://hfdapp.houstontx.gov/311/311-Public-Data-Extract-2013-clean.txt'){|f| f.read}
     web5 = open('https://hfdapp.houstontx.gov/311/311-Public-Data-Extract-2014-clean.txt'){|f| f.read}
     web6 = open('https://hfdapp.houstontx.gov/311/311-Public-Data-Extract-2015-clean.txt'){|f| f.read}
