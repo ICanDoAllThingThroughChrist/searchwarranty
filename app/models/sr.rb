@@ -1860,7 +1860,11 @@ def self.cans_related_list_FY2019_count
   end_date= Date.parse('2019-06-30')
   new_services_list = Sr.where(status: ['Closed','Open'],
     department: 'SWM Solid Waste Management',
-    sr_type: ['New Move In Service','Add A Can CANCELLATION','Add A Cart','Add A Cart CANCELLATION','Container Problem','New Resident Container','Recycle Bin/Cart Retrieve','Recycling Cart Repair or Replace','Recycling Participation NEW','Unauthorized Container Retrieval','SWM Escalation']).
+    sr_type: ['New Move In Service','Add A Can CANCELLATION','Add A Cart',
+      'Add A Cart CANCELLATION','Container Problem',
+      'New Resident Container','Recycle Bin/Cart Retrieve',
+      'Recycling Cart Repair or Replace','Recycling Participation NEW',
+      'Unauthorized Container Retrieval','SWM Escalation']).
     where("sr_create_date >= ? AND sr_create_date <= ?",start_date, end_date).
     count
 end
@@ -2906,6 +2910,329 @@ def self.new_services_list_2020
                  }
           }
       end
+
+      def self.cans_related_list_july_FY20_count
+        start_date = Date.parse('2019-07-01')
+        end_date= Date.parse('2019-07-31')
+        new_services_list = Sr.where(status: ['Closed','Open'],
+          department: 'SWM Solid Waste Management',
+          sr_type: ['New Move In Service','Add A Can CANCELLATION','Add A Cart',
+            'Add A Cart CANCELLATION','Container Problem',
+            'New Resident Container','Recycle Bin/Cart Retrieve',
+            'Recycling Cart Repair or Replace','Recycling Participation NEW',
+            'Unauthorized Container Retrieval','SWM Escalation']).
+          where("sr_create_date >= ? AND sr_create_date <= ?",start_date, end_date).
+          count
+      end
+
+      def self.cans_related_list_july_FY20_count
+        start_date = Date.parse('2019-07-01')
+        end_date= Date.parse('2019-07-31')
+        Sr.where(status: ['Closed','Open'],
+          department: 'SWM Solid Waste Management',
+          sr_type: ['New Move In Service','Add A Can CANCELLATION',
+            'Add A Cart','Add A Cart CANCELLATION',
+            'Container Problem','New Resident Container',
+            'Recycle Bin/Cart Retrieve','Recycling Cart Repair or Replace',
+            'Recycling Participation NEW','Unauthorized Container Retrieval',
+            'SWM Escalation']).
+          where("sr_create_date >= ? AND sr_create_date <= ?",start_date, end_date).
+          count
+      end
+
+      def self.new_move_in_related_list_july_FY20_count
+              start_date = Date.parse('2019-07-01')
+              end_date= Date.parse('2019-07-31')
+              Sr.where(status: ['Closed','Open'],
+                department: 'SWM Solid Waste Management',
+                sr_type: ['New Move In Service']).
+                where("sr_create_date >= ? AND sr_create_date <= ?",
+                  start_date, end_date).
+              count
+      end
+      def self.new_resident_list_july_FY20_count
+              start_date = Date.parse('2019-07-01')
+              end_date= Date.parse('2019-07-31')
+              Sr.where(status: ['Closed','Open'],
+                department: 'SWM Solid Waste Management',
+                sr_type: ['New Resident Container']).
+                where("sr_create_date >= ? AND sr_create_date <= ?",
+                  start_date, end_date).
+              count
+      end
+      def self.recycling_participation_new_july_FY20_count
+              start_date = Date.parse('2019-07-01')
+              end_date= Date.parse('2019-07-31')
+              Sr.where(status: ['Closed','Open'],
+                department: 'SWM Solid Waste Management',
+                sr_type: ['Recycling Participation NEW']).
+                where("sr_create_date >= ? AND sr_create_date <= ?",
+                  start_date, end_date).
+              count
+      end
+      def self.new_resident_in_private_dev_july_FY20_count
+              start_date = Date.parse('2019-07-01')
+              end_date= Date.parse('2019-07-31')
+              Sr.where(status: ['Closed','Open'],
+                department: 'SWM Solid Waste Management',
+                sr_type: ['New Resident in Private Development']).
+                where("sr_create_date >= ? AND sr_create_date <= ?",
+                  start_date, end_date).
+              count
+      end
+      def self.add_a_can_july_FY20_count
+              start_date = Date.parse('2019-07-01')
+              end_date= Date.parse('2019-07-31')
+              Sr.where(status: ['Closed','Open'],
+                department: 'SWM Solid Waste Management',
+                sr_type: ['Add A Can']).
+                where("sr_create_date >= ? AND sr_create_date <= ?",
+                  start_date, end_date).
+              count
+      end
+      def self.non_residential_new_july_FY20_count
+              start_date = Date.parse('2019-07-01')
+              end_date= Date.parse('2019-07-31')
+              Sr.where(status: ['Closed','Open'],
+                department: 'SWM Solid Waste Management',
+                sr_type: ['Non Residential Collection Service NEW']).
+                where("sr_create_date >= ? AND sr_create_date <= ?",
+                  start_date, end_date).
+              count
+      end
+      def self.unauth_can_retrieval_july_FY20_count
+              start_date = Date.parse('2019-07-01')
+              end_date= Date.parse('2019-07-31')
+              Sr.where(status: ['Closed','Open'],
+                department: 'SWM Solid Waste Management',
+                sr_type: ['Unauthorized Container Retrieval']).
+                where("sr_create_date >= ? AND sr_create_date <= ?",
+                  start_date, end_date).
+              count
+      end
+      def self.swm_escalation_july_FY20_count
+              start_date = Date.parse('2019-07-01')
+              end_date= Date.parse('2019-07-31')
+              Sr.where(status: ['Closed','Open'],
+                department: 'SWM Solid Waste Management',
+                sr_type: ['SWM Escalation']).
+                where("sr_create_date >= ? AND sr_create_date <= ?",
+                  start_date, end_date).
+              count
+      end
+
+
+      def self.cans_related_list_august_FY20_count
+        start_date = Date.parse('2019-08-01')
+        end_date= Date.parse('2019-08-31')
+        new_services_list = Sr.where(status: ['Closed','Open'],
+          department: 'SWM Solid Waste Management',
+          sr_type: ['New Move In Service','Add A Can CANCELLATION','Add A Cart',
+            'Add A Cart CANCELLATION','Container Problem',
+            'New Resident Container','Recycle Bin/Cart Retrieve',
+            'Recycling Cart Repair or Replace','Recycling Participation NEW',
+            'Unauthorized Container Retrieval','SWM Escalation']).
+          where("sr_create_date >= ? AND sr_create_date <= ?",start_date, end_date).
+          count
+      end
+      def self.new_move_in_related_list_august_FY20_count
+              start_date = Date.parse('2019-08-01')
+              end_date= Date.parse('2019-08-31')
+              Sr.where(status: ['Closed','Open'],
+                department: 'SWM Solid Waste Management',
+                sr_type: ['New Move In Service']).
+                where("sr_create_date >= ? AND sr_create_date <= ?",
+                  start_date, end_date).
+              count
+      end
+      def self.new_resident_list_august_FY20_count
+              start_date = Date.parse('2019-08-01')
+              end_date= Date.parse('2019-08-31')
+              Sr.where(status: ['Closed','Open'],
+                department: 'SWM Solid Waste Management',
+                sr_type: ['New Resident Container']).
+                where("sr_create_date >= ? AND sr_create_date <= ?",
+                  start_date, end_date).
+              count
+      end
+      def self.recycling_participation_new_august_FY20_count
+              start_date = Date.parse('2019-08-01')
+              end_date= Date.parse('2019-08-31')
+              Sr.where(status: ['Closed','Open'],
+                department: 'SWM Solid Waste Management',
+                sr_type: ['Recycling Participation NEW']).
+                where("sr_create_date >= ? AND sr_create_date <= ?",
+                  start_date, end_date).
+              count
+      end
+      def self.new_resident_in_private_dev_august_FY20_count
+              start_date = Date.parse('2019-08-01')
+              end_date= Date.parse('2019-08-31')
+              Sr.where(status: ['Closed','Open'],
+                department: 'SWM Solid Waste Management',
+                sr_type: ['New Resident in Private Development']).
+                where("sr_create_date >= ? AND sr_create_date <= ?",
+                  start_date, end_date).
+              count
+      end
+      def self.add_a_can_august_FY20_count
+              start_date = Date.parse('2019-08-01')
+              end_date= Date.parse('2019-08-31')
+              Sr.where(status: ['Closed','Open'],
+                department: 'SWM Solid Waste Management',
+                sr_type: ['Add A Can']).
+                where("sr_create_date >= ? AND sr_create_date <= ?",
+                  start_date, end_date).
+              count
+      end
+      def self.non_residential_new_august_FY20_count
+              start_date = Date.parse('2019-08-01')
+              end_date= Date.parse('2019-08-31')
+              Sr.where(status: ['Closed','Open'],
+                department: 'SWM Solid Waste Management',
+                sr_type: ['Non Residential Collection Service NEW']).
+                where("sr_create_date >= ? AND sr_create_date <= ?",
+                  start_date, end_date).
+              count
+      end
+      def self.unauth_can_retrieval_august_FY20_count
+              start_date = Date.parse('2019-08-01')
+              end_date= Date.parse('2019-08-31')
+              Sr.where(status: ['Closed','Open'],
+                department: 'SWM Solid Waste Management',
+                sr_type: ['Unauthorized Container Retrieval']).
+                where("sr_create_date >= ? AND sr_create_date <= ?",
+                  start_date, end_date).
+              count
+      end
+      def self.swm_escalation_august_FY20_count
+              start_date = Date.parse('2019-08-01')
+              end_date= Date.parse('2019-08-31')
+              Sr.where(status: ['Closed','Open'],
+                department: 'SWM Solid Waste Management',
+                sr_type: ['SWM Escalation']).
+                where("sr_create_date >= ? AND sr_create_date <= ?",
+                  start_date, end_date).
+              count
+      end
+
+      def self.cans_related_list_september_FY20_count
+        start_date = Date.parse('2019-09-01')
+        end_date= Date.parse('2019-09-30')
+        new_services_list = Sr.where(status: ['Closed','Open'],
+          department: 'SWM Solid Waste Management',
+          sr_type: ['New Move In Service','Add A Can CANCELLATION','Add A Cart',
+            'Add A Cart CANCELLATION','Container Problem',
+            'New Resident Container','Recycle Bin/Cart Retrieve',
+            'Recycling Cart Repair or Replace','Recycling Participation NEW',
+            'Unauthorized Container Retrieval','SWM Escalation']).
+          where("sr_create_date >= ? AND sr_create_date <= ?",start_date, end_date).
+          count
+      end
+
+
+
+      def self.cans_related_list_october_FY20_count
+        start_date = Date.parse('2019-10-01')
+        end_date= Date.parse('2019-10-31')
+        new_services_list = Sr.where(status: ['Closed','Open'],
+          department: 'SWM Solid Waste Management',
+          sr_type: ['New Move In Service','Add A Can CANCELLATION','Add A Cart',
+            'Add A Cart CANCELLATION','Container Problem',
+            'New Resident Container','Recycle Bin/Cart Retrieve',
+            'Recycling Cart Repair or Replace','Recycling Participation NEW',
+            'Unauthorized Container Retrieval','SWM Escalation']).
+          where("sr_create_date >= ? AND sr_create_date <= ?",start_date, end_date).
+          count
+      end
+
+      def self.cans_related_list_november_FY20_count
+        start_date = Date.parse('2019-11-01')
+        end_date= Date.parse('2019-11-30')
+        new_services_list = Sr.where(status: ['Closed','Open'],
+          department: 'SWM Solid Waste Management',
+          sr_type: ['New Move In Service','Add A Can CANCELLATION','Add A Cart',
+            'Add A Cart CANCELLATION','Container Problem',
+            'New Resident Container','Recycle Bin/Cart Retrieve',
+            'Recycling Cart Repair or Replace','Recycling Participation NEW',
+            'Unauthorized Container Retrieval','SWM Escalation']).
+          where("sr_create_date >= ? AND sr_create_date <= ?",start_date, end_date).
+          count
+      end
+
+      def self.cans_related_list_december_FY20_count
+        start_date = Date.parse('2019-12-01')
+        end_date= Date.parse('2019-12-31')
+        new_services_list = Sr.where(status: ['Closed','Open'],
+          department: 'SWM Solid Waste Management',
+          sr_type: ['New Move In Service','Add A Can CANCELLATION','Add A Cart',
+            'Add A Cart CANCELLATION','Container Problem',
+            'New Resident Container','Recycle Bin/Cart Retrieve',
+            'Recycling Cart Repair or Replace','Recycling Participation NEW',
+            'Unauthorized Container Retrieval','SWM Escalation']).
+          where("sr_create_date >= ? AND sr_create_date <= ?",start_date, end_date).
+          count
+      end
+
+      def self.cans_related_list_january_FY20_count
+        start_date = Date.parse('2020-01-01')
+        end_date= Date.parse('2020-01-31')
+        new_services_list = Sr.where(status: ['Closed','Open'],
+          department: 'SWM Solid Waste Management',
+          sr_type: ['New Move In Service','Add A Can CANCELLATION','Add A Cart',
+            'Add A Cart CANCELLATION','Container Problem',
+            'New Resident Container','Recycle Bin/Cart Retrieve',
+            'Recycling Cart Repair or Replace','Recycling Participation NEW',
+            'Unauthorized Container Retrieval','SWM Escalation']).
+          where("sr_create_date >= ? AND sr_create_date <= ?",start_date, end_date).
+          count
+      end
+
+      def self.cans_related_list_feb_FY20_count
+        start_date = Date.parse('2020-02-01')
+        end_date= Date.parse('2020-02-29')
+        new_services_list = Sr.where(status: ['Closed','Open'],
+          department: 'SWM Solid Waste Management',
+          sr_type: ['New Move In Service','Add A Can CANCELLATION','Add A Cart',
+            'Add A Cart CANCELLATION','Container Problem',
+            'New Resident Container','Recycle Bin/Cart Retrieve',
+            'Recycling Cart Repair or Replace','Recycling Participation NEW',
+            'Unauthorized Container Retrieval','SWM Escalation']).
+          where("sr_create_date >= ? AND sr_create_date <= ?",start_date, end_date).
+          count
+      end
+
+      def self.cans_related_list_march_FY20_count
+        start_date = Date.parse('2020-03-01')
+        end_date= Date.parse('2020-03-31')
+        new_services_list = Sr.where(status: ['Closed','Open'],
+          department: 'SWM Solid Waste Management',
+          sr_type: ['New Move In Service','Add A Can CANCELLATION','Add A Cart',
+            'Add A Cart CANCELLATION','Container Problem',
+            'New Resident Container','Recycle Bin/Cart Retrieve',
+            'Recycling Cart Repair or Replace','Recycling Participation NEW',
+            'Unauthorized Container Retrieval','SWM Escalation']).
+          where("sr_create_date >= ? AND sr_create_date <= ?",start_date, end_date).
+          count
+      end
+
+      def self.cans_related_list_april_FY20_count
+        start_date = Date.parse('2020-03-01')
+        end_date= Date.parse('2020-03-31')
+        new_services_list = Sr.where(status: ['Closed','Open'],
+          department: 'SWM Solid Waste Management',
+          sr_type: ['New Move In Service','Add A Can CANCELLATION','Add A Cart',
+            'Add A Cart CANCELLATION','Container Problem',
+            'New Resident Container','Recycle Bin/Cart Retrieve',
+            'Recycling Cart Repair or Replace','Recycling Participation NEW',
+            'Unauthorized Container Retrieval','SWM Escalation']).
+          where("sr_create_date >= ? AND sr_create_date <= ?",start_date, end_date).
+          count
+      end
+
+
+
+
 
 #   def self.sent_chain(methods)
 #     methods.inject(self, :send)
