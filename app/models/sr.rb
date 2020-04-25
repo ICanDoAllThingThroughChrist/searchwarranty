@@ -3267,39 +3267,46 @@ def self.new_services_list_2020
             service_request['sr_create_date'] <= DateTime.parse('2019-12-31T23:59:59+00:00')
             service_request['month_yr'] = 'Dec_2019'
             service_request.save
-          elsif service_request['sr_create_date'] >= DateTime.parse('2020-1-01T00:00:00+00:00') &&
-            service_request['sr_create_date'] <= DateTime.parse('2020-1-31T23:59:59+00:00')
+          elsif service_request['sr_create_date'] >= DateTime.parse('2020-01-01T00:00:00+00:00') &&
+            service_request['sr_create_date'] <= DateTime.parse('2020-01-31T23:59:59+00:00')
             service_request['month_yr'] = 'Jan_20'
             service_request.save
-          elsif service_request['sr_create_date'] >= DateTime.parse('2020-2-01T00:00:00+00:00') &&
-            service_request['sr_create_date'] <= DateTime.parse('2020-2-29T23:59:59+00:00')
+          elsif service_request['sr_create_date'] >= DateTime.parse('2020-02-01T00:00:00+00:00') &&
+            service_request['sr_create_date'] <= DateTime.parse('2020-02-29T23:59:59+00:00')
             service_request['month_yr'] = 'Feb_20'
             service_request.save
-          elsif service_request['sr_create_date'] >= DateTime.parse('2020-3-01T00:00:00+00:00') &&
-            service_request['sr_create_date'] <= DateTime.parse('2020-3-31T23:59:59+00:00')
+          elsif service_request['sr_create_date'] >= DateTime.parse('2020-03-01T00:00:00+00:00') &&
+            service_request['sr_create_date'] <= DateTime.parse('2020-03-31T23:59:59+00:00')
             service_request['month_yr'] = 'Mar_20'
             service_request.save
-          elsif service_request['sr_create_date'] >= DateTime.parse('2020-4-01T00:00:00+00:00') &&
-            service_request['sr_create_date'] <= DateTime.parse('2020-4-30T23:59:59+00:00')
+          elsif service_request['sr_create_date'] >= DateTime.parse('2020-04-01T00:00:00+00:00') &&
+            service_request['sr_create_date'] <= DateTime.parse('2020-04-30T23:59:59+00:00')
             service_request['month_yr'] = 'Apr_20'
             service_request.save
-          elsif service_request['sr_create_date'] >= DateTime.parse('2020-5-01T00:00:00+00:00') &&
-            service_request['sr_create_date'] <= DateTime.parse('2020-5-31T23:59:59+00:00')
+          elsif service_request['sr_create_date'] >= DateTime.parse('2020-05-01T00:00:00+00:00') &&
+            service_request['sr_create_date'] <= DateTime.parse('2020-05-31T23:59:59+00:00')
             service_request['month_yr'] = 'May_20'
             service_request.save
-          elsif service_request['sr_create_date'] >= DateTime.parse('2020-6-01T00:00:00+00:00') &&
-            service_request['sr_create_date'] <= DateTime.parse('2020-6-30T23:59:59+00:00')
+          elsif service_request['sr_create_date'] >= DateTime.parse('2020-06-01T00:00:00+00:00') &&
+            service_request['sr_create_date'] <= DateTime.parse('2020-06-30T23:59:59+00:00')
             service_request['month_yr'] = 'June_20'
             service_request.save
           else
             service_request['month_yr'] = nil
+            service_request.save
           end
         }
-
+          # binding.pry
           services_list.each{|sr|
             # binding.pry
-          sr.tally = 1
-          sr.save}
+            if sr['month_yr'] != nil
+              sr.tally = 1
+                sr.save
+            else
+              # binding.pry
+              sr.delete
+            end
+            }
           services_list_values = Sr.
           where("sr_create_date >= ? AND sr_create_date <= ?",
             start_date, end_date).
