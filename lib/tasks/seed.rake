@@ -107,13 +107,13 @@ namespace :seed do
      }
     Sr.pivot
   end
-  task import_sr_2016: :environment do
+  task import_sr_2020: :environment do
     require 'open-uri'
     require 'csvreader'
     require 'byebug'
     require 'csv'
 
-    web3 = open('https://hfdapp.houstontx.gov/311/311-Public-Data-Extract-2016-clean.txt'){|f| f.read}
+    web3 = open('https://hfdapp.houstontx.gov/311/311-Public-Data-Extract-2020.txt'){|f| f.read}
 
     things3 = web3.split(/\n/)
 

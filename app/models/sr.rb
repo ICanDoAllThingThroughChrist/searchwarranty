@@ -2871,6 +2871,7 @@ def self.new_services_list_2020
             # binding.pry
           sr.tally = 1
           sr.save}
+
           services_list_values = Sr.
           where("sr_create_date >= ? AND sr_create_date <= ?",
             start_date, end_date).
@@ -3230,9 +3231,127 @@ def self.new_services_list_2020
           count
       end
 
+      def self.cans_related_pivot_FY20
+        start_date = DateTime.parse('2019-07-01T00:00:00+00:00')
+        end_date= DateTime.parse('2020-06-30T23:59:59+00:00')
+        services_list = Sr.where(sr_type: ['New Move In Service',
+          'Add A Can CANCELLATION','Add A Cart',
+          'Add A Cart CANCELLATION','Container Problem',
+          'New Resident Container','Recycle Bin/Cart Retrieve',
+          'Recycling Cart Repair or Replace','Recycling Participation NEW',
+          'Unauthorized Container Retrieval','SWM Escalation']).
+          where("sr_create_date >= ? AND sr_create_date <= ?",start_date, end_date)
+        services_list.each {|service_request|
+          # binding.pry
+          if service_request['sr_create_date'] >= DateTime.parse('2019-07-01T00:00:00+00:00') &&
+            service_request['sr_create_date'] <= DateTime.parse('2019-07-31T23:59:59+00:00')
+            service_request['month_yr'] = 'July_2019'
+            service_request.save
+          elsif service_request['sr_create_date'] >= DateTime.parse('2019-08-01T00:00:00+00:00') &&
+            service_request['sr_create_date'] <= DateTime.parse('2019-08-31T23:59:59+00:00')
+            service_request['month_yr'] = 'Aug_2019'
+            service_request.save
+          elsif service_request['sr_create_date'] >= DateTime.parse('2019-09-01T00:00:00+00:00') &&
+            service_request['sr_create_date'] <= Date.parse('2019-09-30T23:59:59+00:00')
+            service_request['month_yr'] = 'Sep_2019'
+            service_request.save
+          elsif service_request['sr_create_date'] >= DateTime.parse('2019-10-01T00:00:00+00:00') &&
+            service_request['sr_create_date'] <= DateTime.parse('2019-10-31T23:59:59+00:00')
+            service_request['month_yr'] = 'Oct_2019'
+            service_request.save
+          elsif service_request['sr_create_date'] >= DateTime.parse('2019-11-01T00:00:00+00:00') &&
+            service_request['sr_create_date'] <= DateTime.parse('2019-11-30T23:59:59+00:00')
+            service_request['month_yr'] = 'Nov_2019'
+            service_request.save
+          elsif service_request['sr_create_date'] >= DateTime.parse('2019-12-01T00:00:00+00:00') &&
+            service_request['sr_create_date'] <= DateTime.parse('2019-12-31T23:59:59+00:00')
+            service_request['month_yr'] = 'Dec_2019'
+            service_request.save
+          elsif service_request['sr_create_date'] >= DateTime.parse('2020-1-01T00:00:00+00:00') &&
+            service_request['sr_create_date'] <= DateTime.parse('2020-1-31T23:59:59+00:00')
+            service_request['month_yr'] = 'Jan_20'
+            service_request.save
+          elsif service_request['sr_create_date'] >= DateTime.parse('2020-2-01T00:00:00+00:00') &&
+            service_request['sr_create_date'] <= DateTime.parse('2020-2-29T23:59:59+00:00')
+            service_request['month_yr'] = 'Feb_20'
+            service_request.save
+          elsif service_request['sr_create_date'] >= DateTime.parse('2020-3-01T00:00:00+00:00') &&
+            service_request['sr_create_date'] <= DateTime.parse('2020-3-31T23:59:59+00:00')
+            service_request['month_yr'] = 'Mar_20'
+            service_request.save
+          elsif service_request['sr_create_date'] >= DateTime.parse('2020-4-01T00:00:00+00:00') &&
+            service_request['sr_create_date'] <= DateTime.parse('2020-4-30T23:59:59+00:00')
+            service_request['month_yr'] = 'Apr_20'
+            service_request.save
+          elsif service_request['sr_create_date'] >= DateTime.parse('2020-5-01T00:00:00+00:00') &&
+            service_request['sr_create_date'] <= DateTime.parse('2020-5-31T23:59:59+00:00')
+            service_request['month_yr'] = 'May_20'
+            service_request.save
+          elsif service_request['sr_create_date'] >= DateTime.parse('2020-6-01T00:00:00+00:00') &&
+            service_request['sr_create_date'] <= DateTime.parse('2020-6-30T23:59:59+00:00')
+            service_request['month_yr'] = 'June_20'
+            service_request.save
+          else
+            service_request['month_yr'] = nil
+          end
+        }
 
+          services_list.each{|sr|
+            # binding.pry
+          sr.tally = 1
+          sr.save}
+          services_list_values = Sr.
+          where("sr_create_date >= ? AND sr_create_date <= ?",
+            start_date, end_date).
+            where(department: 'SWM Solid Waste Management',
+              sr_type: ['New Move In Service',
+                'Add A Can CANCELLATION','Add A Cart',
+                'Add A Cart CANCELLATION','Container Problem',
+                'New Resident Container','Recycle Bin/Cart Retrieve',
+                'Recycling Cart Repair or Replace','Recycling Participation NEW',
+                'Unauthorized Container Retrieval','SWM Escalation']).
+          pluck(:id, :case_number, :sr_location, :county, :district, :neighborhood,
+             :tax_id, :trash_quad, :recycle_quad, :trash_day, :heavy_trash_day,
+              :recycle_day, :key_map, :management_district, :department,
+               :division, :sr_type, :queue, :sla, :status, :sr_create_date,
+                :due_date, :date_closed, :overdue, :title, :x, :y, :latitude,
+                 :longitude, :channel_type, :created_at, :updated_at, :field1,
+                  :field2, :client, :garbage_route, :heavy_trash_quad, :sr_owner,
+                   :sr_creator, :resolve_days, :street_num, :client_street, :city,
+                    :state, :zip, :phone_number, :email_address, :garbage_day1,
+                     :garbage_quad, :recycle_day1, :recycle_route, :resolution_time,
+                      :expression, :ne_overdue, :ne_not_overdue, :ne_sr_total,
+                       :nw_overdue, :nw_not_overdue, :nw_sr_total, :se_overdue,
+                        :se_not_overdue, :se_sr_total, :sw_overdue, :sw_not_overdue,
+                         :sw_sr_total, :quad_status, :tally, :month_yr)
+          headers = %w[id case_number sr_location county district neighborhood
+             tax_id trash_quad recycle_quad trash_day heavy_trash_day recycle_day
+              key_map management_district department division sr_type queue sla
+               status sr_create_date due_date date_closed overdue title x y
+                latitude longitude channel_type created_at updated_at field1
+                 field2 client garbage_route heavy_trash_quad sr_owner sr_creator
+                  resolve_days street_num client_street city state zip phone_number
+                   email_address garbage_day1 garbage_quad recycle_day1
+                    recycle_route resolution_time expression ne_overdue
+                     ne_not_overdue ne_sr_total nw_overdue nw_not_overdue
+                      nw_sr_total se_overdue se_not_overdue se_sr_total sw_overdue
+                       sw_not_overdue sw_sr_total quad_status tally month_yr]
+          CSV.open("../searchwarranty/can_related_services_FY20.csv", "wb",
+             write_headers: true, headers: headers) do |csv|
+               services_list_values.each do |row|
+                 csv << row
+               end
+             end
 
-
+          sales2 = Daru::DataFrame.from_csv '../searchwarranty/can_related_services_FY20.csv'
+          list2 = sales2.pivot_table(index:['sr_type'],
+               values:'tally',
+               vectors:['month_yr'],  agg:  :sum)
+         File.open('../searchwarranty/app/views/srs/cans_related_FY20.html.erb',
+               'w+'){|f| f << list2.to_html}
+          File.open('../searchwarranty/app/views/srs/cans_related_FY20.html',
+               'w+'){|f| f << list2.to_html}
+      end
 
 #   def self.sent_chain(methods)
 #     methods.inject(self, :send)

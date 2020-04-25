@@ -1,4 +1,7 @@
 class SrsController < ApplicationController
+  def cans_requests_FY20
+    render "cans_related_FY20"
+  end
   def misc_summary
     @NewResidentContainerOverdue = Sr.
       where(sr_type: 'New Resident Container',
