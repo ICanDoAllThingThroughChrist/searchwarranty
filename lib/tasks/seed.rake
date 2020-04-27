@@ -163,7 +163,7 @@ namespace :seed do
     things5 = web5.split(/\n/)
     things6 = web6.split(/\n/)
 
-    columns = %i[case_number sr_location county district neighborhood tax_id
+    colSr.umns = %i[case_number sr_location county district neighborhood tax_id
        trash_quad recycle_quad trash_day heavy_trash_day recycle_day
         key_map management_district department division sr_type queue
          sla status sr_create_date due_date date_closed overdue title

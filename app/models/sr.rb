@@ -3252,7 +3252,7 @@ def self.new_services_list_2020
             service_request['month_yr'] = 'Aug_2019'
             service_request.save
           elsif service_request['sr_create_date'] >= DateTime.parse('2019-09-01T00:00:00+00:00') &&
-            service_request['sr_create_date'] <= Date.parse('2019-09-30T23:59:59+00:00')
+            service_request['sr_create_date'] <= DateTime.parse('2019-09-30T23:59:59+00:00')
             service_request['month_yr'] = 'Sep_2019'
             service_request.save
           elsif service_request['sr_create_date'] >= DateTime.parse('2019-10-01T00:00:00+00:00') &&
@@ -3292,21 +3292,27 @@ def self.new_services_list_2020
             service_request['month_yr'] = 'June_20'
             service_request.save
           else
-            service_request['month_yr'] = nil
+            service_request['month_yr'] = 'unassigned'
             service_request.save
           end
         }
           # binding.pry
-          services_list.each{|sr|
-            # binding.pry
-            if sr['month_yr'] != nil
-              sr.tally = 1
-                sr.save
-            else
-              # binding.pry
-              sr.delete
-            end
-            }
+          unassigned = []
+          services_list.each {|item|
+              item.tally = 1
+              item.save
+          }
+          # binding.pry
+          # services_list.each{|sr|
+          #   # binding.pry
+          #   if sr['month_yr'] != nil
+          #     sr.tally = 1
+          #       sr.save
+          #   else
+          #     # binding.pry
+          #     sr.delete
+          #   end
+          #   }
           services_list_values = Sr.
           where("sr_create_date >= ? AND sr_create_date <= ?",
             start_date, end_date).
