@@ -1843,7 +1843,7 @@ def self.addACan_related_list_FY2020
   start = Date.parse('2019-07-01')
   due = DateTime.now
   new_services_list = Sr.
-  where("sr_create_date >= ? AND sr_create_date <= ?",start_date, end_date).
+  where("sr_create_date >= ? AND sr_create_date <= ?",start, due).
   where(status: ['Closed','Open'],
     department: 'SWM Solid Waste Management',
     sr_type: ['Add A Can']).count
@@ -1852,7 +1852,7 @@ def self.addACan_related_list_FY2019
   start = Date.parse('2018-07-01')
   due = Date.parse('2019-06-30')
   new_services_list = Sr.
-  where("sr_create_date >= ? AND sr_create_date <= ?",start_date, end_date).
+  where("sr_create_date >= ? AND sr_create_date <= ?",start, due).
   where(status: ['Closed','Open'],
     department: 'SWM Solid Waste Management',
     sr_type: ['Add A Can']).count
@@ -1861,7 +1861,7 @@ def self.addACan_related_list_FY2018
   start = Date.parse('2017-07-01')
   due = Date.parse('2018-06-30')
   new_services_list = Sr.
-  where("sr_create_date >= ? AND sr_create_date <= ?",start_date, end_date).
+  where("sr_create_date >= ? AND sr_create_date <= ?",start, due).
   where(status: ['Closed','Open'],
     department: 'SWM Solid Waste Management',
     sr_type: ['Add A Can']).count
@@ -1870,7 +1870,7 @@ def self.addACan_related_list_FY2017
   start = Date.parse('2016-07-01')
   due = Date.parse('2017-06-30')
   new_services_list = Sr.
-  where("sr_create_date >= ? AND sr_create_date <= ?",start_date, end_date).
+  where("sr_create_date >= ? AND sr_create_date <= ?",start, due).
   where(status: ['Closed','Open'],
     department: 'SWM Solid Waste Management',
     sr_type: ['Add A Can']).count
