@@ -1839,6 +1839,42 @@ def self.newMoveInService_cans_related_list_FY2020
     department: 'SWM Solid Waste Management',
     sr_type: ['New Move In Service']).count
 end
+def self.addACan_related_list_FY2020
+  start = Date.parse('2019-07-01')
+  due = DateTime.now
+  new_services_list = Sr.
+  where("sr_create_date >= ? AND sr_create_date <= ?",start_date, end_date).
+  where(status: ['Closed','Open'],
+    department: 'SWM Solid Waste Management',
+    sr_type: ['Add A Can']).count
+end
+def self.addACan_related_list_FY2019
+  start = Date.parse('2018-07-01')
+  due = Date.parse('2019-06-30')
+  new_services_list = Sr.
+  where("sr_create_date >= ? AND sr_create_date <= ?",start_date, end_date).
+  where(status: ['Closed','Open'],
+    department: 'SWM Solid Waste Management',
+    sr_type: ['Add A Can']).count
+end
+def self.addACan_related_list_FY2018
+  start = Date.parse('2017-07-01')
+  due = Date.parse('2018-06-30')
+  new_services_list = Sr.
+  where("sr_create_date >= ? AND sr_create_date <= ?",start_date, end_date).
+  where(status: ['Closed','Open'],
+    department: 'SWM Solid Waste Management',
+    sr_type: ['Add A Can']).count
+end
+def self.addACan_related_list_FY2017
+  start = Date.parse('2016-07-01')
+  due = Date.parse('2017-06-30')
+  new_services_list = Sr.
+  where("sr_create_date >= ? AND sr_create_date <= ?",start_date, end_date).
+  where(status: ['Closed','Open'],
+    department: 'SWM Solid Waste Management',
+    sr_type: ['Add A Can']).count
+end
 def self.cans_related_list_FY2020_count
    Sr.sWM_Escalation_cans_related_list_FY2020 +
    Sr.unauthorizedContainerRetrieval_cans_related_list_FY2020 +
@@ -1850,7 +1886,8 @@ def self.cans_related_list_FY2020_count
    Sr.addACartCANCELLATION_cans_related_list_FY2020 +
    Sr.addACart_cans_related_list_FY2020 +
    Sr.addACanCANCELLATION_cans_related_list_FY2020 +
-   Sr.newMoveInService_cans_related_list_FY2020
+   Sr.newMoveInService_cans_related_list_FY2020  +
+   Sr.addACan_related_list_FY2020
 end
 def self.cans_related_list_FY2019_count
   start_date = Date.parse('2018-07-01')

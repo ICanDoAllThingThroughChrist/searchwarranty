@@ -103,6 +103,15 @@ class OpenSrsController < ApplicationController
       @NewMoveInService_cans_related_list_FY2017 = Sr.
       newMoveInService_cans_related_list_FY2017
 
+      @addACanFY2020 = Sr.
+      addACan_related_list_FY2020
+      @AddACanFY2019 = Sr.
+      addACan_related_list_FY2019
+      @AddACanFY2018 = Sr.
+      addACan_related_list_FY2018
+      @AddACanFY2017 = Sr.
+      addACan_related_list_FY2017
+
       @Total_cans_related_list_FY2020 = Sr.
         cans_related_list_FY2020_count
       @Total_cans_related_list_FY2019 = Sr.
