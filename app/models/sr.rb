@@ -228,7 +228,7 @@ class Sr < ApplicationRecord
         ne_not_overdue ne_sr_total nw_overdue nw_not_overdue
         nw_sr_total se_overdue se_not_overdue se_sr_total
         sw_overdue sw_not_overdue sw_sr_total quad_status tally]
-      CSV.open("testing.csv", "wb", write_headers: true, headers: headers) { |csv|
+      CSV.open("data.csv", "wb", write_headers: true, headers: headers) { |csv|
          Sr.where(status: "Open", department: 'SWM Solid Waste Management').
          pluck(:id, :case_number, :sr_location, :county, :district,
             :neighborhood, :tax_id, :trash_quad, :recycle_quad,
@@ -248,7 +248,7 @@ class Sr < ApplicationRecord
             :tally).each { |row| csv << row
             }
           }
-      sales = Daru::DataFrame.from_csv '../searchwarranty/testing.csv'
+      sales = Daru::DataFrame.from_csv '../searchwarranty/data.csv'
       list = sales.pivot_table(index:['sr_type'],
         values:'tally', vectors:['trash_quad','expression'],
         agg:  :sum)
@@ -298,9 +298,6 @@ class Sr < ApplicationRecord
           sr.overdue = (sr.created_at - DateTime.now)/(60*60*24) +
           sr.sla
           sr.save
-        # elsif sr.sr_type == 'SWM_MissComplaint'
-        #   sr.sla = 300
-        #   sr.overdue = (sr.created_at - DateTime.now)/(60*60*24) + sr.sla
         else
           puts "#{sr}"
         end

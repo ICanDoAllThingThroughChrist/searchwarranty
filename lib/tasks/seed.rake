@@ -10,7 +10,7 @@ namespace :seed do
     Sr.where("sr_create_date <=? AND sr_create_date >= ?", start_date, endDate).delete_all
     web1 = open('https://hfdapp.houstontx.gov/311/311-Public-Data-Extract-monthly-clean.txt'){|f| f.read}
     web2 = open('https://hfdapp.houstontx.gov/311/311-Public-Data-Extract-2019-clean.txt'){|f| f.read}
-    things1 = web1.split(/\n/)
+    things1 = web1.split(/\n/)#creates an  new array
     things2 = web2.split(/\n/)
 
     columns = %i[case_number sr_location county district neighborhood tax_id

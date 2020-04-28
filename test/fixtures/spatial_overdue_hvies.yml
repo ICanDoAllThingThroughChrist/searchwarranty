@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  ID: 1
+  case_number: 1
+  longitude: 9.99
+  latitude: 9.99
+  Poly_ID: MyString
+  SERVICE_DA: MyString
+
+two:
+  ID: 1
+  case_number: 1
+  longitude: 9.99
+  latitude: 9.99
+  Poly_ID: MyString
+  SERVICE_DA: MyString
