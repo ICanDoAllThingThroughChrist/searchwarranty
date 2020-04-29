@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_28_194845) do
+ActiveRecord::Schema.define(version: 2020_04_29_152405) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -201,6 +201,15 @@ ActiveRecord::Schema.define(version: 2020_04_28_194845) do
     t.integer "tally"
     t.string "quad_statu"
     t.string "sr_locatio"
+  end
+
+  create_table "residents", force: :cascade do |t|
+    t.string "unique"
+    t.string "sr_type"
+    t.float "case_number"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "tally"
   end
 
   create_table "spatial_overdue_hvies", force: :cascade do |t|

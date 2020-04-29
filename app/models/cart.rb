@@ -28,7 +28,7 @@ class Cart < ApplicationRecord
                       :container_problem, :container_damage, :case_note,
                        :resolution_comment, :channel_type, :other_description,
                         :title, :x, :y, :latitude, :longitude, :tax_id1,
-                         :unique, :cart_number, :created_at, :updated_at,
+                         :song, :cart_number, :created_at, :updated_at,
                           :delivered, :replaced_cart, :serviced,
                            :replace_wheel_lid).each {|row|
                              csv << row }}
