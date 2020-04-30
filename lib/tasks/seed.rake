@@ -160,7 +160,7 @@ namespace :seed do
               # byebug
               b=sr.split('|')
               c=Hash[columns.zip(b)]
-              # byebugra
+              # byebug
               Sr.create(c)
               # byebug
            }
