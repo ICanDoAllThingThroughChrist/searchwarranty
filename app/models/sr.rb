@@ -126,7 +126,7 @@ class Sr < ApplicationRecord
             }
           }
     end
-    def self.hvy_trash_QGIS_requests
+    def self.hvy_trash_spatial_join_requests
 
       list = Sr.
       where(status:'Open',
@@ -139,7 +139,7 @@ class Sr < ApplicationRecord
         # binding.pry
       }
 
-      headers = %w[id case_number street_num client_street zip
+      headers = %w[id case_number sr_location city  state zip
          latitude longitude]
       CSV.open("overdue_hvy_trash.csv", "wb",
         write_headers: true, headers: headers) { |csv|
@@ -147,7 +147,7 @@ class Sr < ApplicationRecord
             status: 'Open',
             sr_type: ['Missed Heavy Trash Pickup']).
           pluck(:id, :case_number,
-            :street_num, :client_street, :zip, :latitude,
+            :sr_location, :city, :state, :zip, :latitude,
             :longitude).
             each { |row|
               csv << row
@@ -274,7 +274,7 @@ class Sr < ApplicationRecord
             :ne_not_overdue, :ne_sr_total, :nw_overdue, :nw_not_overdue,
             :nw_sr_total, :se_overdue, :se_not_overdue, :se_sr_total,
             :sw_overdue, :sw_not_overdue, :sw_sr_total, :quad_status,
-            :tally).each { |row| 
+            :tally).each { |row|
               csv << row
             }
           }

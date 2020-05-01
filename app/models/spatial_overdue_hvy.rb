@@ -1,7 +1,7 @@
 class SpatialOverdueHvy < ApplicationRecord
   def self.seed
     SpatialOverdueHvy.delete_all
-    headers = %i[id case_number longitude latitude Poly_ID SERVICE_DA]
+    headers = %i[case_number longitude latitude Poly_ID SERVICE_DA]
     #import with Copy and Paste from into below file "spatial-join-quad-assignments2.csv"
     #"C:\Users\e128289\Documents\spatial-join-quad-monthly-quality.txt"
     CSV.foreach("hvy-trash-overdue-spatial-join.csv",
@@ -112,6 +112,7 @@ class SpatialOverdueHvy < ApplicationRecord
   def self.fourth_fri_js
     tally_values = SpatialOverdueHvy.where(service_da:['4th Friday']).
     pluck(:case_number, :longitude, :latitude, :poly_id, :service_da)
+
 
     headers = %i[case_number longitude latitude poly_id service_da]
     File.open("../searchwarranty/fourth-fri-OverdueHvy.js", 'w') do |f|
@@ -248,5 +249,24 @@ class SpatialOverdueHvy < ApplicationRecord
       # binding.pry
       f.puts JSON.pretty_generate(json)
     end
+  end
+  def self.js_clusters
+    SpatialOverdueHvy.second_tuesday_js
+    SpatialOverdueHvy.first_monday_js
+    SpatialOverdueHvy.first_friday_js
+    SpatialOverdueHvy.third_wed_js
+    SpatialOverdueHvy.second_thur_js
+    SpatialOverdueHvy.second_wed_js
+    SpatialOverdueHvy.third_tues_js
+    SpatialOverdueHvy.fourth_fri_js
+    SpatialOverdueHvy.first_tuesday_js
+    SpatialOverdueHvy.third_thursday_js
+    SpatialOverdueHvy.fourth_tuesday_js
+    SpatialOverdueHvy.third_friday_js
+    SpatialOverdueHvy.fourth_monday_js
+    SpatialOverdueHvy.first_wed_js
+    SpatialOverdueHvy.second_fri_js
+    SpatialOverdueHvy.fourth_wed_js
+    SpatialOverdueHvy.first_thursday_js
   end
 end
