@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_30_151742) do
+ActiveRecord::Schema.define(version: 2020_05_01_122418) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -307,6 +307,7 @@ ActiveRecord::Schema.define(version: 2020_04_30_151742) do
     t.integer "tally"
     t.string "month_yr"
     t.string "street2"
+    t.integer "fin_month"
   end
 
   create_table "warranty_lists", force: :cascade do |t|

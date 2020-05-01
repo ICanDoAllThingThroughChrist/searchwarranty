@@ -3740,13 +3740,167 @@ def self.new_services_list_2020
         Resident.create(unique: "#{request['sr_location']} #{request['tax_id']} #{request['client']}",sr_type: "#{request['sr_type']}", case_number: "#{request['case_number']}")
         }
       end
+      def self.missed_sr_related_pivot_FY20_all_districts
+        start_date = DateTime.parse('2019-07-01T00:00:00+00:00')
+        end_date= DateTime.parse('2020-06-30T23:59:59+00:00')
+        services_list = Sr.
+        where("sr_create_date >= ? AND sr_create_date <= ?",
+          start_date, end_date).
+        where(
+          sr_type: ['Missed Yard Waste Pickup',
+          'Missed Recycling Pickup',
+          'Missed Heavy Trash Pickup',
+          'Missed Garbage Pickup',
+          'New Move In Service',
+          'Add A Can',
+          'Add A Can CANCELLATION',
+          'Add A Cart',
+          'Add A Cart CANCELLATION',
+          'Container Problem',
+          'New Resident Container',
+          'Recycle Bin/Cart Retrieve',
+          'Recycling Cart Repair or Replace',
+          'Recycling Participation NEW',
+          'Unauthorized Container Retrieval',
+          'SWM Escalation'])
+
+        services_list.each {|service_request|
+          # binding.pry
+          if service_request['sr_create_date'] >= DateTime.parse('2019-07-01T00:00:00+00:00') &&
+            service_request['sr_create_date'] <= DateTime.parse('2019-07-31T23:59:59+00:00')
+            service_request['month_yr'] = 'July_2019'
+            service_request.save
+          elsif service_request['sr_create_date'] >= DateTime.parse('2019-08-01T00:00:00+00:00') &&
+            service_request['sr_create_date'] <= DateTime.parse('2019-08-31T23:59:59+00:00')
+            service_request['month_yr'] = 'Aug_2019'
+            service_request.save
+          elsif service_request['sr_create_date'] >= DateTime.parse('2019-09-01T00:00:00+00:00') &&
+            service_request['sr_create_date'] <= DateTime.parse('2019-09-30T23:59:59+00:00')
+            service_request['month_yr'] = 'Sep_2019'
+            service_request.save
+          elsif service_request['sr_create_date'] >= DateTime.parse('2019-10-01T00:00:00+00:00') &&
+            service_request['sr_create_date'] <= DateTime.parse('2019-10-31T23:59:59+00:00')
+            service_request['month_yr'] = 'Oct_2019'
+            service_request.save
+          elsif service_request['sr_create_date'] >= DateTime.parse('2019-11-01T00:00:00+00:00') &&
+            service_request['sr_create_date'] <= DateTime.parse('2019-11-30T23:59:59+00:00')
+            service_request['month_yr'] = 'Nov_2019'
+            service_request.save
+          elsif service_request['sr_create_date'] >= DateTime.parse('2019-12-01T00:00:00+00:00') &&
+            service_request['sr_create_date'] <= DateTime.parse('2019-12-31T23:59:59+00:00')
+            service_request['month_yr'] = 'Dec_2019'
+            service_request.save
+          elsif service_request['sr_create_date'] >= DateTime.parse('2020-01-01T00:00:00+00:00') &&
+            service_request['sr_create_date'] <= DateTime.parse('2020-01-31T23:59:59+00:00')
+            service_request['month_yr'] = 'Jan_20'
+            service_request.save
+          elsif service_request['sr_create_date'] >= DateTime.parse('2020-02-01T00:00:00+00:00') &&
+            service_request['sr_create_date'] <= DateTime.parse('2020-02-29T23:59:59+00:00')
+            service_request['month_yr'] = 'Feb_20'
+            service_request.save
+          elsif service_request['sr_create_date'] >= DateTime.parse('2020-03-01T00:00:00+00:00') &&
+            service_request['sr_create_date'] <= DateTime.parse('2020-03-31T23:59:59+00:00')
+            service_request['month_yr'] = 'Mar_20'
+            service_request.save
+          elsif service_request['sr_create_date'] >= DateTime.parse('2020-04-01T00:00:00+00:00') &&
+            service_request['sr_create_date'] <= DateTime.parse('2020-04-30T23:59:59+00:00')
+            service_request['month_yr'] = 'Apr_20'
+            service_request.save
+          elsif service_request['sr_create_date'] >= DateTime.parse('2020-05-01T00:00:00+00:00') &&
+            service_request['sr_create_date'] <= DateTime.parse('2020-05-31T23:59:59+00:00')
+            service_request['month_yr'] = 'May_20'
+            service_request.save
+          elsif service_request['sr_create_date'] >= DateTime.parse('2020-06-01T00:00:00+00:00') &&
+            service_request['sr_create_date'] <= DateTime.parse('2020-06-30T23:59:59+00:00')
+            service_request['month_yr'] = 'June_20'
+            service_request.save
+          else
+            service_request['month_yr'] = 'unassigned'
+            service_request.save
+          end
+        }
+          # binding.pry
+          unassigned = []
+          services_list.each {|item|
+              item.tally = 1
+              item.save
+          }
+          services_list_values = Sr.
+          where("sr_create_date >= ? AND sr_create_date <= ?",
+            start_date, end_date).
+            where(department: 'SWM Solid Waste Management',
+              sr_type: [
+                'Missed Yard Waste Pickup',
+                'Missed Recycling Pickup',
+                'Missed Heavy Trash Pickup',
+                'Missed Garbage Pickup',
+                'New Move In Service',
+                'Add A Can',
+                'Add A Can CANCELLATION',
+                'Add A Cart',
+                'Add A Cart CANCELLATION',
+                'Container Problem',
+                'New Resident Container',
+                'Recycle Bin/Cart Retrieve',
+                'Recycling Cart Repair or Replace',
+                'Recycling Participation NEW',
+                'Unauthorized Container Retrieval',
+                'SWM Escalation']).
+          pluck(:id, :case_number, :sr_location, :county, :district, :neighborhood,
+             :tax_id, :trash_quad, :recycle_quad, :trash_day, :heavy_trash_day,
+              :recycle_day, :key_map, :management_district, :department,
+               :division, :sr_type, :queue, :sla, :status, :sr_create_date,
+                :due_date, :date_closed, :overdue, :title, :x, :y, :latitude,
+                 :longitude, :channel_type, :created_at, :updated_at, :field1,
+                  :field2, :client, :garbage_route, :heavy_trash_quad, :sr_owner,
+                   :sr_creator, :resolve_days, :street_num, :client_street, :city,
+                    :state, :zip, :phone_number, :email_address, :garbage_day1,
+                     :garbage_quad, :recycle_day1, :recycle_route, :resolution_time,
+                      :expression, :ne_overdue, :ne_not_overdue, :ne_sr_total,
+                       :nw_overdue, :nw_not_overdue, :nw_sr_total, :se_overdue,
+                        :se_not_overdue, :se_sr_total, :sw_overdue, :sw_not_overdue,
+                         :sw_sr_total, :quad_status, :tally, :month_yr, :fin_month)
+          headers = %w[id case_number sr_location county district neighborhood
+             tax_id trash_quad recycle_quad trash_day heavy_trash_day recycle_day
+              key_map management_district department division sr_type queue sla
+               status sr_create_date due_date date_closed overdue title x y
+                latitude longitude channel_type created_at updated_at field1
+                 field2 client garbage_route heavy_trash_quad sr_owner sr_creator
+                  resolve_days street_num client_street city state zip phone_number
+                   email_address garbage_day1 garbage_quad recycle_day1
+                    recycle_route resolution_time expression ne_overdue
+                     ne_not_overdue ne_sr_total nw_overdue nw_not_overdue
+                      nw_sr_total se_overdue se_not_overdue se_sr_total sw_overdue
+                       sw_not_overdue sw_sr_total quad_status tally month_yr fin_month]
+          CSV.open("../searchwarranty/districtA_missed_services_FY20.csv", "wb",
+             write_headers: true, headers: headers) do |csv|
+               services_list_values.each do |row|
+                 csv << row
+               end
+             end
+
+          sales2 =
+          Daru::DataFrame.from_csv '../searchwarranty/districtAll_missed_services_FY20.csv'
+
+          list2 =
+          sales2.pivot_table(index:['sr_type', 'district'],
+               values:'tally',
+               vectors:['month_yr'],  agg:  :sum)
+
+         File.open('../searchwarranty/app/views/srs/districtAll_missed_services_FY20.html.erb',
+               'w+'){|f| f << list2.to_html}
+
+          File.open('../searchwarranty/app/views/srs/districtAll_missed_services_FY20.html',
+               'w+'){|f| f << list2.to_html}
+      end
       def self.missed_sr_related_pivot_FY20_district_A
         start_date = DateTime.parse('2019-07-01T00:00:00+00:00')
         end_date= DateTime.parse('2020-06-30T23:59:59+00:00')
         services_list = Sr.
         where("sr_create_date >= ? AND sr_create_date <= ?",
           start_date, end_date).
-        where(district:'A',
+        where(
+          district: 'A',
           sr_type: ['Missed Yard Waste Pickup',
           'Missed Recycling Pickup',
           'Missed Heavy Trash Pickup',
@@ -3860,7 +4014,7 @@ def self.new_services_list_2020
                       :expression, :ne_overdue, :ne_not_overdue, :ne_sr_total,
                        :nw_overdue, :nw_not_overdue, :nw_sr_total, :se_overdue,
                         :se_not_overdue, :se_sr_total, :sw_overdue, :sw_not_overdue,
-                         :sw_sr_total, :quad_status, :tally, :month_yr)
+                         :sw_sr_total, :quad_status, :tally, :month_yr, :fin_month)
           headers = %w[id case_number sr_location county district neighborhood
              tax_id trash_quad recycle_quad trash_day heavy_trash_day recycle_day
               key_map management_district department division sr_type queue sla
@@ -3872,7 +4026,7 @@ def self.new_services_list_2020
                     recycle_route resolution_time expression ne_overdue
                      ne_not_overdue ne_sr_total nw_overdue nw_not_overdue
                       nw_sr_total se_overdue se_not_overdue se_sr_total sw_overdue
-                       sw_not_overdue sw_sr_total quad_status tally month_yr]
+                       sw_not_overdue sw_sr_total quad_status tally month_yr fin_month]
           CSV.open("../searchwarranty/districtA_missed_services_FY20.csv", "wb",
              write_headers: true, headers: headers) do |csv|
                services_list_values.each do |row|
@@ -3900,7 +4054,8 @@ def self.new_services_list_2020
         services_list = Sr.
         where("sr_create_date >= ? AND sr_create_date <= ?",
           start_date, end_date).
-        where(district:'B',
+        where(
+          district: 'B',
           sr_type: ['Missed Yard Waste Pickup',
           'Missed Recycling Pickup',
           'Missed Heavy Trash Pickup',
@@ -4014,7 +4169,7 @@ def self.new_services_list_2020
                       :expression, :ne_overdue, :ne_not_overdue, :ne_sr_total,
                        :nw_overdue, :nw_not_overdue, :nw_sr_total, :se_overdue,
                         :se_not_overdue, :se_sr_total, :sw_overdue, :sw_not_overdue,
-                         :sw_sr_total, :quad_status, :tally, :month_yr)
+                         :sw_sr_total, :quad_status, :tally, :month_yr, :fin_month)
           headers = %w[id case_number sr_location county district neighborhood
              tax_id trash_quad recycle_quad trash_day heavy_trash_day recycle_day
               key_map management_district department division sr_type queue sla
@@ -4026,7 +4181,7 @@ def self.new_services_list_2020
                     recycle_route resolution_time expression ne_overdue
                      ne_not_overdue ne_sr_total nw_overdue nw_not_overdue
                       nw_sr_total se_overdue se_not_overdue se_sr_total sw_overdue
-                       sw_not_overdue sw_sr_total quad_status tally month_yr]
+                       sw_not_overdue sw_sr_total quad_status tally month_yr fin_month]
           CSV.open("../searchwarranty/districtB_missed_services_FY20.csv", "wb",
              write_headers: true, headers: headers) do |csv|
                services_list_values.each do |row|
@@ -4054,7 +4209,8 @@ def self.new_services_list_2020
         services_list = Sr.
         where("sr_create_date >= ? AND sr_create_date <= ?",
           start_date, end_date).
-        where(district:'C',
+        where(
+          district: 'C',
           sr_type: ['Missed Yard Waste Pickup',
           'Missed Recycling Pickup',
           'Missed Heavy Trash Pickup',
@@ -4168,7 +4324,7 @@ def self.new_services_list_2020
                       :expression, :ne_overdue, :ne_not_overdue, :ne_sr_total,
                        :nw_overdue, :nw_not_overdue, :nw_sr_total, :se_overdue,
                         :se_not_overdue, :se_sr_total, :sw_overdue, :sw_not_overdue,
-                         :sw_sr_total, :quad_status, :tally, :month_yr)
+                         :sw_sr_total, :quad_status, :tally, :month_yr, :fin_month)
           headers = %w[id case_number sr_location county district neighborhood
              tax_id trash_quad recycle_quad trash_day heavy_trash_day recycle_day
               key_map management_district department division sr_type queue sla
@@ -4180,7 +4336,7 @@ def self.new_services_list_2020
                     recycle_route resolution_time expression ne_overdue
                      ne_not_overdue ne_sr_total nw_overdue nw_not_overdue
                       nw_sr_total se_overdue se_not_overdue se_sr_total sw_overdue
-                       sw_not_overdue sw_sr_total quad_status tally month_yr]
+                       sw_not_overdue sw_sr_total quad_status tally month_yr fin_month]
           CSV.open("../searchwarranty/districtC_missed_services_FY20.csv", "wb",
              write_headers: true, headers: headers) do |csv|
                services_list_values.each do |row|
@@ -4208,7 +4364,8 @@ def self.new_services_list_2020
         services_list = Sr.
         where("sr_create_date >= ? AND sr_create_date <= ?",
           start_date, end_date).
-        where(district:'D',
+        where(
+          district: 'D',
           sr_type: ['Missed Yard Waste Pickup',
           'Missed Recycling Pickup',
           'Missed Heavy Trash Pickup',
@@ -4322,7 +4479,7 @@ def self.new_services_list_2020
                       :expression, :ne_overdue, :ne_not_overdue, :ne_sr_total,
                        :nw_overdue, :nw_not_overdue, :nw_sr_total, :se_overdue,
                         :se_not_overdue, :se_sr_total, :sw_overdue, :sw_not_overdue,
-                         :sw_sr_total, :quad_status, :tally, :month_yr)
+                         :sw_sr_total, :quad_status, :tally, :month_yr, :fin_month)
           headers = %w[id case_number sr_location county district neighborhood
              tax_id trash_quad recycle_quad trash_day heavy_trash_day recycle_day
               key_map management_district department division sr_type queue sla
@@ -4334,7 +4491,7 @@ def self.new_services_list_2020
                     recycle_route resolution_time expression ne_overdue
                      ne_not_overdue ne_sr_total nw_overdue nw_not_overdue
                       nw_sr_total se_overdue se_not_overdue se_sr_total sw_overdue
-                       sw_not_overdue sw_sr_total quad_status tally month_yr]
+                       sw_not_overdue sw_sr_total quad_status tally month_yr fin_month]
           CSV.open("../searchwarranty/districtD_missed_services_FY20.csv", "wb",
              write_headers: true, headers: headers) do |csv|
                services_list_values.each do |row|
@@ -4362,7 +4519,8 @@ def self.new_services_list_2020
         services_list = Sr.
         where("sr_create_date >= ? AND sr_create_date <= ?",
           start_date, end_date).
-        where(district:'E',
+        where(
+          district: 'E',
           sr_type: ['Missed Yard Waste Pickup',
           'Missed Recycling Pickup',
           'Missed Heavy Trash Pickup',
@@ -4476,7 +4634,7 @@ def self.new_services_list_2020
                       :expression, :ne_overdue, :ne_not_overdue, :ne_sr_total,
                        :nw_overdue, :nw_not_overdue, :nw_sr_total, :se_overdue,
                         :se_not_overdue, :se_sr_total, :sw_overdue, :sw_not_overdue,
-                         :sw_sr_total, :quad_status, :tally, :month_yr)
+                         :sw_sr_total, :quad_status, :tally, :month_yr, :fin_month)
           headers = %w[id case_number sr_location county district neighborhood
              tax_id trash_quad recycle_quad trash_day heavy_trash_day recycle_day
               key_map management_district department division sr_type queue sla
@@ -4488,7 +4646,7 @@ def self.new_services_list_2020
                     recycle_route resolution_time expression ne_overdue
                      ne_not_overdue ne_sr_total nw_overdue nw_not_overdue
                       nw_sr_total se_overdue se_not_overdue se_sr_total sw_overdue
-                       sw_not_overdue sw_sr_total quad_status tally month_yr]
+                       sw_not_overdue sw_sr_total quad_status tally month_yr fin_month]
           CSV.open("../searchwarranty/districtE_missed_services_FY20.csv", "wb",
              write_headers: true, headers: headers) do |csv|
                services_list_values.each do |row|
@@ -4510,14 +4668,14 @@ def self.new_services_list_2020
           File.open('../searchwarranty/app/views/srs/districtE_missed_services_FY20.html',
                'w+'){|f| f << list2.to_html}
       end
-
       def self.missed_sr_related_pivot_FY20_district_F
         start_date = DateTime.parse('2019-07-01T00:00:00+00:00')
         end_date= DateTime.parse('2020-06-30T23:59:59+00:00')
         services_list = Sr.
         where("sr_create_date >= ? AND sr_create_date <= ?",
           start_date, end_date).
-        where(district:'F',
+        where(
+          district: 'F',
           sr_type: ['Missed Yard Waste Pickup',
           'Missed Recycling Pickup',
           'Missed Heavy Trash Pickup',
@@ -4631,7 +4789,7 @@ def self.new_services_list_2020
                       :expression, :ne_overdue, :ne_not_overdue, :ne_sr_total,
                        :nw_overdue, :nw_not_overdue, :nw_sr_total, :se_overdue,
                         :se_not_overdue, :se_sr_total, :sw_overdue, :sw_not_overdue,
-                         :sw_sr_total, :quad_status, :tally, :month_yr)
+                         :sw_sr_total, :quad_status, :tally, :month_yr, :fin_month)
           headers = %w[id case_number sr_location county district neighborhood
              tax_id trash_quad recycle_quad trash_day heavy_trash_day recycle_day
               key_map management_district department division sr_type queue sla
@@ -4643,7 +4801,7 @@ def self.new_services_list_2020
                     recycle_route resolution_time expression ne_overdue
                      ne_not_overdue ne_sr_total nw_overdue nw_not_overdue
                       nw_sr_total se_overdue se_not_overdue se_sr_total sw_overdue
-                       sw_not_overdue sw_sr_total quad_status tally month_yr]
+                       sw_not_overdue sw_sr_total quad_status tally month_yr fin_month]
           CSV.open("../searchwarranty/districtF_missed_services_FY20.csv", "wb",
              write_headers: true, headers: headers) do |csv|
                services_list_values.each do |row|
@@ -4671,7 +4829,8 @@ def self.new_services_list_2020
         services_list = Sr.
         where("sr_create_date >= ? AND sr_create_date <= ?",
           start_date, end_date).
-        where(district:'G',
+        where(
+          district: 'G',
           sr_type: ['Missed Yard Waste Pickup',
           'Missed Recycling Pickup',
           'Missed Heavy Trash Pickup',
@@ -4785,7 +4944,7 @@ def self.new_services_list_2020
                       :expression, :ne_overdue, :ne_not_overdue, :ne_sr_total,
                        :nw_overdue, :nw_not_overdue, :nw_sr_total, :se_overdue,
                         :se_not_overdue, :se_sr_total, :sw_overdue, :sw_not_overdue,
-                         :sw_sr_total, :quad_status, :tally, :month_yr)
+                         :sw_sr_total, :quad_status, :tally, :month_yr, :fin_month)
           headers = %w[id case_number sr_location county district neighborhood
              tax_id trash_quad recycle_quad trash_day heavy_trash_day recycle_day
               key_map management_district department division sr_type queue sla
@@ -4797,7 +4956,7 @@ def self.new_services_list_2020
                     recycle_route resolution_time expression ne_overdue
                      ne_not_overdue ne_sr_total nw_overdue nw_not_overdue
                       nw_sr_total se_overdue se_not_overdue se_sr_total sw_overdue
-                       sw_not_overdue sw_sr_total quad_status tally month_yr]
+                       sw_not_overdue sw_sr_total quad_status tally month_yr fin_month]
           CSV.open("../searchwarranty/districtG_missed_services_FY20.csv", "wb",
              write_headers: true, headers: headers) do |csv|
                services_list_values.each do |row|
@@ -4825,7 +4984,8 @@ def self.new_services_list_2020
         services_list = Sr.
         where("sr_create_date >= ? AND sr_create_date <= ?",
           start_date, end_date).
-        where(district:'H',
+        where(
+          district: 'H',
           sr_type: ['Missed Yard Waste Pickup',
           'Missed Recycling Pickup',
           'Missed Heavy Trash Pickup',
@@ -4939,7 +5099,7 @@ def self.new_services_list_2020
                       :expression, :ne_overdue, :ne_not_overdue, :ne_sr_total,
                        :nw_overdue, :nw_not_overdue, :nw_sr_total, :se_overdue,
                         :se_not_overdue, :se_sr_total, :sw_overdue, :sw_not_overdue,
-                         :sw_sr_total, :quad_status, :tally, :month_yr)
+                         :sw_sr_total, :quad_status, :tally, :month_yr, :fin_month)
           headers = %w[id case_number sr_location county district neighborhood
              tax_id trash_quad recycle_quad trash_day heavy_trash_day recycle_day
               key_map management_district department division sr_type queue sla
@@ -4951,7 +5111,7 @@ def self.new_services_list_2020
                     recycle_route resolution_time expression ne_overdue
                      ne_not_overdue ne_sr_total nw_overdue nw_not_overdue
                       nw_sr_total se_overdue se_not_overdue se_sr_total sw_overdue
-                       sw_not_overdue sw_sr_total quad_status tally month_yr]
+                       sw_not_overdue sw_sr_total quad_status tally month_yr fin_month]
           CSV.open("../searchwarranty/districtH_missed_services_FY20.csv", "wb",
              write_headers: true, headers: headers) do |csv|
                services_list_values.each do |row|
@@ -4979,7 +5139,8 @@ def self.new_services_list_2020
         services_list = Sr.
         where("sr_create_date >= ? AND sr_create_date <= ?",
           start_date, end_date).
-        where(district:'I',
+        where(
+          district: 'I',
           sr_type: ['Missed Yard Waste Pickup',
           'Missed Recycling Pickup',
           'Missed Heavy Trash Pickup',
@@ -5093,7 +5254,7 @@ def self.new_services_list_2020
                       :expression, :ne_overdue, :ne_not_overdue, :ne_sr_total,
                        :nw_overdue, :nw_not_overdue, :nw_sr_total, :se_overdue,
                         :se_not_overdue, :se_sr_total, :sw_overdue, :sw_not_overdue,
-                         :sw_sr_total, :quad_status, :tally, :month_yr)
+                         :sw_sr_total, :quad_status, :tally, :month_yr, :fin_month)
           headers = %w[id case_number sr_location county district neighborhood
              tax_id trash_quad recycle_quad trash_day heavy_trash_day recycle_day
               key_map management_district department division sr_type queue sla
@@ -5105,7 +5266,7 @@ def self.new_services_list_2020
                     recycle_route resolution_time expression ne_overdue
                      ne_not_overdue ne_sr_total nw_overdue nw_not_overdue
                       nw_sr_total se_overdue se_not_overdue se_sr_total sw_overdue
-                       sw_not_overdue sw_sr_total quad_status tally month_yr]
+                       sw_not_overdue sw_sr_total quad_status tally month_yr fin_month]
           CSV.open("../searchwarranty/districtI_missed_services_FY20.csv", "wb",
              write_headers: true, headers: headers) do |csv|
                services_list_values.each do |row|
@@ -5133,7 +5294,8 @@ def self.new_services_list_2020
         services_list = Sr.
         where("sr_create_date >= ? AND sr_create_date <= ?",
           start_date, end_date).
-        where(district:'J',
+        where(
+          district: 'J',
           sr_type: ['Missed Yard Waste Pickup',
           'Missed Recycling Pickup',
           'Missed Heavy Trash Pickup',
@@ -5247,7 +5409,7 @@ def self.new_services_list_2020
                       :expression, :ne_overdue, :ne_not_overdue, :ne_sr_total,
                        :nw_overdue, :nw_not_overdue, :nw_sr_total, :se_overdue,
                         :se_not_overdue, :se_sr_total, :sw_overdue, :sw_not_overdue,
-                         :sw_sr_total, :quad_status, :tally, :month_yr)
+                         :sw_sr_total, :quad_status, :tally, :month_yr, :fin_month)
           headers = %w[id case_number sr_location county district neighborhood
              tax_id trash_quad recycle_quad trash_day heavy_trash_day recycle_day
               key_map management_district department division sr_type queue sla
@@ -5259,7 +5421,7 @@ def self.new_services_list_2020
                     recycle_route resolution_time expression ne_overdue
                      ne_not_overdue ne_sr_total nw_overdue nw_not_overdue
                       nw_sr_total se_overdue se_not_overdue se_sr_total sw_overdue
-                       sw_not_overdue sw_sr_total quad_status tally month_yr]
+                       sw_not_overdue sw_sr_total quad_status tally month_yr fin_month]
           CSV.open("../searchwarranty/districtJ_missed_services_FY20.csv", "wb",
              write_headers: true, headers: headers) do |csv|
                services_list_values.each do |row|
@@ -5287,7 +5449,8 @@ def self.new_services_list_2020
         services_list = Sr.
         where("sr_create_date >= ? AND sr_create_date <= ?",
           start_date, end_date).
-        where(district:'K',
+        where(
+          district: 'K',
           sr_type: ['Missed Yard Waste Pickup',
           'Missed Recycling Pickup',
           'Missed Heavy Trash Pickup',
@@ -5401,7 +5564,7 @@ def self.new_services_list_2020
                       :expression, :ne_overdue, :ne_not_overdue, :ne_sr_total,
                        :nw_overdue, :nw_not_overdue, :nw_sr_total, :se_overdue,
                         :se_not_overdue, :se_sr_total, :sw_overdue, :sw_not_overdue,
-                         :sw_sr_total, :quad_status, :tally, :month_yr)
+                         :sw_sr_total, :quad_status, :tally, :month_yr, :fin_month)
           headers = %w[id case_number sr_location county district neighborhood
              tax_id trash_quad recycle_quad trash_day heavy_trash_day recycle_day
               key_map management_district department division sr_type queue sla
@@ -5413,7 +5576,7 @@ def self.new_services_list_2020
                     recycle_route resolution_time expression ne_overdue
                      ne_not_overdue ne_sr_total nw_overdue nw_not_overdue
                       nw_sr_total se_overdue se_not_overdue se_sr_total sw_overdue
-                       sw_not_overdue sw_sr_total quad_status tally month_yr]
+                       sw_not_overdue sw_sr_total quad_status tally month_yr fin_month]
           CSV.open("../searchwarranty/districtK_missed_services_FY20.csv", "wb",
              write_headers: true, headers: headers) do |csv|
                services_list_values.each do |row|
@@ -5435,159 +5598,6 @@ def self.new_services_list_2020
           File.open('../searchwarranty/app/views/srs/districtK_missed_services_FY20.html',
                'w+'){|f| f << list2.to_html}
       end
-      def self.missed_sr_related_pivot_FY20_district_unknown
-        start_date = DateTime.parse('2019-07-01T00:00:00+00:00')
-        end_date= DateTime.parse('2020-06-30T23:59:59+00:00')
-        services_list = Sr.
-        where("sr_create_date >= ? AND sr_create_date <= ?",
-          start_date, end_date).
-        where(district: [nil, "", 'Unknown'],
-          sr_type: ['Missed Yard Waste Pickup',
-          'Missed Recycling Pickup',
-          'Missed Heavy Trash Pickup',
-          'Missed Garbage Pickup',
-          'New Move In Service',
-          'Add A Can',
-          'Add A Can CANCELLATION',
-          'Add A Cart',
-          'Add A Cart CANCELLATION',
-          'Container Problem',
-          'New Resident Container',
-          'Recycle Bin/Cart Retrieve',
-          'Recycling Cart Repair or Replace',
-          'Recycling Participation NEW',
-          'Unauthorized Container Retrieval',
-          'SWM Escalation'])
 
-        services_list.each {|service_request|
-          # binding.pry
-          if service_request['sr_create_date'] >= DateTime.parse('2019-07-01T00:00:00+00:00') &&
-            service_request['sr_create_date'] <= DateTime.parse('2019-07-31T23:59:59+00:00')
-            service_request['month_yr'] = 'July_2019'
-            service_request.save
-          elsif service_request['sr_create_date'] >= DateTime.parse('2019-08-01T00:00:00+00:00') &&
-            service_request['sr_create_date'] <= DateTime.parse('2019-08-31T23:59:59+00:00')
-            service_request['month_yr'] = 'Aug_2019'
-            service_request.save
-          elsif service_request['sr_create_date'] >= DateTime.parse('2019-09-01T00:00:00+00:00') &&
-            service_request['sr_create_date'] <= DateTime.parse('2019-09-30T23:59:59+00:00')
-            service_request['month_yr'] = 'Sep_2019'
-            service_request.save
-          elsif service_request['sr_create_date'] >= DateTime.parse('2019-10-01T00:00:00+00:00') &&
-            service_request['sr_create_date'] <= DateTime.parse('2019-10-31T23:59:59+00:00')
-            service_request['month_yr'] = 'Oct_2019'
-            service_request.save
-          elsif service_request['sr_create_date'] >= DateTime.parse('2019-11-01T00:00:00+00:00') &&
-            service_request['sr_create_date'] <= DateTime.parse('2019-11-30T23:59:59+00:00')
-            service_request['month_yr'] = 'Nov_2019'
-            service_request.save
-          elsif service_request['sr_create_date'] >= DateTime.parse('2019-12-01T00:00:00+00:00') &&
-            service_request['sr_create_date'] <= DateTime.parse('2019-12-31T23:59:59+00:00')
-            service_request['month_yr'] = 'Dec_2019'
-            service_request.save
-          elsif service_request['sr_create_date'] >= DateTime.parse('2020-01-01T00:00:00+00:00') &&
-            service_request['sr_create_date'] <= DateTime.parse('2020-01-31T23:59:59+00:00')
-            service_request['month_yr'] = 'Jan_20'
-            service_request.save
-          elsif service_request['sr_create_date'] >= DateTime.parse('2020-02-01T00:00:00+00:00') &&
-            service_request['sr_create_date'] <= DateTime.parse('2020-02-29T23:59:59+00:00')
-            service_request['month_yr'] = 'Feb_20'
-            service_request.save
-          elsif service_request['sr_create_date'] >= DateTime.parse('2020-03-01T00:00:00+00:00') &&
-            service_request['sr_create_date'] <= DateTime.parse('2020-03-31T23:59:59+00:00')
-            service_request['month_yr'] = 'Mar_20'
-            service_request.save
-          elsif service_request['sr_create_date'] >= DateTime.parse('2020-04-01T00:00:00+00:00') &&
-            service_request['sr_create_date'] <= DateTime.parse('2020-04-30T23:59:59+00:00')
-            service_request['month_yr'] = 'Apr_20'
-            service_request.save
-          elsif service_request['sr_create_date'] >= DateTime.parse('2020-05-01T00:00:00+00:00') &&
-            service_request['sr_create_date'] <= DateTime.parse('2020-05-31T23:59:59+00:00')
-            service_request['month_yr'] = 'May_20'
-            service_request.save
-          elsif service_request['sr_create_date'] >= DateTime.parse('2020-06-01T00:00:00+00:00') &&
-            service_request['sr_create_date'] <= DateTime.parse('2020-06-30T23:59:59+00:00')
-            service_request['month_yr'] = 'June_20'
-            service_request.save
-          else
-            service_request['month_yr'] = 'unassigned'
-            service_request.save
-          end
-        }
-          # binding.pry
-          unassigned = []
-          services_list.each {|item|
-              item.tally = 1
-              item.save
-          }
-          services_list_values = Sr.
-          where("sr_create_date >= ? AND sr_create_date <= ?",
-            start_date, end_date).
-            where(department: 'SWM Solid Waste Management',
-              district: [nil, "", 'Unknown'],
-              sr_type: [
-                'Missed Yard Waste Pickup',
-                'Missed Recycling Pickup',
-                'Missed Heavy Trash Pickup',
-                'Missed Garbage Pickup',
-                'New Move In Service',
-                'Add A Can',
-                'Add A Can CANCELLATION',
-                'Add A Cart',
-                'Add A Cart CANCELLATION',
-                'Container Problem',
-                'New Resident Container',
-                'Recycle Bin/Cart Retrieve',
-                'Recycling Cart Repair or Replace',
-                'Recycling Participation NEW',
-                'Unauthorized Container Retrieval',
-                'SWM Escalation']).
-          pluck(:id, :case_number, :sr_location, :county, :district, :neighborhood,
-             :tax_id, :trash_quad, :recycle_quad, :trash_day, :heavy_trash_day,
-              :recycle_day, :key_map, :management_district, :department,
-               :division, :sr_type, :queue, :sla, :status, :sr_create_date,
-                :due_date, :date_closed, :overdue, :title, :x, :y, :latitude,
-                 :longitude, :channel_type, :created_at, :updated_at, :field1,
-                  :field2, :client, :garbage_route, :heavy_trash_quad, :sr_owner,
-                   :sr_creator, :resolve_days, :street_num, :client_street, :city,
-                    :state, :zip, :phone_number, :email_address, :garbage_day1,
-                     :garbage_quad, :recycle_day1, :recycle_route, :resolution_time,
-                      :expression, :ne_overdue, :ne_not_overdue, :ne_sr_total,
-                       :nw_overdue, :nw_not_overdue, :nw_sr_total, :se_overdue,
-                        :se_not_overdue, :se_sr_total, :sw_overdue, :sw_not_overdue,
-                         :sw_sr_total, :quad_status, :tally, :month_yr)
-          headers = %w[id case_number sr_location county district neighborhood
-             tax_id trash_quad recycle_quad trash_day heavy_trash_day recycle_day
-              key_map management_district department division sr_type queue sla
-               status sr_create_date due_date date_closed overdue title x y
-                latitude longitude channel_type created_at updated_at field1
-                 field2 client garbage_route heavy_trash_quad sr_owner sr_creator
-                  resolve_days street_num client_street city state zip phone_number
-                   email_address garbage_day1 garbage_quad recycle_day1
-                    recycle_route resolution_time expression ne_overdue
-                     ne_not_overdue ne_sr_total nw_overdue nw_not_overdue
-                      nw_sr_total se_overdue se_not_overdue se_sr_total sw_overdue
-                       sw_not_overdue sw_sr_total quad_status tally month_yr]
-          CSV.open("../searchwarranty/districtUnknown_missed_services_FY20.csv", "wb",
-             write_headers: true, headers: headers) do |csv|
-               services_list_values.each do |row|
-                 csv << row
-               end
-             end
-
-          sales2 =
-          Daru::DataFrame.from_csv '../searchwarranty/districtUnknown_missed_services_FY20.csv'
-
-          list2 =
-          sales2.pivot_table(index:['sr_type'],
-               values:'tally',
-               vectors:['month_yr'],  agg:  :sum)
-
-         File.open('../searchwarranty/app/views/srs/districtUknown_missed_services_FY20.html.erb',
-               'w+'){|f| f << list2.to_html}
-
-          File.open('../searchwarranty/app/views/srs/districtUnknown_missed_services_FY20.html',
-               'w+'){|f| f << list2.to_html}
-      end
 
 end
