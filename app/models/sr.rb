@@ -3744,7 +3744,7 @@ def self.new_services_list_2020
         start_date = DateTime.parse('2019-07-01T00:00:00+00:00')
         end_date= DateTime.parse('2020-06-30T23:59:59+00:00')
         services_list = Sr.
-        where("created_at >= ? AND created_at <= ?",
+        where("sr_create_date >= ? AND sr_create_date <= ?",
           start_date, end_date).
         where(district:'A',
           sr_type: ['Missed Yard Waste Pickup',
@@ -3766,52 +3766,52 @@ def self.new_services_list_2020
 
         services_list.each {|service_request|
           # binding.pry
-          if service_request['created_at'] >= DateTime.parse('2019-07-01T00:00:00+00:00') &&
-            service_request['created_at'] <= DateTime.parse('2019-07-31T23:59:59+00:00')
+          if service_request['sr_create_date'] >= DateTime.parse('2019-07-01T00:00:00+00:00') &&
+            service_request['sr_create_date'] <= DateTime.parse('2019-07-31T23:59:59+00:00')
             service_request['month_yr'] = 'July_2019'
             service_request.save
-          elsif service_request['created_at'] >= DateTime.parse('2019-08-01T00:00:00+00:00') &&
-            service_request['created_at'] <= DateTime.parse('2019-08-31T23:59:59+00:00')
+          elsif service_request['sr_create_date'] >= DateTime.parse('2019-08-01T00:00:00+00:00') &&
+            service_request['sr_create_date'] <= DateTime.parse('2019-08-31T23:59:59+00:00')
             service_request['month_yr'] = 'Aug_2019'
             service_request.save
-          elsif service_request['created_at'] >= DateTime.parse('2019-09-01T00:00:00+00:00') &&
-            service_request['created_at'] <= DateTime.parse('2019-09-30T23:59:59+00:00')
+          elsif service_request['sr_create_date'] >= DateTime.parse('2019-09-01T00:00:00+00:00') &&
+            service_request['sr_create_date'] <= DateTime.parse('2019-09-30T23:59:59+00:00')
             service_request['month_yr'] = 'Sep_2019'
             service_request.save
-          elsif service_request['created_at'] >= DateTime.parse('2019-10-01T00:00:00+00:00') &&
-            service_request['created_at'] <= DateTime.parse('2019-10-31T23:59:59+00:00')
+          elsif service_request['sr_create_date'] >= DateTime.parse('2019-10-01T00:00:00+00:00') &&
+            service_request['sr_create_date'] <= DateTime.parse('2019-10-31T23:59:59+00:00')
             service_request['month_yr'] = 'Oct_2019'
             service_request.save
-          elsif service_request['created_at'] >= DateTime.parse('2019-11-01T00:00:00+00:00') &&
-            service_request['created_at'] <= DateTime.parse('2019-11-30T23:59:59+00:00')
+          elsif service_request['sr_create_date'] >= DateTime.parse('2019-11-01T00:00:00+00:00') &&
+            service_request['sr_create_date'] <= DateTime.parse('2019-11-30T23:59:59+00:00')
             service_request['month_yr'] = 'Nov_2019'
             service_request.save
-          elsif service_request['created_at'] >= DateTime.parse('2019-12-01T00:00:00+00:00') &&
-            service_request['created_at'] <= DateTime.parse('2019-12-31T23:59:59+00:00')
+          elsif service_request['sr_create_date'] >= DateTime.parse('2019-12-01T00:00:00+00:00') &&
+            service_request['sr_create_date'] <= DateTime.parse('2019-12-31T23:59:59+00:00')
             service_request['month_yr'] = 'Dec_2019'
             service_request.save
-          elsif service_request['created_at'] >= DateTime.parse('2020-01-01T00:00:00+00:00') &&
-            service_request['created_at'] <= DateTime.parse('2020-01-31T23:59:59+00:00')
+          elsif service_request['sr_create_date'] >= DateTime.parse('2020-01-01T00:00:00+00:00') &&
+            service_request['sr_create_date'] <= DateTime.parse('2020-01-31T23:59:59+00:00')
             service_request['month_yr'] = 'Jan_20'
             service_request.save
-          elsif service_request['created_at'] >= DateTime.parse('2020-02-01T00:00:00+00:00') &&
-            service_request['created_at'] <= DateTime.parse('2020-02-29T23:59:59+00:00')
+          elsif service_request['sr_create_date'] >= DateTime.parse('2020-02-01T00:00:00+00:00') &&
+            service_request['sr_create_date'] <= DateTime.parse('2020-02-29T23:59:59+00:00')
             service_request['month_yr'] = 'Feb_20'
             service_request.save
-          elsif service_request['created_at'] >= DateTime.parse('2020-03-01T00:00:00+00:00') &&
-            service_request['created_at'] <= DateTime.parse('2020-03-31T23:59:59+00:00')
+          elsif service_request['sr_create_date'] >= DateTime.parse('2020-03-01T00:00:00+00:00') &&
+            service_request['sr_create_date'] <= DateTime.parse('2020-03-31T23:59:59+00:00')
             service_request['month_yr'] = 'Mar_20'
             service_request.save
-          elsif service_request['created_at'] >= DateTime.parse('2020-04-01T00:00:00+00:00') &&
-            service_request['created_at'] <= DateTime.parse('2020-04-30T23:59:59+00:00')
+          elsif service_request['sr_create_date'] >= DateTime.parse('2020-04-01T00:00:00+00:00') &&
+            service_request['sr_create_date'] <= DateTime.parse('2020-04-30T23:59:59+00:00')
             service_request['month_yr'] = 'Apr_20'
             service_request.save
-          elsif service_request['created_at'] >= DateTime.parse('2020-05-01T00:00:00+00:00') &&
-            service_request['created_at'] <= DateTime.parse('2020-05-31T23:59:59+00:00')
+          elsif service_request['sr_create_date'] >= DateTime.parse('2020-05-01T00:00:00+00:00') &&
+            service_request['sr_create_date'] <= DateTime.parse('2020-05-31T23:59:59+00:00')
             service_request['month_yr'] = 'May_20'
             service_request.save
-          elsif service_request['created_at'] >= DateTime.parse('2020-06-01T00:00:00+00:00') &&
-            service_request['created_at'] <= DateTime.parse('2020-06-30T23:59:59+00:00')
+          elsif service_request['sr_create_date'] >= DateTime.parse('2020-06-01T00:00:00+00:00') &&
+            service_request['sr_create_date'] <= DateTime.parse('2020-06-30T23:59:59+00:00')
             service_request['month_yr'] = 'June_20'
             service_request.save
           else
@@ -3826,7 +3826,7 @@ def self.new_services_list_2020
               item.save
           }
           services_list_values = Sr.
-          where("created_at >= ? AND created_at <= ?",
+          where("sr_create_date >= ? AND sr_create_date <= ?",
             start_date, end_date).
             where(department: 'SWM Solid Waste Management',
               district: 'A',
@@ -3898,7 +3898,7 @@ def self.new_services_list_2020
         start_date = DateTime.parse('2019-07-01T00:00:00+00:00')
         end_date= DateTime.parse('2020-06-30T23:59:59+00:00')
         services_list = Sr.
-        where("created_at >= ? AND created_at <= ?",
+        where("sr_create_date >= ? AND sr_create_date <= ?",
           start_date, end_date).
         where(district:'B',
           sr_type: ['Missed Yard Waste Pickup',
@@ -3920,52 +3920,52 @@ def self.new_services_list_2020
 
         services_list.each {|service_request|
           # binding.pry
-          if service_request['created_at'] >= DateTime.parse('2019-07-01T00:00:00+00:00') &&
-            service_request['created_at'] <= DateTime.parse('2019-07-31T23:59:59+00:00')
+          if service_request['sr_create_date'] >= DateTime.parse('2019-07-01T00:00:00+00:00') &&
+            service_request['sr_create_date'] <= DateTime.parse('2019-07-31T23:59:59+00:00')
             service_request['month_yr'] = 'July_2019'
             service_request.save
-          elsif service_request['created_at'] >= DateTime.parse('2019-08-01T00:00:00+00:00') &&
-            service_request['created_at'] <= DateTime.parse('2019-08-31T23:59:59+00:00')
+          elsif service_request['sr_create_date'] >= DateTime.parse('2019-08-01T00:00:00+00:00') &&
+            service_request['sr_create_date'] <= DateTime.parse('2019-08-31T23:59:59+00:00')
             service_request['month_yr'] = 'Aug_2019'
             service_request.save
-          elsif service_request['created_at'] >= DateTime.parse('2019-09-01T00:00:00+00:00') &&
-            service_request['created_at'] <= DateTime.parse('2019-09-30T23:59:59+00:00')
+          elsif service_request['sr_create_date'] >= DateTime.parse('2019-09-01T00:00:00+00:00') &&
+            service_request['sr_create_date'] <= DateTime.parse('2019-09-30T23:59:59+00:00')
             service_request['month_yr'] = 'Sep_2019'
             service_request.save
-          elsif service_request['created_at'] >= DateTime.parse('2019-10-01T00:00:00+00:00') &&
-            service_request['created_at'] <= DateTime.parse('2019-10-31T23:59:59+00:00')
+          elsif service_request['sr_create_date'] >= DateTime.parse('2019-10-01T00:00:00+00:00') &&
+            service_request['sr_create_date'] <= DateTime.parse('2019-10-31T23:59:59+00:00')
             service_request['month_yr'] = 'Oct_2019'
             service_request.save
-          elsif service_request['created_at'] >= DateTime.parse('2019-11-01T00:00:00+00:00') &&
-            service_request['created_at'] <= DateTime.parse('2019-11-30T23:59:59+00:00')
+          elsif service_request['sr_create_date'] >= DateTime.parse('2019-11-01T00:00:00+00:00') &&
+            service_request['sr_create_date'] <= DateTime.parse('2019-11-30T23:59:59+00:00')
             service_request['month_yr'] = 'Nov_2019'
             service_request.save
-          elsif service_request['created_at'] >= DateTime.parse('2019-12-01T00:00:00+00:00') &&
-            service_request['created_at'] <= DateTime.parse('2019-12-31T23:59:59+00:00')
+          elsif service_request['sr_create_date'] >= DateTime.parse('2019-12-01T00:00:00+00:00') &&
+            service_request['sr_create_date'] <= DateTime.parse('2019-12-31T23:59:59+00:00')
             service_request['month_yr'] = 'Dec_2019'
             service_request.save
-          elsif service_request['created_at'] >= DateTime.parse('2020-01-01T00:00:00+00:00') &&
-            service_request['created_at'] <= DateTime.parse('2020-01-31T23:59:59+00:00')
+          elsif service_request['sr_create_date'] >= DateTime.parse('2020-01-01T00:00:00+00:00') &&
+            service_request['sr_create_date'] <= DateTime.parse('2020-01-31T23:59:59+00:00')
             service_request['month_yr'] = 'Jan_20'
             service_request.save
-          elsif service_request['created_at'] >= DateTime.parse('2020-02-01T00:00:00+00:00') &&
-            service_request['created_at'] <= DateTime.parse('2020-02-29T23:59:59+00:00')
+          elsif service_request['sr_create_date'] >= DateTime.parse('2020-02-01T00:00:00+00:00') &&
+            service_request['sr_create_date'] <= DateTime.parse('2020-02-29T23:59:59+00:00')
             service_request['month_yr'] = 'Feb_20'
             service_request.save
-          elsif service_request['created_at'] >= DateTime.parse('2020-03-01T00:00:00+00:00') &&
-            service_request['created_at'] <= DateTime.parse('2020-03-31T23:59:59+00:00')
+          elsif service_request['sr_create_date'] >= DateTime.parse('2020-03-01T00:00:00+00:00') &&
+            service_request['sr_create_date'] <= DateTime.parse('2020-03-31T23:59:59+00:00')
             service_request['month_yr'] = 'Mar_20'
             service_request.save
-          elsif service_request['created_at'] >= DateTime.parse('2020-04-01T00:00:00+00:00') &&
-            service_request['created_at'] <= DateTime.parse('2020-04-30T23:59:59+00:00')
+          elsif service_request['sr_create_date'] >= DateTime.parse('2020-04-01T00:00:00+00:00') &&
+            service_request['sr_create_date'] <= DateTime.parse('2020-04-30T23:59:59+00:00')
             service_request['month_yr'] = 'Apr_20'
             service_request.save
-          elsif service_request['created_at'] >= DateTime.parse('2020-05-01T00:00:00+00:00') &&
-            service_request['created_at'] <= DateTime.parse('2020-05-31T23:59:59+00:00')
+          elsif service_request['sr_create_date'] >= DateTime.parse('2020-05-01T00:00:00+00:00') &&
+            service_request['sr_create_date'] <= DateTime.parse('2020-05-31T23:59:59+00:00')
             service_request['month_yr'] = 'May_20'
             service_request.save
-          elsif service_request['created_at'] >= DateTime.parse('2020-06-01T00:00:00+00:00') &&
-            service_request['created_at'] <= DateTime.parse('2020-06-30T23:59:59+00:00')
+          elsif service_request['sr_create_date'] >= DateTime.parse('2020-06-01T00:00:00+00:00') &&
+            service_request['sr_create_date'] <= DateTime.parse('2020-06-30T23:59:59+00:00')
             service_request['month_yr'] = 'June_20'
             service_request.save
           else
@@ -3980,7 +3980,7 @@ def self.new_services_list_2020
               item.save
           }
           services_list_values = Sr.
-          where("created_at >= ? AND created_at <= ?",
+          where("sr_create_date >= ? AND sr_create_date <= ?",
             start_date, end_date).
             where(department: 'SWM Solid Waste Management',
               district: 'B',
@@ -4052,7 +4052,7 @@ def self.new_services_list_2020
         start_date = DateTime.parse('2019-07-01T00:00:00+00:00')
         end_date= DateTime.parse('2020-06-30T23:59:59+00:00')
         services_list = Sr.
-        where("created_at >= ? AND created_at <= ?",
+        where("sr_create_date >= ? AND sr_create_date <= ?",
           start_date, end_date).
         where(district:'C',
           sr_type: ['Missed Yard Waste Pickup',
@@ -4074,52 +4074,52 @@ def self.new_services_list_2020
 
         services_list.each {|service_request|
           # binding.pry
-          if service_request['created_at'] >= DateTime.parse('2019-07-01T00:00:00+00:00') &&
-            service_request['created_at'] <= DateTime.parse('2019-07-31T23:59:59+00:00')
+          if service_request['sr_create_date'] >= DateTime.parse('2019-07-01T00:00:00+00:00') &&
+            service_request['sr_create_date'] <= DateTime.parse('2019-07-31T23:59:59+00:00')
             service_request['month_yr'] = 'July_2019'
             service_request.save
-          elsif service_request['created_at'] >= DateTime.parse('2019-08-01T00:00:00+00:00') &&
-            service_request['created_at'] <= DateTime.parse('2019-08-31T23:59:59+00:00')
+          elsif service_request['sr_create_date'] >= DateTime.parse('2019-08-01T00:00:00+00:00') &&
+            service_request['sr_create_date'] <= DateTime.parse('2019-08-31T23:59:59+00:00')
             service_request['month_yr'] = 'Aug_2019'
             service_request.save
-          elsif service_request['created_at'] >= DateTime.parse('2019-09-01T00:00:00+00:00') &&
-            service_request['created_at'] <= DateTime.parse('2019-09-30T23:59:59+00:00')
+          elsif service_request['sr_create_date'] >= DateTime.parse('2019-09-01T00:00:00+00:00') &&
+            service_request['sr_create_date'] <= DateTime.parse('2019-09-30T23:59:59+00:00')
             service_request['month_yr'] = 'Sep_2019'
             service_request.save
-          elsif service_request['created_at'] >= DateTime.parse('2019-10-01T00:00:00+00:00') &&
-            service_request['created_at'] <= DateTime.parse('2019-10-31T23:59:59+00:00')
+          elsif service_request['sr_create_date'] >= DateTime.parse('2019-10-01T00:00:00+00:00') &&
+            service_request['sr_create_date'] <= DateTime.parse('2019-10-31T23:59:59+00:00')
             service_request['month_yr'] = 'Oct_2019'
             service_request.save
-          elsif service_request['created_at'] >= DateTime.parse('2019-11-01T00:00:00+00:00') &&
-            service_request['created_at'] <= DateTime.parse('2019-11-30T23:59:59+00:00')
+          elsif service_request['sr_create_date'] >= DateTime.parse('2019-11-01T00:00:00+00:00') &&
+            service_request['sr_create_date'] <= DateTime.parse('2019-11-30T23:59:59+00:00')
             service_request['month_yr'] = 'Nov_2019'
             service_request.save
-          elsif service_request['created_at'] >= DateTime.parse('2019-12-01T00:00:00+00:00') &&
-            service_request['created_at'] <= DateTime.parse('2019-12-31T23:59:59+00:00')
+          elsif service_request['sr_create_date'] >= DateTime.parse('2019-12-01T00:00:00+00:00') &&
+            service_request['sr_create_date'] <= DateTime.parse('2019-12-31T23:59:59+00:00')
             service_request['month_yr'] = 'Dec_2019'
             service_request.save
-          elsif service_request['created_at'] >= DateTime.parse('2020-01-01T00:00:00+00:00') &&
-            service_request['created_at'] <= DateTime.parse('2020-01-31T23:59:59+00:00')
+          elsif service_request['sr_create_date'] >= DateTime.parse('2020-01-01T00:00:00+00:00') &&
+            service_request['sr_create_date'] <= DateTime.parse('2020-01-31T23:59:59+00:00')
             service_request['month_yr'] = 'Jan_20'
             service_request.save
-          elsif service_request['created_at'] >= DateTime.parse('2020-02-01T00:00:00+00:00') &&
-            service_request['created_at'] <= DateTime.parse('2020-02-29T23:59:59+00:00')
+          elsif service_request['sr_create_date'] >= DateTime.parse('2020-02-01T00:00:00+00:00') &&
+            service_request['sr_create_date'] <= DateTime.parse('2020-02-29T23:59:59+00:00')
             service_request['month_yr'] = 'Feb_20'
             service_request.save
-          elsif service_request['created_at'] >= DateTime.parse('2020-03-01T00:00:00+00:00') &&
-            service_request['created_at'] <= DateTime.parse('2020-03-31T23:59:59+00:00')
+          elsif service_request['sr_create_date'] >= DateTime.parse('2020-03-01T00:00:00+00:00') &&
+            service_request['sr_create_date'] <= DateTime.parse('2020-03-31T23:59:59+00:00')
             service_request['month_yr'] = 'Mar_20'
             service_request.save
-          elsif service_request['created_at'] >= DateTime.parse('2020-04-01T00:00:00+00:00') &&
-            service_request['created_at'] <= DateTime.parse('2020-04-30T23:59:59+00:00')
+          elsif service_request['sr_create_date'] >= DateTime.parse('2020-04-01T00:00:00+00:00') &&
+            service_request['sr_create_date'] <= DateTime.parse('2020-04-30T23:59:59+00:00')
             service_request['month_yr'] = 'Apr_20'
             service_request.save
-          elsif service_request['created_at'] >= DateTime.parse('2020-05-01T00:00:00+00:00') &&
-            service_request['created_at'] <= DateTime.parse('2020-05-31T23:59:59+00:00')
+          elsif service_request['sr_create_date'] >= DateTime.parse('2020-05-01T00:00:00+00:00') &&
+            service_request['sr_create_date'] <= DateTime.parse('2020-05-31T23:59:59+00:00')
             service_request['month_yr'] = 'May_20'
             service_request.save
-          elsif service_request['created_at'] >= DateTime.parse('2020-06-01T00:00:00+00:00') &&
-            service_request['created_at'] <= DateTime.parse('2020-06-30T23:59:59+00:00')
+          elsif service_request['sr_create_date'] >= DateTime.parse('2020-06-01T00:00:00+00:00') &&
+            service_request['sr_create_date'] <= DateTime.parse('2020-06-30T23:59:59+00:00')
             service_request['month_yr'] = 'June_20'
             service_request.save
           else
@@ -4134,7 +4134,7 @@ def self.new_services_list_2020
               item.save
           }
           services_list_values = Sr.
-          where("created_at >= ? AND created_at <= ?",
+          where("sr_create_date >= ? AND sr_create_date <= ?",
             start_date, end_date).
             where(department: 'SWM Solid Waste Management',
               district: 'C',
@@ -4206,7 +4206,7 @@ def self.new_services_list_2020
         start_date = DateTime.parse('2019-07-01T00:00:00+00:00')
         end_date= DateTime.parse('2020-06-30T23:59:59+00:00')
         services_list = Sr.
-        where("created_at >= ? AND created_at <= ?",
+        where("sr_create_date >= ? AND sr_create_date <= ?",
           start_date, end_date).
         where(district:'D',
           sr_type: ['Missed Yard Waste Pickup',
@@ -4228,52 +4228,52 @@ def self.new_services_list_2020
 
         services_list.each {|service_request|
           # binding.pry
-          if service_request['created_at'] >= DateTime.parse('2019-07-01T00:00:00+00:00') &&
-            service_request['created_at'] <= DateTime.parse('2019-07-31T23:59:59+00:00')
+          if service_request['sr_create_date'] >= DateTime.parse('2019-07-01T00:00:00+00:00') &&
+            service_request['sr_create_date'] <= DateTime.parse('2019-07-31T23:59:59+00:00')
             service_request['month_yr'] = 'July_2019'
             service_request.save
-          elsif service_request['created_at'] >= DateTime.parse('2019-08-01T00:00:00+00:00') &&
-            service_request['created_at'] <= DateTime.parse('2019-08-31T23:59:59+00:00')
+          elsif service_request['sr_create_date'] >= DateTime.parse('2019-08-01T00:00:00+00:00') &&
+            service_request['sr_create_date'] <= DateTime.parse('2019-08-31T23:59:59+00:00')
             service_request['month_yr'] = 'Aug_2019'
             service_request.save
-          elsif service_request['created_at'] >= DateTime.parse('2019-09-01T00:00:00+00:00') &&
-            service_request['created_at'] <= DateTime.parse('2019-09-30T23:59:59+00:00')
+          elsif service_request['sr_create_date'] >= DateTime.parse('2019-09-01T00:00:00+00:00') &&
+            service_request['sr_create_date'] <= DateTime.parse('2019-09-30T23:59:59+00:00')
             service_request['month_yr'] = 'Sep_2019'
             service_request.save
-          elsif service_request['created_at'] >= DateTime.parse('2019-10-01T00:00:00+00:00') &&
-            service_request['created_at'] <= DateTime.parse('2019-10-31T23:59:59+00:00')
+          elsif service_request['sr_create_date'] >= DateTime.parse('2019-10-01T00:00:00+00:00') &&
+            service_request['sr_create_date'] <= DateTime.parse('2019-10-31T23:59:59+00:00')
             service_request['month_yr'] = 'Oct_2019'
             service_request.save
-          elsif service_request['created_at'] >= DateTime.parse('2019-11-01T00:00:00+00:00') &&
-            service_request['created_at'] <= DateTime.parse('2019-11-30T23:59:59+00:00')
+          elsif service_request['sr_create_date'] >= DateTime.parse('2019-11-01T00:00:00+00:00') &&
+            service_request['sr_create_date'] <= DateTime.parse('2019-11-30T23:59:59+00:00')
             service_request['month_yr'] = 'Nov_2019'
             service_request.save
-          elsif service_request['created_at'] >= DateTime.parse('2019-12-01T00:00:00+00:00') &&
-            service_request['created_at'] <= DateTime.parse('2019-12-31T23:59:59+00:00')
+          elsif service_request['sr_create_date'] >= DateTime.parse('2019-12-01T00:00:00+00:00') &&
+            service_request['sr_create_date'] <= DateTime.parse('2019-12-31T23:59:59+00:00')
             service_request['month_yr'] = 'Dec_2019'
             service_request.save
-          elsif service_request['created_at'] >= DateTime.parse('2020-01-01T00:00:00+00:00') &&
-            service_request['created_at'] <= DateTime.parse('2020-01-31T23:59:59+00:00')
+          elsif service_request['sr_create_date'] >= DateTime.parse('2020-01-01T00:00:00+00:00') &&
+            service_request['sr_create_date'] <= DateTime.parse('2020-01-31T23:59:59+00:00')
             service_request['month_yr'] = 'Jan_20'
             service_request.save
-          elsif service_request['created_at'] >= DateTime.parse('2020-02-01T00:00:00+00:00') &&
-            service_request['created_at'] <= DateTime.parse('2020-02-29T23:59:59+00:00')
+          elsif service_request['sr_create_date'] >= DateTime.parse('2020-02-01T00:00:00+00:00') &&
+            service_request['sr_create_date'] <= DateTime.parse('2020-02-29T23:59:59+00:00')
             service_request['month_yr'] = 'Feb_20'
             service_request.save
-          elsif service_request['created_at'] >= DateTime.parse('2020-03-01T00:00:00+00:00') &&
-            service_request['created_at'] <= DateTime.parse('2020-03-31T23:59:59+00:00')
+          elsif service_request['sr_create_date'] >= DateTime.parse('2020-03-01T00:00:00+00:00') &&
+            service_request['sr_create_date'] <= DateTime.parse('2020-03-31T23:59:59+00:00')
             service_request['month_yr'] = 'Mar_20'
             service_request.save
-          elsif service_request['created_at'] >= DateTime.parse('2020-04-01T00:00:00+00:00') &&
-            service_request['created_at'] <= DateTime.parse('2020-04-30T23:59:59+00:00')
+          elsif service_request['sr_create_date'] >= DateTime.parse('2020-04-01T00:00:00+00:00') &&
+            service_request['sr_create_date'] <= DateTime.parse('2020-04-30T23:59:59+00:00')
             service_request['month_yr'] = 'Apr_20'
             service_request.save
-          elsif service_request['created_at'] >= DateTime.parse('2020-05-01T00:00:00+00:00') &&
-            service_request['created_at'] <= DateTime.parse('2020-05-31T23:59:59+00:00')
+          elsif service_request['sr_create_date'] >= DateTime.parse('2020-05-01T00:00:00+00:00') &&
+            service_request['sr_create_date'] <= DateTime.parse('2020-05-31T23:59:59+00:00')
             service_request['month_yr'] = 'May_20'
             service_request.save
-          elsif service_request['created_at'] >= DateTime.parse('2020-06-01T00:00:00+00:00') &&
-            service_request['created_at'] <= DateTime.parse('2020-06-30T23:59:59+00:00')
+          elsif service_request['sr_create_date'] >= DateTime.parse('2020-06-01T00:00:00+00:00') &&
+            service_request['sr_create_date'] <= DateTime.parse('2020-06-30T23:59:59+00:00')
             service_request['month_yr'] = 'June_20'
             service_request.save
           else
@@ -4288,7 +4288,7 @@ def self.new_services_list_2020
               item.save
           }
           services_list_values = Sr.
-          where("created_at >= ? AND created_at <= ?",
+          where("sr_create_date >= ? AND sr_create_date <= ?",
             start_date, end_date).
             where(department: 'SWM Solid Waste Management',
               district: 'D',
@@ -4360,7 +4360,7 @@ def self.new_services_list_2020
         start_date = DateTime.parse('2019-07-01T00:00:00+00:00')
         end_date= DateTime.parse('2020-06-30T23:59:59+00:00')
         services_list = Sr.
-        where("created_at >= ? AND created_at <= ?",
+        where("sr_create_date >= ? AND sr_create_date <= ?",
           start_date, end_date).
         where(district:'E',
           sr_type: ['Missed Yard Waste Pickup',
@@ -4382,52 +4382,52 @@ def self.new_services_list_2020
 
         services_list.each {|service_request|
           # binding.pry
-          if service_request['created_at'] >= DateTime.parse('2019-07-01T00:00:00+00:00') &&
-            service_request['created_at'] <= DateTime.parse('2019-07-31T23:59:59+00:00')
+          if service_request['sr_create_date'] >= DateTime.parse('2019-07-01T00:00:00+00:00') &&
+            service_request['sr_create_date'] <= DateTime.parse('2019-07-31T23:59:59+00:00')
             service_request['month_yr'] = 'July_2019'
             service_request.save
-          elsif service_request['created_at'] >= DateTime.parse('2019-08-01T00:00:00+00:00') &&
-            service_request['created_at'] <= DateTime.parse('2019-08-31T23:59:59+00:00')
+          elsif service_request['sr_create_date'] >= DateTime.parse('2019-08-01T00:00:00+00:00') &&
+            service_request['sr_create_date'] <= DateTime.parse('2019-08-31T23:59:59+00:00')
             service_request['month_yr'] = 'Aug_2019'
             service_request.save
-          elsif service_request['created_at'] >= DateTime.parse('2019-09-01T00:00:00+00:00') &&
-            service_request['created_at'] <= DateTime.parse('2019-09-30T23:59:59+00:00')
+          elsif service_request['sr_create_date'] >= DateTime.parse('2019-09-01T00:00:00+00:00') &&
+            service_request['sr_create_date'] <= DateTime.parse('2019-09-30T23:59:59+00:00')
             service_request['month_yr'] = 'Sep_2019'
             service_request.save
-          elsif service_request['created_at'] >= DateTime.parse('2019-10-01T00:00:00+00:00') &&
-            service_request['created_at'] <= DateTime.parse('2019-10-31T23:59:59+00:00')
+          elsif service_request['sr_create_date'] >= DateTime.parse('2019-10-01T00:00:00+00:00') &&
+            service_request['sr_create_date'] <= DateTime.parse('2019-10-31T23:59:59+00:00')
             service_request['month_yr'] = 'Oct_2019'
             service_request.save
-          elsif service_request['created_at'] >= DateTime.parse('2019-11-01T00:00:00+00:00') &&
-            service_request['created_at'] <= DateTime.parse('2019-11-30T23:59:59+00:00')
+          elsif service_request['sr_create_date'] >= DateTime.parse('2019-11-01T00:00:00+00:00') &&
+            service_request['sr_create_date'] <= DateTime.parse('2019-11-30T23:59:59+00:00')
             service_request['month_yr'] = 'Nov_2019'
             service_request.save
-          elsif service_request['created_at'] >= DateTime.parse('2019-12-01T00:00:00+00:00') &&
-            service_request['created_at'] <= DateTime.parse('2019-12-31T23:59:59+00:00')
+          elsif service_request['sr_create_date'] >= DateTime.parse('2019-12-01T00:00:00+00:00') &&
+            service_request['sr_create_date'] <= DateTime.parse('2019-12-31T23:59:59+00:00')
             service_request['month_yr'] = 'Dec_2019'
             service_request.save
-          elsif service_request['created_at'] >= DateTime.parse('2020-01-01T00:00:00+00:00') &&
-            service_request['created_at'] <= DateTime.parse('2020-01-31T23:59:59+00:00')
+          elsif service_request['sr_create_date'] >= DateTime.parse('2020-01-01T00:00:00+00:00') &&
+            service_request['sr_create_date'] <= DateTime.parse('2020-01-31T23:59:59+00:00')
             service_request['month_yr'] = 'Jan_20'
             service_request.save
-          elsif service_request['created_at'] >= DateTime.parse('2020-02-01T00:00:00+00:00') &&
-            service_request['created_at'] <= DateTime.parse('2020-02-29T23:59:59+00:00')
+          elsif service_request['sr_create_date'] >= DateTime.parse('2020-02-01T00:00:00+00:00') &&
+            service_request['sr_create_date'] <= DateTime.parse('2020-02-29T23:59:59+00:00')
             service_request['month_yr'] = 'Feb_20'
             service_request.save
-          elsif service_request['created_at'] >= DateTime.parse('2020-03-01T00:00:00+00:00') &&
-            service_request['created_at'] <= DateTime.parse('2020-03-31T23:59:59+00:00')
+          elsif service_request['sr_create_date'] >= DateTime.parse('2020-03-01T00:00:00+00:00') &&
+            service_request['sr_create_date'] <= DateTime.parse('2020-03-31T23:59:59+00:00')
             service_request['month_yr'] = 'Mar_20'
             service_request.save
-          elsif service_request['created_at'] >= DateTime.parse('2020-04-01T00:00:00+00:00') &&
-            service_request['created_at'] <= DateTime.parse('2020-04-30T23:59:59+00:00')
+          elsif service_request['sr_create_date'] >= DateTime.parse('2020-04-01T00:00:00+00:00') &&
+            service_request['sr_create_date'] <= DateTime.parse('2020-04-30T23:59:59+00:00')
             service_request['month_yr'] = 'Apr_20'
             service_request.save
-          elsif service_request['created_at'] >= DateTime.parse('2020-05-01T00:00:00+00:00') &&
-            service_request['created_at'] <= DateTime.parse('2020-05-31T23:59:59+00:00')
+          elsif service_request['sr_create_date'] >= DateTime.parse('2020-05-01T00:00:00+00:00') &&
+            service_request['sr_create_date'] <= DateTime.parse('2020-05-31T23:59:59+00:00')
             service_request['month_yr'] = 'May_20'
             service_request.save
-          elsif service_request['created_at'] >= DateTime.parse('2020-06-01T00:00:00+00:00') &&
-            service_request['created_at'] <= DateTime.parse('2020-06-30T23:59:59+00:00')
+          elsif service_request['sr_create_date'] >= DateTime.parse('2020-06-01T00:00:00+00:00') &&
+            service_request['sr_create_date'] <= DateTime.parse('2020-06-30T23:59:59+00:00')
             service_request['month_yr'] = 'June_20'
             service_request.save
           else
@@ -4442,7 +4442,7 @@ def self.new_services_list_2020
               item.save
           }
           services_list_values = Sr.
-          where("created_at >= ? AND created_at <= ?",
+          where("sr_create_date >= ? AND sr_create_date <= ?",
             start_date, end_date).
             where(department: 'SWM Solid Waste Management',
               district: 'E',
@@ -4515,7 +4515,7 @@ def self.new_services_list_2020
         start_date = DateTime.parse('2019-07-01T00:00:00+00:00')
         end_date= DateTime.parse('2020-06-30T23:59:59+00:00')
         services_list = Sr.
-        where("created_at >= ? AND created_at <= ?",
+        where("sr_create_date >= ? AND sr_create_date <= ?",
           start_date, end_date).
         where(district:'F',
           sr_type: ['Missed Yard Waste Pickup',
@@ -4537,52 +4537,52 @@ def self.new_services_list_2020
 
         services_list.each {|service_request|
           # binding.pry
-          if service_request['created_at'] >= DateTime.parse('2019-07-01T00:00:00+00:00') &&
-            service_request['created_at'] <= DateTime.parse('2019-07-31T23:59:59+00:00')
+          if service_request['sr_create_date'] >= DateTime.parse('2019-07-01T00:00:00+00:00') &&
+            service_request['sr_create_date'] <= DateTime.parse('2019-07-31T23:59:59+00:00')
             service_request['month_yr'] = 'July_2019'
             service_request.save
-          elsif service_request['created_at'] >= DateTime.parse('2019-08-01T00:00:00+00:00') &&
-            service_request['created_at'] <= DateTime.parse('2019-08-31T23:59:59+00:00')
+          elsif service_request['sr_create_date'] >= DateTime.parse('2019-08-01T00:00:00+00:00') &&
+            service_request['sr_create_date'] <= DateTime.parse('2019-08-31T23:59:59+00:00')
             service_request['month_yr'] = 'Aug_2019'
             service_request.save
-          elsif service_request['created_at'] >= DateTime.parse('2019-09-01T00:00:00+00:00') &&
-            service_request['created_at'] <= DateTime.parse('2019-09-30T23:59:59+00:00')
+          elsif service_request['sr_create_date'] >= DateTime.parse('2019-09-01T00:00:00+00:00') &&
+            service_request['sr_create_date'] <= DateTime.parse('2019-09-30T23:59:59+00:00')
             service_request['month_yr'] = 'Sep_2019'
             service_request.save
-          elsif service_request['created_at'] >= DateTime.parse('2019-10-01T00:00:00+00:00') &&
-            service_request['created_at'] <= DateTime.parse('2019-10-31T23:59:59+00:00')
+          elsif service_request['sr_create_date'] >= DateTime.parse('2019-10-01T00:00:00+00:00') &&
+            service_request['sr_create_date'] <= DateTime.parse('2019-10-31T23:59:59+00:00')
             service_request['month_yr'] = 'Oct_2019'
             service_request.save
-          elsif service_request['created_at'] >= DateTime.parse('2019-11-01T00:00:00+00:00') &&
-            service_request['created_at'] <= DateTime.parse('2019-11-30T23:59:59+00:00')
+          elsif service_request['sr_create_date'] >= DateTime.parse('2019-11-01T00:00:00+00:00') &&
+            service_request['sr_create_date'] <= DateTime.parse('2019-11-30T23:59:59+00:00')
             service_request['month_yr'] = 'Nov_2019'
             service_request.save
-          elsif service_request['created_at'] >= DateTime.parse('2019-12-01T00:00:00+00:00') &&
-            service_request['created_at'] <= DateTime.parse('2019-12-31T23:59:59+00:00')
+          elsif service_request['sr_create_date'] >= DateTime.parse('2019-12-01T00:00:00+00:00') &&
+            service_request['sr_create_date'] <= DateTime.parse('2019-12-31T23:59:59+00:00')
             service_request['month_yr'] = 'Dec_2019'
             service_request.save
-          elsif service_request['created_at'] >= DateTime.parse('2020-01-01T00:00:00+00:00') &&
-            service_request['created_at'] <= DateTime.parse('2020-01-31T23:59:59+00:00')
+          elsif service_request['sr_create_date'] >= DateTime.parse('2020-01-01T00:00:00+00:00') &&
+            service_request['sr_create_date'] <= DateTime.parse('2020-01-31T23:59:59+00:00')
             service_request['month_yr'] = 'Jan_20'
             service_request.save
-          elsif service_request['created_at'] >= DateTime.parse('2020-02-01T00:00:00+00:00') &&
-            service_request['created_at'] <= DateTime.parse('2020-02-29T23:59:59+00:00')
+          elsif service_request['sr_create_date'] >= DateTime.parse('2020-02-01T00:00:00+00:00') &&
+            service_request['sr_create_date'] <= DateTime.parse('2020-02-29T23:59:59+00:00')
             service_request['month_yr'] = 'Feb_20'
             service_request.save
-          elsif service_request['created_at'] >= DateTime.parse('2020-03-01T00:00:00+00:00') &&
-            service_request['created_at'] <= DateTime.parse('2020-03-31T23:59:59+00:00')
+          elsif service_request['sr_create_date'] >= DateTime.parse('2020-03-01T00:00:00+00:00') &&
+            service_request['sr_create_date'] <= DateTime.parse('2020-03-31T23:59:59+00:00')
             service_request['month_yr'] = 'Mar_20'
             service_request.save
-          elsif service_request['created_at'] >= DateTime.parse('2020-04-01T00:00:00+00:00') &&
-            service_request['created_at'] <= DateTime.parse('2020-04-30T23:59:59+00:00')
+          elsif service_request['sr_create_date'] >= DateTime.parse('2020-04-01T00:00:00+00:00') &&
+            service_request['sr_create_date'] <= DateTime.parse('2020-04-30T23:59:59+00:00')
             service_request['month_yr'] = 'Apr_20'
             service_request.save
-          elsif service_request['created_at'] >= DateTime.parse('2020-05-01T00:00:00+00:00') &&
-            service_request['created_at'] <= DateTime.parse('2020-05-31T23:59:59+00:00')
+          elsif service_request['sr_create_date'] >= DateTime.parse('2020-05-01T00:00:00+00:00') &&
+            service_request['sr_create_date'] <= DateTime.parse('2020-05-31T23:59:59+00:00')
             service_request['month_yr'] = 'May_20'
             service_request.save
-          elsif service_request['created_at'] >= DateTime.parse('2020-06-01T00:00:00+00:00') &&
-            service_request['created_at'] <= DateTime.parse('2020-06-30T23:59:59+00:00')
+          elsif service_request['sr_create_date'] >= DateTime.parse('2020-06-01T00:00:00+00:00') &&
+            service_request['sr_create_date'] <= DateTime.parse('2020-06-30T23:59:59+00:00')
             service_request['month_yr'] = 'June_20'
             service_request.save
           else
@@ -4597,7 +4597,7 @@ def self.new_services_list_2020
               item.save
           }
           services_list_values = Sr.
-          where("created_at >= ? AND created_at <= ?",
+          where("sr_create_date >= ? AND sr_create_date <= ?",
             start_date, end_date).
             where(department: 'SWM Solid Waste Management',
               district: 'F',
@@ -4669,7 +4669,7 @@ def self.new_services_list_2020
         start_date = DateTime.parse('2019-07-01T00:00:00+00:00')
         end_date= DateTime.parse('2020-06-30T23:59:59+00:00')
         services_list = Sr.
-        where("created_at >= ? AND created_at <= ?",
+        where("sr_create_date >= ? AND sr_create_date <= ?",
           start_date, end_date).
         where(district:'G',
           sr_type: ['Missed Yard Waste Pickup',
@@ -4691,52 +4691,52 @@ def self.new_services_list_2020
 
         services_list.each {|service_request|
           # binding.pry
-          if service_request['created_at'] >= DateTime.parse('2019-07-01T00:00:00+00:00') &&
-            service_request['created_at'] <= DateTime.parse('2019-07-31T23:59:59+00:00')
+          if service_request['sr_create_date'] >= DateTime.parse('2019-07-01T00:00:00+00:00') &&
+            service_request['sr_create_date'] <= DateTime.parse('2019-07-31T23:59:59+00:00')
             service_request['month_yr'] = 'July_2019'
             service_request.save
-          elsif service_request['created_at'] >= DateTime.parse('2019-08-01T00:00:00+00:00') &&
-            service_request['created_at'] <= DateTime.parse('2019-08-31T23:59:59+00:00')
+          elsif service_request['sr_create_date'] >= DateTime.parse('2019-08-01T00:00:00+00:00') &&
+            service_request['sr_create_date'] <= DateTime.parse('2019-08-31T23:59:59+00:00')
             service_request['month_yr'] = 'Aug_2019'
             service_request.save
-          elsif service_request['created_at'] >= DateTime.parse('2019-09-01T00:00:00+00:00') &&
-            service_request['created_at'] <= DateTime.parse('2019-09-30T23:59:59+00:00')
+          elsif service_request['sr_create_date'] >= DateTime.parse('2019-09-01T00:00:00+00:00') &&
+            service_request['sr_create_date'] <= DateTime.parse('2019-09-30T23:59:59+00:00')
             service_request['month_yr'] = 'Sep_2019'
             service_request.save
-          elsif service_request['created_at'] >= DateTime.parse('2019-10-01T00:00:00+00:00') &&
-            service_request['created_at'] <= DateTime.parse('2019-10-31T23:59:59+00:00')
+          elsif service_request['sr_create_date'] >= DateTime.parse('2019-10-01T00:00:00+00:00') &&
+            service_request['sr_create_date'] <= DateTime.parse('2019-10-31T23:59:59+00:00')
             service_request['month_yr'] = 'Oct_2019'
             service_request.save
-          elsif service_request['created_at'] >= DateTime.parse('2019-11-01T00:00:00+00:00') &&
-            service_request['created_at'] <= DateTime.parse('2019-11-30T23:59:59+00:00')
+          elsif service_request['sr_create_date'] >= DateTime.parse('2019-11-01T00:00:00+00:00') &&
+            service_request['sr_create_date'] <= DateTime.parse('2019-11-30T23:59:59+00:00')
             service_request['month_yr'] = 'Nov_2019'
             service_request.save
-          elsif service_request['created_at'] >= DateTime.parse('2019-12-01T00:00:00+00:00') &&
-            service_request['created_at'] <= DateTime.parse('2019-12-31T23:59:59+00:00')
+          elsif service_request['sr_create_date'] >= DateTime.parse('2019-12-01T00:00:00+00:00') &&
+            service_request['sr_create_date'] <= DateTime.parse('2019-12-31T23:59:59+00:00')
             service_request['month_yr'] = 'Dec_2019'
             service_request.save
-          elsif service_request['created_at'] >= DateTime.parse('2020-01-01T00:00:00+00:00') &&
-            service_request['created_at'] <= DateTime.parse('2020-01-31T23:59:59+00:00')
+          elsif service_request['sr_create_date'] >= DateTime.parse('2020-01-01T00:00:00+00:00') &&
+            service_request['sr_create_date'] <= DateTime.parse('2020-01-31T23:59:59+00:00')
             service_request['month_yr'] = 'Jan_20'
             service_request.save
-          elsif service_request['created_at'] >= DateTime.parse('2020-02-01T00:00:00+00:00') &&
-            service_request['created_at'] <= DateTime.parse('2020-02-29T23:59:59+00:00')
+          elsif service_request['sr_create_date'] >= DateTime.parse('2020-02-01T00:00:00+00:00') &&
+            service_request['sr_create_date'] <= DateTime.parse('2020-02-29T23:59:59+00:00')
             service_request['month_yr'] = 'Feb_20'
             service_request.save
-          elsif service_request['created_at'] >= DateTime.parse('2020-03-01T00:00:00+00:00') &&
-            service_request['created_at'] <= DateTime.parse('2020-03-31T23:59:59+00:00')
+          elsif service_request['sr_create_date'] >= DateTime.parse('2020-03-01T00:00:00+00:00') &&
+            service_request['sr_create_date'] <= DateTime.parse('2020-03-31T23:59:59+00:00')
             service_request['month_yr'] = 'Mar_20'
             service_request.save
-          elsif service_request['created_at'] >= DateTime.parse('2020-04-01T00:00:00+00:00') &&
-            service_request['created_at'] <= DateTime.parse('2020-04-30T23:59:59+00:00')
+          elsif service_request['sr_create_date'] >= DateTime.parse('2020-04-01T00:00:00+00:00') &&
+            service_request['sr_create_date'] <= DateTime.parse('2020-04-30T23:59:59+00:00')
             service_request['month_yr'] = 'Apr_20'
             service_request.save
-          elsif service_request['created_at'] >= DateTime.parse('2020-05-01T00:00:00+00:00') &&
-            service_request['created_at'] <= DateTime.parse('2020-05-31T23:59:59+00:00')
+          elsif service_request['sr_create_date'] >= DateTime.parse('2020-05-01T00:00:00+00:00') &&
+            service_request['sr_create_date'] <= DateTime.parse('2020-05-31T23:59:59+00:00')
             service_request['month_yr'] = 'May_20'
             service_request.save
-          elsif service_request['created_at'] >= DateTime.parse('2020-06-01T00:00:00+00:00') &&
-            service_request['created_at'] <= DateTime.parse('2020-06-30T23:59:59+00:00')
+          elsif service_request['sr_create_date'] >= DateTime.parse('2020-06-01T00:00:00+00:00') &&
+            service_request['sr_create_date'] <= DateTime.parse('2020-06-30T23:59:59+00:00')
             service_request['month_yr'] = 'June_20'
             service_request.save
           else
@@ -4751,7 +4751,7 @@ def self.new_services_list_2020
               item.save
           }
           services_list_values = Sr.
-          where("created_at >= ? AND created_at <= ?",
+          where("sr_create_date >= ? AND sr_create_date <= ?",
             start_date, end_date).
             where(department: 'SWM Solid Waste Management',
               district: 'G',
@@ -4823,7 +4823,7 @@ def self.new_services_list_2020
         start_date = DateTime.parse('2019-07-01T00:00:00+00:00')
         end_date= DateTime.parse('2020-06-30T23:59:59+00:00')
         services_list = Sr.
-        where("created_at >= ? AND created_at <= ?",
+        where("sr_create_date >= ? AND sr_create_date <= ?",
           start_date, end_date).
         where(district:'H',
           sr_type: ['Missed Yard Waste Pickup',
@@ -4845,52 +4845,52 @@ def self.new_services_list_2020
 
         services_list.each {|service_request|
           # binding.pry
-          if service_request['created_at'] >= DateTime.parse('2019-07-01T00:00:00+00:00') &&
-            service_request['created_at'] <= DateTime.parse('2019-07-31T23:59:59+00:00')
+          if service_request['sr_create_date'] >= DateTime.parse('2019-07-01T00:00:00+00:00') &&
+            service_request['sr_create_date'] <= DateTime.parse('2019-07-31T23:59:59+00:00')
             service_request['month_yr'] = 'July_2019'
             service_request.save
-          elsif service_request['created_at'] >= DateTime.parse('2019-08-01T00:00:00+00:00') &&
-            service_request['created_at'] <= DateTime.parse('2019-08-31T23:59:59+00:00')
+          elsif service_request['sr_create_date'] >= DateTime.parse('2019-08-01T00:00:00+00:00') &&
+            service_request['sr_create_date'] <= DateTime.parse('2019-08-31T23:59:59+00:00')
             service_request['month_yr'] = 'Aug_2019'
             service_request.save
-          elsif service_request['created_at'] >= DateTime.parse('2019-09-01T00:00:00+00:00') &&
-            service_request['created_at'] <= DateTime.parse('2019-09-30T23:59:59+00:00')
+          elsif service_request['sr_create_date'] >= DateTime.parse('2019-09-01T00:00:00+00:00') &&
+            service_request['sr_create_date'] <= DateTime.parse('2019-09-30T23:59:59+00:00')
             service_request['month_yr'] = 'Sep_2019'
             service_request.save
-          elsif service_request['created_at'] >= DateTime.parse('2019-10-01T00:00:00+00:00') &&
-            service_request['created_at'] <= DateTime.parse('2019-10-31T23:59:59+00:00')
+          elsif service_request['sr_create_date'] >= DateTime.parse('2019-10-01T00:00:00+00:00') &&
+            service_request['sr_create_date'] <= DateTime.parse('2019-10-31T23:59:59+00:00')
             service_request['month_yr'] = 'Oct_2019'
             service_request.save
-          elsif service_request['created_at'] >= DateTime.parse('2019-11-01T00:00:00+00:00') &&
-            service_request['created_at'] <= DateTime.parse('2019-11-30T23:59:59+00:00')
+          elsif service_request['sr_create_date'] >= DateTime.parse('2019-11-01T00:00:00+00:00') &&
+            service_request['sr_create_date'] <= DateTime.parse('2019-11-30T23:59:59+00:00')
             service_request['month_yr'] = 'Nov_2019'
             service_request.save
-          elsif service_request['created_at'] >= DateTime.parse('2019-12-01T00:00:00+00:00') &&
-            service_request['created_at'] <= DateTime.parse('2019-12-31T23:59:59+00:00')
+          elsif service_request['sr_create_date'] >= DateTime.parse('2019-12-01T00:00:00+00:00') &&
+            service_request['sr_create_date'] <= DateTime.parse('2019-12-31T23:59:59+00:00')
             service_request['month_yr'] = 'Dec_2019'
             service_request.save
-          elsif service_request['created_at'] >= DateTime.parse('2020-01-01T00:00:00+00:00') &&
-            service_request['created_at'] <= DateTime.parse('2020-01-31T23:59:59+00:00')
+          elsif service_request['sr_create_date'] >= DateTime.parse('2020-01-01T00:00:00+00:00') &&
+            service_request['sr_create_date'] <= DateTime.parse('2020-01-31T23:59:59+00:00')
             service_request['month_yr'] = 'Jan_20'
             service_request.save
-          elsif service_request['created_at'] >= DateTime.parse('2020-02-01T00:00:00+00:00') &&
-            service_request['created_at'] <= DateTime.parse('2020-02-29T23:59:59+00:00')
+          elsif service_request['sr_create_date'] >= DateTime.parse('2020-02-01T00:00:00+00:00') &&
+            service_request['sr_create_date'] <= DateTime.parse('2020-02-29T23:59:59+00:00')
             service_request['month_yr'] = 'Feb_20'
             service_request.save
-          elsif service_request['created_at'] >= DateTime.parse('2020-03-01T00:00:00+00:00') &&
-            service_request['created_at'] <= DateTime.parse('2020-03-31T23:59:59+00:00')
+          elsif service_request['sr_create_date'] >= DateTime.parse('2020-03-01T00:00:00+00:00') &&
+            service_request['sr_create_date'] <= DateTime.parse('2020-03-31T23:59:59+00:00')
             service_request['month_yr'] = 'Mar_20'
             service_request.save
-          elsif service_request['created_at'] >= DateTime.parse('2020-04-01T00:00:00+00:00') &&
-            service_request['created_at'] <= DateTime.parse('2020-04-30T23:59:59+00:00')
+          elsif service_request['sr_create_date'] >= DateTime.parse('2020-04-01T00:00:00+00:00') &&
+            service_request['sr_create_date'] <= DateTime.parse('2020-04-30T23:59:59+00:00')
             service_request['month_yr'] = 'Apr_20'
             service_request.save
-          elsif service_request['created_at'] >= DateTime.parse('2020-05-01T00:00:00+00:00') &&
-            service_request['created_at'] <= DateTime.parse('2020-05-31T23:59:59+00:00')
+          elsif service_request['sr_create_date'] >= DateTime.parse('2020-05-01T00:00:00+00:00') &&
+            service_request['sr_create_date'] <= DateTime.parse('2020-05-31T23:59:59+00:00')
             service_request['month_yr'] = 'May_20'
             service_request.save
-          elsif service_request['created_at'] >= DateTime.parse('2020-06-01T00:00:00+00:00') &&
-            service_request['created_at'] <= DateTime.parse('2020-06-30T23:59:59+00:00')
+          elsif service_request['sr_create_date'] >= DateTime.parse('2020-06-01T00:00:00+00:00') &&
+            service_request['sr_create_date'] <= DateTime.parse('2020-06-30T23:59:59+00:00')
             service_request['month_yr'] = 'June_20'
             service_request.save
           else
@@ -4905,7 +4905,7 @@ def self.new_services_list_2020
               item.save
           }
           services_list_values = Sr.
-          where("created_at >= ? AND created_at <= ?",
+          where("sr_create_date >= ? AND sr_create_date <= ?",
             start_date, end_date).
             where(department: 'SWM Solid Waste Management',
               district: 'H',
@@ -4977,7 +4977,7 @@ def self.new_services_list_2020
         start_date = DateTime.parse('2019-07-01T00:00:00+00:00')
         end_date= DateTime.parse('2020-06-30T23:59:59+00:00')
         services_list = Sr.
-        where("created_at >= ? AND created_at <= ?",
+        where("sr_create_date >= ? AND sr_create_date <= ?",
           start_date, end_date).
         where(district:'I',
           sr_type: ['Missed Yard Waste Pickup',
@@ -4999,52 +4999,52 @@ def self.new_services_list_2020
 
         services_list.each {|service_request|
           # binding.pry
-          if service_request['created_at'] >= DateTime.parse('2019-07-01T00:00:00+00:00') &&
-            service_request['created_at'] <= DateTime.parse('2019-07-31T23:59:59+00:00')
+          if service_request['sr_create_date'] >= DateTime.parse('2019-07-01T00:00:00+00:00') &&
+            service_request['sr_create_date'] <= DateTime.parse('2019-07-31T23:59:59+00:00')
             service_request['month_yr'] = 'July_2019'
             service_request.save
-          elsif service_request['created_at'] >= DateTime.parse('2019-08-01T00:00:00+00:00') &&
-            service_request['created_at'] <= DateTime.parse('2019-08-31T23:59:59+00:00')
+          elsif service_request['sr_create_date'] >= DateTime.parse('2019-08-01T00:00:00+00:00') &&
+            service_request['sr_create_date'] <= DateTime.parse('2019-08-31T23:59:59+00:00')
             service_request['month_yr'] = 'Aug_2019'
             service_request.save
-          elsif service_request['created_at'] >= DateTime.parse('2019-09-01T00:00:00+00:00') &&
-            service_request['created_at'] <= DateTime.parse('2019-09-30T23:59:59+00:00')
+          elsif service_request['sr_create_date'] >= DateTime.parse('2019-09-01T00:00:00+00:00') &&
+            service_request['sr_create_date'] <= DateTime.parse('2019-09-30T23:59:59+00:00')
             service_request['month_yr'] = 'Sep_2019'
             service_request.save
-          elsif service_request['created_at'] >= DateTime.parse('2019-10-01T00:00:00+00:00') &&
-            service_request['created_at'] <= DateTime.parse('2019-10-31T23:59:59+00:00')
+          elsif service_request['sr_create_date'] >= DateTime.parse('2019-10-01T00:00:00+00:00') &&
+            service_request['sr_create_date'] <= DateTime.parse('2019-10-31T23:59:59+00:00')
             service_request['month_yr'] = 'Oct_2019'
             service_request.save
-          elsif service_request['created_at'] >= DateTime.parse('2019-11-01T00:00:00+00:00') &&
-            service_request['created_at'] <= DateTime.parse('2019-11-30T23:59:59+00:00')
+          elsif service_request['sr_create_date'] >= DateTime.parse('2019-11-01T00:00:00+00:00') &&
+            service_request['sr_create_date'] <= DateTime.parse('2019-11-30T23:59:59+00:00')
             service_request['month_yr'] = 'Nov_2019'
             service_request.save
-          elsif service_request['created_at'] >= DateTime.parse('2019-12-01T00:00:00+00:00') &&
-            service_request['created_at'] <= DateTime.parse('2019-12-31T23:59:59+00:00')
+          elsif service_request['sr_create_date'] >= DateTime.parse('2019-12-01T00:00:00+00:00') &&
+            service_request['sr_create_date'] <= DateTime.parse('2019-12-31T23:59:59+00:00')
             service_request['month_yr'] = 'Dec_2019'
             service_request.save
-          elsif service_request['created_at'] >= DateTime.parse('2020-01-01T00:00:00+00:00') &&
-            service_request['created_at'] <= DateTime.parse('2020-01-31T23:59:59+00:00')
+          elsif service_request['sr_create_date'] >= DateTime.parse('2020-01-01T00:00:00+00:00') &&
+            service_request['sr_create_date'] <= DateTime.parse('2020-01-31T23:59:59+00:00')
             service_request['month_yr'] = 'Jan_20'
             service_request.save
-          elsif service_request['created_at'] >= DateTime.parse('2020-02-01T00:00:00+00:00') &&
-            service_request['created_at'] <= DateTime.parse('2020-02-29T23:59:59+00:00')
+          elsif service_request['sr_create_date'] >= DateTime.parse('2020-02-01T00:00:00+00:00') &&
+            service_request['sr_create_date'] <= DateTime.parse('2020-02-29T23:59:59+00:00')
             service_request['month_yr'] = 'Feb_20'
             service_request.save
-          elsif service_request['created_at'] >= DateTime.parse('2020-03-01T00:00:00+00:00') &&
-            service_request['created_at'] <= DateTime.parse('2020-03-31T23:59:59+00:00')
+          elsif service_request['sr_create_date'] >= DateTime.parse('2020-03-01T00:00:00+00:00') &&
+            service_request['sr_create_date'] <= DateTime.parse('2020-03-31T23:59:59+00:00')
             service_request['month_yr'] = 'Mar_20'
             service_request.save
-          elsif service_request['created_at'] >= DateTime.parse('2020-04-01T00:00:00+00:00') &&
-            service_request['created_at'] <= DateTime.parse('2020-04-30T23:59:59+00:00')
+          elsif service_request['sr_create_date'] >= DateTime.parse('2020-04-01T00:00:00+00:00') &&
+            service_request['sr_create_date'] <= DateTime.parse('2020-04-30T23:59:59+00:00')
             service_request['month_yr'] = 'Apr_20'
             service_request.save
-          elsif service_request['created_at'] >= DateTime.parse('2020-05-01T00:00:00+00:00') &&
-            service_request['created_at'] <= DateTime.parse('2020-05-31T23:59:59+00:00')
+          elsif service_request['sr_create_date'] >= DateTime.parse('2020-05-01T00:00:00+00:00') &&
+            service_request['sr_create_date'] <= DateTime.parse('2020-05-31T23:59:59+00:00')
             service_request['month_yr'] = 'May_20'
             service_request.save
-          elsif service_request['created_at'] >= DateTime.parse('2020-06-01T00:00:00+00:00') &&
-            service_request['created_at'] <= DateTime.parse('2020-06-30T23:59:59+00:00')
+          elsif service_request['sr_create_date'] >= DateTime.parse('2020-06-01T00:00:00+00:00') &&
+            service_request['sr_create_date'] <= DateTime.parse('2020-06-30T23:59:59+00:00')
             service_request['month_yr'] = 'June_20'
             service_request.save
           else
@@ -5059,7 +5059,7 @@ def self.new_services_list_2020
               item.save
           }
           services_list_values = Sr.
-          where("created_at >= ? AND created_at <= ?",
+          where("sr_create_date >= ? AND sr_create_date <= ?",
             start_date, end_date).
             where(department: 'SWM Solid Waste Management',
               district: 'I',
@@ -5131,7 +5131,7 @@ def self.new_services_list_2020
         start_date = DateTime.parse('2019-07-01T00:00:00+00:00')
         end_date= DateTime.parse('2020-06-30T23:59:59+00:00')
         services_list = Sr.
-        where("created_at >= ? AND created_at <= ?",
+        where("sr_create_date >= ? AND sr_create_date <= ?",
           start_date, end_date).
         where(district:'J',
           sr_type: ['Missed Yard Waste Pickup',
@@ -5153,52 +5153,52 @@ def self.new_services_list_2020
 
         services_list.each {|service_request|
           # binding.pry
-          if service_request['created_at'] >= DateTime.parse('2019-07-01T00:00:00+00:00') &&
-            service_request['created_at'] <= DateTime.parse('2019-07-31T23:59:59+00:00')
+          if service_request['sr_create_date'] >= DateTime.parse('2019-07-01T00:00:00+00:00') &&
+            service_request['sr_create_date'] <= DateTime.parse('2019-07-31T23:59:59+00:00')
             service_request['month_yr'] = 'July_2019'
             service_request.save
-          elsif service_request['created_at'] >= DateTime.parse('2019-08-01T00:00:00+00:00') &&
-            service_request['created_at'] <= DateTime.parse('2019-08-31T23:59:59+00:00')
+          elsif service_request['sr_create_date'] >= DateTime.parse('2019-08-01T00:00:00+00:00') &&
+            service_request['sr_create_date'] <= DateTime.parse('2019-08-31T23:59:59+00:00')
             service_request['month_yr'] = 'Aug_2019'
             service_request.save
-          elsif service_request['created_at'] >= DateTime.parse('2019-09-01T00:00:00+00:00') &&
-            service_request['created_at'] <= DateTime.parse('2019-09-30T23:59:59+00:00')
+          elsif service_request['sr_create_date'] >= DateTime.parse('2019-09-01T00:00:00+00:00') &&
+            service_request['sr_create_date'] <= DateTime.parse('2019-09-30T23:59:59+00:00')
             service_request['month_yr'] = 'Sep_2019'
             service_request.save
-          elsif service_request['created_at'] >= DateTime.parse('2019-10-01T00:00:00+00:00') &&
-            service_request['created_at'] <= DateTime.parse('2019-10-31T23:59:59+00:00')
+          elsif service_request['sr_create_date'] >= DateTime.parse('2019-10-01T00:00:00+00:00') &&
+            service_request['sr_create_date'] <= DateTime.parse('2019-10-31T23:59:59+00:00')
             service_request['month_yr'] = 'Oct_2019'
             service_request.save
-          elsif service_request['created_at'] >= DateTime.parse('2019-11-01T00:00:00+00:00') &&
-            service_request['created_at'] <= DateTime.parse('2019-11-30T23:59:59+00:00')
+          elsif service_request['sr_create_date'] >= DateTime.parse('2019-11-01T00:00:00+00:00') &&
+            service_request['sr_create_date'] <= DateTime.parse('2019-11-30T23:59:59+00:00')
             service_request['month_yr'] = 'Nov_2019'
             service_request.save
-          elsif service_request['created_at'] >= DateTime.parse('2019-12-01T00:00:00+00:00') &&
-            service_request['created_at'] <= DateTime.parse('2019-12-31T23:59:59+00:00')
+          elsif service_request['sr_create_date'] >= DateTime.parse('2019-12-01T00:00:00+00:00') &&
+            service_request['sr_create_date'] <= DateTime.parse('2019-12-31T23:59:59+00:00')
             service_request['month_yr'] = 'Dec_2019'
             service_request.save
-          elsif service_request['created_at'] >= DateTime.parse('2020-01-01T00:00:00+00:00') &&
-            service_request['created_at'] <= DateTime.parse('2020-01-31T23:59:59+00:00')
+          elsif service_request['sr_create_date'] >= DateTime.parse('2020-01-01T00:00:00+00:00') &&
+            service_request['sr_create_date'] <= DateTime.parse('2020-01-31T23:59:59+00:00')
             service_request['month_yr'] = 'Jan_20'
             service_request.save
-          elsif service_request['created_at'] >= DateTime.parse('2020-02-01T00:00:00+00:00') &&
-            service_request['created_at'] <= DateTime.parse('2020-02-29T23:59:59+00:00')
+          elsif service_request['sr_create_date'] >= DateTime.parse('2020-02-01T00:00:00+00:00') &&
+            service_request['sr_create_date'] <= DateTime.parse('2020-02-29T23:59:59+00:00')
             service_request['month_yr'] = 'Feb_20'
             service_request.save
-          elsif service_request['created_at'] >= DateTime.parse('2020-03-01T00:00:00+00:00') &&
-            service_request['created_at'] <= DateTime.parse('2020-03-31T23:59:59+00:00')
+          elsif service_request['sr_create_date'] >= DateTime.parse('2020-03-01T00:00:00+00:00') &&
+            service_request['sr_create_date'] <= DateTime.parse('2020-03-31T23:59:59+00:00')
             service_request['month_yr'] = 'Mar_20'
             service_request.save
-          elsif service_request['created_at'] >= DateTime.parse('2020-04-01T00:00:00+00:00') &&
-            service_request['created_at'] <= DateTime.parse('2020-04-30T23:59:59+00:00')
+          elsif service_request['sr_create_date'] >= DateTime.parse('2020-04-01T00:00:00+00:00') &&
+            service_request['sr_create_date'] <= DateTime.parse('2020-04-30T23:59:59+00:00')
             service_request['month_yr'] = 'Apr_20'
             service_request.save
-          elsif service_request['created_at'] >= DateTime.parse('2020-05-01T00:00:00+00:00') &&
-            service_request['created_at'] <= DateTime.parse('2020-05-31T23:59:59+00:00')
+          elsif service_request['sr_create_date'] >= DateTime.parse('2020-05-01T00:00:00+00:00') &&
+            service_request['sr_create_date'] <= DateTime.parse('2020-05-31T23:59:59+00:00')
             service_request['month_yr'] = 'May_20'
             service_request.save
-          elsif service_request['created_at'] >= DateTime.parse('2020-06-01T00:00:00+00:00') &&
-            service_request['created_at'] <= DateTime.parse('2020-06-30T23:59:59+00:00')
+          elsif service_request['sr_create_date'] >= DateTime.parse('2020-06-01T00:00:00+00:00') &&
+            service_request['sr_create_date'] <= DateTime.parse('2020-06-30T23:59:59+00:00')
             service_request['month_yr'] = 'June_20'
             service_request.save
           else
@@ -5213,7 +5213,7 @@ def self.new_services_list_2020
               item.save
           }
           services_list_values = Sr.
-          where("created_at >= ? AND created_at <= ?",
+          where("sr_create_date >= ? AND sr_create_date <= ?",
             start_date, end_date).
             where(department: 'SWM Solid Waste Management',
               district: 'J',
@@ -5285,7 +5285,7 @@ def self.new_services_list_2020
         start_date = DateTime.parse('2019-07-01T00:00:00+00:00')
         end_date= DateTime.parse('2020-06-30T23:59:59+00:00')
         services_list = Sr.
-        where("created_at >= ? AND created_at <= ?",
+        where("sr_create_date >= ? AND sr_create_date <= ?",
           start_date, end_date).
         where(district:'K',
           sr_type: ['Missed Yard Waste Pickup',
@@ -5307,52 +5307,52 @@ def self.new_services_list_2020
 
         services_list.each {|service_request|
           # binding.pry
-          if service_request['created_at'] >= DateTime.parse('2019-07-01T00:00:00+00:00') &&
-            service_request['created_at'] <= DateTime.parse('2019-07-31T23:59:59+00:00')
+          if service_request['sr_create_date'] >= DateTime.parse('2019-07-01T00:00:00+00:00') &&
+            service_request['sr_create_date'] <= DateTime.parse('2019-07-31T23:59:59+00:00')
             service_request['month_yr'] = 'July_2019'
             service_request.save
-          elsif service_request['created_at'] >= DateTime.parse('2019-08-01T00:00:00+00:00') &&
-            service_request['created_at'] <= DateTime.parse('2019-08-31T23:59:59+00:00')
+          elsif service_request['sr_create_date'] >= DateTime.parse('2019-08-01T00:00:00+00:00') &&
+            service_request['sr_create_date'] <= DateTime.parse('2019-08-31T23:59:59+00:00')
             service_request['month_yr'] = 'Aug_2019'
             service_request.save
-          elsif service_request['created_at'] >= DateTime.parse('2019-09-01T00:00:00+00:00') &&
-            service_request['created_at'] <= DateTime.parse('2019-09-30T23:59:59+00:00')
+          elsif service_request['sr_create_date'] >= DateTime.parse('2019-09-01T00:00:00+00:00') &&
+            service_request['sr_create_date'] <= DateTime.parse('2019-09-30T23:59:59+00:00')
             service_request['month_yr'] = 'Sep_2019'
             service_request.save
-          elsif service_request['created_at'] >= DateTime.parse('2019-10-01T00:00:00+00:00') &&
-            service_request['created_at'] <= DateTime.parse('2019-10-31T23:59:59+00:00')
+          elsif service_request['sr_create_date'] >= DateTime.parse('2019-10-01T00:00:00+00:00') &&
+            service_request['sr_create_date'] <= DateTime.parse('2019-10-31T23:59:59+00:00')
             service_request['month_yr'] = 'Oct_2019'
             service_request.save
-          elsif service_request['created_at'] >= DateTime.parse('2019-11-01T00:00:00+00:00') &&
-            service_request['created_at'] <= DateTime.parse('2019-11-30T23:59:59+00:00')
+          elsif service_request['sr_create_date'] >= DateTime.parse('2019-11-01T00:00:00+00:00') &&
+            service_request['sr_create_date'] <= DateTime.parse('2019-11-30T23:59:59+00:00')
             service_request['month_yr'] = 'Nov_2019'
             service_request.save
-          elsif service_request['created_at'] >= DateTime.parse('2019-12-01T00:00:00+00:00') &&
-            service_request['created_at'] <= DateTime.parse('2019-12-31T23:59:59+00:00')
+          elsif service_request['sr_create_date'] >= DateTime.parse('2019-12-01T00:00:00+00:00') &&
+            service_request['sr_create_date'] <= DateTime.parse('2019-12-31T23:59:59+00:00')
             service_request['month_yr'] = 'Dec_2019'
             service_request.save
-          elsif service_request['created_at'] >= DateTime.parse('2020-01-01T00:00:00+00:00') &&
-            service_request['created_at'] <= DateTime.parse('2020-01-31T23:59:59+00:00')
+          elsif service_request['sr_create_date'] >= DateTime.parse('2020-01-01T00:00:00+00:00') &&
+            service_request['sr_create_date'] <= DateTime.parse('2020-01-31T23:59:59+00:00')
             service_request['month_yr'] = 'Jan_20'
             service_request.save
-          elsif service_request['created_at'] >= DateTime.parse('2020-02-01T00:00:00+00:00') &&
-            service_request['created_at'] <= DateTime.parse('2020-02-29T23:59:59+00:00')
+          elsif service_request['sr_create_date'] >= DateTime.parse('2020-02-01T00:00:00+00:00') &&
+            service_request['sr_create_date'] <= DateTime.parse('2020-02-29T23:59:59+00:00')
             service_request['month_yr'] = 'Feb_20'
             service_request.save
-          elsif service_request['created_at'] >= DateTime.parse('2020-03-01T00:00:00+00:00') &&
-            service_request['created_at'] <= DateTime.parse('2020-03-31T23:59:59+00:00')
+          elsif service_request['sr_create_date'] >= DateTime.parse('2020-03-01T00:00:00+00:00') &&
+            service_request['sr_create_date'] <= DateTime.parse('2020-03-31T23:59:59+00:00')
             service_request['month_yr'] = 'Mar_20'
             service_request.save
-          elsif service_request['created_at'] >= DateTime.parse('2020-04-01T00:00:00+00:00') &&
-            service_request['created_at'] <= DateTime.parse('2020-04-30T23:59:59+00:00')
+          elsif service_request['sr_create_date'] >= DateTime.parse('2020-04-01T00:00:00+00:00') &&
+            service_request['sr_create_date'] <= DateTime.parse('2020-04-30T23:59:59+00:00')
             service_request['month_yr'] = 'Apr_20'
             service_request.save
-          elsif service_request['created_at'] >= DateTime.parse('2020-05-01T00:00:00+00:00') &&
-            service_request['created_at'] <= DateTime.parse('2020-05-31T23:59:59+00:00')
+          elsif service_request['sr_create_date'] >= DateTime.parse('2020-05-01T00:00:00+00:00') &&
+            service_request['sr_create_date'] <= DateTime.parse('2020-05-31T23:59:59+00:00')
             service_request['month_yr'] = 'May_20'
             service_request.save
-          elsif service_request['created_at'] >= DateTime.parse('2020-06-01T00:00:00+00:00') &&
-            service_request['created_at'] <= DateTime.parse('2020-06-30T23:59:59+00:00')
+          elsif service_request['sr_create_date'] >= DateTime.parse('2020-06-01T00:00:00+00:00') &&
+            service_request['sr_create_date'] <= DateTime.parse('2020-06-30T23:59:59+00:00')
             service_request['month_yr'] = 'June_20'
             service_request.save
           else
@@ -5367,7 +5367,7 @@ def self.new_services_list_2020
               item.save
           }
           services_list_values = Sr.
-          where("created_at >= ? AND created_at <= ?",
+          where("sr_create_date >= ? AND sr_create_date <= ?",
             start_date, end_date).
             where(department: 'SWM Solid Waste Management',
               district: 'K',
@@ -5439,7 +5439,7 @@ def self.new_services_list_2020
         start_date = DateTime.parse('2019-07-01T00:00:00+00:00')
         end_date= DateTime.parse('2020-06-30T23:59:59+00:00')
         services_list = Sr.
-        where("created_at >= ? AND created_at <= ?",
+        where("sr_create_date >= ? AND sr_create_date <= ?",
           start_date, end_date).
         where(district: [nil, "", 'Unknown'],
           sr_type: ['Missed Yard Waste Pickup',
@@ -5461,52 +5461,52 @@ def self.new_services_list_2020
 
         services_list.each {|service_request|
           # binding.pry
-          if service_request['created_at'] >= DateTime.parse('2019-07-01T00:00:00+00:00') &&
-            service_request['created_at'] <= DateTime.parse('2019-07-31T23:59:59+00:00')
+          if service_request['sr_create_date'] >= DateTime.parse('2019-07-01T00:00:00+00:00') &&
+            service_request['sr_create_date'] <= DateTime.parse('2019-07-31T23:59:59+00:00')
             service_request['month_yr'] = 'July_2019'
             service_request.save
-          elsif service_request['created_at'] >= DateTime.parse('2019-08-01T00:00:00+00:00') &&
-            service_request['created_at'] <= DateTime.parse('2019-08-31T23:59:59+00:00')
+          elsif service_request['sr_create_date'] >= DateTime.parse('2019-08-01T00:00:00+00:00') &&
+            service_request['sr_create_date'] <= DateTime.parse('2019-08-31T23:59:59+00:00')
             service_request['month_yr'] = 'Aug_2019'
             service_request.save
-          elsif service_request['created_at'] >= DateTime.parse('2019-09-01T00:00:00+00:00') &&
-            service_request['created_at'] <= DateTime.parse('2019-09-30T23:59:59+00:00')
+          elsif service_request['sr_create_date'] >= DateTime.parse('2019-09-01T00:00:00+00:00') &&
+            service_request['sr_create_date'] <= DateTime.parse('2019-09-30T23:59:59+00:00')
             service_request['month_yr'] = 'Sep_2019'
             service_request.save
-          elsif service_request['created_at'] >= DateTime.parse('2019-10-01T00:00:00+00:00') &&
-            service_request['created_at'] <= DateTime.parse('2019-10-31T23:59:59+00:00')
+          elsif service_request['sr_create_date'] >= DateTime.parse('2019-10-01T00:00:00+00:00') &&
+            service_request['sr_create_date'] <= DateTime.parse('2019-10-31T23:59:59+00:00')
             service_request['month_yr'] = 'Oct_2019'
             service_request.save
-          elsif service_request['created_at'] >= DateTime.parse('2019-11-01T00:00:00+00:00') &&
-            service_request['created_at'] <= DateTime.parse('2019-11-30T23:59:59+00:00')
+          elsif service_request['sr_create_date'] >= DateTime.parse('2019-11-01T00:00:00+00:00') &&
+            service_request['sr_create_date'] <= DateTime.parse('2019-11-30T23:59:59+00:00')
             service_request['month_yr'] = 'Nov_2019'
             service_request.save
-          elsif service_request['created_at'] >= DateTime.parse('2019-12-01T00:00:00+00:00') &&
-            service_request['created_at'] <= DateTime.parse('2019-12-31T23:59:59+00:00')
+          elsif service_request['sr_create_date'] >= DateTime.parse('2019-12-01T00:00:00+00:00') &&
+            service_request['sr_create_date'] <= DateTime.parse('2019-12-31T23:59:59+00:00')
             service_request['month_yr'] = 'Dec_2019'
             service_request.save
-          elsif service_request['created_at'] >= DateTime.parse('2020-01-01T00:00:00+00:00') &&
-            service_request['created_at'] <= DateTime.parse('2020-01-31T23:59:59+00:00')
+          elsif service_request['sr_create_date'] >= DateTime.parse('2020-01-01T00:00:00+00:00') &&
+            service_request['sr_create_date'] <= DateTime.parse('2020-01-31T23:59:59+00:00')
             service_request['month_yr'] = 'Jan_20'
             service_request.save
-          elsif service_request['created_at'] >= DateTime.parse('2020-02-01T00:00:00+00:00') &&
-            service_request['created_at'] <= DateTime.parse('2020-02-29T23:59:59+00:00')
+          elsif service_request['sr_create_date'] >= DateTime.parse('2020-02-01T00:00:00+00:00') &&
+            service_request['sr_create_date'] <= DateTime.parse('2020-02-29T23:59:59+00:00')
             service_request['month_yr'] = 'Feb_20'
             service_request.save
-          elsif service_request['created_at'] >= DateTime.parse('2020-03-01T00:00:00+00:00') &&
-            service_request['created_at'] <= DateTime.parse('2020-03-31T23:59:59+00:00')
+          elsif service_request['sr_create_date'] >= DateTime.parse('2020-03-01T00:00:00+00:00') &&
+            service_request['sr_create_date'] <= DateTime.parse('2020-03-31T23:59:59+00:00')
             service_request['month_yr'] = 'Mar_20'
             service_request.save
-          elsif service_request['created_at'] >= DateTime.parse('2020-04-01T00:00:00+00:00') &&
-            service_request['created_at'] <= DateTime.parse('2020-04-30T23:59:59+00:00')
+          elsif service_request['sr_create_date'] >= DateTime.parse('2020-04-01T00:00:00+00:00') &&
+            service_request['sr_create_date'] <= DateTime.parse('2020-04-30T23:59:59+00:00')
             service_request['month_yr'] = 'Apr_20'
             service_request.save
-          elsif service_request['created_at'] >= DateTime.parse('2020-05-01T00:00:00+00:00') &&
-            service_request['created_at'] <= DateTime.parse('2020-05-31T23:59:59+00:00')
+          elsif service_request['sr_create_date'] >= DateTime.parse('2020-05-01T00:00:00+00:00') &&
+            service_request['sr_create_date'] <= DateTime.parse('2020-05-31T23:59:59+00:00')
             service_request['month_yr'] = 'May_20'
             service_request.save
-          elsif service_request['created_at'] >= DateTime.parse('2020-06-01T00:00:00+00:00') &&
-            service_request['created_at'] <= DateTime.parse('2020-06-30T23:59:59+00:00')
+          elsif service_request['sr_create_date'] >= DateTime.parse('2020-06-01T00:00:00+00:00') &&
+            service_request['sr_create_date'] <= DateTime.parse('2020-06-30T23:59:59+00:00')
             service_request['month_yr'] = 'June_20'
             service_request.save
           else
@@ -5521,7 +5521,7 @@ def self.new_services_list_2020
               item.save
           }
           services_list_values = Sr.
-          where("created_at >= ? AND created_at <= ?",
+          where("sr_create_date >= ? AND sr_create_date <= ?",
             start_date, end_date).
             where(department: 'SWM Solid Waste Management',
               district: [nil, "", 'Unknown'],
