@@ -274,7 +274,8 @@ class Sr < ApplicationRecord
             :ne_not_overdue, :ne_sr_total, :nw_overdue, :nw_not_overdue,
             :nw_sr_total, :se_overdue, :se_not_overdue, :se_sr_total,
             :sw_overdue, :sw_not_overdue, :sw_sr_total, :quad_status,
-            :tally).each { |row| csv << row
+            :tally).each { |row| 
+              csv << row
             }
           }
       sales = Daru::DataFrame.from_csv '../searchwarranty/data.csv'
@@ -3859,7 +3860,7 @@ def self.new_services_list_2020
                       :expression, :ne_overdue, :ne_not_overdue, :ne_sr_total,
                        :nw_overdue, :nw_not_overdue, :nw_sr_total, :se_overdue,
                         :se_not_overdue, :se_sr_total, :sw_overdue, :sw_not_overdue,
-                         :sw_sr_total, :quad_status, :tally, :month_yr, :fin_month)
+                         :sw_sr_total, :quad_status, :tally, :month_yr)
           headers = %w[id case_number sr_location county district neighborhood
              tax_id trash_quad recycle_quad trash_day heavy_trash_day recycle_day
               key_map management_district department division sr_type queue sla
@@ -3871,7 +3872,7 @@ def self.new_services_list_2020
                     recycle_route resolution_time expression ne_overdue
                      ne_not_overdue ne_sr_total nw_overdue nw_not_overdue
                       nw_sr_total se_overdue se_not_overdue se_sr_total sw_overdue
-                       sw_not_overdue sw_sr_total quad_status tally month_yr fin_month]
+                       sw_not_overdue sw_sr_total quad_status tally month_yr]
           CSV.open("../searchwarranty/districtA_missed_services_FY20.csv", "wb",
              write_headers: true, headers: headers) do |csv|
                services_list_values.each do |row|
@@ -4014,7 +4015,7 @@ def self.new_services_list_2020
                       :expression, :ne_overdue, :ne_not_overdue, :ne_sr_total,
                        :nw_overdue, :nw_not_overdue, :nw_sr_total, :se_overdue,
                         :se_not_overdue, :se_sr_total, :sw_overdue, :sw_not_overdue,
-                         :sw_sr_total, :quad_status, :tally, :month_yr, :fin_month)
+                         :sw_sr_total, :quad_status, :tally, :month_yr)
           headers = %w[id case_number sr_location county district neighborhood
              tax_id trash_quad recycle_quad trash_day heavy_trash_day recycle_day
               key_map management_district department division sr_type queue sla
@@ -4026,7 +4027,7 @@ def self.new_services_list_2020
                     recycle_route resolution_time expression ne_overdue
                      ne_not_overdue ne_sr_total nw_overdue nw_not_overdue
                       nw_sr_total se_overdue se_not_overdue se_sr_total sw_overdue
-                       sw_not_overdue sw_sr_total quad_status tally month_yr fin_month]
+                       sw_not_overdue sw_sr_total quad_status tally month_yr]
           CSV.open("../searchwarranty/districtA_missed_services_FY20.csv", "wb",
              write_headers: true, headers: headers) do |csv|
                services_list_values.each do |row|
@@ -4169,7 +4170,7 @@ def self.new_services_list_2020
                       :expression, :ne_overdue, :ne_not_overdue, :ne_sr_total,
                        :nw_overdue, :nw_not_overdue, :nw_sr_total, :se_overdue,
                         :se_not_overdue, :se_sr_total, :sw_overdue, :sw_not_overdue,
-                         :sw_sr_total, :quad_status, :tally, :month_yr, :fin_month)
+                         :sw_sr_total, :quad_status, :tally, :month_yr)
           headers = %w[id case_number sr_location county district neighborhood
              tax_id trash_quad recycle_quad trash_day heavy_trash_day recycle_day
               key_map management_district department division sr_type queue sla
@@ -4181,7 +4182,7 @@ def self.new_services_list_2020
                     recycle_route resolution_time expression ne_overdue
                      ne_not_overdue ne_sr_total nw_overdue nw_not_overdue
                       nw_sr_total se_overdue se_not_overdue se_sr_total sw_overdue
-                       sw_not_overdue sw_sr_total quad_status tally month_yr fin_month]
+                       sw_not_overdue sw_sr_total quad_status tally month_yr]
           CSV.open("../searchwarranty/districtB_missed_services_FY20.csv", "wb",
              write_headers: true, headers: headers) do |csv|
                services_list_values.each do |row|
@@ -4324,7 +4325,7 @@ def self.new_services_list_2020
                       :expression, :ne_overdue, :ne_not_overdue, :ne_sr_total,
                        :nw_overdue, :nw_not_overdue, :nw_sr_total, :se_overdue,
                         :se_not_overdue, :se_sr_total, :sw_overdue, :sw_not_overdue,
-                         :sw_sr_total, :quad_status, :tally, :month_yr, :fin_month)
+                         :sw_sr_total, :quad_status, :tally, :month_yr)
           headers = %w[id case_number sr_location county district neighborhood
              tax_id trash_quad recycle_quad trash_day heavy_trash_day recycle_day
               key_map management_district department division sr_type queue sla
@@ -4336,7 +4337,7 @@ def self.new_services_list_2020
                     recycle_route resolution_time expression ne_overdue
                      ne_not_overdue ne_sr_total nw_overdue nw_not_overdue
                       nw_sr_total se_overdue se_not_overdue se_sr_total sw_overdue
-                       sw_not_overdue sw_sr_total quad_status tally month_yr fin_month]
+                       sw_not_overdue sw_sr_total quad_status tally month_yr]
           CSV.open("../searchwarranty/districtC_missed_services_FY20.csv", "wb",
              write_headers: true, headers: headers) do |csv|
                services_list_values.each do |row|
@@ -4479,7 +4480,7 @@ def self.new_services_list_2020
                       :expression, :ne_overdue, :ne_not_overdue, :ne_sr_total,
                        :nw_overdue, :nw_not_overdue, :nw_sr_total, :se_overdue,
                         :se_not_overdue, :se_sr_total, :sw_overdue, :sw_not_overdue,
-                         :sw_sr_total, :quad_status, :tally, :month_yr, :fin_month)
+                         :sw_sr_total, :quad_status, :tally, :month_yr)
           headers = %w[id case_number sr_location county district neighborhood
              tax_id trash_quad recycle_quad trash_day heavy_trash_day recycle_day
               key_map management_district department division sr_type queue sla
@@ -4491,7 +4492,7 @@ def self.new_services_list_2020
                     recycle_route resolution_time expression ne_overdue
                      ne_not_overdue ne_sr_total nw_overdue nw_not_overdue
                       nw_sr_total se_overdue se_not_overdue se_sr_total sw_overdue
-                       sw_not_overdue sw_sr_total quad_status tally month_yr fin_month]
+                       sw_not_overdue sw_sr_total quad_status tally month_yr]
           CSV.open("../searchwarranty/districtD_missed_services_FY20.csv", "wb",
              write_headers: true, headers: headers) do |csv|
                services_list_values.each do |row|
@@ -4634,7 +4635,7 @@ def self.new_services_list_2020
                       :expression, :ne_overdue, :ne_not_overdue, :ne_sr_total,
                        :nw_overdue, :nw_not_overdue, :nw_sr_total, :se_overdue,
                         :se_not_overdue, :se_sr_total, :sw_overdue, :sw_not_overdue,
-                         :sw_sr_total, :quad_status, :tally, :month_yr, :fin_month)
+                         :sw_sr_total, :quad_status, :tally, :month_yr)
           headers = %w[id case_number sr_location county district neighborhood
              tax_id trash_quad recycle_quad trash_day heavy_trash_day recycle_day
               key_map management_district department division sr_type queue sla
@@ -4646,7 +4647,7 @@ def self.new_services_list_2020
                     recycle_route resolution_time expression ne_overdue
                      ne_not_overdue ne_sr_total nw_overdue nw_not_overdue
                       nw_sr_total se_overdue se_not_overdue se_sr_total sw_overdue
-                       sw_not_overdue sw_sr_total quad_status tally month_yr fin_month]
+                       sw_not_overdue sw_sr_total quad_status tally month_yr]
           CSV.open("../searchwarranty/districtE_missed_services_FY20.csv", "wb",
              write_headers: true, headers: headers) do |csv|
                services_list_values.each do |row|
@@ -4789,7 +4790,7 @@ def self.new_services_list_2020
                       :expression, :ne_overdue, :ne_not_overdue, :ne_sr_total,
                        :nw_overdue, :nw_not_overdue, :nw_sr_total, :se_overdue,
                         :se_not_overdue, :se_sr_total, :sw_overdue, :sw_not_overdue,
-                         :sw_sr_total, :quad_status, :tally, :month_yr, :fin_month)
+                         :sw_sr_total, :quad_status, :tally, :month_yr)
           headers = %w[id case_number sr_location county district neighborhood
              tax_id trash_quad recycle_quad trash_day heavy_trash_day recycle_day
               key_map management_district department division sr_type queue sla
@@ -4801,7 +4802,7 @@ def self.new_services_list_2020
                     recycle_route resolution_time expression ne_overdue
                      ne_not_overdue ne_sr_total nw_overdue nw_not_overdue
                       nw_sr_total se_overdue se_not_overdue se_sr_total sw_overdue
-                       sw_not_overdue sw_sr_total quad_status tally month_yr fin_month]
+                       sw_not_overdue sw_sr_total quad_status tally month_yr]
           CSV.open("../searchwarranty/districtF_missed_services_FY20.csv", "wb",
              write_headers: true, headers: headers) do |csv|
                services_list_values.each do |row|
@@ -4944,7 +4945,7 @@ def self.new_services_list_2020
                       :expression, :ne_overdue, :ne_not_overdue, :ne_sr_total,
                        :nw_overdue, :nw_not_overdue, :nw_sr_total, :se_overdue,
                         :se_not_overdue, :se_sr_total, :sw_overdue, :sw_not_overdue,
-                         :sw_sr_total, :quad_status, :tally, :month_yr, :fin_month)
+                         :sw_sr_total, :quad_status, :tally, :month_yr)
           headers = %w[id case_number sr_location county district neighborhood
              tax_id trash_quad recycle_quad trash_day heavy_trash_day recycle_day
               key_map management_district department division sr_type queue sla
@@ -4956,7 +4957,7 @@ def self.new_services_list_2020
                     recycle_route resolution_time expression ne_overdue
                      ne_not_overdue ne_sr_total nw_overdue nw_not_overdue
                       nw_sr_total se_overdue se_not_overdue se_sr_total sw_overdue
-                       sw_not_overdue sw_sr_total quad_status tally month_yr fin_month]
+                       sw_not_overdue sw_sr_total quad_status tally month_yr]
           CSV.open("../searchwarranty/districtG_missed_services_FY20.csv", "wb",
              write_headers: true, headers: headers) do |csv|
                services_list_values.each do |row|
@@ -5099,7 +5100,7 @@ def self.new_services_list_2020
                       :expression, :ne_overdue, :ne_not_overdue, :ne_sr_total,
                        :nw_overdue, :nw_not_overdue, :nw_sr_total, :se_overdue,
                         :se_not_overdue, :se_sr_total, :sw_overdue, :sw_not_overdue,
-                         :sw_sr_total, :quad_status, :tally, :month_yr, :fin_month)
+                         :sw_sr_total, :quad_status, :tally, :month_yr)
           headers = %w[id case_number sr_location county district neighborhood
              tax_id trash_quad recycle_quad trash_day heavy_trash_day recycle_day
               key_map management_district department division sr_type queue sla
@@ -5111,7 +5112,7 @@ def self.new_services_list_2020
                     recycle_route resolution_time expression ne_overdue
                      ne_not_overdue ne_sr_total nw_overdue nw_not_overdue
                       nw_sr_total se_overdue se_not_overdue se_sr_total sw_overdue
-                       sw_not_overdue sw_sr_total quad_status tally month_yr fin_month]
+                       sw_not_overdue sw_sr_total quad_status tally month_yr]
           CSV.open("../searchwarranty/districtH_missed_services_FY20.csv", "wb",
              write_headers: true, headers: headers) do |csv|
                services_list_values.each do |row|
@@ -5254,7 +5255,7 @@ def self.new_services_list_2020
                       :expression, :ne_overdue, :ne_not_overdue, :ne_sr_total,
                        :nw_overdue, :nw_not_overdue, :nw_sr_total, :se_overdue,
                         :se_not_overdue, :se_sr_total, :sw_overdue, :sw_not_overdue,
-                         :sw_sr_total, :quad_status, :tally, :month_yr, :fin_month)
+                         :sw_sr_total, :quad_status, :tally, :month_yr)
           headers = %w[id case_number sr_location county district neighborhood
              tax_id trash_quad recycle_quad trash_day heavy_trash_day recycle_day
               key_map management_district department division sr_type queue sla
@@ -5266,7 +5267,7 @@ def self.new_services_list_2020
                     recycle_route resolution_time expression ne_overdue
                      ne_not_overdue ne_sr_total nw_overdue nw_not_overdue
                       nw_sr_total se_overdue se_not_overdue se_sr_total sw_overdue
-                       sw_not_overdue sw_sr_total quad_status tally month_yr fin_month]
+                       sw_not_overdue sw_sr_total quad_status tally month_yr]
           CSV.open("../searchwarranty/districtI_missed_services_FY20.csv", "wb",
              write_headers: true, headers: headers) do |csv|
                services_list_values.each do |row|
@@ -5409,7 +5410,7 @@ def self.new_services_list_2020
                       :expression, :ne_overdue, :ne_not_overdue, :ne_sr_total,
                        :nw_overdue, :nw_not_overdue, :nw_sr_total, :se_overdue,
                         :se_not_overdue, :se_sr_total, :sw_overdue, :sw_not_overdue,
-                         :sw_sr_total, :quad_status, :tally, :month_yr, :fin_month)
+                         :sw_sr_total, :quad_status, :tally, :month_yr)
           headers = %w[id case_number sr_location county district neighborhood
              tax_id trash_quad recycle_quad trash_day heavy_trash_day recycle_day
               key_map management_district department division sr_type queue sla
@@ -5421,7 +5422,7 @@ def self.new_services_list_2020
                     recycle_route resolution_time expression ne_overdue
                      ne_not_overdue ne_sr_total nw_overdue nw_not_overdue
                       nw_sr_total se_overdue se_not_overdue se_sr_total sw_overdue
-                       sw_not_overdue sw_sr_total quad_status tally month_yr fin_month]
+                       sw_not_overdue sw_sr_total quad_status tally month_yr]
           CSV.open("../searchwarranty/districtJ_missed_services_FY20.csv", "wb",
              write_headers: true, headers: headers) do |csv|
                services_list_values.each do |row|
@@ -5564,7 +5565,7 @@ def self.new_services_list_2020
                       :expression, :ne_overdue, :ne_not_overdue, :ne_sr_total,
                        :nw_overdue, :nw_not_overdue, :nw_sr_total, :se_overdue,
                         :se_not_overdue, :se_sr_total, :sw_overdue, :sw_not_overdue,
-                         :sw_sr_total, :quad_status, :tally, :month_yr, :fin_month)
+                         :sw_sr_total, :quad_status, :tally, :month_yr)
           headers = %w[id case_number sr_location county district neighborhood
              tax_id trash_quad recycle_quad trash_day heavy_trash_day recycle_day
               key_map management_district department division sr_type queue sla
@@ -5576,7 +5577,7 @@ def self.new_services_list_2020
                     recycle_route resolution_time expression ne_overdue
                      ne_not_overdue ne_sr_total nw_overdue nw_not_overdue
                       nw_sr_total se_overdue se_not_overdue se_sr_total sw_overdue
-                       sw_not_overdue sw_sr_total quad_status tally month_yr fin_month]
+                       sw_not_overdue sw_sr_total quad_status tally month_yr]
           CSV.open("../searchwarranty/districtK_missed_services_FY20.csv", "wb",
              write_headers: true, headers: headers) do |csv|
                services_list_values.each do |row|
