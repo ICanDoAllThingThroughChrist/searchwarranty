@@ -1,5 +1,7 @@
 class OpenSrsController < ApplicationController
     def cans_related_requests
+      @SWM_Escalation_cans_related_list_FY2021=
+        Sr.sWM_Escalation_cans_related_list_FY2021
       @SWM_Escalation_cans_related_list_FY2020=
         Sr.sWM_Escalation_cans_related_list_FY2020
       @SWM_Escalation_cans_related_list_FY2019=
@@ -9,7 +11,8 @@ class OpenSrsController < ApplicationController
       @SWM_Escalation_cans_related_list_FY2017=
         Sr.sWM_Escalation_cans_related_list_FY2017
 
-
+      @UnauthorizedContainerRetrieval_cans_related_list_FY2021=
+          Sr.unauthorizedContainerRetrieval_cans_related_list_FY2021
       @UnauthorizedContainerRetrieval_cans_related_list_FY2020=
         Sr.unauthorizedContainerRetrieval_cans_related_list_FY2020
       @UnauthorizedContainerRetrieval_cans_related_list_FY2019=
@@ -19,6 +22,8 @@ class OpenSrsController < ApplicationController
       @UnauthorizedContainerRetrieval_cans_related_list_FY2017=
         Sr.unauthorizedContainerRetrieval_cans_related_list_FY2017
 
+      @RecyclingParticipationNEW_cans_related_list_FY2020=
+          Sr.recyclingParticipationNEW_cans_related_list_FY2021
       @RecyclingParticipationNEW_cans_related_list_FY2020=
         Sr.recyclingParticipationNEW_cans_related_list_FY2020
       @RecyclingParticipationNEW_cans_related_list_FY2019=

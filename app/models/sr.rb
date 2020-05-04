@@ -3741,9 +3741,9 @@ def self.new_services_list_2020
         Resident.create(unique: "#{request['sr_location']} #{request['tax_id']} #{request['client']}",sr_type: "#{request['sr_type']}", case_number: "#{request['case_number']}")
         }
       end
-      def self.missed_sr_related_pivot_FY20_all_districts
+      def self.missed_sr_related_pivot_FY20_FY21_all_districts
         start_date = DateTime.parse('2019-07-01T00:00:00+00:00')
-        end_date= DateTime.parse('2020-06-30T23:59:59+00:00')
+        end_date= DateTime.parse('2021-06-30T23:59:59+00:00')
         services_list = Sr.
         where("sr_create_date >= ? AND sr_create_date <= ?",
           start_date, end_date).
@@ -3815,6 +3815,10 @@ def self.new_services_list_2020
             service_request['sr_create_date'] <= DateTime.parse('2020-06-30T23:59:59+00:00')
             service_request['month_yr'] = 'June_20'
             service_request.save
+          elsif service_request['sr_create_date'] >= DateTime.parse('2020-07-01T00:00:00+00:00') &&
+            service_request['sr_create_date'] <= DateTime.parse('2021-06-30T23:59:59+00:00')
+            service_request['month_yr'] = 'FY_21'
+            service_request.save
           else
             service_request['month_yr'] = 'unassigned'
             service_request.save
@@ -3873,7 +3877,7 @@ def self.new_services_list_2020
                      ne_not_overdue ne_sr_total nw_overdue nw_not_overdue
                       nw_sr_total se_overdue se_not_overdue se_sr_total sw_overdue
                        sw_not_overdue sw_sr_total quad_status tally month_yr]
-          CSV.open("../searchwarranty/districtA_missed_services_FY20.csv", "wb",
+          CSV.open("../searchwarranty/districtAll_missed_services_FY20.csv", "wb",
              write_headers: true, headers: headers) do |csv|
                services_list_values.each do |row|
                  csv << row
