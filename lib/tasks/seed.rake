@@ -286,7 +286,7 @@ namespace :seed do
       Sr.pivot
     end
 
-    task import_2016: :environment do
+  task import_2016: :environment do
       require 'open-uri'
       require 'csvreader'
       require 'byebug'

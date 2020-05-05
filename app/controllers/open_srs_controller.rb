@@ -141,6 +141,71 @@ class OpenSrsController < ApplicationController
 
     def monthly_quality_grade
 
+      @deptSWwide_May_2020_actual_due_and_closed_cases =
+        OpenSr.swMay2020_actual_due_and_closed_cases
+
+      @deptSWwide_May_2020_sla_due_cases =
+        OpenSr.swMay2020_sla_due_cases
+
+      @deptSWwide_May_2020_updated_as_percent_of_closed_cases=
+      @deptSWwide_May_2020_actual_due_and_closed_cases.to_f.round(2)/
+      @deptSWwide_May_2020_sla_due_cases.to_f.round(2)
+
+      @deptSWWide_May_2020_grade =
+        OpenSr.qualityGrade(
+          @deptSWwide_May_2020_updated_as_percent_of_closed_cases)
+
+      @deptSEwide_May_2020_actual_due_and_closed_cases =
+      OpenSr.seMay2020_actual_due_and_closed_cases
+
+      @deptSEwide_May_2020_sla_due_cases =
+      OpenSr.seMay2020_sla_due_cases
+
+      @deptSEwide_May_2020_updated_as_percent_of_closed_cases=
+      # binding.pry
+      @deptSEwide_May_2020_actual_due_and_closed_cases.to_f.round(2)/
+      @deptSEwide_May_2020_sla_due_cases.to_f.round(2)
+
+      @deptSEWide_May_2020_grade =
+      OpenSr.qualityGrade(
+        @deptSEwide_May_2020_updated_as_percent_of_closed_cases)
+
+
+      @deptNWwide_May_2020_actual_due_and_closed_cases =
+      OpenSr.nwMay2020_actual_due_and_closed_cases
+
+      @deptNWwide_May_2020_sla_due_cases =
+      OpenSr.nwMay2020_sla_due_cases
+
+      @deptNWwide_May_2020_updated_as_percent_of_closed_cases=
+      @deptNWwide_May_2020_actual_due_and_closed_cases.to_f.round(2)/
+      @deptNWwide_May_2020_sla_due_cases.to_f.round(2)
+
+      @deptNWWide_May_2020_grade=
+      OpenSr.qualityGrade(
+        @deptNWwide_May_2020_updated_as_percent_of_closed_cases)
+
+      @deptNEwide_May_2020_actual_due_and_closed_cases =
+      OpenSr.neMay2020_actual_due_and_closed_cases
+
+      @deptNEwide_May_2020_sla_due_cases =
+      OpenSr.neMay2020_sla_due_cases
+
+      @deptNEwide_May_2020_updated_as_percent_of_closed_cases=
+      # binding.pry
+      @deptNEwide_May_2020_actual_due_and_closed_cases.to_f.round(2)/
+        @deptNEwide_May_2020_sla_due_cases.to_f.round(2)
+
+      @deptNEWide_May_2020_grade =
+      OpenSr.qualityGrade(
+        @deptNEwide_May_2020_updated_as_percent_of_closed_cases)
+
+      @deptNEwide_May_2020_actual_due_and_closed_cases =
+      OpenSr.neMay2020_actual_due_and_closed_cases
+
+      @deptNEwide_May_2020_sla_due_cases =
+      OpenSr.neMay2020_sla_due_cases
+
       @deptNEwide_April_2020_actual_due_and_closed_cases =
       OpenSr.neApril2020_actual_due_and_closed_cases
 
@@ -156,7 +221,7 @@ class OpenSrsController < ApplicationController
       OpenSr.qualityGrade(
         @deptNEwide_April_2020_updated_as_percent_of_closed_cases)
 
-        @deptSEwide_April_2020_actual_due_and_closed_cases =
+      @deptSEwide_April_2020_actual_due_and_closed_cases =
       OpenSr.seApril2020_actual_due_and_closed_cases
 
       @deptSEwide_April_2020_sla_due_cases =
@@ -184,7 +249,6 @@ class OpenSrsController < ApplicationController
       @deptNWWide_April_2020_grade=
       OpenSr.qualityGrade(
         @deptNWwide_April_2020_updated_as_percent_of_closed_cases)
-
 
       @deptSWwide_April_2020_actual_due_and_closed_cases =
       OpenSr.swApril2020_actual_due_and_closed_cases
