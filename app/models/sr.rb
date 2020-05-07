@@ -227,6 +227,7 @@ class Sr < ApplicationRecord
       #repeat spatialjoin
       Sr.html_pivot
       Sr.no_quad_list
+      Sr.missed_sr_related_pivot_FY20_FY21_all_districts
       #perform spatial join of Open Sr Testing.csv with Houston Automated
       # Open.sr_route
     end

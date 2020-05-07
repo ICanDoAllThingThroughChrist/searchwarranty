@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  # get '../maps/1st-Monday-OverdueHvy.js'
+  # get '../maps/leaf-demo.js'
+  get 'public/first_monday_OverdueHvy'
   get 'srs/cans_requests_FY20'
   get 'map/index'
   get 'map/map_data', :defaults => { :format => 'json'}
