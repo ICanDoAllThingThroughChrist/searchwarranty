@@ -93,7 +93,7 @@ namespace :seed do
     web1 = open('https://hfdapp.houstontx.gov/311/311-Public-Data-Extract-monthly-clean.txt'){|f| f.read}
     web2 = open('https://hfdapp.houstontx.gov/311/311-Public-Data-Extract-2019-clean.txt'){|f| f.read}
     things1 = web1.split(/\n/)#creates an  new array
-    things2 = web2.split(/\n/)
+    things2 = web2.split(/\n/)#creates an  new array
 
     columns = %i[case_number sr_location county district neighborhood tax_id
       trash_quad recycle_quad trash_day heavy_trash_day recycle_day

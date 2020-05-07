@@ -252,7 +252,7 @@ class OpenSr < ApplicationRecord
      web2 = open('https://hfdapp.houstontx.gov/311/311-Public-Data-Extract-2019-clean.txt'){|f|
          f.read
        }
-     things2 = web2.split(/\n/)
+     things2 = web2.split(/\n/)#create an array
      things2.in_groups_of(300000){|group|
        OpenSr.sr_create(group)
      }
@@ -333,20 +333,12 @@ def self.daily_update_from_lagan
     KEY_MAP	MANAGEMENT_DISTRICT	SR_OWNER	SR_CREATOR	DEPARTMENT
     DIVISION	SR_TYPE	QUEUE	SLA	STATUS	SR_CREATE_DATE	DUE_DATE
     DATE_CLOSED	RESOLUTION_TIME	OVERDUE]
-  CSV.foreach("C:/Users/e128289/Downloads/SWM All Data with Resolution Time-March2020.csv",
-     { encoding: "iso-8859-1:utf-8",
-        headers: true,
-        header_converters: :symbol,converters: :all}) {|row|
-    # binding.pry
-   Sr.create(row.to_hash)
-    # binding.pry
-  }
   CSV.foreach("C:/Users/e128289/Downloads/SWM All Data with Resolution Time-January2020.csv",
      { encoding: "iso-8859-1:utf-8",
         headers: true,
         header_converters: :symbol,converters: :all}) {|row|
     # binding.pry
-   Sr.create(row.to_hash)
+   OpenSr.create(row.to_hash)
     # binding.pry
   }
   CSV.foreach("C:/Users/e128289/Downloads/SWM All Data with Resolution Time-February2020.csv",
@@ -354,7 +346,23 @@ def self.daily_update_from_lagan
         headers: true,
         header_converters: :symbol,converters: :all}) {|row|
     # binding.pry
-   Sr.create(row.to_hash)
+   OpenSr.create(row.to_hash)
+    # binding.pry
+  }
+  CSV.foreach("C:/Users/e128289/Downloads/SWM All Data with Resolution Time-March2020.csv",
+     { encoding: "iso-8859-1:utf-8",
+        headers: true,
+        header_converters: :symbol,converters: :all}) {|row|
+    # binding.pry
+   OpenSr.create(row.to_hash)
+    # binding.pry
+  }
+  CSV.foreach("C:/Users/e128289/Downloads/SWM All Data with Resolution Time-April2020.csv",
+     { encoding: "iso-8859-1:utf-8",
+        headers: true,
+        header_converters: :symbol,converters: :all}) {|row|
+    # binding.pry
+   OpenSr.create(row.to_hash)
     # binding.pry
   }
 end
