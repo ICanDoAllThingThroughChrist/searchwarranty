@@ -100,7 +100,7 @@ class Sr < ApplicationRecord
     end
     def self.total_missed_rec
       start = DateTime.parse('2019-07-01T00:00:00+00:00')
-      due= DateTime.parse('2021-06-31T23:59:59+00:00')
+      due= DateTime.parse('2021-06-30T23:59:59+00:00')
       variable = Sr.where('sr_create_date >= ? AND sr_create_date <= ?',start, due).
       where(sr_type_2: 'Missed Recycling Pickup').count
       Sr.separate_comma(variable)
