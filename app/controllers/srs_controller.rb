@@ -1,4 +1,80 @@
 class SrsController < ApplicationController
+  def monthly_requests_summary
+    @July2019_Container_Related = Sr.july_2019_containers_related
+    @August2019_Container_Related = Sr.august_2019_containers_related
+    @Sept_2019_containers_related = Sr.sept_2019_containers_related
+    @Oct_2019_containers_related = Sr.oct_2019_containers_related
+    @Nov_2019_containers_related = Sr.nov_2019_containers_related
+    @Dec_2019_containers_related = Sr.dec_2019_containers_related
+    @jan_2020_containers_related = Sr.jan_2020_containers_related
+    @feb_2020_containers_related = Sr.feb_2020_containers_related
+    @mar_2020_containers_related = Sr.mar_2020_containers_related
+    @apr_2020_containers_related= Sr.april_2020_containers_related
+    @may_2020_containers_related= Sr.may_2020_containers_related
+    @jun_2020_containers_related= Sr.june_2020_containers_related
+    @fy_2021_containers_related= Sr.fy_2021_containers_related
+    @total_containers_related =  Sr.total_containers_related
+
+    @Jul_2019_missed_garbage = Sr.july_2019_missed_garbage
+    @Aug_2019_missed_garbage = Sr.august_2019_missed_garbage
+    @Sept_2019_missed_garbage = Sr.sept_2019_missed_garbage
+    @Oct_2019_missed_garbage = Sr.oct_2019_missed_garbage
+    @Nov_2019_missed_garbage = Sr.nov_2019_missed_garbage
+    @Dec_2019_missed_garbage = Sr.dec_2019_missed_garbage
+    @jan_2020_missed_garbage = Sr.jan_2020_missed_garbage
+    @feb_2020_missed_garbage = Sr.feb_2020_missed_garbage
+    @mar_2020_missed_garbage = Sr.mar_2020_missed_garbage
+    @apr_2020_missed_garbage= Sr.april_2020_missed_garbage
+    @may_2020_missed_garbage= Sr.may_2020_missed_garbage
+    @jun_2020_missed_garbage= Sr.june_2020_missed_garbage
+    @fy_2021_missed_garbage= Sr.fy_2021_missed_garbage
+    @total_missed_garbage= Sr.total_missed_garbage
+
+    @Jul_2019_missed_hvy = Sr.july_2019_missed_hvy
+    @Aug_2019_missed_hvy = Sr.august_2019_missed_hvy
+    @Sept_2019_missed_hvy = Sr.sept_2019_missed_hvy
+    @Oct_2019_missed_hvy = Sr.oct_2019_missed_hvy
+    @Nov_2019_missed_hvy = Sr.nov_2019_missed_hvy
+    @Dec_2019_missed_hvy = Sr.dec_2019_missed_hvy
+    @jan_2020_missed_hvy = Sr.jan_2020_missed_hvy
+    @feb_2020_missed_hvy = Sr.feb_2020_missed_hvy
+    @mar_2020_missed_hvy = Sr.mar_2020_missed_hvy
+    @apr_2020_missed_hvy= Sr.april_2020_missed_hvy
+    @may_2020_missed_hvy= Sr.may_2020_missed_hvy
+    @jun_2020_missed_hvy= Sr.june_2020_missed_hvy
+    @fy_2021_missed_hvy= Sr.fy_2021_missed_hvy
+    @total_missed_hvy= Sr.total_missed_hvy
+
+    @Jul_2019_missed_rec = Sr.july_2019_missed_rec
+    @Aug_2019_missed_rec = Sr.august_2019_missed_rec
+    @Sept_2019_missed_rec = Sr.sept_2019_missed_rec
+    @Oct_2019_missed_rec = Sr.oct_2019_missed_rec
+    @Nov_2019_missed_rec = Sr.nov_2019_missed_rec
+    @Dec_2019_missed_rec = Sr.dec_2019_missed_rec
+    @jan_2020_missed_rec = Sr.jan_2020_missed_rec
+    @feb_2020_missed_rec = Sr.feb_2020_missed_rec
+    @mar_2020_missed_rec = Sr.mar_2020_missed_rec
+    @apr_2020_missed_rec= Sr.april_2020_missed_rec
+    @may_2020_missed_rec= Sr.may_2020_missed_rec
+    @jun_2020_missed_rec= Sr.june_2020_missed_rec
+    @fy_2021_missed_rec= Sr.fy_2021_missed_rec
+    @total_missed_rec= Sr.total_missed_rec
+
+    @Jul_2019_missed_yar = Sr.july_2019_missed_yar
+    @Aug_2019_missed_yar = Sr.august_2019_missed_yar
+    @Sept_2019_missed_yar = Sr.sept_2019_missed_yar
+    @Oct_2019_missed_yar = Sr.oct_2019_missed_yar
+    @Nov_2019_missed_yar = Sr.nov_2019_missed_yar
+    @Dec_2019_missed_yar = Sr.dec_2019_missed_yar
+    @jan_2020_missed_yar = Sr.jan_2020_missed_yar
+    @feb_2020_missed_yar = Sr.feb_2020_missed_yar
+    @mar_2020_missed_yar = Sr.mar_2020_missed_yar
+    @apr_2020_missed_yar= Sr.april_2020_missed_yar
+    @may_2020_missed_yar= Sr.may_2020_missed_yar
+    @jun_2020_missed_yar= Sr.june_2020_missed_yar
+    @fy_2021_missed_yar= Sr.fy_2021_missed_yar
+    @total_missed_yar= Sr.total_missed_yar
+  end
   def cans_requests_FY20
     render "cans_related_FY20"
   end

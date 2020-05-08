@@ -1,4 +1,501 @@
 class Sr < ApplicationRecord
+  def self.total_missed_yar
+    start = DateTime.parse('2019-07-01T00:00:00+00:00')
+    due= DateTime.parse('2021-6-30T23:59:59+00:00')
+    variable= Sr.where('sr_create_date >= ? AND sr_create_date <= ?',start, due).
+    where(sr_type_2: 'Missed Yard Waste Pickup').count
+    Sr.separate_comma(variable)
+  end
+  def self.fy_2021_missed_yar
+    start = DateTime.parse('2020-07-01T00:00:00+00:00')
+    due= DateTime.parse('2021-6-30T23:59:59+00:00')
+    variable= Sr.where('sr_create_date >= ? AND sr_create_date <= ?',start, due).
+    where(sr_type_2: 'Missed Yard Waste Pickup').count
+    Sr.separate_comma(variable)
+  end
+  def self.june_2020_missed_yar
+    start = DateTime.parse('2020-6-01T00:00:00+00:00')
+    due= DateTime.parse('2020-6-30T23:59:59+00:00')
+    variable= Sr.where('sr_create_date >= ? AND sr_create_date <= ?',start, due).
+    where(sr_type_2: 'Missed Yard Waste Pickup').count
+    Sr.separate_comma(variable)
+  end
+  def self.may_2020_missed_yar
+    start = DateTime.parse('2020-5-01T00:00:00+00:00')
+    due= DateTime.parse('2020-5-31T23:59:59+00:00')
+    variable= Sr.where('sr_create_date >= ? AND sr_create_date <= ?',start, due).
+    where(sr_type_2: 'Missed Yard Waste Pickup').count
+    Sr.separate_comma(variable)
+  end
+  def self.april_2020_missed_yar
+    start = DateTime.parse('2020-4-01T00:00:00+00:00')
+    due= DateTime.parse('2020-4-30T23:59:59+00:00')
+    variable= Sr.where('sr_create_date >= ? AND sr_create_date <= ?',start, due).
+    where(sr_type_2: 'Missed Yard Waste Pickup').count
+    Sr.separate_comma(variable)
+  end
+  def self.mar_2020_missed_yar
+    start = DateTime.parse('2020-3-01T00:00:00+00:00')
+    due= DateTime.parse('2020-3-31T23:59:59+00:00')
+    variable= Sr.where('sr_create_date >= ? AND sr_create_date <= ?',start, due).
+    where(sr_type_2: 'Missed Yard Waste Pickup').count
+    Sr.separate_comma(variable)
+  end
+  def self.feb_2020_missed_yar
+    start = DateTime.parse('2020-2-01T00:00:00+00:00')
+    due= DateTime.parse('2020-2-29T23:59:59+00:00')
+    variable= Sr.where('sr_create_date >= ? AND sr_create_date <= ?',start, due).
+    where(sr_type_2: 'Missed Yard Waste Pickup').count
+    Sr.separate_comma(variable)
+  end
+  def self.jan_2020_missed_yar
+  start = DateTime.parse('2020-1-01T00:00:00+00:00')
+  due= DateTime.parse('2020-1-31T23:59:59+00:00')
+  variable= Sr.where('sr_create_date >= ? AND sr_create_date <= ?',start, due).
+  where(sr_type_2: 'Missed Yard Waste Pickup').count
+  Sr.separate_comma(variable)
+  end
+  def self.dec_2019_missed_yar
+  start = DateTime.parse('2019-12-01T00:00:00+00:00')
+  due= DateTime.parse('2019-12-31T23:59:59+00:00')
+  variable= Sr.where('sr_create_date >= ? AND sr_create_date <= ?',start, due).
+  where(sr_type_2: 'Missed Yard Waste Pickup').count
+  Sr.separate_comma(variable)
+  end
+  def self.nov_2019_missed_yar
+  start = DateTime.parse('2019-11-01T00:00:00+00:00')
+  due= DateTime.parse('2019-11-30T23:59:59+00:00')
+  variable= Sr.where('sr_create_date >= ? AND sr_create_date <= ?',start, due).
+  where(sr_type_2: 'Missed Yard Waste Pickup').count
+  Sr.separate_comma(variable)
+  end
+
+  def self.oct_2019_missed_yar
+  start = DateTime.parse('2019-10-01T00:00:00+00:00')
+  due= DateTime.parse('2019-10-31T23:59:59+00:00')
+  variable= Sr.where('sr_create_date >= ? AND sr_create_date <= ?',start, due).
+  where(sr_type_2: 'Missed Yard Waste Pickup').count
+  Sr.separate_comma(variable)
+  end
+  def self.sept_2019_missed_yar
+  start = DateTime.parse('2019-09-01T00:00:00+00:00')
+  due= DateTime.parse('2019-09-30T23:59:59+00:00')
+  variable= Sr.where('sr_create_date >= ? AND sr_create_date <= ?',start, due).
+  where(sr_type_2: 'Missed Yard Waste Pickup').count
+  Sr.separate_comma(variable)
+  end
+    def self.august_2019_missed_yar
+      start = DateTime.parse('2019-08-01T00:00:00+00:00')
+      due= DateTime.parse('2019-08-31T23:59:59+00:00')
+      variable= Sr.where('sr_create_date >= ? AND sr_create_date <= ?',start, due).
+      where(sr_type_2: 'Missed Yard Waste Pickup').count
+      Sr.separate_comma(variable)
+    end
+    def self.july_2019_missed_yar
+      start = DateTime.parse('2019-07-01T00:00:00+00:00')
+      due= DateTime.parse('2019-07-31T23:59:59+00:00')
+      variable = Sr.where('sr_create_date >= ? AND sr_create_date <= ?',start, due).
+      where(sr_type_2: 'Missed Yard Waste Pickup').count
+      Sr.separate_comma(variable)
+    end
+    def self.total_missed_rec
+      start = DateTime.parse('2019-07-01T00:00:00+00:00')
+      due= DateTime.parse('2021-06-31T23:59:59+00:00')
+      variable = Sr.where('sr_create_date >= ? AND sr_create_date <= ?',start, due).
+      where(sr_type_2: 'Missed Recycling Pickup').count
+      Sr.separate_comma(variable)
+    end
+  def self.fy_2021_missed_rec
+    start = DateTime.parse('2020-07-01T00:00:00+00:00')
+    due= DateTime.parse('2021-6-30T23:59:59+00:00')
+    variable= Sr.where('sr_create_date >= ? AND sr_create_date <= ?',start, due).
+    where(sr_type_2: 'Missed Recycling Pickup').count
+    Sr.separate_comma(variable)
+  end
+  def self.june_2020_missed_rec
+    start = DateTime.parse('2020-6-01T00:00:00+00:00')
+    due= DateTime.parse('2020-6-30T23:59:59+00:00')
+    variable= Sr.where('sr_create_date >= ? AND sr_create_date <= ?',start, due).
+    where(sr_type_2: 'Missed Recycling Pickup').count
+    Sr.separate_comma(variable)
+  end
+  def self.may_2020_missed_rec
+    start = DateTime.parse('2020-5-01T00:00:00+00:00')
+    due= DateTime.parse('2020-5-31T23:59:59+00:00')
+    variable= Sr.where('sr_create_date >= ? AND sr_create_date <= ?',start, due).
+    where(sr_type_2: 'Missed Recycling Pickup').count
+    Sr.separate_comma(variable)
+  end
+  def self.april_2020_missed_rec
+    start = DateTime.parse('2020-4-01T00:00:00+00:00')
+    due= DateTime.parse('2020-4-30T23:59:59+00:00')
+    variable= Sr.where('sr_create_date >= ? AND sr_create_date <= ?',start, due).
+    where(sr_type_2: 'Missed Recycling Pickup').count
+    Sr.separate_comma(variable)
+  end
+  def self.mar_2020_missed_rec
+    start = DateTime.parse('2020-3-01T00:00:00+00:00')
+    due= DateTime.parse('2020-3-31T23:59:59+00:00')
+    variable= Sr.where('sr_create_date >= ? AND sr_create_date <= ?',start, due).
+    where(sr_type_2: 'Missed Recycling Pickup').count
+    Sr.separate_comma(variable)
+  end
+  def self.feb_2020_missed_rec
+    start = DateTime.parse('2020-2-01T00:00:00+00:00')
+    due= DateTime.parse('2020-2-29T23:59:59+00:00')
+    variable= Sr.where('sr_create_date >= ? AND sr_create_date <= ?',start, due).
+    where(sr_type_2: 'Missed Recycling Pickup').count
+    Sr.separate_comma(variable)
+  end
+  def self.jan_2020_missed_rec
+  start = DateTime.parse('2020-1-01T00:00:00+00:00')
+  due= DateTime.parse('2020-1-31T23:59:59+00:00')
+  variable= Sr.where('sr_create_date >= ? AND sr_create_date <= ?',start, due).
+  where(sr_type_2: 'Missed Recycling Pickup').count
+  Sr.separate_comma(variable)
+  end
+  def self.dec_2019_missed_rec
+  start = DateTime.parse('2019-12-01T00:00:00+00:00')
+  due= DateTime.parse('2019-12-31T23:59:59+00:00')
+  variable= Sr.where('sr_create_date >= ? AND sr_create_date <= ?',start, due).
+  where(sr_type_2: 'Missed Recycling Pickup').count
+  Sr.separate_comma(variable)
+  end
+  def self.nov_2019_missed_rec
+  start = DateTime.parse('2019-11-01T00:00:00+00:00')
+  due= DateTime.parse('2019-11-30T23:59:59+00:00')
+  variable= Sr.where('sr_create_date >= ? AND sr_create_date <= ?',start, due).
+  where(sr_type_2: 'Missed Recycling Pickup').count
+  Sr.separate_comma(variable)
+  end
+
+  def self.oct_2019_missed_rec
+  start = DateTime.parse('2019-10-01T00:00:00+00:00')
+  due= DateTime.parse('2019-10-31T23:59:59+00:00')
+  variable= Sr.where('sr_create_date >= ? AND sr_create_date <= ?',start, due).
+  where(sr_type_2: 'Missed Recycling Pickup').count
+  Sr.separate_comma(variable)
+  end
+  def self.sept_2019_missed_rec
+  start = DateTime.parse('2019-09-01T00:00:00+00:00')
+  due= DateTime.parse('2019-09-30T23:59:59+00:00')
+  variable= Sr.where('sr_create_date >= ? AND sr_create_date <= ?',start, due).
+  where(sr_type_2: 'Missed Recycling Pickup').count
+  Sr.separate_comma(variable)
+  end
+    def self.august_2019_missed_rec
+      start = DateTime.parse('2019-08-01T00:00:00+00:00')
+      due= DateTime.parse('2019-08-31T23:59:59+00:00')
+      variable= Sr.where('sr_create_date >= ? AND sr_create_date <= ?',start, due).
+      where(sr_type_2: 'Missed Recycling Pickup').count
+      Sr.separate_comma(variable)
+    end
+    def self.july_2019_missed_rec
+      start = DateTime.parse('2019-07-01T00:00:00+00:00')
+      due= DateTime.parse('2019-07-31T23:59:59+00:00')
+      variable = Sr.where('sr_create_date >= ? AND sr_create_date <= ?',start, due).
+      where(sr_type_2: 'Missed Recycling Pickup').count
+      Sr.separate_comma(variable)
+    end
+    def self.total_missed_hvy
+      start = DateTime.parse('2019-07-01T00:00:00+00:00')
+      due= DateTime.parse('2021-6-30T23:59:59+00:00')
+      variable= Sr.where('sr_create_date >= ? AND sr_create_date <= ?',start, due).
+      where(sr_type_2: 'Missed Heavy Trash Pickup').count
+      Sr.separate_comma(variable)
+    end
+  def self.fy_2021_missed_hvy
+    start = DateTime.parse('2020-07-01T00:00:00+00:00')
+    due= DateTime.parse('2021-6-30T23:59:59+00:00')
+    variable= Sr.where('sr_create_date >= ? AND sr_create_date <= ?',start, due).
+    where(sr_type_2: 'Missed Heavy Trash Pickup').count
+    Sr.separate_comma(variable)
+  end
+  def self.june_2020_missed_hvy
+    start = DateTime.parse('2020-6-01T00:00:00+00:00')
+    due= DateTime.parse('2020-6-30T23:59:59+00:00')
+    variable= Sr.where('sr_create_date >= ? AND sr_create_date <= ?',start, due).
+    where(sr_type_2: 'Missed Heavy Trash Pickup').count
+    Sr.separate_comma(variable)
+  end
+  def self.may_2020_missed_hvy
+    start = DateTime.parse('2020-5-01T00:00:00+00:00')
+    due= DateTime.parse('2020-5-31T23:59:59+00:00')
+    variable= Sr.where('sr_create_date >= ? AND sr_create_date <= ?',start, due).
+    where(sr_type_2: 'Missed Heavy Trash Pickup').count
+    Sr.separate_comma(variable)
+  end
+  def self.april_2020_missed_hvy
+    start = DateTime.parse('2020-4-01T00:00:00+00:00')
+    due= DateTime.parse('2020-4-30T23:59:59+00:00')
+    variable= Sr.where('sr_create_date >= ? AND sr_create_date <= ?',start, due).
+    where(sr_type_2: 'Missed Heavy Trash Pickup').count
+    Sr.separate_comma(variable)
+  end
+  def self.mar_2020_missed_hvy
+    start = DateTime.parse('2020-3-01T00:00:00+00:00')
+    due= DateTime.parse('2020-3-31T23:59:59+00:00')
+    variable= Sr.where('sr_create_date >= ? AND sr_create_date <= ?',start, due).
+    where(sr_type_2: 'Missed Heavy Trash Pickup').count
+    Sr.separate_comma(variable)
+  end
+  def self.feb_2020_missed_hvy
+    start = DateTime.parse('2020-2-01T00:00:00+00:00')
+    due= DateTime.parse('2020-2-29T23:59:59+00:00')
+    variable= Sr.where('sr_create_date >= ? AND sr_create_date <= ?',start, due).
+    where(sr_type_2: 'Missed Heavy Trash Pickup').count
+    Sr.separate_comma(variable)
+  end
+  def self.jan_2020_missed_hvy
+  start = DateTime.parse('2020-1-01T00:00:00+00:00')
+  due= DateTime.parse('2020-1-31T23:59:59+00:00')
+  variable= Sr.where('sr_create_date >= ? AND sr_create_date <= ?',start, due).
+  where(sr_type_2: 'Missed Heavy Trash Pickup').count
+  Sr.separate_comma(variable)
+  end
+  def self.dec_2019_missed_hvy
+  start = DateTime.parse('2019-12-01T00:00:00+00:00')
+  due= DateTime.parse('2019-12-31T23:59:59+00:00')
+  variable= Sr.where('sr_create_date >= ? AND sr_create_date <= ?',start, due).
+  where(sr_type_2: 'Missed Heavy Trash Pickup').count
+  Sr.separate_comma(variable)
+  end
+  def self.nov_2019_missed_hvy
+  start = DateTime.parse('2019-11-01T00:00:00+00:00')
+  due= DateTime.parse('2019-11-30T23:59:59+00:00')
+  variable= Sr.where('sr_create_date >= ? AND sr_create_date <= ?',start, due).
+  where(sr_type_2: 'Missed Heavy Trash Pickup').count
+  Sr.separate_comma(variable)
+  end
+
+  def self.oct_2019_missed_hvy
+  start = DateTime.parse('2019-10-01T00:00:00+00:00')
+  due= DateTime.parse('2019-10-31T23:59:59+00:00')
+  variable= Sr.where('sr_create_date >= ? AND sr_create_date <= ?',start, due).
+  where(sr_type_2: 'Missed Heavy Trash Pickup').count
+  Sr.separate_comma(variable)
+  end
+  def self.sept_2019_missed_hvy
+  start = DateTime.parse('2019-09-01T00:00:00+00:00')
+  due= DateTime.parse('2019-09-30T23:59:59+00:00')
+  variable= Sr.where('sr_create_date >= ? AND sr_create_date <= ?',start, due).
+  where(sr_type_2: 'Missed Heavy Trash Pickup').count
+  Sr.separate_comma(variable)
+  end
+    def self.august_2019_missed_hvy
+      start = DateTime.parse('2019-08-01T00:00:00+00:00')
+      due= DateTime.parse('2019-08-31T23:59:59+00:00')
+      variable= Sr.where('sr_create_date >= ? AND sr_create_date <= ?',start, due).
+      where(sr_type_2: 'Missed Heavy Trash Pickup').count
+      Sr.separate_comma(variable)
+    end
+    def self.july_2019_missed_hvy
+      start = DateTime.parse('2019-07-01T00:00:00+00:00')
+      due= DateTime.parse('2019-07-31T23:59:59+00:00')
+      variable = Sr.where('sr_create_date >= ? AND sr_create_date <= ?',start, due).
+      where(sr_type_2: 'Missed Heavy Trash Pickup').count
+      Sr.separate_comma(variable)
+    end
+    def self.total_missed_garbage
+      start = DateTime.parse('2019-07-01T00:00:00+00:00')
+      due= DateTime.parse('2021-6-30T23:59:59+00:00')
+      variable= Sr.where('sr_create_date >= ? AND sr_create_date <= ?',start, due).
+      where(sr_type_2: 'Missed Garbage Pickup').count
+      Sr.separate_comma(variable)
+    end
+  def self.fy_2021_missed_garbage
+    start = DateTime.parse('2020-07-01T00:00:00+00:00')
+    due= DateTime.parse('2021-6-30T23:59:59+00:00')
+    variable= Sr.where('sr_create_date >= ? AND sr_create_date <= ?',start, due).
+    where(sr_type_2: 'Missed Garbage Pickup').count
+    Sr.separate_comma(variable)
+  end
+  def self.june_2020_missed_garbage
+    start = DateTime.parse('2020-6-01T00:00:00+00:00')
+    due= DateTime.parse('2020-6-30T23:59:59+00:00')
+    variable= Sr.where('sr_create_date >= ? AND sr_create_date <= ?',start, due).
+    where(sr_type_2: 'Missed Garbage Pickup').count
+    Sr.separate_comma(variable)
+  end
+  def self.may_2020_missed_garbage
+    start = DateTime.parse('2020-5-01T00:00:00+00:00')
+    due= DateTime.parse('2020-5-31T23:59:59+00:00')
+    variable= Sr.where('sr_create_date >= ? AND sr_create_date <= ?',start, due).
+    where(sr_type_2: 'Missed Garbage Pickup').count
+    Sr.separate_comma(variable)
+  end
+  def self.april_2020_missed_garbage
+    start = DateTime.parse('2020-4-01T00:00:00+00:00')
+    due= DateTime.parse('2020-4-30T23:59:59+00:00')
+    variable= Sr.where('sr_create_date >= ? AND sr_create_date <= ?',start, due).
+    where(sr_type_2: 'Missed Garbage Pickup').count
+    Sr.separate_comma(variable)
+  end
+  def self.mar_2020_missed_garbage
+    start = DateTime.parse('2020-3-01T00:00:00+00:00')
+    due= DateTime.parse('2020-3-31T23:59:59+00:00')
+    variable= Sr.where('sr_create_date >= ? AND sr_create_date <= ?',start, due).
+    where(sr_type_2: 'Missed Garbage Pickup').count
+    Sr.separate_comma(variable)
+  end
+  def self.feb_2020_missed_garbage
+    start = DateTime.parse('2020-2-01T00:00:00+00:00')
+    due= DateTime.parse('2020-2-29T23:59:59+00:00')
+    variable= Sr.where('sr_create_date >= ? AND sr_create_date <= ?',start, due).
+    where(sr_type_2: 'Missed Garbage Pickup').count
+    Sr.separate_comma(variable)
+  end
+  def self.jan_2020_missed_garbage
+  start = DateTime.parse('2020-1-01T00:00:00+00:00')
+  due= DateTime.parse('2020-1-31T23:59:59+00:00')
+  variable= Sr.where('sr_create_date >= ? AND sr_create_date <= ?',start, due).
+  where(sr_type_2: 'Missed Garbage Pickup').count
+  Sr.separate_comma(variable)
+  end
+  def self.dec_2019_missed_garbage
+  start = DateTime.parse('2019-12-01T00:00:00+00:00')
+  due= DateTime.parse('2019-12-31T23:59:59+00:00')
+  variable= Sr.where('sr_create_date >= ? AND sr_create_date <= ?',start, due).
+  where(sr_type_2: 'Missed Garbage Pickup').count
+  Sr.separate_comma(variable)
+  end
+  def self.nov_2019_missed_garbage
+  start = DateTime.parse('2019-11-01T00:00:00+00:00')
+  due= DateTime.parse('2019-11-30T23:59:59+00:00')
+  variable= Sr.where('sr_create_date >= ? AND sr_create_date <= ?',start, due).
+  where(sr_type_2: 'Missed Garbage Pickup').count
+  Sr.separate_comma(variable)
+  end
+
+  def self.oct_2019_missed_garbage
+  start = DateTime.parse('2019-10-01T00:00:00+00:00')
+  due= DateTime.parse('2019-10-31T23:59:59+00:00')
+  variable= Sr.where('sr_create_date >= ? AND sr_create_date <= ?',start, due).
+  where(sr_type_2: 'Missed Garbage Pickup').count
+  Sr.separate_comma(variable)
+  end
+  def self.sept_2019_missed_garbage
+  start = DateTime.parse('2019-09-01T00:00:00+00:00')
+  due= DateTime.parse('2019-09-30T23:59:59+00:00')
+  variable= Sr.where('sr_create_date >= ? AND sr_create_date <= ?',start, due).
+  where(sr_type_2: 'Missed Garbage Pickup').count
+  Sr.separate_comma(variable)
+  end
+    def self.august_2019_missed_garbage
+      start = DateTime.parse('2019-08-01T00:00:00+00:00')
+      due= DateTime.parse('2019-08-31T23:59:59+00:00')
+      variable= Sr.where('sr_create_date >= ? AND sr_create_date <= ?',start, due).
+      where(sr_type_2: 'Missed Garbage Pickup').count
+      Sr.separate_comma(variable)
+    end
+    def self.july_2019_missed_garbage
+      start = DateTime.parse('2019-07-01T00:00:00+00:00')
+      due= DateTime.parse('2019-07-31T23:59:59+00:00')
+      variable = Sr.where('sr_create_date >= ? AND sr_create_date <= ?',start, due).
+      where(sr_type_2: 'Missed Garbage Pickup').count
+      Sr.separate_comma(variable)
+    end
+    def self.total_containers_related
+      start = DateTime.parse('2019-07-01T00:00:00+00:00')
+      due= DateTime.parse('2021-6-30T23:59:59+00:00')
+      variable= Sr.where('sr_create_date >= ? AND sr_create_date <= ?',start, due).
+      where(sr_type_2: 'Containers Related').count
+      Sr.separate_comma(variable)
+    end
+
+    def self.fy_2021_containers_related
+      start = DateTime.parse('2020-07-01T00:00:00+00:00')
+      due= DateTime.parse('2021-6-30T23:59:59+00:00')
+      variable= Sr.where('sr_create_date >= ? AND sr_create_date <= ?',start, due).
+      where(sr_type_2: 'Containers Related').count
+      Sr.separate_comma(variable)
+    end
+    def self.june_2020_containers_related
+      start = DateTime.parse('2020-6-01T00:00:00+00:00')
+      due= DateTime.parse('2020-6-30T23:59:59+00:00')
+      variable= Sr.where('sr_create_date >= ? AND sr_create_date <= ?',start, due).
+      where(sr_type_2: 'Containers Related').count
+      Sr.separate_comma(variable)
+    end
+    def self.may_2020_containers_related
+      start = DateTime.parse('2020-5-01T00:00:00+00:00')
+      due= DateTime.parse('2020-5-31T23:59:59+00:00')
+      variable= Sr.where('sr_create_date >= ? AND sr_create_date <= ?',start, due).
+      where(sr_type_2: 'Containers Related').count
+      Sr.separate_comma(variable)
+    end
+    def self.april_2020_containers_related
+      start = DateTime.parse('2020-4-01T00:00:00+00:00')
+      due= DateTime.parse('2020-4-30T23:59:59+00:00')
+      variable= Sr.where('sr_create_date >= ? AND sr_create_date <= ?',start, due).
+      where(sr_type_2: 'Containers Related').count
+      Sr.separate_comma(variable)
+    end
+    def self.mar_2020_containers_related
+      start = DateTime.parse('2020-3-01T00:00:00+00:00')
+      due= DateTime.parse('2020-3-31T23:59:59+00:00')
+      variable= Sr.where('sr_create_date >= ? AND sr_create_date <= ?',start, due).
+      where(sr_type_2: 'Containers Related').count
+      Sr.separate_comma(variable)
+    end
+    def self.feb_2020_containers_related
+      start = DateTime.parse('2020-2-01T00:00:00+00:00')
+      due= DateTime.parse('2020-2-29T23:59:59+00:00')
+      variable= Sr.where('sr_create_date >= ? AND sr_create_date <= ?',start, due).
+      where(sr_type_2: 'Containers Related').count
+      Sr.separate_comma(variable)
+    end
+    def self.jan_2020_containers_related
+    start = DateTime.parse('2020-1-01T00:00:00+00:00')
+    due= DateTime.parse('2020-1-31T23:59:59+00:00')
+    variable= Sr.where('sr_create_date >= ? AND sr_create_date <= ?',start, due).
+    where(sr_type_2: 'Containers Related').count
+    Sr.separate_comma(variable)
+    end
+    def self.dec_2019_containers_related
+    start = DateTime.parse('2019-12-01T00:00:00+00:00')
+    due= DateTime.parse('2019-12-31T23:59:59+00:00')
+    variable= Sr.where('sr_create_date >= ? AND sr_create_date <= ?',start, due).
+    where(sr_type_2: 'Containers Related').count
+    Sr.separate_comma(variable)
+    end
+    def self.nov_2019_containers_related
+    start = DateTime.parse('2019-11-01T00:00:00+00:00')
+    due= DateTime.parse('2019-11-30T23:59:59+00:00')
+    variable= Sr.where('sr_create_date >= ? AND sr_create_date <= ?',start, due).
+    where(sr_type_2: 'Containers Related').count
+    Sr.separate_comma(variable)
+    end
+
+    def self.oct_2019_containers_related
+    start = DateTime.parse('2019-10-01T00:00:00+00:00')
+    due= DateTime.parse('2019-10-31T23:59:59+00:00')
+    variable= Sr.where('sr_create_date >= ? AND sr_create_date <= ?',start, due).
+    where(sr_type_2: 'Containers Related').count
+    Sr.separate_comma(variable)
+    end
+    def self.sept_2019_containers_related
+    start = DateTime.parse('2019-09-01T00:00:00+00:00')
+    due= DateTime.parse('2019-09-30T23:59:59+00:00')
+    variable= Sr.where('sr_create_date >= ? AND sr_create_date <= ?',start, due).
+    where(sr_type_2: 'Containers Related').count
+    Sr.separate_comma(variable)
+    end
+      def self.august_2019_containers_related
+        start = DateTime.parse('2019-08-01T00:00:00+00:00')
+        due= DateTime.parse('2019-08-31T23:59:59+00:00')
+        variable= Sr.where('sr_create_date >= ? AND sr_create_date <= ?',start, due).
+        where(sr_type_2: 'Containers Related').count
+        Sr.separate_comma(variable)
+      end
+      def self.july_2019_containers_related
+        start = DateTime.parse('2019-07-01T00:00:00+00:00')
+        due= DateTime.parse('2019-07-31T23:59:59+00:00')
+        variable = Sr.where('sr_create_date >= ? AND sr_create_date <= ?',start, due).
+        where(sr_type_2: 'Containers Related').count
+        Sr.separate_comma(variable)
+      end
+
       def self.sWM_call_volume_2017_2020
         start_date = Date.parse('2017-01-01')
         end_date = Date.parse('2020-06-30')
@@ -5616,5 +6113,8 @@ def self.new_services_list_2020
                'w+'){|f| f << list2.to_html}
       end
 
+      def self.separate_comma(number)
+        number.to_s.chars.to_a.reverse.each_slice(3).map(&:join).join(",").reverse
+      end
 
 end

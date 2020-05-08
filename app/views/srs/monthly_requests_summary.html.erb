@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <style>
+    table {
+       border-collapse:collapse;
+       border: 2px #0080ff solid;
+       }
+       td, th {
+       padding: 10px;
+       border-bottom: 2px solid #8ebf42;
+       border-radius: 5px;
+       text-align: left;
+       font-size: 18px;
+       }
+  tr:nth-child(even) {background-color: #f2f2f2;}
+  </style>
+</head>
+<body>
+    <h2>Citywide Service Requests Report by Month</h2>
+  <table cellspacing="15", exclass="table table-striped">
+  </table>
+  <table>
+      <tr>
+        <th>Category</th>
+        <th>July 2019</th>
+        <th>August 2019</th>
+        <th>September 2019</th>
+        <th>October 2019</th>
+        <th>November 2019</th>
+        <th>December 2019</th>
+        <th>January 2020</th>
+        <th>February 2020</th>
+        <th>March 2020</th>
+        <th>April 2020</th>
+        <th>May 2020</th>
+        <th>June 2020</th>
+        <th>FY2021</th>
+        <th>Total_To_Date</th>
+      </tr>
+      <tr>
+        <td>Containers Related</td>
+        <td><%=@July2019_Container_Related%></td>
+        <td><%=@August2019_Container_Related%></td>
+        <td><%=@Sept_2019_containers_related%></td>
+        <td><%=@Oct_2019_containers_related%></td>
+        <td><%=@Nov_2019_containers_related%></td>
+        <td><%=@Dec_2019_containers_related%></td>
+        <td><%=@jan_2020_containers_related%></td>
+        <td><%=@feb_2020_containers_related%></td>
+        <td><%=@mar_2020_containers_related%></td>
+        <td><%=@apr_2020_containers_related%></td>
+        <td><%=@may_2020_containers_related%></td>
+        <td><%=@jun_2020_containers_related%></td>
+        <td><%=@fy_2021_containers_related%></td>
+        <td><%=@total_containers_related%></td>
+      </tr>
+      <tr>
+        <td>Missed Garbage Pickup</td>
+        <td><%=@Jul_2019_missed_garbage%></td>
+        <td><%=@Aug_2019_missed_garbage%></td>
+        <td><%=@Sept_2019_missed_garbage%></td>
+        <td><%=@Oct_2019_missed_garbage%></td>
+        <td><%=@Nov_2019_missed_garbage%></td>
+        <td><%=@Dec_2019_missed_garbage%></td>
+        <td><%=@jan_2020_missed_garbage%></td>
+        <td><%=@feb_2020_missed_garbage%></td>
+        <td><%=@mar_2020_missed_garbage%></td>
+        <td><%=@apr_2020_missed_garbage%></td>
+        <td><%=@may_2020_missed_garbage%></td>
+        <td><%=@jun_2020_missed_garbage%></td>
+        <td><%=@fy_2021_missed_garbage%></td>
+        <td><%=@total_missed_garbage%></td>
+      </tr>
+      <tr>
+        <td>Missed Heavy Trash Pickup</td>
+        <td><%=@Jul_2019_missed_hvy%></td>
+        <td><%=@Aug_2019_missed_hvy%></td>
+        <td><%=@Sept_2019_missed_hvy%></td>
+        <td><%=@Oct_2019_missed_hvy%></td>
+        <td><%=@Nov_2019_missed_hvy%></td>
+        <td><%=@Dec_2019_missed_hvy%></td>
+        <td><%=@jan_2020_missed_hvy%></td>
+        <td><%=@feb_2020_missed_hvy%></td>
+        <td><%=@mar_2020_missed_hvy%></td>
+        <td><%=@apr_2020_missed_hvy%></td>
+        <td><%=@may_2020_missed_hvy%></td>
+        <td><%=@jun_2020_missed_hvy%></td>
+        <td><%=@fy_2021_missed_hvy%></td>
+        <td><%=@total_missed_hvy%></td>
+      </tr>
+      <tr>
+        <td>Missed Recycling Pickup</td>
+        <td><%=@Jul_2019_missed_rec%></td>
+        <td><%=@Aug_2019_missed_rec%></td>
+        <td><%=@Sept_2019_missed_rec%></td>
+        <td><%=@Oct_2019_missed_rec%></td>
+        <td><%=@Nov_2019_missed_rec%></td>
+        <td><%=@Dec_2019_missed_rec%></td>
+        <td><%=@jan_2020_missed_rec%></td>
+        <td><%=@feb_2020_missed_rec%></td>
+        <td><%=@mar_2020_missed_rec%></td>
+        <td><%=@apr_2020_missed_rec%></td>
+        <td><%=@may_2020_missed_rec%></td>
+        <td><%=@jun_2020_missed_rec%></td>
+        <td><%=@fy_2021_missed_rec%></td>
+        <td><%=@total_missed_rec%></td>
+      </tr>
+      <tr>
+        <td>Missed Yard Waste Pickup</td>
+        <td><%=@Jul_2019_missed_yar%></td>
+        <td><%=@Aug_2019_missed_yar%></td>
+        <td><%=@Sept_2019_missed_yar%></td>
+        <td><%=@Oct_2019_missed_yar%></td>
+        <td><%=@Nov_2019_missed_yar%></td>
+        <td><%=@Dec_2019_missed_yar%></td>
+        <td><%=@jan_2020_missed_yar%></td>
+        <td><%=@feb_2020_missed_yar%></td>
+        <td><%=@mar_2020_missed_yar%></td>
+        <td><%=@apr_2020_missed_yar%></td>
+        <td><%=@may_2020_missed_yar%></td>
+        <td><%=@jun_2020_missed_yar%></td>
+        <td><%=@fy_2021_missed_yar%></td>
+        <td><%=@total_missed_yar%></td>
+      </tr>
+    </table>
+  </html>

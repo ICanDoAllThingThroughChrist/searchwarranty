@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'srs/monthly_requests_summary'
   # get '../maps/1st-Monday-OverdueHvy.js'
   # get '../maps/leaf-demo.js'
   get 'public/first_monday_OverdueHvy'
