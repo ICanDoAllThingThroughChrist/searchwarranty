@@ -248,26 +248,35 @@ class OpenSr < ApplicationRecord
   end
   def self.daily_update_from_url
     puts "expect 16 minutes upload time to DB"
-    OpenSr.delete_180_days_from_now
-     web2 = open('https://hfdapp.houstontx.gov/311/311-Public-Data-Extract-2019-clean.txt'){|f|
-         f.read
-       }
-     things2 = web2.split(/\n/)#create an array
-     things2.in_groups_of(300000){|group|
-       OpenSr.sr_create(group)
-     }
-     array1 = []
-     array1.push things2[300001..400000]
-     array1.each{|group|
-       while group != nil
-        OpenSr.sr_create(group)
-      end
-     }
-    web1 = open('https://hfdapp.houstontx.gov/311/311-Public-Data-Extract-monthly-clean.txt'){|f|
-       f.read
-     }
-    things1 = web1.split(/\n/)
-    OpenSr.sr_create(things1)
+      Sr.where("sr_create_date >=? AND sr_create_date <= ?", start_date, endDate).delete_all
+      web1 = open('https://hfdapp.houstontx.gov/311/311-Public-Data-Extract-monthly-clean.txt'){|f| f.read}
+      web2 = open('https://hfdapp.houstontx.gov/311/311-Public-Data-Extract-2019-clean.txt'){|f| f.read}
+      things1 = web1.split(/\n/)#creates an  new array
+      things2 = web2.split(/\n/)#creates an  new array
+
+      columns = %i[case_number sr_location county district neighborhood tax_id
+        trash_quad recycle_quad trash_day heavy_trash_day recycle_day
+         key_map management_district department division sr_type queue
+          sla status sr_create_date due_date date_closed overdue title
+           x y latitude longitude channel_type created_at updated_at]
+
+       things1.each {|sr|
+           # byebug
+           b=sr.split('|')
+           c=Hash[columns.zip(b)]
+           # byebug
+           Sr.create(c)
+           # byebug
+        }
+        things2.each {|sr|
+            # byebug
+            b=sr.split('|')
+            c=Hash[columns.zip(b)]
+            # byebug
+            Sr.create(c)
+            # byebug
+         }
+         Sr.pivot
     puts "thank you, daily upload process is completed"
   end
   def self.sr_create(array)
@@ -338,7 +347,7 @@ def self.daily_update_from_lagan
         headers: true,
         header_converters: :symbol,converters: :all}) {|row|
     # binding.pry
-   OpenSr.create(row.to_hash)
+   Sr.create(row.to_hash)
     # binding.pry
   }
   CSV.foreach("C:/Users/e128289/Downloads/SWM All Data with Resolution Time-February2020.csv",
@@ -346,7 +355,7 @@ def self.daily_update_from_lagan
         headers: true,
         header_converters: :symbol,converters: :all}) {|row|
     # binding.pry
-   OpenSr.create(row.to_hash)
+   Sr.create(row.to_hash)
     # binding.pry
   }
   CSV.foreach("C:/Users/e128289/Downloads/SWM All Data with Resolution Time-March2020.csv",
@@ -354,7 +363,7 @@ def self.daily_update_from_lagan
         headers: true,
         header_converters: :symbol,converters: :all}) {|row|
     # binding.pry
-   OpenSr.create(row.to_hash)
+   Sr.create(row.to_hash)
     # binding.pry
   }
   CSV.foreach("C:/Users/e128289/Downloads/SWM All Data with Resolution Time-April2020.csv",
@@ -362,7 +371,7 @@ def self.daily_update_from_lagan
         headers: true,
         header_converters: :symbol,converters: :all}) {|row|
     # binding.pry
-   OpenSr.create(row.to_hash)
+   Sr.create(row.to_hash)
     # binding.pry
   }
 end
