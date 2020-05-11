@@ -125,6 +125,7 @@ class OpenSrsController < ApplicationController
         cans_related_list_FY2018_count
       @Total_cans_related_list_FY2017 = Sr.
         cans_related_list_FY2017_count
+
       render 'cans_related_requests'
 
     end

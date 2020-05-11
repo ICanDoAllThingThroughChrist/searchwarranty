@@ -4415,22 +4415,11 @@ def self.new_services_list_2020
           start_date, end_date).
         where(
           district: 'A',
-          sr_type: ['Missed Yard Waste Pickup',
+          sr_type_2: ['Missed Yard Waste Pickup',
           'Missed Recycling Pickup',
           'Missed Heavy Trash Pickup',
           'Missed Garbage Pickup',
-          'New Move In Service',
-          'Add A Can',
-          'Add A Can CANCELLATION',
-          'Add A Cart',
-          'Add A Cart CANCELLATION',
-          'Container Problem',
-          'New Resident Container',
-          'Recycle Bin/Cart Retrieve',
-          'Recycling Cart Repair or Replace',
-          'Recycling Participation NEW',
-          'Unauthorized Container Retrieval',
-          'SWM Escalation'])
+          'Containers Related'])
 
         services_list.each {|service_request|
           # binding.pry
@@ -4498,23 +4487,12 @@ def self.new_services_list_2020
             start_date, end_date).
             where(department: 'SWM Solid Waste Management',
               district: 'A',
-              sr_type: [
+              sr_type_2: [
                 'Missed Yard Waste Pickup',
                 'Missed Recycling Pickup',
                 'Missed Heavy Trash Pickup',
                 'Missed Garbage Pickup',
-                'New Move In Service',
-                'Add A Can',
-                'Add A Can CANCELLATION',
-                'Add A Cart',
-                'Add A Cart CANCELLATION',
-                'Container Problem',
-                'New Resident Container',
-                'Recycle Bin/Cart Retrieve',
-                'Recycling Cart Repair or Replace',
-                'Recycling Participation NEW',
-                'Unauthorized Container Retrieval',
-                'SWM Escalation']).
+                'Containers Related']).
           pluck(:id, :case_number, :sr_location, :county, :district, :neighborhood,
              :tax_id, :trash_quad, :recycle_quad, :trash_day, :heavy_trash_day,
               :recycle_day, :key_map, :management_district, :department,
@@ -4528,7 +4506,7 @@ def self.new_services_list_2020
                       :expression, :ne_overdue, :ne_not_overdue, :ne_sr_total,
                        :nw_overdue, :nw_not_overdue, :nw_sr_total, :se_overdue,
                         :se_not_overdue, :se_sr_total, :sw_overdue, :sw_not_overdue,
-                         :sw_sr_total, :quad_status, :tally, :month_yr)
+                         :sw_sr_total, :quad_status, :tally, :month_yr,:sr_type_2)
           headers = %w[id case_number sr_location county district neighborhood
              tax_id trash_quad recycle_quad trash_day heavy_trash_day recycle_day
               key_map management_district department division sr_type queue sla
@@ -4540,7 +4518,8 @@ def self.new_services_list_2020
                     recycle_route resolution_time expression ne_overdue
                      ne_not_overdue ne_sr_total nw_overdue nw_not_overdue
                       nw_sr_total se_overdue se_not_overdue se_sr_total sw_overdue
-                       sw_not_overdue sw_sr_total quad_status tally month_yr]
+                       sw_not_overdue sw_sr_total quad_status tally month_yr
+                     sr_type_2]
           CSV.open("../searchwarranty/districtA_missed_services_FY20.csv", "wb",
              write_headers: true, headers: headers) do |csv|
                services_list_values.each do |row|
@@ -4552,14 +4531,14 @@ def self.new_services_list_2020
           Daru::DataFrame.from_csv '../searchwarranty/districtA_missed_services_FY20.csv'
 
           list2 =
-          sales2.pivot_table(index:['sr_type'],
+          sales2.pivot_table(index:['sr_type_2'],
                values:'tally',
                vectors:['month_yr'],  agg:  :sum)
 
-         File.open('../searchwarranty/app/views/srs/districtA_missed_services_FY20.html.erb',
+         File.open('../searchwarranty/app/views/srs/_districtA_missed_services_FY20.html.erb',
                'w+'){|f| f << list2.to_html}
 
-          File.open('../searchwarranty/app/views/srs/districtA_missed_services_FY20.html',
+          File.open('../searchwarranty/app/views/srs/_districtA_missed_services_FY20.html',
                'w+'){|f| f << list2.to_html}
       end
       def self.missed_sr_related_pivot_FY20_district_B
@@ -4574,18 +4553,7 @@ def self.new_services_list_2020
           'Missed Recycling Pickup',
           'Missed Heavy Trash Pickup',
           'Missed Garbage Pickup',
-          'New Move In Service',
-          'Add A Can',
-          'Add A Can CANCELLATION',
-          'Add A Cart',
-          'Add A Cart CANCELLATION',
-          'Container Problem',
-          'New Resident Container',
-          'Recycle Bin/Cart Retrieve',
-          'Recycling Cart Repair or Replace',
-          'Recycling Participation NEW',
-          'Unauthorized Container Retrieval',
-          'SWM Escalation'])
+          'Containers Related'])
 
         services_list.each {|service_request|
           # binding.pry
@@ -4658,18 +4626,7 @@ def self.new_services_list_2020
                 'Missed Recycling Pickup',
                 'Missed Heavy Trash Pickup',
                 'Missed Garbage Pickup',
-                'New Move In Service',
-                'Add A Can',
-                'Add A Can CANCELLATION',
-                'Add A Cart',
-                'Add A Cart CANCELLATION',
-                'Container Problem',
-                'New Resident Container',
-                'Recycle Bin/Cart Retrieve',
-                'Recycling Cart Repair or Replace',
-                'Recycling Participation NEW',
-                'Unauthorized Container Retrieval',
-                'SWM Escalation']).
+                'Containers Related']).
           pluck(:id, :case_number, :sr_location, :county, :district, :neighborhood,
              :tax_id, :trash_quad, :recycle_quad, :trash_day, :heavy_trash_day,
               :recycle_day, :key_map, :management_district, :department,
@@ -4683,7 +4640,7 @@ def self.new_services_list_2020
                       :expression, :ne_overdue, :ne_not_overdue, :ne_sr_total,
                        :nw_overdue, :nw_not_overdue, :nw_sr_total, :se_overdue,
                         :se_not_overdue, :se_sr_total, :sw_overdue, :sw_not_overdue,
-                         :sw_sr_total, :quad_status, :tally, :month_yr)
+                         :sw_sr_total, :quad_status, :tally, :month_yr, :sr_type_2)
           headers = %w[id case_number sr_location county district neighborhood
              tax_id trash_quad recycle_quad trash_day heavy_trash_day recycle_day
               key_map management_district department division sr_type queue sla
@@ -4695,7 +4652,8 @@ def self.new_services_list_2020
                     recycle_route resolution_time expression ne_overdue
                      ne_not_overdue ne_sr_total nw_overdue nw_not_overdue
                       nw_sr_total se_overdue se_not_overdue se_sr_total sw_overdue
-                       sw_not_overdue sw_sr_total quad_status tally month_yr]
+                       sw_not_overdue sw_sr_total quad_status tally month_yr
+                     sr_type_2]
           CSV.open("../searchwarranty/districtB_missed_services_FY20.csv", "wb",
              write_headers: true, headers: headers) do |csv|
                services_list_values.each do |row|
@@ -4707,14 +4665,14 @@ def self.new_services_list_2020
           Daru::DataFrame.from_csv '../searchwarranty/districtB_missed_services_FY20.csv'
 
           list2 =
-          sales2.pivot_table(index:['sr_type'],
+          sales2.pivot_table(index:['sr_type_2'],
                values:'tally',
                vectors:['month_yr'],  agg:  :sum)
 
-         File.open('../searchwarranty/app/views/srs/districtB_missed_services_FY20.html.erb',
+         File.open('../searchwarranty/app/views/srs/_districtB_missed_services_FY20.html.erb',
                'w+'){|f| f << list2.to_html}
 
-          File.open('../searchwarranty/app/views/srs/districtB_missed_services_FY20.html',
+          File.open('../searchwarranty/app/views/srs/_districtB_missed_services_FY20.html',
                'w+'){|f| f << list2.to_html}
       end
       def self.missed_sr_related_pivot_FY20_district_C
@@ -4729,18 +4687,7 @@ def self.new_services_list_2020
           'Missed Recycling Pickup',
           'Missed Heavy Trash Pickup',
           'Missed Garbage Pickup',
-          'New Move In Service',
-          'Add A Can',
-          'Add A Can CANCELLATION',
-          'Add A Cart',
-          'Add A Cart CANCELLATION',
-          'Container Problem',
-          'New Resident Container',
-          'Recycle Bin/Cart Retrieve',
-          'Recycling Cart Repair or Replace',
-          'Recycling Participation NEW',
-          'Unauthorized Container Retrieval',
-          'SWM Escalation'])
+          'Containers Related'])
 
         services_list.each {|service_request|
           # binding.pry
@@ -4808,23 +4755,12 @@ def self.new_services_list_2020
             start_date, end_date).
             where(department: 'SWM Solid Waste Management',
               district: 'C',
-              sr_type: [
+              sr_type_2: [
                 'Missed Yard Waste Pickup',
                 'Missed Recycling Pickup',
                 'Missed Heavy Trash Pickup',
                 'Missed Garbage Pickup',
-                'New Move In Service',
-                'Add A Can',
-                'Add A Can CANCELLATION',
-                'Add A Cart',
-                'Add A Cart CANCELLATION',
-                'Container Problem',
-                'New Resident Container',
-                'Recycle Bin/Cart Retrieve',
-                'Recycling Cart Repair or Replace',
-                'Recycling Participation NEW',
-                'Unauthorized Container Retrieval',
-                'SWM Escalation']).
+                'Containers Related']).
           pluck(:id, :case_number, :sr_location, :county, :district, :neighborhood,
              :tax_id, :trash_quad, :recycle_quad, :trash_day, :heavy_trash_day,
               :recycle_day, :key_map, :management_district, :department,
@@ -4838,7 +4774,7 @@ def self.new_services_list_2020
                       :expression, :ne_overdue, :ne_not_overdue, :ne_sr_total,
                        :nw_overdue, :nw_not_overdue, :nw_sr_total, :se_overdue,
                         :se_not_overdue, :se_sr_total, :sw_overdue, :sw_not_overdue,
-                         :sw_sr_total, :quad_status, :tally, :month_yr)
+                         :sw_sr_total, :quad_status, :tally, :month_yr, :sr_type_2)
           headers = %w[id case_number sr_location county district neighborhood
              tax_id trash_quad recycle_quad trash_day heavy_trash_day recycle_day
               key_map management_district department division sr_type queue sla
@@ -4850,7 +4786,8 @@ def self.new_services_list_2020
                     recycle_route resolution_time expression ne_overdue
                      ne_not_overdue ne_sr_total nw_overdue nw_not_overdue
                       nw_sr_total se_overdue se_not_overdue se_sr_total sw_overdue
-                       sw_not_overdue sw_sr_total quad_status tally month_yr]
+                       sw_not_overdue sw_sr_total quad_status tally month_yr
+                     sr_type_2]
           CSV.open("../searchwarranty/districtC_missed_services_FY20.csv", "wb",
              write_headers: true, headers: headers) do |csv|
                services_list_values.each do |row|
@@ -4862,14 +4799,14 @@ def self.new_services_list_2020
           Daru::DataFrame.from_csv '../searchwarranty/districtC_missed_services_FY20.csv'
 
           list2 =
-          sales2.pivot_table(index:['sr_type'],
+          sales2.pivot_table(index:['sr_type_2'],
                values:'tally',
                vectors:['month_yr'],  agg:  :sum)
 
-         File.open('../searchwarranty/app/views/srs/districtC_missed_services_FY20.html.erb',
+         File.open('../searchwarranty/app/views/srs/_districtC_missed_services_FY20.html.erb',
                'w+'){|f| f << list2.to_html}
 
-          File.open('../searchwarranty/app/views/srs/districtC_missed_services_FY20.html',
+          File.open('../searchwarranty/app/views/srs/_districtC_missed_services_FY20.html',
                'w+'){|f| f << list2.to_html}
       end
       def self.missed_sr_related_pivot_FY20_district_D
@@ -4880,22 +4817,11 @@ def self.new_services_list_2020
           start_date, end_date).
         where(
           district: 'D',
-          sr_type: ['Missed Yard Waste Pickup',
+          sr_type_2: ['Missed Yard Waste Pickup',
           'Missed Recycling Pickup',
           'Missed Heavy Trash Pickup',
           'Missed Garbage Pickup',
-          'New Move In Service',
-          'Add A Can',
-          'Add A Can CANCELLATION',
-          'Add A Cart',
-          'Add A Cart CANCELLATION',
-          'Container Problem',
-          'New Resident Container',
-          'Recycle Bin/Cart Retrieve',
-          'Recycling Cart Repair or Replace',
-          'Recycling Participation NEW',
-          'Unauthorized Container Retrieval',
-          'SWM Escalation'])
+          'Containers Related'])
 
         services_list.each {|service_request|
           # binding.pry
@@ -4963,23 +4889,12 @@ def self.new_services_list_2020
             start_date, end_date).
             where(department: 'SWM Solid Waste Management',
               district: 'D',
-              sr_type: [
+              sr_type_2: [
                 'Missed Yard Waste Pickup',
                 'Missed Recycling Pickup',
                 'Missed Heavy Trash Pickup',
                 'Missed Garbage Pickup',
-                'New Move In Service',
-                'Add A Can',
-                'Add A Can CANCELLATION',
-                'Add A Cart',
-                'Add A Cart CANCELLATION',
-                'Container Problem',
-                'New Resident Container',
-                'Recycle Bin/Cart Retrieve',
-                'Recycling Cart Repair or Replace',
-                'Recycling Participation NEW',
-                'Unauthorized Container Retrieval',
-                'SWM Escalation']).
+                'Containers Related']).
           pluck(:id, :case_number, :sr_location, :county, :district, :neighborhood,
              :tax_id, :trash_quad, :recycle_quad, :trash_day, :heavy_trash_day,
               :recycle_day, :key_map, :management_district, :department,
@@ -4993,7 +4908,7 @@ def self.new_services_list_2020
                       :expression, :ne_overdue, :ne_not_overdue, :ne_sr_total,
                        :nw_overdue, :nw_not_overdue, :nw_sr_total, :se_overdue,
                         :se_not_overdue, :se_sr_total, :sw_overdue, :sw_not_overdue,
-                         :sw_sr_total, :quad_status, :tally, :month_yr)
+                         :sw_sr_total, :quad_status, :tally, :month_yr, :sr_type_2)
           headers = %w[id case_number sr_location county district neighborhood
              tax_id trash_quad recycle_quad trash_day heavy_trash_day recycle_day
               key_map management_district department division sr_type queue sla
@@ -5005,7 +4920,8 @@ def self.new_services_list_2020
                     recycle_route resolution_time expression ne_overdue
                      ne_not_overdue ne_sr_total nw_overdue nw_not_overdue
                       nw_sr_total se_overdue se_not_overdue se_sr_total sw_overdue
-                       sw_not_overdue sw_sr_total quad_status tally month_yr]
+                       sw_not_overdue sw_sr_total quad_status tally month_yr
+                     sr_type_2]
           CSV.open("../searchwarranty/districtD_missed_services_FY20.csv", "wb",
              write_headers: true, headers: headers) do |csv|
                services_list_values.each do |row|
@@ -5017,14 +4933,14 @@ def self.new_services_list_2020
           Daru::DataFrame.from_csv '../searchwarranty/districtD_missed_services_FY20.csv'
 
           list2 =
-          sales2.pivot_table(index:['sr_type'],
+          sales2.pivot_table(index:['sr_type_2'],
                values:'tally',
                vectors:['month_yr'],  agg:  :sum)
 
-         File.open('../searchwarranty/app/views/srs/districtD_missed_services_FY20.html.erb',
+         File.open('../searchwarranty/app/views/srs/_districtD_missed_services_FY20.html.erb',
                'w+'){|f| f << list2.to_html}
 
-          File.open('../searchwarranty/app/views/srs/districtD_missed_services_FY20.html',
+          File.open('../searchwarranty/app/views/srs/_districtD_missed_services_FY20.html',
                'w+'){|f| f << list2.to_html}
       end
       def self.missed_sr_related_pivot_FY20_district_E
@@ -5039,18 +4955,7 @@ def self.new_services_list_2020
           'Missed Recycling Pickup',
           'Missed Heavy Trash Pickup',
           'Missed Garbage Pickup',
-          'New Move In Service',
-          'Add A Can',
-          'Add A Can CANCELLATION',
-          'Add A Cart',
-          'Add A Cart CANCELLATION',
-          'Container Problem',
-          'New Resident Container',
-          'Recycle Bin/Cart Retrieve',
-          'Recycling Cart Repair or Replace',
-          'Recycling Participation NEW',
-          'Unauthorized Container Retrieval',
-          'SWM Escalation'])
+          'Containers Related'])
 
         services_list.each {|service_request|
           # binding.pry
@@ -5118,23 +5023,12 @@ def self.new_services_list_2020
             start_date, end_date).
             where(department: 'SWM Solid Waste Management',
               district: 'E',
-              sr_type: [
+              sr_type_2: [
                 'Missed Yard Waste Pickup',
                 'Missed Recycling Pickup',
                 'Missed Heavy Trash Pickup',
                 'Missed Garbage Pickup',
-                'New Move In Service',
-                'Add A Can',
-                'Add A Can CANCELLATION',
-                'Add A Cart',
-                'Add A Cart CANCELLATION',
-                'Container Problem',
-                'New Resident Container',
-                'Recycle Bin/Cart Retrieve',
-                'Recycling Cart Repair or Replace',
-                'Recycling Participation NEW',
-                'Unauthorized Container Retrieval',
-                'SWM Escalation']).
+                'Containers Related']).
           pluck(:id, :case_number, :sr_location, :county, :district, :neighborhood,
              :tax_id, :trash_quad, :recycle_quad, :trash_day, :heavy_trash_day,
               :recycle_day, :key_map, :management_district, :department,
@@ -5148,7 +5042,7 @@ def self.new_services_list_2020
                       :expression, :ne_overdue, :ne_not_overdue, :ne_sr_total,
                        :nw_overdue, :nw_not_overdue, :nw_sr_total, :se_overdue,
                         :se_not_overdue, :se_sr_total, :sw_overdue, :sw_not_overdue,
-                         :sw_sr_total, :quad_status, :tally, :month_yr)
+                         :sw_sr_total, :quad_status, :tally, :month_yr, :sr_type_2)
           headers = %w[id case_number sr_location county district neighborhood
              tax_id trash_quad recycle_quad trash_day heavy_trash_day recycle_day
               key_map management_district department division sr_type queue sla
@@ -5160,7 +5054,8 @@ def self.new_services_list_2020
                     recycle_route resolution_time expression ne_overdue
                      ne_not_overdue ne_sr_total nw_overdue nw_not_overdue
                       nw_sr_total se_overdue se_not_overdue se_sr_total sw_overdue
-                       sw_not_overdue sw_sr_total quad_status tally month_yr]
+                       sw_not_overdue sw_sr_total quad_status tally month_yr
+                     sr_type_2]
           CSV.open("../searchwarranty/districtE_missed_services_FY20.csv", "wb",
              write_headers: true, headers: headers) do |csv|
                services_list_values.each do |row|
@@ -5172,14 +5067,14 @@ def self.new_services_list_2020
           Daru::DataFrame.from_csv '../searchwarranty/districtE_missed_services_FY20.csv'
 
           list2 =
-          sales2.pivot_table(index:['sr_type'],
+          sales2.pivot_table(index:['sr_type_2'],
                values:'tally',
                vectors:['month_yr'],  agg:  :sum)
 
-         File.open('../searchwarranty/app/views/srs/districtE_missed_services_FY20.html.erb',
+         File.open('../searchwarranty/app/views/srs/_districtE_missed_services_FY20.html.erb',
                'w+'){|f| f << list2.to_html}
 
-          File.open('../searchwarranty/app/views/srs/districtE_missed_services_FY20.html',
+          File.open('../searchwarranty/app/views/srs/_districtE_missed_services_FY20.html',
                'w+'){|f| f << list2.to_html}
       end
       def self.missed_sr_related_pivot_FY20_district_F
@@ -5190,22 +5085,11 @@ def self.new_services_list_2020
           start_date, end_date).
         where(
           district: 'F',
-          sr_type: ['Missed Yard Waste Pickup',
+          sr_type_2: ['Missed Yard Waste Pickup',
           'Missed Recycling Pickup',
           'Missed Heavy Trash Pickup',
           'Missed Garbage Pickup',
-          'New Move In Service',
-          'Add A Can',
-          'Add A Can CANCELLATION',
-          'Add A Cart',
-          'Add A Cart CANCELLATION',
-          'Container Problem',
-          'New Resident Container',
-          'Recycle Bin/Cart Retrieve',
-          'Recycling Cart Repair or Replace',
-          'Recycling Participation NEW',
-          'Unauthorized Container Retrieval',
-          'SWM Escalation'])
+          'Containers Related'])
 
         services_list.each {|service_request|
           # binding.pry
@@ -5273,23 +5157,12 @@ def self.new_services_list_2020
             start_date, end_date).
             where(department: 'SWM Solid Waste Management',
               district: 'F',
-              sr_type: [
+              sr_type_2: [
                 'Missed Yard Waste Pickup',
                 'Missed Recycling Pickup',
                 'Missed Heavy Trash Pickup',
                 'Missed Garbage Pickup',
-                'New Move In Service',
-                'Add A Can',
-                'Add A Can CANCELLATION',
-                'Add A Cart',
-                'Add A Cart CANCELLATION',
-                'Container Problem',
-                'New Resident Container',
-                'Recycle Bin/Cart Retrieve',
-                'Recycling Cart Repair or Replace',
-                'Recycling Participation NEW',
-                'Unauthorized Container Retrieval',
-                'SWM Escalation']).
+                'Containes Related']).
           pluck(:id, :case_number, :sr_location, :county, :district, :neighborhood,
              :tax_id, :trash_quad, :recycle_quad, :trash_day, :heavy_trash_day,
               :recycle_day, :key_map, :management_district, :department,
@@ -5303,7 +5176,7 @@ def self.new_services_list_2020
                       :expression, :ne_overdue, :ne_not_overdue, :ne_sr_total,
                        :nw_overdue, :nw_not_overdue, :nw_sr_total, :se_overdue,
                         :se_not_overdue, :se_sr_total, :sw_overdue, :sw_not_overdue,
-                         :sw_sr_total, :quad_status, :tally, :month_yr)
+                         :sw_sr_total, :quad_status, :tally, :month_yr, :sr_type_2)
           headers = %w[id case_number sr_location county district neighborhood
              tax_id trash_quad recycle_quad trash_day heavy_trash_day recycle_day
               key_map management_district department division sr_type queue sla
@@ -5315,7 +5188,8 @@ def self.new_services_list_2020
                     recycle_route resolution_time expression ne_overdue
                      ne_not_overdue ne_sr_total nw_overdue nw_not_overdue
                       nw_sr_total se_overdue se_not_overdue se_sr_total sw_overdue
-                       sw_not_overdue sw_sr_total quad_status tally month_yr]
+                       sw_not_overdue sw_sr_total quad_status tally month_yr
+                     sr_type_2]
           CSV.open("../searchwarranty/districtF_missed_services_FY20.csv", "wb",
              write_headers: true, headers: headers) do |csv|
                services_list_values.each do |row|
@@ -5327,14 +5201,14 @@ def self.new_services_list_2020
           Daru::DataFrame.from_csv '../searchwarranty/districtF_missed_services_FY20.csv'
 
           list2 =
-          sales2.pivot_table(index:['sr_type'],
+          sales2.pivot_table(index:['sr_type_2'],
                values:'tally',
                vectors:['month_yr'],  agg:  :sum)
 
-         File.open('../searchwarranty/app/views/srs/districtF_missed_services_FY20.html.erb',
+         File.open('../searchwarranty/app/views/srs/_districtF_missed_services_FY20.html.erb',
                'w+'){|f| f << list2.to_html}
 
-          File.open('../searchwarranty/app/views/srs/districtF_missed_services_FY20.html',
+          File.open('../searchwarranty/app/views/srs/_districtF_missed_services_FY20.html',
                'w+'){|f| f << list2.to_html}
       end
       def self.missed_sr_related_pivot_FY20_district_G
@@ -5345,22 +5219,10 @@ def self.new_services_list_2020
           start_date, end_date).
         where(
           district: 'G',
-          sr_type: ['Missed Yard Waste Pickup',
+          sr_type_2: ['Missed Yard Waste Pickup',
           'Missed Recycling Pickup',
           'Missed Heavy Trash Pickup',
-          'Missed Garbage Pickup',
-          'New Move In Service',
-          'Add A Can',
-          'Add A Can CANCELLATION',
-          'Add A Cart',
-          'Add A Cart CANCELLATION',
-          'Container Problem',
-          'New Resident Container',
-          'Recycle Bin/Cart Retrieve',
-          'Recycling Cart Repair or Replace',
-          'Recycling Participation NEW',
-          'Unauthorized Container Retrieval',
-          'SWM Escalation'])
+          'Containers Related'])
 
         services_list.each {|service_request|
           # binding.pry
@@ -5428,23 +5290,12 @@ def self.new_services_list_2020
             start_date, end_date).
             where(department: 'SWM Solid Waste Management',
               district: 'G',
-              sr_type: [
+              sr_type_2: [
                 'Missed Yard Waste Pickup',
                 'Missed Recycling Pickup',
                 'Missed Heavy Trash Pickup',
                 'Missed Garbage Pickup',
-                'New Move In Service',
-                'Add A Can',
-                'Add A Can CANCELLATION',
-                'Add A Cart',
-                'Add A Cart CANCELLATION',
-                'Container Problem',
-                'New Resident Container',
-                'Recycle Bin/Cart Retrieve',
-                'Recycling Cart Repair or Replace',
-                'Recycling Participation NEW',
-                'Unauthorized Container Retrieval',
-                'SWM Escalation']).
+                'Containers Related']).
           pluck(:id, :case_number, :sr_location, :county, :district, :neighborhood,
              :tax_id, :trash_quad, :recycle_quad, :trash_day, :heavy_trash_day,
               :recycle_day, :key_map, :management_district, :department,
@@ -5458,7 +5309,7 @@ def self.new_services_list_2020
                       :expression, :ne_overdue, :ne_not_overdue, :ne_sr_total,
                        :nw_overdue, :nw_not_overdue, :nw_sr_total, :se_overdue,
                         :se_not_overdue, :se_sr_total, :sw_overdue, :sw_not_overdue,
-                         :sw_sr_total, :quad_status, :tally, :month_yr)
+                         :sw_sr_total, :quad_status, :tally, :month_yr, :sr_type_2)
           headers = %w[id case_number sr_location county district neighborhood
              tax_id trash_quad recycle_quad trash_day heavy_trash_day recycle_day
               key_map management_district department division sr_type queue sla
@@ -5470,7 +5321,8 @@ def self.new_services_list_2020
                     recycle_route resolution_time expression ne_overdue
                      ne_not_overdue ne_sr_total nw_overdue nw_not_overdue
                       nw_sr_total se_overdue se_not_overdue se_sr_total sw_overdue
-                       sw_not_overdue sw_sr_total quad_status tally month_yr]
+                       sw_not_overdue sw_sr_total quad_status tally month_yr
+                     sr_type_2]
           CSV.open("../searchwarranty/districtG_missed_services_FY20.csv", "wb",
              write_headers: true, headers: headers) do |csv|
                services_list_values.each do |row|
@@ -5482,14 +5334,14 @@ def self.new_services_list_2020
           Daru::DataFrame.from_csv '../searchwarranty/districtG_missed_services_FY20.csv'
 
           list2 =
-          sales2.pivot_table(index:['sr_type'],
+          sales2.pivot_table(index:['sr_type_2'],
                values:'tally',
                vectors:['month_yr'],  agg:  :sum)
 
-         File.open('../searchwarranty/app/views/srs/districtG_missed_services_FY20.html.erb',
+         File.open('../searchwarranty/app/views/srs/_districtG_missed_services_FY20.html.erb',
                'w+'){|f| f << list2.to_html}
 
-          File.open('../searchwarranty/app/views/srs/districtG_missed_services_FY20.html',
+          File.open('../searchwarranty/app/views/srs/_districtG_missed_services_FY20.html',
                'w+'){|f| f << list2.to_html}
       end
       def self.missed_sr_related_pivot_FY20_district_H
@@ -5500,22 +5352,11 @@ def self.new_services_list_2020
           start_date, end_date).
         where(
           district: 'H',
-          sr_type: ['Missed Yard Waste Pickup',
+          sr_type_2: ['Missed Yard Waste Pickup',
           'Missed Recycling Pickup',
           'Missed Heavy Trash Pickup',
           'Missed Garbage Pickup',
-          'New Move In Service',
-          'Add A Can',
-          'Add A Can CANCELLATION',
-          'Add A Cart',
-          'Add A Cart CANCELLATION',
-          'Container Problem',
-          'New Resident Container',
-          'Recycle Bin/Cart Retrieve',
-          'Recycling Cart Repair or Replace',
-          'Recycling Participation NEW',
-          'Unauthorized Container Retrieval',
-          'SWM Escalation'])
+          'Containers Related'])
 
         services_list.each {|service_request|
           # binding.pry
@@ -5583,23 +5424,12 @@ def self.new_services_list_2020
             start_date, end_date).
             where(department: 'SWM Solid Waste Management',
               district: 'H',
-              sr_type: [
+              sr_type_2: [
                 'Missed Yard Waste Pickup',
                 'Missed Recycling Pickup',
                 'Missed Heavy Trash Pickup',
                 'Missed Garbage Pickup',
-                'New Move In Service',
-                'Add A Can',
-                'Add A Can CANCELLATION',
-                'Add A Cart',
-                'Add A Cart CANCELLATION',
-                'Container Problem',
-                'New Resident Container',
-                'Recycle Bin/Cart Retrieve',
-                'Recycling Cart Repair or Replace',
-                'Recycling Participation NEW',
-                'Unauthorized Container Retrieval',
-                'SWM Escalation']).
+                'Containers Related']).
           pluck(:id, :case_number, :sr_location, :county, :district, :neighborhood,
              :tax_id, :trash_quad, :recycle_quad, :trash_day, :heavy_trash_day,
               :recycle_day, :key_map, :management_district, :department,
@@ -5613,7 +5443,8 @@ def self.new_services_list_2020
                       :expression, :ne_overdue, :ne_not_overdue, :ne_sr_total,
                        :nw_overdue, :nw_not_overdue, :nw_sr_total, :se_overdue,
                         :se_not_overdue, :se_sr_total, :sw_overdue, :sw_not_overdue,
-                         :sw_sr_total, :quad_status, :tally, :month_yr)
+                         :sw_sr_total, :quad_status, :tally, :month_yr,
+                       :sr_type_2)
           headers = %w[id case_number sr_location county district neighborhood
              tax_id trash_quad recycle_quad trash_day heavy_trash_day recycle_day
               key_map management_district department division sr_type queue sla
@@ -5625,7 +5456,8 @@ def self.new_services_list_2020
                     recycle_route resolution_time expression ne_overdue
                      ne_not_overdue ne_sr_total nw_overdue nw_not_overdue
                       nw_sr_total se_overdue se_not_overdue se_sr_total sw_overdue
-                       sw_not_overdue sw_sr_total quad_status tally month_yr]
+                       sw_not_overdue sw_sr_total quad_status tally month_yr
+                     sr_type_2]
           CSV.open("../searchwarranty/districtH_missed_services_FY20.csv", "wb",
              write_headers: true, headers: headers) do |csv|
                services_list_values.each do |row|
@@ -5637,14 +5469,14 @@ def self.new_services_list_2020
           Daru::DataFrame.from_csv '../searchwarranty/districtH_missed_services_FY20.csv'
 
           list2 =
-          sales2.pivot_table(index:['sr_type'],
+          sales2.pivot_table(index:['sr_type_2'],
                values:'tally',
                vectors:['month_yr'],  agg:  :sum)
 
-         File.open('../searchwarranty/app/views/srs/districtH_missed_services_FY20.html.erb',
+         File.open('../searchwarranty/app/views/srs/_districtH_missed_services_FY20.html.erb',
                'w+'){|f| f << list2.to_html}
 
-          File.open('../searchwarranty/app/views/srs/districtH_missed_services_FY20.html',
+          File.open('../searchwarranty/app/views/srs/_districtH_missed_services_FY20.html',
                'w+'){|f| f << list2.to_html}
       end
       def self.missed_sr_related_pivot_FY20_district_I
@@ -5655,22 +5487,11 @@ def self.new_services_list_2020
           start_date, end_date).
         where(
           district: 'I',
-          sr_type: ['Missed Yard Waste Pickup',
+          sr_type_2: ['Missed Yard Waste Pickup',
           'Missed Recycling Pickup',
           'Missed Heavy Trash Pickup',
           'Missed Garbage Pickup',
-          'New Move In Service',
-          'Add A Can',
-          'Add A Can CANCELLATION',
-          'Add A Cart',
-          'Add A Cart CANCELLATION',
-          'Container Problem',
-          'New Resident Container',
-          'Recycle Bin/Cart Retrieve',
-          'Recycling Cart Repair or Replace',
-          'Recycling Participation NEW',
-          'Unauthorized Container Retrieval',
-          'SWM Escalation'])
+          'Containers Related'])
 
         services_list.each {|service_request|
           # binding.pry
@@ -5738,23 +5559,12 @@ def self.new_services_list_2020
             start_date, end_date).
             where(department: 'SWM Solid Waste Management',
               district: 'I',
-              sr_type: [
+              sr_type_2: [
                 'Missed Yard Waste Pickup',
                 'Missed Recycling Pickup',
                 'Missed Heavy Trash Pickup',
                 'Missed Garbage Pickup',
-                'New Move In Service',
-                'Add A Can',
-                'Add A Can CANCELLATION',
-                'Add A Cart',
-                'Add A Cart CANCELLATION',
-                'Container Problem',
-                'New Resident Container',
-                'Recycle Bin/Cart Retrieve',
-                'Recycling Cart Repair or Replace',
-                'Recycling Participation NEW',
-                'Unauthorized Container Retrieval',
-                'SWM Escalation']).
+                'Containers Related']).
           pluck(:id, :case_number, :sr_location, :county, :district, :neighborhood,
              :tax_id, :trash_quad, :recycle_quad, :trash_day, :heavy_trash_day,
               :recycle_day, :key_map, :management_district, :department,
@@ -5768,7 +5578,8 @@ def self.new_services_list_2020
                       :expression, :ne_overdue, :ne_not_overdue, :ne_sr_total,
                        :nw_overdue, :nw_not_overdue, :nw_sr_total, :se_overdue,
                         :se_not_overdue, :se_sr_total, :sw_overdue, :sw_not_overdue,
-                         :sw_sr_total, :quad_status, :tally, :month_yr)
+                         :sw_sr_total, :quad_status, :tally, :month_yr,
+                       :sr_type_2)
           headers = %w[id case_number sr_location county district neighborhood
              tax_id trash_quad recycle_quad trash_day heavy_trash_day recycle_day
               key_map management_district department division sr_type queue sla
@@ -5780,7 +5591,8 @@ def self.new_services_list_2020
                     recycle_route resolution_time expression ne_overdue
                      ne_not_overdue ne_sr_total nw_overdue nw_not_overdue
                       nw_sr_total se_overdue se_not_overdue se_sr_total sw_overdue
-                       sw_not_overdue sw_sr_total quad_status tally month_yr]
+                       sw_not_overdue sw_sr_total quad_status tally month_yr
+                     sr_type_2]
           CSV.open("../searchwarranty/districtI_missed_services_FY20.csv", "wb",
              write_headers: true, headers: headers) do |csv|
                services_list_values.each do |row|
@@ -5792,14 +5604,14 @@ def self.new_services_list_2020
           Daru::DataFrame.from_csv '../searchwarranty/districtI_missed_services_FY20.csv'
 
           list2 =
-          sales2.pivot_table(index:['sr_type'],
+          sales2.pivot_table(index:['sr_type_2'],
                values:'tally',
                vectors:['month_yr'],  agg:  :sum)
 
-         File.open('../searchwarranty/app/views/srs/districtI_missed_services_FY20.html.erb',
+         File.open('../searchwarranty/app/views/srs/_districtI_missed_services_FY20.html.erb',
                'w+'){|f| f << list2.to_html}
 
-          File.open('../searchwarranty/app/views/srs/districtI_missed_services_FY20.html',
+          File.open('../searchwarranty/app/views/srs/_districtI_missed_services_FY20.html',
                'w+'){|f| f << list2.to_html}
       end
       def self.missed_sr_related_pivot_FY20_district_J
@@ -5810,22 +5622,11 @@ def self.new_services_list_2020
           start_date, end_date).
         where(
           district: 'J',
-          sr_type: ['Missed Yard Waste Pickup',
+          sr_type_2: ['Missed Yard Waste Pickup',
           'Missed Recycling Pickup',
           'Missed Heavy Trash Pickup',
           'Missed Garbage Pickup',
-          'New Move In Service',
-          'Add A Can',
-          'Add A Can CANCELLATION',
-          'Add A Cart',
-          'Add A Cart CANCELLATION',
-          'Container Problem',
-          'New Resident Container',
-          'Recycle Bin/Cart Retrieve',
-          'Recycling Cart Repair or Replace',
-          'Recycling Participation NEW',
-          'Unauthorized Container Retrieval',
-          'SWM Escalation'])
+          'Containers Related'])
 
         services_list.each {|service_request|
           # binding.pry
@@ -5893,23 +5694,12 @@ def self.new_services_list_2020
             start_date, end_date).
             where(department: 'SWM Solid Waste Management',
               district: 'J',
-              sr_type: [
+              sr_type_2: [
                 'Missed Yard Waste Pickup',
                 'Missed Recycling Pickup',
                 'Missed Heavy Trash Pickup',
                 'Missed Garbage Pickup',
-                'New Move In Service',
-                'Add A Can',
-                'Add A Can CANCELLATION',
-                'Add A Cart',
-                'Add A Cart CANCELLATION',
-                'Container Problem',
-                'New Resident Container',
-                'Recycle Bin/Cart Retrieve',
-                'Recycling Cart Repair or Replace',
-                'Recycling Participation NEW',
-                'Unauthorized Container Retrieval',
-                'SWM Escalation']).
+                'Containers Related']).
           pluck(:id, :case_number, :sr_location, :county, :district, :neighborhood,
              :tax_id, :trash_quad, :recycle_quad, :trash_day, :heavy_trash_day,
               :recycle_day, :key_map, :management_district, :department,
@@ -5923,7 +5713,8 @@ def self.new_services_list_2020
                       :expression, :ne_overdue, :ne_not_overdue, :ne_sr_total,
                        :nw_overdue, :nw_not_overdue, :nw_sr_total, :se_overdue,
                         :se_not_overdue, :se_sr_total, :sw_overdue, :sw_not_overdue,
-                         :sw_sr_total, :quad_status, :tally, :month_yr)
+                         :sw_sr_total, :quad_status, :tally, :month_yr,
+                       :sr_type_2)
           headers = %w[id case_number sr_location county district neighborhood
              tax_id trash_quad recycle_quad trash_day heavy_trash_day recycle_day
               key_map management_district department division sr_type queue sla
@@ -5935,7 +5726,8 @@ def self.new_services_list_2020
                     recycle_route resolution_time expression ne_overdue
                      ne_not_overdue ne_sr_total nw_overdue nw_not_overdue
                       nw_sr_total se_overdue se_not_overdue se_sr_total sw_overdue
-                       sw_not_overdue sw_sr_total quad_status tally month_yr]
+                       sw_not_overdue sw_sr_total quad_status tally month_yr
+                     sr_type_2]
           CSV.open("../searchwarranty/districtJ_missed_services_FY20.csv", "wb",
              write_headers: true, headers: headers) do |csv|
                services_list_values.each do |row|
@@ -5947,14 +5739,14 @@ def self.new_services_list_2020
           Daru::DataFrame.from_csv '../searchwarranty/districtJ_missed_services_FY20.csv'
 
           list2 =
-          sales2.pivot_table(index:['sr_type'],
+          sales2.pivot_table(index:['sr_type_2'],
                values:'tally',
                vectors:['month_yr'],  agg:  :sum)
 
-         File.open('../searchwarranty/app/views/srs/districtJ_missed_services_FY20.html.erb',
+         File.open('../searchwarranty/app/views/srs/_districtJ_missed_services_FY20.html.erb',
                'w+'){|f| f << list2.to_html}
 
-          File.open('../searchwarranty/app/views/srs/districtJ_missed_services_FY20.html',
+          File.open('../searchwarranty/app/views/srs/_districtJ_missed_services_FY20.html',
                'w+'){|f| f << list2.to_html}
       end
       def self.missed_sr_related_pivot_FY20_district_K
@@ -5965,22 +5757,11 @@ def self.new_services_list_2020
           start_date, end_date).
         where(
           district: 'K',
-          sr_type: ['Missed Yard Waste Pickup',
+          sr_type_2: ['Missed Yard Waste Pickup',
           'Missed Recycling Pickup',
           'Missed Heavy Trash Pickup',
           'Missed Garbage Pickup',
-          'New Move In Service',
-          'Add A Can',
-          'Add A Can CANCELLATION',
-          'Add A Cart',
-          'Add A Cart CANCELLATION',
-          'Container Problem',
-          'New Resident Container',
-          'Recycle Bin/Cart Retrieve',
-          'Recycling Cart Repair or Replace',
-          'Recycling Participation NEW',
-          'Unauthorized Container Retrieval',
-          'SWM Escalation'])
+          'Containers Related'])
 
         services_list.each {|service_request|
           # binding.pry
@@ -6048,23 +5829,12 @@ def self.new_services_list_2020
             start_date, end_date).
             where(department: 'SWM Solid Waste Management',
               district: 'K',
-              sr_type: [
+              sr_type_2: [
                 'Missed Yard Waste Pickup',
                 'Missed Recycling Pickup',
                 'Missed Heavy Trash Pickup',
                 'Missed Garbage Pickup',
-                'New Move In Service',
-                'Add A Can',
-                'Add A Can CANCELLATION',
-                'Add A Cart',
-                'Add A Cart CANCELLATION',
-                'Container Problem',
-                'New Resident Container',
-                'Recycle Bin/Cart Retrieve',
-                'Recycling Cart Repair or Replace',
-                'Recycling Participation NEW',
-                'Unauthorized Container Retrieval',
-                'SWM Escalation']).
+                'Containers Related']).
           pluck(:id, :case_number, :sr_location, :county, :district, :neighborhood,
              :tax_id, :trash_quad, :recycle_quad, :trash_day, :heavy_trash_day,
               :recycle_day, :key_map, :management_district, :department,
@@ -6078,7 +5848,8 @@ def self.new_services_list_2020
                       :expression, :ne_overdue, :ne_not_overdue, :ne_sr_total,
                        :nw_overdue, :nw_not_overdue, :nw_sr_total, :se_overdue,
                         :se_not_overdue, :se_sr_total, :sw_overdue, :sw_not_overdue,
-                         :sw_sr_total, :quad_status, :tally, :month_yr)
+                         :sw_sr_total, :quad_status, :tally, :month_yr,
+                       :sr_type_2)
           headers = %w[id case_number sr_location county district neighborhood
              tax_id trash_quad recycle_quad trash_day heavy_trash_day recycle_day
               key_map management_district department division sr_type queue sla
@@ -6090,7 +5861,8 @@ def self.new_services_list_2020
                     recycle_route resolution_time expression ne_overdue
                      ne_not_overdue ne_sr_total nw_overdue nw_not_overdue
                       nw_sr_total se_overdue se_not_overdue se_sr_total sw_overdue
-                       sw_not_overdue sw_sr_total quad_status tally month_yr]
+                       sw_not_overdue sw_sr_total quad_status tally month_yr
+                     sr_type_2]
           CSV.open("../searchwarranty/districtK_missed_services_FY20.csv", "wb",
              write_headers: true, headers: headers) do |csv|
                services_list_values.each do |row|
@@ -6102,19 +5874,18 @@ def self.new_services_list_2020
           Daru::DataFrame.from_csv '../searchwarranty/districtK_missed_services_FY20.csv'
 
           list2 =
-          sales2.pivot_table(index:['sr_type'],
+          sales2.pivot_table(index:['sr_type_2'],
                values:'tally',
                vectors:['month_yr'],  agg:  :sum)
 
-         File.open('../searchwarranty/app/views/srs/districtK_missed_services_FY20.html.erb',
+         File.open('../searchwarranty/app/views/srs/_districtK_missed_services_FY20.html.erb',
                'w+'){|f| f << list2.to_html}
 
-          File.open('../searchwarranty/app/views/srs/districtK_missed_services_FY20.html',
+          File.open('../searchwarranty/app/views/srs/_districtK_missed_services_FY20.html',
                'w+'){|f| f << list2.to_html}
       end
 
       def self.separate_comma(number)
         number.to_s.chars.to_a.reverse.each_slice(3).map(&:join).join(",").reverse
       end
-
 end
