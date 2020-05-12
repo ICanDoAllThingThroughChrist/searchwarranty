@@ -418,7 +418,7 @@ namespace :seed do
       KEY_MAP	MANAGEMENT_DISTRICT	SR_OWNER	SR_CREATOR	DEPARTMENT
       DIVISION	SR_TYPE	QUEUE	SLA	STATUS	SR_CREATE_DATE	DUE_DATE
       DATE_CLOSED	RESOLUTION_TIME	OVERDUE]
-    CSV.foreach("/Users/charlielee/downloads/daily_data/SWM All Data with Resolution Time-January2020.csv",
+    CSV.foreach("C:/Users/e128289/Downloads/SWM All Data with Resolution Time-January2020.csv",
        { encoding: "iso-8859-1:utf-8",
           headers: true,
           header_converters: :symbol,converters: :all}) {|row|
@@ -426,7 +426,7 @@ namespace :seed do
      Sr.create(row.to_hash)
       # binding.pry
     }
-    CSV.foreach("/Users/charlielee/downloads/daily_data/SWM All Data with Resolution Time-February2020.csv",
+    CSV.foreach("C:/Users/e128289/Downloads/SWM All Data with Resolution Time-February2020.csv",
        { encoding: "iso-8859-1:utf-8",
           headers: true,
           header_converters: :symbol,converters: :all}) {|row|
@@ -434,7 +434,7 @@ namespace :seed do
      Sr.create(row.to_hash)
       # binding.pry
     }
-    CSV.foreach("/Users/charlielee/downloads/daily_data/SWM All Data with Resolution Time-March2020.csv",
+    CSV.foreach("C:/Users/e128289/Downloads/SWM All Data with Resolution Time-March2020.csv",
        { encoding: "iso-8859-1:utf-8",
           headers: true,
           header_converters: :symbol,converters: :all}) {|row|
@@ -442,7 +442,7 @@ namespace :seed do
      Sr.create(row.to_hash)
       # binding.pry
     }
-    CSV.foreach("/Users/charlielee/downloads/daily_data/SWM All Data with Resolution Time-April2020.csv",
+    CSV.foreach("C:/Users/e128289/Downloads/SWM All Data with Resolution Time-April2020.csv",
        { encoding: "iso-8859-1:utf-8",
           headers: true,
           header_converters: :symbol,converters: :all}) {|row|
