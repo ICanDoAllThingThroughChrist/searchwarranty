@@ -523,6 +523,7 @@ class Sr < ApplicationRecord
             elsif /[n..N]W/.match?(sr['garbage_route']) ||
                /[n..N]W/.match?(sr['recycle_route']) ||
                 sr['sr_owner'] == "Julane Curry" ||
+                sr['recycle_quad'] == "NW" ||
                  /[n..N]W/.match?(sr['heavy_trash_quad'])
                 sr['trash_quad'] = "NW"
                 # bindining.pry
@@ -530,6 +531,13 @@ class Sr < ApplicationRecord
             elsif /[s..S]W/.match?(sr['garbage_route']) ||
                /[s..S]W/.match?(sr['recycle_route']) ||
                 sr['sr_owner'] == "Racheal Manning" ||
+                sr['sr_creator'] == "Racheal Manning" ||
+                sr['neighborhood'] == "SHARPSTOWN" ||
+                sr['neighborhood'] == "BRAYS OAKS" ||
+                sr['neighborhood'] == "ALIEF" ||
+                sr['neighborhood'] == "GULFTON" ||
+                sr['recycle_quad'] == "SW" ||
+                sr['neighborhood'] == "ELDRIDGE / WEST OAKS"||
                  /[s..S]W/.match?(sr['heavy_trash_quad'])
                 sr['trash_quad'] = "SW"
                 # bindining.pry
@@ -537,6 +545,7 @@ class Sr < ApplicationRecord
             elsif /[s..S]E/.match?(sr['garbage_route']) ||
                 /[s..S]E/.match?(sr['recycle_route']) ||
                  sr['sr_owner'] == "Yvonne Guillory" ||
+                 sr['neighborhood'] == "CLEAR LAKE" ||
                   /[s..S]E/.match?(sr['heavy_trash_quad'])
                 sr['trash_quad'] = "SE"
                 # bindining.pry
