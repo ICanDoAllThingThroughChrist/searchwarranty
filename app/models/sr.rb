@@ -516,7 +516,8 @@ class Sr < ApplicationRecord
                  sr['sr_owner'] == "Dee Fields" ||
                   /[n..N]E/.match?(sr['heavy_trash_quad']) ||
                   sr['sr_creator'] == "Jacqueline Howard" ||
-                   sr['sr_creator'] == "Dee Fields"
+                   sr['sr_creator'] == "Dee Fields" ||
+                   sr['queue'] == "SWM_CollectionsNE"
               sr['trash_quad'] = "NE"
               # bindining.pry
               sr.save
@@ -709,28 +710,10 @@ class Sr < ApplicationRecord
       binding.pry
       #spatial join based on the generated csv
       # #perform Spatial Join on "NoQuadList.csv"
-      Sr.update_trash_quad
-      Sr.expression_quad_status_assignment
+      # Sr.update_trash_quad
+      # Sr.expression_quad_status_assignment
       #perform following command to determine if sr_type includes missed garbage
-      binding.pry
-      Sr.where(trash_quad: ['Unknown',nil, ""],
-         status: 'Open',
-          department:'SWM Solid Waste Management').distinct.pluck(:sr_type)
-      #repeated following command if sr_type includes missed garbage
-      #repeatt command to see if sr contains lat, lon,  x, y,
-      Sr.no_quad_list #repeat this command  to perform spatial join
-      #perform following
-      Sr.
-      where(trash_quad: ['Unknown',nil, ""], status: 'Open',
-         department:'SWM Solid Waste Management').count
-      Sr.where(trash_quad: ['Unknown',nil, ""], status: 'Open',
-            department:'SWM Solid Waste Management',
-            sr_type:['Missed Garbage Pickup']).distinct.pluck(:id)
-      # Spatial.find(:19342615)#can  not find  it in Spatial Join
-      Sr.update_trash_quad
-      Sr.expression_quad_status_assignment
-      #
-      #repeat spatialjoin
+
       Sr.html_pivot
       Sr.no_quad_list
       Sr.missed_sr_related_pivot_FY20_FY21_all_districts
