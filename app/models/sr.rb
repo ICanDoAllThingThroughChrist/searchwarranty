@@ -1,4 +1,140 @@
 class Sr < ApplicationRecord
+  def self.fy2020_2021_sr_total
+    start= DateTime.parse('2019-7-01T00:00:00+00:00')
+    due= DateTime.parse('2022-6-30T23:59:59+00:00')
+    variable=
+    Sr.where('sr_create_date >= ? AND sr_create_date <= ?',
+    start, due).where(sr_type_2:['Containers Related',
+      'Missed Yard Waste Pickup', 'Missed Heavy Trash Pickup',
+      'Missed Garbage Pickup', 'Missed Recycling Pickup']).count
+    Sr.separate_comma(variable)
+  end
+  def self.fy2021_sr_total
+    start= DateTime.parse('2020-7-01T00:00:00+00:00')
+    due= DateTime.parse('2021-6-30T23:59:59+00:00')
+    variable= Sr.where('sr_create_date >= ? AND sr_create_date <= ?',
+    start, due).where(sr_type_2: ['Containers Related',
+      'Missed Yard Waste Pickup', 'Missed Heavy Trash Pickup',
+      'Missed Garbage Pickup', 'Missed Recycling Pickup' ]).count
+    Sr.separate_comma(variable)
+  end
+  def self.fy2020_sr_total
+    start= DateTime.parse('2019-7-01T00:00:00+00:00')
+    due= DateTime.parse('2020-6-30T23:59:59+00:00')
+    variable= Sr.where('sr_create_date >= ? AND sr_create_date <= ?',
+    start, due).where(sr_type_2: ['Containers Related',
+      'Missed Yard Waste Pickup', 'Missed Heavy Trash Pickup',
+      'Missed Garbage Pickup', 'Missed Recycling Pickup' ]).count
+    Sr.separate_comma(variable)
+  end
+  def self.jun_2020_sr_total
+    start= DateTime.parse('2020-6-01T00:00:00+00:00')
+    due= DateTime.parse('2020-6-30T23:59:59+00:00')
+    variable= Sr.where('sr_create_date >= ? AND sr_create_date <= ?',
+    start, due).where(sr_type_2: ['Containers Related',
+      'Missed Yard Waste Pickup', 'Missed Heavy Trash Pickup',
+      'Missed Garbage Pickup', 'Missed Recycling Pickup' ]).count
+    Sr.separate_comma(variable)
+  end
+  def self.may_2020_sr_total
+    start= DateTime.parse('2020-5-01T00:00:00+00:00')
+    due= DateTime.parse('2020-5-30T23:59:59+00:00')
+    variable= Sr.where('sr_create_date >= ? AND sr_create_date <= ?',
+    start, due).where(sr_type_2: ['Containers Related',
+      'Missed Yard Waste Pickup', 'Missed Heavy Trash Pickup',
+      'Missed Garbage Pickup', 'Missed Recycling Pickup' ]).count
+    Sr.separate_comma(variable)
+  end
+  def self.apr_2020_sr_total
+    start= DateTime.parse('2020-4-01T00:00:00+00:00')
+    due= DateTime.parse('2020-4-30T23:59:59+00:00')
+    variable= Sr.where('sr_create_date >= ? AND sr_create_date <= ?',
+    start, due).where(sr_type_2: ['Containers Related',
+      'Missed Yard Waste Pickup', 'Missed Heavy Trash Pickup',
+      'Missed Garbage Pickup', 'Missed Recycling Pickup' ]).count
+    Sr.separate_comma(variable)
+  end
+  def self.mar_2020_sr_total
+    start= DateTime.parse('2020-03-01T00:00:00+00:00')
+    due= DateTime.parse('2020-03-31T23:59:59+00:00')
+    variable= Sr.where('sr_create_date >= ? AND sr_create_date <= ?',
+    start, due).where(sr_type_2: ['Containers Related',
+      'Missed Yard Waste Pickup', 'Missed Heavy Trash Pickup',
+      'Missed Garbage Pickup', 'Missed Recycling Pickup' ]).count
+    Sr.separate_comma(variable)
+  end
+  def self.feb_2020_sr_total
+    start= DateTime.parse('2020-02-01T00:00:00+00:00')
+    due= DateTime.parse('2020-02-29T23:59:59+00:00')
+    variable= Sr.where('sr_create_date >= ? AND sr_create_date <= ?',
+    start, due).where(sr_type_2: ['Containers Related',
+      'Missed Yard Waste Pickup', 'Missed Heavy Trash Pickup',
+      'Missed Garbage Pickup', 'Missed Recycling Pickup' ]).count
+    Sr.separate_comma(variable)
+  end
+  def self.jan_2020_sr_total
+    start= DateTime.parse('2020-1-01T00:00:00+00:00')
+    due= DateTime.parse('2020-1-31T23:59:59+00:00')
+    variable= Sr.where('sr_create_date >= ? AND sr_create_date <= ?',
+    start, due).where(sr_type_2: ['Containers Related',
+      'Missed Yard Waste Pickup', 'Missed Heavy Trash Pickup',
+      'Missed Garbage Pickup', 'Missed Recycling Pickup' ]).count
+    Sr.separate_comma(variable)
+  end
+  def self.december_2019_sr_total
+    start= DateTime.parse('2019-12-01T00:00:00+00:00')
+    due= DateTime.parse('2019-12-31T23:59:59+00:00')
+    variable= Sr.where('sr_create_date >= ? AND sr_create_date <= ?',
+    start, due).where(sr_type_2: ['Containers Related',
+      'Missed Yard Waste Pickup', 'Missed Heavy Trash Pickup',
+      'Missed Garbage Pickup', 'Missed Recycling Pickup' ]).count
+    Sr.separate_comma(variable)
+  end
+  def self.november_2019_sr_total
+    start= DateTime.parse('2019-11-01T00:00:00+00:00')
+    due= DateTime.parse('2019-11-30T23:59:59+00:00')
+    variable= Sr.where('sr_create_date >= ? AND sr_create_date <= ?',
+    start, due).where(sr_type_2: ['Containers Related',
+      'Missed Yard Waste Pickup', 'Missed Heavy Trash Pickup',
+      'Missed Garbage Pickup', 'Missed Recycling Pickup' ]).count
+    Sr.separate_comma(variable)
+  end
+  def self.october_2019_sr_total
+    start= DateTime.parse('2019-10-01T00:00:00+00:00')
+    due= DateTime.parse('2019-10-31T23:59:59+00:00')
+    variable= Sr.where('sr_create_date >= ? AND sr_create_date <= ?',
+    start, due).where(sr_type_2: ['Containers Related',
+      'Missed Yard Waste Pickup', 'Missed Heavy Trash Pickup',
+      'Missed Garbage Pickup', 'Missed Recycling Pickup' ]).count
+    Sr.separate_comma(variable)
+  end
+  def self.september_2019_sr_total
+    start= DateTime.parse('2019-09-01T00:00:00+00:00')
+    due= DateTime.parse('2019-09-30T23:59:59+00:00')
+    variable= Sr.where('sr_create_date >= ? AND sr_create_date <= ?',
+    start, due).where(sr_type_2: ['Containers Related',
+      'Missed Yard Waste Pickup', 'Missed Heavy Trash Pickup',
+      'Missed Garbage Pickup', 'Missed Recycling Pickup' ]).count
+    Sr.separate_comma(variable)
+  end
+  def self.august_2019_sr_total
+    start= DateTime.parse('2019-08-01T00:00:00+00:00')
+    due= DateTime.parse('2019-08-31T23:59:59+00:00')
+    variable= Sr.where('sr_create_date >= ? AND sr_create_date <= ?',
+    start, due).where(sr_type_2: ['Containers Related',
+      'Missed Yard Waste Pickup', 'Missed Heavy Trash Pickup',
+      'Missed Garbage Pickup', 'Missed Recycling Pickup' ]).count
+    Sr.separate_comma(variable)
+  end
+  def self.july_2019_sr_total
+    start= DateTime.parse('2019-07-01T00:00:00+00:00')
+    due= DateTime.parse('2019-07-31T23:59:59+00:00')
+    variable= Sr.where('sr_create_date >= ? AND sr_create_date <= ?',
+    start, due).where(sr_type_2: ['Containers Related',
+      'Missed Yard Waste Pickup', 'Missed Heavy Trash Pickup',
+      'Missed Garbage Pickup', 'Missed Recycling Pickup' ]).count
+    Sr.separate_comma(variable)
+  end
   def self.total_missed_yar
     start = DateTime.parse('2019-07-01T00:00:00+00:00')
     due= DateTime.parse('2021-6-30T23:59:59+00:00')
@@ -84,27 +220,27 @@ class Sr < ApplicationRecord
   where(sr_type_2: 'Missed Yard Waste Pickup').count
   Sr.separate_comma(variable)
   end
-    def self.august_2019_missed_yar
+  def self.august_2019_missed_yar
       start = DateTime.parse('2019-08-01T00:00:00+00:00')
       due= DateTime.parse('2019-08-31T23:59:59+00:00')
       variable= Sr.where('sr_create_date >= ? AND sr_create_date <= ?',start, due).
       where(sr_type_2: 'Missed Yard Waste Pickup').count
       Sr.separate_comma(variable)
-    end
-    def self.july_2019_missed_yar
+  end
+  def self.july_2019_missed_yar
       start = DateTime.parse('2019-07-01T00:00:00+00:00')
       due= DateTime.parse('2019-07-31T23:59:59+00:00')
       variable = Sr.where('sr_create_date >= ? AND sr_create_date <= ?',start, due).
       where(sr_type_2: 'Missed Yard Waste Pickup').count
       Sr.separate_comma(variable)
-    end
-    def self.total_missed_rec
+  end
+  def self.total_missed_rec
       start = DateTime.parse('2019-07-01T00:00:00+00:00')
       due= DateTime.parse('2021-06-30T23:59:59+00:00')
       variable = Sr.where('sr_create_date >= ? AND sr_create_date <= ?',start, due).
       where(sr_type_2: 'Missed Recycling Pickup').count
       Sr.separate_comma(variable)
-    end
+  end
   def self.fy_2021_missed_rec
     start = DateTime.parse('2020-07-01T00:00:00+00:00')
     due= DateTime.parse('2021-6-30T23:59:59+00:00')
@@ -713,7 +849,6 @@ class Sr < ApplicationRecord
       # Sr.update_trash_quad
       # Sr.expression_quad_status_assignment
       #perform following command to determine if sr_type includes missed garbage
-
       Sr.html_pivot
       Sr.no_quad_list
       Sr.missed_sr_related_pivot_FY20_FY21_all_districts

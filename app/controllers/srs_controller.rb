@@ -162,18 +162,21 @@ class SrsController < ApplicationController
     @jun_2020_missed_yar= Sr.june_2020_missed_yar
     @fy_2021_missed_yar= Sr.fy_2021_missed_yar
     @total_missed_yar= Sr.total_missed_yar
-    # Sr.missed_sr_related_pivot_FY20_district_A
-    # Sr.missed_sr_related_pivot_FY20_district_B
-    # Sr.missed_sr_related_pivot_FY20_district_C
-    # Sr.missed_sr_related_pivot_FY20_district_D
-    # Sr.missed_sr_related_pivot_FY20_district_E
-    # Sr.missed_sr_related_pivot_FY20_district_F
-    # Sr.missed_sr_related_pivot_FY20_district_G
-    # Sr.missed_sr_related_pivot_FY20_district_H
-    # Sr.missed_sr_related_pivot_FY20_district_I
-    # Sr.missed_sr_related_pivot_FY20_district_J
-    # Sr.missed_sr_related_pivot_FY20_district_K
 
+    @july_2019_sr_total= Sr.july_2019_sr_total
+    @august_2019_sr_total= Sr.august_2019_sr_total
+    @september_2019_sr_total= Sr.september_2019_sr_total
+    @october_2019_sr_total= Sr.october_2019_sr_total
+    @november_2019_sr_total= Sr.november_2019_sr_total
+    @december_2019_sr_total= Sr.december_2019_sr_total
+    @jan_2020_sr_total= Sr.jan_2020_sr_total
+    @feb_2020_sr_total= Sr.feb_2020_sr_total
+    @mar_2020_sr_total= Sr.mar_2020_sr_total
+    @apr_2020_sr_total= Sr.apr_2020_sr_total
+    @may_2020_sr_total= Sr.may_2020_sr_total
+    @jun_2020_sr_total= Sr.jun_2020_sr_total
+    @fy2021_sr_total=  Sr.fy2021_sr_total
+    @fy2020_2021_sr_total= Sr.fy2020_2021_sr_total
   end
   def cans_requests_FY20
     render "cans_related_FY20"
