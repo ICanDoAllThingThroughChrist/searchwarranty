@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_06_145732) do
+ActiveRecord::Schema.define(version: 2020_05_14_195521) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -190,6 +190,15 @@ ActiveRecord::Schema.define(version: 2020_05_06_145732) do
     t.integer "Customer_ID"
   end
 
+  create_table "missed_hvies", force: :cascade do |t|
+    t.string "sr_location"
+    t.string "trash_quad"
+    t.string "case_number"
+    t.integer "overdue"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "open_srs", force: :cascade do |t|
     t.string "case_numbe"
     t.string "sr_type"
@@ -214,7 +223,7 @@ ActiveRecord::Schema.define(version: 2020_05_06_145732) do
 
   create_table "spatial_overdue_hvies", force: :cascade do |t|
     t.integer "ID"
-    t.float "case_number"
+    t.text "case_number"
     t.float "longitude"
     t.float "latitude"
     t.string "poly_id"

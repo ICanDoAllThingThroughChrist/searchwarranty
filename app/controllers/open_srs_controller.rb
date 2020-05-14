@@ -1400,7 +1400,8 @@ class OpenSrsController < ApplicationController
         'Personnel or Vehicle Complaint','Physically Challenged Pickup']).
         count
     @NorthOverdue=  Sr.
-      where(trash_quad: ['NE','NW'],
+      where(status: 'Open',
+      trash_quad: ['NE','NW'],
       expression: 'Overdue',
       sr_type: ['Missed Heavy Trash Pickup','Container Problem',
         'New Resident Container','Recycling Participation NEW',
@@ -1411,7 +1412,8 @@ class OpenSrsController < ApplicationController
         'Personnel or Vehicle Complaint','Physically Challenged Pickup']).
         count
     @NorthNotOverdue=  Sr.
-      where(trash_quad: ['NE','NW'],
+      where(status: 'Open',
+        trash_quad: ['NE','NW'],
       expression: 'Not Overdue',
       sr_type: ['Missed Heavy Trash Pickup','Container Problem',
         'New Resident Container','Recycling Participation NEW',
@@ -1858,12 +1860,13 @@ class OpenSrsController < ApplicationController
            'SWM Escalation',
            'Missed Garbage Pickup',
            'Trash Dumping or Illegal Dumpsite',
-            'Add A Can', 'Storm Debris Collection',
-             'Dead Animal Collection',
-              'Add A Can CANCELLATION',
-               'Missed Recycling Pickup',
-                'Personnel or Vehicle Complaint',
-                'Physically Challenged Pickup']).count
+           'Add A Can',
+           'Storm Debris Collection',
+           'Dead Animal Collection',
+           'Add A Can CANCELLATION',
+           'Missed Recycling Pickup',
+           'Personnel or Vehicle Complaint',
+           'Physically Challenged Pickup']).count
     @SWQuadSrOverdue = Sr.where(status:'Open',
         expression:'Overdue',
          trash_quad: 'SW',
@@ -2889,6 +2892,29 @@ class OpenSrsController < ApplicationController
       order(:sec_name)
   end
   def over_30_days_srs
+
+    @cityWideMinus30To0_Over_for_missed_yd =
+      Sr.where(department: 'SWM Solid Waste Management',
+      status: 'Open', sr_type: 'Missed Yard Waste Pickup',
+      overdue: [-30..-0.05]).count
+
+    @cityWide30To60Over_for_missed_yd =
+              Sr.where(department: 'SWM Solid Waste Management',
+              status: 'Open', sr_type: 'Missed Yard Waste Pickup',
+              overdue: [0..60]).count
+    @cityWide61To120Over_for_missed_yd =
+              Sr.where(department: 'SWM Solid Waste Management',
+                status: 'Open', sr_type: 'Missed Yard Waste Pickup',
+                overdue: [60..120]).count
+    @cityWide121To240Over_for_missed_yd =
+            Sr.where(department: 'SWM Solid Waste Management',
+              status: 'Open', sr_type: 'Missed Yard Waste Pickup',
+              overdue: [120..240]).count
+    @cityWide241To375Over_for_missed_yd =
+            Sr.where(department: 'SWM Solid Waste Management',
+              status: 'Open', sr_type: 'Missed Yard Waste Pickup',
+              overdue: [241..375]).count
+
     @cityWideMinus30To0_Over_for_container_problem =
       Sr.where(department: 'SWM Solid Waste Management',
       status: 'Open', sr_type: 'Container Problem',

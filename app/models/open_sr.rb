@@ -1,4 +1,193 @@
 class OpenSr < ApplicationRecord
+  def self.all_quads_open_sr_hvy_trash
+    headers = %w[id case_number sr_location county district
+      neighborhood tax_id trash_quad recycle_quad trash_day heavy_trash_day
+      recycle_day key_map management_district department division sr_type
+      queue sla status sr_create_date due_date date_closed overdue title
+      x y latitude longitude channel_type created_at updated_at field1
+      field2 client garbage_route heavy_trash_quad sr_owner sr_creator
+      resolve_days street_num client_street city state zip phone_number
+      email_address garbage_day1 garbage_quad recycle_day1 recycle_route
+      resolution_time expression ne_overdue ne_not_overdue ne_sr_total
+      nw_overdue nw_not_overdue nw_sr_total se_overdue se_not_overdue
+      se_sr_total sw_overdue sw_not_overdue sw_sr_total quad_status tally]
+      CSV.open("All_quad_hvy_trash_open_list.csv", "wb",
+        write_headers: true, headers: headers) { |csv|
+    Sr.where(department:'SWM Solid Waste Management',
+        status:'Open',
+         sr_type:'Missed Heavy Trash Pickup').
+         pluck(:id, :case_number,
+           :sr_location, :county,:district, :neighborhood, :tax_id,
+           :trash_quad, :recycle_quad, :trash_day, :heavy_trash_day,
+           :recycle_day, :key_map, :management_district, :department,
+           :division, :sr_type, :queue, :sla, :status, :sr_create_date,
+           :due_date, :date_closed, :overdue, :title, :x, :y, :latitude,
+           :longitude, :channel_type, :created_at, :updated_at, :field1,
+           :field2, :client, :garbage_route, :heavy_trash_quad, :sr_owner,
+           :sr_creator, :resolve_days, :street_num, :client_street,
+           :city, :state, :zip, :phone_number, :email_address,
+           :garbage_day1, :garbage_quad, :recycle_day1, :recycle_route,
+           :resolution_time, :expression, :ne_overdue, :ne_not_overdue,
+           :ne_sr_total, :nw_overdue, :nw_not_overdue, :nw_sr_total,
+           :se_overdue, :se_not_overdue, :se_sr_total, :sw_overdue,
+           :sw_not_overdue, :sw_sr_total, :quad_status, :tally).
+           each { |row|
+             csv << row
+           }
+         }
+  end
+  def self.nw_open_sr_hvy_trash
+    headers = %w[id case_number sr_location county district
+      neighborhood tax_id trash_quad recycle_quad trash_day heavy_trash_day
+      recycle_day key_map management_district department division sr_type
+      queue sla status sr_create_date due_date date_closed overdue title
+      x y latitude longitude channel_type created_at updated_at field1
+      field2 client garbage_route heavy_trash_quad sr_owner sr_creator
+      resolve_days street_num client_street city state zip phone_number
+      email_address garbage_day1 garbage_quad recycle_day1 recycle_route
+      resolution_time expression ne_overdue ne_not_overdue ne_sr_total
+      nw_overdue nw_not_overdue nw_sr_total se_overdue se_not_overdue
+      se_sr_total sw_overdue sw_not_overdue sw_sr_total quad_status tally]
+      CSV.open("NW_Hvy_trash_open_list.csv", "wb",
+        write_headers: true, headers: headers) { |csv|
+    Sr.where(department:'SWM Solid Waste Management',
+       trash_quad:'NW',
+        status:'Open',
+         sr_type:'Missed Heavy Trash Pickup').
+         pluck(:id, :case_number,
+           :sr_location, :county,:district, :neighborhood, :tax_id,
+           :trash_quad, :recycle_quad, :trash_day, :heavy_trash_day,
+           :recycle_day, :key_map, :management_district, :department,
+           :division, :sr_type, :queue, :sla, :status, :sr_create_date,
+           :due_date, :date_closed, :overdue, :title, :x, :y, :latitude,
+           :longitude, :channel_type, :created_at, :updated_at, :field1,
+           :field2, :client, :garbage_route, :heavy_trash_quad, :sr_owner,
+           :sr_creator, :resolve_days, :street_num, :client_street,
+           :city, :state, :zip, :phone_number, :email_address,
+           :garbage_day1, :garbage_quad, :recycle_day1, :recycle_route,
+           :resolution_time, :expression, :ne_overdue, :ne_not_overdue,
+           :ne_sr_total, :nw_overdue, :nw_not_overdue, :nw_sr_total,
+           :se_overdue, :se_not_overdue, :se_sr_total, :sw_overdue,
+           :sw_not_overdue, :sw_sr_total, :quad_status, :tally).
+           each { |row|
+             csv << row
+           }
+         }
+  end
+  def self.ne_open_sr_hvy_trash
+    headers = %w[id case_number sr_location county district
+      neighborhood tax_id trash_quad recycle_quad trash_day heavy_trash_day
+      recycle_day key_map management_district department division sr_type
+      queue sla status sr_create_date due_date date_closed overdue title
+      x y latitude longitude channel_type created_at updated_at field1
+      field2 client garbage_route heavy_trash_quad sr_owner sr_creator
+      resolve_days street_num client_street city state zip phone_number
+      email_address garbage_day1 garbage_quad recycle_day1 recycle_route
+      resolution_time expression ne_overdue ne_not_overdue ne_sr_total
+      nw_overdue nw_not_overdue nw_sr_total se_overdue se_not_overdue
+      se_sr_total sw_overdue sw_not_overdue sw_sr_total quad_status tally]
+      CSV.open("NE_Hvy_trash_open_list.csv", "wb",
+        write_headers: true, headers: headers) { |csv|
+    Sr.where(department:'SWM Solid Waste Management',
+       trash_quad:'NE',
+        status:'Open',
+         sr_type:'Missed Heavy Trash Pickup').
+         pluck(:id, :case_number,
+           :sr_location, :county,:district, :neighborhood, :tax_id,
+           :trash_quad, :recycle_quad, :trash_day, :heavy_trash_day,
+           :recycle_day, :key_map, :management_district, :department,
+           :division, :sr_type, :queue, :sla, :status, :sr_create_date,
+           :due_date, :date_closed, :overdue, :title, :x, :y, :latitude,
+           :longitude, :channel_type, :created_at, :updated_at, :field1,
+           :field2, :client, :garbage_route, :heavy_trash_quad, :sr_owner,
+           :sr_creator, :resolve_days, :street_num, :client_street,
+           :city, :state, :zip, :phone_number, :email_address,
+           :garbage_day1, :garbage_quad, :recycle_day1, :recycle_route,
+           :resolution_time, :expression, :ne_overdue, :ne_not_overdue,
+           :ne_sr_total, :nw_overdue, :nw_not_overdue, :nw_sr_total,
+           :se_overdue, :se_not_overdue, :se_sr_total, :sw_overdue,
+           :sw_not_overdue, :sw_sr_total, :quad_status, :tally).
+           each { |row|
+             csv << row
+           }
+         }
+  end
+  def self.sw_open_sr_hvy_trash
+    headers = %w[id case_number sr_location county district
+      neighborhood tax_id trash_quad recycle_quad trash_day heavy_trash_day
+      recycle_day key_map management_district department division sr_type
+      queue sla status sr_create_date due_date date_closed overdue title
+      x y latitude longitude channel_type created_at updated_at field1
+      field2 client garbage_route heavy_trash_quad sr_owner sr_creator
+      resolve_days street_num client_street city state zip phone_number
+      email_address garbage_day1 garbage_quad recycle_day1 recycle_route
+      resolution_time expression ne_overdue ne_not_overdue ne_sr_total
+      nw_overdue nw_not_overdue nw_sr_total se_overdue se_not_overdue
+      se_sr_total sw_overdue sw_not_overdue sw_sr_total quad_status tally]
+      CSV.open("SW_Hvy_trash_open_list.csv", "wb",
+        write_headers: true, headers: headers) { |csv|
+    Sr.where(department:'SWM Solid Waste Management',
+       trash_quad:'SW',
+        status:'Open',
+         sr_type:'Missed Heavy Trash Pickup').
+         pluck(:id, :case_number,
+           :sr_location, :county,:district, :neighborhood, :tax_id,
+           :trash_quad, :recycle_quad, :trash_day, :heavy_trash_day,
+           :recycle_day, :key_map, :management_district, :department,
+           :division, :sr_type, :queue, :sla, :status, :sr_create_date,
+           :due_date, :date_closed, :overdue, :title, :x, :y, :latitude,
+           :longitude, :channel_type, :created_at, :updated_at, :field1,
+           :field2, :client, :garbage_route, :heavy_trash_quad, :sr_owner,
+           :sr_creator, :resolve_days, :street_num, :client_street,
+           :city, :state, :zip, :phone_number, :email_address,
+           :garbage_day1, :garbage_quad, :recycle_day1, :recycle_route,
+           :resolution_time, :expression, :ne_overdue, :ne_not_overdue,
+           :ne_sr_total, :nw_overdue, :nw_not_overdue, :nw_sr_total,
+           :se_overdue, :se_not_overdue, :se_sr_total, :sw_overdue,
+           :sw_not_overdue, :sw_sr_total, :quad_status, :tally).
+           each { |row|
+             csv << row
+           }
+         }
+  end
+  def self.se_open_sr_hvy_trash
+    headers = %w[id case_number sr_location county district
+      neighborhood tax_id trash_quad recycle_quad trash_day heavy_trash_day
+      recycle_day key_map management_district department division sr_type
+      queue sla status sr_create_date due_date date_closed overdue title
+      x y latitude longitude channel_type created_at updated_at field1
+      field2 client garbage_route heavy_trash_quad sr_owner sr_creator
+      resolve_days street_num client_street city state zip phone_number
+      email_address garbage_day1 garbage_quad recycle_day1 recycle_route
+      resolution_time expression ne_overdue ne_not_overdue ne_sr_total
+      nw_overdue nw_not_overdue nw_sr_total se_overdue se_not_overdue
+      se_sr_total sw_overdue sw_not_overdue sw_sr_total quad_status tally]
+      CSV.open("SE_Hvy_trash_open_list.csv", "wb",
+        write_headers: true, headers: headers) { |csv|
+    Sr.where(department:'SWM Solid Waste Management',
+       trash_quad:'SE',
+        status:'Open',
+         sr_type:'Missed Heavy Trash Pickup').
+         pluck(:id, :case_number,
+           :sr_location, :county,:district, :neighborhood, :tax_id,
+           :trash_quad, :recycle_quad, :trash_day, :heavy_trash_day,
+           :recycle_day, :key_map, :management_district, :department,
+           :division, :sr_type, :queue, :sla, :status, :sr_create_date,
+           :due_date, :date_closed, :overdue, :title, :x, :y, :latitude,
+           :longitude, :channel_type, :created_at, :updated_at, :field1,
+           :field2, :client, :garbage_route, :heavy_trash_quad, :sr_owner,
+           :sr_creator, :resolve_days, :street_num, :client_street,
+           :city, :state, :zip, :phone_number, :email_address,
+           :garbage_day1, :garbage_quad, :recycle_day1, :recycle_route,
+           :resolution_time, :expression, :ne_overdue, :ne_not_overdue,
+           :ne_sr_total, :nw_overdue, :nw_not_overdue, :nw_sr_total,
+           :se_overdue, :se_not_overdue, :se_sr_total, :sw_overdue,
+           :sw_not_overdue, :sw_sr_total, :quad_status, :tally).
+           each { |row|
+             csv << row
+           }
+         }
+  end
   def self.swMay2020_actual_due_and_closed_cases
     start= Date.parse('2020-05-01')
     due = Date.parse('2020-05-31')

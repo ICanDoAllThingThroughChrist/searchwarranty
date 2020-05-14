@@ -8,7 +8,39 @@ class SpatialOverdueHvy < ApplicationRecord
       {encoding: "iso-8859-1:utf-8", headers: true,
         header_converters: :symbol, converters: :all}) {|row|
       SpatialOverdueHvy.create(row.to_hash)
+      # binding.pry
     }
+  end
+  def self.heavy_trash_map_data
+    MissedHvy.delete_all
+    missed_hvy_case_numbers=
+    Sr.where(sr_type: 'Missed Heavy Trash Pickup',
+    status: 'Open').distinct.pluck(:case_number)
+
+    missed_hvy_case_numbers.each{|case_number|
+      # binding.pry
+      item= Sr.find_by case_number:  case_number.to_i
+      if item!= nil
+        item2= MissedHvy.new(sr_location: item['sr_location'],
+          trash_quad: item['trash_quad'],
+          case_number: item['case_number'],
+          overdue: item['overdue'])
+        item2.save
+      else
+        puts "#{case_number}"# binding.pry
+      end
+    }
+    list=  MissedHvy.all.pluck(:sr_location, :trash_quad, :case_number, :overdue)
+
+    headers= %w[sr_location trash_quad case_number overdue]
+
+    CSV.open("../searchwarranty/missed_hvy_distinct_list.csv", "wb",
+      write_headers: true, headers: headers) do |csv|
+      list.each do |row|
+        # binding.pry
+          csv << row
+        end
+      end
   end
 
   def self.second_tuesday_js
@@ -87,6 +119,20 @@ class SpatialOverdueHvy < ApplicationRecord
 
     headers = %i[case_number longitude latitude poly_id service_da]
     File.open("../searchwarranty/second-weds-OverdueHvy.js", 'w') do |f|
+      json = tally_values.map {|line|
+        # binding.pry
+        c= Hash[headers.zip(line)]
+      }
+      # binding.pry
+      f.puts JSON.pretty_generate(json)
+    end
+  end
+  def self.second_monday_js
+    tally_values = SpatialOverdueHvy.where(service_da:['2nd Monday']).
+    pluck(:case_number, :longitude, :latitude, :poly_id, :service_da)
+
+    headers = %i[case_number longitude latitude poly_id service_da]
+    File.open("../searchwarranty/2nd-Monday-OverdueHvy.js", 'w') do |f|
       json = tally_values.map {|line|
         # binding.pry
         c= Hash[headers.zip(line)]
@@ -255,6 +301,7 @@ class SpatialOverdueHvy < ApplicationRecord
     SpatialOverdueHvy.first_monday_js
     SpatialOverdueHvy.first_friday_js
     SpatialOverdueHvy.third_wed_js
+    SpatialOverdueHvy.second_monday_js
     SpatialOverdueHvy.second_thur_js
     SpatialOverdueHvy.second_wed_js
     SpatialOverdueHvy.third_tues_js

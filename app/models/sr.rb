@@ -319,27 +319,27 @@ class Sr < ApplicationRecord
   where(sr_type_2: 'Missed Recycling Pickup').count
   Sr.separate_comma(variable)
   end
-    def self.august_2019_missed_rec
+  def self.august_2019_missed_rec
       start = DateTime.parse('2019-08-01T00:00:00+00:00')
       due= DateTime.parse('2019-08-31T23:59:59+00:00')
       variable= Sr.where('sr_create_date >= ? AND sr_create_date <= ?',start, due).
       where(sr_type_2: 'Missed Recycling Pickup').count
       Sr.separate_comma(variable)
-    end
-    def self.july_2019_missed_rec
+  end
+  def self.july_2019_missed_rec
       start = DateTime.parse('2019-07-01T00:00:00+00:00')
       due= DateTime.parse('2019-07-31T23:59:59+00:00')
       variable = Sr.where('sr_create_date >= ? AND sr_create_date <= ?',start, due).
       where(sr_type_2: 'Missed Recycling Pickup').count
       Sr.separate_comma(variable)
-    end
-    def self.total_missed_hvy
+  end
+  def self.total_missed_hvy
       start = DateTime.parse('2019-07-01T00:00:00+00:00')
       due= DateTime.parse('2021-6-30T23:59:59+00:00')
       variable= Sr.where('sr_create_date >= ? AND sr_create_date <= ?',start, due).
       where(sr_type_2: 'Missed Heavy Trash Pickup').count
       Sr.separate_comma(variable)
-    end
+  end
   def self.fy_2021_missed_hvy
     start = DateTime.parse('2020-07-01T00:00:00+00:00')
     due= DateTime.parse('2021-6-30T23:59:59+00:00')
@@ -418,27 +418,27 @@ class Sr < ApplicationRecord
   where(sr_type_2: 'Missed Heavy Trash Pickup').count
   Sr.separate_comma(variable)
   end
-    def self.august_2019_missed_hvy
+  def self.august_2019_missed_hvy
       start = DateTime.parse('2019-08-01T00:00:00+00:00')
       due= DateTime.parse('2019-08-31T23:59:59+00:00')
       variable= Sr.where('sr_create_date >= ? AND sr_create_date <= ?',start, due).
       where(sr_type_2: 'Missed Heavy Trash Pickup').count
       Sr.separate_comma(variable)
-    end
-    def self.july_2019_missed_hvy
+  end
+  def self.july_2019_missed_hvy
       start = DateTime.parse('2019-07-01T00:00:00+00:00')
       due= DateTime.parse('2019-07-31T23:59:59+00:00')
       variable = Sr.where('sr_create_date >= ? AND sr_create_date <= ?',start, due).
       where(sr_type_2: 'Missed Heavy Trash Pickup').count
       Sr.separate_comma(variable)
-    end
-    def self.total_missed_garbage
+  end
+  def self.total_missed_garbage
       start = DateTime.parse('2019-07-01T00:00:00+00:00')
       due= DateTime.parse('2021-6-30T23:59:59+00:00')
       variable= Sr.where('sr_create_date >= ? AND sr_create_date <= ?',start, due).
       where(sr_type_2: 'Missed Garbage Pickup').count
       Sr.separate_comma(variable)
-    end
+  end
   def self.fy_2021_missed_garbage
     start = DateTime.parse('2020-07-01T00:00:00+00:00')
     due= DateTime.parse('2021-6-30T23:59:59+00:00')
@@ -517,128 +517,128 @@ class Sr < ApplicationRecord
   where(sr_type_2: 'Missed Garbage Pickup').count
   Sr.separate_comma(variable)
   end
-    def self.august_2019_missed_garbage
+  def self.august_2019_missed_garbage
       start = DateTime.parse('2019-08-01T00:00:00+00:00')
       due= DateTime.parse('2019-08-31T23:59:59+00:00')
       variable= Sr.where('sr_create_date >= ? AND sr_create_date <= ?',start, due).
       where(sr_type_2: 'Missed Garbage Pickup').count
       Sr.separate_comma(variable)
-    end
-    def self.july_2019_missed_garbage
+  end
+  def self.july_2019_missed_garbage
       start = DateTime.parse('2019-07-01T00:00:00+00:00')
       due= DateTime.parse('2019-07-31T23:59:59+00:00')
       variable = Sr.where('sr_create_date >= ? AND sr_create_date <= ?',start, due).
       where(sr_type_2: 'Missed Garbage Pickup').count
       Sr.separate_comma(variable)
-    end
-    def self.total_containers_related
+  end
+  def self.total_containers_related
       start = DateTime.parse('2019-07-01T00:00:00+00:00')
       due= DateTime.parse('2021-6-30T23:59:59+00:00')
       variable= Sr.where('sr_create_date >= ? AND sr_create_date <= ?',start, due).
       where(sr_type_2: 'Containers Related').count
       Sr.separate_comma(variable)
-    end
+  end
 
-    def self.fy_2021_containers_related
+  def self.fy_2021_containers_related
       start = DateTime.parse('2020-07-01T00:00:00+00:00')
       due= DateTime.parse('2021-6-30T23:59:59+00:00')
       variable= Sr.where('sr_create_date >= ? AND sr_create_date <= ?',start, due).
       where(sr_type_2: 'Containers Related').count
       Sr.separate_comma(variable)
-    end
-    def self.june_2020_containers_related
+  end
+  def self.june_2020_containers_related
       start = DateTime.parse('2020-6-01T00:00:00+00:00')
       due= DateTime.parse('2020-6-30T23:59:59+00:00')
       variable= Sr.where('sr_create_date >= ? AND sr_create_date <= ?',start, due).
       where(sr_type_2: 'Containers Related').count
       Sr.separate_comma(variable)
-    end
-    def self.may_2020_containers_related
+  end
+  def self.may_2020_containers_related
       start = DateTime.parse('2020-5-01T00:00:00+00:00')
       due= DateTime.parse('2020-5-31T23:59:59+00:00')
       variable= Sr.where('sr_create_date >= ? AND sr_create_date <= ?',start, due).
       where(sr_type_2: 'Containers Related').count
       Sr.separate_comma(variable)
-    end
-    def self.april_2020_containers_related
+  end
+  def self.april_2020_containers_related
       start = DateTime.parse('2020-4-01T00:00:00+00:00')
       due= DateTime.parse('2020-4-30T23:59:59+00:00')
       variable= Sr.where('sr_create_date >= ? AND sr_create_date <= ?',start, due).
       where(sr_type_2: 'Containers Related').count
       Sr.separate_comma(variable)
-    end
-    def self.mar_2020_containers_related
+  end
+  def self.mar_2020_containers_related
       start = DateTime.parse('2020-3-01T00:00:00+00:00')
       due= DateTime.parse('2020-3-31T23:59:59+00:00')
       variable= Sr.where('sr_create_date >= ? AND sr_create_date <= ?',start, due).
       where(sr_type_2: 'Containers Related').count
       Sr.separate_comma(variable)
-    end
-    def self.feb_2020_containers_related
+  end
+  def self.feb_2020_containers_related
       start = DateTime.parse('2020-2-01T00:00:00+00:00')
       due= DateTime.parse('2020-2-29T23:59:59+00:00')
       variable= Sr.where('sr_create_date >= ? AND sr_create_date <= ?',start, due).
       where(sr_type_2: 'Containers Related').count
       Sr.separate_comma(variable)
-    end
-    def self.jan_2020_containers_related
+  end
+  def self.jan_2020_containers_related
     start = DateTime.parse('2020-1-01T00:00:00+00:00')
     due= DateTime.parse('2020-1-31T23:59:59+00:00')
     variable= Sr.where('sr_create_date >= ? AND sr_create_date <= ?',start, due).
     where(sr_type_2: 'Containers Related').count
     Sr.separate_comma(variable)
-    end
-    def self.dec_2019_containers_related
+  end
+  def self.dec_2019_containers_related
     start = DateTime.parse('2019-12-01T00:00:00+00:00')
     due= DateTime.parse('2019-12-31T23:59:59+00:00')
     variable= Sr.where('sr_create_date >= ? AND sr_create_date <= ?',start, due).
     where(sr_type_2: 'Containers Related').count
     Sr.separate_comma(variable)
-    end
-    def self.nov_2019_containers_related
+  end
+  def self.nov_2019_containers_related
     start = DateTime.parse('2019-11-01T00:00:00+00:00')
     due= DateTime.parse('2019-11-30T23:59:59+00:00')
     variable= Sr.where('sr_create_date >= ? AND sr_create_date <= ?',start, due).
     where(sr_type_2: 'Containers Related').count
     Sr.separate_comma(variable)
-    end
+  end
 
-    def self.oct_2019_containers_related
+  def self.oct_2019_containers_related
     start = DateTime.parse('2019-10-01T00:00:00+00:00')
     due= DateTime.parse('2019-10-31T23:59:59+00:00')
     variable= Sr.where('sr_create_date >= ? AND sr_create_date <= ?',start, due).
     where(sr_type_2: 'Containers Related').count
     Sr.separate_comma(variable)
-    end
-    def self.sept_2019_containers_related
+  end
+  def self.sept_2019_containers_related
     start = DateTime.parse('2019-09-01T00:00:00+00:00')
     due= DateTime.parse('2019-09-30T23:59:59+00:00')
     variable= Sr.where('sr_create_date >= ? AND sr_create_date <= ?',start, due).
     where(sr_type_2: 'Containers Related').count
     Sr.separate_comma(variable)
-    end
-      def self.august_2019_containers_related
+  end
+  def self.august_2019_containers_related
         start = DateTime.parse('2019-08-01T00:00:00+00:00')
         due= DateTime.parse('2019-08-31T23:59:59+00:00')
         variable= Sr.where('sr_create_date >= ? AND sr_create_date <= ?',start, due).
         where(sr_type_2: 'Containers Related').count
         Sr.separate_comma(variable)
-      end
-      def self.july_2019_containers_related
+  end
+  def self.july_2019_containers_related
         start = DateTime.parse('2019-07-01T00:00:00+00:00')
         due= DateTime.parse('2019-07-31T23:59:59+00:00')
         variable = Sr.where('sr_create_date >= ? AND sr_create_date <= ?',start, due).
         where(sr_type_2: 'Containers Related').count
         Sr.separate_comma(variable)
-      end
+  end
 
-      def self.sWM_call_volume_2017_2020
+  def self.sWM_call_volume_2017_2020
         start_date = Date.parse('2017-01-01')
         end_date = Date.parse('2020-06-30')
         Sr.where("sr_create_date >= ? AND sr_create_date <= ?",
            start_date, end_date).
            where(department: 'SWM Solid Waste Management').count
-      end
+  end
       def self.trash_quad_nil_resolution_from_garbage_route
         array1 = Sr.where(department: 'SWM Solid Waste Management',
           status: 'Open', trash_quad: [nil, ""])
@@ -844,14 +844,26 @@ class Sr < ApplicationRecord
       Sr.expression_quad_status_assignment
       Sr.no_quad_list
       binding.pry
+      Sr.update_trash_quad
+      Sr.expression_quad_status_assignment
       #spatial join based on the generated csv
       # #perform Spatial Join on "NoQuadList.csv"
       # Sr.update_trash_quad
       # Sr.expression_quad_status_assignment
-      #perform following command to determine if sr_type includes missed garbage
-      Sr.html_pivot
+      #perform following command to determine if sr_type includes missed garbag
       Sr.no_quad_list
       Sr.missed_sr_related_pivot_FY20_FY21_all_districts
+      Sr.html_pivot
+      OpenSr.se_open_sr_hvy_trash
+      OpenSr.sw_open_sr_hvy_trash
+      OpenSr.ne_open_sr_hvy_trash
+      OpenSr.nw_open_sr_hvy_trash
+      Sr.all_quads_open_sr_hvy_trash
+      SpatialOverdueHvy.heavy_trash_map_data
+      SpatialOverdueHvy.seed
+      SpatialOverdueHvy.js_clusters
+      # Sr.heavy_trash_overdue
+      # Sr.hvy_trash_spatial_join_requests
       #perform spatial join of Open Sr Testing.csv with Houston Automated
       # Open.sr_route
     end

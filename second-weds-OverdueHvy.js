@@ -1,841 +1,421 @@
-[
+var markers = [
   {
-    "case_number": 101003919551.0,
-    "longitude": -95.1344865731268,
-    "latitude": 29.5772360288323,
-    "poly_id": "SE2WE_03",
-    "service_da": "2nd Wednesday"
-  },
-  {
-    "case_number": 101003919551.0,
-    "longitude": -95.1344865731268,
-    "latitude": 29.5772360288323,
-    "poly_id": "SE2WE_03",
-    "service_da": "2nd Wednesday"
-  },
-  {
-    "case_number": 101003919551.0,
-    "longitude": -95.1344865731268,
-    "latitude": 29.5772360288323,
-    "poly_id": "SE2WE_03",
-    "service_da": "2nd Wednesday"
-  },
-  {
-    "case_number": 101003919551.0,
-    "longitude": -95.1344865731268,
-    "latitude": 29.5772360288323,
-    "poly_id": "SE2WE_03",
-    "service_da": "2nd Wednesday"
-  },
-  {
-    "case_number": 101003907903.0,
-    "longitude": -95.1480926387781,
-    "latitude": 29.5607493063708,
-    "poly_id": "SE2WE_04",
-    "service_da": "2nd Wednesday"
-  },
-  {
-    "case_number": 101003907903.0,
-    "longitude": -95.1480926387781,
-    "latitude": 29.5607493063708,
-    "poly_id": "SE2WE_04",
-    "service_da": "2nd Wednesday"
-  },
-  {
-    "case_number": 101003907903.0,
-    "longitude": -95.1480926387781,
-    "latitude": 29.5607493063708,
-    "poly_id": "SE2WE_04",
-    "service_da": "2nd Wednesday"
-  },
-  {
-    "case_number": 101003907903.0,
-    "longitude": -95.1480926387781,
-    "latitude": 29.5607493063708,
-    "poly_id": "SE2WE_04",
-    "service_da": "2nd Wednesday"
-  },
-  {
-    "case_number": 101003907903.0,
-    "longitude": -95.1480926387781,
-    "latitude": 29.5607493063708,
-    "poly_id": "SE2WE_04",
-    "service_da": "2nd Wednesday"
-  },
-  {
-    "case_number": 101003907903.0,
-    "longitude": -95.1480926387781,
-    "latitude": 29.5607493063708,
-    "poly_id": "SE2WE_04",
-    "service_da": "2nd Wednesday"
-  },
-  {
-    "case_number": 101003907903.0,
-    "longitude": -95.1480926387781,
-    "latitude": 29.5607493063708,
-    "poly_id": "SE2WE_04",
-    "service_da": "2nd Wednesday"
-  },
-  {
-    "case_number": 101003907903.0,
-    "longitude": -95.1480926387781,
-    "latitude": 29.5607493063708,
-    "poly_id": "SE2WE_04",
-    "service_da": "2nd Wednesday"
-  },
-  {
-    "case_number": 101003907903.0,
-    "longitude": -95.1480926387781,
-    "latitude": 29.5607493063708,
-    "poly_id": "SE2WE_04",
-    "service_da": "2nd Wednesday"
-  },
-  {
-    "case_number": 101003907903.0,
-    "longitude": -95.1480926387781,
-    "latitude": 29.5607493063708,
-    "poly_id": "SE2WE_04",
-    "service_da": "2nd Wednesday"
-  },
-  {
-    "case_number": 101003968378.0,
-    "longitude": -95.1057934630772,
-    "latitude": 30.0253636093403,
-    "poly_id": "NE2WE_14",
-    "service_da": "2nd Wednesday"
-  },
-  {
-    "case_number": 101003968378.0,
-    "longitude": -95.1057934630772,
-    "latitude": 30.0253636093403,
-    "poly_id": "NE2WE_14",
-    "service_da": "2nd Wednesday"
-  },
-  {
-    "case_number": 101003957932.0,
-    "longitude": -95.2487694889877,
-    "latitude": 30.03941775,
-    "poly_id": "NE2WE_08",
-    "service_da": "2nd Wednesday"
-  },
-  {
-    "case_number": 101003968260.0,
-    "longitude": -95.2481437252557,
-    "latitude": 30.0420392991401,
-    "poly_id": "NE2WE_08",
-    "service_da": "2nd Wednesday"
-  },
-  {
-    "case_number": 101003977862.0,
-    "longitude": -95.2409120383852,
-    "latitude": 30.0432009306866,
-    "poly_id": "NE2WE_08",
-    "service_da": "2nd Wednesday"
-  },
-  {
-    "case_number": 101003957932.0,
-    "longitude": -95.2487694889877,
-    "latitude": 30.03941775,
-    "poly_id": "NE2WE_08",
-    "service_da": "2nd Wednesday"
-  },
-  {
-    "case_number": 101003968260.0,
-    "longitude": -95.2481437252557,
-    "latitude": 30.0420392991401,
-    "poly_id": "NE2WE_08",
-    "service_da": "2nd Wednesday"
-  },
-  {
-    "case_number": 101003977862.0,
-    "longitude": -95.2409120383852,
-    "latitude": 30.0432009306866,
-    "poly_id": "NE2WE_08",
-    "service_da": "2nd Wednesday"
-  },
-  {
-    "case_number": 101003968084.0,
-    "longitude": -95.2965105661533,
-    "latitude": 29.90264669,
-    "poly_id": "NE2WE_03",
-    "service_da": "2nd Wednesday"
-  },
-  {
-    "case_number": 101003968159.0,
-    "longitude": -95.2955843150605,
-    "latitude": 29.8875783737759,
-    "poly_id": "NE2WE_03",
-    "service_da": "2nd Wednesday"
-  },
-  {
-    "case_number": 101003969144.0,
-    "longitude": -95.2932856627923,
-    "latitude": 29.9014273851812,
-    "poly_id": "NE2WE_03",
-    "service_da": "2nd Wednesday"
-  },
-  {
-    "case_number": 101003969591.0,
-    "longitude": -95.2890543507674,
-    "latitude": 29.8996784631901,
-    "poly_id": "NE2WE_03",
-    "service_da": "2nd Wednesday"
-  },
-  {
-    "case_number": 101003970024.0,
-    "longitude": -95.2960979438922,
-    "latitude": 29.8890713381391,
-    "poly_id": "NE2WE_03",
-    "service_da": "2nd Wednesday"
-  },
-  {
-    "case_number": 101003976064.0,
-    "longitude": -95.2903890253958,
-    "latitude": 29.8996626444582,
-    "poly_id": "NE2WE_03",
-    "service_da": "2nd Wednesday"
-  },
-  {
-    "case_number": 101003957937.0,
-    "longitude": -95.2888472944843,
-    "latitude": 29.9008409972244,
-    "poly_id": "NE2WE_03",
-    "service_da": "2nd Wednesday"
-  },
-  {
-    "case_number": 101003968084.0,
-    "longitude": -95.2965105661533,
-    "latitude": 29.90264669,
-    "poly_id": "NE2WE_03",
-    "service_da": "2nd Wednesday"
-  },
-  {
-    "case_number": 101003968159.0,
-    "longitude": -95.2955843150605,
-    "latitude": 29.8875783737759,
-    "poly_id": "NE2WE_03",
-    "service_da": "2nd Wednesday"
-  },
-  {
-    "case_number": 101003969144.0,
-    "longitude": -95.2932856627923,
-    "latitude": 29.9014273851812,
-    "poly_id": "NE2WE_03",
-    "service_da": "2nd Wednesday"
-  },
-  {
-    "case_number": 101003970024.0,
-    "longitude": -95.2960979438922,
-    "latitude": 29.8890713381391,
-    "poly_id": "NE2WE_03",
-    "service_da": "2nd Wednesday"
-  },
-  {
-    "case_number": 101003976064.0,
-    "longitude": -95.2903890253958,
-    "latitude": 29.8996626444582,
-    "poly_id": "NE2WE_03",
-    "service_da": "2nd Wednesday"
-  },
-  {
-    "case_number": 101003969591.0,
-    "longitude": -95.2890543507674,
-    "latitude": 29.8996784631901,
-    "poly_id": "NE2WE_03",
-    "service_da": "2nd Wednesday"
-  },
-  {
-    "case_number": 101003957937.0,
-    "longitude": -95.2888472944843,
-    "latitude": 29.9008409972244,
-    "poly_id": "NE2WE_03",
-    "service_da": "2nd Wednesday"
-  },
-  {
-    "case_number": 101003968359.0,
-    "longitude": -95.2930744796488,
-    "latitude": 29.8682492714845,
+    "case_number": "101003958021.0",
+    "longitude": -95.295938,
+    "latitude": 29.867225,
     "poly_id": "NE2WE_01",
     "service_da": "2nd Wednesday"
   },
   {
-    "case_number": 101003958021.0,
-    "longitude": -95.2959382593673,
-    "latitude": 29.8672250549941,
+    "case_number": "101003968089.0",
+    "longitude": -95.293797,
+    "latitude": 29.867239,
     "poly_id": "NE2WE_01",
     "service_da": "2nd Wednesday"
   },
   {
-    "case_number": 101003968089.0,
-    "longitude": -95.2937973117371,
-    "latitude": 29.8672393753983,
+    "case_number": "101003968359.0",
+    "longitude": -95.293074,
+    "latitude": 29.868249,
     "poly_id": "NE2WE_01",
     "service_da": "2nd Wednesday"
   },
   {
-    "case_number": 101003969779.0,
-    "longitude": -95.2981771970252,
-    "latitude": 29.8862150827373,
+    "case_number": "101003969123.0",
+    "longitude": -95.293675,
+    "latitude": 29.882489,
     "poly_id": "NE2WE_01",
     "service_da": "2nd Wednesday"
   },
   {
-    "case_number": 101003968089.0,
-    "longitude": -95.2937973117371,
-    "latitude": 29.8672393753983,
+    "case_number": "101003969779.0",
+    "longitude": -95.298177,
+    "latitude": 29.886215,
     "poly_id": "NE2WE_01",
     "service_da": "2nd Wednesday"
   },
   {
-    "case_number": 101003969779.0,
-    "longitude": -95.2981771970252,
-    "latitude": 29.8862150827373,
+    "case_number": "101004027956.0",
+    "longitude": -95.294595,
+    "latitude": 29.88391,
     "poly_id": "NE2WE_01",
     "service_da": "2nd Wednesday"
   },
   {
-    "case_number": 101003958021.0,
-    "longitude": -95.2959382593673,
-    "latitude": 29.8672250549941,
-    "poly_id": "NE2WE_01",
-    "service_da": "2nd Wednesday"
-  },
-  {
-    "case_number": 101003969123.0,
-    "longitude": -95.2936754651503,
-    "latitude": 29.8824893510531,
-    "poly_id": "NE2WE_01",
-    "service_da": "2nd Wednesday"
-  },
-  {
-    "case_number": 101003968359.0,
-    "longitude": -95.2930744796488,
-    "latitude": 29.8682492714845,
-    "poly_id": "NE2WE_01",
-    "service_da": "2nd Wednesday"
-  },
-  {
-    "case_number": 101003969123.0,
-    "longitude": -95.2936754651503,
-    "latitude": 29.8824893510531,
-    "poly_id": "NE2WE_01",
-    "service_da": "2nd Wednesday"
-  },
-  {
-    "case_number": 101003957917.0,
-    "longitude": -95.205804507151,
-    "latitude": 30.0730932075272,
+    "case_number": "101003957917.0",
+    "longitude": -95.205805,
+    "latitude": 30.073093,
     "poly_id": "NE2WE_10",
     "service_da": "2nd Wednesday"
   },
   {
-    "case_number": 101003968074.0,
-    "longitude": -95.2082919224098,
-    "latitude": 30.0728782130302,
+    "case_number": "101003968074.0",
+    "longitude": -95.208292,
+    "latitude": 30.072878,
     "poly_id": "NE2WE_10",
     "service_da": "2nd Wednesday"
   },
   {
-    "case_number": 101003968139.0,
-    "longitude": -95.2058034695968,
-    "latitude": 30.0748662982495,
+    "case_number": "101003968139.0",
+    "longitude": -95.205803,
+    "latitude": 30.074866,
     "poly_id": "NE2WE_10",
     "service_da": "2nd Wednesday"
   },
   {
-    "case_number": 101003968904.0,
-    "longitude": -95.2017483127076,
-    "latitude": 30.0722091740708,
+    "case_number": "101003968904.0",
+    "longitude": -95.201748,
+    "latitude": 30.072209,
     "poly_id": "NE2WE_10",
     "service_da": "2nd Wednesday"
   },
   {
-    "case_number": 101003969203.0,
-    "longitude": -95.2013574647106,
-    "latitude": 30.0766398259467,
+    "case_number": "101003969203.0",
+    "longitude": -95.201357,
+    "latitude": 30.07664,
     "poly_id": "NE2WE_10",
     "service_da": "2nd Wednesday"
   },
   {
-    "case_number": 101003969517.0,
-    "longitude": -95.1992651392936,
-    "latitude": 30.0765913262972,
+    "case_number": "101003969517.0",
+    "longitude": -95.199265,
+    "latitude": 30.076591,
     "poly_id": "NE2WE_10",
     "service_da": "2nd Wednesday"
   },
   {
-    "case_number": 101003969854.0,
-    "longitude": -95.1992192901798,
-    "latitude": 30.0770789639654,
+    "case_number": "101003969854.0",
+    "longitude": -95.199219,
+    "latitude": 30.077079,
     "poly_id": "NE2WE_10",
     "service_da": "2nd Wednesday"
   },
   {
-    "case_number": 101003969886.0,
-    "longitude": -95.2082322473255,
-    "latitude": 30.0755937254432,
+    "case_number": "101003969886.0",
+    "longitude": -95.208232,
+    "latitude": 30.075594,
     "poly_id": "NE2WE_10",
     "service_da": "2nd Wednesday"
   },
   {
-    "case_number": 101003957917.0,
-    "longitude": -95.205804507151,
-    "latitude": 30.0730932075272,
+    "case_number": "101003974818.0",
+    "longitude": -95.211133,
+    "latitude": 30.072499,
     "poly_id": "NE2WE_10",
     "service_da": "2nd Wednesday"
   },
   {
-    "case_number": 101003968139.0,
-    "longitude": -95.2058034695968,
-    "latitude": 30.0748662982495,
+    "case_number": "101004008718.0",
+    "longitude": -95.201319,
+    "latitude": 30.070486,
     "poly_id": "NE2WE_10",
     "service_da": "2nd Wednesday"
   },
   {
-    "case_number": 101003968904.0,
-    "longitude": -95.2017483127076,
-    "latitude": 30.0722091740708,
-    "poly_id": "NE2WE_10",
-    "service_da": "2nd Wednesday"
-  },
-  {
-    "case_number": 101003969517.0,
-    "longitude": -95.1992651392936,
-    "latitude": 30.0765913262972,
-    "poly_id": "NE2WE_10",
-    "service_da": "2nd Wednesday"
-  },
-  {
-    "case_number": 101003969854.0,
-    "longitude": -95.1992192901798,
-    "latitude": 30.0770789639654,
-    "poly_id": "NE2WE_10",
-    "service_da": "2nd Wednesday"
-  },
-  {
-    "case_number": 101003969886.0,
-    "longitude": -95.2082322473255,
-    "latitude": 30.0755937254432,
-    "poly_id": "NE2WE_10",
-    "service_da": "2nd Wednesday"
-  },
-  {
-    "case_number": 101003969203.0,
-    "longitude": -95.2013574647106,
-    "latitude": 30.0766398259467,
-    "poly_id": "NE2WE_10",
-    "service_da": "2nd Wednesday"
-  },
-  {
-    "case_number": 101003974818.0,
-    "longitude": -95.2111334427738,
-    "latitude": 30.0724985068817,
-    "poly_id": "NE2WE_10",
-    "service_da": "2nd Wednesday"
-  },
-  {
-    "case_number": 101003968074.0,
-    "longitude": -95.2082919224098,
-    "latitude": 30.0728782130302,
-    "poly_id": "NE2WE_10",
-    "service_da": "2nd Wednesday"
-  },
-  {
-    "case_number": 101003974818.0,
-    "longitude": -95.2111334427738,
-    "latitude": 30.0724985068817,
-    "poly_id": "NE2WE_10",
-    "service_da": "2nd Wednesday"
-  },
-  {
-    "case_number": 101003906815.0,
-    "longitude": -95.13807884,
-    "latitude": 29.5607257702894,
+    "case_number": "101003906815.0",
+    "longitude": -95.138079,
+    "latitude": 29.560726,
     "poly_id": "SE2WE_01",
     "service_da": "2nd Wednesday"
   },
   {
-    "case_number": 101003906815.0,
-    "longitude": -95.13807884,
-    "latitude": 29.5607257702894,
-    "poly_id": "SE2WE_01",
-    "service_da": "2nd Wednesday"
-  },
-  {
-    "case_number": 101003906815.0,
-    "longitude": -95.13807884,
-    "latitude": 29.5607257702894,
-    "poly_id": "SE2WE_01",
-    "service_da": "2nd Wednesday"
-  },
-  {
-    "case_number": 101003906815.0,
-    "longitude": -95.13807884,
-    "latitude": 29.5607257702894,
-    "poly_id": "SE2WE_01",
-    "service_da": "2nd Wednesday"
-  },
-  {
-    "case_number": 101003906815.0,
-    "longitude": -95.13807884,
-    "latitude": 29.5607257702894,
-    "poly_id": "SE2WE_01",
-    "service_da": "2nd Wednesday"
-  },
-  {
-    "case_number": 101003906815.0,
-    "longitude": -95.13807884,
-    "latitude": 29.5607257702894,
-    "poly_id": "SE2WE_01",
-    "service_da": "2nd Wednesday"
-  },
-  {
-    "case_number": 101004009394.0,
-    "longitude": -95.4917167124009,
-    "latitude": 29.6696774797157,
+    "case_number": "101004009394.0",
+    "longitude": -95.491717,
+    "latitude": 29.669677,
     "poly_id": "SW2WE_04",
     "service_da": "2nd Wednesday"
   },
   {
-    "case_number": 101003957936.0,
-    "longitude": -95.2845690939949,
-    "latitude": 29.8799901328645,
+    "case_number": "101004028805.0",
+    "longitude": -95.479089,
+    "latitude": 29.668513,
+    "poly_id": "SW2WE_04",
+    "service_da": "2nd Wednesday"
+  },
+  {
+    "case_number": "101003957936.0",
+    "longitude": -95.284569,
+    "latitude": 29.87999,
     "poly_id": "NE2WE_02",
     "service_da": "2nd Wednesday"
   },
   {
-    "case_number": 101003968481.0,
-    "longitude": -95.2897968191295,
-    "latitude": 29.8806239335197,
+    "case_number": "101003968481.0",
+    "longitude": -95.289797,
+    "latitude": 29.880624,
     "poly_id": "NE2WE_02",
     "service_da": "2nd Wednesday"
   },
   {
-    "case_number": 101003968481.0,
-    "longitude": -95.2897968191295,
-    "latitude": 29.8806239335197,
+    "case_number": "101004028448.0",
+    "longitude": -95.287414,
+    "latitude": 29.882293,
     "poly_id": "NE2WE_02",
     "service_da": "2nd Wednesday"
   },
   {
-    "case_number": 101003957936.0,
-    "longitude": -95.2845690939949,
-    "latitude": 29.8799901328645,
+    "case_number": "101004028825.0",
+    "longitude": -95.280753,
+    "latitude": 29.877075,
     "poly_id": "NE2WE_02",
     "service_da": "2nd Wednesday"
   },
   {
-    "case_number": 101003952418.0,
-    "longitude": -95.3091111663717,
-    "latitude": 29.9490253507003,
+    "case_number": "101003952418.0",
+    "longitude": -95.309111,
+    "latitude": 29.949025,
     "poly_id": "NE2WE_05",
     "service_da": "2nd Wednesday"
   },
   {
-    "case_number": 101003979059.0,
-    "longitude": -95.4828255111122,
-    "latitude": 29.69038547,
+    "case_number": "101003979059.0",
+    "longitude": -95.482826,
+    "latitude": 29.690385,
     "poly_id": "SW2WE_03",
     "service_da": "2nd Wednesday"
   },
   {
-    "case_number": 101003979059.0,
-    "longitude": -95.4828255111122,
-    "latitude": 29.69038547,
+    "case_number": "101004013372.0",
+    "longitude": -95.482826,
+    "latitude": 29.690385,
     "poly_id": "SW2WE_03",
     "service_da": "2nd Wednesday"
   },
   {
-    "case_number": 101003958037.0,
-    "longitude": -95.2330115845318,
-    "latitude": 30.0279399035877,
+    "case_number": "101003957939.0",
+    "longitude": -95.23279,
+    "latitude": 30.030627,
     "poly_id": "NE2WE_09",
     "service_da": "2nd Wednesday"
   },
   {
-    "case_number": 101003957939.0,
-    "longitude": -95.2327895209935,
-    "latitude": 30.0306274208632,
+    "case_number": "101003958037.0",
+    "longitude": -95.233012,
+    "latitude": 30.02794,
     "poly_id": "NE2WE_09",
     "service_da": "2nd Wednesday"
   },
   {
-    "case_number": 101003958037.0,
-    "longitude": -95.2330115845318,
-    "latitude": 30.0279399035877,
-    "poly_id": "NE2WE_09",
-    "service_da": "2nd Wednesday"
-  },
-  {
-    "case_number": 101003957939.0,
-    "longitude": -95.2327895209935,
-    "latitude": 30.0306274208632,
-    "poly_id": "NE2WE_09",
-    "service_da": "2nd Wednesday"
-  },
-  {
-    "case_number": 101003968605.0,
-    "longitude": -95.1967316386641,
-    "latitude": 30.0815550196778,
+    "case_number": "101003968070.0",
+    "longitude": -95.166803,
+    "latitude": 30.072006,
     "poly_id": "NE2WE_11",
     "service_da": "2nd Wednesday"
   },
   {
-    "case_number": 101003968746.0,
-    "longitude": -95.1692862921373,
-    "latitude": 30.0753147508475,
+    "case_number": "101003968123.0",
+    "longitude": -95.166486,
+    "latitude": 30.071763,
     "poly_id": "NE2WE_11",
     "service_da": "2nd Wednesday"
   },
   {
-    "case_number": 101003968070.0,
-    "longitude": -95.1668025231403,
-    "latitude": 30.0720056318472,
+    "case_number": "101003968125.0",
+    "longitude": -95.195709,
+    "latitude": 30.083415,
     "poly_id": "NE2WE_11",
     "service_da": "2nd Wednesday"
   },
   {
-    "case_number": 101003968137.0,
-    "longitude": -95.1696963937258,
-    "latitude": 30.0766647310789,
+    "case_number": "101003968137.0",
+    "longitude": -95.169696,
+    "latitude": 30.076665,
     "poly_id": "NE2WE_11",
     "service_da": "2nd Wednesday"
   },
   {
-    "case_number": 101003968123.0,
-    "longitude": -95.1664860924798,
-    "latitude": 30.0717630543698,
+    "case_number": "101003968223.0",
+    "longitude": -95.171727,
+    "latitude": 30.078535,
     "poly_id": "NE2WE_11",
     "service_da": "2nd Wednesday"
   },
   {
-    "case_number": 101003968223.0,
-    "longitude": -95.171726965357,
-    "latitude": 30.0785346759715,
+    "case_number": "101003968318.0",
+    "longitude": -95.175595,
+    "latitude": 30.070026,
     "poly_id": "NE2WE_11",
     "service_da": "2nd Wednesday"
   },
   {
-    "case_number": 101003968318.0,
-    "longitude": -95.1755953624987,
-    "latitude": 30.0700263431226,
+    "case_number": "101003968375.0",
+    "longitude": -95.173051,
+    "latitude": 30.069902,
     "poly_id": "NE2WE_11",
     "service_da": "2nd Wednesday"
   },
   {
-    "case_number": 101003968375.0,
-    "longitude": -95.1730508125912,
-    "latitude": 30.0699023089224,
+    "case_number": "101003968499.0",
+    "longitude": -95.190076,
+    "latitude": 30.070528,
     "poly_id": "NE2WE_11",
     "service_da": "2nd Wednesday"
   },
   {
-    "case_number": 101003968499.0,
-    "longitude": -95.1900761240303,
-    "latitude": 30.0705283913522,
+    "case_number": "101003968529.0",
+    "longitude": -95.196195,
+    "latitude": 30.079011,
     "poly_id": "NE2WE_11",
     "service_da": "2nd Wednesday"
   },
   {
-    "case_number": 101003968540.0,
-    "longitude": -95.1964735607678,
-    "latitude": 30.0710358540027,
+    "case_number": "101003968540.0",
+    "longitude": -95.196474,
+    "latitude": 30.071036,
     "poly_id": "NE2WE_11",
     "service_da": "2nd Wednesday"
   },
   {
-    "case_number": 101003968553.0,
-    "longitude": -95.1723568146268,
-    "latitude": 30.0752047432107,
+    "case_number": "101003968553.0",
+    "longitude": -95.172357,
+    "latitude": 30.075205,
     "poly_id": "NE2WE_11",
     "service_da": "2nd Wednesday"
   },
   {
-    "case_number": 101003968529.0,
-    "longitude": -95.1961946159058,
-    "latitude": 30.0790112580069,
+    "case_number": "101003968605.0",
+    "longitude": -95.196732,
+    "latitude": 30.081555,
     "poly_id": "NE2WE_11",
     "service_da": "2nd Wednesday"
   },
   {
-    "case_number": 101003968794.0,
-    "longitude": -95.1678654951244,
-    "latitude": 30.0690067302254,
+    "case_number": "101003968746.0",
+    "longitude": -95.169286,
+    "latitude": 30.075315,
     "poly_id": "NE2WE_11",
     "service_da": "2nd Wednesday"
   },
   {
-    "case_number": 101003968123.0,
-    "longitude": -95.1664860924798,
-    "latitude": 30.0717630543698,
+    "case_number": "101003968794.0",
+    "longitude": -95.167865,
+    "latitude": 30.069007,
     "poly_id": "NE2WE_11",
     "service_da": "2nd Wednesday"
   },
   {
-    "case_number": 101003968137.0,
-    "longitude": -95.1696963937258,
-    "latitude": 30.0766647310789,
-    "poly_id": "NE2WE_11",
-    "service_da": "2nd Wednesday"
-  },
-  {
-    "case_number": 101003968223.0,
-    "longitude": -95.171726965357,
-    "latitude": 30.0785346759715,
-    "poly_id": "NE2WE_11",
-    "service_da": "2nd Wednesday"
-  },
-  {
-    "case_number": 101003968318.0,
-    "longitude": -95.1755953624987,
-    "latitude": 30.0700263431226,
-    "poly_id": "NE2WE_11",
-    "service_da": "2nd Wednesday"
-  },
-  {
-    "case_number": 101003968375.0,
-    "longitude": -95.1730508125912,
-    "latitude": 30.0699023089224,
-    "poly_id": "NE2WE_11",
-    "service_da": "2nd Wednesday"
-  },
-  {
-    "case_number": 101003968499.0,
-    "longitude": -95.1900761240303,
-    "latitude": 30.0705283913522,
-    "poly_id": "NE2WE_11",
-    "service_da": "2nd Wednesday"
-  },
-  {
-    "case_number": 101003968553.0,
-    "longitude": -95.1723568146268,
-    "latitude": 30.0752047432107,
-    "poly_id": "NE2WE_11",
-    "service_da": "2nd Wednesday"
-  },
-  {
-    "case_number": 101003968529.0,
-    "longitude": -95.1961946159058,
-    "latitude": 30.0790112580069,
-    "poly_id": "NE2WE_11",
-    "service_da": "2nd Wednesday"
-  },
-  {
-    "case_number": 101003968540.0,
-    "longitude": -95.1964735607678,
-    "latitude": 30.0710358540027,
-    "poly_id": "NE2WE_11",
-    "service_da": "2nd Wednesday"
-  },
-  {
-    "case_number": 101003968605.0,
-    "longitude": -95.1967316386641,
-    "latitude": 30.0815550196778,
-    "poly_id": "NE2WE_11",
-    "service_da": "2nd Wednesday"
-  },
-  {
-    "case_number": 101003968794.0,
-    "longitude": -95.1678654951244,
-    "latitude": 30.0690067302254,
-    "poly_id": "NE2WE_11",
-    "service_da": "2nd Wednesday"
-  },
-  {
-    "case_number": 101003968125.0,
-    "longitude": -95.195708664168,
-    "latitude": 30.0834153057865,
-    "poly_id": "NE2WE_11",
-    "service_da": "2nd Wednesday"
-  },
-  {
-    "case_number": 101003968746.0,
-    "longitude": -95.1692862921373,
-    "latitude": 30.0753147508475,
-    "poly_id": "NE2WE_11",
-    "service_da": "2nd Wednesday"
-  },
-  {
-    "case_number": 101003968070.0,
-    "longitude": -95.1668025231403,
-    "latitude": 30.0720056318472,
-    "poly_id": "NE2WE_11",
-    "service_da": "2nd Wednesday"
-  },
-  {
-    "case_number": 101003968125.0,
-    "longitude": -95.195708664168,
-    "latitude": 30.0834153057865,
-    "poly_id": "NE2WE_11",
-    "service_da": "2nd Wednesday"
-  },
-  {
-    "case_number": 101003957950.0,
-    "longitude": -95.2263038041181,
-    "latitude": 30.0097703715441,
+    "case_number": "101003957950.0",
+    "longitude": -95.226304,
+    "latitude": 30.00977,
     "poly_id": "NE2WE_07",
     "service_da": "2nd Wednesday"
   },
   {
-    "case_number": 101003957950.0,
-    "longitude": -95.2263038041181,
-    "latitude": 30.0097703715441,
-    "poly_id": "NE2WE_07",
-    "service_da": "2nd Wednesday"
-  },
-  {
-    "case_number": 101003970850.0,
-    "longitude": -95.2965214061238,
-    "latitude": 29.9596445782106,
+    "case_number": "101003970850.0",
+    "longitude": -95.296521,
+    "latitude": 29.959645,
     "poly_id": "NE2WE_06",
     "service_da": "2nd Wednesday"
   },
   {
-    "case_number": 101003970850.0,
-    "longitude": -95.2965214061238,
-    "latitude": 29.9596445782106,
-    "poly_id": "NE2WE_06",
-    "service_da": "2nd Wednesday"
-  },
-  {
-    "case_number": 101003919551.0,
-    "longitude": -95.1344865731268,
-    "latitude": 29.5772360288323,
+    "case_number": "101003919551.0",
+    "longitude": -95.134487,
+    "latitude": 29.577236,
     "poly_id": "SE2WE_03",
     "service_da": "2nd Wednesday"
   },
   {
-    "case_number": 101003919551.0,
-    "longitude": -95.1344865731268,
-    "latitude": 29.5772360288323,
-    "poly_id": "SE2WE_03",
+    "case_number": "101003968378.0",
+    "longitude": -95.105793,
+    "latitude": 30.025364,
+    "poly_id": "NE2WE_14",
     "service_da": "2nd Wednesday"
   },
   {
-    "case_number": 101003968693.0,
-    "longitude": -95.1395001470843,
-    "latitude": 30.0631797938876,
+    "case_number": "101003957932.0",
+    "longitude": -95.248769,
+    "latitude": 30.039418,
+    "poly_id": "NE2WE_08",
+    "service_da": "2nd Wednesday"
+  },
+  {
+    "case_number": "101003968260.0",
+    "longitude": -95.248144,
+    "latitude": 30.042039,
+    "poly_id": "NE2WE_08",
+    "service_da": "2nd Wednesday"
+  },
+  {
+    "case_number": "101003977862.0",
+    "longitude": -95.240912,
+    "latitude": 30.043201,
+    "poly_id": "NE2WE_08",
+    "service_da": "2nd Wednesday"
+  },
+  {
+    "case_number": "101003957937.0",
+    "longitude": -95.288847,
+    "latitude": 29.900841,
+    "poly_id": "NE2WE_03",
+    "service_da": "2nd Wednesday"
+  },
+  {
+    "case_number": "101003968084.0",
+    "longitude": -95.296511,
+    "latitude": 29.902647,
+    "poly_id": "NE2WE_03",
+    "service_da": "2nd Wednesday"
+  },
+  {
+    "case_number": "101003968159.0",
+    "longitude": -95.295584,
+    "latitude": 29.887578,
+    "poly_id": "NE2WE_03",
+    "service_da": "2nd Wednesday"
+  },
+  {
+    "case_number": "101003969144.0",
+    "longitude": -95.293286,
+    "latitude": 29.901427,
+    "poly_id": "NE2WE_03",
+    "service_da": "2nd Wednesday"
+  },
+  {
+    "case_number": "101003969591.0",
+    "longitude": -95.289054,
+    "latitude": 29.899678,
+    "poly_id": "NE2WE_03",
+    "service_da": "2nd Wednesday"
+  },
+  {
+    "case_number": "101003970024.0",
+    "longitude": -95.296098,
+    "latitude": 29.889071,
+    "poly_id": "NE2WE_03",
+    "service_da": "2nd Wednesday"
+  },
+  {
+    "case_number": "101003976064.0",
+    "longitude": -95.290389,
+    "latitude": 29.899663,
+    "poly_id": "NE2WE_03",
+    "service_da": "2nd Wednesday"
+  },
+  {
+    "case_number": "101004028699.0",
+    "longitude": -95.290415,
+    "latitude": 29.900011,
+    "poly_id": "NE2WE_03",
+    "service_da": "2nd Wednesday"
+  },
+  {
+    "case_number": "101003907903.0",
+    "longitude": -95.148093,
+    "latitude": 29.560749,
+    "poly_id": "SE2WE_04",
+    "service_da": "2nd Wednesday"
+  },
+  {
+    "case_number": "101003968693.0",
+    "longitude": -95.1395,
+    "latitude": 30.06318,
     "poly_id": "NE2WE_12",
     "service_da": "2nd Wednesday"
   },
   {
-    "case_number": 101003969989.0,
-    "longitude": -95.1001531031049,
-    "latitude": 30.0596882847919,
-    "poly_id": "NE2WE_12",
-    "service_da": "2nd Wednesday"
-  },
-  {
-    "case_number": 101003968693.0,
-    "longitude": -95.1395001470843,
-    "latitude": 30.0631797938876,
-    "poly_id": "NE2WE_12",
-    "service_da": "2nd Wednesday"
-  },
-  {
-    "case_number": 101003969989.0,
-    "longitude": -95.1001531031049,
-    "latitude": 30.0596882847919,
+    "case_number": "101003969989.0",
+    "longitude": -95.100153,
+    "latitude": 30.059688,
     "poly_id": "NE2WE_12",
     "service_da": "2nd Wednesday"
   }

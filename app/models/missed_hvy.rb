@@ -1,0 +1,2 @@
+class MissedHvy < ApplicationRecord
+end
