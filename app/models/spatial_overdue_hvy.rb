@@ -30,7 +30,8 @@ class SpatialOverdueHvy < ApplicationRecord
         puts "#{case_number}"# binding.pry
       end
     }
-    list=  MissedHvy.all.pluck(:sr_location, :trash_quad, :case_number, :overdue)
+    list=  MissedHvy.all.pluck(:sr_location, :trash_quad,
+       :case_number, :overdue)
 
     headers= %w[sr_location trash_quad case_number overdue]
 

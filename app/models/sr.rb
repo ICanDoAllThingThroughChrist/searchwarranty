@@ -858,8 +858,9 @@ class Sr < ApplicationRecord
       OpenSr.sw_open_sr_hvy_trash
       OpenSr.ne_open_sr_hvy_trash
       OpenSr.nw_open_sr_hvy_trash
-      Sr.all_quads_open_sr_hvy_trash
+      OpenSr.all_quads_open_sr_hvy_trash
       SpatialOverdueHvy.heavy_trash_map_data
+      #to generate JSON data for cluster maps
       SpatialOverdueHvy.seed
       SpatialOverdueHvy.js_clusters
       # Sr.heavy_trash_overdue

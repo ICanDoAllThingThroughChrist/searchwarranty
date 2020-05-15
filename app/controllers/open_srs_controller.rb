@@ -1385,9 +1385,10 @@ class OpenSrsController < ApplicationController
         'New Resident Container','Recycling Participation NEW',
         'Recycling Cart Repair or Replace','SWM Escalation',
         'Missed Garbage Pickup','Trash Dumping or Illegal Dumpsite',
-        'Add A Can', 'Storm Debris Collection', 'Dead Animal Collection',
-        'Add A Can CANCELLATION', 'Missed Recycling Pickup',
-        'Personnel or Vehicle Complaint','Physically Challenged Pickup']).
+        'Add A Can', 'Storm Debris Collection',
+        'Dead Animal Collection', 'Add A Can CANCELLATION',
+        'Missed Recycling Pickup', 'Personnel or Vehicle Complaint',
+        'Physically Challenged Pickup']).
         count
     @South = Sr.where(status: 'Open',
       trash_quad:['SW','SE'],
@@ -1395,9 +1396,10 @@ class OpenSrsController < ApplicationController
         'New Resident Container','Recycling Participation NEW',
         'Recycling Cart Repair or Replace','SWM Escalation',
         'Missed Garbage Pickup','Trash Dumping or Illegal Dumpsite',
-        'Add A Can', 'Storm Debris Collection', 'Dead Animal Collection',
-        'Add A Can CANCELLATION', 'Missed Recycling Pickup',
-        'Personnel or Vehicle Complaint','Physically Challenged Pickup']).
+        'Add A Can', 'Storm Debris Collection',
+        'Dead Animal Collection','Add A Can CANCELLATION',
+        'Missed Recycling Pickup','Personnel or Vehicle Complaint',
+        'Physically Challenged Pickup']).
         count
     @NorthOverdue=  Sr.
       where(status: 'Open',
@@ -1407,9 +1409,10 @@ class OpenSrsController < ApplicationController
         'New Resident Container','Recycling Participation NEW',
         'Recycling Cart Repair or Replace','SWM Escalation',
         'Missed Garbage Pickup','Trash Dumping or Illegal Dumpsite',
-        'Add A Can', 'Storm Debris Collection', 'Dead Animal Collection',
-        'Add A Can CANCELLATION', 'Missed Recycling Pickup',
-        'Personnel or Vehicle Complaint','Physically Challenged Pickup']).
+        'Add A Can', 'Storm Debris Collection',
+        'Dead Animal Collection', 'Add A Can CANCELLATION',
+        'Missed Recycling Pickup','Personnel or Vehicle Complaint',
+        'Physically Challenged Pickup']).
         count
     @NorthNotOverdue=  Sr.
       where(status: 'Open',
@@ -1419,9 +1422,10 @@ class OpenSrsController < ApplicationController
         'New Resident Container','Recycling Participation NEW',
         'Recycling Cart Repair or Replace','SWM Escalation',
         'Missed Garbage Pickup','Trash Dumping or Illegal Dumpsite',
-        'Add A Can', 'Storm Debris Collection', 'Dead Animal Collection',
-        'Add A Can CANCELLATION', 'Missed Recycling Pickup',
-        'Personnel or Vehicle Complaint','Physically Challenged Pickup']).
+        'Add A Can', 'Storm Debris Collection',
+        'Dead Animal Collection', 'Add A Can CANCELLATION',
+        'Missed Recycling Pickup', 'Personnel or Vehicle Complaint',
+        'Physically Challenged Pickup']).
         count
     @SouthOverdue=  Sr.
     where(status: 'Open',
