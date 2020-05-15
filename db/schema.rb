@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_14_195521) do
+ActiveRecord::Schema.define(version: 2020_05_15_214742) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -149,6 +149,19 @@ ActiveRecord::Schema.define(version: 2020_05_14_195521) do
     t.integer "replaced_cart"
     t.integer "serviced"
     t.integer "replace_wheel_lid"
+  end
+
+  create_table "facilities", force: :cascade do |t|
+    t.string "address"
+    t.string "location"
+    t.string "op_days"
+    t.string "op_hrs"
+    t.string "poc_name"
+    t.string "poc_phone"
+    t.string "poc_cell"
+    t.string "notes"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "gis_swmd_lists", force: :cascade do |t|
