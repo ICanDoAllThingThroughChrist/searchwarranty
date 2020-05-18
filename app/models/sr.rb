@@ -3723,7 +3723,7 @@ def self.new_services_list_2020
               'w+'){|f| f << list2.to_html}
       end
 
-  def self.updated_nil_trash_quad_in_monthly_grade
+  def self.updated_nil_trash_quad
     Spatial.delete_all
     Spatial.seed2
     start_date = Date.parse('2019-08-01')

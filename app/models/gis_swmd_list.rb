@@ -46,7 +46,7 @@ class GisSwmdList < ApplicationRecord
     historical_new_requests_sr_location.each{|request|
         count = 0
         while count < historical_new_requests_sr_location.count
-          binding.pry
+        #binding.pry
           if request.sr_location == GisSwmdList.all.distinct.pluck(:sr_location)
             matched_sr_location << request
           else
@@ -55,5 +55,9 @@ class GisSwmdList < ApplicationRecord
           count +1
         end
     }
+
+    puts "#{matched_sr_location.count}"
+    puts "Count of Matched Addressed Between SWMD_GIS and Sr synthetic address:"
+    "#{list_of_matched_sr_location.count}"
   end
 end

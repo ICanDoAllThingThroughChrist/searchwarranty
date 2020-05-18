@@ -1,4 +1,20 @@
 class Cart < ApplicationRecord
+    def self.multiple_delivered_list
+      list_of_delivered_cans= Cart.where(delivered:'1')
+      unique_list_of_delivered_cans= Cart.where(delivered: '1').distinct.pluck(:unique)
+      list_of_delivered_cans.each{|can|
+        # binding.pry
+        if Cart.where('unique = ?', can['unique'])
+          can.tally= 1
+          can.save
+          # binding.pry
+        else
+          puts "#{can}"
+        end
+        }
+        # puts "#{duplicate.count}"
+        binding.pry
+    end
     def self.carts_compliance_list
       self.unique
       headers = %w[sr_number client service_location status client_str_no
