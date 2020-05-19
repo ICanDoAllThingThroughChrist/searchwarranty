@@ -840,11 +840,12 @@ class Sr < ApplicationRecord
       Sr.sla_nil_resolution
       Sr.update_trash_quad_v2
       Sr.trash_quad_nil_resolution_from_garbage_route
-      Sr.update_trash_quad
+      #Sr.update_trash_quad
       Sr.expression_quad_status_assignment
       Sr.no_quad_list
-      binding.pry
       Sr.update_trash_quad
+      binding.pry
+      # Sr.update_trash_quad
       Sr.expression_quad_status_assignment
       #spatial join based on the generated csv
       # #perform Spatial Join on "NoQuadList.csv"
@@ -4368,12 +4369,24 @@ def self.new_services_list_2020
                'w+'){|f| f << list2.to_html}
       end
       def self.repeated_cans_requests_since_FY2018
+        Resident.delete_all
         start = Date.parse('2017-07-01')
         due = DateTime.now
         cans_requests = Sr.
             where('sr_create_date >= ? AND sr_create_date <=?',start, due).
               where(department: 'SWM Solid Waste Management').
-              where(sr_type: ['New Move In Service','Add A Can','Add A Can CANCELLATION','Add A Cart','Add A Cart CANCELLATION','Container Problem','New Resident Container','Recycle Bin/Cart Retrieve','Recycling Cart Repair or Replace','Recycling Participation NEW','Unauthorized Container Retrieval','SWM Escalation'])
+              where(sr_type: ['New Move In Service',
+                'Add A Can',
+                'Add A Can CANCELLATION',
+                'Add A Cart',
+                'Add A Cart CANCELLATION',
+                'Container Problem',
+                'New Resident Container',
+                'Recycle Bin/Cart Retrieve',
+                'Recycling Cart Repair or Replace',
+                'Recycling Participation NEW',
+                'Unauthorized Container Retrieval',
+                'SWM Escalation'])
         cans_requests.map {|request|
           # binding.pry
         Resident.create(unique: "#{request['sr_location']} #{request['tax_id']} #{request['client']}",sr_type: "#{request['sr_type']}", case_number: "#{request['case_number']}")
