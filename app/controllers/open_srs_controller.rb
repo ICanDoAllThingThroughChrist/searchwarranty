@@ -1914,9 +1914,7 @@ class OpenSrsController < ApplicationController
     @missedHvySETotal = Sr.where(heavy_trash_quad: 'SE',
       sr_type:'Missed Heavy Trash Pickup',
       expression:['Overdue','Not Overdue']).count
-    @missedHvySEOverdue = Sr.where(heavy_trash_quad: 'SE',
-      sr_type:'Missed Heavy Trash Pickup',
-      expression:['Overdue']).count
+    @missedHvySEOverdue = Sr.where(heavy_trash_quad: 'SE',sr_type:'Missed Heavy Trash Pickup',expression:['Overdue']).count
     @missedHvySEPercentOverdue =
     "#{((@missedHvySEOverdue.to_f.round(2)/@missedHvySETotal.to_f.round(2))*100).round(2)}%"
     @missedHvySEPercentNotOverdue =

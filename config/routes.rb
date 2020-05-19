@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'srs/case_performance'
   get 'facilities/list'
   get 'srs/DistrictASrs'
   get 'srs/monthly_requests_summary'
