@@ -1026,8 +1026,8 @@ end
     end
   end
   def self.north_case_quality_grade
-    @NNotOverdue= Sr.where(trash_quad: ['NE','NW'],
-      expression: 'Not Overdue',
+    @NOverdue= Sr.where(trash_quad: ['NE','NW'],
+      expression: 'Overdue',
       sr_type: ['Missed Heavy Trash Pickup','Container Problem',
         'New Resident Container','Recycling Participation NEW' ,
         'Recycling Cart Repair or Replace','SWM Escalation',
@@ -1046,7 +1046,7 @@ end
         'Add A Can CANCELLATION', 'Missed Recycling Pickup',
         'Personnel or Vehicle Complaint','Physically Challenged Pickup']).
         distinct.count(:case_number)
-    @NorthQuality = @NNotOverdue.to_f.round(2) / @North.to_f.round(2)
+    @NorthQuality = (1-(@NOverdue.to_f.round(2) / @North.to_f.round(2)))
     @NQualityGrad
     if @NorthQuality >= 0.9
       @NQualityGrade = 'A'
@@ -1058,12 +1058,12 @@ end
       @NQualityGrade = 'F'
     end
     @NQualityGrade
-    return "#{@NQualityGrade}"
+    # return "#{@NQualityGrade}"
     # binding.pry
   end
   def self.south_case_quality_grade
-    @SNotOverdue = Sr.
-    where(expression: 'Not Overdue',
+    @SOverdue = Sr.
+    where(expression: 'Overdue',
       status: 'Open',
       trash_quad: ['SE','SW'],
       sr_type: ['Missed Heavy Trash Pickup','Container Problem',
@@ -1084,7 +1084,7 @@ end
         'Add A Can CANCELLATION', 'Missed Recycling Pickup',
         'Personnel or Vehicle Complaint','Physically Challenged Pickup']).
         distinct.count(:case_number)
-    @SouthQuality = @SNotOverdue.to_f.round(2) / @South.to_f.round(2)
+    @SouthQuality = (1-(@SOverdue.to_f.round(2) / @South.to_f.round(2)))
     if @SouthQuality >= 0.9
       @SQualityGrade = 'A'
     elsif @SouthQuality >= 0.8
@@ -1095,7 +1095,7 @@ end
       @SQualityGrade = 'F'
     end
     @SQualityGrade
-    return "#{@SQualityGrade}"
+    # return "#{@SQualityGrade}"
     # binding.pry
   end
   def self.northQualityGrade

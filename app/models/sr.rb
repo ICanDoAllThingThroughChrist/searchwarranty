@@ -673,6 +673,7 @@ class Sr < ApplicationRecord
                 sr['neighborhood'] == "BRAYS OAKS" ||
                 sr['neighborhood'] == "ALIEF" ||
                 sr['neighborhood'] == "GULFTON" ||
+                sr['neighborhood'] == "MEYERLAND AREA" ||
                 sr['recycle_quad'] == "SW" ||
                 sr['neighborhood'] == "ELDRIDGE / WEST OAKS"||
                  /[s..S]W/.match?(sr['heavy_trash_quad'])
@@ -853,6 +854,7 @@ class Sr < ApplicationRecord
       # Sr.expression_quad_status_assignment
       #perform following command to determine if sr_type includes missed garbag
       Sr.no_quad_list
+
       Sr.missed_sr_related_pivot_FY20_FY21_all_districts
       Sr.html_pivot
       OpenSr.se_open_sr_hvy_trash
