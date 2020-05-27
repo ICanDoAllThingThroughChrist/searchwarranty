@@ -1,4 +1,169 @@
 class Sr < ApplicationRecord
+  def self.illegal_dump_past_all_contacts_3_years_by_district
+    start= DateTime.parse('2017-05-27T00:00:00+00:00')
+    due= DateTime.parse('2020-05-27T23:59:59+00:00')
+    services_list_values= Sr.where('sr_create_date >= ? AND sr_create_date <= ?',
+    start, due).where(
+      sr_type:['Trash Dumping or Illegal Dumpsite']
+    ).
+    pluck(:id, :case_number, :sr_location, :county, :district, :neighborhood,
+    :tax_id, :trash_quad, :recycle_quad, :trash_day, :heavy_trash_day,
+    :recycle_day, :key_map, :management_district, :department,
+    :division, :sr_type, :queue, :sla, :status, :sr_create_date,
+    :due_date, :date_closed, :overdue, :title, :x, :y, :latitude,
+    :longitude, :channel_type, :created_at, :updated_at, :field1,
+     :field2, :client, :garbage_route, :heavy_trash_quad, :sr_owner,
+      :sr_creator, :resolve_days, :street_num, :client_street, :city,
+       :state, :zip, :phone_number, :email_address, :garbage_day1,
+        :garbage_quad, :recycle_day1, :recycle_route, :resolution_time,
+         :expression, :ne_overdue, :ne_not_overdue, :ne_sr_total,
+          :nw_overdue, :nw_not_overdue, :nw_sr_total, :se_overdue,
+           :se_not_overdue, :se_sr_total, :sw_overdue, :sw_not_overdue,
+            :sw_sr_total, :quad_status, :tally, :month_yr, :sr_type_2)
+    headers = %w[id case_number sr_location county district neighborhood
+    tax_id trash_quad recycle_quad trash_day heavy_trash_day recycle_day
+    key_map management_district department division sr_type queue sla
+    status sr_create_date due_date date_closed overdue title x y
+    latitude longitude channel_type created_at updated_at field1
+    field2 client garbage_route heavy_trash_quad sr_owner sr_creator
+     resolve_days street_num client_street city state zip phone_number
+      email_address garbage_day1 garbage_quad recycle_day1
+       recycle_route resolution_time expression ne_overdue
+        ne_not_overdue ne_sr_total nw_overdue nw_not_overdue
+         nw_sr_total se_overdue se_not_overdue se_sr_total sw_overdue
+          sw_not_overdue sw_sr_total quad_status tally month_yr
+        sr_type_2]
+
+        CSV.open("../searchwarranty/districtAll_illegal_dump.csv", "wb",
+        write_headers: true, headers: headers) do |csv|
+          services_list_values.each do |row|
+          csv << row
+          end
+          sales2 =
+          Daru::DataFrame.from_csv '../searchwarranty/districtAll_illegal_dump.csv'
+
+          list2 = sales2.pivot_table(index:['district'], values:'tally',vectors:['month_yr'],  agg:  :sum)
+
+          File.open('../searchwarranty/app/views/srs/districtAll_illegal_dump.html.erb',
+                     'w+'){|f| f << list2.to_html}
+
+                File.open('../searchwarranty/app/views/srs/ddistrictAll_illegal_dump.html',
+                     'w+'){|f| f << list2.to_html}
+    end
+  end
+  def self.illegal_dump_past_3_years_by_district
+    start= DateTime.parse('2017-05-27T00:00:00+00:00')
+    due= DateTime.parse('2020-05-27T23:59:59+00:00')
+    services_list_values= Sr.where('sr_create_date >= ? AND sr_create_date <= ?',
+    start, due).where(
+      sr_type:['Trash Dumping or Illegal Dumpsite']
+    ).distinct(:case_number).
+    pluck(:id, :case_number, :sr_location, :county, :district, :neighborhood,
+    :tax_id, :trash_quad, :recycle_quad, :trash_day, :heavy_trash_day,
+    :recycle_day, :key_map, :management_district, :department,
+    :division, :sr_type, :queue, :sla, :status, :sr_create_date,
+    :due_date, :date_closed, :overdue, :title, :x, :y, :latitude,
+    :longitude, :channel_type, :created_at, :updated_at, :field1,
+     :field2, :client, :garbage_route, :heavy_trash_quad, :sr_owner,
+      :sr_creator, :resolve_days, :street_num, :client_street, :city,
+       :state, :zip, :phone_number, :email_address, :garbage_day1,
+        :garbage_quad, :recycle_day1, :recycle_route, :resolution_time,
+         :expression, :ne_overdue, :ne_not_overdue, :ne_sr_total,
+          :nw_overdue, :nw_not_overdue, :nw_sr_total, :se_overdue,
+           :se_not_overdue, :se_sr_total, :sw_overdue, :sw_not_overdue,
+            :sw_sr_total, :quad_status, :tally, :month_yr, :sr_type_2)
+    headers = %w[id case_number sr_location county district neighborhood
+    tax_id trash_quad recycle_quad trash_day heavy_trash_day recycle_day
+    key_map management_district department division sr_type queue sla
+    status sr_create_date due_date date_closed overdue title x y
+    latitude longitude channel_type created_at updated_at field1
+    field2 client garbage_route heavy_trash_quad sr_owner sr_creator
+     resolve_days street_num client_street city state zip phone_number
+      email_address garbage_day1 garbage_quad recycle_day1
+       recycle_route resolution_time expression ne_overdue
+        ne_not_overdue ne_sr_total nw_overdue nw_not_overdue
+         nw_sr_total se_overdue se_not_overdue se_sr_total sw_overdue
+          sw_not_overdue sw_sr_total quad_status tally month_yr
+        sr_type_2]
+
+        CSV.open("../searchwarranty/districtAll_illegal_dump.csv", "wb",
+        write_headers: true, headers: headers) do |csv|
+          services_list_values.each do |row|
+          csv << row
+          end
+          sales2 =
+          Daru::DataFrame.from_csv '../searchwarranty/districtAll_illegal_dump.csv'
+
+          list2 = sales2.pivot_table(index:['district'], values:'tally',vectors:['month_yr'],  agg:  :sum)
+
+          File.open('../searchwarranty/app/views/srs/districtAll_illegal_dump.html.erb',
+                     'w+'){|f| f << list2.to_html}
+
+                File.open('../searchwarranty/app/views/srs/ddistrictAll_illegal_dump.html',
+                     'w+'){|f| f << list2.to_html}
+    end
+  end
+  def self.sr_daily_case_number_csv_download
+    services_list_values = Sr.
+      where(department: 'SWM Solid Waste Management',
+        status: 'Open',
+        expression: ['Overdue', 'Not Overdue'],
+        sr_type: [
+          'Missed Heavy Trash Pickup',
+            'Container Problem','New Resident Container',
+            'Recycling Participation NEW' ,
+            'Recycling Cart Repair or Replace',
+            'SWM Escalation','Missed Garbage Pickup',
+            'Trash Dumping or Illegal Dumpsite',
+             'Add A Can', 'Storm Debris Collection',
+              'Dead Animal Collection', 'Add A Can CANCELLATION',
+               'Missed Recycling Pickup', 'Personnel or Vehicle Complaint',
+               'Physically Challenged Pickup',]).distinct(:case_number).
+    pluck(:id, :case_number, :sr_location, :county, :district, :neighborhood,
+       :tax_id, :trash_quad, :recycle_quad, :trash_day, :heavy_trash_day,
+        :recycle_day, :key_map, :management_district, :department,
+         :division, :sr_type, :queue, :sla, :status, :sr_create_date,
+          :due_date, :date_closed, :overdue, :title, :x, :y, :latitude,
+           :longitude, :channel_type, :created_at, :updated_at, :field1,
+            :field2, :client, :garbage_route, :heavy_trash_quad, :sr_owner,
+             :sr_creator, :resolve_days, :street_num, :client_street, :city,
+              :state, :zip, :phone_number, :email_address, :garbage_day1,
+               :garbage_quad, :recycle_day1, :recycle_route, :resolution_time,
+                :expression, :ne_overdue, :ne_not_overdue, :ne_sr_total,
+                 :nw_overdue, :nw_not_overdue, :nw_sr_total, :se_overdue,
+                  :se_not_overdue, :se_sr_total, :sw_overdue, :sw_not_overdue,
+                   :sw_sr_total, :quad_status, :tally, :month_yr, :sr_type_2)
+    headers = %w[id case_number sr_location county district neighborhood
+       tax_id trash_quad recycle_quad trash_day heavy_trash_day recycle_day
+        key_map management_district department division sr_type queue sla
+         status sr_create_date due_date date_closed overdue title x y
+          latitude longitude channel_type created_at updated_at field1
+           field2 client garbage_route heavy_trash_quad sr_owner sr_creator
+            resolve_days street_num client_street city state zip phone_number
+             email_address garbage_day1 garbage_quad recycle_day1
+              recycle_route resolution_time expression ne_overdue
+               ne_not_overdue ne_sr_total nw_overdue nw_not_overdue
+                nw_sr_total se_overdue se_not_overdue se_sr_total sw_overdue
+                 sw_not_overdue sw_sr_total quad_status tally month_yr
+               sr_type_2]
+    CSV.open("../searchwarranty/districtAll_missed_services_FY20.csv", "wb",
+       write_headers: true, headers: headers) do |csv|
+         services_list_values.each do |row|
+           csv << row
+         end
+       end
+
+    sales2 =
+    Daru::DataFrame.from_csv '../searchwarranty/districtAll_missed_services_FY20.csv'
+
+    list2 = sales2.pivot_table(index:['sr_type_2'], values:'tally',vectors:['month_yr'],  agg:  :sum)
+
+    File.open('../searchwarranty/app/views/srs/districtAll_missed_services_FY20.html.erb',
+               'w+'){|f| f << list2.to_html}
+
+          File.open('../searchwarranty/app/views/srs/districtAll_missed_services_FY20.html',
+               'w+'){|f| f << list2.to_html}
+  end
   def self.fy2020_2021_sr_total
     start= DateTime.parse('2019-7-01T00:00:00+00:00')
     due= DateTime.parse('2022-6-30T23:59:59+00:00')
@@ -855,15 +1020,16 @@ class Sr < ApplicationRecord
       #perform following command to determine if sr_type includes missed garbag
       Sr.no_quad_list
 
-      Sr.missed_sr_related_pivot_FY20_FY21_all_districts
+      Sr.sr_daily_case_number_csv_download
       Sr.html_pivot
       OpenSr.se_open_sr_hvy_trash
       OpenSr.sw_open_sr_hvy_trash
       OpenSr.ne_open_sr_hvy_trash
       OpenSr.nw_open_sr_hvy_trash
-      OpenSr.all_quads_open_sr_hvy_trash
-      SpatialOverdueHvy.heavy_trash_map_data
-      #to generate JSON data for cluster maps
+      OpenSr.all_quads_open_sr_hvy_trash#for spatial join points to map
+      SpatialOverdueHvy.heavy_trash_map_data#
+      # for access values of lat and lon  for
+      #generate JSON data for cluster maps
       SpatialOverdueHvy.seed
       SpatialOverdueHvy.js_clusters
       # Sr.heavy_trash_overdue
@@ -4471,16 +4637,32 @@ def self.new_services_list_2020
             service_request['sr_create_date'] <= DateTime.parse('2020-01-31T23:59:59+00:00')
             service_request['month_yr'] = 'Jan_20'
             service_request.save
+          elsif service_request['created_at'] >= DateTime.parse('2020-01-01T00:00:00+00:00') &&
+            service_request['created_at'] <= DateTime.parse('2020-01-31T23:59:59+00:00')
+            service_request['month_yr'] = 'Jan_20'
+            service_request.save
           elsif service_request['sr_create_date'] >= DateTime.parse('2020-02-01T00:00:00+00:00') &&
             service_request['sr_create_date'] <= DateTime.parse('2020-02-29T23:59:59+00:00')
+            service_request['month_yr'] = 'Feb_20'
+            service_request.save
+          elsif service_request['created_at'] >= DateTime.parse('2020-02-01T00:00:00+00:00') &&
+            service_request['created_at'] <= DateTime.parse('2020-02-29T23:59:59+00:00')
             service_request['month_yr'] = 'Feb_20'
             service_request.save
           elsif service_request['sr_create_date'] >= DateTime.parse('2020-03-01T00:00:00+00:00') &&
             service_request['sr_create_date'] <= DateTime.parse('2020-03-31T23:59:59+00:00')
             service_request['month_yr'] = 'Mar_20'
             service_request.save
+          # elsif service_request['created_at'] >= DateTime.parse('2020-03-01T00:00:00+00:00') &&
+          #   service_request['created_at'] <= DateTime.parse('2020-03-31T23:59:59+00:00')
+          #   service_request['month_yr'] = 'Mar_20'
+          #   service_request.save
           elsif service_request['sr_create_date'] >= DateTime.parse('2020-04-01T00:00:00+00:00') &&
             service_request['sr_create_date'] <= DateTime.parse('2020-04-30T23:59:59+00:00')
+            service_request['month_yr'] = 'Apr_20'
+            service_request.save
+          elsif service_request['created_at'] >= DateTime.parse('2020-04-01T00:00:00+00:00') &&
+            service_request['created_at'] <= DateTime.parse('2020-04-30T23:59:59+00:00')
             service_request['month_yr'] = 'Apr_20'
             service_request.save
           elsif service_request['sr_create_date'] >= DateTime.parse('2020-05-01T00:00:00+00:00') &&
@@ -4554,13 +4736,13 @@ def self.new_services_list_2020
           sales2 =
           Daru::DataFrame.from_csv '../searchwarranty/districtAll_missed_services_FY20.csv'
 
-    list2 = sales2.pivot_table(index:['sr_type_2'], values:'tally',vectors:['month_yr'],  agg:  :sum)
+          list2 = sales2.pivot_table(index:['sr_type_2'], values:'tally',vectors:['month_yr'],  agg:  :sum)
 
-    File.open('../searchwarranty/app/views/srs/districtAll_missed_services_FY20.html.erb',
-               'w+'){|f| f << list2.to_html}
+          File.open('../searchwarranty/app/views/srs/districtAll_missed_services_FY20.html.erb',
+                     'w+'){|f| f << list2.to_html}
 
-          File.open('../searchwarranty/app/views/srs/districtAll_missed_services_FY20.html',
-               'w+'){|f| f << list2.to_html}
+                File.open('../searchwarranty/app/views/srs/districtAll_missed_services_FY20.html',
+                     'w+'){|f| f << list2.to_html}
       end
       def self.missed_sr_related_pivot_FY20_district_A
         start_date = DateTime.parse('2019-07-01T00:00:00+00:00')

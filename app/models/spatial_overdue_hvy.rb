@@ -316,5 +316,689 @@ class SpatialOverdueHvy < ApplicationRecord
     SpatialOverdueHvy.second_fri_js
     SpatialOverdueHvy.fourth_wed_js
     SpatialOverdueHvy.first_thursday_js
+    SpatialOverdueHvy.fourth_fri_NE4FR_11_js
+    SpatialOverdueHvy.fourth_fri_SW4FR_05_js
+    SpatialOverdueHvy.fourth_fri_SE4FR_05_js
+    SpatialOverdueHvy.fourth_fri_SE4FR_06_js
+    SpatialOverdueHvy.fourth_fri_SE4FR_04_js
+    SpatialOverdueHvy.fourth_fri_SW4FR_06_js
+    SpatialOverdueHvy.fourth_fri_NE4FR_13_js
+    SpatialOverdueHvy.fourth_fri_SW4FR_01_js
+    SpatialOverdueHvy.fourth_fri_NE4FR_10_js
+    SpatialOverdueHvy.fourth_fri_SW4FR_03_js
+    SpatialOverdueHvy.fourth_fri_NE4FR_05_js
+    SpatialOverdueHvy.fourth_fri_SE4FR_07_js
+    SpatialOverdueHvy.fourth_fri_NE4FR_09_js
+    SpatialOverdueHvy.fourth_fri_NE4FR_04_js
+    SpatialOverdueHvy.fourth_fri_SW4FR_04_js
+    SpatialOverdueHvy.fourth_fri_SE4FR_02_js
+    SpatialOverdueHvy.fourth_fri_NE4FR_01_js
+    SpatialOverdueHvy.fourth_fri_SW4FR_02_js
+    SpatialOverdueHvy.fourth_fri_NE4FR_02_js
+    SpatialOverdueHvy.fourth_fri_NE4FR_06_js
+    SpatialOverdueHvy.fourth_mon_NE4MO_02_js
+    SpatialOverdueHvy.fourth_mon_NE4MO_10_js
+    SpatialOverdueHvy.fourth_mon_SE4MO_04_js
+    SpatialOverdueHvy.fourth_mon_SE4MO_03_js
+    SpatialOverdueHvy.fourth_mon_NE4MO_07_js
+    SpatialOverdueHvy.fourth_mon_NE4MO_03_js
+    SpatialOverdueHvy.fourth_mon_NE4MO_01_js
+    SpatialOverdueHvy.fourth_mon_SE4MO_02_js
+    SpatialOverdueHvy.fourth_mon_SW4MO_06_js
+    SpatialOverdueHvy.fourth_mon_SE4MO_01_js
+    SpatialOverdueHvy.fourth_mon_NE4MO_08_js
+    SpatialOverdueHvy.fourth_mon_SE4MO_05_js
+    SpatialOverdueHvy.fourth_mon_SE4MO_06_js
+    SpatialOverdueHvy.fourth_mon_SW4MO_05_js
+    SpatialOverdueHvy.fourth_mon_SW4MO_03_js
+    SpatialOverdueHvy.fourth_mon_SE4MO_07_js
+    SpatialOverdueHvy.fourth_mon_SW4MO_04_js
+    SpatialOverdueHvy.fourth_mon_NE4MO_12_js
+    SpatialOverdueHvy.fourth_mon_SW4MO_01_js
+  end
+  def self.fourth_fri_SW4FR_04_js
+    tally_values = SpatialOverdueHvy.where(service_da:['4th Friday'],
+      poly_id:['SW4FR_04']).
+    pluck(:case_number, :longitude, :latitude, :poly_id, :service_da)
+
+    headers = %i[case_number longitude latitude poly_id service_da]
+    File.open("../searchwarranty/4th-fri-OverdueHvy-SW4FR_04.js", 'w') { |f|
+      json = tally_values.map {|line|
+        # binding.pry
+        c= Hash[headers.zip(line)]
+      }
+      # binding.pry
+      f.puts JSON.pretty_generate(json)
+    }
+  end
+  def self.fourth_fri_NE4FR_11_js
+    tally_values = SpatialOverdueHvy.where(service_da:['4th Friday'],
+      poly_id:['NE4FR_11']).
+    pluck(:case_number, :longitude, :latitude, :poly_id, :service_da)
+
+    headers = %i[case_number longitude latitude poly_id service_da]
+    File.open("../searchwarranty/4th-fri-OverdueHvy-NE4FR_11.js", 'w') do |f|
+      json = tally_values.map {|line|
+        # binding.pry
+        c= Hash[headers.zip(line)]
+      }
+      # binding.pry
+      f.puts JSON.pretty_generate(json)
+    end
+  end
+  def self.fourth_fri_SW4FR_05_js
+    tally_values = SpatialOverdueHvy.where(service_da:['4th Friday'],
+      poly_id:['SW4FR_05']).
+    pluck(:case_number, :longitude, :latitude, :poly_id, :service_da)
+
+    headers = %i[case_number longitude latitude poly_id service_da]
+    File.open("../searchwarranty/4th-fri-OverdueHvy-SW4FR_05.js", 'w') do |f|
+      json = tally_values.map {|line|
+        # binding.pry
+        c= Hash[headers.zip(line)]
+      }
+      # binding.pry
+      f.puts JSON.pretty_generate(json)
+    end
+  end
+  def self.fourth_fri_SE4FR_05_js
+    tally_values = SpatialOverdueHvy.where(service_da:['4th Friday'],
+      poly_id:['SE4FR_05']).
+    pluck(:case_number, :longitude, :latitude, :poly_id, :service_da)
+
+    headers = %i[case_number longitude latitude poly_id service_da]
+    File.open("../searchwarranty/4th-fri-OverdueHvy-SE4FR_05.js", 'w') do |f|
+      json = tally_values.map {|line|
+        # binding.pry
+        c= Hash[headers.zip(line)]
+      }
+      # binding.pry
+      f.puts JSON.pretty_generate(json)
+    end
+  end
+  def self.fourth_fri_SE4FR_03_js
+    tally_values = SpatialOverdueHvy.where(service_da:['4th Friday'],
+      poly_id:['SE4FR_03']).
+    pluck(:case_number, :longitude, :latitude, :poly_id, :service_da)
+
+    headers = %i[case_number longitude latitude poly_id service_da]
+    File.open("../searchwarranty/4th-fri-OverdueHvy-SE4FR_03.js", 'w') do |f|
+      json = tally_values.map {|line|
+        # binding.pry
+        c= Hash[headers.zip(line)]
+      }
+      # binding.pry
+      f.puts JSON.pretty_generate(json)
+    end
+  end
+  def self.fourth_fri_SE4FR_06_js
+    tally_values = SpatialOverdueHvy.where(service_da:['4th Friday'],
+      poly_id:['SE4FR_06']).
+    pluck(:case_number, :longitude, :latitude, :poly_id, :service_da)
+
+    headers = %i[case_number longitude latitude poly_id service_da]
+    File.open("../searchwarranty/4th-fri-OverdueHvy-SE4FR_06.js", 'w') do |f|
+      json = tally_values.map {|line|
+        # binding.pry
+        c= Hash[headers.zip(line)]
+      }
+      # binding.pry
+      f.puts JSON.pretty_generate(json)
+    end
+  end
+  def self.fourth_fri_SE4FR_04_js
+    tally_values = SpatialOverdueHvy.where(service_da:['4th Friday'],
+      poly_id:['SE4FR_04']).
+    pluck(:case_number, :longitude, :latitude, :poly_id, :service_da)
+
+    headers = %i[case_number longitude latitude poly_id service_da]
+    File.open("../searchwarranty/4th-fri-OverdueHvy-SE4FR_04.js", 'w') do |f|
+      json = tally_values.map {|line|
+        # binding.pry
+        c= Hash[headers.zip(line)]
+      }
+      # binding.pry
+      f.puts JSON.pretty_generate(json)
+    end
+  end
+  def self.fourth_fri_SW4FR_06_js
+    tally_values = SpatialOverdueHvy.where(service_da:['4th Friday'],
+      poly_id:['SW4FR_06']).
+    pluck(:case_number, :longitude, :latitude, :poly_id, :service_da)
+
+    headers = %i[case_number longitude latitude poly_id service_da]
+    File.open("../searchwarranty/4th-fri-OverdueHvy-SW4FR_06.js", 'w') do |f|
+      json = tally_values.map {|line|
+        # binding.pry
+        c= Hash[headers.zip(line)]
+      }
+      # binding.pry
+      f.puts JSON.pretty_generate(json)
+    end
+  end
+  def self.fourth_fri_SW4FR_06_js
+    tally_values = SpatialOverdueHvy.where(service_da:['4th Friday'],
+      poly_id:['SW4FR_06']).
+    pluck(:case_number, :longitude, :latitude, :poly_id, :service_da)
+
+    headers = %i[case_number longitude latitude poly_id service_da]
+    File.open("../searchwarranty/4th-fri-OverdueHvy-SW4FR_06.js", 'w') do |f|
+      json = tally_values.map {|line|
+        # binding.pry
+        c= Hash[headers.zip(line)]
+      }
+      # binding.pry
+      f.puts JSON.pretty_generate(json)
+    end
+  end
+  def self.fourth_fri_NE4FR_13_js
+    tally_values = SpatialOverdueHvy.where(service_da:['4th Friday'],
+      poly_id:['NE4FR_13']).
+    pluck(:case_number, :longitude, :latitude, :poly_id, :service_da)
+
+    headers = %i[case_number longitude latitude poly_id service_da]
+    File.open("../searchwarranty/4th-fri-OverdueHvy-NE4FR_13.js", 'w') do |f|
+      json = tally_values.map {|line|
+        # binding.pry
+        c= Hash[headers.zip(line)]
+      }
+      # binding.pry
+      f.puts JSON.pretty_generate(json)
+    end
+  end
+  def self.fourth_fri_SW4FR_01_js
+    tally_values = SpatialOverdueHvy.where(service_da:['4th Friday'],
+      poly_id:['SW4FR_01']).
+    pluck(:case_number, :longitude, :latitude, :poly_id, :service_da)
+
+    headers = %i[case_number longitude latitude poly_id service_da]
+    File.open("../searchwarranty/4th-fri-OverdueHvy-SW4FR_01.js", 'w') do |f|
+      json = tally_values.map {|line|
+        # binding.pry
+        c= Hash[headers.zip(line)]
+      }
+      # binding.pry
+      f.puts JSON.pretty_generate(json)
+    end
+  end
+  def self.fourth_fri_SW4FR_01_js
+    tally_values = SpatialOverdueHvy.where(service_da:['4th Friday'],
+      poly_id:['SW4FR_01']).
+    pluck(:case_number, :longitude, :latitude, :poly_id, :service_da)
+
+    headers = %i[case_number longitude latitude poly_id service_da]
+    File.open("../searchwarranty/4th-fri-OverdueHvy-SW4FR_01.js", 'w') do |f|
+      json = tally_values.map {|line|
+        # binding.pry
+        c= Hash[headers.zip(line)]
+      }
+      # binding.pry
+      f.puts JSON.pretty_generate(json)
+    end
+  end
+  def self.fourth_fri_NE4FR_10_js
+    tally_values = SpatialOverdueHvy.where(service_da:['4th Friday'],
+      poly_id:['NE4FR_10']).
+    pluck(:case_number, :longitude, :latitude, :poly_id, :service_da)
+
+    headers = %i[case_number longitude latitude poly_id service_da]
+    File.open("../searchwarranty/4th-fri-OverdueHvy-NE4FR_10.js", 'w') do |f|
+      json = tally_values.map {|line|
+        # binding.pry
+        c= Hash[headers.zip(line)]
+      }
+      # binding.pry
+      f.puts JSON.pretty_generate(json)
+    end
+  end
+  def self.fourth_fri_NE4FR_03_js
+    tally_values = SpatialOverdueHvy.where(service_da:['4th Friday'],
+      poly_id:['NE4FR_03']).
+    pluck(:case_number, :longitude, :latitude, :poly_id, :service_da)
+
+    headers = %i[case_number longitude latitude poly_id service_da]
+    File.open("../searchwarranty/4th-fri-OverdueHvy-NE4FR_03.js", 'w') do |f|
+      json = tally_values.map {|line|
+        # binding.pry
+        c= Hash[headers.zip(line)]
+      }
+      # binding.pry
+      f.puts JSON.pretty_generate(json)
+    end
+  end
+  def self.fourth_fri_SW4FR_03_js
+    tally_values = SpatialOverdueHvy.where(service_da:['4th Friday'],
+      poly_id:['SW4FR_03']).
+    pluck(:case_number, :longitude, :latitude, :poly_id, :service_da)
+
+    headers = %i[case_number longitude latitude poly_id service_da]
+    File.open("../searchwarranty/4th-fri-OverdueHvy-SW4FR_03.js", 'w') do |f|
+      json = tally_values.map {|line|
+        # binding.pry
+        c= Hash[headers.zip(line)]
+      }
+      # binding.pry
+      f.puts JSON.pretty_generate(json)
+    end
+  end
+  def self.fourth_fri_NE4FR_05_js
+    tally_values = SpatialOverdueHvy.where(service_da:['4th Friday'],
+      poly_id:['NE4FR_05']).
+    pluck(:case_number, :longitude, :latitude, :poly_id, :service_da)
+
+    headers = %i[case_number longitude latitude poly_id service_da]
+    File.open("../searchwarranty/4th-fri-OverdueHvy-NE4FR_05.js", 'w') do |f|
+      json = tally_values.map {|line|
+        # binding.pry
+        c= Hash[headers.zip(line)]
+      }
+      # binding.pry
+      f.puts JSON.pretty_generate(json)
+    end
+  end
+  def self.fourth_fri_SE4FR_07_js
+    tally_values = SpatialOverdueHvy.where(service_da:['4th Friday'],
+      poly_id:['SE4FR_07']).
+    pluck(:case_number, :longitude, :latitude, :poly_id, :service_da)
+
+    headers = %i[case_number longitude latitude poly_id service_da]
+    File.open("../searchwarranty/4th-fri-OverdueHvy-SE4FR_07.js", 'w') do |f|
+      json = tally_values.map {|line|
+        # binding.pry
+        c= Hash[headers.zip(line)]
+      }
+      # binding.pry
+      f.puts JSON.pretty_generate(json)
+    end
+  end
+  def self.fourth_fri_NE4FR_09_js
+    tally_values = SpatialOverdueHvy.where(service_da:['4th Friday'],
+      poly_id:['NE4FR_09']).
+    pluck(:case_number, :longitude, :latitude, :poly_id, :service_da)
+
+    headers = %i[case_number longitude latitude poly_id service_da]
+    File.open("../searchwarranty/4th-fri-OverdueHvy-NE4FR_09.js", 'w') do |f|
+      json = tally_values.map {|line|
+        # binding.pry
+        c= Hash[headers.zip(line)]
+      }
+      # binding.pry
+      f.puts JSON.pretty_generate(json)
+    end
+  end
+  def self.fourth_fri_NE4FR_04_js
+    tally_values = SpatialOverdueHvy.where(service_da:['4th Friday'],
+      poly_id:['NE4FR_04']).
+    pluck(:case_number, :longitude, :latitude, :poly_id, :service_da)
+
+    headers = %i[case_number longitude latitude poly_id service_da]
+    File.open("../searchwarranty/4th-fri-OverdueHvy-NE4FR_04.js", 'w') do |f|
+      json = tally_values.map {|line|
+        # binding.pry
+        c= Hash[headers.zip(line)]
+      }
+      # binding.pry
+      f.puts JSON.pretty_generate(json)
+    end
+  end
+  def self.fourth_fri_SE4FR_02_js
+    tally_values = SpatialOverdueHvy.where(service_da:['4th Friday'],
+      poly_id:['SE4FR_02']).
+    pluck(:case_number, :longitude, :latitude, :poly_id, :service_da)
+
+    headers = %i[case_number longitude latitude poly_id service_da]
+    File.open("../searchwarranty/4th-fri-OverdueHvy-SE4FR_02.js", 'w') do |f|
+      json = tally_values.map {|line|
+        # binding.pry
+        c= Hash[headers.zip(line)]
+      }
+      # binding.pry
+      f.puts JSON.pretty_generate(json)
+    end
+  end
+  def self.fourth_fri_NE4FR_01_js
+    tally_values = SpatialOverdueHvy.where(service_da:['4th Friday'],
+      poly_id:['NE4FR_01']).
+    pluck(:case_number, :longitude, :latitude, :poly_id, :service_da)
+
+    headers = %i[case_number longitude latitude poly_id service_da]
+    File.open("../searchwarranty/4th-fri-OverdueHvy-NE4FR_01.js", 'w') do |f|
+      json = tally_values.map {|line|
+        # binding.pry
+        c= Hash[headers.zip(line)]
+      }
+      # binding.pry
+      f.puts JSON.pretty_generate(json)
+    end
+  end
+  def self.fourth_fri_SW4FR_02_js
+    tally_values = SpatialOverdueHvy.where(service_da:['4th Friday'],
+      poly_id:['SW4FR_02']).
+    pluck(:case_number, :longitude, :latitude, :poly_id, :service_da)
+
+    headers = %i[case_number longitude latitude poly_id service_da]
+    File.open("../searchwarranty/4th-fri-OverdueHvy-SW4FR_02.js", 'w') do |f|
+      json = tally_values.map {|line|
+        # binding.pry
+        c= Hash[headers.zip(line)]
+      }
+      # binding.pry
+      f.puts JSON.pretty_generate(json)
+    end
+  end
+  def self.fourth_fri_NE4FR_02_js
+    tally_values = SpatialOverdueHvy.where(service_da:['4th Friday'],
+      poly_id:['NE4FR_02']).
+    pluck(:case_number, :longitude, :latitude, :poly_id, :service_da)
+
+    headers = %i[case_number longitude latitude poly_id service_da]
+    File.open("../searchwarranty/4th-fri-OverdueHvy-NE4FR_02.js", 'w') do |f|
+      json = tally_values.map {|line|
+        # binding.pry
+        c= Hash[headers.zip(line)]
+      }
+      # binding.pry
+      f.puts JSON.pretty_generate(json)
+    end
+  end
+  def self.fourth_fri_NE4FR_06_js
+    tally_values = SpatialOverdueHvy.where(service_da:['4th Friday'],
+      poly_id:['NE4FR_06']).
+    pluck(:case_number, :longitude, :latitude, :poly_id, :service_da)
+
+    headers = %i[case_number longitude latitude poly_id service_da]
+    File.open("../searchwarranty/4th-fri-OverdueHvy-NE4FR_06.js", 'w') do |f|
+      json = tally_values.map {|line|
+        # binding.pry
+        c= Hash[headers.zip(line)]
+      }
+      # binding.pry
+      f.puts JSON.pretty_generate(json)
+    end
+  end
+  def self.fourth_mon_SW4MO_01_js
+    tally_values = SpatialOverdueHvy.where(service_da:['4th Monday'],
+      poly_id:['SW4MO_01']).
+    pluck(:case_number, :longitude, :latitude, :poly_id, :service_da)
+
+    headers = %i[case_number longitude latitude poly_id service_da]
+    File.open("../searchwarranty/4th-mon-OverdueHvy-SW4MO_01.js", 'w') do |f|
+      json = tally_values.map {|line|
+        # binding.pry
+        c= Hash[headers.zip(line)]
+      }
+      # binding.pry
+      f.puts JSON.pretty_generate(json)
+    end
+  end
+  def self.fourth_mon_NE4MO_12_js
+    tally_values = SpatialOverdueHvy.where(service_da:['4th Monday'],
+      poly_id:['NE4MO_12']).
+    pluck(:case_number, :longitude, :latitude, :poly_id, :service_da)
+
+    headers = %i[case_number longitude latitude poly_id service_da]
+    File.open("../searchwarranty/4th-mon-OverdueHvy-NE4MO_12.js", 'w') do |f|
+      json = tally_values.map {|line|
+        # binding.pry
+        c= Hash[headers.zip(line)]
+      }
+      # binding.pry
+      f.puts JSON.pretty_generate(json)
+    end
+  end
+  def self.fourth_mon_SW4MO_04_js
+    tally_values = SpatialOverdueHvy.where(service_da:['4th Monday'],
+      poly_id:['SW4MO_04']).
+    pluck(:case_number, :longitude, :latitude, :poly_id, :service_da)
+
+    headers = %i[case_number longitude latitude poly_id service_da]
+    File.open("../searchwarranty/4th-mon-OverdueHvy-SW4MO_04.js", 'w') do |f|
+      json = tally_values.map {|line|
+        # binding.pry
+        c= Hash[headers.zip(line)]
+      }
+      # binding.pry
+      f.puts JSON.pretty_generate(json)
+    end
+  end
+  def self.fourth_mon_SE4MO_07_js
+    tally_values = SpatialOverdueHvy.where(service_da:['4th Monday'],
+      poly_id:['SE4MO_07']).
+    pluck(:case_number, :longitude, :latitude, :poly_id, :service_da)
+
+    headers = %i[case_number longitude latitude poly_id service_da]
+    File.open("../searchwarranty/4th-mon-OverdueHvy-SE4MO_07.js", 'w') do |f|
+      json = tally_values.map {|line|
+        # binding.pry
+        c= Hash[headers.zip(line)]
+      }
+      # binding.pry
+      f.puts JSON.pretty_generate(json)
+    end
+  end
+  def self.fourth_mon_SW4MO_03_js
+    tally_values = SpatialOverdueHvy.where(service_da:['4th Monday'],
+      poly_id:['SW4MO_03']).
+    pluck(:case_number, :longitude, :latitude, :poly_id, :service_da)
+
+    headers = %i[case_number longitude latitude poly_id service_da]
+    File.open("../searchwarranty/4th-mon-OverdueHvy-SW4MO_03.js", 'w') do |f|
+      json = tally_values.map {|line|
+        # binding.pry
+        c= Hash[headers.zip(line)]
+      }
+      # binding.pry
+      f.puts JSON.pretty_generate(json)
+    end
+  end
+  def self.fourth_mon_SW4MO_05_js
+    tally_values = SpatialOverdueHvy.where(service_da:['4th Monday'],
+      poly_id:['SW4MO_05']).
+    pluck(:case_number, :longitude, :latitude, :poly_id, :service_da)
+
+    headers = %i[case_number longitude latitude poly_id service_da]
+    File.open("../searchwarranty/4th-mon-OverdueHvy-SW4MO_05.js", 'w') do |f|
+      json = tally_values.map {|line|
+        # binding.pry
+        c= Hash[headers.zip(line)]
+      }
+      # binding.pry
+      f.puts JSON.pretty_generate(json)
+    end
+  end
+  def self.fourth_mon_SE4MO_06_js
+    tally_values = SpatialOverdueHvy.where(service_da:['4th Monday'],
+      poly_id:['SE4MO_06']).
+    pluck(:case_number, :longitude, :latitude, :poly_id, :service_da)
+
+    headers = %i[case_number longitude latitude poly_id service_da]
+    File.open("../searchwarranty/4th-mon-OverdueHvy-SE4MO_06.js", 'w') do |f|
+      json = tally_values.map {|line|
+        # binding.pry
+        c= Hash[headers.zip(line)]
+      }
+      # binding.pry
+      f.puts JSON.pretty_generate(json)
+    end
+  end
+  def self.fourth_mon_SE4MO_05_js
+    tally_values = SpatialOverdueHvy.where(service_da:['4th Monday'],
+      poly_id:['SE4MO_05']).
+    pluck(:case_number, :longitude, :latitude, :poly_id, :service_da)
+
+    headers = %i[case_number longitude latitude poly_id service_da]
+    File.open("../searchwarranty/4th-mon-OverdueHvy-SE4MO_05.js", 'w') do |f|
+      json = tally_values.map {|line|
+        # binding.pry
+        c= Hash[headers.zip(line)]
+      }
+      # binding.pry
+      f.puts JSON.pretty_generate(json)
+    end
+  end
+  def self.fourth_mon_NE4MO_08_js
+    tally_values = SpatialOverdueHvy.where(service_da:['4th Monday'],
+      poly_id:['NE4MO_08']).
+    pluck(:case_number, :longitude, :latitude, :poly_id, :service_da)
+
+    headers = %i[case_number longitude latitude poly_id service_da]
+    File.open("../searchwarranty/4th-mon-OverdueHvy-NE4MO_08.js", 'w') do |f|
+      json = tally_values.map {|line|
+        # binding.pry
+        c= Hash[headers.zip(line)]
+      }
+      # binding.pry
+      f.puts JSON.pretty_generate(json)
+    end
+  end
+  def self.fourth_mon_SE4MO_01_js
+    tally_values = SpatialOverdueHvy.where(service_da:['4th Monday'],
+      poly_id:['SE4MO_01']).
+    pluck(:case_number, :longitude, :latitude, :poly_id, :service_da)
+
+    headers = %i[case_number longitude latitude poly_id service_da]
+    File.open("../searchwarranty/4th-mon-OverdueHvy-SE4MO_01.js", 'w') do |f|
+      json = tally_values.map {|line|
+        # binding.pry
+        c= Hash[headers.zip(line)]
+      }
+      # binding.pry
+      f.puts JSON.pretty_generate(json)
+    end
+  end
+  def self.fourth_mon_SW4MO_06_js
+    tally_values = SpatialOverdueHvy.where(service_da:['4th Monday'],
+      poly_id:['SW4MO_06']).
+    pluck(:case_number, :longitude, :latitude, :poly_id, :service_da)
+
+    headers = %i[case_number longitude latitude poly_id service_da]
+    File.open("../searchwarranty/4th-mon-OverdueHvy-SW4MO_06.js", 'w') do |f|
+      json = tally_values.map {|line|
+        # binding.pry
+        c= Hash[headers.zip(line)]
+      }
+      # binding.pry
+      f.puts JSON.pretty_generate(json)
+    end
+  end
+  def self.fourth_mon_SE4MO_02_js
+    tally_values = SpatialOverdueHvy.where(service_da:['4th Monday'],
+      poly_id:['SE4MO_02']).
+    pluck(:case_number, :longitude, :latitude, :poly_id, :service_da)
+
+    headers = %i[case_number longitude latitude poly_id service_da]
+    File.open("../searchwarranty/4th-mon-OverdueHvy-SE4MO_02.js", 'w') do |f|
+      json = tally_values.map {|line|
+        # binding.pry
+        c= Hash[headers.zip(line)]
+      }
+      # binding.pry
+      f.puts JSON.pretty_generate(json)
+    end
+  end
+  def self.fourth_mon_NE4MO_01_js
+    tally_values = SpatialOverdueHvy.where(service_da:['4th Monday'],
+      poly_id:['NE4MO_01']).
+    pluck(:case_number, :longitude, :latitude, :poly_id, :service_da)
+
+    headers = %i[case_number longitude latitude poly_id service_da]
+    File.open("../searchwarranty/4th-mon-OverdueHvy-NE4MO_01.js", 'w') do |f|
+      json = tally_values.map {|line|
+        # binding.pry
+        c= Hash[headers.zip(line)]
+      }
+      # binding.pry
+      f.puts JSON.pretty_generate(json)
+    end
+  end
+  def self.fourth_mon_NE4MO_03_js
+    tally_values = SpatialOverdueHvy.where(service_da:['4th Monday'],
+      poly_id:['NE4MO_03']).
+    pluck(:case_number, :longitude, :latitude, :poly_id, :service_da)
+
+    headers = %i[case_number longitude latitude poly_id service_da]
+    File.open("../searchwarranty/4th-mon-OverdueHvy-NE4MO_03.js", 'w') do |f|
+      json = tally_values.map {|line|
+        # binding.pry
+        c= Hash[headers.zip(line)]
+      }
+      # binding.pry
+      f.puts JSON.pretty_generate(json)
+    end
+  end
+  def self.fourth_mon_NE4MO_07_js
+    tally_values = SpatialOverdueHvy.where(service_da:['4th Monday'],
+      poly_id:['NE4MO_07']).
+    pluck(:case_number, :longitude, :latitude, :poly_id, :service_da)
+
+    headers = %i[case_number longitude latitude poly_id service_da]
+    File.open("../searchwarranty/4th-mon-OverdueHvy-NE4MO_07.js", 'w') do |f|
+      json = tally_values.map {|line|
+        # binding.pry
+        c= Hash[headers.zip(line)]
+      }
+      # binding.pry
+      f.puts JSON.pretty_generate(json)
+    end
+  end
+  def self.fourth_mon_SE4MO_03_js
+    tally_values = SpatialOverdueHvy.where(service_da:['4th Monday'],
+      poly_id:['SE4MO_03']).
+    pluck(:case_number, :longitude, :latitude, :poly_id, :service_da)
+
+    headers = %i[case_number longitude latitude poly_id service_da]
+    File.open("../searchwarranty/4th-mon-OverdueHvy-SE4MO_03.js", 'w') do |f|
+      json = tally_values.map {|line|
+        # binding.pry
+        c= Hash[headers.zip(line)]
+      }
+      # binding.pry
+      f.puts JSON.pretty_generate(json)
+    end
+  end
+  def self.fourth_mon_SE4MO_04_js
+    tally_values = SpatialOverdueHvy.where(service_da:['4th Monday'],
+      poly_id:['SE4MO_04']).
+    pluck(:case_number, :longitude, :latitude, :poly_id, :service_da)
+
+    headers = %i[case_number longitude latitude poly_id service_da]
+    File.open("../searchwarranty/4th-mon-OverdueHvy-SE4MO_04.js", 'w') do |f|
+      json = tally_values.map {|line|
+        # binding.pry
+        c= Hash[headers.zip(line)]
+      }
+      # binding.pry
+      f.puts JSON.pretty_generate(json)
+    end
+  end
+  def self.fourth_mon_NE4MO_10_js
+    tally_values = SpatialOverdueHvy.where(service_da:['4th Monday'],
+      poly_id:['NE4MO_10']).
+    pluck(:case_number, :longitude, :latitude, :poly_id, :service_da)
+
+    headers = %i[case_number longitude latitude poly_id service_da]
+    File.open("../searchwarranty/4th-mon-OverdueHvy-NE4MO_10.js", 'w') do |f|
+      json = tally_values.map {|line|
+        # binding.pry
+        c= Hash[headers.zip(line)]
+      }
+      # binding.pry
+      f.puts JSON.pretty_generate(json)
+    end
+  end
+  def self.fourth_mon_NE4MO_02_js
+    tally_values = SpatialOverdueHvy.where(service_da:['4th Monday'],
+      poly_id:['NE4MO_02']).
+    pluck(:case_number, :longitude, :latitude, :poly_id, :service_da)
+
+    headers = %i[case_number longitude latitude poly_id service_da]
+    File.open("../searchwarranty/4th-mon-OverdueHvy-NE4MO_02.js", 'w') do |f|
+      json = tally_values.map {|line|
+        # binding.pry
+        c= Hash[headers.zip(line)]
+      }
+      # binding.pry
+      f.puts JSON.pretty_generate(json)
+    end
   end
 end
