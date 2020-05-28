@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_18_192702) do
+ActiveRecord::Schema.define(version: 2020_05_22_135718) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -332,6 +332,19 @@ ActiveRecord::Schema.define(version: 2020_05_18_192702) do
     t.string "street2"
     t.integer "fin_month"
     t.string "sr_type_2"
+    t.string "client_str_no"
+    t.string "client_str_name"
+    t.string "client_zip_code"
+    t.datetime "closed_date"
+    t.string "agent_name"
+    t.string "super_neighborhood"
+    t.string "service_area"
+    t.string "garbage_day"
+    t.string "subject"
+    t.string "reason"
+    t.string "type"
+    t.string "other_description"
+    t.string "resolution_notes"
   end
 
   create_table "warranty_lists", force: :cascade do |t|

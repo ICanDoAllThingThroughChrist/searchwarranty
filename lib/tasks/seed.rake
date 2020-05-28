@@ -88,7 +88,7 @@ namespace :seed do
     require 'byebug'
     require 'csv'
     start_date = Date.parse('2019-01-01')
-    endDate = DateTime.now
+    endDate = Date.parse('2021-06-30')
     Sr.where("sr_create_date >=? AND sr_create_date <= ?", start_date, endDate).delete_all
     web1 = open('https://hfdapp.houstontx.gov/311/311-Public-Data-Extract-monthly-clean.txt'){|f| f.read}
     web2 = open('https://hfdapp.houstontx.gov/311/311-Public-Data-Extract-2019-clean.txt'){|f| f.read}
@@ -410,6 +410,10 @@ namespace :seed do
   task import_all_data_sr: :environment do
     #download all data with resolution time from City BI
     require 'csv'
+    start= Date.parse('2020-01-01')
+    due= Date.parse('2020-04-30')
+    Sr.where(department:'SWM Solid Waste Management').
+    where('created_at >= ? AND created_at <= ?',start,due).delete_all
     columns = %i[CASE_NUMBER	SR_LOCATION	COUNTY	CLIENT
       STREET_NUM	CLIENT_STREET	CITY	STATE	ZIP	PHONE_NUMBER
       EMAIL_ADDRESS	DISTRICT	NEIGHBORHOOD	TAX_ID
@@ -418,6 +422,7 @@ namespace :seed do
       KEY_MAP	MANAGEMENT_DISTRICT	SR_OWNER	SR_CREATOR	DEPARTMENT
       DIVISION	SR_TYPE	QUEUE	SLA	STATUS	SR_CREATE_DATE	DUE_DATE
       DATE_CLOSED	RESOLUTION_TIME	OVERDUE]
+
     CSV.foreach("C:/Users/e128289/Downloads/SWM All Data with Resolution Time-January2020.csv",
        { encoding: "iso-8859-1:utf-8",
           headers: true,
