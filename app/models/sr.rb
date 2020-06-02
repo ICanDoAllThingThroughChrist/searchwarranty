@@ -1,4 +1,11 @@
 class Sr < ApplicationRecord
+  def self.zero_division(number)
+    if number == 0
+      return 0
+    else
+      return number
+    end
+  end
 
   def self.sr_daily_case_number_csv_download
     services_list_values = Sr.select('distinct case_number').
