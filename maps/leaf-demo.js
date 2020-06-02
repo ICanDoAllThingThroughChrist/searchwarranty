@@ -10,8 +10,13 @@ L.tileLayer( 'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
  attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
  subdomains: ['a','b','c']
 }).addTo( map );
-
-
+map.setView([29.749907, -95.358421], 15);
+map.locate({setView: true, maxZoom:15});
+map.on('locationfound', onLocationFound);
+function onLocationFound(e){
+  //creates a marker at user latlong and add it to the marker
+  L.marker(e.latlng).addTo(map)
+}
 var myURL = jQuery( 'script[src$="leaf-demo.js"]' ).attr( 'src' ).replace( 'leaf-demo.js', '' );
 
 var myIcon = L.icon({

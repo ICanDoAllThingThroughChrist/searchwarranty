@@ -1,7 +1,7 @@
 class Sr < ApplicationRecord
-  
+
   def self.sr_daily_case_number_csv_download
-    services_list_values = Sr.
+    services_list_values = Sr.select('distinct case_number').
       where(department: 'SWM Solid Waste Management',
         status: 'Open',
         expression: ['Overdue', 'Not Overdue'],
@@ -15,7 +15,7 @@ class Sr < ApplicationRecord
              'Add A Can', 'Storm Debris Collection',
               'Dead Animal Collection', 'Add A Can CANCELLATION',
                'Missed Recycling Pickup', 'Personnel or Vehicle Complaint',
-               'Physically Challenged Pickup',]).distinct(:case_number).
+               'Physically Challenged Pickup',]).
     pluck(:id, :case_number, :sr_location, :county, :district, :neighborhood,
        :tax_id, :trash_quad, :recycle_quad, :trash_day, :heavy_trash_day,
         :recycle_day, :key_map, :management_district, :department,
@@ -65,16 +65,18 @@ class Sr < ApplicationRecord
     start= DateTime.parse('2019-7-01T00:00:00+00:00')
     due= DateTime.parse('2022-6-30T23:59:59+00:00')
     variable=
-    Sr.where('sr_create_date >= ? AND sr_create_date <= ?',
+    Sr.select('distinct case_number').
+    where('sr_create_date >= ? AND sr_create_date <= ?',
     start, due).where(sr_type_2:['Containers Related',
       'Missed Yard Waste Pickup', 'Missed Heavy Trash Pickup',
-      'Missed Garbage Pickup', 'Missed Recycling Pickup']).count
+      'Missed Garbage Pickup', 'Missed Recycling Pickup'])
     Sr.separate_comma(variable)
   end
   def self.fy2021_sr_total
     start= DateTime.parse('2020-7-01T00:00:00+00:00')
     due= DateTime.parse('2021-6-30T23:59:59+00:00')
-    variable= Sr.where('sr_create_date >= ? AND sr_create_date <= ?',
+    variable= Sr.select('distinct case_number').
+    where('sr_create_date >= ? AND sr_create_date <= ?',
     start, due).where(sr_type_2: ['Containers Related',
       'Missed Yard Waste Pickup', 'Missed Heavy Trash Pickup',
       'Missed Garbage Pickup', 'Missed Recycling Pickup' ]).count
@@ -83,7 +85,8 @@ class Sr < ApplicationRecord
   def self.fy2020_sr_total
     start= DateTime.parse('2019-7-01T00:00:00+00:00')
     due= DateTime.parse('2020-6-30T23:59:59+00:00')
-    variable= Sr.where('sr_create_date >= ? AND sr_create_date <= ?',
+    variable= Sr.select('distinct case_number').
+    where('sr_create_date >= ? AND sr_create_date <= ?',
     start, due).where(sr_type_2: ['Containers Related',
       'Missed Yard Waste Pickup', 'Missed Heavy Trash Pickup',
       'Missed Garbage Pickup', 'Missed Recycling Pickup' ]).count
@@ -92,7 +95,8 @@ class Sr < ApplicationRecord
   def self.jun_2020_sr_total
     start= DateTime.parse('2020-6-01T00:00:00+00:00')
     due= DateTime.parse('2020-6-30T23:59:59+00:00')
-    variable= Sr.where('sr_create_date >= ? AND sr_create_date <= ?',
+    variable= Sr.select('distinct case_number').
+    where('sr_create_date >= ? AND sr_create_date <= ?',
     start, due).where(sr_type_2: ['Containers Related',
       'Missed Yard Waste Pickup', 'Missed Heavy Trash Pickup',
       'Missed Garbage Pickup', 'Missed Recycling Pickup' ]).count
@@ -101,7 +105,9 @@ class Sr < ApplicationRecord
   def self.may_2020_sr_total
     start= DateTime.parse('2020-5-01T00:00:00+00:00')
     due= DateTime.parse('2020-5-30T23:59:59+00:00')
-    variable= Sr.where('sr_create_date >= ? AND sr_create_date <= ?',
+    variable= Sr.
+    select('distinct case_number').
+    where('sr_create_date >= ? AND sr_create_date <= ?',
     start, due).where(sr_type_2: ['Containers Related',
       'Missed Yard Waste Pickup', 'Missed Heavy Trash Pickup',
       'Missed Garbage Pickup', 'Missed Recycling Pickup' ]).count
@@ -110,7 +116,9 @@ class Sr < ApplicationRecord
   def self.apr_2020_sr_total
     start= DateTime.parse('2020-4-01T00:00:00+00:00')
     due= DateTime.parse('2020-4-30T23:59:59+00:00')
-    variable= Sr.where('sr_create_date >= ? AND sr_create_date <= ?',
+    variable= Sr.
+    select('distinct case_number').
+    where('sr_create_date >= ? AND sr_create_date <= ?',
     start, due).where(sr_type_2: ['Containers Related',
       'Missed Yard Waste Pickup', 'Missed Heavy Trash Pickup',
       'Missed Garbage Pickup', 'Missed Recycling Pickup' ]).count
@@ -119,7 +127,9 @@ class Sr < ApplicationRecord
   def self.mar_2020_sr_total
     start= DateTime.parse('2020-03-01T00:00:00+00:00')
     due= DateTime.parse('2020-03-31T23:59:59+00:00')
-    variable= Sr.where('sr_create_date >= ? AND sr_create_date <= ?',
+    variable= Sr.
+    select('distinct case_number').
+    where('sr_create_date >= ? AND sr_create_date <= ?',
     start, due).where(sr_type_2: ['Containers Related',
       'Missed Yard Waste Pickup', 'Missed Heavy Trash Pickup',
       'Missed Garbage Pickup', 'Missed Recycling Pickup' ]).count
@@ -128,7 +138,8 @@ class Sr < ApplicationRecord
   def self.feb_2020_sr_total
     start= DateTime.parse('2020-02-01T00:00:00+00:00')
     due= DateTime.parse('2020-02-29T23:59:59+00:00')
-    variable= Sr.where('sr_create_date >= ? AND sr_create_date <= ?',
+    variable= Sr.select('distinct case_number').
+    where('sr_create_date >= ? AND sr_create_date <= ?',
     start, due).where(sr_type_2: ['Containers Related',
       'Missed Yard Waste Pickup', 'Missed Heavy Trash Pickup',
       'Missed Garbage Pickup', 'Missed Recycling Pickup' ]).count
@@ -137,7 +148,8 @@ class Sr < ApplicationRecord
   def self.jan_2020_sr_total
     start= DateTime.parse('2020-1-01T00:00:00+00:00')
     due= DateTime.parse('2020-1-31T23:59:59+00:00')
-    variable= Sr.where('sr_create_date >= ? AND sr_create_date <= ?',
+    variable= Sr.select('distinct case_number').
+    where('sr_create_date >= ? AND sr_create_date <= ?',
     start, due).where(sr_type_2: ['Containers Related',
       'Missed Yard Waste Pickup', 'Missed Heavy Trash Pickup',
       'Missed Garbage Pickup', 'Missed Recycling Pickup' ]).count
@@ -146,7 +158,8 @@ class Sr < ApplicationRecord
   def self.december_2019_sr_total
     start= DateTime.parse('2019-12-01T00:00:00+00:00')
     due= DateTime.parse('2019-12-31T23:59:59+00:00')
-    variable= Sr.where('sr_create_date >= ? AND sr_create_date <= ?',
+    variable= Sr.select('distinct case_number').
+    where('sr_create_date >= ? AND sr_create_date <= ?',
     start, due).where(sr_type_2: ['Containers Related',
       'Missed Yard Waste Pickup', 'Missed Heavy Trash Pickup',
       'Missed Garbage Pickup', 'Missed Recycling Pickup' ]).count
@@ -155,7 +168,8 @@ class Sr < ApplicationRecord
   def self.november_2019_sr_total
     start= DateTime.parse('2019-11-01T00:00:00+00:00')
     due= DateTime.parse('2019-11-30T23:59:59+00:00')
-    variable= Sr.where('sr_create_date >= ? AND sr_create_date <= ?',
+    variable= Sr.select('distinct case_number').
+    where('sr_create_date >= ? AND sr_create_date <= ?',
     start, due).where(sr_type_2: ['Containers Related',
       'Missed Yard Waste Pickup', 'Missed Heavy Trash Pickup',
       'Missed Garbage Pickup', 'Missed Recycling Pickup' ]).count
@@ -164,7 +178,8 @@ class Sr < ApplicationRecord
   def self.october_2019_sr_total
     start= DateTime.parse('2019-10-01T00:00:00+00:00')
     due= DateTime.parse('2019-10-31T23:59:59+00:00')
-    variable= Sr.where('sr_create_date >= ? AND sr_create_date <= ?',
+    variable= Sr.select('distinct case_number').
+    where('sr_create_date >= ? AND sr_create_date <= ?',
     start, due).where(sr_type_2: ['Containers Related',
       'Missed Yard Waste Pickup', 'Missed Heavy Trash Pickup',
       'Missed Garbage Pickup', 'Missed Recycling Pickup' ]).count
@@ -173,7 +188,8 @@ class Sr < ApplicationRecord
   def self.september_2019_sr_total
     start= DateTime.parse('2019-09-01T00:00:00+00:00')
     due= DateTime.parse('2019-09-30T23:59:59+00:00')
-    variable= Sr.where('sr_create_date >= ? AND sr_create_date <= ?',
+    variable= Sr.select('distinct case_number').
+    where('sr_create_date >= ? AND sr_create_date <= ?',
     start, due).where(sr_type_2: ['Containers Related',
       'Missed Yard Waste Pickup', 'Missed Heavy Trash Pickup',
       'Missed Garbage Pickup', 'Missed Recycling Pickup' ]).count
@@ -182,7 +198,8 @@ class Sr < ApplicationRecord
   def self.august_2019_sr_total
     start= DateTime.parse('2019-08-01T00:00:00+00:00')
     due= DateTime.parse('2019-08-31T23:59:59+00:00')
-    variable= Sr.where('sr_create_date >= ? AND sr_create_date <= ?',
+    variable= Sr.select('distinct case_number').
+    where('sr_create_date >= ? AND sr_create_date <= ?',
     start, due).where(sr_type_2: ['Containers Related',
       'Missed Yard Waste Pickup', 'Missed Heavy Trash Pickup',
       'Missed Garbage Pickup', 'Missed Recycling Pickup' ]).count
@@ -191,7 +208,8 @@ class Sr < ApplicationRecord
   def self.july_2019_sr_total
     start= DateTime.parse('2019-07-01T00:00:00+00:00')
     due= DateTime.parse('2019-07-31T23:59:59+00:00')
-    variable= Sr.where('sr_create_date >= ? AND sr_create_date <= ?',
+    variable= Sr.select('distinct case_number').
+    where('sr_create_date >= ? AND sr_create_date <= ?',
     start, due).where(sr_type_2: ['Containers Related',
       'Missed Yard Waste Pickup', 'Missed Heavy Trash Pickup',
       'Missed Garbage Pickup', 'Missed Recycling Pickup' ]).count
@@ -200,70 +218,80 @@ class Sr < ApplicationRecord
   def self.total_missed_yar
     start = DateTime.parse('2019-07-01T00:00:00+00:00')
     due= DateTime.parse('2021-6-30T23:59:59+00:00')
-    variable= Sr.where('sr_create_date >= ? AND sr_create_date <= ?',start, due).
+    variable= Sr.select('distinct case_number').
+    where('sr_create_date >= ? AND sr_create_date <= ?',start, due).
     where(sr_type_2: 'Missed Yard Waste Pickup').count
     Sr.separate_comma(variable)
   end
   def self.fy_2021_missed_yar
     start = DateTime.parse('2020-07-01T00:00:00+00:00')
     due= DateTime.parse('2021-6-30T23:59:59+00:00')
-    variable= Sr.where('sr_create_date >= ? AND sr_create_date <= ?',start, due).
+    variable= Sr.select('distinct case_number').
+    where('sr_create_date >= ? AND sr_create_date <= ?',start, due).
     where(sr_type_2: 'Missed Yard Waste Pickup').count
     Sr.separate_comma(variable)
   end
   def self.june_2020_missed_yar
     start = DateTime.parse('2020-6-01T00:00:00+00:00')
     due= DateTime.parse('2020-6-30T23:59:59+00:00')
-    variable= Sr.where('sr_create_date >= ? AND sr_create_date <= ?',start, due).
+    variable= Sr.select('distinct case_number').
+    where('sr_create_date >= ? AND sr_create_date <= ?',start, due).
     where(sr_type_2: 'Missed Yard Waste Pickup').count
     Sr.separate_comma(variable)
   end
   def self.may_2020_missed_yar
     start = DateTime.parse('2020-5-01T00:00:00+00:00')
     due= DateTime.parse('2020-5-31T23:59:59+00:00')
-    variable= Sr.where('sr_create_date >= ? AND sr_create_date <= ?',start, due).
+    variable= Sr.select('distinct case_number').
+    where('sr_create_date >= ? AND sr_create_date <= ?',start, due).
     where(sr_type_2: 'Missed Yard Waste Pickup').count
     Sr.separate_comma(variable)
   end
   def self.april_2020_missed_yar
     start = DateTime.parse('2020-4-01T00:00:00+00:00')
     due= DateTime.parse('2020-4-30T23:59:59+00:00')
-    variable= Sr.where('sr_create_date >= ? AND sr_create_date <= ?',start, due).
+    variable= Sr.select('distinct case_number').
+    where('sr_create_date >= ? AND sr_create_date <= ?',start, due).
     where(sr_type_2: 'Missed Yard Waste Pickup').count
     Sr.separate_comma(variable)
   end
   def self.mar_2020_missed_yar
     start = DateTime.parse('2020-3-01T00:00:00+00:00')
     due= DateTime.parse('2020-3-31T23:59:59+00:00')
-    variable= Sr.where('sr_create_date >= ? AND sr_create_date <= ?',start, due).
+    variable= Sr.select('distinct case_number').
+    where('sr_create_date >= ? AND sr_create_date <= ?',start, due).
     where(sr_type_2: 'Missed Yard Waste Pickup').count
     Sr.separate_comma(variable)
   end
   def self.feb_2020_missed_yar
     start = DateTime.parse('2020-2-01T00:00:00+00:00')
     due= DateTime.parse('2020-2-29T23:59:59+00:00')
-    variable= Sr.where('sr_create_date >= ? AND sr_create_date <= ?',start, due).
+    variable= Sr.select('distinct case_number').
+    where('sr_create_date >= ? AND sr_create_date <= ?',start, due).
     where(sr_type_2: 'Missed Yard Waste Pickup').count
     Sr.separate_comma(variable)
   end
   def self.jan_2020_missed_yar
     start = DateTime.parse('2020-1-01T00:00:00+00:00')
     due= DateTime.parse('2020-1-31T23:59:59+00:00')
-    variable= Sr.where('sr_create_date >= ? AND sr_create_date <= ?',start, due).
+    variable= Sr.select('distinct case_number').
+    where('sr_create_date >= ? AND sr_create_date <= ?',start, due).
     where(sr_type_2: 'Missed Yard Waste Pickup').count
     Sr.separate_comma(variable)
   end
   def self.dec_2019_missed_yar
     start = DateTime.parse('2019-12-01T00:00:00+00:00')
     due= DateTime.parse('2019-12-31T23:59:59+00:00')
-    variable= Sr.where('sr_create_date >= ? AND sr_create_date <= ?',start, due).
+    variable= Sr.select('distinct case_number').
+    where('sr_create_date >= ? AND sr_create_date <= ?',start, due).
     where(sr_type_2: 'Missed Yard Waste Pickup').count
     Sr.separate_comma(variable)
   end
   def self.nov_2019_missed_yar
     start = DateTime.parse('2019-11-01T00:00:00+00:00')
     due= DateTime.parse('2019-11-30T23:59:59+00:00')
-    variable= Sr.where('sr_create_date >= ? AND sr_create_date <= ?',start, due).
+    variable= Sr.select('distinct case_number').
+    where('sr_create_date >= ? AND sr_create_date <= ?',start, due).
     where(sr_type_2: 'Missed Yard Waste Pickup').count
     Sr.separate_comma(variable)
   end
@@ -271,98 +299,112 @@ class Sr < ApplicationRecord
   def self.oct_2019_missed_yar
     start = DateTime.parse('2019-10-01T00:00:00+00:00')
     due= DateTime.parse('2019-10-31T23:59:59+00:00')
-    variable= Sr.where('sr_create_date >= ? AND sr_create_date <= ?',start, due).
+    variable= Sr.select('distinct case_number').
+    where('sr_create_date >= ? AND sr_create_date <= ?',start, due).
     where(sr_type_2: 'Missed Yard Waste Pickup').count
     Sr.separate_comma(variable)
   end
   def self.sept_2019_missed_yar
     start = DateTime.parse('2019-09-01T00:00:00+00:00')
     due= DateTime.parse('2019-09-30T23:59:59+00:00')
-    variable= Sr.where('sr_create_date >= ? AND sr_create_date <= ?',start, due).
+    variable= Sr.select('distinct case_number').
+    where('sr_create_date >= ? AND sr_create_date <= ?',start, due).
     where(sr_type_2: 'Missed Yard Waste Pickup').count
     Sr.separate_comma(variable)
   end
   def self.august_2019_missed_yar
       start = DateTime.parse('2019-08-01T00:00:00+00:00')
       due= DateTime.parse('2019-08-31T23:59:59+00:00')
-      variable= Sr.where('sr_create_date >= ? AND sr_create_date <= ?',start, due).
+      variable= Sr.select('distinct case_number').
+      where('sr_create_date >= ? AND sr_create_date <= ?',start, due).
       where(sr_type_2: 'Missed Yard Waste Pickup').count
       Sr.separate_comma(variable)
   end
   def self.july_2019_missed_yar
       start = DateTime.parse('2019-07-01T00:00:00+00:00')
       due= DateTime.parse('2019-07-31T23:59:59+00:00')
-      variable = Sr.where('sr_create_date >= ? AND sr_create_date <= ?',start, due).
+      variable = Sr.select('distinct case_number').
+      where('sr_create_date >= ? AND sr_create_date <= ?',start, due).
       where(sr_type_2: 'Missed Yard Waste Pickup').count
       Sr.separate_comma(variable)
   end
   def self.total_missed_rec
       start = DateTime.parse('2019-07-01T00:00:00+00:00')
       due= DateTime.parse('2021-06-30T23:59:59+00:00')
-      variable = Sr.where('sr_create_date >= ? AND sr_create_date <= ?',start, due).
+      variable = Sr.select('distinct case_number').
+      where('sr_create_date >= ? AND sr_create_date <= ?',start, due).
       where(sr_type_2: 'Missed Recycling Pickup').count
       Sr.separate_comma(variable)
   end
   def self.fy_2021_missed_rec
     start = DateTime.parse('2020-07-01T00:00:00+00:00')
     due= DateTime.parse('2021-6-30T23:59:59+00:00')
-    variable= Sr.where('sr_create_date >= ? AND sr_create_date <= ?',start, due).
+    variable= Sr.select('distinct case_number').
+    where('sr_create_date >= ? AND sr_create_date <= ?',start, due).
     where(sr_type_2: 'Missed Recycling Pickup').count
     Sr.separate_comma(variable)
   end
   def self.june_2020_missed_rec
     start = DateTime.parse('2020-6-01T00:00:00+00:00')
     due= DateTime.parse('2020-6-30T23:59:59+00:00')
-    variable= Sr.where('sr_create_date >= ? AND sr_create_date <= ?',start, due).
+    variable= Sr.select('distinct case_number').
+    where('sr_create_date >= ? AND sr_create_date <= ?',start, due).
     where(sr_type_2: 'Missed Recycling Pickup').count
     Sr.separate_comma(variable)
   end
   def self.may_2020_missed_rec
     start = DateTime.parse('2020-5-01T00:00:00+00:00')
     due= DateTime.parse('2020-5-31T23:59:59+00:00')
-    variable= Sr.where('sr_create_date >= ? AND sr_create_date <= ?',start, due).
+    variable= Sr.select('distinct case_number').
+    where('sr_create_date >= ? AND sr_create_date <= ?',start, due).
     where(sr_type_2: 'Missed Recycling Pickup').count
     Sr.separate_comma(variable)
   end
   def self.april_2020_missed_rec
     start = DateTime.parse('2020-4-01T00:00:00+00:00')
     due= DateTime.parse('2020-4-30T23:59:59+00:00')
-    variable= Sr.where('sr_create_date >= ? AND sr_create_date <= ?',start, due).
+    variable= Sr.select('distinct case_number').
+    where('sr_create_date >= ? AND sr_create_date <= ?',start, due).
     where(sr_type_2: 'Missed Recycling Pickup').count
     Sr.separate_comma(variable)
   end
   def self.mar_2020_missed_rec
     start = DateTime.parse('2020-3-01T00:00:00+00:00')
     due= DateTime.parse('2020-3-31T23:59:59+00:00')
-    variable= Sr.where('sr_create_date >= ? AND sr_create_date <= ?',start, due).
+    variable= Sr.select('distinct case_number').
+    where('sr_create_date >= ? AND sr_create_date <= ?',start, due).
     where(sr_type_2: 'Missed Recycling Pickup').count
     Sr.separate_comma(variable)
   end
   def self.feb_2020_missed_rec
     start = DateTime.parse('2020-2-01T00:00:00+00:00')
     due= DateTime.parse('2020-2-29T23:59:59+00:00')
-    variable= Sr.where('sr_create_date >= ? AND sr_create_date <= ?',start, due).
+    variable= Sr.select('distinct case_number').
+    where('sr_create_date >= ? AND sr_create_date <= ?',start, due).
     where(sr_type_2: 'Missed Recycling Pickup').count
     Sr.separate_comma(variable)
   end
   def self.jan_2020_missed_rec
   start = DateTime.parse('2020-1-01T00:00:00+00:00')
   due= DateTime.parse('2020-1-31T23:59:59+00:00')
-  variable= Sr.where('sr_create_date >= ? AND sr_create_date <= ?',start, due).
+  variable= Sr.select('distinct case_number').
+  where('sr_create_date >= ? AND sr_create_date <= ?',start, due).
   where(sr_type_2: 'Missed Recycling Pickup').count
   Sr.separate_comma(variable)
   end
   def self.dec_2019_missed_rec
   start = DateTime.parse('2019-12-01T00:00:00+00:00')
   due= DateTime.parse('2019-12-31T23:59:59+00:00')
-  variable= Sr.where('sr_create_date >= ? AND sr_create_date <= ?',start, due).
+  variable= Sr.select('distinct case_number').
+  where('sr_create_date >= ? AND sr_create_date <= ?',start, due).
   where(sr_type_2: 'Missed Recycling Pickup').count
   Sr.separate_comma(variable)
   end
   def self.nov_2019_missed_rec
   start = DateTime.parse('2019-11-01T00:00:00+00:00')
   due= DateTime.parse('2019-11-30T23:59:59+00:00')
-  variable= Sr.where('sr_create_date >= ? AND sr_create_date <= ?',start, due).
+  variable= Sr.select('distinct case_number').
+  where('sr_create_date >= ? AND sr_create_date <= ?',start, due).
   where(sr_type_2: 'Missed Recycling Pickup').count
   Sr.separate_comma(variable)
   end
@@ -370,98 +412,112 @@ class Sr < ApplicationRecord
   def self.oct_2019_missed_rec
   start = DateTime.parse('2019-10-01T00:00:00+00:00')
   due= DateTime.parse('2019-10-31T23:59:59+00:00')
-  variable= Sr.where('sr_create_date >= ? AND sr_create_date <= ?',start, due).
+  variable= Sr.select('distinct case_number').
+  where('sr_create_date >= ? AND sr_create_date <= ?',start, due).
   where(sr_type_2: 'Missed Recycling Pickup').count
   Sr.separate_comma(variable)
   end
   def self.sept_2019_missed_rec
   start = DateTime.parse('2019-09-01T00:00:00+00:00')
   due= DateTime.parse('2019-09-30T23:59:59+00:00')
-  variable= Sr.where('sr_create_date >= ? AND sr_create_date <= ?',start, due).
+  variable= Sr.select('distinct case_number').
+  where('sr_create_date >= ? AND sr_create_date <= ?',start, due).
   where(sr_type_2: 'Missed Recycling Pickup').count
   Sr.separate_comma(variable)
   end
   def self.august_2019_missed_rec
       start = DateTime.parse('2019-08-01T00:00:00+00:00')
       due= DateTime.parse('2019-08-31T23:59:59+00:00')
-      variable= Sr.where('sr_create_date >= ? AND sr_create_date <= ?',start, due).
+      variable= Sr.select('distinct case_number').
+      where('sr_create_date >= ? AND sr_create_date <= ?',start, due).
       where(sr_type_2: 'Missed Recycling Pickup').count
       Sr.separate_comma(variable)
   end
   def self.july_2019_missed_rec
       start = DateTime.parse('2019-07-01T00:00:00+00:00')
       due= DateTime.parse('2019-07-31T23:59:59+00:00')
-      variable = Sr.where('sr_create_date >= ? AND sr_create_date <= ?',start, due).
+      variable = Sr.select('distinct case_number').
+      where('sr_create_date >= ? AND sr_create_date <= ?',start, due).
       where(sr_type_2: 'Missed Recycling Pickup').count
       Sr.separate_comma(variable)
   end
   def self.total_missed_hvy
       start = DateTime.parse('2019-07-01T00:00:00+00:00')
       due= DateTime.parse('2021-6-30T23:59:59+00:00')
-      variable= Sr.where('sr_create_date >= ? AND sr_create_date <= ?',start, due).
+      variable= Sr.select('distinct case_number').
+      where('sr_create_date >= ? AND sr_create_date <= ?',start, due).
       where(sr_type_2: 'Missed Heavy Trash Pickup').count
       Sr.separate_comma(variable)
   end
   def self.fy_2021_missed_hvy
     start = DateTime.parse('2020-07-01T00:00:00+00:00')
     due= DateTime.parse('2021-6-30T23:59:59+00:00')
-    variable= Sr.where('sr_create_date >= ? AND sr_create_date <= ?',start, due).
+    variable= Sr.select('distinct case_number').
+    where('sr_create_date >= ? AND sr_create_date <= ?',start, due).
     where(sr_type_2: 'Missed Heavy Trash Pickup').count
     Sr.separate_comma(variable)
   end
   def self.june_2020_missed_hvy
     start = DateTime.parse('2020-6-01T00:00:00+00:00')
     due= DateTime.parse('2020-6-30T23:59:59+00:00')
-    variable= Sr.where('sr_create_date >= ? AND sr_create_date <= ?',start, due).
+    variable= Sr.select('distinct case_number').
+    where('sr_create_date >= ? AND sr_create_date <= ?',start, due).
     where(sr_type_2: 'Missed Heavy Trash Pickup').count
     Sr.separate_comma(variable)
   end
   def self.may_2020_missed_hvy
     start = DateTime.parse('2020-5-01T00:00:00+00:00')
     due= DateTime.parse('2020-5-31T23:59:59+00:00')
-    variable= Sr.where('sr_create_date >= ? AND sr_create_date <= ?',start, due).
+    variable= Sr.select('distinct case_number').
+    where('sr_create_date >= ? AND sr_create_date <= ?',start, due).
     where(sr_type_2: 'Missed Heavy Trash Pickup').count
     Sr.separate_comma(variable)
   end
   def self.april_2020_missed_hvy
     start = DateTime.parse('2020-4-01T00:00:00+00:00')
     due= DateTime.parse('2020-4-30T23:59:59+00:00')
-    variable= Sr.where('sr_create_date >= ? AND sr_create_date <= ?',start, due).
+    variable= Sr.select('distinct case_number').
+    where('sr_create_date >= ? AND sr_create_date <= ?',start, due).
     where(sr_type_2: 'Missed Heavy Trash Pickup').count
     Sr.separate_comma(variable)
   end
   def self.mar_2020_missed_hvy
     start = DateTime.parse('2020-3-01T00:00:00+00:00')
     due= DateTime.parse('2020-3-31T23:59:59+00:00')
-    variable= Sr.where('sr_create_date >= ? AND sr_create_date <= ?',start, due).
+    variable= Sr.select('distinct case_number').
+    where('sr_create_date >= ? AND sr_create_date <= ?',start, due).
     where(sr_type_2: 'Missed Heavy Trash Pickup').count
     Sr.separate_comma(variable)
   end
   def self.feb_2020_missed_hvy
     start = DateTime.parse('2020-2-01T00:00:00+00:00')
     due= DateTime.parse('2020-2-29T23:59:59+00:00')
-    variable= Sr.where('sr_create_date >= ? AND sr_create_date <= ?',start, due).
+    variable= Sr.select('distinct case_number').
+    where('sr_create_date >= ? AND sr_create_date <= ?',start, due).
     where(sr_type_2: 'Missed Heavy Trash Pickup').count
     Sr.separate_comma(variable)
   end
   def self.jan_2020_missed_hvy
   start = DateTime.parse('2020-1-01T00:00:00+00:00')
   due= DateTime.parse('2020-1-31T23:59:59+00:00')
-  variable= Sr.where('sr_create_date >= ? AND sr_create_date <= ?',start, due).
+  variable= Sr.select('distinct case_number').
+  where('sr_create_date >= ? AND sr_create_date <= ?',start, due).
   where(sr_type_2: 'Missed Heavy Trash Pickup').count
   Sr.separate_comma(variable)
   end
   def self.dec_2019_missed_hvy
   start = DateTime.parse('2019-12-01T00:00:00+00:00')
   due= DateTime.parse('2019-12-31T23:59:59+00:00')
-  variable= Sr.where('sr_create_date >= ? AND sr_create_date <= ?',start, due).
+  variable= Sr.select('distinct case_number').
+  where('sr_create_date >= ? AND sr_create_date <= ?',start, due).
   where(sr_type_2: 'Missed Heavy Trash Pickup').count
   Sr.separate_comma(variable)
   end
   def self.nov_2019_missed_hvy
   start = DateTime.parse('2019-11-01T00:00:00+00:00')
   due= DateTime.parse('2019-11-30T23:59:59+00:00')
-  variable= Sr.where('sr_create_date >= ? AND sr_create_date <= ?',start, due).
+  variable= Sr.select('distinct case_number').
+  where('sr_create_date >= ? AND sr_create_date <= ?',start, due).
   where(sr_type_2: 'Missed Heavy Trash Pickup').count
   Sr.separate_comma(variable)
   end
@@ -469,98 +525,112 @@ class Sr < ApplicationRecord
   def self.oct_2019_missed_hvy
   start = DateTime.parse('2019-10-01T00:00:00+00:00')
   due= DateTime.parse('2019-10-31T23:59:59+00:00')
-  variable= Sr.where('sr_create_date >= ? AND sr_create_date <= ?',start, due).
+  variable= Sr.select('distinct case_number').
+  where('sr_create_date >= ? AND sr_create_date <= ?',start, due).
   where(sr_type_2: 'Missed Heavy Trash Pickup').count
   Sr.separate_comma(variable)
   end
   def self.sept_2019_missed_hvy
   start = DateTime.parse('2019-09-01T00:00:00+00:00')
   due= DateTime.parse('2019-09-30T23:59:59+00:00')
-  variable= Sr.where('sr_create_date >= ? AND sr_create_date <= ?',start, due).
+  variable= Sr.select('distinct case_number').
+  where('sr_create_date >= ? AND sr_create_date <= ?',start, due).
   where(sr_type_2: 'Missed Heavy Trash Pickup').count
   Sr.separate_comma(variable)
   end
   def self.august_2019_missed_hvy
       start = DateTime.parse('2019-08-01T00:00:00+00:00')
       due= DateTime.parse('2019-08-31T23:59:59+00:00')
-      variable= Sr.where('sr_create_date >= ? AND sr_create_date <= ?',start, due).
+      variable= Sr.select('distinct case_number').
+      where('sr_create_date >= ? AND sr_create_date <= ?',start, due).
       where(sr_type_2: 'Missed Heavy Trash Pickup').count
       Sr.separate_comma(variable)
   end
   def self.july_2019_missed_hvy
       start = DateTime.parse('2019-07-01T00:00:00+00:00')
       due= DateTime.parse('2019-07-31T23:59:59+00:00')
-      variable = Sr.where('sr_create_date >= ? AND sr_create_date <= ?',start, due).
+      variable = Sr.select('distinct case_number').
+      where('sr_create_date >= ? AND sr_create_date <= ?',start, due).
       where(sr_type_2: 'Missed Heavy Trash Pickup').count
       Sr.separate_comma(variable)
   end
   def self.total_missed_garbage
       start = DateTime.parse('2019-07-01T00:00:00+00:00')
       due= DateTime.parse('2021-6-30T23:59:59+00:00')
-      variable= Sr.where('sr_create_date >= ? AND sr_create_date <= ?',start, due).
+      variable= Sr.select('distinct case_number').
+      where('sr_create_date >= ? AND sr_create_date <= ?',start, due).
       where(sr_type_2: 'Missed Garbage Pickup').count
       Sr.separate_comma(variable)
   end
   def self.fy_2021_missed_garbage
     start = DateTime.parse('2020-07-01T00:00:00+00:00')
     due= DateTime.parse('2021-6-30T23:59:59+00:00')
-    variable= Sr.where('sr_create_date >= ? AND sr_create_date <= ?',start, due).
+    variable= Sr.select('distinct case_number').
+    where('sr_create_date >= ? AND sr_create_date <= ?',start, due).
     where(sr_type_2: 'Missed Garbage Pickup').count
     Sr.separate_comma(variable)
   end
   def self.june_2020_missed_garbage
     start = DateTime.parse('2020-6-01T00:00:00+00:00')
     due= DateTime.parse('2020-6-30T23:59:59+00:00')
-    variable= Sr.where('sr_create_date >= ? AND sr_create_date <= ?',start, due).
+    variable= Sr.select('distinct case_number').
+    where('sr_create_date >= ? AND sr_create_date <= ?',start, due).
     where(sr_type_2: 'Missed Garbage Pickup').count
     Sr.separate_comma(variable)
   end
   def self.may_2020_missed_garbage
     start = DateTime.parse('2020-5-01T00:00:00+00:00')
     due= DateTime.parse('2020-5-31T23:59:59+00:00')
-    variable= Sr.where('sr_create_date >= ? AND sr_create_date <= ?',start, due).
+    variable= Sr.select('distinct case_number').
+    where('sr_create_date >= ? AND sr_create_date <= ?',start, due).
     where(sr_type_2: 'Missed Garbage Pickup').count
     Sr.separate_comma(variable)
   end
   def self.april_2020_missed_garbage
     start = DateTime.parse('2020-4-01T00:00:00+00:00')
     due= DateTime.parse('2020-4-30T23:59:59+00:00')
-    variable= Sr.where('sr_create_date >= ? AND sr_create_date <= ?',start, due).
+    variable= Sr.select('distinct case_number').
+    where('sr_create_date >= ? AND sr_create_date <= ?',start, due).
     where(sr_type_2: 'Missed Garbage Pickup').count
     Sr.separate_comma(variable)
   end
   def self.mar_2020_missed_garbage
     start = DateTime.parse('2020-3-01T00:00:00+00:00')
     due= DateTime.parse('2020-3-31T23:59:59+00:00')
-    variable= Sr.where('sr_create_date >= ? AND sr_create_date <= ?',start, due).
+    variable= Sr.select('distinct case_number').
+    where('sr_create_date >= ? AND sr_create_date <= ?',start, due).
     where(sr_type_2: 'Missed Garbage Pickup').count
     Sr.separate_comma(variable)
   end
   def self.feb_2020_missed_garbage
     start = DateTime.parse('2020-2-01T00:00:00+00:00')
     due= DateTime.parse('2020-2-29T23:59:59+00:00')
-    variable= Sr.where('sr_create_date >= ? AND sr_create_date <= ?',start, due).
+    variable= Sr.select('distinct case_number').
+    where('sr_create_date >= ? AND sr_create_date <= ?',start, due).
     where(sr_type_2: 'Missed Garbage Pickup').count
     Sr.separate_comma(variable)
   end
   def self.jan_2020_missed_garbage
   start = DateTime.parse('2020-1-01T00:00:00+00:00')
   due= DateTime.parse('2020-1-31T23:59:59+00:00')
-  variable= Sr.where('sr_create_date >= ? AND sr_create_date <= ?',start, due).
+  variable= Sr.select('distinct case_number').
+  where('sr_create_date >= ? AND sr_create_date <= ?',start, due).
   where(sr_type_2: 'Missed Garbage Pickup').count
   Sr.separate_comma(variable)
   end
   def self.dec_2019_missed_garbage
   start = DateTime.parse('2019-12-01T00:00:00+00:00')
   due= DateTime.parse('2019-12-31T23:59:59+00:00')
-  variable= Sr.where('sr_create_date >= ? AND sr_create_date <= ?',start, due).
+  variable= Sr.select('distinct case_number').
+  where('sr_create_date >= ? AND sr_create_date <= ?',start, due).
   where(sr_type_2: 'Missed Garbage Pickup').count
   Sr.separate_comma(variable)
   end
   def self.nov_2019_missed_garbage
   start = DateTime.parse('2019-11-01T00:00:00+00:00')
   due= DateTime.parse('2019-11-30T23:59:59+00:00')
-  variable= Sr.where('sr_create_date >= ? AND sr_create_date <= ?',start, due).
+  variable= Sr.select('distinct case_number').
+  where('sr_create_date >= ? AND sr_create_date <= ?',start, due).
   where(sr_type_2: 'Missed Garbage Pickup').count
   Sr.separate_comma(variable)
   end
@@ -568,35 +638,40 @@ class Sr < ApplicationRecord
   def self.oct_2019_missed_garbage
   start = DateTime.parse('2019-10-01T00:00:00+00:00')
   due= DateTime.parse('2019-10-31T23:59:59+00:00')
-  variable= Sr.where('sr_create_date >= ? AND sr_create_date <= ?',start, due).
+  variable= Sr.select('distinct case_number').
+  where('sr_create_date >= ? AND sr_create_date <= ?',start, due).
   where(sr_type_2: 'Missed Garbage Pickup').count
   Sr.separate_comma(variable)
   end
   def self.sept_2019_missed_garbage
   start = DateTime.parse('2019-09-01T00:00:00+00:00')
   due= DateTime.parse('2019-09-30T23:59:59+00:00')
-  variable= Sr.where('sr_create_date >= ? AND sr_create_date <= ?',start, due).
+  variable= Sr.select('distinct case_number').
+  where('sr_create_date >= ? AND sr_create_date <= ?',start, due).
   where(sr_type_2: 'Missed Garbage Pickup').count
   Sr.separate_comma(variable)
   end
   def self.august_2019_missed_garbage
       start = DateTime.parse('2019-08-01T00:00:00+00:00')
       due= DateTime.parse('2019-08-31T23:59:59+00:00')
-      variable= Sr.where('sr_create_date >= ? AND sr_create_date <= ?',start, due).
+      variable= Sr.select('distinct case_number').
+      where('sr_create_date >= ? AND sr_create_date <= ?',start, due).
       where(sr_type_2: 'Missed Garbage Pickup').count
       Sr.separate_comma(variable)
   end
   def self.july_2019_missed_garbage
       start = DateTime.parse('2019-07-01T00:00:00+00:00')
       due= DateTime.parse('2019-07-31T23:59:59+00:00')
-      variable = Sr.where('sr_create_date >= ? AND sr_create_date <= ?',start, due).
+      variable = Sr.select('distinct case_number').
+      where('sr_create_date >= ? AND sr_create_date <= ?',start, due).
       where(sr_type_2: 'Missed Garbage Pickup').count
       Sr.separate_comma(variable)
   end
   def self.total_containers_related
       start = DateTime.parse('2019-07-01T00:00:00+00:00')
       due= DateTime.parse('2021-6-30T23:59:59+00:00')
-      variable= Sr.where('sr_create_date >= ? AND sr_create_date <= ?',start, due).
+      variable= Sr.select('distinct case_number').
+      where('sr_create_date >= ? AND sr_create_date <= ?',start, due).
       where(sr_type_2: 'Containers Related').count
       Sr.separate_comma(variable)
   end
@@ -604,63 +679,72 @@ class Sr < ApplicationRecord
   def self.fy_2021_containers_related
       start = DateTime.parse('2020-07-01T00:00:00+00:00')
       due= DateTime.parse('2021-6-30T23:59:59+00:00')
-      variable= Sr.where('sr_create_date >= ? AND sr_create_date <= ?',start, due).
+      variable= Sr.select('distinct case_number').
+      where('sr_create_date >= ? AND sr_create_date <= ?',start, due).
       where(sr_type_2: 'Containers Related').count
       Sr.separate_comma(variable)
   end
   def self.june_2020_containers_related
       start = DateTime.parse('2020-6-01T00:00:00+00:00')
       due= DateTime.parse('2020-6-30T23:59:59+00:00')
-      variable= Sr.where('sr_create_date >= ? AND sr_create_date <= ?',start, due).
+      variable= Sr.select('distinct case_number').
+      where('sr_create_date >= ? AND sr_create_date <= ?',start, due).
       where(sr_type_2: 'Containers Related').count
       Sr.separate_comma(variable)
   end
   def self.may_2020_containers_related
       start = DateTime.parse('2020-5-01T00:00:00+00:00')
       due= DateTime.parse('2020-5-31T23:59:59+00:00')
-      variable= Sr.where('sr_create_date >= ? AND sr_create_date <= ?',start, due).
+      variable= Sr.select('distinct case_number').
+      where('sr_create_date >= ? AND sr_create_date <= ?',start, due).
       where(sr_type_2: 'Containers Related').count
       Sr.separate_comma(variable)
   end
   def self.april_2020_containers_related
       start = DateTime.parse('2020-4-01T00:00:00+00:00')
       due= DateTime.parse('2020-4-30T23:59:59+00:00')
-      variable= Sr.where('sr_create_date >= ? AND sr_create_date <= ?',start, due).
+      variable= Sr.select('distinct case_number').
+      where('sr_create_date >= ? AND sr_create_date <= ?',start, due).
       where(sr_type_2: 'Containers Related').count
       Sr.separate_comma(variable)
   end
   def self.mar_2020_containers_related
       start = DateTime.parse('2020-3-01T00:00:00+00:00')
       due= DateTime.parse('2020-3-31T23:59:59+00:00')
-      variable= Sr.where('sr_create_date >= ? AND sr_create_date <= ?',start, due).
+      variable= Sr.select('distinct case_number').
+      where('sr_create_date >= ? AND sr_create_date <= ?',start, due).
       where(sr_type_2: 'Containers Related').count
       Sr.separate_comma(variable)
   end
   def self.feb_2020_containers_related
       start = DateTime.parse('2020-2-01T00:00:00+00:00')
       due= DateTime.parse('2020-2-29T23:59:59+00:00')
-      variable= Sr.where('sr_create_date >= ? AND sr_create_date <= ?',start, due).
+      variable= Sr.select('distinct case_number').
+      where('sr_create_date >= ? AND sr_create_date <= ?',start, due).
       where(sr_type_2: 'Containers Related').count
       Sr.separate_comma(variable)
   end
   def self.jan_2020_containers_related
     start = DateTime.parse('2020-1-01T00:00:00+00:00')
     due= DateTime.parse('2020-1-31T23:59:59+00:00')
-    variable= Sr.where('sr_create_date >= ? AND sr_create_date <= ?',start, due).
+    variable= Sr.select('distinct case_number').
+    where('sr_create_date >= ? AND sr_create_date <= ?',start, due).
     where(sr_type_2: 'Containers Related').count
     Sr.separate_comma(variable)
   end
   def self.dec_2019_containers_related
     start = DateTime.parse('2019-12-01T00:00:00+00:00')
     due= DateTime.parse('2019-12-31T23:59:59+00:00')
-    variable= Sr.where('sr_create_date >= ? AND sr_create_date <= ?',start, due).
+    variable= Sr.select('distinct case_number').
+    where('sr_create_date >= ? AND sr_create_date <= ?',start, due).
     where(sr_type_2: 'Containers Related').count
     Sr.separate_comma(variable)
   end
   def self.nov_2019_containers_related
     start = DateTime.parse('2019-11-01T00:00:00+00:00')
     due= DateTime.parse('2019-11-30T23:59:59+00:00')
-    variable= Sr.where('sr_create_date >= ? AND sr_create_date <= ?',start, due).
+    variable= Sr.select('distinct case_number').
+    where('sr_create_date >= ? AND sr_create_date <= ?',start, due).
     where(sr_type_2: 'Containers Related').count
     Sr.separate_comma(variable)
   end
@@ -668,28 +752,32 @@ class Sr < ApplicationRecord
   def self.oct_2019_containers_related
     start = DateTime.parse('2019-10-01T00:00:00+00:00')
     due= DateTime.parse('2019-10-31T23:59:59+00:00')
-    variable= Sr.where('sr_create_date >= ? AND sr_create_date <= ?',start, due).
+    variable= Sr.select('distinct case_number').
+    where('sr_create_date >= ? AND sr_create_date <= ?',start, due).
     where(sr_type_2: 'Containers Related').count
     Sr.separate_comma(variable)
   end
   def self.sept_2019_containers_related
     start = DateTime.parse('2019-09-01T00:00:00+00:00')
     due= DateTime.parse('2019-09-30T23:59:59+00:00')
-    variable= Sr.where('sr_create_date >= ? AND sr_create_date <= ?',start, due).
+    variable= Sr.select('distinct case_number').
+    where('sr_create_date >= ? AND sr_create_date <= ?',start, due).
     where(sr_type_2: 'Containers Related').count
     Sr.separate_comma(variable)
   end
   def self.august_2019_containers_related
         start = DateTime.parse('2019-08-01T00:00:00+00:00')
         due= DateTime.parse('2019-08-31T23:59:59+00:00')
-        variable= Sr.where('sr_create_date >= ? AND sr_create_date <= ?',start, due).
+        variable= Sr.select('distinct case_number').
+        where('sr_create_date >= ? AND sr_create_date <= ?',start, due).
         where(sr_type_2: 'Containers Related').count
         Sr.separate_comma(variable)
   end
   def self.july_2019_containers_related
         start = DateTime.parse('2019-07-01T00:00:00+00:00')
         due= DateTime.parse('2019-07-31T23:59:59+00:00')
-        variable = Sr.where('sr_create_date >= ? AND sr_create_date <= ?',start, due).
+        variable = Sr.select('distinct case_number').
+        where('sr_create_date >= ? AND sr_create_date <= ?',start, due).
         where(sr_type_2: 'Containers Related').count
         Sr.separate_comma(variable)
   end
@@ -762,6 +850,7 @@ class Sr < ApplicationRecord
 
       def self.open_sla_over_30_days
         sla_over_30_list = Sr.
+        select('distinct case_number').
         where(department: 'SWM Solid Waste Management',
           status: 'Open',
           sr_type: ['Missed Garbage Pickup','Missed Heavy Trash Pickup',
@@ -962,7 +1051,8 @@ class Sr < ApplicationRecord
         nw_sr_total se_overdue se_not_overdue se_sr_total
         sw_overdue sw_not_overdue sw_sr_total quad_status tally]
       CSV.open("data.csv", "wb", write_headers: true, headers: headers) { |csv|
-         Sr.where(status: "Open", department: 'SWM Solid Waste Management').
+         Sr.select('distinct case_number').
+         where(status: "Open", department: 'SWM Solid Waste Management').
          pluck(:id, :case_number, :sr_location, :county, :district,
             :neighborhood, :tax_id, :trash_quad, :recycle_quad,
             :trash_day, :heavy_trash_day, :recycle_day, :key_map,
@@ -1157,7 +1247,9 @@ class Sr < ApplicationRecord
   end
 
   def self.aug_2019_historical_grade
-    deptSWwide_aug_2019_sla_due_cases = Sr.between_fields('2019-08-01 00:00:00',
+    deptSWwide_aug_2019_sla_due_cases = Sr.
+    select('distinct case_number').
+    between_fields('2019-08-01 00:00:00',
        :sr_create_date, :date_closed).
     where(department: 'SWM Solid Waste Management', trash_quad: 'SW',
        sr_type: ['Missed Heavy Trash Pickup', 'Container Problem',
@@ -1170,6 +1262,7 @@ class Sr < ApplicationRecord
                  'Physically Challenged Pickup']).count
 
     deptSWwide_aug_2019_actual__due_and_closed_cases = Sr.
+    select('distinct case_number').
     between_fields('2019-08-01 00:00:00', :due_date, :date_closed).
     where(department: 'SWM Solid Waste Management', status: 'Closed',
        trash_quad: 'SW', sr_type: ['Missed Heavy Trash Pickup',
@@ -1190,6 +1283,7 @@ class Sr < ApplicationRecord
     @sw_grade_aug_2019 = self.grade(deptSWwide_aug_2019_sla_percent_complete)
     binding.pry
     deptSEwide_aug_2019_sla_due_cases = Sr.
+    select('distinct case_number').
     between_fields('2019-08-01 00:00:00', :sr_create_date,
        :date_closed).
        where(department: 'SWM Solid Waste Management',
@@ -1203,6 +1297,7 @@ class Sr < ApplicationRecord
             'Personnel or Vehicle Complaint',
             'Physically Challenged Pickup']).count
     deptSEwide_aug_2019_actual__due_and_closed_cases = Sr.
+    select('distinct case_number').
     between_fields('2019-08-01 00:00:00', :due_date, :date_closed).
     where(department: 'SWM Solid Waste Management', trash_quad: 'SE',
       sr_type: ['Missed Heavy Trash Pickup', 'Container Problem',
@@ -1219,6 +1314,7 @@ class Sr < ApplicationRecord
     @se_grade_aug_2019= self.grade(deptSEwide_aug_2019_sla_percent_complete)
     binding.pry
     deptNEwide_aug_2019_sla_due_cases = Sr.
+    select('distinct case_number').
     between_fields('2019-08-01 00:00:00', :sr_create_date, :date_closed).
     where(department: 'SWM Solid Waste Management',
        trash_quad: 'NE',
@@ -1231,6 +1327,7 @@ class Sr < ApplicationRecord
             'Personnel or Vehicle Complaint',
             'Physically Challenged Pickup']).count
     deptNEwide_aug_2019_actual__due_and_closed_cases = Sr.
+    select('distinct case_number').
     between_fields('2019-08-01 00:00:00', :due_date, :date_closed).
     where(department: 'SWM Solid Waste Management',
       trash_quad: 'NE',
@@ -1247,7 +1344,9 @@ class Sr < ApplicationRecord
     to_f.round(2)/deptNEwide_aug_2019_sla_due_cases.to_f.round(2)
     @ne_grade_aug_2019 = self.grade(deptNEwide_aug_2019_sla_percent_complete)
     binding.pry
-    deptNWwide_aug_2019_sla_due_cases = Sr.between_fields('2019-08-01 00:00:00',
+    deptNWwide_aug_2019_sla_due_cases = Sr.
+    select('distinct case_number').
+    between_fields('2019-08-01 00:00:00',
       :sr_create_date, :date_closed).
       where(department: 'SWM Solid Waste Management',
         trash_quad: 'NW', sr_type: ['Missed Heavy Trash Pickup',
@@ -1260,6 +1359,7 @@ class Sr < ApplicationRecord
           'Personnel or Vehicle Complaint',
           'Physically Challenged Pickup']).count
     deptNWwide_aug_2019_actual__due_and_closed_cases = Sr.
+    select('distinct case_number').
     between_fields('2019-08-01 00:00:00', :due_date, :date_closed).
     where(department: 'SWM Solid Waste Management',
       trash_quad: 'NW',
@@ -1282,6 +1382,7 @@ class Sr < ApplicationRecord
     aug_2019_start_date = Chronic.parse('2019-08-01')
     aug_2019_end_date = Chronic.parse('2019-08-31')
     tally_list = Sr.
+    select('distinct case_number').
     where("sr_create_date >= ? AND sr_create_date <= ?",
       aug_2019_start_date, aug_2019_end_date).
       where(status: ['Closed'],
@@ -1300,6 +1401,7 @@ class Sr < ApplicationRecord
       sr.save}
 
     tally_list_values = Sr.
+    select('distinct case_number').
     where("sr_create_date >= ? AND sr_create_date <= ?",
       aug_2019_start_date, aug_2019_end_date).
       where(status: ['Closed'], department: 'SWM Solid Waste Management',
@@ -1356,7 +1458,9 @@ class Sr < ApplicationRecord
   def self.september_2019_html
     start_date = Chronic.parse('2019-09-01')
     end_date = Chronic.parse('2019-09-30')
-    tally_list = Sr.where("sr_create_date >= ? AND sr_create_date <= ?",
+    tally_list = Sr.
+    select('distinct case_number').
+    where("sr_create_date >= ? AND sr_create_date <= ?",
       start_date, end_date).where(status: ['Closed'],
         department: 'SWM Solid Waste Management',
         trash_quad: ['SW','SE','NW','NE'],
@@ -1370,7 +1474,9 @@ class Sr < ApplicationRecord
     tally_list.each{|sr|
       sr.tally = 1
       sr.save}
-    tally_list_values = Sr.where("sr_create_date >= ? AND sr_create_date <= ?",
+    tally_list_values = Sr.
+    select('distinct case_number').
+    where("sr_create_date >= ? AND sr_create_date <= ?",
       start_date, end_date).
       where(status: ['Closed'],
         department: 'SWM Solid Waste Management',
@@ -1430,7 +1536,9 @@ class Sr < ApplicationRecord
   def self.october_2019_html
     start_date = Chronic.parse('2019-10-01')
     end_date = Chronic.parse('2019-10-31')
-    tally_list = Sr.where("sr_create_date >= ? AND sr_create_date <= ?",
+    tally_list = Sr.
+    select('distinct case_number').
+    where("sr_create_date >= ? AND sr_create_date <= ?",
       start_date, end_date).
       where(status: ['Closed'],
         department: 'SWM Solid Waste Management',
@@ -1447,6 +1555,7 @@ class Sr < ApplicationRecord
       sr.tally = 1
       sr.save}
     tally_list_values = Sr.
+    select('distinct case_number').
     where("sr_create_date >= ? AND sr_create_date <= ?",
       start_date, end_date).where(status: ['Closed'],
         department: 'SWM Solid Waste Management',
@@ -1503,7 +1612,9 @@ class Sr < ApplicationRecord
   def self.november_2019_html
     start_date = Chronic.parse('2019-11-01')
     end_date = Chronic.parse('2019-11-30')
-    tally_list = Sr.where("sr_create_date >= ? AND sr_create_date <= ?",
+    tally_list = Sr.
+    select('distinct case_number').
+    where("sr_create_date >= ? AND sr_create_date <= ?",
       start_date, end_date).
       where(status: ['Closed'],
         department: 'SWM Solid Waste Management',
@@ -1518,7 +1629,9 @@ class Sr < ApplicationRecord
     tally_list.each{|sr|
       sr.tally = 1
       sr.save}
-    tally_list_values = Sr.where("sr_create_date >= ? AND sr_create_date <= ?",
+    tally_list_values = Sr.
+    select('distinct case_number').
+    where("sr_create_date >= ? AND sr_create_date <= ?",
        start_date, end_date).
        where(status: ['Closed'],
          department: 'SWM Solid Waste Management',
@@ -1579,7 +1692,9 @@ class Sr < ApplicationRecord
   def self.december_2019_html
     start_date = Chronic.parse('2019-11-01')
     end_date = Chronic.parse('2019-11-30')
-    tally_list = Sr.where("sr_create_date >= ? AND sr_create_date <= ?",
+    tally_list = Sr.
+    select('distinct case_number').
+    where("sr_create_date >= ? AND sr_create_date <= ?",
       start_date, end_date).where(status: ['Closed'],
         department: 'SWM Solid Waste Management',
         trash_quad: ['SW','SE','NW','NE'],
@@ -1594,7 +1709,9 @@ class Sr < ApplicationRecord
     tally_list.each{|sr|
       sr.tally = 1
       sr.save}
-    tally_list_values = Sr.where("sr_create_date >= ? AND sr_create_date <= ?",
+    tally_list_values = Sr.
+    select('distinct case_number').
+    where("sr_create_date >= ? AND sr_create_date <= ?",
       start_date, end_date).where(status: ['Closed'],
         department: 'SWM Solid Waste Management',
         trash_quad: ['SW','SE','NW','NE'],
@@ -1651,7 +1768,9 @@ class Sr < ApplicationRecord
   def self.jan_2020_html
     start_date = Chronic.parse('2020-1-01')
     end_date = Chronic.parse('2020-1-31')
-    tally_list = Sr.where("sr_create_date >= ? AND sr_create_date <= ?",
+    tally_list = Sr.
+    select('distinct case_number').
+    where("sr_create_date >= ? AND sr_create_date <= ?",
       start_date, end_date).where(status: ['Closed'],
         department: 'SWM Solid Waste Management',
         trash_quad: ['SW','SE','NW','NE'],
@@ -1665,7 +1784,9 @@ class Sr < ApplicationRecord
     tally_list.each{|sr|
       sr.tally = 1
       sr.save}
-    tally_list_values = Sr.where("sr_create_date >= ? AND sr_create_date <= ?",
+    tally_list_values = Sr.
+    select('distinct case_number').
+    where("sr_create_date >= ? AND sr_create_date <= ?",
       start_date, end_date).where(status: ['Closed'],
         department: 'SWM Solid Waste Management',
         trash_quad: ['SW','SE','NW','NE'],
@@ -1724,7 +1845,9 @@ class Sr < ApplicationRecord
   def self.feb_2020_html
     start_date = Chronic.parse('2020-2-01')
     end_date = Chronic.parse('2020-2-29')
-    tally_list = Sr.where("sr_create_date >= ? AND sr_create_date <= ?",
+    tally_list = Sr.
+    select('distinct case_number').
+    where("sr_create_date >= ? AND sr_create_date <= ?",
       start_date, end_date).
       where(status: ['Closed'],
         department: 'SWM Solid Waste Management',
@@ -1740,7 +1863,9 @@ class Sr < ApplicationRecord
     tally_list.each{|sr|
       sr.tally = 1
       sr.save}
-    tally_list_values = Sr.where("sr_create_date >= ? AND sr_create_date <= ?",
+    tally_list_values = Sr.
+    select('distinct case_number').
+    where("sr_create_date >= ? AND sr_create_date <= ?",
       start_date, end_date).where(status: ['Closed'],
         department: 'SWM Solid Waste Management',
         trash_quad: ['SW','SE','NW','NE'],
@@ -1798,7 +1923,9 @@ class Sr < ApplicationRecord
     def self.mar_2020_html
       start_date = Chronic.parse('2020-3-01')
       end_date = Chronic.parse('2020-3-31')
-      tally_list = Sr.where("sr_create_date >= ? AND sr_create_date <= ?",
+      tally_list = Sr.
+      select('distinct case_number').
+      where("sr_create_date >= ? AND sr_create_date <= ?",
         start_date, end_date).where(status: ['Closed'],
           department: 'SWM Solid Waste Management',
           trash_quad: ['SW','SE','NW','NE'],
@@ -1814,6 +1941,7 @@ class Sr < ApplicationRecord
         sr.tally = 1
         sr.save}
       tally_list_values = Sr.
+      select('distinct case_number').
       where("sr_create_date >= ? AND sr_create_date <= ?",
         start_date, end_date).where(status: ['Closed'],
           department: 'SWM Solid Waste Management',
@@ -1872,7 +2000,9 @@ class Sr < ApplicationRecord
     def self.april_2020_html
       start_date = Chronic.parse('2020-4-01')
       end_date = Chronic.parse('2020-4-30')
-      tally_list = Sr.where("sr_create_date >= ? AND sr_create_date <= ?",
+      tally_list = Sr.
+      select('distinct case_number').
+      where("sr_create_date >= ? AND sr_create_date <= ?",
         start_date, end_date).
         where(status: ['Closed'],
           department: 'SWM Solid Waste Management',
@@ -1889,6 +2019,7 @@ class Sr < ApplicationRecord
         sr.tally = 1
         sr.save}
       tally_list_values = Sr.
+      select('distinct case_number').
       where("sr_create_date >= ? AND sr_create_date <= ?",
         start_date, end_date).
         where(status: ['Closed'],
@@ -1956,7 +2087,9 @@ class Sr < ApplicationRecord
     def self.may_2020_html
       start_date = Chronic.parse('2020-5-01')
       end_date = Chronic.parse('2020-5-31')
-      tally_list = Sr.where("sr_create_date >= ? AND sr_create_date <= ?",
+      tally_list = Sr.
+      select('distinct case_number').
+      where("sr_create_date >= ? AND sr_create_date <= ?",
         start_date, end_date).
         where(status: ['Closed'],
           department: 'SWM Solid Waste Management',
@@ -1980,6 +2113,7 @@ class Sr < ApplicationRecord
         sr.tally = 1
         sr.save}
       tally_list_values = Sr.
+      select('distinct case_number').
       where("sr_create_date >= ? AND sr_create_date <= ?",
         start_date, end_date).
         where(status: ['Closed'],
@@ -2045,7 +2179,9 @@ class Sr < ApplicationRecord
     def self.june_2020_html
       start_date = Chronic.parse('2020-06-01')
       end_date = Chronic.parse('2020-06-30')
-      tally_list = Sr.where("sr_create_date >= ? AND sr_create_date <= ?",
+      tally_list = Sr.
+      select('distinct case_number').
+      where("sr_create_date >= ? AND sr_create_date <= ?",
         start_date, end_date).
         where(status: ['Closed'],
           department: 'SWM Solid Waste Management',
@@ -2069,6 +2205,7 @@ class Sr < ApplicationRecord
         sr.tally = 1
         sr.save}
       tally_list_values = Sr.
+      select('distinct case_number').
       where("sr_create_date >= ? AND sr_create_date <= ?",
         start_date, end_date).
         where(status: ['Closed'],
@@ -2134,7 +2271,9 @@ class Sr < ApplicationRecord
     def self.fy_2020_html
       start_date = Chronic.parse('2019-07-01')
       end_date = Chronic.parse('2020-06-30')
-      tally_list = Sr.where("sr_create_date >= ? AND sr_create_date <= ?",
+      tally_list = Sr.
+      select('distinct case_number').
+      where("sr_create_date >= ? AND sr_create_date <= ?",
         start_date, end_date).
         where(status: ['Closed'],
           department: 'SWM Solid Waste Management',
@@ -2158,6 +2297,7 @@ class Sr < ApplicationRecord
         sr.tally = 1
         sr.save}
       tally_list_values = Sr.
+      select('distinct case_number').
       where("sr_create_date >= ? AND sr_create_date <= ?",
         start_date, end_date).
         where(status: ['Closed'],
@@ -2228,7 +2368,9 @@ end
 def self.sWM_Escalation_cans_related_list_FY2017
   start_date = Date.parse('2016-07-01')
   end_date= Date.parse('2017-06-30')
-  new_services_list = Sr.where(status: ['Closed','Open'],
+  new_services_list = Sr.
+  select('distinct case_number').
+  where(status: ['Closed','Open'],
     department: 'SWM Solid Waste Management',
     sr_type: ['SWM Escalation']).
     where("sr_create_date >= ? AND sr_create_date <= ?",
@@ -2238,7 +2380,9 @@ end
 def self.sWM_Escalation_cans_related_list_FY2018
   start_date = Date.parse('2017-07-01')
   end_date= Date.parse('2018-06-30')
-  new_services_list = Sr.where(status: ['Closed','Open'],
+  new_services_list = Sr.
+  select('distinct case_number').
+  where(status: ['Closed','Open'],
     department: 'SWM Solid Waste Management',
     sr_type: ['SWM Escalation']).
     where("sr_create_date >= ? AND sr_create_date <= ?",
@@ -2248,7 +2392,9 @@ end
 def self.sWM_Escalation_cans_related_list_FY2019
   start_date = Date.parse('2018-07-01')
   end_date= Date.parse('2019-06-30')
-  new_services_list = Sr.where(status: ['Closed','Open'],
+  new_services_list = Sr.
+  select('distinct case_number').
+  where(status: ['Closed','Open'],
     department: 'SWM Solid Waste Management',
     sr_type: ['SWM Escalation']).
     where("sr_create_date >= ? AND sr_create_date <= ?",
@@ -2258,7 +2404,9 @@ end
 def self.sWM_Escalation_cans_related_list_FY2020
   start_date = Date.parse('2019-07-01')
   end_date= Date.parse('2020-06-30')
-  new_services_list = Sr.where(status: ['Closed','Open'],
+  new_services_list = Sr.
+  select('distinct case_number').
+  where(status: ['Closed','Open'],
     department: 'SWM Solid Waste Management',
     sr_type: ['SWM Escalation']).
     where("sr_create_date >= ? AND sr_create_date <= ?",
@@ -2268,7 +2416,9 @@ end
 def self.unauthorizedContainerRetrieval_cans_related_list_FY2017
   start_date = Date.parse('2016-07-01')
   end_date= Date.parse('2017-06-30')
-  new_services_list = Sr.where(status: ['Closed','Open'],
+  new_services_list = Sr.
+  select('distinct case_number').
+  where(status: ['Closed','Open'],
     department: 'SWM Solid Waste Management',
     sr_type: ['Unauthorized Container Retrieval']).
     where("sr_create_date >= ? AND sr_create_date <= ?",
@@ -2278,7 +2428,9 @@ end
 def self.unauthorizedContainerRetrieval_cans_related_list_FY2018
   start_date = Date.parse('2017-07-01')
   end_date= Date.parse('2018-06-30')
-  new_services_list = Sr.where(status: ['Closed','Open'],
+  new_services_list = Sr.
+  select('distinct case_number').
+  where(status: ['Closed','Open'],
     department: 'SWM Solid Waste Management',
     sr_type: ['Unauthorized Container Retrieval']).
     where("sr_create_date >= ? AND sr_create_date <= ?",
@@ -2288,7 +2440,9 @@ end
 def self.unauthorizedContainerRetrieval_cans_related_list_FY2019
   start_date = Date.parse('2018-07-01')
   end_date= Date.parse('2019-06-30')
-  new_services_list = Sr.where(status: ['Closed','Open'],
+  new_services_list = Sr.
+  select('distinct case_number').
+  where(status: ['Closed','Open'],
     department: 'SWM Solid Waste Management',
     sr_type: ['Unauthorized Container Retrieval']).
     where("sr_create_date >= ? AND sr_create_date <= ?",
@@ -2298,7 +2452,9 @@ end
 def self.unauthorizedContainerRetrieval_cans_related_list_FY2020
   start_date = Date.parse('2019-07-01')
   end_date= Date.parse('2020-06-30')
-  new_services_list = Sr.where(status: ['Closed','Open'],
+  new_services_list = Sr.
+  select('distinct case_number').
+  where(status: ['Closed','Open'],
     department: 'SWM Solid Waste Management',
     sr_type: ['Unauthorized Container Retrieval']).
     where("sr_create_date >= ? AND sr_create_date <= ?",
@@ -2308,7 +2464,9 @@ end
 def self.recyclingCartRepairorReplace_cans_related_list_FY2017
   start_date = Date.parse('2016-07-01')
   end_date= Date.parse('2017-06-30')
-  new_services_list = Sr.where(status: ['Closed','Open'],
+  new_services_list = Sr.
+  select('distinct case_number').
+  where(status: ['Closed','Open'],
     department: 'SWM Solid Waste Management',
     sr_type: ['Recycling Cart Repair or Replace']).
     where("sr_create_date >= ? AND sr_create_date <= ?",
@@ -2318,7 +2476,9 @@ end
 def self.recyclingCartRepairorReplace_cans_related_list_FY2018
   start_date = Date.parse('2017-07-01')
   end_date= Date.parse('2018-06-30')
-  new_services_list = Sr.where(status: ['Closed','Open'],
+  new_services_list = Sr.
+  select('distinct case_number').
+  where(status: ['Closed','Open'],
     department: 'SWM Solid Waste Management',
     sr_type: ['Recycling Cart Repair or Replace']).
     where("sr_create_date >= ? AND sr_create_date <= ?",
@@ -2328,7 +2488,9 @@ end
 def self.recyclingCartRepairorReplace_cans_related_list_FY2019
   start_date = Date.parse('2018-07-01')
   end_date= Date.parse('2019-06-30')
-  new_services_list = Sr.where(status: ['Closed','Open'],
+  new_services_list = Sr.
+  select('distinct case_number').
+  where(status: ['Closed','Open'],
     department: 'SWM Solid Waste Management',
     sr_type: ['Recycling Cart Repair or Replace']).
     where("sr_create_date >= ? AND sr_create_date <= ?",
@@ -2338,7 +2500,9 @@ end
 def self.recyclingCartRepairorReplace_cans_related_list_FY2020
   start_date = Date.parse('2019-07-01')
   end_date= Date.parse('2020-06-30')
-  new_services_list = Sr.where(status: ['Closed','Open'],
+  new_services_list = Sr.
+  select('distinct case_number').
+  where(status: ['Closed','Open'],
     department: 'SWM Solid Waste Management',
     sr_type: ['Recycling Cart Repair or Replace']).
     where("sr_create_date >= ? AND sr_create_date <= ?",
@@ -2348,7 +2512,9 @@ end
 def self.recyclingParticipationNEW_cans_related_list_FY2017
   start_date = Date.parse('2016-07-01')
   end_date= Date.parse('2017-06-30')
-  new_services_list = Sr.where(status: ['Closed','Open'],
+  new_services_list = Sr.
+  select('distinct case_number').
+  where(status: ['Closed','Open'],
     department: 'SWM Solid Waste Management',
     sr_type: ['Recycling Participation NEW']).
     where("sr_create_date >= ? AND sr_create_date <= ?",
@@ -2358,7 +2524,9 @@ end
 def self.recyclingParticipationNEW_cans_related_list_FY2018
   start_date = Date.parse('2017-07-01')
   end_date= Date.parse('2018-06-30')
-  new_services_list = Sr.where(status: ['Closed','Open'],
+  new_services_list = Sr.
+  select('distinct case_number').
+  where(status: ['Closed','Open'],
     department: 'SWM Solid Waste Management',
     sr_type: ['Recycling Participation NEW']).
     where("sr_create_date >= ? AND sr_create_date <= ?",
@@ -2368,7 +2536,9 @@ end
 def self.recyclingParticipationNEW_cans_related_list_FY2019
   start_date = Date.parse('2018-07-01')
   end_date= Date.parse('2019-06-30')
-  new_services_list = Sr.where(status: ['Closed','Open'],
+  new_services_list = Sr.
+  select('distinct case_number').
+  where(status: ['Closed','Open'],
     department: 'SWM Solid Waste Management',
     sr_type: ['Recycling Participation NEW']).
     where("sr_create_date >= ? AND sr_create_date <= ?",
@@ -2378,7 +2548,9 @@ end
 def self.recyclingParticipationNEW_cans_related_list_FY2020
   start_date = Date.parse('2019-07-01')
   end_date= Date.parse('2020-06-30')
-  new_services_list = Sr.where(status: ['Closed','Open'],
+  new_services_list = Sr.
+  select('distinct case_number').
+  where(status: ['Closed','Open'],
     department: 'SWM Solid Waste Management',
     sr_type: ['Recycling Participation NEW']).
     where("sr_create_date >= ? AND sr_create_date <= ?",
@@ -2388,7 +2560,9 @@ end
 def self.recycleBinCartRetrieve_cans_related_list_FY2017
   start_date = Date.parse('2016-07-01')
   end_date= Date.parse('2017-06-30')
-  new_services_list = Sr.where(status: ['Closed','Open'],
+  new_services_list = Sr.
+  select('distinct case_number').
+  where(status: ['Closed','Open'],
     department: 'SWM Solid Waste Management',
     sr_type: ['Recycle Bin/Cart Retrieve']).
     where("sr_create_date >= ? AND sr_create_date <= ?",
@@ -2398,7 +2572,9 @@ end
 def self.recycleBinCartRetrieve_cans_related_list_FY2018
   start_date = Date.parse('2017-07-01')
   end_date= Date.parse('2018-06-30')
-  new_services_list = Sr.where(status: ['Closed','Open'],
+  new_services_list = Sr.
+  select('distinct case_number').
+  where(status: ['Closed','Open'],
     department: 'SWM Solid Waste Management',
     sr_type: ['Recycle Bin/Cart Retrieve']).
     where("sr_create_date >= ? AND sr_create_date <= ?",
@@ -2408,7 +2584,9 @@ end
 def self.recycleBinCartRetrieve_cans_related_list_FY2019
   start_date = Date.parse('2018-07-01')
   end_date= Date.parse('2019-06-30')
-  new_services_list = Sr.where(status: ['Closed','Open'],
+  new_services_list = Sr.
+  select('distinct case_number').
+  where(status: ['Closed','Open'],
     department: 'SWM Solid Waste Management',
     sr_type: ['Recycle Bin/Cart Retrieve']).
     where("sr_create_date >= ? AND sr_create_date <= ?",
@@ -2418,7 +2596,9 @@ end
 def self.recycleBinCartRetrieve_cans_related_list_FY2020
   start_date = Date.parse('2019-07-01')
   end_date= Date.parse('2020-06-30')
-  new_services_list = Sr.where(status: ['Closed','Open'],
+  new_services_list = Sr.
+  select('distinct case_number').
+  where(status: ['Closed','Open'],
     department: 'SWM Solid Waste Management',
     sr_type: ['Recycle Bin/Cart Retrieve']).
     where("sr_create_date >= ? AND sr_create_date <= ?",
@@ -2428,7 +2608,9 @@ end
 def self.newResidentContainer_cans_related_list_FY2017
   start_date = Date.parse('2016-07-01')
   end_date= Date.parse('2017-06-30')
-  new_services_list = Sr.where(status: ['Closed','Open'],
+  new_services_list = Sr.
+  select('distinct case_number').
+  where(status: ['Closed','Open'],
     department: 'SWM Solid Waste Management',
     sr_type: ['New Resident Container']).
     where("sr_create_date >= ? AND sr_create_date <= ?",
@@ -2438,7 +2620,9 @@ end
 def self.newResidentContainer_cans_related_list_FY2018
   start_date = Date.parse('2017-07-01')
   end_date= Date.parse('2018-06-30')
-  new_services_list = Sr.where(status: ['Closed','Open'],
+  new_services_list = Sr.
+  select('distinct case_number').
+  where(status: ['Closed','Open'],
     department: 'SWM Solid Waste Management',
     sr_type: ['New Resident Container']).
     where("sr_create_date >= ? AND sr_create_date <= ?",
@@ -2448,7 +2632,9 @@ end
 def self.newResidentContainer_cans_related_list_FY2019
   start_date = Date.parse('2018-07-01')
   end_date= Date.parse('2019-06-30')
-  new_services_list = Sr.where(status: ['Closed','Open'],
+  new_services_list = Sr.
+  select('distinct case_number').
+  where(status: ['Closed','Open'],
     department: 'SWM Solid Waste Management',
     sr_type: ['New Resident Container']).
     where("sr_create_date >= ? AND sr_create_date <= ?",
@@ -2458,7 +2644,9 @@ end
 def self.newResidentContainer_cans_related_list_FY2020
   start_date = Date.parse('2019-07-01')
   end_date= Date.parse('2020-06-30')
-  new_services_list = Sr.where(status: ['Closed','Open'],
+  new_services_list = Sr.
+  select('distinct case_number').
+  where(status: ['Closed','Open'],
     department: 'SWM Solid Waste Management',
     sr_type: ['New Resident Container']).
     where("sr_create_date >= ? AND sr_create_date <= ?",
@@ -2468,7 +2656,9 @@ end
 def self.containerProblem_cans_related_list_FY2017
   start_date = Date.parse('2016-07-01')
   end_date= Date.parse('2017-06-30')
-  new_services_list = Sr.where(status: ['Closed','Open'],
+  new_services_list = Sr.
+  select('distinct case_number').
+  where(status: ['Closed','Open'],
     department: 'SWM Solid Waste Management',
     sr_type: ['Container Problem']).
     where("sr_create_date >= ? AND sr_create_date <= ?",
@@ -2478,7 +2668,9 @@ end
 def self.containerProblem_cans_related_list_FY2018
   start_date = Date.parse('2017-07-01')
   end_date= Date.parse('2018-06-30')
-  new_services_list = Sr.where(status: ['Closed','Open'],
+  new_services_list = Sr.
+  select('distinct case_number').
+  where(status: ['Closed','Open'],
     department: 'SWM Solid Waste Management',
     sr_type: ['Container Problem']).
     where("sr_create_date >= ? AND sr_create_date <= ?",
@@ -2488,7 +2680,9 @@ end
 def self.containerProblem_cans_related_list_FY2019
   start_date = Date.parse('2018-07-01')
   end_date= Date.parse('2019-06-30')
-  new_services_list = Sr.where(status: ['Closed','Open'],
+  new_services_list = Sr.
+  select('distinct case_number').
+  where(status: ['Closed','Open'],
     department: 'SWM Solid Waste Management',
     sr_type: ['Container Problem']).
     where("sr_create_date >= ? AND sr_create_date <= ?",
@@ -2498,7 +2692,9 @@ end
 def self.containerProblem_cans_related_list_FY2020
   start_date = Date.parse('2019-07-01')
   end_date= Date.parse('2020-06-30')
-  new_services_list = Sr.where(status: ['Closed','Open'],
+  new_services_list = Sr.
+  select('distinct case_number').
+  where(status: ['Closed','Open'],
     department: 'SWM Solid Waste Management',
     sr_type: ['Container Problem']).
     where("sr_create_date >= ? AND sr_create_date <= ?",
@@ -2508,7 +2704,9 @@ end
 def self.addACartCANCELLATION_cans_related_list_FY2017
   start_date = Date.parse('2016-07-01')
   end_date= Date.parse('2017-06-30')
-  new_services_list = Sr.where(status: ['Closed','Open'],
+  new_services_list = Sr.
+  select('distinct case_number').
+  where(status: ['Closed','Open'],
     department: 'SWM Solid Waste Management',
     sr_type: ['Add A Cart CANCELLATION']).
     where("sr_create_date >= ? AND sr_create_date <= ?",
@@ -2518,7 +2716,9 @@ end
 def self.addACartCANCELLATION_cans_related_list_FY2018
   start_date = Date.parse('2017-07-01')
   end_date= Date.parse('2018-06-30')
-  new_services_list = Sr.where(status: ['Closed','Open'],
+  new_services_list = Sr.
+  select('distinct case_number').
+  where(status: ['Closed','Open'],
     department: 'SWM Solid Waste Management',
     sr_type: ['Add A Cart CANCELLATION']).
     where("sr_create_date >= ? AND sr_create_date <= ?",
@@ -2528,7 +2728,9 @@ end
 def self.addACartCANCELLATION_cans_related_list_FY2019
   start_date = Date.parse('2018-07-01')
   end_date= Date.parse('2019-06-30')
-  new_services_list = Sr.where(status: ['Closed','Open'],
+  new_services_list = Sr.
+  select('distinct case_number').
+  where(status: ['Closed','Open'],
     department: 'SWM Solid Waste Management',
     sr_type: ['Add A Cart CANCELLATION']).
     where("sr_create_date >= ? AND sr_create_date <= ?",
@@ -2538,7 +2740,9 @@ end
 def self.addACartCANCELLATION_cans_related_list_FY2020
   start_date = Date.parse('2019-07-01')
   end_date= Date.parse('2020-06-30')
-  new_services_list = Sr.where(status: ['Closed','Open'],
+  new_services_list = Sr.
+  select('distinct case_number').
+  where(status: ['Closed','Open'],
     department: 'SWM Solid Waste Management',
     sr_type: ['Add A Cart CANCELLATION']).
     where("sr_create_date >= ? AND sr_create_date <= ?",
@@ -2548,7 +2752,9 @@ end
 def self.addACart_cans_related_list_FY2017
   start_date = Date.parse('2016-07-01')
   end_date= Date.parse('2017-06-30')
-  new_services_list = Sr.where(status: ['Closed','Open'],
+  new_services_list = Sr.
+  select('distinct case_number').
+  where(status: ['Closed','Open'],
     department: 'SWM Solid Waste Management',
     sr_type: ['Add A Cart']).
     where("sr_create_date >= ? AND sr_create_date <= ?",
@@ -2558,7 +2764,9 @@ end
 def self.addACart_cans_related_list_FY2018
   start_date = Date.parse('2017-07-01')
   end_date= Date.parse('2018-06-30')
-  new_services_list = Sr.where(status: ['Closed','Open'],
+  new_services_list = Sr.
+  select('distinct case_number').
+  where(status: ['Closed','Open'],
     department: 'SWM Solid Waste Management',
     sr_type: ['Add A Cart']).
     where("sr_create_date >= ? AND sr_create_date <= ?",
@@ -2568,7 +2776,9 @@ end
 def self.addACart_cans_related_list_FY2019
   start_date = Date.parse('2018-07-01')
   end_date= Date.parse('2019-06-30')
-  new_services_list = Sr.where(status: ['Closed','Open'],
+  new_services_list = Sr.
+  select('distinct case_number').
+  where(status: ['Closed','Open'],
     department: 'SWM Solid Waste Management',
     sr_type: ['Add A Cart']).
     where("sr_create_date >= ? AND sr_create_date <= ?",
@@ -2578,7 +2788,9 @@ end
 def self.addACart_cans_related_list_FY2020
   start_date = Date.parse('2019-07-01')
   end_date= Date.parse('2020-06-30')
-  new_services_list = Sr.where(status: ['Closed','Open'],
+  new_services_list = Sr.
+  select('distinct case_number').
+  where(status: ['Closed','Open'],
     department: 'SWM Solid Waste Management',
     sr_type: ['Add A Cart']).
     where("sr_create_date >= ? AND sr_create_date <= ?",
@@ -2589,7 +2801,9 @@ end
 def self.addACanCANCELLATION_cans_related_list_FY2017
   start_date = Date.parse('2016-07-01')
   end_date= Date.parse('2017-06-30')
-  new_services_list = Sr.where(status: ['Closed','Open'],
+  new_services_list = Sr.
+  select('distinct case_number').
+  where(status: ['Closed','Open'],
     department: 'SWM Solid Waste Management',
     sr_type: ['Add A Can CANCELLATION']).
     where("sr_create_date >= ? AND sr_create_date <= ?",
@@ -2599,7 +2813,9 @@ end
 def self.addACanCANCELLATION_cans_related_list_FY2018
   start_date = Date.parse('2017-07-01')
   end_date= Date.parse('2018-06-30')
-  new_services_list = Sr.where(status: ['Closed','Open'],
+  new_services_list = Sr.
+  select('distinct case_number').
+  where(status: ['Closed','Open'],
     department: 'SWM Solid Waste Management',
     sr_type: ['Add A Can CANCELLATION']).
     where("sr_create_date >= ? AND sr_create_date <= ?",
@@ -2609,7 +2825,9 @@ end
 def self.addACanCANCELLATION_cans_related_list_FY2019
   start_date = Date.parse('2018-07-01')
   end_date= Date.parse('2019-06-30')
-  new_services_list = Sr.where(status: ['Closed','Open'],
+  new_services_list = Sr.
+  select('distinct case_number').
+  where(status: ['Closed','Open'],
     department: 'SWM Solid Waste Management',
     sr_type: ['Add A Can CANCELLATION']).
     where("sr_create_date >= ? AND sr_create_date <= ?",
@@ -2619,7 +2837,9 @@ end
 def self.addACanCANCELLATION_cans_related_list_FY2020
   start_date = Date.parse('2019-07-01')
   end_date= Date.parse('2020-06-30')
-  new_services_list = Sr.where(status: ['Closed','Open'],
+  new_services_list = Sr.
+  select('distinct case_number').
+  where(status: ['Closed','Open'],
     department: 'SWM Solid Waste Management',
     sr_type: ['Add A Can CANCELLATION']).
     where("sr_create_date >= ? AND sr_create_date <= ?",
@@ -2629,7 +2849,9 @@ end
 def self.newMoveInService_cans_related_list_FY2017
   start_date = Date.parse('2016-07-01')
   end_date= Date.parse('2017-06-30')
-  new_services_list = Sr.where(status: ['Closed','Open'],
+  new_services_list = Sr.
+  select('distinct case_number').
+  where(status: ['Closed','Open'],
     department: 'SWM Solid Waste Management',
     sr_type: ['New Move In Service']).
     where("sr_create_date >= ? AND sr_create_date <= ?",
@@ -2639,7 +2861,9 @@ end
 def self.newMoveInService_cans_related_list_FY2018
   start_date = Date.parse('2017-07-01')
   end_date= Date.parse('2018-06-30')
-  new_services_list = Sr.where(status: ['Closed','Open'],
+  new_services_list = Sr.
+  select('distinct case_number').
+  where(status: ['Closed','Open'],
     department: 'SWM Solid Waste Management',
     sr_type: ['New Move In Service']).
     where("sr_create_date >= ? AND sr_create_date <= ?",
@@ -2649,7 +2873,9 @@ end
 def self.newMoveInService_cans_related_list_FY2019
   start_date = Date.parse('2018-07-01')
   end_date= Date.parse('2019-06-30')
-  new_services_list = Sr.where(status: ['Closed','Open'],
+  new_services_list = Sr.
+  select('distinct case_number').
+  where(status: ['Closed','Open'],
     department: 'SWM Solid Waste Management',
     sr_type: ['New Move In Service']).
     where("sr_create_date >= ? AND sr_create_date <= ?",
@@ -2660,6 +2886,7 @@ def self.newMoveInService_cans_related_list_FY2020
   start_date = Date.parse('2019-07-01')
   end_date= Date.parse('2020-06-30')
   new_services_list = Sr.
+  select('distinct case_number').
   where("sr_create_date >= ? AND sr_create_date <= ?",
     start_date, end_date).
   where(status: ['Closed','Open'],
@@ -2670,6 +2897,7 @@ def self.addACan_related_list_FY2020
   start = Date.parse('2019-07-01')
   due = DateTime.now
   new_services_list = Sr.
+  select('distinct case_number').
   where("sr_create_date >= ? AND sr_create_date <= ?",start, due).
   where(status: ['Closed','Open'],
     department: 'SWM Solid Waste Management',
@@ -2688,6 +2916,7 @@ def self.addACan_related_list_FY2018
   start = Date.parse('2017-07-01')
   due = Date.parse('2018-06-30')
   new_services_list = Sr.
+  select('distinct case_number').
   where("sr_create_date >= ? AND sr_create_date <= ?",start, due).
   where(status: ['Closed','Open'],
     department: 'SWM Solid Waste Management',
@@ -2697,6 +2926,7 @@ def self.addACan_related_list_FY2017
   start = Date.parse('2016-07-01')
   due = Date.parse('2017-06-30')
   new_services_list = Sr.
+  select('distinct case_number').
   where("sr_create_date >= ? AND sr_create_date <= ?",start, due).
   where(status: ['Closed','Open'],
     department: 'SWM Solid Waste Management',

@@ -13,7 +13,9 @@ class OpenSr < ApplicationRecord
       se_sr_total sw_overdue sw_not_overdue sw_sr_total quad_status tally]
       CSV.open("All_quad_hvy_trash_open_list.csv", "wb",
         write_headers: true, headers: headers) { |csv|
-    Sr.where(department:'SWM Solid Waste Management',
+    Sr.
+    select('distinct case_number').
+    where(department:'SWM Solid Waste Management',
         status:'Open',
          sr_type:'Missed Heavy Trash Pickup').
          pluck(:id, :case_number,
@@ -50,7 +52,9 @@ class OpenSr < ApplicationRecord
       se_sr_total sw_overdue sw_not_overdue sw_sr_total quad_status tally]
       CSV.open("NW_Hvy_trash_open_list.csv", "wb",
         write_headers: true, headers: headers) { |csv|
-    Sr.where(department:'SWM Solid Waste Management',
+    Sr.
+    select('distinct case_number').
+    where(department:'SWM Solid Waste Management',
        trash_quad:'NW',
         status:'Open',
          sr_type:'Missed Heavy Trash Pickup').
@@ -88,7 +92,9 @@ class OpenSr < ApplicationRecord
       se_sr_total sw_overdue sw_not_overdue sw_sr_total quad_status tally]
       CSV.open("NE_Hvy_trash_open_list.csv", "wb",
         write_headers: true, headers: headers) { |csv|
-    Sr.where(department:'SWM Solid Waste Management',
+    Sr.
+    select('distinct case_number').
+    where(department:'SWM Solid Waste Management',
        trash_quad:'NE',
         status:'Open',
          sr_type:'Missed Heavy Trash Pickup').
@@ -126,7 +132,8 @@ class OpenSr < ApplicationRecord
       se_sr_total sw_overdue sw_not_overdue sw_sr_total quad_status tally]
       CSV.open("SW_Hvy_trash_open_list.csv", "wb",
         write_headers: true, headers: headers) { |csv|
-    Sr.where(department:'SWM Solid Waste Management',
+    Sr.select('distinct case_number').
+    where(department:'SWM Solid Waste Management',
        trash_quad:'SW',
         status:'Open',
          sr_type:'Missed Heavy Trash Pickup').
@@ -164,7 +171,8 @@ class OpenSr < ApplicationRecord
       se_sr_total sw_overdue sw_not_overdue sw_sr_total quad_status tally]
       CSV.open("SE_Hvy_trash_open_list.csv", "wb",
         write_headers: true, headers: headers) { |csv|
-    Sr.where(department:'SWM Solid Waste Management',
+    Sr.select('distinct case_number').
+    where(department:'SWM Solid Waste Management',
        trash_quad:'SE',
         status:'Open',
          sr_type:'Missed Heavy Trash Pickup').
@@ -191,7 +199,9 @@ class OpenSr < ApplicationRecord
   def self.swMay2020_actual_due_and_closed_cases
     start= Date.parse('2020-05-01')
     due = Date.parse('2020-05-31')
-    Sr.where(status: 'Closed', department: 'SWM Solid Waste Management',
+    Sr.
+    select('distinct case_number').
+    where(status: 'Closed', department: 'SWM Solid Waste Management',
       trash_quad: 'SW',
       sr_type: ['Missed Heavy Trash Pickup', 'Container Problem',
         'New Resident Container', 'Recycling Participation NEW',
@@ -206,7 +216,9 @@ class OpenSr < ApplicationRecord
   def self.swMay2020_sla_due_cases
     start= Date.parse('2020-05-01')
     due = Date.parse('2020-05-31')
-    Sr.where(status: 'Closed', department: 'SWM Solid Waste Management',
+    Sr.
+    select('distinct case_number').
+    where(status: 'Closed', department: 'SWM Solid Waste Management',
       trash_quad: 'SW',
       sr_type: ['Missed Heavy Trash Pickup', 'Container Problem',
          'New Resident Container', 'Recycling Participation NEW',
@@ -220,7 +232,9 @@ class OpenSr < ApplicationRecord
   def self.seMay2020_actual_due_and_closed_cases
     start= Date.parse('2020-05-01')
     due = Date.parse('2020-05-31')
-    Sr.where(status: 'Closed', department: 'SWM Solid Waste Management',
+    Sr.
+    select('distinct case_number').
+    where(status: 'Closed', department: 'SWM Solid Waste Management',
       trash_quad: 'SE',
       sr_type: ['Missed Heavy Trash Pickup', 'Container Problem',
         'New Resident Container', 'Recycling Participation NEW',
@@ -235,7 +249,9 @@ class OpenSr < ApplicationRecord
   def self.seMay2020_sla_due_cases
     start= Date.parse('2020-05-01')
     due = Date.parse('2020-05-31')
-    Sr.where(status: 'Closed', department: 'SWM Solid Waste Management',
+    Sr.
+    select('distinct case_number').
+    where(status: 'Closed', department: 'SWM Solid Waste Management',
       trash_quad: 'SE',
       sr_type: ['Missed Heavy Trash Pickup', 'Container Problem',
          'New Resident Container', 'Recycling Participation NEW',
@@ -264,7 +280,9 @@ class OpenSr < ApplicationRecord
   def self.nwMay2020_sla_due_cases
     start= Date.parse('2020-04-01')
     due = Date.parse('2020-04-30')
-    Sr.where(status: 'Closed', department: 'SWM Solid Waste Management',
+    Sr.
+    select('distinct case_number').
+    where(status: 'Closed', department: 'SWM Solid Waste Management',
       trash_quad: 'NW',
       sr_type: ['Missed Heavy Trash Pickup', 'Container Problem',
          'New Resident Container', 'Recycling Participation NEW',
@@ -278,7 +296,9 @@ class OpenSr < ApplicationRecord
   def self.neMay2020_actual_due_and_closed_cases
     start= Date.parse('2020-05-01')
     due = Date.parse('2020-05-31')
-    Sr.where(status: 'Closed', department: 'SWM Solid Waste Management',
+    Sr.
+    select('distinct case_number').
+    where(status: 'Closed', department: 'SWM Solid Waste Management',
       trash_quad: 'NE',
       sr_type: ['Missed Heavy Trash Pickup', 'Container Problem',
         'New Resident Container', 'Recycling Participation NEW',
@@ -293,7 +313,9 @@ class OpenSr < ApplicationRecord
   def self.neApril2020_actual_due_and_closed_cases
     start= Date.parse('2020-04-01')
     due = Date.parse('2020-04-30')
-    Sr.where(status: 'Closed', department: 'SWM Solid Waste Management',
+    Sr.
+    select('distinct case_number').
+    where(status: 'Closed', department: 'SWM Solid Waste Management',
       trash_quad: 'NE',
       sr_type: ['Missed Heavy Trash Pickup', 'Container Problem',
         'New Resident Container', 'Recycling Participation NEW',
@@ -308,7 +330,9 @@ class OpenSr < ApplicationRecord
   def self.neMay2020_sla_due_cases
     start= Date.parse('2020-05-01')
     due = Date.parse('2020-05-31')
-    Sr.where(status: 'Closed', department: 'SWM Solid Waste Management',
+    Sr.
+    select('distinct case_number').
+    where(status: 'Closed', department: 'SWM Solid Waste Management',
       trash_quad: 'NE',
       sr_type: ['Missed Heavy Trash Pickup', 'Container Problem',
          'New Resident Container', 'Recycling Participation NEW',
@@ -322,7 +346,9 @@ class OpenSr < ApplicationRecord
   def self.neApril2020_sla_due_cases
     start= Date.parse('2020-04-01')
     due = Date.parse('2020-04-30')
-    Sr.where(status: 'Closed', department: 'SWM Solid Waste Management',
+    Sr.
+    select('distinct case_number').
+    where(status: 'Closed', department: 'SWM Solid Waste Management',
       trash_quad: 'NE',
       sr_type: ['Missed Heavy Trash Pickup', 'Container Problem',
          'New Resident Container', 'Recycling Participation NEW',
@@ -336,7 +362,9 @@ class OpenSr < ApplicationRecord
   def self.seApril2020_actual_due_and_closed_cases
     start= Date.parse('2020-04-01')
     due = Date.parse('2020-04-30')
-    Sr.where(status: 'Closed', department: 'SWM Solid Waste Management',
+    Sr.
+    select('distinct case_number').
+    where(status: 'Closed', department: 'SWM Solid Waste Management',
       trash_quad: 'SE',
       sr_type: ['Missed Heavy Trash Pickup', 'Container Problem',
         'New Resident Container', 'Recycling Participation NEW',
@@ -351,7 +379,9 @@ class OpenSr < ApplicationRecord
   def self.seApril2020_sla_due_cases
     start= Date.parse('2020-04-01')
     due = Date.parse('2020-04-30')
-    Sr.where(status: 'Closed', department: 'SWM Solid Waste Management',
+    Sr.
+    select('distinct case_number').
+    where(status: 'Closed', department: 'SWM Solid Waste Management',
       trash_quad: 'SE',
       sr_type: ['Missed Heavy Trash Pickup', 'Container Problem',
          'New Resident Container', 'Recycling Participation NEW',
@@ -365,7 +395,9 @@ class OpenSr < ApplicationRecord
   def self.nwApril2020_actual_due_and_closed_cases
     start= Date.parse('2020-04-01')
     due = Date.parse('2020-04-30')
-    Sr.where(status: 'Closed', department: 'SWM Solid Waste Management',
+    Sr.
+    select('distinct case_number').
+    where(status: 'Closed', department: 'SWM Solid Waste Management',
       trash_quad: 'NW',
       sr_type: ['Missed Heavy Trash Pickup', 'Container Problem',
         'New Resident Container', 'Recycling Participation NEW',
@@ -380,7 +412,9 @@ class OpenSr < ApplicationRecord
   def self.nwApril2020_sla_due_cases
     start= Date.parse('2020-04-01')
     due = Date.parse('2020-04-30')
-    Sr.where(status: 'Closed', department: 'SWM Solid Waste Management',
+    Sr.
+    select('distinct case_number').
+    where(status: 'Closed', department: 'SWM Solid Waste Management',
       trash_quad: 'NW',
       sr_type: ['Missed Heavy Trash Pickup', 'Container Problem',
          'New Resident Container', 'Recycling Participation NEW',
@@ -394,7 +428,9 @@ class OpenSr < ApplicationRecord
   def self.swApril2020_actual_due_and_closed_cases
     start= Date.parse('2020-04-01')
     due = Date.parse('2020-04-30')
-    Sr.where(status: 'Closed', department: 'SWM Solid Waste Management',
+    Sr.
+    select('distinct case_number').
+    where(status: 'Closed', department: 'SWM Solid Waste Management',
       trash_quad: 'SW',
       sr_type: ['Missed Heavy Trash Pickup', 'Container Problem',
         'New Resident Container', 'Recycling Participation NEW',
@@ -409,7 +445,9 @@ class OpenSr < ApplicationRecord
   def self.swApril2020_sla_due_cases
     start= Date.parse('2020-04-01')
     due = Date.parse('2020-04-30')
-    Sr.where(status: 'Closed', department: 'SWM Solid Waste Management',
+    Sr.
+    select('distinct case_number').
+    where(status: 'Closed', department: 'SWM Solid Waste Management',
       trash_quad: 'SW',
       sr_type: ['Missed Heavy Trash Pickup', 'Container Problem',
          'New Resident Container', 'Recycling Participation NEW',
@@ -568,7 +606,8 @@ end
  def self.neMar2020_sla_cases_closed_but_updated_later
     start_date_mar_20 = Date.parse('2020-3-01')
     due_date_mar_20 = Date.parse('2020-3-31')
-    Sr.where("updated_at >= ? AND updated_at <= ?",
+    Sr.select('distinct case_number').
+    where("updated_at >= ? AND updated_at <= ?",
       start_date_mar_20, due_date_mar_20).
     where(date_closed: start_date_mar_20..due_date_mar_20).
     where(sr_create_date: start_date_mar_20..due_date_mar_20).
@@ -588,7 +627,8 @@ end
   def self.neMar2020_sla_due_cases
     start_date_mar_20 = Date.parse('2020-3-01')
     due_date_mar_20 = Date.parse('2020-3-31')
-    Sr.where("sr_create_date >= ? AND sr_create_date <= ?",
+    Sr.select('distinct case_number').
+    where("sr_create_date >= ? AND sr_create_date <= ?",
        start_date_mar_20, due_date_mar_20).
     where(department: 'SWM Solid Waste Management',
       trash_quad: 'NE',
@@ -605,7 +645,7 @@ end
   def self.neMarch2020_sla_html
     start_date_mar_20 = Date.parse('2020-3-01')
     due_date_mar_20 = Date.parse('2020-3-31')
-    tally_list = Sr.
+    tally_list = Sr.select('distinct case_number').
     where(sr_create_date: start_date_mar_20..due_date_mar_20).
     where(department: 'SWM Solid Waste Management',
        trash_quad: 'NE',
@@ -620,7 +660,7 @@ end
     sr.tally = 1
     sr.save}
     # binding.pry
-    tally_list_values = Sr.
+    tally_list_values = Sr.select('distinct case_number').
     where(sr_create_date: start_date_mar_20..due_date_mar_20).
     where(department: 'SWM Solid Waste Management',
       trash_quad: 'NE',
@@ -671,7 +711,8 @@ end
   def self.seMar2020_sla_cases_closed_but_updated_later
     start_date_mar_20 = Date.parse('2020-3-01')
     due_date_mar_20 = Date.parse('2020-3-31')
-    Sr.where("updated_at >= ? AND updated_at <= ?",
+    Sr.select('distinct case_number').
+    where("updated_at >= ? AND updated_at <= ?",
        start_date_mar_20, due_date_mar_20).
     where(date_closed: start_date_mar_20..due_date_mar_20).
     where(sr_create_date: start_date_mar_20..due_date_mar_20).
@@ -691,7 +732,8 @@ end
   def self.seMar2020_sla_due_cases
     start_date_mar_20 = Date.parse('2020-3-01')
     due_date_mar_20 = Date.parse('2020-3-31')
-    Sr.where("sr_create_date >= ? AND sr_create_date <= ?",
+    Sr.select('distinct case_number').
+    where("sr_create_date >= ? AND sr_create_date <= ?",
        start_date_mar_20, due_date_mar_20).
     where(department: 'SWM Solid Waste Management',
       trash_quad: 'SE',
@@ -708,7 +750,8 @@ end
   def self.nwMar2020_sla_cases_closed_but_updated_later
     start_date_mar_20 = Date.parse('2020-3-01')
     due_date_mar_20 = Date.parse('2020-3-31')
-    Sr.where("updated_at >= ? AND updated_at <= ?",
+    Sr.select('distinct case_number').
+    where("updated_at >= ? AND updated_at <= ?",
        start_date_mar_20, due_date_mar_20).
     where(date_closed: start_date_mar_20..due_date_mar_20).
     where(sr_create_date: start_date_mar_20..due_date_mar_20).
@@ -729,7 +772,8 @@ end
   def self.seMar2020_sla_cases_closed_but_updated_later
     start_date_mar_20 = Date.parse('2020-3-01')
     due_date_mar_20 = Date.parse('2020-3-31')
-    Sr.where("updated_at >= ? AND updated_at <= ?",
+    Sr.select('distinct case_number').
+    where("updated_at >= ? AND updated_at <= ?",
        start_date_mar_20, due_date_mar_20).
     where(date_closed: start_date_mar_20..due_date_mar_20).
     where(sr_create_date: start_date_mar_20..due_date_mar_20).
@@ -749,7 +793,8 @@ end
   def self.nwMar2020_sla_due_cases
     start_date_mar_20 = Date.parse('2020-3-01')
     due_date_mar_20 = Date.parse('2020-3-31')
-    Sr.where("sr_create_date >= ? AND sr_create_date <= ?",
+    Sr.select('distinct case_number').
+    where("sr_create_date >= ? AND sr_create_date <= ?",
        start_date_mar_20, due_date_mar_20).
     where(department: 'SWM Solid Waste Management',
       trash_quad: 'NW',
@@ -767,7 +812,8 @@ end
   def self.swMar2020_sla_cases_closed_but_updated_later
     start_date_mar_20 = Date.parse('2020-3-01')
     due_date_mar_20 = Date.parse('2020-3-31')
-    Sr.where("updated_at >= ? AND updated_at <= ?",
+    Sr.select('distinct case_number').
+    where("updated_at >= ? AND updated_at <= ?",
        start_date_mar_20, due_date_mar_20).
     where(date_closed: start_date_mar_20..due_date_mar_20).
     where(sr_create_date: start_date_mar_20..due_date_mar_20).
@@ -787,7 +833,8 @@ end
   def self.swMar2020_sla_due_cases
     start_date_mar_20 = Date.parse('2020-3-01')
     due_date_mar_20 = Date.parse('2020-3-31')
-     Sr.where("sr_create_date >= ? AND sr_create_date <= ?",
+     Sr.select('distinct case_number').
+     where("sr_create_date >= ? AND sr_create_date <= ?",
        start_date_mar_20, due_date_mar_20).
      where(department: 'SWM Solid Waste Management',
        trash_quad: 'SW',
@@ -805,7 +852,8 @@ end
   def self.nwFeb2020_sla_due_cases
     start_date_feb_20 = Date.parse('2020-2-01')
     due_date_feb_20 = Date.parse('2020-2-29')
-     Sr.where("due_date >= ? AND due_date <= ?",
+     Sr.select('distinct case_number').
+     where("due_date >= ? AND due_date <= ?",
         start_date_feb_20, due_date_feb_20 ).
      where(department: 'SWM Solid Waste Management',
        trash_quad: 'NW',
@@ -823,7 +871,8 @@ end
   def self.deptSEwide_mar_2020_actual_due_and_closed_cases
     start_date_mar_20 = Date.parse('2020-3-01')
     due_date_mar_20 = Date.parse('2020-3-31')
-    Sr.where("sr_create_date >= ? AND sr_create_date <= ?",
+    Sr.select('distinct case_number').
+    where("sr_create_date >= ? AND sr_create_date <= ?",
       start_date_mar_20, due_date_mar_20).
       where(overdue:[-30..-0.05],
       department: 'SWM Solid Waste Management',
@@ -842,7 +891,8 @@ end
   def self.deptNEwide_mar_2020_actual_due_and_closed_cases
     start_date_mar_20 = Date.parse('2020-3-01')
     due_date_mar_20 = Date.parse('2020-3-31')
-    Sr.where("sr_create_date >= ? AND sr_create_date <= ?",
+    Sr.select('distinct case_number').
+    where("sr_create_date >= ? AND sr_create_date <= ?",
       start_date_mar_20, due_date_mar_20).
       where(overdue:[-30..-0.05],
       department: 'SWM Solid Waste Management',
@@ -861,7 +911,8 @@ end
   def self.deptNWwide_mar_2020_actual_due_and_closed_cases
     start_date_mar_20 = Date.parse('2020-3-01')
     due_date_mar_20 = Date.parse('2020-3-31')
-    Sr.where("sr_create_date >= ? AND sr_create_date <= ?",
+    Sr.select('distinct case_number').
+    where("sr_create_date >= ? AND sr_create_date <= ?",
        start_date_mar_20, due_date_mar_20).
     where(overdue:[-30..-0.05],
       department: 'SWM Solid Waste Management',
@@ -880,7 +931,8 @@ end
   def self.deptSWwide_mar_2020_actual_due_and_closed_cases
     start_date_mar_20 = Date.parse('2020-3-01')
     due_date_mar_20 = Date.parse('2020-4-01')
-    Sr.where("sr_create_date >= ? AND sr_create_date <= ?",
+    Sr.select('distinct case_number').
+    where("sr_create_date >= ? AND sr_create_date <= ?",
       start_date_mar_20, due_date_mar_20).
       where(overdue:[-30..-0.05],
         department: 'SWM Solid Waste Management',
@@ -899,7 +951,8 @@ end
   def self.deptSWwide_dec_2019_actual_due_and_closed_cases
     start_date_dec_19 = Date.parse('2019-12-1')
     due_date_dec_19 = Date.parse('2020-1-1')
-    Sr.where("sr_create_date >= ? AND  sr_create_date<= ?",
+    Sr.select('distinct case_number').
+    where("sr_create_date >= ? AND  sr_create_date<= ?",
        start_date_dec_19, due_date_dec_19).
        where(overdue:[-30..-0.05],
          department: 'SWM Solid Waste Management',
@@ -918,7 +971,8 @@ end
   def self.deptNWwide_dec_2019_actual_due_and_closed_cases
     start_date_dec_19 = Date.parse('2019-12-1')
     due_date_dec_19 = Date.parse('2020-1-1')
-    Sr.where("sr_create_date >= ? AND sr_create_date <= ?",
+    Sr.select('distinct case_number').
+    where("sr_create_date >= ? AND sr_create_date <= ?",
       start_date_dec_19, due_date_dec_19).
       where(overdue:[-30..-0.05],
         department: 'SWM Solid Waste Management',
@@ -937,7 +991,8 @@ end
   def self.deptSEwide_dec_2019_actual_due_and_closed_cases
     start_date_dec_19 = Date.parse('2019-12-1')
     due_date_dec_19 = Date.parse('2020-1-1')
-    Sr.where("sr_create_date >= ? AND sr_create_date <= ?",
+    Sr.select('distinct case_number').
+    where("sr_create_date >= ? AND sr_create_date <= ?",
       start_date_dec_19, due_date_dec_19).
       where(overdue:[-30..-0.05],
         department: 'SWM Solid Waste Management',
@@ -956,7 +1011,8 @@ end
   def self.deptNEwide_dec_2019_actual_due_and_closed_cases
     start_date_dec_19 = Date.parse('2019-12-1')
     due_date_dec_19 = Date.parse('2020-1-1')
-    Sr.where("sr_create_date >= ? AND sr_create_date <= ?",
+    Sr.select('distinct case_number').
+    where("sr_create_date >= ? AND sr_create_date <= ?",
       start_date_dec_19, due_date_dec_19).
       where(overdue:[-30..-0.05],
         department: 'SWM Solid Waste Management',
@@ -975,7 +1031,8 @@ end
   def self.deptNEwide_oct_2019_sla_due_cases
     start_date_oct_19 = Date.parse('2019-10-01')
     due_date_oct_19 = Date.parse('2019-11-01')
-    Sr.where(sr_create_date: start_date_oct_19..due_date_oct_19).
+    Sr.select('distinct case_number').
+    where(sr_create_date: start_date_oct_19..due_date_oct_19).
     where(department: 'SWM Solid Waste Management',
       trash_quad: 'NE',
       status: 'Closed',
@@ -992,7 +1049,8 @@ end
   def self.deptSWwide_dec_2019_sla_due_cases
     start_date_dec_19 = Date.parse('2019-12-01')
     due_date_dec_19 = Date.parse('2020-1-01')
-    Sr.where(sr_create_date: start_date_dec_19..due_date_dec_19).
+    Sr.select('distinct case_number').
+    where(sr_create_date: start_date_dec_19..due_date_dec_19).
     where(department: 'SWM Solid Waste Management',
       trash_quad: 'SW',
       status: 'Closed',
@@ -1026,7 +1084,9 @@ end
     end
   end
   def self.north_case_quality_grade
-    @NOverdue= Sr.where(trash_quad: ['NE','NW'],
+    @NOverdue= Sr.
+    select('distinct case_number').
+    where(trash_quad: ['NE','NW'],
       expression: 'Overdue',
       sr_type: ['Missed Heavy Trash Pickup','Container Problem',
         'New Resident Container','Recycling Participation NEW' ,
@@ -1035,8 +1095,10 @@ end
         'Add A Can', 'Storm Debris Collection', 'Dead Animal Collection',
         'Add A Can CANCELLATION', 'Missed Recycling Pickup',
         'Personnel or Vehicle Complaint','Physically Challenged Pickup']).
-        distinct.count(:case_number)
-    @North = Sr.where(status: 'Open',
+        count
+    @North = Sr.
+    select('distinct case_number').
+    where(status: 'Open',
       trash_quad:['NW','NE'],
       sr_type: ['Missed Heavy Trash Pickup','Container Problem',
         'New Resident Container','Recycling Participation NEW',
@@ -1045,7 +1107,7 @@ end
         'Add A Can', 'Storm Debris Collection', 'Dead Animal Collection',
         'Add A Can CANCELLATION', 'Missed Recycling Pickup',
         'Personnel or Vehicle Complaint','Physically Challenged Pickup']).
-        distinct.count(:case_number)
+        count
     @NorthQuality = (1-(@NOverdue.to_f.round(2) / @North.to_f.round(2)))
     @NQualityGrad
     if @NorthQuality >= 0.9
@@ -1063,6 +1125,7 @@ end
   end
   def self.south_case_quality_grade
     @SOverdue = Sr.
+    select('distinct case_number').
     where(expression: 'Overdue',
       status: 'Open',
       trash_quad: ['SE','SW'],
@@ -1073,8 +1136,10 @@ end
         'Add A Can', 'Storm Debris Collection', 'Dead Animal Collection',
         'Add A Can CANCELLATION', 'Missed Recycling Pickup',
         'Personnel or Vehicle Complaint','Physically Challenged Pickup']).
-        distinct.count(:case_number)
-    @South = Sr.where(status: 'Open',
+        count
+    @South = Sr.
+    select('distinct case_number').
+    where(status: 'Open',
       trash_quad:['SW','SE'],
       sr_type: ['Missed Heavy Trash Pickup','Container Problem',
         'New Resident Container','Recycling Participation NEW',
@@ -1083,7 +1148,7 @@ end
         'Add A Can', 'Storm Debris Collection', 'Dead Animal Collection',
         'Add A Can CANCELLATION', 'Missed Recycling Pickup',
         'Personnel or Vehicle Complaint','Physically Challenged Pickup']).
-        distinct.count(:case_number)
+        count
     @SouthQuality = (1-(@SOverdue.to_f.round(2) / @South.to_f.round(2)))
     if @SouthQuality >= 0.9
       @SQualityGrade = 'A'
@@ -1099,7 +1164,9 @@ end
     # binding.pry
   end
   def self.northQualityGrade
-    @NNotOverdue= Sr.where(trash_quad: ['NE','NW'],
+    @NNotOverdue= Sr.
+    select('distinct case_number').
+    where(trash_quad: ['NE','NW'],
       expression: 'Not Overdue',
       sr_type: ['Missed Heavy Trash Pickup','Container Problem',
         'New Resident Container','Recycling Participation NEW' ,
@@ -1109,7 +1176,9 @@ end
         'Add A Can CANCELLATION', 'Missed Recycling Pickup',
         'Personnel or Vehicle Complaint','Physically Challenged Pickup']).
         count
-    @North = Sr.where(status: 'Open',
+    @North = Sr.
+    select('distinct case_number').
+    where(status: 'Open',
       trash_quad:['NW','NE'],
       sr_type: ['Missed Heavy Trash Pickup','Container Problem',
         'New Resident Container','Recycling Participation NEW',
@@ -1137,6 +1206,7 @@ end
 
   def self.southQualityGrade
     @SNotOverdue = Sr.
+    select('distinct case_number').
     where(expression: 'Not Overdue',
       status: 'Open',
       trash_quad: ['SE','SW'],
@@ -1148,7 +1218,9 @@ end
         'Add A Can CANCELLATION', 'Missed Recycling Pickup',
         'Personnel or Vehicle Complaint','Physically Challenged Pickup']).
         count
-    @South = Sr.where(status: 'Open',
+    @South = Sr.
+    select('distinct case_number').
+    where(status: 'Open',
       trash_quad:['SW','SE'],
       sr_type: ['Missed Heavy Trash Pickup','Container Problem',
         'New Resident Container','Recycling Participation NEW',
