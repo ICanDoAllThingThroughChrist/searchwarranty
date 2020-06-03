@@ -23,10 +23,22 @@ class Sr < ApplicationRecord
         #binding.pry
         #if array_of_overdues= Sr.where('case_number= ?', i[0]).distinct.pluck(:values) #has values either 0 or greater
           Duplicate.create(case_number: i[0], trash_quad: i[1], expression: i[3], overdue: i[4])
+
+          Duplicate.all.each{|i|
+            incident= i[0]
+            max_overdue_value= Duplicate.find_by(case_number: incident).distinct.pluck(:overdue).max(1)
+            if max_overdue_value > 0
+              #update the all case number expression from 'Not Overdue' to 'Overdue'
+            else
+              puts "case number"
+            end
+            return
+          }
+          #[5, 1, 3, 4, 2].max(3)  #=> [5, 4, 3]
             # id= Sr.find(i[2])
             # id['expression']= 'Overdue'
             # id.save
-          }
+        }
     else
       puts "count of case numbers to ids is the same"
     end
