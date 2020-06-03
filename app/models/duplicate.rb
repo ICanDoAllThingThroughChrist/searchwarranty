@@ -1,0 +1,2 @@
+class  Duplicate < ApplicationRecord
+end 

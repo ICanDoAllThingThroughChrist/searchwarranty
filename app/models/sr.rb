@@ -1,4 +1,37 @@
 class Sr < ApplicationRecord
+  def self.overdue_assignment
+    add_a_can_case_number_count=
+    Sr.select('distinct case_number').
+    where(department:'SWM Solid Waste Management', status:'Open', sr_type:['Add A Can']).
+    count
+    add_a_can_id_count=
+    Sr.where(department:'SWM Solid Waste Management', status:'Open', sr_type:['Add A Can']).
+    distinct(:id).count
+
+    add_a_can_case_number_ids=
+    Sr.select('distinct case_number').
+    where(department:'SWM Solid Waste Management', status:'Open', sr_type:['Add A Can']).
+    distinct.pluck(:case_number, :trash_quad, :id, :expression, :overdue )
+
+    add_a_can_case_number_values=
+    Sr.select('distinct case_number').
+    where(department:'SWM Solid Waste Management', status:'Open', sr_type:['Add A Can']).
+    distinct.pluck(:case_number)
+
+    if add_a_can_case_number_count != add_a_can_id_count
+      add_a_can_case_number_ids.each {|i|#repeated_case_number_index
+        #binding.pry
+        #if array_of_overdues= Sr.where('case_number= ?', i[0]).distinct.pluck(:values) #has values either 0 or greater
+          Duplicate.create(case_number: i[0], trash_quad: i[1], expression: i[3], overdue: i[4])
+            # id= Sr.find(i[2])
+            # id['expression']= 'Overdue'
+            # id.save
+          }
+    else
+      puts "count of case numbers to ids is the same"
+    end
+
+  end
   def self.zero_division(number)
     if number == 0
       return 0
@@ -76,7 +109,7 @@ class Sr < ApplicationRecord
     where('sr_create_date >= ? AND sr_create_date <= ?',
     start, due).where(sr_type_2:['Containers Related',
       'Missed Yard Waste Pickup', 'Missed Heavy Trash Pickup',
-      'Missed Garbage Pickup', 'Missed Recycling Pickup'])
+      'Missed Garbage Pickup', 'Missed Recycling Pickup']).count
     Sr.separate_comma(variable)
   end
   def self.fy2021_sr_total
