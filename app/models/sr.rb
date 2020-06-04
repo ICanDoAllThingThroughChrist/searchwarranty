@@ -1,6 +1,6 @@
 class Sr < ApplicationRecord
   def self.overdue3
-    case_number_ids=
+    case_number_ids_values_count=
     Sr.select('distinct case_number').
     where(department:'SWM Solid Waste Management', status:'Open',
       sr_type: [
@@ -14,7 +14,22 @@ class Sr < ApplicationRecord
             'Dead Animal Collection', 'Add A Can CANCELLATION',
              'Missed Recycling Pickup', 'Personnel or Vehicle Complaint',
              'Physically Challenged Pickup']).
-    distinct.pluck(:case_number, :trash_quad, :id, :expression, :sr_type ).count
+              distinct.pluck(:case_number, :trash_quad, :id, :expression, :sr_type).count
+    case_number_ids_values=
+    Sr.select('distinct case_number').
+    where(department:'SWM Solid Waste Management', status:'Open',
+      sr_type: [
+        'Missed Heavy Trash Pickup',
+          'Container Problem','New Resident Container',
+          'Recycling Participation NEW' ,
+          'Recycling Cart Repair or Replace',
+          'SWM Escalation','Missed Garbage Pickup',
+          'Trash Dumping or Illegal Dumpsite',
+           'Add A Can', 'Storm Debris Collection',
+            'Dead Animal Collection', 'Add A Can CANCELLATION',
+             'Missed Recycling Pickup', 'Personnel or Vehicle Complaint',
+             'Physically Challenged Pickup']).
+              distinct.pluck(:case_number, :trash_quad, :id, :expression, :sr_type)
 
     case_number_values=
     Sr.select('distinct case_number').
@@ -29,7 +44,7 @@ class Sr < ApplicationRecord
             'Dead Animal Collection', 'Add A Can CANCELLATION',
              'Missed Recycling Pickup', 'Personnel or Vehicle Complaint',
              'Physically Challenged Pickup']).
-    distinct.pluck(:case_number)
+              distinct.pluck(:case_number)
     case_number_values2=
     Sr.select('distinct case_number').
     where(department:'SWM Solid Waste Management', status:'Open',  sr_type: [
@@ -43,33 +58,53 @@ class Sr < ApplicationRecord
             'Dead Animal Collection', 'Add A Can CANCELLATION',
              'Missed Recycling Pickup', 'Personnel or Vehicle Complaint',
              'Physically Challenged Pickup']).
-    distinct.pluck(:case_number, :trash_quad, :overdue, :sr_type)
-
+              distinct.pluck(:case_number, :trash_quad, :overdue, :sr_type)
+    Duplicate.delete_all
     case_number_values.each{|case_number|
-      max_number_in_range_of_overdues= Sr.where('case_number = ?', case_number).distinct.pluck(:overdue).max
-      if max_number_in_range_of_overdues != nil
-        #Duplicate.delete_all
-        if max_number_in_range_of_overdues >= 0
-          local_case= Sr.find_by(case_number: case_number)
-          Duplicate.create(case_number: local_case['case_number'],
-          trash_quad: local_case['trash_quad'],
-          expression: 'Overdue',
-          sr_type: local_case['sr_type'])
-        elsif max_number_in_range_of_overdues < 0
-          local_case= Sr.find_by(case_number: case_number)
-          Duplicate.create(case_number: local_case['case_number'],
-          trash_quad: local_case['trash_quad'],
-          expression: 'Not Overdue',
-          sr_type: local_case['sr_type'])
+        max_number_in_range_of_overdues= Sr.where('case_number = ?', case_number).distinct.pluck(:overdue).max
+        if max_number_in_range_of_overdues != nil
+          #Duplicate.delete_all
+          if max_number_in_range_of_overdues >= 0
+            #binding.pry
+            #find case_number in the case_number_ids_values array.
+            case_number_ids_values.each{|i|
+              # binding.pry
+              if i[0] == case_number
+                Duplicate.create(case_number: i[0],
+                trash_quad: i[1],
+                expression: 'Overdue',
+                sr_type: i[4])
+                # i[3]= 'Not Overdue'
+                # i.save
+              else
+                puts "max number in overdue > 0 for case_number" + "#{case_number}" + "is not found"
+              end
+            }
+          elsif max_number_in_range_of_overdues < 0
+            #binding.pry
+            #find case_number in the case_number_ids_values array.
+            case_number_ids_values.each{|i|
+              # binding.pry
+              if i[0] == case_number
+                Duplicate.create(case_number: i[0],
+                trash_quad: i[1],
+                expression: 'Not Overdue',
+                sr_type: i[4])
+                # i[3]= 'Not Overdue'
+                # i.save
+              else
+                puts "max number in overdue < 0 for case_number" + "#{case_number}" + "is not found"
+              end
+            }
+          else
+            puts "max number in the range of value for " + "#{case_number}" + "is neither below or above or equal to zero"
+          end
+        elsif max_number_in_range_of_overdues == nil
+            puts "no overdue ids in this case" + "#{case_number}"
         else
-          puts "this is the case number"+"#{case_number}"
+            puts "no ids with boolean null in this case" + "#{case_number}"
         end
-      elsif max_number_in_range_of_overdues == nil
-          puts "no overdue ids in this case" + "#{case_number}"
-      else
-          puts "no ids with boolean null in this case" + "#{case_number}"
-      end
-    }
+      }
   end
   def self.overdue_assignment2
     case_number_count=
