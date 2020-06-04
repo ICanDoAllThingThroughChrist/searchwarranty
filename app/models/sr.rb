@@ -1,48 +1,234 @@
 class Sr < ApplicationRecord
-  def self.overdue_assignment
-    add_a_can_case_number_count=
+  def self.overdue3
+    case_number_ids=
     Sr.select('distinct case_number').
-    where(department:'SWM Solid Waste Management', status:'Open', sr_type:['Add A Can']).
-    count
-    add_a_can_id_count=
-    Sr.where(department:'SWM Solid Waste Management', status:'Open', sr_type:['Add A Can']).
+    where(department:'SWM Solid Waste Management', status:'Open',
+      sr_type: [
+        'Missed Heavy Trash Pickup',
+          'Container Problem','New Resident Container',
+          'Recycling Participation NEW' ,
+          'Recycling Cart Repair or Replace',
+          'SWM Escalation','Missed Garbage Pickup',
+          'Trash Dumping or Illegal Dumpsite',
+           'Add A Can', 'Storm Debris Collection',
+            'Dead Animal Collection', 'Add A Can CANCELLATION',
+             'Missed Recycling Pickup', 'Personnel or Vehicle Complaint',
+             'Physically Challenged Pickup']).
+    distinct.pluck(:case_number, :trash_quad, :id, :expression, :sr_type ).count
+
+    case_number_values=
+    Sr.select('distinct case_number').
+    where(department:'SWM Solid Waste Management', status:'Open',  sr_type: [
+        'Missed Heavy Trash Pickup',
+          'Container Problem','New Resident Container',
+          'Recycling Participation NEW' ,
+          'Recycling Cart Repair or Replace',
+          'SWM Escalation','Missed Garbage Pickup',
+          'Trash Dumping or Illegal Dumpsite',
+           'Add A Can', 'Storm Debris Collection',
+            'Dead Animal Collection', 'Add A Can CANCELLATION',
+             'Missed Recycling Pickup', 'Personnel or Vehicle Complaint',
+             'Physically Challenged Pickup']).
+    distinct.pluck(:case_number)
+    case_number_values2=
+    Sr.select('distinct case_number').
+    where(department:'SWM Solid Waste Management', status:'Open',  sr_type: [
+        'Missed Heavy Trash Pickup',
+          'Container Problem','New Resident Container',
+          'Recycling Participation NEW' ,
+          'Recycling Cart Repair or Replace',
+          'SWM Escalation','Missed Garbage Pickup',
+          'Trash Dumping or Illegal Dumpsite',
+           'Add A Can', 'Storm Debris Collection',
+            'Dead Animal Collection', 'Add A Can CANCELLATION',
+             'Missed Recycling Pickup', 'Personnel or Vehicle Complaint',
+             'Physically Challenged Pickup']).
+    distinct.pluck(:case_number, :trash_quad, :overdue, :sr_type)
+
+    case_number_values.each{|case_number|
+      max_number_in_range_of_overdues= Sr.where('case_number = ?', case_number).distinct.pluck(:overdue).max
+      if max_number_in_range_of_overdues != nil
+        #Duplicate.delete_all
+        if max_number_in_range_of_overdues >= 0
+          local_case= Sr.find_by(case_number: case_number)
+          Duplicate.create(case_number: local_case['case_number'],
+          trash_quad: local_case['trash_quad'],
+          expression: 'Overdue',
+          sr_type: local_case['sr_type'])
+        elsif max_number_in_range_of_overdues < 0
+          local_case= Sr.find_by(case_number: case_number)
+          Duplicate.create(case_number: local_case['case_number'],
+          trash_quad: local_case['trash_quad'],
+          expression: 'Not Overdue',
+          sr_type: local_case['sr_type'])
+        else
+          puts "this is the case number"+"#{case_number}"
+        end
+      elsif max_number_in_range_of_overdues == nil
+          puts "no overdue ids in this case" + "#{case_number}"
+      else
+          puts "no ids with boolean null in this case" + "#{case_number}"
+      end
+    }
+  end
+  def self.overdue_assignment2
+    case_number_count=
+    Sr.select('distinct case_number').
+    where(department:'SWM Solid Waste Management', status:'Open',
+      sr_type: [
+        'Missed Heavy Trash Pickup',
+          'Container Problem','New Resident Container',
+          'Recycling Participation NEW' ,
+          'Recycling Cart Repair or Replace',
+          'SWM Escalation','Missed Garbage Pickup',
+          'Trash Dumping or Illegal Dumpsite',
+           'Add A Can', 'Storm Debris Collection',
+            'Dead Animal Collection', 'Add A Can CANCELLATION',
+             'Missed Recycling Pickup', 'Personnel or Vehicle Complaint',
+             'Physically Challenged Pickup']
+       ).count
+
+    id_count=
+    Sr.where(department:'SWM Solid Waste Management', status:'Open',
+      sr_type: [
+        'Missed Heavy Trash Pickup',
+          'Container Problem','New Resident Container',
+          'Recycling Participation NEW' ,
+          'Recycling Cart Repair or Replace',
+          'SWM Escalation','Missed Garbage Pickup',
+          'Trash Dumping or Illegal Dumpsite',
+           'Add A Can', 'Storm Debris Collection',
+            'Dead Animal Collection', 'Add A Can CANCELLATION',
+             'Missed Recycling Pickup', 'Personnel or Vehicle Complaint',
+             'Physically Challenged Pickup']).
     distinct(:id).count
 
-    add_a_can_case_number_ids=
+    case_number_ids=
     Sr.select('distinct case_number').
-    where(department:'SWM Solid Waste Management', status:'Open', sr_type:['Add A Can']).
-    distinct.pluck(:case_number, :trash_quad, :id, :expression, :overdue )
+    where(department:'SWM Solid Waste Management', status:'Open',
+      sr_type: [
+        'Missed Heavy Trash Pickup',
+          'Container Problem','New Resident Container',
+          'Recycling Participation NEW' ,
+          'Recycling Cart Repair or Replace',
+          'SWM Escalation','Missed Garbage Pickup',
+          'Trash Dumping or Illegal Dumpsite',
+           'Add A Can', 'Storm Debris Collection',
+            'Dead Animal Collection', 'Add A Can CANCELLATION',
+             'Missed Recycling Pickup', 'Personnel or Vehicle Complaint',
+             'Physically Challenged Pickup']).
+    distinct.pluck(:case_number, :trash_quad, :id, :expression, :sr_type ).count
 
-    add_a_can_case_number_values=
+    case_number_values=
     Sr.select('distinct case_number').
-    where(department:'SWM Solid Waste Management', status:'Open', sr_type:['Add A Can']).
+    where(department:'SWM Solid Waste Management', status:'Open',  sr_type: [
+        'Missed Heavy Trash Pickup',
+          'Container Problem','New Resident Container',
+          'Recycling Participation NEW' ,
+          'Recycling Cart Repair or Replace',
+          'SWM Escalation','Missed Garbage Pickup',
+          'Trash Dumping or Illegal Dumpsite',
+           'Add A Can', 'Storm Debris Collection',
+            'Dead Animal Collection', 'Add A Can CANCELLATION',
+             'Missed Recycling Pickup', 'Personnel or Vehicle Complaint',
+             'Physically Challenged Pickup']).
     distinct.pluck(:case_number)
 
-    if add_a_can_case_number_count != add_a_can_id_count
-      add_a_can_case_number_ids.each {|i|#repeated_case_number_index
-        #binding.pry
-        #if array_of_overdues= Sr.where('case_number= ?', i[0]).distinct.pluck(:values) #has values either 0 or greater
-          Duplicate.create(case_number: i[0], trash_quad: i[1], expression: i[3], overdue: i[4])
+    case_number_expression_values=
+    Sr.select('distinct case_number').
+    where(department:'SWM Solid Waste Management', status:'Open',  sr_type: [
+        'Missed Heavy Trash Pickup',
+          'Container Problem','New Resident Container',
+          'Recycling Participation NEW' ,
+          'Recycling Cart Repair or Replace',
+          'SWM Escalation','Missed Garbage Pickup',
+          'Trash Dumping or Illegal Dumpsite',
+           'Add A Can', 'Storm Debris Collection',
+            'Dead Animal Collection', 'Add A Can CANCELLATION',
+             'Missed Recycling Pickup', 'Personnel or Vehicle Complaint',
+             'Physically Challenged Pickup']).
+    distinct.pluck(:expression)
 
-          Duplicate.all.each{|i|
-            incident= i[0]
-            max_overdue_value= Duplicate.find_by(case_number: incident).distinct.pluck(:overdue).max(1)
-            if max_overdue_value > 0
-              #update the all case number expression from 'Not Overdue' to 'Overdue'
-            else
-              puts "case number"
-            end
-            return
-          }
-          #[5, 1, 3, 4, 2].max(3)  #=> [5, 4, 3]
-            # id= Sr.find(i[2])
-            # id['expression']= 'Overdue'
-            # id.save
-        }
+    Duplicate.delete_all
+    if case_number_count != id_count
+      case_number_values.each {|case_number|#repeated_case_number_index enumeration
+        #find the distinct case number in the Sr
+        #total_ids_per_case= Sr.where('case_number = ?', case_number).distinct.pluck(:id).count
+        #ids_per_case= Sr.where('case_number = ?', case_number).distinct.pluck(:id)
+        max_number_in_range_of_overdues= Sr.where('case_number = ?', case_number).distinct.pluck(:overdue).max
+          #binding.pry
+        if max_number_in_range_of_overdues != nil
+          #Duplicate.delete_all
+          if max_number_in_range_of_overdues >= 0
+            local_case= Sr.find_by(case_number: case_number)
+            Duplicate.create(case_number: local_case['case_number'],
+            trash_quad: local_case['trash_quad'],
+            expression: 'Overdue',
+            sr_type: local_case['sr_type'])
+          elsif max_number_in_range_of_overdues < 0
+            local_case= Sr.find_by(case_number: case_number)
+            Duplicate.create(case_number: local_case['case_number'],
+            trash_quad: local_case['trash_quad'],
+            expression: 'Not Overdue',
+            sr_type: local_case['sr_type'])
+          else
+            puts "this is the case number"+"#{case_number}"
+          end
+        elsif max_number_in_range_of_overdues == nil
+            puts "no overdue ids in this case" + "#{case_number}"
+        else
+            puts "no ids with boolean null in this case" + "#{case_number}"
+        end
+      }
     else
-      puts "count of case numbers to ids is the same"
+        puts "count of distinct case numbers to ids is the same"
     end
+  end
+  def self.overdue_assignment
+    case_number_count=
+    Sr.select('distinct case_number').
+    where(department:'SWM Solid Waste Management', status:'Open').
+    count
 
+    id_count=
+    Sr.where(department:'SWM Solid Waste Management', status:'Open').
+    distinct(:id).count
+
+    case_number_ids=
+    Sr.select('distinct case_number').
+    where(department:'SWM Solid Waste Management', status:'Open').
+    distinct.pluck(:case_number, :trash_quad, :id, :expression, :overdue )
+
+    case_number_values=
+    Sr.select('distinct case_number').
+    where(department:'SWM Solid Waste Management', status:'Open').
+    distinct.pluck(:case_number)
+    if case_number_count != id_count
+      case_number_values.each {|case_number|#repeated_case_number_index enumeration
+        #find the distinct case number in the Sr
+        total_ids_per_case= Sr.where('case_number = ?', case_number).distinct.pluck(:id).count
+        ids_per_case= Sr.where('case_number = ?', case_number).distinct.pluck(:id)
+        max_number_in_range_of_overdues= Sr.where('case_number = ?', case_number).distinct.pluck(:overdue).max
+          #binding.pry
+        if max_number_in_range_of_overdues != nil
+          if max_number_in_range_of_overdues > 0
+            ids_per_case.each{|id|
+              local= Sr.find(id)
+              local['expression']= 'Overdue'
+              local.save
+            }
+          else
+            puts "no overdue ids in this case"
+          end
+        elsif max_number_in_range_of_overdues == nil
+            puts "no overdue ids in this case" + "#{case_number}"
+        else
+            puts "no ids with boolean null in this case" + "#{case_number}"
+        end
+      }
+    else
+        puts "count of distinct case numbers to ids is the same"
+    end
   end
   def self.zero_division(number)
     if number == 0
