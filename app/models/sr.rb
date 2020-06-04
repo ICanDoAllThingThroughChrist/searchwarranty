@@ -3,8 +3,7 @@ class Sr < ApplicationRecord
     case_number_ids_values_count=
     Sr.select('distinct case_number').
     where(department:'SWM Solid Waste Management', status:'Open',
-      sr_type: [
-        'Missed Heavy Trash Pickup',
+      sr_type: ['Missed Heavy Trash Pickup',
           'Container Problem','New Resident Container',
           'Recycling Participation NEW' ,
           'Recycling Cart Repair or Replace',
@@ -226,6 +225,7 @@ class Sr < ApplicationRecord
        end
 
     sales2 =
+    #updated file path to searchwarrant from searchwarranty
     Daru::DataFrame.from_csv '../searchwarrant/districtAll_missed_services_FY20.csv'
 
     list2 = sales2.pivot_table(index:['sr_type_2'], values:'tally',vectors:['month_yr'],  agg:  :sum)
