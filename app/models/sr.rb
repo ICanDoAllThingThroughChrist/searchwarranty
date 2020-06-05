@@ -203,7 +203,7 @@ class Sr < ApplicationRecord
     #updated file path to searchwarrant from searchwarranty
     Daru::DataFrame.from_csv '../searchwarranty/districtAll_missed_services_FY20.csv'
 
-    list2 = sales2.pivot_table(index:['sr_type_2'], values:'tally',vectors:['month_yr'],  agg:  :sum)
+    list2 = sales2.pivot_table(index:['sr_type'], values:'tally',vectors:['expression','trash_quad'],  agg:  :sum)
 
     File.open('../searchwarranty/app/views/srs/districtAll_missed_services_FY20.html.erb',
                'w+'){|f| f << list2.to_html}
