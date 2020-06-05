@@ -27,14 +27,14 @@ class Duplicate < ApplicationRecord
    sales2 =
    #updated file path to searchwarrant from searchwarranty
 
-   Daru::DataFrame.from_csv '../searchwarrant/duplicates_open_services_daily.csv'
+   Daru::DataFrame.from_csv '../searchwarranty/duplicates_open_services_daily.csv'
 
    list2 = sales2.pivot_table(index:['sr_type'], values:'case_number',vectors:['trash_quad','expression'],  agg:  :count)
 
-   File.open('../searchwarrant/app/views/srs/duplicates_open_services_daily.html.erb',
+   File.open('../searchwarranty/app/views/srs/duplicates_open_services_daily.html.erb',
               'w+'){|f| f << list2.to_html}
 
-   File.open('../searchwarrant/app/views/srs/duplicates_open_services_daily.html',
+   File.open('../searchwarranty/app/views/srs/duplicates_open_services_daily.html',
               'w+'){|f| f << list2.to_html}
   end
 end

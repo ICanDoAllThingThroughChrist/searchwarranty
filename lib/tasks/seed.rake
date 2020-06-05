@@ -455,6 +455,14 @@ namespace :seed do
      Sr.create(row.to_hash)
       # binding.pry
     }
+    CSV.foreach("C:/Users/e128289/Downloads/SWM All Data with Resolution Time-May2020.csv",
+       { encoding: "iso-8859-1:utf-8",
+          headers: true,
+          header_converters: :symbol,converters: :all}) {|row|
+      # binding.pry
+     Sr.create(row.to_hash)
+      # binding.pry
+    }
     Sr.pivot
   end
 
