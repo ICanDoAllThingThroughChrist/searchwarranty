@@ -1,4 +1,16 @@
 class GisSwmdList < ApplicationRecord
+  def self.synthetic_creation
+    local= GisSwmdList.all
+    local.each{|i|
+      i.synthetic=
+      "#{i.STREET_NUM}" +
+      " " + "#{i.FRACTION}" + 
+      " " + "#{i.PREFIX}" +
+      " " + "#{i.STREET_NAME}" +
+      " " + "#{i.STREET_TYPE}"
+      i.save
+      }
+  end
   def self.import_existing_gis_cases
     GisSwmdList.delete_all
     csv_text = File.read('C:/Users/e128289/Downloads/Customer_Points_swd.csv')

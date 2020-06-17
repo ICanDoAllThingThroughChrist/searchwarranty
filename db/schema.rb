@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_04_153657) do
+ActiveRecord::Schema.define(version: 2020_06_16_163204) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -150,6 +150,7 @@ ActiveRecord::Schema.define(version: 2020_06_04_153657) do
     t.integer "serviced"
     t.integer "replace_wheel_lid"
     t.integer "tally"
+    t.datetime "sr_create_date"
   end
 
   create_table "duplicates", force: :cascade do |t|

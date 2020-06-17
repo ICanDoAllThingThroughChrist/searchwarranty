@@ -1155,15 +1155,16 @@ class Sr < ApplicationRecord
       # Sr.expression_quad_status_assignment
       #perform following command to determine if sr_type includes missed garbag
       Sr.no_quad_list
-      Sr.overdue_duplicate_resolution
-      Duplicate.sr_daily_case_number_csv_download
+      Sr.sr_daily_case_number_csv_download
+      #Sr.overdue_duplicate_resolution # takes 4 hours
+      #Duplicate.sr_daily_case_number_csv_download # takes 4 hours
       Sr.sr_daily_case_number_csv_download
       Sr.html_pivot
-      OpenSr.se_open_sr_hvy_trash
-      OpenSr.sw_open_sr_hvy_trash
-      OpenSr.ne_open_sr_hvy_trash
-      OpenSr.nw_open_sr_hvy_trash
-      OpenSr.all_quads_open_sr_hvy_trash#for spatial join points to map
+      #OpenSr.se_open_sr_hvy_trash#by district SE
+      #OpenSr.sw_open_sr_hvy_trash#by district SW
+      #OpenSr.ne_open_sr_hvy_trash#by district NE
+      #OpenSr.nw_open_sr_hvy_trash#by district NW
+      #OpenSr.all_quads_open_sr_hvy_trash#for spatial join points to map
       SpatialOverdueHvy.heavy_trash_map_data#
       # for access values of lat and lon  for
       #generate JSON data for cluster maps
@@ -1173,6 +1174,10 @@ class Sr < ApplicationRecord
       # Sr.hvy_trash_spatial_join_requests
       #perform spatial join of Open Sr Testing.csv with Houston Automated
       # Open.sr_route
+      #Cans Related
+      Cart.unique
+      Cart.carts_compliance_list
+      Cart.multiple_delivered_list
     end
 
     def self.update_sr_location_for_open_sr
