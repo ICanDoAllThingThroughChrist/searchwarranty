@@ -15,10 +15,12 @@ class Spatial < ApplicationRecord
     headers = %i[id case_numbe QUAD]
     #import with Copy and Paste from NoQuadOverdue and NoQuadNotOverdue into below file
     #"C:\Users\e128289\Documents\NoOverdue.txt"
-    CSV.foreach("spatial-join-quad-assignments.csv",
+    CSV.foreach("C:/Users/e128289/Documents/spatial-join-quad-assignments.csv",
       {encoding: "iso-8859-1:utf-8", headers: true,
         header_converters: :symbol, converters: :all}) {|row|
+          #binding.pry
       Spatial.create(row.to_hash)
+
     }
     # binding.pry
   end

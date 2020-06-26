@@ -100,7 +100,7 @@ namespace :seed do
        key_map management_district department division sr_type queue
         sla status sr_create_date due_date date_closed overdue title
          x y latitude longitude channel_type created_at updated_at]
-     #
+
      # things1.each {|sr|
      #     # byebug
      #     b=sr.split('|')
@@ -411,7 +411,7 @@ namespace :seed do
     #download all data with resolution time from City BI
     require 'csv'
     start= Date.parse('2020-01-01')
-    due= Date.parse('2020-06-30')
+    due= Date.parse('2020-06-30')#UPDATE MONTHLY
     Sr.where(department:'SWM Solid Waste Management').
     where('created_at >= ? AND created_at <= ?',start,due).delete_all
     columns = %i[CASE_NUMBER	SR_LOCATION	COUNTY	CLIENT
