@@ -524,6 +524,7 @@ namespace :seed do
     # for City of Houston Container Problems by Residents Service Request download
     # 1. Before Running Report: In CSV File, rename attribute from "type" to "service_type"
     # encoding:iso-8859-1:utf-8
+    #Last date of download: June 15, 2020
     require 'csv'
     Cart.delete_all
     CSV.foreach("C:/Users/e128289/Downloads/SWM Container Problem-2020-Jan2020-June152020.csv",

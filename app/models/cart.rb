@@ -206,6 +206,12 @@ class Cart < ApplicationRecord
         elsif /[r..R]eplace/.match?(cart.case_note) == TRUE &&
            /lid/.match?(cart.case_note) == TRUE
           cart.replace_wheel_lid = 1
+        elsif /[r..R]eplace/.match?(cart.resolution_comment) == TRUE &&
+             /wheel/.match?(cart.case_note) == TRUE
+            cart.replace_wheel_lid = 1
+        elsif /[r..R]eplace/.match?(cart.resolution_comment) == TRUE &&
+             /lid/.match?(cart.case_note) == TRUE
+            cart.replace_wheel_lid = 1
         else
           cart.replace_wheel_lid = 0
         end
@@ -213,6 +219,8 @@ class Cart < ApplicationRecord
     def cart_delivered(cart)
       if /[d..D]eliver/.match?(cart.case_note) == TRUE
         cart.delivered = 1
+      elsif /[d..D]eliver/.match?(cart.resolution_comment) == TRUE
+          cart.delivered = 1
       else
         cart.delivered = 0
       end
@@ -222,6 +230,9 @@ class Cart < ApplicationRecord
         if /[s..S]ervice/.match?(cart.case_note) == TRUE
           # binding.pry
           cart.serviced = 1
+        elsif /[s..S]ervice/.match?(cart.resolution_comment) == TRUE
+            # binding.pry
+            cart.serviced = 1
         else
           cart.serviced = 0
         end
@@ -233,6 +244,12 @@ class Cart < ApplicationRecord
            cart.replaced_cart = 1
         elsif /[r..R]eplacement/.match?(cart.case_note)
           cart.replaced_cart = 1
+        elsif /[r..R]eplace/.match?(cart.resolution_comment)  &&
+              /[c..C]art/.match?(cart.resolution_comment) &&
+            cart.replace_wheel_lid = 0 &&
+             cart.replaced_cart = 1
+        elsif /[r..R]eplacement/.match?(cart.resolution_comment)
+            cart.replaced_cart = 1
         else
           cart.replaced_cart = 0
         end
