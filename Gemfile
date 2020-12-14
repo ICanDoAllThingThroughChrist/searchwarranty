@@ -8,7 +8,7 @@ end
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'creek'
-gem "rgeo"
+#gem "rgeo"
 gem 'rails', '~> 5.0'
 gem 'activerecord-import'
 
@@ -29,8 +29,8 @@ gem 'coffee-rails', '~> 4.2'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
 gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
-gem 'jbuilder', '~> 2.5'
-gem 'parse-server-sdk', '~> 2.3', '>= 2.3.3'
+#gem 'jbuilder', '~> 2.5'
+#gem 'parse-server-sdk', '~> 2.3', '>= 2.3.3'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use ActiveModel has_secure_password
@@ -52,7 +52,7 @@ gem 'daru', '~> 0.2.2'
 # gem 'daru-data_tables', '~> 0.3.5'
 # gem 'thamble', '~> 1.0', '>= 1.0.2'
 gem 'bootsnap', '~> 1.1', '>= 1.1.7'
-gem 'geocoder', '~> 1.3', '>= 1.3.7'
+#gem 'geocoder', '~> 1.3', '>= 1.3.7'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
@@ -62,6 +62,7 @@ group :development do
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
   gem 'web-console', '>= 3.3.0'
 end
-
+#gem 'therubyracer'
+#gem 'execjs'
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]

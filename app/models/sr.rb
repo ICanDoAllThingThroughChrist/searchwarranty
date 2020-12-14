@@ -13,6 +13,22 @@ class Sr < ApplicationRecord
     return @@max_number_in_range_of_overdues
   end
 
+  def self.zero_div_error
+    @missedMisRecPicUpSWTotal =
+      Sr.select('distinct case_number').where(trash_quad: 'SW',
+        sr_type:'Missed Recycling Pickup',
+        expression:['Overdue','Not Overdue']).
+        where('case_number IS NOT NULL').
+    count
+    if
+      @missedMisRecPicUpSWTotal==0 then
+      @missedMisRecPicUpSWTotal=1
+    else
+      puts "zero division error addressexd"
+        #binding.pry
+    end
+  end
+
   def self.overdue_duplicate_resolution
     case_number_ids_values_count=
     Sr.select('distinct case_number').
@@ -1145,39 +1161,39 @@ class Sr < ApplicationRecord
       #Sr.update_trash_quad
       Sr.expression_quad_status_assignment
       Sr.no_quad_list
-      Sr.update_trash_quad
-      binding.pry
+      #Sr.update_trash_quad
+      #binding.pry
       # Sr.update_trash_quad
-      Sr.expression_quad_status_assignment
+      #Sr.expression_quad_status_assignment
       #spatial join based on the generated csv
       # #perform Spatial Join on "NoQuadList.csv"
       # Sr.update_trash_quad
       # Sr.expression_quad_status_assignment
       #perform following command to determine if sr_type includes missed garbag
-      Sr.no_quad_list
-      Sr.sr_daily_case_number_csv_download
+      #Sr.no_quad_list
+      #Sr.sr_daily_case_number_csv_download
       #Sr.overdue_duplicate_resolution # takes 4 hours
       #Duplicate.sr_daily_case_number_csv_download # takes 4 hours
-      Sr.sr_daily_case_number_csv_download
-      Sr.html_pivot
+      #Sr.sr_daily_case_number_csv_download
+      #Sr.html_pivot
       #OpenSr.se_open_sr_hvy_trash#by district SE
       #OpenSr.sw_open_sr_hvy_trash#by district SW
       #OpenSr.ne_open_sr_hvy_trash#by district NE
       #OpenSr.nw_open_sr_hvy_trash#by district NW
       #OpenSr.all_quads_open_sr_hvy_trash#for spatial join points to map
-      SpatialOverdueHvy.heavy_trash_map_data#
+      #SpatialOverdueHvy.heavy_trash_map_data#
       # for access values of lat and lon  for
       #generate JSON data for cluster maps
-      SpatialOverdueHvy.seed
-      SpatialOverdueHvy.js_clusters
+      #SpatialOverdueHvy.seed
+      #SpatialOverdueHvy.js_clusters
       # Sr.heavy_trash_overdue
       # Sr.hvy_trash_spatial_join_requests
       #perform spatial join of Open Sr Testing.csv with Houston Automated
       # Open.sr_route
       #Cans Related
-      Cart.unique
-      Cart.carts_compliance_list
-      Cart.multiple_delivered_list
+      #Cart.unique
+      #Cart.carts_compliance_list
+      #Cart.multiple_delivered_list
     end
 
     def self.update_sr_location_for_open_sr
@@ -1437,7 +1453,7 @@ class Sr < ApplicationRecord
 
     self.grade(deptSWwide_aug_2019_sla_percent_complete)
     @sw_grade_aug_2019 = self.grade(deptSWwide_aug_2019_sla_percent_complete)
-    binding.pry
+    #binding.pry
     deptSEwide_aug_2019_sla_due_cases = Sr.
     select('distinct case_number').
     between_fields('2019-08-01 00:00:00', :sr_create_date,
@@ -1468,7 +1484,7 @@ class Sr < ApplicationRecord
     deptSEwide_aug_2019_actual__due_and_closed_cases.
     to_f.round(2)/deptSEwide_aug_2019_sla_due_cases.to_f.round(2)
     @se_grade_aug_2019= self.grade(deptSEwide_aug_2019_sla_percent_complete)
-    binding.pry
+    #binding.pry
     deptNEwide_aug_2019_sla_due_cases = Sr.
     select('distinct case_number').
     between_fields('2019-08-01 00:00:00', :sr_create_date, :date_closed).
@@ -1499,7 +1515,7 @@ class Sr < ApplicationRecord
     deptNEwide_aug_2019_actual__due_and_closed_cases.
     to_f.round(2)/deptNEwide_aug_2019_sla_due_cases.to_f.round(2)
     @ne_grade_aug_2019 = self.grade(deptNEwide_aug_2019_sla_percent_complete)
-    binding.pry
+    #binding.pry
     deptNWwide_aug_2019_sla_due_cases = Sr.
     select('distinct case_number').
     between_fields('2019-08-01 00:00:00',

@@ -542,11 +542,7 @@ class SrsController < ApplicationController
     OpenSr.qualityGrade(@missedAddACanCancelSWOverdueDigits)
 
   @missedMisRecPicUpSWTotal =
-    Sr.select('distinct case_number').where(trash_quad: 'SW',
-      sr_type:'Missed Recycling Pickup',
-      expression:['Overdue','Not Overdue']).
-      where('case_number IS NOT NULL').
-      count
+    Sr.zero_div_error
   @missedMisRecPicUpSWOverdue =
     Sr.select('distinct case_number').where(trash_quad: 'SW',
       sr_type:'Missed Recycling Pickup',
@@ -563,6 +559,7 @@ class SrsController < ApplicationController
       where('case_number IS NOT NULL').
       count
   @missedMisRecPicUpSWPercentNotOverdue =
+  binding.pry
    "#{(((1-(@missedMisRecPicUpSWOverdue/@missedMisRecPicUpSWTotal))*100).round(2))}%"
   @missedMisRecPicUpSWNotOverdue = Sr.select('distinct case_number').
     where(trash_quad: 'SW',

@@ -15,7 +15,7 @@ namespace :seed do
           KEY_MAP	MANAGEMENT_DISTRICT	SR_OWNER	SR_CREATOR	DEPARTMENT
           DIVISION	SR_TYPE	QUEUE	SLA	STATUS	SR_CREATE_DATE	DUE_DATE
           DATE_CLOSED	RESOLUTION_TIME	OVERDUE]
-        CSV.foreach("C:/Users/e128289/Downloads/SWM All Data with Resolution Time-July1st2017-Dec31-2017.csv",
+        CSV.foreach("C:/Users/e128289/Desktop/duplicates-survey/SWM Container Problem2018-august.csv",
              { encoding: "iso-8859-1:utf-8",
                 headers: true,
                 header_converters: :symbol,converters: :all}) {|row|
@@ -23,7 +23,7 @@ namespace :seed do
            Sr.create(row.to_hash)
             # binding.pry
           }
-          CSV.foreach("C:/Users/e128289/Downloads/SWM All Data with Resolution Time-Jan12018-Dec302018.csv",
+          CSV.foreach("C:/Users/e128289/Desktop/duplicates-survey/SWM Container Problem-2018-december.csv",
                { encoding: "iso-8859-1:utf-8",
                   headers: true,
                   header_converters: :symbol,converters: :all}) {|row|
@@ -31,38 +31,6 @@ namespace :seed do
              Sr.create(row.to_hash)
               # binding.pry
             }
-            CSV.foreach("C:/Users/e128289/Downloads/SWM All Data with Resolution Time-Dec302018-Dec312018.csv",
-                 { encoding: "iso-8859-1:utf-8",
-                    headers: true,
-                    header_converters: :symbol,converters: :all}) {|row|
-                # binding.pry
-               Sr.create(row.to_hash)
-                # binding.pry
-              }
-              CSV.foreach("C:/Users/e128289/Downloads/SWM All Data with Resolution Time-Jan12019-June302019.csv",
-                   { encoding: "iso-8859-1:utf-8",
-                      headers: true,
-                      header_converters: :symbol,converters: :all}) {|row|
-                  # binding.pry
-                 Sr.create(row.to_hash)
-                  # binding.pry
-                }
-                CSV.foreach("C:/Users/e128289/Downloads/SWM All Data with Resolution Time-July1st2019-Dec31-2019.csv",
-                     { encoding: "iso-8859-1:utf-8",
-                        headers: true,
-                        header_converters: :symbol,converters: :all}) {|row|
-                    # binding.pry
-                   Sr.create(row.to_hash)
-                    # binding.pry
-                  }
-                  CSV.foreach("C:/Users/e128289/Downloads/SWM All Data with Resolution Time-Jan1st2020-April292020.csv",
-                       { encoding: "iso-8859-1:utf-8",
-                          headers: true,
-                          header_converters: :symbol,converters: :all}) {|row|
-                      # binding.pry
-                     Sr.create(row.to_hash)
-                      # binding.pry
-                    }
   end
   task april_2020: :environment do
     require 'open-uri'
@@ -125,7 +93,7 @@ namespace :seed do
     require 'byebug'
     require 'csv'
     start_date = Date.parse('2020-01-01')
-    endDate = Date.parse('2020-3-31')
+    endDate = DateTime.now
     Sr.where("sr_create_date >=? AND sr_create_date <= ?", start_date, endDate).delete_all
     web1 = open('https://hfdapp.houstontx.gov/311/311-Public-Data-Extract-2020.txt'){|f| f.read}
     things1 = web1.split(/\n/)#creates an  new array
@@ -140,7 +108,7 @@ namespace :seed do
          # byebug
          b=sr.split('|')
          c=Hash[columns.zip(b)]
-         # byebugra
+         # byebug
          Sr.create(c)
          # byebug
       }
@@ -411,7 +379,7 @@ namespace :seed do
     #download all data with resolution time from City BI
     require 'csv'
     start= Date.parse('2020-01-01')
-    due= Date.parse('2020-06-30')#UPDATE MONTHLY
+    due= Date.parse('2020-12-30')#UPDATE MONTHLY
     Sr.where(department:'SWM Solid Waste Management').
     where('created_at >= ? AND created_at <= ?',start,due).delete_all
     columns = %i[CASE_NUMBER	SR_LOCATION	COUNTY	CLIENT
@@ -423,39 +391,7 @@ namespace :seed do
       DIVISION	SR_TYPE	QUEUE	SLA	STATUS	SR_CREATE_DATE	DUE_DATE
       DATE_CLOSED	RESOLUTION_TIME	OVERDUE]
 
-    CSV.foreach("C:/Users/e128289/Downloads/SWM All Data with Resolution Time-January2020.csv",
-       { encoding: "iso-8859-1:utf-8",
-          headers: true,
-          header_converters: :symbol,converters: :all}) {|row|
-      # binding.pry
-     Sr.create(row.to_hash)
-      # binding.pry
-    }
-    CSV.foreach("C:/Users/e128289/Downloads/SWM All Data with Resolution Time-February2020.csv",
-       { encoding: "iso-8859-1:utf-8",
-          headers: true,
-          header_converters: :symbol,converters: :all}) {|row|
-      # binding.pry
-     Sr.create(row.to_hash)
-      # binding.pry
-    }
-    CSV.foreach("C:/Users/e128289/Downloads/SWM All Data with Resolution Time-March2020.csv",
-       { encoding: "iso-8859-1:utf-8",
-          headers: true,
-          header_converters: :symbol,converters: :all}) {|row|
-      # binding.pry
-     Sr.create(row.to_hash)
-      # binding.pry
-    }
-    CSV.foreach("C:/Users/e128289/Downloads/SWM All Data with Resolution Time-April2020.csv",
-       { encoding: "iso-8859-1:utf-8",
-          headers: true,
-          header_converters: :symbol,converters: :all}) {|row|
-      # binding.pry
-     Sr.create(row.to_hash)
-      # binding.pry
-    }
-    CSV.foreach("C:/Users/e128289/Downloads/SWM All Data with Resolution Time-May2020.csv",
+    CSV.foreach("C:/Users/e128289/Downloads/SWM All Data-Jan-December14-2020.csv",
        { encoding: "iso-8859-1:utf-8",
           headers: true,
           header_converters: :symbol,converters: :all}) {|row|
@@ -464,14 +400,6 @@ namespace :seed do
       # binding.pry
     }
 
-    CSV.foreach("C:/Users/e128289/Downloads/SWM All Data with Resolution Time-June2020.csv",
-       { encoding: "iso-8859-1:utf-8",
-          headers: true,
-          header_converters: :symbol,converters: :all}) {|row|
-      # binding.pry
-     Sr.create(row.to_hash)
-      # binding.pry
-    }
     Sr.pivot
   end
 
@@ -527,7 +455,7 @@ namespace :seed do
     #Last date of download: June 15, 2020
     require 'csv'
     Cart.delete_all
-    CSV.foreach("C:/Users/e128289/Downloads/SWM Container Problem-2020-Jan2020-June152020.csv",
+    CSV.foreach("C:/Users/e128289/Desktop/duplicates-survey/SWM Container Problem2018-august.csv",
        {encoding: "iso-8859-1:utf-8",
           headers: %w[sr_number client service_location status client_str_no
              client_str_name client_zip_code phone_number email_address
@@ -544,7 +472,7 @@ namespace :seed do
       Cart.create(row.to_hash)
       # binding.pry
     }
-    CSV.foreach("C:/Users/e128289/Downloads/SWM Container Problem-2020-July2019-December2019.csv",
+    CSV.foreach("C:/Users/e128289/Desktop/duplicates-survey/SWM Container Problem-2018-december.csv",
        {encoding: "iso-8859-1:utf-8",
           headers: %w[sr_number client service_location status client_str_no
              client_str_name client_zip_code phone_number email_address
@@ -561,7 +489,7 @@ namespace :seed do
       Cart.create(row.to_hash)
       # binding.pry
     }
-    CSV.foreach("C:/Users/e128289/Downloads/SWM Container Problem-2020-Jan2019-June2019.csv",
+    CSV.foreach("C:/Users/e128289/Desktop/duplicates-survey/SWM Container Problem-2018-july.csv",
        {encoding: "iso-8859-1:utf-8",
           headers: %w[sr_number client service_location status client_str_no
              client_str_name client_zip_code phone_number email_address
@@ -578,7 +506,347 @@ namespace :seed do
       Cart.create(row.to_hash)
       # binding.pry
     }
-    CSV.foreach("C:/Users/e128289/Downloads/SWM Container Problem-2020-May2018-Dec2018.csv",
+    CSV.foreach("C:/Users/e128289/Desktop/duplicates-survey/SWM Container Problem-2018-June.csv",
+       {encoding: "iso-8859-1:utf-8",
+          headers: %w[sr_number client service_location status client_str_no
+             client_str_name client_zip_code phone_number email_address
+              create_date due_date closed_date overdue agent_name
+               super_neighborhood tax_id service_area district key_map
+                management_district garbage_route garbage_day garbage_quad
+                 recycle_route recycle_day recycle_quad heavy_trash_day
+                  heavy_trash_day subject reason service_type queue sla
+                   container_problem container_damage case_note
+                    resolution_comment channel_type other_description title
+                     x y latitude longitude tax_id1],
+                      header_converters: :symbol, converters: :all}) {|row|
+      # binding.pry
+      Cart.create(row.to_hash)
+      # binding.pry
+    }
+    CSV.foreach("C:/Users/e128289/Desktop/duplicates-survey/SWM Container Problem-2018-May.csv",
+       {encoding: "iso-8859-1:utf-8",
+          headers: %w[sr_number client service_location status client_str_no
+             client_str_name client_zip_code phone_number email_address
+              create_date due_date closed_date overdue agent_name
+               super_neighborhood tax_id service_area district key_map
+                management_district garbage_route garbage_day garbage_quad
+                 recycle_route recycle_day recycle_quad heavy_trash_day
+                  heavy_trash_day subject reason service_type queue sla
+                   container_problem container_damage case_note
+                    resolution_comment channel_type other_description title
+                     x y latitude longitude tax_id1],
+                      header_converters: :symbol, converters: :all}) {|row|
+      # binding.pry
+      Cart.create(row.to_hash)
+      # binding.pry
+    }
+    CSV.foreach("C:/Users/e128289/Desktop/duplicates-survey/SWM Container Problem-2018-november.csv",
+       {encoding: "iso-8859-1:utf-8",
+          headers: %w[sr_number client service_location status client_str_no
+             client_str_name client_zip_code phone_number email_address
+              create_date due_date closed_date overdue agent_name
+               super_neighborhood tax_id service_area district key_map
+                management_district garbage_route garbage_day garbage_quad
+                 recycle_route recycle_day recycle_quad heavy_trash_day
+                  heavy_trash_day subject reason service_type queue sla
+                   container_problem container_damage case_note
+                    resolution_comment channel_type other_description title
+                     x y latitude longitude tax_id1],
+                      header_converters: :symbol, converters: :all}) {|row|
+      # binding.pry
+      Cart.create(row.to_hash)
+      # binding.pry
+    }
+    CSV.foreach("C:/Users/e128289/Desktop/duplicates-survey/SWM Container Problem-2018-October.csv",
+       {encoding: "iso-8859-1:utf-8",
+          headers: %w[sr_number client service_location status client_str_no
+             client_str_name client_zip_code phone_number email_address
+              create_date due_date closed_date overdue agent_name
+               super_neighborhood tax_id service_area district key_map
+                management_district garbage_route garbage_day garbage_quad
+                 recycle_route recycle_day recycle_quad heavy_trash_day
+                  heavy_trash_day subject reason service_type queue sla
+                   container_problem container_damage case_note
+                    resolution_comment channel_type other_description title
+                     x y latitude longitude tax_id1],
+                      header_converters: :symbol, converters: :all}) {|row|
+      # binding.pry
+      Cart.create(row.to_hash)
+      # binding.pry
+    }
+    CSV.foreach("C:/Users/e128289/Desktop/duplicates-survey/SWM Container Problem-2018-September.csv",
+       {encoding: "iso-8859-1:utf-8",
+          headers: %w[sr_number client service_location status client_str_no
+             client_str_name client_zip_code phone_number email_address
+              create_date due_date closed_date overdue agent_name
+               super_neighborhood tax_id service_area district key_map
+                management_district garbage_route garbage_day garbage_quad
+                 recycle_route recycle_day recycle_quad heavy_trash_day
+                  heavy_trash_day subject reason service_type queue sla
+                   container_problem container_damage case_note
+                    resolution_comment channel_type other_description title
+                     x y latitude longitude tax_id1],
+                      header_converters: :symbol, converters: :all}) {|row|
+      # binding.pry
+      Cart.create(row.to_hash)
+      # binding.pry
+    }
+    CSV.foreach("C:/Users/e128289/Desktop/duplicates-survey/SWM Container Problem-2019-april.csv",
+       {encoding: "iso-8859-1:utf-8",
+          headers: %w[sr_number client service_location status client_str_no
+             client_str_name client_zip_code phone_number email_address
+              create_date due_date closed_date overdue agent_name
+               super_neighborhood tax_id service_area district key_map
+                management_district garbage_route garbage_day garbage_quad
+                 recycle_route recycle_day recycle_quad heavy_trash_day
+                  heavy_trash_day subject reason service_type queue sla
+                   container_problem container_damage case_note
+                    resolution_comment channel_type other_description title
+                     x y latitude longitude tax_id1],
+                      header_converters: :symbol, converters: :all}) {|row|
+      # binding.pry
+      Cart.create(row.to_hash)
+      # binding.pry
+    }
+    CSV.foreach("C:/Users/e128289/Desktop/duplicates-survey/SWM Container Problem-2019-august.csv",
+       {encoding: "iso-8859-1:utf-8",
+          headers: %w[sr_number client service_location status client_str_no
+             client_str_name client_zip_code phone_number email_address
+              create_date due_date closed_date overdue agent_name
+               super_neighborhood tax_id service_area district key_map
+                management_district garbage_route garbage_day garbage_quad
+                 recycle_route recycle_day recycle_quad heavy_trash_day
+                  heavy_trash_day subject reason service_type queue sla
+                   container_problem container_damage case_note
+                    resolution_comment channel_type other_description title
+                     x y latitude longitude tax_id1],
+                      header_converters: :symbol, converters: :all}) {|row|
+      # binding.pry
+      Cart.create(row.to_hash)
+      # binding.pry
+    }
+    CSV.foreach("C:/Users/e128289/Desktop/duplicates-survey/SWM Container Problem-2019-december.csv",
+       {encoding: "iso-8859-1:utf-8",
+          headers: %w[sr_number client service_location status client_str_no
+             client_str_name client_zip_code phone_number email_address
+              create_date due_date closed_date overdue agent_name
+               super_neighborhood tax_id service_area district key_map
+                management_district garbage_route garbage_day garbage_quad
+                 recycle_route recycle_day recycle_quad heavy_trash_day
+                  heavy_trash_day subject reason service_type queue sla
+                   container_problem container_damage case_note
+                    resolution_comment channel_type other_description title
+                     x y latitude longitude tax_id1],
+                      header_converters: :symbol, converters: :all}) {|row|
+      # binding.pry
+      Cart.create(row.to_hash)
+      # binding.pry
+    }
+    CSV.foreach("C:/Users/e128289/Desktop/duplicates-survey/SWM Container Problem-2019-feb.csv",
+       {encoding: "iso-8859-1:utf-8",
+          headers: %w[sr_number client service_location status client_str_no
+             client_str_name client_zip_code phone_number email_address
+              create_date due_date closed_date overdue agent_name
+               super_neighborhood tax_id service_area district key_map
+                management_district garbage_route garbage_day garbage_quad
+                 recycle_route recycle_day recycle_quad heavy_trash_day
+                  heavy_trash_day subject reason service_type queue sla
+                   container_problem container_damage case_note
+                    resolution_comment channel_type other_description title
+                     x y latitude longitude tax_id1],
+                      header_converters: :symbol, converters: :all}) {|row|
+      # binding.pry
+      Cart.create(row.to_hash)
+      # binding.pry
+    }
+    CSV.foreach("C:/Users/e128289/Desktop/duplicates-survey/SWM Container Problem-2019-january.csv",
+       {encoding: "iso-8859-1:utf-8",
+          headers: %w[sr_number client service_location status client_str_no
+             client_str_name client_zip_code phone_number email_address
+              create_date due_date closed_date overdue agent_name
+               super_neighborhood tax_id service_area district key_map
+                management_district garbage_route garbage_day garbage_quad
+                 recycle_route recycle_day recycle_quad heavy_trash_day
+                  heavy_trash_day subject reason service_type queue sla
+                   container_problem container_damage case_note
+                    resolution_comment channel_type other_description title
+                     x y latitude longitude tax_id1],
+                      header_converters: :symbol, converters: :all}) {|row|
+      # binding.pry
+      Cart.create(row.to_hash)
+      # binding.pry
+    }
+    CSV.foreach("C:/Users/e128289/Desktop/duplicates-survey/SWM Container Problem-2019-july.csv",
+       {encoding: "iso-8859-1:utf-8",
+          headers: %w[sr_number client service_location status client_str_no
+             client_str_name client_zip_code phone_number email_address
+              create_date due_date closed_date overdue agent_name
+               super_neighborhood tax_id service_area district key_map
+                management_district garbage_route garbage_day garbage_quad
+                 recycle_route recycle_day recycle_quad heavy_trash_day
+                  heavy_trash_day subject reason service_type queue sla
+                   container_problem container_damage case_note
+                    resolution_comment channel_type other_description title
+                     x y latitude longitude tax_id1],
+                      header_converters: :symbol, converters: :all}) {|row|
+      # binding.pry
+      Cart.create(row.to_hash)
+      # binding.pry
+    }
+    CSV.foreach("C:/Users/e128289/Desktop/duplicates-survey/SWM Container Problem-2019-june.csv",
+       {encoding: "iso-8859-1:utf-8",
+          headers: %w[sr_number client service_location status client_str_no
+             client_str_name client_zip_code phone_number email_address
+              create_date due_date closed_date overdue agent_name
+               super_neighborhood tax_id service_area district key_map
+                management_district garbage_route garbage_day garbage_quad
+                 recycle_route recycle_day recycle_quad heavy_trash_day
+                  heavy_trash_day subject reason service_type queue sla
+                   container_problem container_damage case_note
+                    resolution_comment channel_type other_description title
+                     x y latitude longitude tax_id1],
+                      header_converters: :symbol, converters: :all}) {|row|
+      # binding.pry
+      Cart.create(row.to_hash)
+      # binding.pry
+    }
+    CSV.foreach("C:/Users/e128289/Desktop/duplicates-survey/SWM Container Problem-2019-march.csv",
+       {encoding: "iso-8859-1:utf-8",
+          headers: %w[sr_number client service_location status client_str_no
+             client_str_name client_zip_code phone_number email_address
+              create_date due_date closed_date overdue agent_name
+               super_neighborhood tax_id service_area district key_map
+                management_district garbage_route garbage_day garbage_quad
+                 recycle_route recycle_day recycle_quad heavy_trash_day
+                  heavy_trash_day subject reason service_type queue sla
+                   container_problem container_damage case_note
+                    resolution_comment channel_type other_description title
+                     x y latitude longitude tax_id1],
+                      header_converters: :symbol, converters: :all}) {|row|
+      # binding.pry
+      Cart.create(row.to_hash)
+      # binding.pry
+    }
+    CSV.foreach("C:/Users/e128289/Desktop/duplicates-survey/SWM Container Problem-2019-MAY.csv",
+       {encoding: "iso-8859-1:utf-8",
+          headers: %w[sr_number client service_location status client_str_no
+             client_str_name client_zip_code phone_number email_address
+              create_date due_date closed_date overdue agent_name
+               super_neighborhood tax_id service_area district key_map
+                management_district garbage_route garbage_day garbage_quad
+                 recycle_route recycle_day recycle_quad heavy_trash_day
+                  heavy_trash_day subject reason service_type queue sla
+                   container_problem container_damage case_note
+                    resolution_comment channel_type other_description title
+                     x y latitude longitude tax_id1],
+                      header_converters: :symbol, converters: :all}) {|row|
+      # binding.pry
+      Cart.create(row.to_hash)
+      # binding.pry
+    }
+    CSV.foreach("C:/Users/e128289/Desktop/duplicates-survey/SWM Container Problem-2019-november.csv",
+       {encoding: "iso-8859-1:utf-8",
+          headers: %w[sr_number client service_location status client_str_no
+             client_str_name client_zip_code phone_number email_address
+              create_date due_date closed_date overdue agent_name
+               super_neighborhood tax_id service_area district key_map
+                management_district garbage_route garbage_day garbage_quad
+                 recycle_route recycle_day recycle_quad heavy_trash_day
+                  heavy_trash_day subject reason service_type queue sla
+                   container_problem container_damage case_note
+                    resolution_comment channel_type other_description title
+                     x y latitude longitude tax_id1],
+                      header_converters: :symbol, converters: :all}) {|row|
+      # binding.pry
+      Cart.create(row.to_hash)
+      # binding.pry
+    }
+    CSV.foreach("C:/Users/e128289/Desktop/duplicates-survey/SWM Container Problem-2019-october.csv",
+       {encoding: "iso-8859-1:utf-8",
+          headers: %w[sr_number client service_location status client_str_no
+             client_str_name client_zip_code phone_number email_address
+              create_date due_date closed_date overdue agent_name
+               super_neighborhood tax_id service_area district key_map
+                management_district garbage_route garbage_day garbage_quad
+                 recycle_route recycle_day recycle_quad heavy_trash_day
+                  heavy_trash_day subject reason service_type queue sla
+                   container_problem container_damage case_note
+                    resolution_comment channel_type other_description title
+                     x y latitude longitude tax_id1],
+                      header_converters: :symbol, converters: :all}) {|row|
+      # binding.pry
+      Cart.create(row.to_hash)
+      # binding.pry
+    }
+    CSV.foreach("C:/Users/e128289/Desktop/duplicates-survey/SWM Container Problem-2019-september.csv",
+       {encoding: "iso-8859-1:utf-8",
+          headers: %w[sr_number client service_location status client_str_no
+             client_str_name client_zip_code phone_number email_address
+              create_date due_date closed_date overdue agent_name
+               super_neighborhood tax_id service_area district key_map
+                management_district garbage_route garbage_day garbage_quad
+                 recycle_route recycle_day recycle_quad heavy_trash_day
+                  heavy_trash_day subject reason service_type queue sla
+                   container_problem container_damage case_note
+                    resolution_comment channel_type other_description title
+                     x y latitude longitude tax_id1],
+                      header_converters: :symbol, converters: :all}) {|row|
+      # binding.pry
+      Cart.create(row.to_hash)
+      # binding.pry
+    }
+    CSV.foreach("C:/Users/e128289/Desktop/duplicates-survey/SWM Container Problem-2020-August.csv",
+       {encoding: "iso-8859-1:utf-8",
+          headers: %w[sr_number client service_location status client_str_no
+             client_str_name client_zip_code phone_number email_address
+              create_date due_date closed_date overdue agent_name
+               super_neighborhood tax_id service_area district key_map
+                management_district garbage_route garbage_day garbage_quad
+                 recycle_route recycle_day recycle_quad heavy_trash_day
+                  heavy_trash_day subject reason service_type queue sla
+                   container_problem container_damage case_note
+                    resolution_comment channel_type other_description title
+                     x y latitude longitude tax_id1],
+                      header_converters: :symbol, converters: :all}) {|row|
+      # binding.pry
+      Cart.create(row.to_hash)
+      # binding.pry
+    }
+    CSV.foreach("C:/Users/e128289/Desktop/duplicates-survey/SWM Container Problem-2020-Feb-Oct-2020.csv",
+       {encoding: "iso-8859-1:utf-8",
+          headers: %w[sr_number client service_location status client_str_no
+             client_str_name client_zip_code phone_number email_address
+              create_date due_date closed_date overdue agent_name
+               super_neighborhood tax_id service_area district key_map
+                management_district garbage_route garbage_day garbage_quad
+                 recycle_route recycle_day recycle_quad heavy_trash_day
+                  heavy_trash_day subject reason service_type queue sla
+                   container_problem container_damage case_note
+                    resolution_comment channel_type other_description title
+                     x y latitude longitude tax_id1],
+                      header_converters: :symbol, converters: :all}) {|row|
+      # binding.pry
+      Cart.create(row.to_hash)
+      # binding.pry
+    }
+    CSV.foreach("C:/Users/e128289/Desktop/duplicates-survey/SWM Container Problem-2020-jan.csv",
+       {encoding: "iso-8859-1:utf-8",
+          headers: %w[sr_number client service_location status client_str_no
+             client_str_name client_zip_code phone_number email_address
+              create_date due_date closed_date overdue agent_name
+               super_neighborhood tax_id service_area district key_map
+                management_district garbage_route garbage_day garbage_quad
+                 recycle_route recycle_day recycle_quad heavy_trash_day
+                  heavy_trash_day subject reason service_type queue sla
+                   container_problem container_damage case_note
+                    resolution_comment channel_type other_description title
+                     x y latitude longitude tax_id1],
+                      header_converters: :symbol, converters: :all}) {|row|
+      # binding.pry
+      Cart.create(row.to_hash)
+      # binding.pry
+    }
+    CSV.foreach("C:/Users/e128289/Desktop/duplicates-survey/SWM Container Problem-2020-July.csv",
        {encoding: "iso-8859-1:utf-8",
           headers: %w[sr_number client service_location status client_str_no
              client_str_name client_zip_code phone_number email_address

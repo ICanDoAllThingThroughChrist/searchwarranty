@@ -13,7 +13,7 @@
 #
 # Configure Using Gemfile
 # gem 'pg'
-#
+port: 5433
 default: &default
   adapter: postgresql
   encoding: unicode
@@ -27,7 +27,7 @@ default: &default
 development:
   <<: *default
   database: searchwarranty_development
-
+#https://medium.com/coding-blocks/creating-user-database-and-adding-access-on-postgresql-8bfcd2f4a91e
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
   # When left blank, postgres will use the default role. This is
