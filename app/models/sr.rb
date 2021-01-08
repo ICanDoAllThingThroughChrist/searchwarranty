@@ -567,29 +567,29 @@ class Sr < ApplicationRecord
   Sr.separate_comma(variable)
   end
   def self.nov_2019_missed_rec
-  start = DateTime.parse('2019-11-01T00:00:00+00:00')
-  due= DateTime.parse('2019-11-30T23:59:59+00:00')
-  variable= Sr.select('distinct case_number').
-  where('sr_create_date >= ? AND sr_create_date <= ?',start, due).
-  where(sr_type_2: 'Missed Recycling Pickup').count
-  Sr.separate_comma(variable)
+    start = DateTime.parse('2019-11-01T00:00:00+00:00')
+    due= DateTime.parse('2019-11-30T23:59:59+00:00')
+    variable= Sr.select('distinct case_number').
+    where('sr_create_date >= ? AND sr_create_date <= ?',start, due).
+    where(sr_type_2: 'Missed Recycling Pickup').count
+    Sr.separate_comma(variable)
   end
 
   def self.oct_2019_missed_rec
-  start = DateTime.parse('2019-10-01T00:00:00+00:00')
-  due= DateTime.parse('2019-10-31T23:59:59+00:00')
-  variable= Sr.select('distinct case_number').
-  where('sr_create_date >= ? AND sr_create_date <= ?',start, due).
-  where(sr_type_2: 'Missed Recycling Pickup').count
-  Sr.separate_comma(variable)
+    start = DateTime.parse('2019-10-01T00:00:00+00:00')
+    due= DateTime.parse('2019-10-31T23:59:59+00:00')
+    variable= Sr.select('distinct case_number').
+    where('sr_create_date >= ? AND sr_create_date <= ?',start, due).
+    where(sr_type_2: 'Missed Recycling Pickup').count
+    Sr.separate_comma(variable)
   end
   def self.sept_2019_missed_rec
-  start = DateTime.parse('2019-09-01T00:00:00+00:00')
-  due= DateTime.parse('2019-09-30T23:59:59+00:00')
-  variable= Sr.select('distinct case_number').
-  where('sr_create_date >= ? AND sr_create_date <= ?',start, due).
-  where(sr_type_2: 'Missed Recycling Pickup').count
-  Sr.separate_comma(variable)
+    start = DateTime.parse('2019-09-01T00:00:00+00:00')
+    due= DateTime.parse('2019-09-30T23:59:59+00:00')
+    variable= Sr.select('distinct case_number').
+    where('sr_create_date >= ? AND sr_create_date <= ?',start, due).
+    where(sr_type_2: 'Missed Recycling Pickup').count
+    Sr.separate_comma(variable)
   end
   def self.august_2019_missed_rec
       start = DateTime.parse('2019-08-01T00:00:00+00:00')
@@ -697,12 +697,12 @@ class Sr < ApplicationRecord
   Sr.separate_comma(variable)
   end
   def self.sept_2019_missed_hvy
-  start = DateTime.parse('2019-09-01T00:00:00+00:00')
-  due= DateTime.parse('2019-09-30T23:59:59+00:00')
-  variable= Sr.select('distinct case_number').
-  where('sr_create_date >= ? AND sr_create_date <= ?',start, due).
-  where(sr_type_2: 'Missed Heavy Trash Pickup').count
-  Sr.separate_comma(variable)
+      start = DateTime.parse('2019-09-01T00:00:00+00:00')
+      due= DateTime.parse('2019-09-30T23:59:59+00:00')
+      variable= Sr.select('distinct case_number').
+      where('sr_create_date >= ? AND sr_create_date <= ?',start, due).
+      where(sr_type_2: 'Missed Heavy Trash Pickup').count
+      Sr.separate_comma(variable)
   end
   def self.august_2019_missed_hvy
       start = DateTime.parse('2019-08-01T00:00:00+00:00')
@@ -1023,6 +1023,16 @@ class Sr < ApplicationRecord
             'Missed Recycling Pickup','Missed Yard Waste Pickup'],
             overdue: [0..374])
       end
+
+      def self.count_of_sla_over_30
+        count_of_sla_over_30= Sr.
+        select('distinct case_number').
+        where(department: 'SWM Solid Waste Management',
+          status: 'Open',
+          sr_type: ['Missed Garbage Pickup','Missed Heavy Trash Pickup',
+            'Missed Recycling Pickup','Missed Yard Waste Pickup'],
+            overdue: [0..374]).count
+        end
 
       def self.update_trash_quad_v2
         trash_quad_nil_list =

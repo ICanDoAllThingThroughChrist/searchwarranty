@@ -6,8 +6,8 @@
     <% else%>
        <br>Cart Number: <%=@cart.cart_number%> is in warranty.</br>
        <br>Please Contact 311 and provide:</br>
-        <br>1. your solid waste service unit address</br>
-        <br>2. your container number: <%=@cart.cart_number%></br>
+       <br>1. your solid waste service unit address</br>
+       <br>2. your container number: <%=@cart.cart_number%></br>
     <% end%>
   </h3>
   <p><%= link_to "New Cart Search", new_cart_path,  method: :get %></p>
