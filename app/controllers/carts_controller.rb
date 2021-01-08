@@ -14,8 +14,8 @@ class CartsController < ApplicationController
     cart_number_s = cart_number
     cart_number_i = cart_number.to_i
     a = Array(227091...383846)
-    a_1 = a.map {|i| i.to_s}
-    a_2 = a
+      a_1 = a.map {|i| i.to_s}
+      a_2 = a
     b = Array(1...440384)
       b_1 = b.map{|i| i.to_s}
       c= b.map {|i|
@@ -39,7 +39,7 @@ class CartsController < ApplicationController
     e =ar.to_i
     d= []
     d << e
-    c= Array(1...8000)
+    #c= Array(1...8000)
     d.map {|i|
       # binding.pry
       if i <= 9
@@ -55,7 +55,7 @@ class CartsController < ApplicationController
          d << "9GH 000"+i.to_s
          d.shift
          d.save
-      elsif i <= 9999 && i >= 1000
+      elsif i <= 7020 && i >= 1000
         # binding.pry
          d << "9GH 00"+i.to_s
          d.shift
