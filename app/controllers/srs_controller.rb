@@ -549,17 +549,20 @@ class SrsController < ApplicationController
       expression:['Overdue']).
       where('case_number IS NOT NULL').
       count
+  #binding.pry
   @missedMisRecPicUpSWPercentOverdue =
     "#{((@missedMisRecPicUpSWOverdue.to_f.round(2)/
     @missedMisRecPicUpSWTotal.to_f.round(2))*100).round(2)}%"
+  #binding.pry
   @missedMisRecPicUpSWNotOverdue =
     Sr.select('distinct case_number').where(trash_quad: 'SW',
       sr_type:'Missed Recycling Pickup',
       expression:['Not Overdue']).
       where('case_number IS NOT NULL').
       count
+  #binding.pry
   @missedMisRecPicUpSWPercentNotOverdue =
-  binding.pry
+  #binding.pry
    "#{(((1-(@missedMisRecPicUpSWOverdue/@missedMisRecPicUpSWTotal))*100).round(2))}%"
   @missedMisRecPicUpSWNotOverdue = Sr.select('distinct case_number').
     where(trash_quad: 'SW',

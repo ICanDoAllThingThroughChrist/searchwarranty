@@ -24,9 +24,13 @@ class Sr < ApplicationRecord
       @missedMisRecPicUpSWTotal==0 then
       @missedMisRecPicUpSWTotal=1
     else
-      puts "zero division error addressexd"
-        #binding.pry
+      #binding.pry
+      return @missedMisRecPicUpSWTotal
+      #binding.pry
     end
+  #  binding.pry
+    #return @missedMisRecPicUpSWTotal
+    #binding.pry
   end
 
   def self.overdue_duplicate_resolution
