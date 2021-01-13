@@ -20,7 +20,7 @@ gem 'puma', '~> 3.7'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
-gem 'uglifier', '>= 1.3.0'
+# gem 'uglifier', '>= 1.3.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 gem 'parse-stack'
@@ -45,7 +45,7 @@ gem 'pry-byebug', '~> 3.8'
 gem 'pivot_table', '~> 1.0'
 gem 'scenic', '~> 1.5', '>= 1.5.2'
 gem 'time_difference', '~> 0.4.2'
-gem 'uglifier', '~> 2.7', '>= 2.7.2'
+gem 'uglifier', '>= 2.7.2'
 gem 'daru', '~> 0.2.2'
 # gem 'nyaplot', '~> 0.1.6'
 # gem 'google_visualr', '~> 2.5', '>= 2.5.1'
