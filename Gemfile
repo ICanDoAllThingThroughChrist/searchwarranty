@@ -14,7 +14,7 @@ gem 'activerecord-import'
 
 gem 'by_star'
 gem 'chronic'
-gem 'pg', '>= 0.18', '< 2.0'
+gem 'pg', '~> 1.2', '>= 1.2.3'
 # Use Puma as the app server
 gem 'puma', '~> 3.7'
 # Use SCSS for stylesheets
@@ -45,7 +45,7 @@ gem 'pry-byebug', '~> 3.8'
 gem 'pivot_table', '~> 1.0'
 gem 'scenic', '~> 1.5', '>= 1.5.2'
 gem 'time_difference', '~> 0.4.2'
-gem 'uglifier', '>= 2.7.2'
+gem 'uglifier', '~> 2.7', '>= 2.7.2'
 gem 'daru', '~> 0.2.2'
 # gem 'nyaplot', '~> 0.1.6'
 # gem 'google_visualr', '~> 2.5', '>= 2.5.1'

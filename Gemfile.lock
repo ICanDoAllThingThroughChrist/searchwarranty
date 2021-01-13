@@ -97,6 +97,7 @@ GEM
       activesupport (>= 4.2.0)
     i18n (1.8.7)
       concurrent-ruby (~> 1.0)
+    json (2.5.1)
     jsonapi-renderer (0.2.2)
     loofah (2.8.0)
       crass (~> 1.0.2)
@@ -205,8 +206,9 @@ GEM
     turbolinks-source (5.2.0)
     tzinfo (1.2.9)
       thread_safe (~> 0.1)
-    uglifier (4.2.0)
-      execjs (>= 0.3.0, < 3)
+    uglifier (2.7.2)
+      execjs (>= 0.3.0)
+      json (>= 1.8.0)
     web-console (3.7.0)
       actionview (>= 5.0)
       activemodel (>= 5.0)
@@ -245,7 +247,7 @@ DEPENDENCIES
   time_difference (~> 0.4.2)
   turbolinks (~> 5)
   tzinfo-data
-  uglifier (>= 2.7.2)
+  uglifier (~> 2.7, >= 2.7.2)
   web-console (>= 3.3.0)
 
 BUNDLED WITH
