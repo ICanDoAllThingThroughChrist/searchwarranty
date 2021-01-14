@@ -11,7 +11,7 @@ gem 'creek'
 #gem "rgeo"
 gem 'rails', '~> 5.0'
 gem 'activerecord-import'
-gem 'bundler', '~> 2.1', '>= 2.1.4'
+gem 'bundler', '~> 2.0', '>= 2.0.2'
 gem 'by_star'
 gem 'chronic'
 gem 'pg', '~> 1.2', '>= 1.2.3'

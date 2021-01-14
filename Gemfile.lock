@@ -229,7 +229,7 @@ PLATFORMS
 DEPENDENCIES
   activerecord-import
   bootsnap (~> 1.1, >= 1.1.7)
-  bundler (~> 2.1, >= 2.1.4)
+  bundler (~> 2.0, >= 2.0.2)
   by_star
   byebug
   chronic
