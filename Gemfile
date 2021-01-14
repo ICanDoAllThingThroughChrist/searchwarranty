@@ -15,6 +15,9 @@ gem 'activerecord-import'
 gem 'by_star'
 gem 'chronic'
 gem 'pg', '~> 1.2', '>= 1.2.3'
+# gem 'execjs'
+gem 'mini_racer', '~> 0.3.1'
+# gem 'therubyracer', '~> 0.12.2'
 # Use Puma as the app server
 gem 'puma', '~> 3.7'
 # Use SCSS for stylesheets
