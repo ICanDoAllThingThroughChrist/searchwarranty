@@ -932,6 +932,14 @@ class Sr < ApplicationRecord
         Sr.separate_comma(variable)
   end
 
+  def self.sWM_call_volume_FY2021
+        start_date = Date.parse('2020-07-01')
+        end_date = Date.parse('2021-06-30')
+        Sr.where("sr_create_date >= ? AND sr_create_date <= ?",
+           start_date, end_date).
+           where(department: 'SWM Solid Waste Management').count
+  end
+
   def self.sWM_call_volume_2017_2020
         start_date = Date.parse('2017-01-01')
         end_date = Date.parse('2020-06-30')
@@ -1145,10 +1153,10 @@ class Sr < ApplicationRecord
       #Sr.update_trash_quad
       Sr.expression_quad_status_assignment
       Sr.no_quad_list
-      Sr.update_trash_quad
-      binding.pry
+      #Sr.update_trash_quad
+      #binding.pry
       # Sr.update_trash_quad
-      Sr.expression_quad_status_assignment
+      #Sr.expression_quad_status_assignment
       #spatial join based on the generated csv
       # #perform Spatial Join on "NoQuadList.csv"
       # Sr.update_trash_quad
