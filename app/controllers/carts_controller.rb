@@ -13,7 +13,7 @@ class CartsController < ApplicationController
       a = Array(227091...383846)
       a_1 = a.map {|i| i.to_s}
       a_2 = a
-      b = Array(1...440384)
+      b = Array(1...534479)
       b_1 = b.map{|i| i.to_s}
       c= b.map{|i|
         if i < 9
@@ -62,6 +62,8 @@ class CartsController < ApplicationController
         if a_1.include?(cart_number_s)
           @cart=Cart.new(carts_params)
         elsif a_2.include?(cart_number_i)
+          @cart=Cart.new(carts_params)
+        elsif b.include?(cart_number_i)
           @cart=Cart.new(carts_params)
         elsif c.include?(cart_number_s)
           @cart=Cart.new(carts_params)

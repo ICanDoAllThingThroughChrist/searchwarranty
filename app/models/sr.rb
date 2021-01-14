@@ -1173,11 +1173,11 @@ class Sr < ApplicationRecord
       #OpenSr.ne_open_sr_hvy_trash#by district NE
       #OpenSr.nw_open_sr_hvy_trash#by district NW
       #OpenSr.all_quads_open_sr_hvy_trash#for spatial join points to map
-      SpatialOverdueHvy.heavy_trash_map_data#
+      #SpatialOverdueHvy.heavy_trash_map_data#
       # for access values of lat and lon  for
       #generate JSON data for cluster maps
-      SpatialOverdueHvy.seed
-      SpatialOverdueHvy.js_clusters
+      #SpatialOverdueHvy.seed
+      #SpatialOverdueHvy.js_clusters
       # Sr.heavy_trash_overdue
       # Sr.hvy_trash_spatial_join_requests
       #perform spatial join of Open Sr Testing.csv with Houston Automated
