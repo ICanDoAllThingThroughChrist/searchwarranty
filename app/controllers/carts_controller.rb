@@ -13,7 +13,7 @@ class CartsController < ApplicationController
       a = Array(227091...383846)
       a_1 = a.map {|i| i.to_s}
       a_2 = a
-      b = Array(1...534479)
+      b = Array(1...534480)
       b_1 = b.map{|i| i.to_s}
       c= b.map{|i|
         if i < 9
