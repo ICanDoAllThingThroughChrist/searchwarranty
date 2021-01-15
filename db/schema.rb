@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_16_163204) do
+ActiveRecord::Schema.define(version: 2021_01_15_210652) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -151,6 +151,10 @@ ActiveRecord::Schema.define(version: 2020_06_16_163204) do
     t.integer "replace_wheel_lid"
     t.integer "tally"
     t.datetime "sr_create_date"
+    t.integer "cumulative_delivered"
+    t.integer "y2018"
+    t.integer "y2019"
+    t.integer "y2020"
   end
 
   create_table "duplicates", force: :cascade do |t|
@@ -233,6 +237,12 @@ ActiveRecord::Schema.define(version: 2020_06_16_163204) do
     t.integer "tally"
     t.string "quad_statu"
     t.string "sr_locatio"
+  end
+
+  create_table "requests", force: :cascade do |t|
+    t.string "warranty"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "residents", force: :cascade do |t|
@@ -362,6 +372,11 @@ ActiveRecord::Schema.define(version: 2020_06_16_163204) do
     t.date "expiration_date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "BegNum"
+    t.date "WarrantyStart"
+    t.integer "EndNum"
+    t.date "WarrantyEnd"
+    t.string "PO"
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"

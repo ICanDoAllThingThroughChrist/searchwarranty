@@ -280,6 +280,25 @@ class Cart < ApplicationRecord
         cart
       end
     end
+    def self.warranty_dates
+      require 'creek'
+      creek = Creek::Book.new 'C:\Users\e128289\Downloads\Carts_Warranty_dtl.xlsx'
+      sheet= creek.sheets[0]
+      a = []
+      sheet.simple_rows.each do |row|
+          a.push row # => {"A"=>"Content 1", "B"=>nil, "C"=>nil, "D"=>"Content 3"}
+      end
+
+      a.each {|i|
+        if i["A"] == "BegSerNo"
+          next
+        else
+           WarrantyList.create(BegNum: i["A"], EndNum: i["B"], PO: i["C"], WarrantyStart: i["D"], WarrantyEnd: i["E"])
+        end
+        # binding.pry
+      }
+      binding.pry
+    end
     def self.warranty_csv
       require 'creek'
       creek = Creek::Book.new 'C:\Users\e128289\OneDrive - City of Houston\Desktop\Copy of City of Houston Serial # 2009-2019.xlsx'

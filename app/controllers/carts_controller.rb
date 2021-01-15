@@ -10,22 +10,11 @@ class CartsController < ApplicationController
       cart_number = carts_params[:cart_number]
       cart_number_s = cart_number
       cart_number_i = cart_number.to_i
-      a = Array(227091...383846)
-      a_1 = a.map {|i| i.to_s}
-      a_2 = a
-      b = Array(1...534480)
+      b = Array(104465...534480)
       b_1 = b.map{|i| i.to_s}
       c= b.map{|i|
-        if i < 9
-          then "SS000000"+i.to_s
-        elsif i < 99
-          then  "SS00000"+i.to_s
-        elsif i < 999
-          then "SS0000"+i.to_s
-        elsif i < 9999
-          then "SS000"+i.to_s
-        elsif i < 99999
-          then "SS00"+i.to_s
+        if i < 104466
+          then "SS0"+i.to_s
         elsif i < 999999
           then "SS0"+i.to_s
         end
@@ -59,16 +48,26 @@ class CartsController < ApplicationController
         # binding.pry
       }
       # binding.pry #what is new_array,d?
-        if a_1.include?(cart_number_s)
-          @cart=Cart.new(carts_params)
-        elsif a_2.include?(cart_number_i)
-          @cart=Cart.new(carts_params)
-        elsif b.include?(cart_number_i)
-          @cart=Cart.new(carts_params)
-        elsif c.include?(cart_number_s)
-          @cart=Cart.new(carts_params)
-        elsif d.include?(cart_number_s)
-          @cart=Cart.new(carts_params)
+      if b.include?(cart_number_i)
+        WarrantyList.search_for_warranty2(cart_number_i)
+            #binding.pry
+            @request= Request.last
+            #what is carts_params?
+            binding.pry
+            i= carts_params["cart_number"]
+            j= i.to_i
+            if j > 104466 && j < 534480
+              j= "SS0"+i.to_s
+              carts_params["cart_number"]= j
+            end
+            binding.pry
+            @cart= Cart.new(carts_params)
+            # binding.pry
+            # @cart=Cart.new(carts_params)
+        # elsif c.include?(cart_number_s)
+        #     @cart=Cart.new(carts_params)
+        # elsif d.include?(cart_number_s)
+        #     @cart=Cart.new(carts_params)
         else
           flash[:notice] = "Cart not in warranty"
           carts_path

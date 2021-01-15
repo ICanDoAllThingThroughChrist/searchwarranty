@@ -1,5 +1,7 @@
 <%= form_for @cart do |cart_form| %>
-<br>Please Enter Your Cart Number:</br>
+<br>Toter Carts Only<br>
+<br>Please Enter Your Cart Number for SS0 Serial Numbers,
+i.e.("only the numbers such as 123459"):</br>
 <br><%= cart_form.text_field :cart_number%></br>
 <br><%= cart_form.submit "create cart" %></br>
 <!-- binding.pry %>
