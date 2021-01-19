@@ -1,5 +1,26 @@
 namespace :seed do
   desc "TODO"
+  task upload_warranty_list: :environment do
+    require 'creek'
+    require 'pry'
+    #binding.pry
+    creek = Creek::Book.new '/Users/charlielee/Desktop/Warranty-info.xlsx'
+    sheet = creek.sheets[0]
+    sheet.simple_rows.each do |row| puts row  end
+    a = []
+    sheet.simple_rows.each do |row| a.push row end
+    a.each {|item|
+      if item["A"] == "BegNum"
+        next
+      else
+        item["A"]= item["A"].to_i
+        item["B"]= item["B"].to_i
+        WarrantyList.create(BegNum: "#{item["A"]}", EndNum: "#{item["B"]}", WarrantyStart: "#{item["C"]}", WarrantyEnd: "#{item["D"]}", PO: "#{item["E"]}")
+        #binding.pry
+      end
+      }
+
+  end
   task FY2018_to_present_requests: :environment do
     start = Date.parse('2017-07-01')
     due = DateTime.now

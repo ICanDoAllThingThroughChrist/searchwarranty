@@ -53,14 +53,14 @@ class CartsController < ApplicationController
             #binding.pry
             @request= Request.last
             #what is carts_params?
-            binding.pry
+            #binding.pry
             i= carts_params["cart_number"]
             j= i.to_i
             if j > 104466 && j < 534480
               j= "SS0"+i.to_s
               carts_params["cart_number"]= j
             end
-            binding.pry
+          #  binding.pry
             @cart= Cart.new(carts_params)
             # binding.pry
             # @cart=Cart.new(carts_params)
