@@ -10,15 +10,16 @@ class CartsController < ApplicationController
       cart_number = carts_params[:cart_number]
       cart_number_s = cart_number
       cart_number_i = cart_number.to_i
-      b = Array(104465...534480)
+      b = Array(104465...397207)
+      c = Array(410440...534479)
       b_1 = b.map{|i| i.to_s}
-      c= b.map{|i|
-        if i < 104466
-          then "SS0"+i.to_s
-        elsif i < 999999
-          then "SS0"+i.to_s
-        end
-      }
+      # c= b.map{|i|
+      #   if i < 104466
+      #     then "SS0"+i.to_s
+      #   elsif i < 397207
+      #     then "SS0"+i.to_s
+      #   end
+      # }
       # binding.pry
       array=cart_number.gsub(/\s+/m, ' ').gsub(/^\s+|\s+$/m, '').split(" ")
       ar=array[1]
@@ -50,28 +51,28 @@ class CartsController < ApplicationController
       # binding.pry #what is new_array,d?
       if b.include?(cart_number_i)
         WarrantyList.search_for_warranty2(cart_number_i)
-            #binding.pry
             @request= Request.last
-            #what is carts_params?
-            #binding.pry
             i= carts_params["cart_number"]
             j= i.to_i
-            if j > 104466 && j < 534480
+            if j > 104466 && j < 397208
               j= "SS0"+i.to_s
               carts_params["cart_number"]= j
             end
-          #  binding.pry
-            @cart= Cart.new(carts_params)
-            # binding.pry
-            # @cart=Cart.new(carts_params)
-        # elsif c.include?(cart_number_s)
-        #     @cart=Cart.new(carts_params)
-        # elsif d.include?(cart_number_s)
-        #     @cart=Cart.new(carts_params)
-        else
+              @cart= Cart.new(carts_params)
+      elsif c.include?(cart_number_i)
+        WarrantyList.search_for_warranty2(cart_number_i)
+            @request= Request.last
+            i= carts_params["cart_number"]
+            j= i.to_i
+            if j > 410400 && j <  534479
+              j= "SS0"+i.to_s
+              carts_params["cart_number"]= j
+            end
+              @cart= Cart.new(carts_params)
+      else
           flash[:notice] = "Cart not in warranty"
           carts_path
-        end
+      end
   end
   def show
       @cart = Cart.find(params[:id])

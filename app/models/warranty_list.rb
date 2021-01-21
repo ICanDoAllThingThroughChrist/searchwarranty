@@ -14,26 +14,33 @@ class WarrantyList < ApplicationRecord
     aCaseOrderNum= []
     aCaseItemNum= []
     aCaseItemDesc= []
+    aCasePO= []
     array.each {|c|
+      #binding.pry
       if aCase.between?(c.BegNum,  c.EndNum)
         aCaseWarrantyDate << "#{c.WarrantyEnd}"
         aCaseOrderNum << "#{c.OrderNum}"
         aCaseItemNum << "#{c.ItemNum}"
         aCaseItemDesc << "#{c.ItemDesc}"
+        aCasePO << "#{c.PO}"
+      else
+        puts "serial number is not in system"
       end
+      #binding.pry
     }
     #binding.pry
-    puts "#{aCaseWarrantyDate}"
+    puts "#{aCaseWarrantyDate}",
+    "#{aCaseOrderNum}", "#{aCaseItemNum}", "#{aCaseItemDesc}",
+    "#{aCasePO}"
+     #binding.pry
     @search = Request.create(
       warranty: "#{aCaseWarrantyDate}",
       orderNum: "#{aCaseOrderNum}",
       itemNum: "#{aCaseItemNum}",
-      itemDesc: "#{aCaseItemDesc}"
+      itemDesc: "#{aCaseItemDesc}",
+      po: "#{aCasePO}"
     )
     #binding.pry
-    #return "#{aCaseWarrantyDate}"
-    # binding.pry
-    #find distinct BegNum Values with WarrantyList.distinct.pluck(:BegNum)
   end
   def self.nil_resolution
     ar = WarrantyList.all

@@ -5,7 +5,11 @@
         Cart is not in Warranty
     <% else%>
        <br>Cart Number: <%=@cart.cart_number%> is in warranty.</br>
-       <br>Cart Warranty Expiration Date: <%=@request.warranty%> </br>
+         <br>Cart Warranty Expiration Date: <%=@request.warranty%> </br>
+         <br>Cart Purchase Order Number: <%=@request.po%> </br>
+         <br>Cart Order Number: <%=@request.orderNum%> </br>
+         <br>Cart Item Number: <%=@request.itemNum%> </br>
+         <br>Cart Item Description: <%=@request.itemDesc%> </br>
        <br>Please Contact 311 and provide:</br>
         <br>1. your solid waste service unit address</br>
         <br>2. your container number: <%=@cart.cart_number%></br>

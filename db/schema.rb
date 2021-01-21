@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_21_165024) do
+ActiveRecord::Schema.define(version: 2021_01_21_170518) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -217,9 +217,10 @@ ActiveRecord::Schema.define(version: 2021_01_21_165024) do
     t.string "warranty"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "orderNum"
+    t.text "orderNum"
     t.text "itemNum"
     t.text "itemDesc"
+    t.text "po"
   end
 
   create_table "residents", force: :cascade do |t|
