@@ -4,7 +4,7 @@ namespace :seed do
     require 'creek'
     require 'pry'
     #binding.pry
-    creek = Creek::Book.new '/Users/charlielee/Desktop/Warranty-info.xlsx'
+    creek = Creek::Book.new 'C:/Users/e128289/Desktop/Warranty-info.xlsx'
     sheet = creek.sheets[0]
     sheet.simple_rows.each do |row| puts row  end
     a = []
@@ -15,7 +15,8 @@ namespace :seed do
       else
         item["A"]= item["A"].to_i
         item["B"]= item["B"].to_i
-        WarrantyList.create(BegNum: "#{item["A"]}", EndNum: "#{item["B"]}", WarrantyStart: "#{item["C"]}", WarrantyEnd: "#{item["D"]}", PO: "#{item["E"]}")
+        WarrantyList.create(BegNum: "#{item["A"]}", EndNum: "#{item["B"]}", WarrantyStart: "#{item["C"]}", WarrantyEnd: "#{item["D"]}", PO: "#{item["E"]}",
+        OrderNum: "#{item["F"]}", ItemNum: "#{item["G"]}", ItemDesc: "#{item["H"]}", SoldToNum: "#{item["I"]}")
         #binding.pry
       end
       }
