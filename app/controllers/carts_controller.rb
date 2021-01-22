@@ -7,20 +7,14 @@ class CartsController < ApplicationController
     @cart = Cart.new
   end
   def create
+      binding.pry
       cart_number = carts_params[:cart_number]
       cart_number_s = cart_number
       cart_number_i = cart_number.to_i
       b = Array(104465...397207)
       c = Array(410440...534479)
       b_1 = b.map{|i| i.to_s}
-      # c= b.map{|i|
-      #   if i < 104466
-      #     then "SS0"+i.to_s
-      #   elsif i < 397207
-      #     then "SS0"+i.to_s
-      #   end
-      # }
-      # binding.pry
+
       array=cart_number.gsub(/\s+/m, ' ').gsub(/^\s+|\s+$/m, '').split(" ")
       ar=array[1]
       e =ar.to_i
