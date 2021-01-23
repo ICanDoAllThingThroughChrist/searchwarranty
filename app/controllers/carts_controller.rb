@@ -7,7 +7,7 @@ class CartsController < ApplicationController
     @cart = Cart.new
   end
   def create
-      binding.pry
+      #binding.pry
       cart_number = carts_params[:cart_number]
       cart_number_s = cart_number
       cart_number_i = cart_number.to_i
@@ -15,7 +15,10 @@ class CartsController < ApplicationController
       c = Array(410440...534479)
       b_1 = b.map{|i| i.to_s}
 
-      array=cart_number.gsub(/\s+/m, ' ').gsub(/^\s+|\s+$/m, '').split(" ")
+      array=cart_number.
+      gsub(/\s+/m, ' ').
+      gsub(/^\s+|\s+$/m, '').
+      split(" ")
       ar=array[1]
       e =ar.to_i
       d= []
@@ -47,22 +50,15 @@ class CartsController < ApplicationController
         WarrantyList.search_for_warranty2(cart_number_i)
             @request= Request.last
             i= carts_params["cart_number"]
-            j= i.to_i
-            if j > 104466 && j < 397208
-              j= "SS0"+i.to_s
-              carts_params["cart_number"]= j
-            end
-              @cart= Cart.new(carts_params)
+            @cart= Cart.new(carts_params)
+            # binding.pry
+            @cart.save
       elsif c.include?(cart_number_i)
         WarrantyList.search_for_warranty2(cart_number_i)
             @request= Request.last
             i= carts_params["cart_number"]
-            j= i.to_i
-            if j > 410400 && j <  534479
-              j= "SS0"+i.to_s
-              carts_params["cart_number"]= j
-            end
-              @cart= Cart.new(carts_params)
+            @cart= Cart.new(carts_params)
+            @cart.save
       else
           flash[:notice] = "Cart not in warranty"
           carts_path
@@ -74,6 +70,13 @@ class CartsController < ApplicationController
 
   private
   def carts_params
-      params.require(:cart).permit(:id,:cart_number,:number)
+      params.require(:cart).permit(:id,:cart_number,:number,
+        :replaced_body,
+        :replaced_lid,
+        :replaced_wheel,
+        :repaired_body,
+        :repaired_lid,
+        :repaired_wheel,
+      )
   end
 end

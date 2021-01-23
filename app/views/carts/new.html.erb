@@ -1,9 +1,35 @@
 <%= form_for @cart do |cart_form| %>
+<%# <%binding.pry%>
 <br>Toter Carts Only<br>
-<br>Please Enter Your Cart Number for SS0 Serial Numbers,
-i.e.("only the numbers such as 123459"):</br>
+<br>Please Enter Your ONLY Cart Number Last Six Digits Number,
+i.e.("for SS0123456, Enter 123456"):</br>
 <br>from number 0 to 534,480</br>
 <br><%= cart_form.text_field :cart_number%></br>
+
+<br><%= cart_form.label "Replaced Body Option"%></br>
+<br><%= cart_form.select :replaced_body, Cart.replaced_bodies.keys,
+id: :item_replaced_body, prompt: 'select an option'%></br>
+
+<br><%= cart_form.label "Replaced Lid Option"%></br>
+<br><%= cart_form.select :replaced_lid, Cart.replaced_lids.keys,
+id: :item_replaced_lid, prompt: 'select an option'%></br>
+
+<br><%= cart_form.label "Replaced Wheel Option"%></br>
+<br><%= cart_form.select :replaced_wheel, Cart.replaced_wheels.keys,
+id: :item_replaced_wheel, prompt: 'select an option'%></br>
+
+<br><%= cart_form.label "Repaired Body Option"%></br>
+<br><%= cart_form.select :repaired_body, Cart.repaired_bodies.keys,
+id: :item_repaired_body, prompt: 'select an option'%></br>
+
+<br><%= cart_form.label "Repaired Lid Option"%></br>
+<br><%= cart_form.select :repaired_lid, Cart.repaired_lids.keys,
+id: :item_repaired_lid, prompt: 'select an option'%></br>
+
+<br><%= cart_form.label "Repaired Wheel Option"%></br>
+<br><%= cart_form.select :repaired_wheel, Cart.repaired_wheels.keys,
+id: :item_repaired_wheel, prompt: 'select an option'%></br>
+
 <br><%= cart_form.submit "create cart" %></br>
 <!-- <binding.pry %> -->
 <% end %>
