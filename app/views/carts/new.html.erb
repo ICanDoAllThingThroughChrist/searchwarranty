@@ -1,19 +1,27 @@
+<!DOCTYPE html>
+<html>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<body>
 <%= form_for @cart do |cart_form| %>
 <%# <%binding.pry%>
+<div class="w3-container w3-blue">
 <h2 style="color: blue;">Toter Carts Only</h2>
-<p><h4 style="color: black;">Instruction:</p></h4>
-<p><h4>1) System only applies to carts starting with "SS0",</h4></p>
-<p><h4>then it will require you to enter the remaining
-  Last Six Digits ONLY,</h4></p>
-<p><h4>i.e.("for SS0123456, Enter 123456")</h4></p>
-<p><h4>2) Available numbers are from number 0 to 534480</h4></p>
-<h4 style="color: black;"> "Please Enter Your Cart Number in this box: =>"
-  <%= cart_form.text_field :cart_number%></h4>
-<p><h4 style="color: black;">Instructions for Repair/Replace Cart:</p></h4>
-<p><h4 style="color: black;">1) Pick from any combination of the following six
-  Options:</p></h4>
-<div>
+<p>Instruction:</p>
+<p>1) System only applies to carts starting with "SS0",</p>
+<p>then it will require you to enter the remaining
+  Last Six Digits ONLY,</p>
+<p>i.e.("for SS0123456, Enter 123456")</p>
+<p>2) Available numbers are from number 0 to 534480</p>
+</div>
+<p> "please enter your cart number in this box"<%= cart_form.text_field :cart_number%></p>
+<div class="w3-container w3-blue">
+<p>Instructions for Repair/Replace Cart:</p>
+<p>1) Pick from any combination of the following six
+  Options:</p>
+</div>
   <br> Replace Options</br>
+<div>
   <ul>
     <br><%= cart_form.label "1) Replaced Body Option"%></br>
     <li><%= cart_form.select :replaced_body, Cart.replaced_bodies.keys,
@@ -30,6 +38,8 @@
 </div>
 <div>
     <br> Repair Options</br>
+</div>
+<div>
 <ul>
     <br><%= cart_form.label "4) Repaired Body Option"%></br>
     <li><%= cart_form.select :repaired_body, Cart.repaired_bodies.keys,
@@ -47,3 +57,5 @@
 <br><%= cart_form.submit "create cart" %></br>
 <!-- <binding.pry %> -->
 <% end %>
+</body>
+</html>
