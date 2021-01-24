@@ -32,13 +32,13 @@ class WarrantyList < ApplicationRecord
     puts "#{aCaseWarrantyDate}",
     "#{aCaseOrderNum}", "#{aCaseItemNum}", "#{aCaseItemDesc}",
     "#{aCasePO}"
-     #binding.pry
+     # binding.pry
     @search = Request.create(
-      warranty: "#{aCaseWarrantyDate}",
-      orderNum: "#{aCaseOrderNum}",
-      itemNum: "#{aCaseItemNum}",
-      itemDesc: "#{aCaseItemDesc}",
-      po: "#{aCasePO}"
+      warranty: "#{aCaseWarrantyDate[0]}, #{aCaseWarrantyDate[1]},#{aCaseWarrantyDate[2]}",
+      orderNum: "#{aCaseOrderNum[0]}, #{aCaseOrderNum[1]}, #{aCaseOrderNum[2]}",
+      itemNum: "#{aCaseItemNum[0]}, #{aCaseItemNum[1]}, #{aCaseItemNum[2]}",
+      itemDesc: "#{aCaseItemDesc[0]}, #{aCaseItemDesc[1]}, #{aCaseItemDesc[2]}",
+      po: "#{aCasePO[0]},#{aCasePO[1]},#{aCasePO[2]}"
     )
     #binding.pry
   end

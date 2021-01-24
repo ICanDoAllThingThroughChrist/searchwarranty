@@ -1,34 +1,48 @@
 <%= form_for @cart do |cart_form| %>
 <%# <%binding.pry%>
-<br>Toter Carts Only<br>
-<br>Please Enter Your ONLY Cart Number Last Six Digits Number,
-i.e.("for SS0123456, Enter 123456"):</br>
-<br>from number 0 to 534,480</br>
-<br><%= cart_form.text_field :cart_number%></br>
+<h2 style="color: blue;">Toter Carts Only</h2>
+<p><h4 style="color: black;">Instruction:</p></h4>
+<p><h4>1) System only applies to carts starting with "SS0",</h4></p>
+<p><h4>then it will require you to enter the remaining
+  Last Six Digits ONLY,</h4></p>
+<p><h4>i.e.("for SS0123456, Enter 123456")</h4></p>
+<p><h4>2) Available numbers are from number 0 to 534480</h4></p>
+<h4 style="color: black;"> "Please Enter Your Cart Number in this box: =>"
+  <%= cart_form.text_field :cart_number%></h4>
+<p><h4 style="color: black;">Instructions for Repair/Replace Cart:</p></h4>
+<p><h4 style="color: black;">1) Pick from any combination of the following six
+  Options:</p></h4>
+<div>
+  <br> Replace Options</br>
+  <ul>
+    <br><%= cart_form.label "1) Replaced Body Option"%></br>
+    <li><%= cart_form.select :replaced_body, Cart.replaced_bodies.keys,
+    id: :item_replaced_body, prompt: 'select an option'%></li>
 
-<br><%= cart_form.label "Replaced Body Option"%></br>
-<br><%= cart_form.select :replaced_body, Cart.replaced_bodies.keys,
-id: :item_replaced_body, prompt: 'select an option'%></br>
+    <br><%= cart_form.label "2) Replaced Lid Option"%></br>
+    <li><%= cart_form.select :replaced_lid, Cart.replaced_lids.keys,
+    id: :item_replaced_lid, prompt: 'select an option'%></li>
 
-<br><%= cart_form.label "Replaced Lid Option"%></br>
-<br><%= cart_form.select :replaced_lid, Cart.replaced_lids.keys,
-id: :item_replaced_lid, prompt: 'select an option'%></br>
+    <br><%= cart_form.label "3) Replaced Wheel Option"%></br>
+    <li><%= cart_form.select :replaced_wheel, Cart.replaced_wheels.keys,
+    id: :item_replaced_wheel, prompt: 'select an option'%></li>
+  </ul>
+</div>
+<div>
+    <br> Repair Options</br>
+<ul>
+    <br><%= cart_form.label "4) Repaired Body Option"%></br>
+    <li><%= cart_form.select :repaired_body, Cart.repaired_bodies.keys,
+    id: :item_repaired_body, prompt: 'select an option'%></li>
 
-<br><%= cart_form.label "Replaced Wheel Option"%></br>
-<br><%= cart_form.select :replaced_wheel, Cart.replaced_wheels.keys,
-id: :item_replaced_wheel, prompt: 'select an option'%></br>
+    <br><%= cart_form.label "5) Repaired Lid Option"%></br>
+    <li><%= cart_form.select :repaired_lid, Cart.repaired_lids.keys,
+    id: :item_repaired_lid, prompt: 'select an option'%></li>
 
-<br><%= cart_form.label "Repaired Body Option"%></br>
-<br><%= cart_form.select :repaired_body, Cart.repaired_bodies.keys,
-id: :item_repaired_body, prompt: 'select an option'%></br>
-
-<br><%= cart_form.label "Repaired Lid Option"%></br>
-<br><%= cart_form.select :repaired_lid, Cart.repaired_lids.keys,
-id: :item_repaired_lid, prompt: 'select an option'%></br>
-
-<br><%= cart_form.label "Repaired Wheel Option"%></br>
-<br><%= cart_form.select :repaired_wheel, Cart.repaired_wheels.keys,
-id: :item_repaired_wheel, prompt: 'select an option'%></br>
+    <br><%= cart_form.label "6) Repaired Wheel Option"%></br>
+    <li><%= cart_form.select :repaired_wheel, Cart.repaired_wheels.keys,
+    id: :item_repaired_wheel, prompt: 'select an option'%></li>
+</div>
 
 <br><%= cart_form.submit "create cart" %></br>
 <!-- <binding.pry %> -->
