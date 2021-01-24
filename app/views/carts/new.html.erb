@@ -6,13 +6,13 @@
 <%= form_for @cart do |cart_form| %>
 <%# <%binding.pry%>
 <div class="w3-container w3-blue">
-<h2 style="color: blue;">Toter Carts Only</h2>
-<p>Instruction:</p>
-<p>1) System only applies to carts starting with "SS0",</p>
-<p>then it will require you to enter the remaining
-  Last Six Digits ONLY,</p>
-<p>i.e.("for SS0123456, Enter 123456")</p>
-<p>2) Available numbers are from number 0 to 534480</p>
+  <h2 style="color: blue;">Toter Carts Only</h2>
+  <p>Instruction:</p>
+  <p>1) System only applies to carts starting with "SS0",</p>
+  <p>then it will require you to enter the remaining
+    Last Six Digits ONLY,</p>
+  <p>i.e.("for SS0123456, Enter 123456")</p>
+  <p>2) Available numbers are from number 0 to 534480</p>
 </div>
 <p> "please enter your cart number in this box"<%= cart_form.text_field :cart_number%></p>
 <div class="w3-container w3-blue">
