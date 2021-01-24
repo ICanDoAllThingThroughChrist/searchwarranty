@@ -1,32 +1,33 @@
 <!DOCTYPE html>
 <html>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3pro.css">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <body>
   <div class="w3-container w3-blue">
-  <h1>Asset: Cart Warranty Search Result</h1>
+    <h2>Asset: Cart Warranty Search Result</h2>
   </div>
-  <h3>
+  <div class="w3-container w3-card">
     <% if @cart == nil %>
         Cart is not in Warranty
     <% else%>
-       <br>Cart Number: <%=@cart.cart_number%> is in warranty.</br>
-         <br>Cart Warranty Expiration Date: <%=@request.warranty%> </br>
-         <br>Cart Purchase Order Number: <%=@request.po%> </br>
-         <br>Cart Order Number: <%=@request.orderNum%> </br>
-         <br>Cart Item Number: <%=@request.itemNum%> </br>
-         <br>Cart Item Description: <%=@request.itemDesc%> </br>
-         <br>Please Contact 311 and provide:</br>
-         <br>1. your solid waste service unit address</br>
-         <br>2. your container number: <%=@cart.cart_number%></br>
-         <br>3. your response to replaced_body is: <%=@cart.replaced_body%></br>
-         <br>4. your response to replaced_lid is: <%=@cart.replaced_lid%></br>
-         <br>5. your response to replaced_wheel is: <%=@cart.replaced_wheel%></br>
-         <br>6. your response to repaired_body is: <%=@cart.repaired_body%></br>
-         <br>7. your response to repaired_lid is: <%=@cart.repaired_lid%></br>
-         <br>8. your response to repaired_wheel is: <%=@cart.repaired_wheel%></br>
+         <br>Cart Number: <%=@cart.cart_number%> is in warranty.</br>
+           <br>Cart Warranty Expiration Date: <%=@request.warranty%> </br>
+           <br>Cart Purchase Order Number: <%=@request.po%> </br>
+           <br>Cart Order Number: <%=@request.orderNum%> </br>
+           <br>Cart Item Number: <%=@request.itemNum%> </br>
+           <br>Cart Item Description: <%=@request.itemDesc%> </br>
+  <div class="w3-container w3-card">
+           <br>Please Contact 311 and provide:</br>
+           <br>1. your solid waste service unit address</br>
+           <br>2. your container number: <%=@cart.cart_number%></br>
+           <br>3. your response to replaced_body is: <%=@cart.replaced_body%></br>
+           <br>4. your response to replaced_lid is: <%=@cart.replaced_lid%></br>
+           <br>5. your response to replaced_wheel is: <%=@cart.replaced_wheel%></br>
+           <br>6. your response to repaired_body is: <%=@cart.repaired_body%></br>
+           <br>7. your response to repaired_lid is: <%=@cart.repaired_lid%></br>
+           <br>8. your response to repaired_wheel is: <%=@cart.repaired_wheel%></br>
     <% end%>
-  </h3>
+  </div>
   <p><%= link_to "New Cart Search", new_cart_path,  method: :get %></p>
 </body>
 </html>
