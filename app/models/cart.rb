@@ -1,27 +1,27 @@
 class Cart < ApplicationRecord
   enum replaced_body:{
-    "replaced_body" => 1,
-    "body is not replaced" => 2,
+    "replaced body" => 1,
+    "no cart body is replaced" => 2,
   }
   enum replaced_wheel:{
     "replaced_wheel" => 1,
-    "wheel is not replaced" => 2,
+    "no wheel is replaced" => 2,
   }
   enum replaced_lid:{
     "replaced lid" => 1,
-    "lid is not replaced" => 2,
+    "no lid is replaced" => 2,
   }
   enum repaired_body:{
     "repaired body" => 1,
-    "body is not repaired" => 2,
+    "no cart body is repaired" => 2,
   }
   enum repaired_wheel:{
     "repaired wheel" => 1,
-    "wheel is not repaired" => 2,
+    "no wheel is repaired" => 2,
   }
   enum repaired_lid:{
     "repaired lid" => 1,
-    "lid is not repaired" => 2,
+    "no lid is repaired" => 2,
   }
 
   def self.container_problem_not_nil_cases

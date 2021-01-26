@@ -15,3 +15,5 @@
 //= require_tree .
 //= require main
 //= require ./main
+//= require jquery
+//= require allow_numeric
