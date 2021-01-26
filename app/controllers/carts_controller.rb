@@ -11,40 +11,16 @@ class CartsController < ApplicationController
       cart_number = carts_params[:cart_number]
       cart_number_s = cart_number
       cart_number_i = cart_number.to_i
-      b = Array(104465...397207)
+      b = Array(104466...397207)
       c = Array(410440...534479)
+      d= Array(1...7021)
       b_1 = b.map{|i| i.to_s}
 
       array=cart_number.
       gsub(/\s+/m, ' ').
       gsub(/^\s+|\s+$/m, '').
       split(" ")
-      ar=array[1]
-      e =ar.to_i
-      d= []
-      d << e
-      d.map {|i|
-        if i <= 9
-           d << "9GH 00000"+i.to_s
-           d.shift
-           d.save
-        elsif i <= 99 && i >= 10
-           d << "9GH 0000"+i.to_s
-           d.shift
-           d.save
-        elsif i <= 999  && i >= 100
-          # binding.pry
-           d << "9GH 000"+i.to_s
-           d.shift
-           d.save
-        elsif i <= 9999 && i >= 1000
-          # binding.pry
-           d << "9GH 00"+i.to_s
-           d.shift
-           d.save
-        end
-        # binding.pry
-      }
+      # ar=array[1]
       # binding.pry #what is new_array,d?
       if b.include?(cart_number_i)
         WarrantyList.search_for_warranty2(cart_number_i)
@@ -54,6 +30,12 @@ class CartsController < ApplicationController
             # binding.pry
             @cart.save
       elsif c.include?(cart_number_i)
+        WarrantyList.search_for_warranty2(cart_number_i)
+            @request= Request.last
+            i= carts_params["cart_number"]
+            @cart= Cart.new(carts_params)
+            @cart.save
+      elsif d.include?(cart_number_i)
         WarrantyList.search_for_warranty2(cart_number_i)
             @request= Request.last
             i= carts_params["cart_number"]

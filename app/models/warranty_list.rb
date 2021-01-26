@@ -16,8 +16,9 @@ class WarrantyList < ApplicationRecord
     aCaseItemDesc= []
     aCasePO= []
     array.each {|c|
-      #binding.pry
+      # binding.pry
       if aCase.between?(c.BegNum,  c.EndNum)
+        # binding.pry
         aCaseWarrantyDate << "#{c.WarrantyEnd}"
         aCaseOrderNum << "#{c.OrderNum}"
         aCaseItemNum << "#{c.ItemNum}"
@@ -26,13 +27,13 @@ class WarrantyList < ApplicationRecord
       else
         puts "serial number is not in system"
       end
-      #binding.pry
+    #  binding.pry
     }
     #binding.pry
     puts "#{aCaseWarrantyDate}",
     "#{aCaseOrderNum}", "#{aCaseItemNum}", "#{aCaseItemDesc}",
     "#{aCasePO}"
-     # binding.pry
+      # binding.pry
     @search = Request.create(
       warranty: "#{aCaseWarrantyDate[0]}, #{aCaseWarrantyDate[1]},#{aCaseWarrantyDate[2]}",
       orderNum: "#{aCaseOrderNum[0]}, #{aCaseOrderNum[1]}, #{aCaseOrderNum[2]}",
@@ -40,7 +41,7 @@ class WarrantyList < ApplicationRecord
       itemDesc: "#{aCaseItemDesc[0]}, #{aCaseItemDesc[1]}, #{aCaseItemDesc[2]}",
       po: "#{aCasePO[0]},#{aCasePO[1]},#{aCasePO[2]}"
     )
-    #binding.pry
+    # binding.pry
   end
   def self.nil_resolution
     ar = WarrantyList.all

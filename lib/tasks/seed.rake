@@ -1,26 +1,45 @@
 namespace :seed do
   desc "TODO"
-  task upload_warranty_list: :environment do
+  task upload_rehrig_warranty_list: :environment do
     require 'creek'
     require 'pry'
     #binding.pry
-    creek = Creek::Book.new 'C:/Users/e128289/Desktop/Warranty-info.xlsx'
+    creek = Creek::Book.new "C:/Users/e128289/Desktop/rehrig-data.xlsx"
     sheet = creek.sheets[0]
     sheet.simple_rows.each do |row| puts row  end
     a = []
     sheet.simple_rows.each do |row| a.push row end
     a.each {|item|
-      if item["A"] == "BegNum"
+      if item["A"] == "beg_num"
         next
       else
         item["A"]= item["A"].to_i
         item["B"]= item["B"].to_i
         WarrantyList.create(BegNum: "#{item["A"]}", EndNum: "#{item["B"]}", WarrantyStart: "#{item["C"]}", WarrantyEnd: "#{item["D"]}", PO: "#{item["E"]}",
-        OrderNum: "#{item["F"]}", ItemNum: "#{item["G"]}", ItemDesc: "#{item["H"]}", SoldToNum: "#{item["I"]}")
+        OrderNum: "#{item["F"]}", ItemNum: "#{item["G"]}", ItemDesc: "#{item["H"]}")
         #binding.pry
       end
       }
-
+  end
+  task upload_toter_warranty_list: :environment do
+    require 'creek'
+    require 'pry'
+  creek2 = Creek::Book.new "C:/Users/e128289/Desktop/Warranty-info.xlsx"
+  sheet2 = creek2.sheets[0]
+  sheet2.simple_rows.each do |row| puts row  end
+  b = []
+  sheet2.simple_rows.each do |row| b.push row end
+  b.each {|item|
+    if item["A"] == "beg_num"
+      next
+    else
+      item["A"]= item["A"].to_i
+      item["B"]= item["B"].to_i
+      WarrantyList.create(BegNum: "#{item["A"]}", EndNum: "#{item["B"]}", WarrantyStart: "#{item["C"]}", WarrantyEnd: "#{item["D"]}", PO: "#{item["E"]}",
+      OrderNum: "#{item["F"]}", ItemNum: "#{item["G"]}", ItemDesc: "#{item["H"]}")
+      #binding.pry
+    end
+    }
   end
   task FY2018_to_present_requests: :environment do
     start = Date.parse('2017-07-01')
@@ -499,7 +518,7 @@ namespace :seed do
 
   task import_monthly_cases: :environment do
     web1 = open('https://hfdapp.houstontx.gov/311/311-Public-Data-Extract-monthly-clean.txt'){|f| f.read}
-    things1 = web1.split(/\n/)
+    things1 = web1.split(/n/)
     columns = %i[case_number sr_location county district neighborhood tax_id
        trash_quad recycle_quad trash_day heavy_trash_day recycle_day
         key_map management_district department division sr_type queue
