@@ -8,7 +8,7 @@
   </div>
   <div class="w3-container w3-card">
     <% if @cart == nil %>
-        Cart is not in Warranty
+        <h3>Cart is not in Warranty</h3>
     <% else%>
          <br>Cart Number: <%=@cart.cart_number%> is in warranty.</br>
            <br>Cart Warranty Expiration Date: <%=@request.warranty%> </br>
@@ -28,7 +28,7 @@
            <br>8. your response to repaired_wheel is: <%=@cart.repaired_wheel%></br>
     <% end%>
   </div>
-  <p> click here to perform a new cart warranty search_for_warranty
+  <p> click here to perform a new cart warranty search
     =><%= link_to "New Cart Search", new_cart_path,  method: :get %></p>
 </body>
 </html>

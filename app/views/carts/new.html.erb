@@ -11,10 +11,12 @@
   <p>1) System applies to carts starting with "SS0" or "9GH",</p>
   <p>then it will require you to enter the remaining
     Last Six Digits ONLY,</p>
-  <p>i.e.("for SS0123456, Enter 123456, for 9GH 001234, Enter 1234")</p>
+  <p>i.e.("for SS0123456, Enter 123456, for 9GH 001234, Enter 001234")</p>
   <p>2) Available numbers are from number 0 to 534480</p>
 </div>
-<p> please enter your cart NUMBER "123456" in this box<%= cart_form.text_field :cart_number, data: { numeric: true } %></p>
+<p> please enter your cart NUMBER "123456" in this box
+  <%= cart_form.number_field :cart_number,
+  data: { numeric: true } %></p>
 <div class="w3-container w3-blue">
 <p>Instructions for Repair/Replace Cart:</p>
 <p>Pick from any combination of the following six

@@ -7,7 +7,8 @@ end
 # gem 'rmagick'
 gem 'allow_numeric'
 gem 'jquery-rails'
-gem 'bundler', '~> 2.2', '>= 2.2.5'
+gem 'bundler', '~> 2.2', '>= 2.2.6'
+gem 'rails-ujs', '~> 5.1.0.beta1'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'creek'
 gem "rgeo"

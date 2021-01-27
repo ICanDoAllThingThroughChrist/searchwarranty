@@ -47,7 +47,7 @@ class CreateCarts < ActiveRecord::Migration[5.1]
       t.decimal :longitude
       t.decimal :tax_id1
       t.string :unique
-      t.string :cart_number
+      t.integer :cart_number
 
       t.timestamps
     end

@@ -17,3 +17,4 @@
 //= require ./main
 //= require jquery
 //= require allow_numeric
+//= require jquery_ujs
