@@ -61,7 +61,7 @@ class CartsController < ApplicationController
         :repaired_lid,
         :repaired_wheel,
         :consumption_type,
-        :cart_service_location,
+        :cart_sr_number,
       )
   end
 end
