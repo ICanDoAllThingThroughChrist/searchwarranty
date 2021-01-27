@@ -52,13 +52,16 @@ class CartsController < ApplicationController
 
   private
   def carts_params
-      params.require(:cart).permit(:id,:cart_number,:number,
+      params.require(:cart).permit(
+        :id,:cart_number,:number,
         :replaced_body,
         :replaced_lid,
         :replaced_wheel,
         :repaired_body,
         :repaired_lid,
         :repaired_wheel,
+        :consumption_type,
+        :cart_service_location,
       )
   end
 end

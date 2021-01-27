@@ -18,6 +18,27 @@
   <%= cart_form.number_field :cart_number,
   data: { numeric: true } %></p>
 <div class="w3-container w3-blue">
+  <p>Please Pick From Following Inventory
+  Consumption Type Drop Down</p>
+</div>
+<div>
+  <ul>
+    <br><%= cart_form.label "Inventory Consumption Option"%></br>
+    <li><%= cart_form.select :consumption_type,
+       Cart.consumption_types.keys,
+    id: :item_consumption_type, prompt: 'select an option'%></li>
+  </ul>
+</div>
+<div class="w3-container w3-blue">
+  <p> please enter your Service Request
+    Number "123456" in this box</p>
+</div>
+<div>
+    <br><%= cart_form.label "please enter 311 Service Request #"%></br>
+    <p><%= cart_form.number_field :cart_sr_number,
+    data: { numeric: true } %></p>
+</div>
+<div class="w3-container w3-blue">
 <p>Instructions for Repair/Replace Cart:</p>
 <p>Pick from any combination of the following six
   Options, as applicable, then click "create cart" button:</p>
@@ -36,6 +57,7 @@
     <br><%= cart_form.label "3) Replaced Wheel Option"%></br>
     <li><%= cart_form.select :replaced_wheel, Cart.replaced_wheels.keys,
     id: :item_replaced_wheel, prompt: 'select an option'%></li>
+
   </ul>
 </div>
 <div>

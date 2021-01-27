@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_26_153420) do
+ActiveRecord::Schema.define(version: 2021_01_27_142059) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -135,6 +135,8 @@ ActiveRecord::Schema.define(version: 2021_01_26_153420) do
     t.integer "repaired_lid"
     t.integer "repaired_wheel"
     t.integer "repaired_body"
+    t.integer "consumption_type"
+    t.integer "cart_sr_number"
   end
 
   create_table "duplicates", force: :cascade do |t|

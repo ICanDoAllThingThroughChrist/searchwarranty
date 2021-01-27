@@ -23,6 +23,12 @@ class Cart < ApplicationRecord
     "repaired lid" => 1,
     "no lid is repaired" => 2,
   }
+  enum consumption_type:{
+    "Lost/Stolen "=> 1,
+    "Warranty"=> 2,
+    "Employee Destruction" =>3,
+    "New Delivery" =>4,
+  }
 
   def self.container_problem_not_nil_cases
     local_count= Cart.where.not(container_problem: [nil, " ", 'Unknown'],
