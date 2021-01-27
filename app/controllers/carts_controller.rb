@@ -1,7 +1,8 @@
 class CartsController < ApplicationController
   def index
-    @carts = Cart.all
-    render carts_path
+    # @carts = Cart.all
+    binding.pry
+    render "index"
   end
   def new
     @cart = Cart.new
