@@ -9,11 +9,12 @@ class CartsController < ApplicationController
   end
   def create
       #binding.pry
+      cart_sr_number = carts_params[:cart_sr_number]
       cart_number = carts_params[:cart_number]
       cart_number_s = cart_number
       cart_number_i = cart_number.to_i
       b = Array(104466...397207)
-      c = Array(410440...534479)
+      c = Array(410440...566279)
       d= Array(1...7021)
       b_1 = b.map{|i| i.to_s}
 
@@ -26,24 +27,21 @@ class CartsController < ApplicationController
       if b.include?(cart_number_i)
         WarrantyList.search_for_warranty2(cart_number_i)
             @request= Request.last
-            i= carts_params["cart_number"]
             @cart= Cart.new(carts_params)
             # binding.pry
             @cart.save
       elsif c.include?(cart_number_i)
         WarrantyList.search_for_warranty2(cart_number_i)
             @request= Request.last
-            i= carts_params["cart_number"]
             @cart= Cart.new(carts_params)
             @cart.save
       elsif d.include?(cart_number_i)
         WarrantyList.search_for_warranty2(cart_number_i)
             @request= Request.last
-            i= carts_params["cart_number"]
             @cart= Cart.new(carts_params)
             @cart.save
       else
-          flash[:notice] = "Cart not in warranty"
+          flash[:notice] = "Cart is not in warranty"
           carts_path
       end
   end
