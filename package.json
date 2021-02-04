@@ -2,7 +2,7 @@
   "name": "searchwarranty",
   "private": true,
   "dependencies": {
-    "ol": "^6.2.1"
+    "ol": "^6.5.0"
   },
   "description": "This README would normally document whatever steps are necessary to get the\r application up and running.",
   "version": "1.0.0",

@@ -1,4 +1,7 @@
 class OpenSrsController < ApplicationController
+    def index
+      render 'index.html'
+    end
     def cans_related_requests
       @SWM_Escalation_cans_related_list_FY2021=
         Sr.sWM_Escalation_cans_related_list_FY2021

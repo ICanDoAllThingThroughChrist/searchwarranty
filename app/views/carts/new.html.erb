@@ -14,68 +14,42 @@
   <p>i.e.("for SS0123456, Enter 123456, for 9GH 001234, Enter 001234")</p>
   <p>2) Available numbers are from number 0 to 534480</p>
 </div>
-<p> please enter your cart NUMBER "123456" in this box
+<br>Please enter your cart NUMBER "123456" in this box
   <%= cart_form.number_field :cart_number,
-  data: { numeric: true } %></p>
-<div class="w3-container w3-blue">
-  <p>Please Pick From Following Inventory
-  Consumption Type Drop Down</p>
+  data: { numeric: true } %></br>
+<div class="w3-container w3-blue">Please Pick From Following Inventory
+  Consumption Type Drop Down
 </div>
 <div>
-  <ul>
-    <br><%= cart_form.label "Inventory Consumption Option"%></br>
-    <li><%= cart_form.select :consumption_type,
+    <br>Inventory consumption type
+    <%= cart_form.select :consumption_type,
        Cart.consumption_types.keys,
-    id: :item_consumption_type, prompt: 'select an option'%></li>
-  </ul>
+    id: :item_consumption_type, prompt: 'please select an option'%></br>
 </div>
 <div class="w3-container w3-blue">
-  <p> please enter your Service Request
-    Number "123456" in this box</p>
+  please enter your Service Request Number "123456" in this box
 </div>
 <div>
-    <p><%= cart_form.label "please enter 311 Service Request #"%>
+    <br><%= cart_form.label "please enter 311 Service Request #"%>
     <%= cart_form.number_field :cart_sr_number,
-    data: { numeric: true } %></p>
+    data: { numeric: true } %></br>
 </div>
 <div class="w3-container w3-blue">
-<p>Instructions for Repair/Replace Cart:</p>
-<p>Pick from any combination of the following six
-  Options, as applicable, then click "create cart" button:</p>
+Instructions for Repair/Replace Cart:
+Pick from any combination of the following TWO
+  Options, as applicable, then click "create cart" button:
 </div>
-  <br> Replace Options</br>
-<div>
-  <ul>
-    <br><%= cart_form.label "1) Replaced Body Option"%></br>
-    <li><%= cart_form.select :replaced_body, Cart.replaced_bodies.keys,
-    id: :item_replaced_body, prompt: 'select an option'%></li>
-
-    <br><%= cart_form.label "2) Replaced Lid Option"%></br>
-    <li><%= cart_form.select :replaced_lid, Cart.replaced_lids.keys,
-    id: :item_replaced_lid, prompt: 'select an option'%></li>
-
-    <br><%= cart_form.label "3) Replaced Wheel Option"%></br>
-    <li><%= cart_form.select :replaced_wheel, Cart.replaced_wheels.keys,
-    id: :item_replaced_wheel, prompt: 'select an option'%></li>
-
-  </ul>
-</div>
-<div>
-    <br> Repair Options</br>
+<div class="w3-container w3-blue">
+ Parts Replace Or Repair Options
 </div>
 <div>
 <ul>
-    <br><%= cart_form.label "4) Repaired Body Option"%></br>
-    <li><%= cart_form.select :repaired_body, Cart.repaired_bodies.keys,
-    id: :item_repaired_body, prompt: 'select an option'%></li>
-
-    <br><%= cart_form.label "5) Repaired Lid Option"%></br>
-    <li><%= cart_form.select :repaired_lid, Cart.repaired_lids.keys,
-    id: :item_repaired_lid, prompt: 'select an option'%></li>
-
-    <br><%= cart_form.label "6) Repaired Wheel Option"%></br>
-    <li><%= cart_form.select :repaired_wheel, Cart.repaired_wheels.keys,
-    id: :item_repaired_wheel, prompt: 'select an option'%></li>
+    <%= cart_form.label "1) Repair or Replace Option"%>
+    <li><%= cart_form.select :repair_replace, Cart.repair_replaces.keys,
+    id: :item_repair_replace, prompt: 'select an option'%></li>
+    <%= cart_form.label "2) Part Option"%>
+    <li><%= cart_form.select :part, Cart.parts.keys,
+    id: :item_part, prompt: 'select an option'%></li>
 </div>
 
 <br><%= cart_form.submit "create cart" %></br>

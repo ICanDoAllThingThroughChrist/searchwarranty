@@ -61,6 +61,8 @@ class CartsController < ApplicationController
         :repaired_wheel,
         :consumption_type,
         :cart_sr_number,
+        :repair_replace,
+        :part,
       )
   end
 end

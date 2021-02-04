@@ -29,6 +29,15 @@ class Cart < ApplicationRecord
     "Employee Destruction" =>3,
     "New Delivery" =>4,
   }
+  enum repair_replace:{
+    "repair" => 1,
+    "replace" => 2,
+  }
+  enum part: {
+    "lid" => 1,
+    "wheel/axle" => 2,
+    "body" => 3,
+  }
 
   def self.container_problem_not_nil_cases
     local_count= Cart.where.not(container_problem: [nil, " ", 'Unknown'],

@@ -121,5 +121,6 @@ Rails.application.routes.draw do
   get 'open_srs/test10', to: 'open_srs#test10'
   get 'open_srs/test11', to: 'open_srs#test11'
   get 'open_srs/Overdue', to: 'open_srs#overdue'
+  get 'open_srs/index', to: 'open_srs#index'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

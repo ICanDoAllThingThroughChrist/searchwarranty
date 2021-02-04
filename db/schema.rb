@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_27_142059) do
+ActiveRecord::Schema.define(version: 2021_02_01_192737) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -120,7 +120,7 @@ ActiveRecord::Schema.define(version: 2021_01_27_142059) do
     t.decimal "longitude"
     t.decimal "tax_id1"
     t.string "unique"
-    t.integer "cart_number"
+    t.string "cart_number"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "delivered"
@@ -137,6 +137,8 @@ ActiveRecord::Schema.define(version: 2021_01_27_142059) do
     t.integer "repaired_body"
     t.integer "consumption_type"
     t.integer "cart_sr_number"
+    t.integer "part"
+    t.integer "repair_replace"
   end
 
   create_table "duplicates", force: :cascade do |t|
