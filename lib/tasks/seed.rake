@@ -24,7 +24,7 @@ namespace :seed do
   task upload_toter_warranty_list: :environment do
     require 'creek'
     require 'pry'
-  creek2 = Creek::Book.new "/Users/charlielee/Desktop/Toter-Warranty-info.xlsx"
+  creek2 = Creek::Book.new "/Users/charlielee/Desktop/Warranty-info.xlsx"
   sheet2 = creek2.sheets[0]
   sheet2.simple_rows.each do |row| puts row  end
   b = []

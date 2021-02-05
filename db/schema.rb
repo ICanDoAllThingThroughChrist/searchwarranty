@@ -120,7 +120,7 @@ ActiveRecord::Schema.define(version: 2021_02_01_192737) do
     t.decimal "longitude"
     t.decimal "tax_id1"
     t.string "unique"
-    t.string "cart_number"
+    t.integer "cart_number"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "delivered"
