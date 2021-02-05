@@ -51,8 +51,20 @@ Pick from any combination of the following TWO
     <li><%= cart_form.select :part, Cart.parts.keys,
     id: :item_part, prompt: 'select an option'%></li>
 </div>
+<div class="w3-container w3-blue">
+  Picture Upload
+</div>
+<div class="">
+  <%= cart_form.file_field :avatar, class: "form-control" %>
+</div>
+<div class="w3-container w3-blue">
+  Multiple Pictures Upload
+</div>
+<div class="">
+  <%= cart_form.file_field :contracts, multiple: true %>
+</div>
 
-<br><%= cart_form.submit "create cart" %></br>
+<br><%= cart_form.submit "create cart request" %></br>
 <!-- <binding.pry %> -->
 <% end %>
 </body>

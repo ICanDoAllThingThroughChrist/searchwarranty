@@ -63,6 +63,8 @@ class CartsController < ApplicationController
         :cart_sr_number,
         :repair_replace,
         :part,
+        :avatar,
+        contracts: []
       )
   end
 end
