@@ -9,7 +9,7 @@ class CartsController < ApplicationController
   end
   def create
       #binding.pry
-      flash[:notice] = "missing a picture attachment"
+      # flash[:notice] = "missing a picture attachment"
       cart_sr_number = carts_params[:cart_sr_number]
       cart_number = carts_params[:cart_number]
       cart_number_s = cart_number
@@ -42,7 +42,8 @@ class CartsController < ApplicationController
             @cart= Cart.new(carts_params)
             @cart.save
       else
-          flash[:notice] = "Cart is not in warranty"
+          flash[:notice] = "Since cart's warranty has expired, there is no need 
+          for attachments"
           carts_path
       end
   end

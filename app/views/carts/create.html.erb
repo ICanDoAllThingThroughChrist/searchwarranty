@@ -39,19 +39,23 @@
   <% end %>
   </div>
   <div class="w3-container w3-card">
-      <h4>Your Service Request Number for confirmation</h4>
-    <%@cart.contracts.each do |contract| %>
-      <% if contract.variable? %>
-        <%= link_to image_tag(contract.variant(resize: "400x400")), contract%>
-      <% elsif contract.previewable? %>
-        <%= link_to image_tag(contract.preview(resize: "400x400")),
-        rails_blob_path(contract, disposition: :attachment)%>
-      <% elsif contract.image?%>
-        <%= link_to image_tag(contract, width: 400), contract%>
-      <% else %>
-        <%= link_to contract.filename,
-        rails_blob_path(contract, disposition: :attachment)%>
-      <% end %>
+    <% if @cart.nil? == false%>
+        <h4>Your Service Request Number for confirmation</h4>
+        <%@cart.contracts.each do |contract| %>
+          <% if contract.variable? %>
+            <%= link_to image_tag(contract.variant(resize: "400x400")), contract%>
+          <% elsif contract.previewable? %>
+            <%= link_to image_tag(contract.preview(resize: "400x400")),
+            rails_blob_path(contract, disposition: :attachment)%>
+          <% elsif contract.image?%>
+            <%= link_to image_tag(contract, width: 400), contract%>
+          <% else %>
+            <%= link_to contract.filename,
+            rails_blob_path(contract, disposition: :attachment)%>
+          <% end %>
+        <% end %>
+    <% else %>
+          <h3><div class="notice"><%= flash[:notice] %></div></h3>
     <% end %>
   </div>
   <p> click here to perform a new cart warranty search
