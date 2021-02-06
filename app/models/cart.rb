@@ -1,4 +1,6 @@
 class Cart < ApplicationRecord
+  has_one_attached :avatar, :dependent => :destroy
+  has_many_attached :contracts
   enum replaced_body:{
     "replaced body" => 1,
     "no cart body is replaced" => 2,
