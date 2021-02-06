@@ -52,10 +52,16 @@ Pick from any combination of the following TWO
     id: :item_part, prompt: 'select an option'%></li>
 </div>
 <div class="w3-container w3-blue">
-  Picture Upload
+  Asset Picture Upload for Mfg Warranty Review
 </div>
 <div class="">
   <%= cart_form.file_field :avatar, class: "form-control" %>
+</div>
+<div class="w3-container w3-blue">
+  Picture Upload of 311 Service Request Number
+</div>
+<div class="">
+  <%= cart_form.file_field :contracts, multiple: true, class: "form-control" %>
 </div>
 <br><%= cart_form.submit "create cart request" %></br>
 <!-- <binding.pry %> -->
