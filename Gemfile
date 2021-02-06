@@ -5,7 +5,7 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 #gem 'rmagick'
-#gem "mini_magick"
+gem "mini_magick"
 #gem 'image_processing'
 gem 'allow_numeric'
 gem 'jquery-rails'

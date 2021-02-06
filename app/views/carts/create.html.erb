@@ -26,11 +26,16 @@
     <% end%>
   </div>
   <div class="w3-container w3-card">
-    <% if @cart.avatar.attached? %>
+    <% if @cart.nil? == false%>
+      <%if @cart.avatar.attached?%>
     <p>
+      <br>Your Cart Condition for Warranty Review</br>
       <%= image_tag @cart.avatar.variant(resize: "500x500")%>
+    <% else %>
+      <h3><div class="notice"><%= flash[:notice] %></div></h3>
     </p>
     <% end %>
+  <% end %>
   </div>
   <p> click here to perform a new cart warranty search
     =><%= link_to "New Cart Search", new_cart_path,  method: :get %></p>

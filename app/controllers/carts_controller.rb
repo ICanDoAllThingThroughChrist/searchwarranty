@@ -9,6 +9,7 @@ class CartsController < ApplicationController
   end
   def create
       #binding.pry
+      flash[:notice] = "missing a picture attachment"
       cart_sr_number = carts_params[:cart_sr_number]
       cart_number = carts_params[:cart_number]
       cart_number_s = cart_number
