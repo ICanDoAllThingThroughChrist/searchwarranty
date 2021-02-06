@@ -46,7 +46,7 @@
       <% elsif contract.previewable? %>
         <%= link_to image_tag(contract.preview(resize: "400x400")),
         rails_blob_path(contract, disposition: :attachment)%>
-      <% elsif contract.impage?%>
+      <% elsif contract.image?%>
         <%= link_to image_tag(contract, width: 400), contract%>
       <% else %>
         <%= link_to contract.filename,
