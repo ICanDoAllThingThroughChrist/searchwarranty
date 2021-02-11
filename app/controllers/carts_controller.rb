@@ -42,8 +42,10 @@ class CartsController < ApplicationController
             @cart= Cart.new(carts_params)
             @cart.save
       else
-          flash[:notice] = "Since cart's warranty has expired, there is no need 
+          flash[:notice] = "Since cart's warranty has expired, there is no need
           for attachments"
+            @cart= Cart.new(carts_params)
+            @cart.save
           carts_path
       end
   end

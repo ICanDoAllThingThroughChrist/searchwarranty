@@ -7,7 +7,7 @@
     <h2>Asset: Cart Warranty Search Result</h2>
   </div>
   <div class="w3-container w3-card">
-    <% if @cart == nil %>
+    <% if @request.nil? == true %>
         <h3>Cart warranty HAS EXPIRED</h3>
     <% else%>
          <br>Cart Number <%=@cart.cart_number%> is UNDER WARRANTY.
@@ -18,7 +18,7 @@
            <br>Cart Item Number: <%=@request.itemNum%> </br>
            <br>Cart Item Description: <%=@request.itemDesc%> </br>
   <div class="w3-container w3-card">
-           <br>Please Contact 311 and provide:</br>
+           <br>Please print this information for your file:</br>
            <br>1. your solid waste service unit address</br>
            <br>2. your container number: <%=@cart.cart_number%></br>
            <br>3. your response to repair or replace is: <%=@cart.repair_replace%></br>
@@ -30,7 +30,7 @@
     <% if @cart.nil? == false%>
       <%if @cart.avatar.attached?%>
     <p>
-      <h4>Your Cart Condition for Warranty Review</h4>
+      <h4>Your Cart Condition for Future Review</h4>
       <%= image_tag @cart.avatar.variant(resize: "500x500")%>
     <% else %>
       <h3><div class="notice"><%= flash[:notice] %></div></h3>
