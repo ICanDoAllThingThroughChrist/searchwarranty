@@ -7,62 +7,62 @@
 <%# <%binding.pry%>
 <div class="w3-container w3-blue">
   <h2 style="color: blue;">Toter and Rehrig Carts Only</h2>
-  <br>Instruction:</br>
-  <li>1) System applies to carts starting with "SS0" or "9GH",
+  <h3>Instruction:</h3>
+  <h4>1) System applies to carts starting with "SS0" or "9GH",
   then it will require you to enter the remaining
     Last Six Digits ONLY,
-  i.e.("for SS0123456, Enter 123456, for 9GH 001234, Enter 001234")</li>
-  <li>2) Available numbers are from number 0 to 534480</li>
+  i.e.("for SS0123456, Enter 123456, for 9GH 001234, Enter 001234")</h4>
+  <h4>2) Available numbers are from number 0 to 534480</h4>
 </div>
-<br>Please enter your cart NUMBER "123456" in this box
+<h3>Please enter your cart NUMBER "123456" in this box
   <%= cart_form.number_field :cart_number,
-  data: { numeric: true } %></br>
-<div class="w3-container w3-blue">Please Pick From Following Inventory
-  Consumption Type Drop Down
+  data: { numeric: true } %></h3>
+<div class="w3-container w3-blue"><h4>Please Pick From Following Inventory
+  Consumption Type Drop Down</h4>
 </div>
 <div>
-    <br>Inventory consumption type
+    <h3>Inventory consumption type
     <%= cart_form.select :consumption_type,
        Cart.consumption_types.keys,
-    id: :item_consumption_type, prompt: 'please select an option'%></br>
+    id: :item_consumption_type, prompt: 'please select an option'%></h3>
 </div>
-<div class="w3-container w3-blue">
-  please enter your Service Request Number "123456" in this box
+<div class="w3-container w3-blue"><h4>
+  please enter your Service Request Number "123456" in this box</h4>
 </div>
 <div>
-    <br><%= cart_form.label "please enter 311 Service Request #"%>
+    <h3><%= cart_form.label "please enter 311 Service Request #"%>
     <%= cart_form.number_field :cart_sr_number,
-    data: { numeric: true } %></br>
+    data: { numeric: true } %></h3>
 </div>
 <div class="w3-container w3-blue">
-  <br>Instructions for Repair/Replace Cart:</br>
-  <li>1)Pick from any combination of the following TWO
-  Options, as applicable, then</li>
-  <li>2)take one pic and upload. Two consecutive times</li>
-  <li>3)click "create cart" button:</li>
+  <h3>Instructions for Repair/Replace Cart:</h3>
+  <h4>1)Pick from any combination of the following TWO
+  Options, as applicable, then</h4>
+  <h4>2)take one pic and upload. Two consecutive times</h4>
+  <h4>3)click "create cart" button:</h4>
 </div>
 <div>
 <ul>
-    <%= cart_form.label "1) Repair or Replace Option"%>
-    <li><%= cart_form.select :repair_replace, Cart.repair_replaces.keys,
-    id: :item_repair_replace, prompt: 'select an option'%></li>
-    <%= cart_form.label "2) Part Option"%>
-    <li><%= cart_form.select :part, Cart.parts.keys,
-    id: :item_part, prompt: 'select an option'%></li>
+    <h3><%= cart_form.label "1) Repair or Replace Option"%></h3>
+    <h4><%= cart_form.select :repair_replace, Cart.repair_replaces.keys,
+    id: :item_repair_replace, prompt: 'select an option'%></h4>
+    <h3><%= cart_form.label "2) Part Option"%></h3>
+    <h4><%= cart_form.select :part, Cart.parts.keys,
+    id: :item_part, prompt: 'select an option'%></h4>
 </div>
 <div class="w3-container w3-blue">
-  Asset Picture Upload for Mfg Warranty Review
+  <h4>Asset Picture Upload for Mfg Warranty Review</h4>
 </div>
 <div class="">
-  <%= cart_form.file_field :avatar, class: "form-control" %>
+  <h4><%= cart_form.file_field :avatar, class: "form-control" %></h4>
 </div>
 <div class="w3-container w3-blue">
-  Picture Upload of 311 Service Request Number
+  <h4>Picture Upload of 311 Service Request Number</h4>
 </div>
 <div class="">
-  <%= cart_form.file_field :contracts, multiple: true, class: "form-control" %>
+  <h4><%= cart_form.file_field :contracts, multiple: true, class: "form-control" %></h4>
 </div>
-<br><%= cart_form.submit "create cart request" %></br>
+<h3><%= cart_form.submit "create cart request" %></h3>
 <!-- <binding.pry %> -->
 <% end %>
 </body>

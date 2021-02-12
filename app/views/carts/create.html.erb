@@ -10,7 +10,7 @@
     <% if @request.nil? == true %>
         <h3>Cart warranty HAS EXPIRED</h3>
         <div class="w3-container w3-card">
-                 <br>Please print this information for your file:</br>
+                 <h4>!!!Please save this page onto your phone via print option!!!</h4>
                  <br>1. your solid waste service unit address</br>
                  <br>2. your container number: <%=@cart.cart_number%></br>
                  <br>3. your response to repair or replace is: <%=@cart.repair_replace%></br>
@@ -18,8 +18,8 @@
                  <br>5. your response to 311 Sr# is: <%=@cart.cart_sr_number%></br>
         </div>
     <% else%>
-         <br>Cart Number <%=@cart.cart_number%> is UNDER WARRANTY.
-            !!!Please save this page onto your phone via print option!!!</br>
+         <h4>Cart Number <%=@cart.cart_number%> is UNDER WARRANTY.
+            !!!Please save this page onto your phone via print option!!!</h4>
            <br>Cart Warranty Expiration Date: <%=@request.warranty%> </br>
            <br>Cart Purchase Order Number: <%=@request.po%> </br>
            <br>Cart Order Number: <%=@request.orderNum%> </br>
