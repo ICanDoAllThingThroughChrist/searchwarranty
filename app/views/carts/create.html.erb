@@ -11,11 +11,11 @@
         <h3>Cart warranty HAS EXPIRED</h3>
         <div class="w3-container w3-card">
                  <h4>!!!Please save this page onto your phone via print option!!!</h4>
-                 <br>1. your solid waste service unit address</br>
-                 <br>2. your container number: <%=@cart.cart_number%></br>
-                 <br>3. your response to repair or replace is: <%=@cart.repair_replace%></br>
-                 <br>4. your response to part options is: <%=@cart.part%></br>
-                 <br>5. your response to 311 Sr# is: <%=@cart.cart_sr_number%></br>
+                 <br>1. your container number: <%=@cart.cart_number%></br>
+                 <br>2. your response to repair or replace is: <%=@cart.repair_replace%></br>
+                 <br>3. your response to part options is: <%=@cart.part%></br>
+                 <br>4. your response to 311 Sr# is: <%=@cart.cart_sr_number%></br>
+                 <br>5. your address based on your 311 Sr# is: <%=@address.address%></br>
         </div>
     <% else%>
          <h4>Cart Number <%=@cart.cart_number%> is UNDER WARRANTY.
@@ -32,6 +32,7 @@
            <br>3. your response to repair or replace is: <%=@cart.repair_replace%></br>
            <br>4. your response to part options is: <%=@cart.part%></br>
            <br>5. your response to 311 Sr# is: <%=@cart.cart_sr_number%></br>
+           <br>6. your address based on your 311 Sr# is: <%=@address.address%></br>
     <% end%>
   </div>
   <div class="w3-container w3-card">

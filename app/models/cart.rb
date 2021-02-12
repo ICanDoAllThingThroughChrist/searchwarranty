@@ -41,6 +41,13 @@ class Cart < ApplicationRecord
     "body" => 3,
   }
 
+  def self.container_problem_sr
+    container_problem_list=
+    Sr.select(:case_number).where(department:'SWM Solid Waste Management',status:'Open', sr_type:'Container Problem').all
+    recycling_cart_repair_or_replace_list=
+    Sr.select(:case_number).where(department:'SWM Solid Waste Management',status:'Open', sr_type:'Recycling Cart Repair or Replace').all
+
+  end
   def self.container_problem_not_nil_cases
     local_count= Cart.where.not(container_problem: [nil, " ", 'Unknown'],
       case_note:[nil, " ",'Unknown']).

@@ -10,6 +10,8 @@ class CartsController < ApplicationController
   def create
       #binding.pry
       # flash[:notice] = "missing a picture attachment"
+      case_number = carts_params[:cart_sr_number]
+      exit = Sr.search_address(case_number)
       cart_sr_number = carts_params[:cart_sr_number]
       cart_number = carts_params[:cart_number]
       cart_number_s = cart_number
@@ -18,7 +20,7 @@ class CartsController < ApplicationController
       c = Array(410440...566279)
       d= Array(1...7021)
       b_1 = b.map{|i| i.to_s}
-
+      binding.pry
       array=cart_number.
       gsub(/\s+/m, ' ').
       gsub(/^\s+|\s+$/m, '').
@@ -29,22 +31,25 @@ class CartsController < ApplicationController
         WarrantyList.search_for_warranty2(cart_number_i)
             @request= Request.last
             @cart= Cart.new(carts_params)
-            # binding.pry
+            @address = Address.last
             @cart.save
       elsif c.include?(cart_number_i)
         WarrantyList.search_for_warranty2(cart_number_i)
             @request= Request.last
+            @address = Address.last
             @cart= Cart.new(carts_params)
             @cart.save
       elsif d.include?(cart_number_i)
         WarrantyList.search_for_warranty2(cart_number_i)
             @request= Request.last
+            @address= Address.last
             @cart= Cart.new(carts_params)
             @cart.save
       else
-          flash[:notice] = "Since cart's warranty has expired, there is no need
-          for attachments"
+          flash[:notice] = "Since cart's warranty has expired,
+          there is no need for attachments"
             @cart= Cart.new(carts_params)
+            @address = Address.last
             @cart.save
           carts_path
       end

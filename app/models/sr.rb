@@ -1,5 +1,30 @@
 class Sr < ApplicationRecord
   @@max_number_in_range_of_overdues= ""
+  def self.search_address(case_number)
+    address=[]
+    case_number_search = Sr.find_by(case_number:"#{case_number}")
+    binding.pry
+      if case_number_search.nil?
+        no_address = "no address"
+      else
+        address= case_number_search.sr_location
+        case_number_interger = case_number_search.case_number.to_i
+      end
+    binding.pry
+      if  case_number_search.present? == TRUE
+          @address = Address.create(
+          address: address,
+          sr_number: case_number_interger,
+        )
+    binding.pry
+      else
+          @address = Address.create(
+            address: "No address based on the Service Request #",
+            sr_number: "#{case_number}"
+          )
+      end
+    # binding.pry
+  end
   def self.nil_resolution(case_number)
       local= Sr.where('case_number = ?', case_number).distinct.pluck(:overdue)
       local2= local.select {|a| a == nil}
