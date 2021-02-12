@@ -3,20 +3,20 @@ class Sr < ApplicationRecord
   def self.search_address(case_number)
     address=[]
     case_number_search = Sr.find_by(case_number:"#{case_number}")
-    binding.pry
+    # binding.pry
       if case_number_search.nil?
         no_address = "no address"
       else
         address= case_number_search.sr_location
         case_number_interger = case_number_search.case_number.to_i
       end
-    binding.pry
+    # binding.pry
       if  case_number_search.present? == TRUE
           @address = Address.create(
           address: address,
           sr_number: case_number_interger,
         )
-    binding.pry
+    # binding.pry
       else
           @address = Address.create(
             address: "No address based on the Service Request #",
