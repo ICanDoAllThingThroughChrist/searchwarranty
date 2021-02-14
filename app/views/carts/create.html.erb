@@ -27,12 +27,11 @@
            <br>Cart Item Description: <%=@request.itemDesc%> </br>
   <div class="w3-container w3-card">
            <br>Please print this information for your file:</br>
-           <br>1. your solid waste service unit address</br>
-           <br>2. your container number: <%=@cart.cart_number%></br>
-           <br>3. your response to repair or replace is: <%=@cart.repair_replace%></br>
-           <br>4. your response to part options is: <%=@cart.part%></br>
-           <br>5. your response to 311 Sr# is: <%=@cart.cart_sr_number%></br>
-           <br>6. your address based on your 311 Sr# is: <%=@address.address%></br>
+           <br>1. your container number: <%=@cart.cart_number%></br>
+           <br>2. your response to repair or replace is: <%=@cart.repair_replace%></br>
+           <br>3. your response to part options is: <%=@cart.part%></br>
+           <br>4. your response to 311 Sr# is: <%=@cart.cart_sr_number%></br>
+           <br>5. your address based on your 311 Sr# is: <%=@address.address%></br>
     <% end%>
   </div>
   <div class="w3-container w3-card">
@@ -49,7 +48,7 @@
   </div>
   <div class="w3-container w3-card">
     <% if @cart.nil? == false%>
-        <h4>Your Service Request Number for confirmation</h4>
+        <h4>Your Picture of Service Request Number for confirmation is shown below</h4>
         <%@cart.contracts.each do |contract| %>
           <% if contract.variable? %>
             <%= link_to image_tag(contract.variant(resize: "400x400")), contract%>

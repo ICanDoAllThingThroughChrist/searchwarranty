@@ -9,7 +9,7 @@
 //
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
-//
+//= require leaflet
 //= require rails-ujs
 //= require turbolinks
 //= require_tree .
@@ -18,3 +18,5 @@
 //= require jquery
 //= require allow_numeric
 //= require jquery_ujs
+//= require 1st-Monday-OverdueHvy
+//= require leaf-demo

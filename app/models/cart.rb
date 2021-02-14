@@ -1,6 +1,8 @@
 class Cart < ApplicationRecord
   has_one_attached :avatar, :dependent => :destroy
   has_many_attached :contracts
+  geocoded_by :service_location
+  after_validation :geocode, :if => :service_location_changed?
   enum replaced_body:{
     "replaced body" => 1,
     "no cart body is replaced" => 2,

@@ -20,7 +20,7 @@ class CartsController < ApplicationController
       c = Array(410440...566279)
       d= Array(1...7021)
       b_1 = b.map{|i| i.to_s}
-      binding.pry
+      # binding.pry
       array=cart_number.
       gsub(/\s+/m, ' ').
       gsub(/^\s+|\s+$/m, '').
@@ -46,8 +46,7 @@ class CartsController < ApplicationController
             @cart= Cart.new(carts_params)
             @cart.save
       else
-          flash[:notice] = "Since cart's warranty has expired,
-          there is no need for attachments"
+            flash[:notice] = "!!!Please save this page onto your phone via print option!!!"
             @cart= Cart.new(carts_params)
             @address = Address.last
             @cart.save

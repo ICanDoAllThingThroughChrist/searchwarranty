@@ -6,7 +6,8 @@ Rails.application.routes.draw do
   get 'srs/monthly_requests_summary'
   # get '../maps/1st-Monday-OverdueHvy.js'
   # get '../maps/leaf-demo.js'
-  get 'public/first_monday_OverdueHvy'
+  get 'public/first_monday_OverdueHvy', to: 'public#first_monday_OverdueHvy'
+  get 'public/second_thurs_OverdueHvy', to: 'public#second_thurs_OverdueHvy'
   get 'srs/cans_requests_FY20'
   get 'map/index'
   get 'map/map_data', :defaults => { :format => 'json'}
@@ -122,5 +123,7 @@ Rails.application.routes.draw do
   get 'open_srs/test11', to: 'open_srs#test11'
   get 'open_srs/Overdue', to: 'open_srs#overdue'
   get 'open_srs/index', to: 'open_srs#index'
+
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
