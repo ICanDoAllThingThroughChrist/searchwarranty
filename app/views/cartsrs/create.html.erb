@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<body>
+  <div class="w3-container w3-blue">
+    <h2>Asset: Cart Warranty Search Result</h2>
+  </div>
+  <div class="w3-container w3-card">
+    <% if @request.nil? == true %>
+        <h3>Cart warranty HAS EXPIRED</h3>
+        <div class="w3-container w3-card">
+                 <h4>!!!Please save this page onto your phone via print option!!!</h4>
+                 <br>1. your container number: <%=@cartsr.cart_number%></br>
+                 <br>2. your response to repair or replace is: <%=@cartsr.repair_replace%></br>
+                 <br>3. your response to part options is: <%=@cartsr.part%></br>
+                 <br>4. your response to 311 Sr# is: <%=@cartsr.cart_sr_number%></br>
+                 <br>5. your address based on your 311 Sr# is: <%=@address.address%></br>
+        </div>
+    <% else%>
+         <h4>Cart Number <%=@cartsr.cart_number%> is UNDER WARRANTY.
+            !!!Please save this page onto your phone via print option!!!</h4>
+           <br>Cart Warranty Expiration Date: <%=@request.warranty%> </br>
+           <br>Cart Purchase Order Number: <%=@request.po%> </br>
+           <br>Cart Order Number: <%=@request.orderNum%> </br>
+           <br>Cart Item Number: <%=@request.itemNum%> </br>
+           <br>Cart Item Description: <%=@request.itemDesc%> </br>
+  <div class="w3-container w3-card">
+           <br>Please print this information for your file:</br>
+           <br>1. your container number: <%=@cartsr.cart_number%></br>
+           <br>2. your response to repair or replace is: <%=@cartsr.repair_replace%></br>
+           <br>3. your response to part options is: <%=@cartsr.part%></br>
+           <br>4. your response to 311 Sr# is: <%=@cartsr.cart_sr_number%></br>
+           <br>5. your address based on your 311 Sr# is: <%=@address.address%></br>
+    <% end%>
+  </div>
+  <div class="w3-container w3-card">
+    <% if @cartsr.nil? == false%>
+      <%if @cartsr.avatar.attached?%>
+    <p>
+      <h4>Your Cart Condition for Future Review</h4>
+      <%= image_tag @cartsr.avatar.variant(resize: "500x500")%>
+    <% else %>
+      <h3><div class="notice"><%= flash[:notice] %></div></h3>
+    </p>
+    <% end %>
+  <% end %>
+  </div>
+  <div class="w3-container w3-card">
+    <% if @cartsr.nil? == false%>
+        <h4>Your Picture of Service Request Number for confirmation is shown below</h4>
+        <%@cartsr.contracts.each do |contract| %>
+          <% if contract.variable? %>
+            <%= link_to image_tag(contract.variant(resize: "400x400")), contract%>
+          <% elsif contract.previewable? %>
+            <%= link_to image_tag(contract.preview(resize: "400x400")),
+            rails_blob_path(contract, disposition: :attachment)%>
+          <% elsif contract.image?%>
+            <%= link_to image_tag(contract, width: 400), contract%>
+          <% else %>
+            <%= link_to contract.filename,
+            rails_blob_path(contract, disposition: :attachment)%>
+          <% end %>
+        <% end %>
+    <% else %>
+          <h3><div class="notice"><%= flash[:notice] %></div></h3>
+    <% end %>
+  </div>
+  <p> click here to perform a new cart warranty search
+    =><%= link_to "New Cart Search", new_cart_path,  method: :get %></p>
+</body>
+</html>
