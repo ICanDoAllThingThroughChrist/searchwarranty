@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <body>
+    <%= form_for @cartsr do |c| %>
+      <div class="w3-container w3-blue">
+        <h2 style="color: blue;">Toter and Rehrig Carts Only</h2>
+        <h3>Instruction:</h3>
+        <h4>1) System applies to carts starting with "SS0" or "9GH",
+        then it will require you to enter the remaining
+          Last Six Digits ONLY,
+        i.e.("for SS0123456, Enter 123456, for 9GH 001234, Enter 001234")</h4>
+        <h4>2) Available numbers are from number 0 to 534480</h4>
+      </div>
+      <h3>Please enter your cart NUMBER "123456" in this box
+        <%= c.number_field :cart_number,
+        data: { numeric: true } %></h3>
+      <div class="w3-container w3-blue"><h4>Please Pick From Following Inventory
+        Consumption Type Drop Down</h4>
+      </div>
+      <div>
+          <h3>Inventory consumption type
+          <%= c.select :consumption_type,
+             Cartsr.consumption_types.keys,
+          id: :item_consumption_type, prompt: 'please select an option'%></h3>
+      </div>
+      <div class="w3-container w3-blue"><h4>
+        please enter your Service Request Number "123456" in this box</h4>
+      </div>
+      <div>
+          <h3><%= c.label "please enter 311 Service Request #"%>
+          <%= c.number_field :cartsr_cart_sr_number,
+          data: { numeric: true } %></h3>
+      </div>
+      <div class="w3-container w3-blue">
+        <h3>Instructions for Repair/Replace Cart:</h3>
+        <h4>1)Pick from any combination of the following TWO
+        Options, as applicable, then</h4>
+        <h4>2)take one pic and upload. Two consecutive times</h4>
+        <h4>3)click "create cart" button:</h4>
+      </div>
+      <div>
+      <ul>
+          <h3><%= c.label "1) Repair or Replace Option"%></h3>
+          <h4><%= c.select :repair_replace, Cartsr.repair_replaces.keys,
+          id: :item_repair_replace, prompt: 'select an option'%></h4>
+          <h3><%= c.label "2) Part Option"%></h3>
+          <h4><%= c.select :part, Cartsr.parts.keys,
+          id: :item_part, prompt: 'select an option'%></h4>
+      </div>
+      <div class="w3-container w3-blue">
+        <h4>Asset Picture Upload for Mfg Warranty Review</h4>
+      </div>
+      <div class="">
+        <h4><%= c.file_field :avatar, class: "form-control" %></h4>
+      </div>
+      <div class="w3-container w3-blue">
+        <h4>Picture Upload of 311 Service Request Number</h4>
+      </div>
+      <div class="">
+        <h4><%= c.file_field :contracts, multiple: true, class: "form-control" %></h4>
+      </div>
+      <h3><%= c.submit "create cart request" %></h3>
+      <!-- <binding.pry %> -->
+      <% end %>
+    </body>
+</html>
