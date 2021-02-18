@@ -1,5 +1,6 @@
 class CartsrsController < ApplicationController
   def index
+    @allcartsrs = Cartsr.all
     render 'index'
   end
 
@@ -52,6 +53,9 @@ class CartsrsController < ApplicationController
           @cartsr.save
         carts_path
     end
+  end
+  def show
+    @cartsr = Cartsr.find(params[:id])
   end
 
   private

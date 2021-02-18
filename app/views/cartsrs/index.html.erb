@@ -1,0 +1,9 @@
+<h1>Carts</h1>
+<%= link_to "New Cart", new_cartsr_path %>
+<div id="cartsrs">
+  <% @allcartsrs.each do |cartsr| %>
+    <h2>Cart Number: <%= link_to cartsr.cart_number, cartsr%> </h2>
+    <p>Consumption Type: <%%= cartsr.consumption_type></p>
+    <p>Image: <=image_tag(cartsr.image)%></p>
+    <% end %>
+</div>

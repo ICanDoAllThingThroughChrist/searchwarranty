@@ -18,3 +18,4 @@
 
 .byebug_history
 app/views/srs/test.html
+storage/*
