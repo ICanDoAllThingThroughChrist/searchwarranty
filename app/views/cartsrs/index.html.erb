@@ -1,18 +1,22 @@
+<!DOCTYPE html>
+<html>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<body>
 <h1>Carts</h1>
-<%= link_to "New Cart", new_cartsr_path %>
+<h4><%= link_to "New Cart Request", new_cartsr_path %></h4>
 <div id="cartsrs">
   <% @allcartsrs.each do |c| %>
-      <% binding.pry %>
-      <h2>Cart Number: <%= link_to c.cart_number, c%> </h2>
-        <h2>Sr #: <%= c.cart_sr_number%></h2>
-        <h2>Consumption Type: <%= c.consumption_type%></h2>
+      <h4>Cart Number: <%= link_to c.cart_number, c%> </h4>
+        <h4>Sr #: <%= c.cart_sr_number%></h4>
+        <h4>Consumption Type: <%= c.consumption_type%></h4>
       <%if c.avatar.attached?%>
-        <h2>Cart Image: </h2>
-        <h2><%=image_tag(c.avatar.variant(resize:"400x400"))%></h2>
+        <h4>Cart Image: </h4>
+        <h4><%=image_tag(c.avatar.variant(resize:"400x400"))%></h4>
       <% else %>
-        <h2> No Cart Image </h2>
+        <h4> No Cart Image </h4>
       <% end %>
-        <h2>Sr Image: </h2>
+        <h4>Sr Image: </h4>
       <% if c.nil? == false%>
         <% c.contracts.each do |contract| %>
           <% if contract.variable? %>
@@ -28,7 +32,9 @@
           <% end %>
         <% end %>
       <% else %>
-        <h2> No Sr Image </h2>
+        <h4> No Sr Image </h4>
       <% end %>
     <% end %>
 </div>
+</body>
+</html>
