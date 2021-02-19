@@ -17,11 +17,12 @@ class Cartsr < ApplicationRecord
     "body"=> 3,
   }
   def self.set_warranty(cartsrs_params)
-    Cartsr.new(cartsrs_params)
+    Cartsr.create(cartsrs_params)
     cart_warranty= Cartsr.last
+    # binding.pry
     cart_warranty.warranty=1
     cart_warranty.save
-    # Cart.last
+    # binding.pry
   end
   def self.warranty_dates
     require 'creek'
