@@ -2,6 +2,9 @@
 <p>
   <strong>Image:</strong>
   <br>
-  <%= image_tag @cartsr.avatar %>
+  <h2>Cart Number: <%=@cartsr.cart_number%></h2>
+  <p>Consumption Type: <%= @cartsr.consumption_type%></p>
+  <p>Sr #: <%= @cartsr.cart_sr_number%></p>
+  <%= image_tag @cartsr.avatar.variant(resize:"500x500") %>
 </p>
 <% end %>

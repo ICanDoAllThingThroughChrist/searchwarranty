@@ -1,9 +1,34 @@
 <h1>Carts</h1>
 <%= link_to "New Cart", new_cartsr_path %>
 <div id="cartsrs">
-  <% @allcartsrs.each do |cartsr| %>
-    <h2>Cart Number: <%= link_to cartsr.cart_number, cartsr%> </h2>
-    <p>Consumption Type: <%%= cartsr.consumption_type></p>
-    <p>Image: <=image_tag(cartsr.image)%></p>
+  <% @allcartsrs.each do |c| %>
+      <% binding.pry %>
+      <h2>Cart Number: <%= link_to c.cart_number, c%> </h2>
+        <h2>Sr #: <%= c.cart_sr_number%></h2>
+        <h2>Consumption Type: <%= c.consumption_type%></h2>
+      <%if c.avatar.attached?%>
+        <h2>Cart Image: </h2>
+        <h2><%=image_tag(c.avatar.variant(resize:"400x400"))%></h2>
+      <% else %>
+        <h2> No Cart Image </h2>
+      <% end %>
+        <h2>Sr Image: </h2>
+      <% if c.nil? == false%>
+        <% c.contracts.each do |contract| %>
+          <% if contract.variable? %>
+            <%= link_to image_tag(contract.variant(resize: "400x400")), contract%>
+          <% elsif contract.previewable? %>
+            <%= link_to image_tag(contract.preview(resize: "400x400")),
+            rails_blob_path(contract, disposition: :attachment)%>
+          <% elsif contract.image?%>
+            <%= link_to image_tag(contract, width: 400), contract%>
+          <% else %>
+            <%= link_to contract.filename,
+            rails_blob_path(contract, disposition: :attachment)%>
+          <% end %>
+        <% end %>
+      <% else %>
+        <h2> No Sr Image </h2>
+      <% end %>
     <% end %>
 </div>

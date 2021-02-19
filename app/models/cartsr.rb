@@ -16,6 +16,13 @@ class Cartsr < ApplicationRecord
     "wheel/axle"=>2,
     "body"=> 3,
   }
+  def self.set_warranty(cartsrs_params)
+    Cartsr.new(cartsrs_params)
+    cart_warranty= Cartsr.last
+    cart_warranty.warranty=1
+    cart_warranty.save
+    # Cart.last
+  end
   def self.warranty_dates
     require 'creek'
     creek = Creek::Book.new 'C:\Users\e128289\Downloads\Carts_Warranty_dtl.xlsx'

@@ -1,6 +1,6 @@
 class CartsrsController < ApplicationController
   def index
-    @allcartsrs = Cartsr.all
+    @allcartsrs = Cartsr.where(warranty:'1')
     render 'index'
   end
 
@@ -33,19 +33,21 @@ class CartsrsController < ApplicationController
           @request= Request.last
           @cartsr= Cartsr.new(cartsrs_params)
           @address = Address.last
-          @cartsr.save
+          Cartsr.set_warranty(cartsrs_params)
+          @cartsr= Cartsr.last
     elsif c.include?(cart_number_i)
       WarrantyList.search_for_warranty2(cart_number_i)
           @request= Request.last
           @address = Address.last
-          @cartsr= Cartsr.new(cartsrs_params)
-          @cartsr.save
+          Cartsr.set_warranty(cartsrs_params)
+          @cartsr= Cartsr.last
+
     elsif d.include?(cart_number_i)
       WarrantyList.search_for_warranty2(cart_number_i)
           @request= Request.last
           @address= Address.last
-          @cartsr= Cartsr.new(cartsrs_params)
-          @cartsr.save
+          Cartsr.set_warranty(cartsrs_params)
+          @cartsr= Cartsr.last
     else
           flash[:notice] = "!!!Please save this page onto your phone via print option!!!"
           @cartsr= Cartsr.new(cartsrs_params)
