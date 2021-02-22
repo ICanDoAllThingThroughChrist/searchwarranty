@@ -1,4 +1,9 @@
 class SrsController < ApplicationController
+  
+  def open_sr
+    @opensr= Sr.where(status:'Open', department:'SWM Solid Waste Management').distinct.pluck('case_number')
+  end
+
   def case_performance
     # OpenSr.daily_update_from_url
   @North = Sr.

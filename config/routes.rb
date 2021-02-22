@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   resources :carts
   resources :cartsrs
+  get 'srs/open_sr'
   get 'srs/case_performance'
   get 'facilities/list'
   get 'srs/DistrictASrs'

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<body>
+<h1>Carts</h1>
+<h4><%= link_to "New Cart Request", new_cartsr_path %></h4>
+<div id="cartsrs">
+  <% @allcartsrs.each do |c| %>
+      <h4>Cart Number: <%= link_to c.cart_number, c%> </h4>
+        <h4>Sr #: <%= c.cart_sr_number%></h4>
+        <h4>Consumption Type: <%= c.consumption_type%></h4>
+      <%if c.avatar.attached?%>
+        <h4>Cart Image: </h4>
+        <h4><%=image_tag(c.avatar.variant(resize:"400x400"))%></h4>
+      <% else %>
+        <h4> No Cart Image </h4>
+      <% end %>
+        <h4>Sr Image: </h4>
+      <% if c.nil? == false%>
+        <% c.contracts.each do |contract| %>
+          <% if contract.variable? %>
+            <%= link_to image_tag(contract.variant(resize: "400x400")), contract%>
+          <% elsif contract.previewable? %>
+            <%= link_to image_tag(contract.preview(resize: "400x400")),
+            rails_blob_path(contract, disposition: :attachment)%>
+          <% elsif contract.image?%>
+            <%= link_to image_tag(contract, width: 400), contract%>
+          <% else %>
+            <%= link_to contract.filename,
+            rails_blob_path(contract, disposition: :attachment)%>
+          <% end %>
+        <% end %>
+      <% else %>
+        <h4> No Sr Image </h4>
+      <% end %>
+    <% end %>
+</div>
+</body>
+</html>
