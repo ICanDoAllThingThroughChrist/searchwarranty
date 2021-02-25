@@ -18,7 +18,7 @@ class CartsrsController < ApplicationController
     cart_number_s = cart_number
     cart_number_i = cart_number.to_i
     b = Array(104466...397207)
-    c = Array(410440...566279)
+    c = Array(410440...566280)
     d= Array(1...7021)
     b_1 = b.map{|i| i.to_s}
     # binding.pry
