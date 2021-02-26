@@ -8,7 +8,6 @@
       <p>
         <strong>Image:</strong>
         <h2>Cart Number: <%=@cartsr.cart_number%></h2>
-        <h4><%= link_to "individual cart",@cartsr%> </h4>
         <p>Consumption Type: <%= @cartsr.consumption_type%></p>
         <p>Sr #: <%= @cartsr.cart_sr_number%></p>
         <%= image_tag @cartsr.avatar.variant(resize:"500x500") %>
