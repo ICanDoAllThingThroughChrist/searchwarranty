@@ -2,15 +2,24 @@
 <html>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<body><% if @cartsr.avatar.attached? %>
-<p>
-  <strong>Image:</strong>
-  <br>
-  <h2>Cart Number: <%=@cartsr.cart_number%></h2>
-  <p>Consumption Type: <%= @cartsr.consumption_type%></p>
-  <p>Sr #: <%= @cartsr.cart_sr_number%></p>
-  <%= image_tag @cartsr.avatar.variant(resize:"500x500") %>
-</p>
-<% end %>
+<body>
+  <% unless @cartsr.blank? %>
+    <% if @cartsr.avatar.attached? %>
+      <p>
+        <strong>Image:</strong>
+        <h2>Cart Number: <%=@cartsr.cart_number%></h2>
+        <h4><%= link_to "individual cart",@cartsr%> </h4>
+        <p>Consumption Type: <%= @cartsr.consumption_type%></p>
+        <p>Sr #: <%= @cartsr.cart_sr_number%></p>
+        <%= image_tag @cartsr.avatar.variant(resize:"500x500") %>
+        <h4><%= link_to "all warranty carts", cartsrs_path%> </h4>
+      </p>
+    <% else %>
+      <h2> <%= flash[:notice]%> </h2>
+    <% end %>
+  <% else %>
+      <h2> <%= flash[:notice]%> </h2>
+  <% end %>
+
 </body>
 </html>

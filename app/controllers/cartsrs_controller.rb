@@ -57,8 +57,11 @@ class CartsrsController < ApplicationController
     end
   end
   def show
-    @cartsr = Cartsr.find(params[:id])
+      @cartsr= Cartsr.find(params[:id])
+      flash[:notice] = "cart image do not exist"
+      @allcartsrs = Cartsr.where(warranty:'1')
   end
+
 
   private
   def cartsrs_params

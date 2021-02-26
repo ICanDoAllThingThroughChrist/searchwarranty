@@ -7,7 +7,8 @@
 <h4><%= link_to "New Cart Request", new_cartsr_path %></h4>
 <div id="cartsrs">
   <% @allcartsrs.each do |c| %>
-      <h4>Cart Number: <%= link_to c.cart_number, c%> </h4>
+        <h4>Cart Number: <%= c.cart_number%> </h4>
+        <h4>Single Cart Pg:<%= link_to "individual cart page", c%> </h4>
         <h4>Sr #: <%= c.cart_sr_number%></h4>
         <h4>Consumption Type: <%= c.consumption_type%></h4>
       <%if c.avatar.attached?%>
