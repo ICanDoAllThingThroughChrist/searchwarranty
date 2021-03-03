@@ -5,6 +5,8 @@
 <body>
   <div class="w3-container w3-blue">
     <h2>Asset: Cart Warranty Search Result</h2>
+    <h3> click here to perform a new cart warranty search
+      =><%= link_to "New Cart Search", new_cartsr_path,  method: :get %></h3>
   </div>
   <div class="w3-container w3-card">
     <% if @request.nil? == true %>
@@ -66,7 +68,5 @@
           <h3><div class="notice"><%= flash[:notice] %></div></h3>
     <% end %>
   </div>
-  <p> click here to perform a new cart warranty search
-    =><%= link_to "New Cart Search", new_cartsr_path,  method: :get %></p>
 </body>
 </html>

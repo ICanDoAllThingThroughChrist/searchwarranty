@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   resources :carts
-  resources :cartsrs
+  resource :cartsrs, only: [:index, :new,:create]
+  get 'cartsrs', to:'cartsrs#index'
+  get 'cartsrs/warranty', to: 'cartsrs#warranty_carts_report'
   get 'srs/open_sr'
   get 'srs/case_performance'
   get 'facilities/list'
@@ -109,7 +111,6 @@ Rails.application.routes.draw do
   get 'open_srs/test12'
   get 'open_srs/test11'
   get 'open_srs/test10'
-  resources :carts, only: [:new, :create]
   get 'srs/result', to: 'srs#result'
   get 'srs/test', to: 'srs#test'
   get 'open_srs/test', to: 'open_srs#test'

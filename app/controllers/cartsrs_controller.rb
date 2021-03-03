@@ -1,7 +1,14 @@
 class CartsrsController < ApplicationController
   def index
-    @allcartsrs = Cartsr.where(warranty:'1')
+    @allcartsrs = Cartsr.all
     render 'index'
+  end
+
+  def warranty_carts_report
+    @allcartsrs = Cartsr.where(warranty:'1')
+    # binding.pry
+    render 'cartsrs_warranty'
+    # binding.pry
   end
 
   def new
@@ -57,9 +64,9 @@ class CartsrsController < ApplicationController
     end
   end
   def show
+    # binding.pry
       @cartsr= Cartsr.find(params[:id])
       flash[:notice] = "cart image do not exist"
-      @allcartsrs = Cartsr.where(warranty:'1')
   end
 
 
