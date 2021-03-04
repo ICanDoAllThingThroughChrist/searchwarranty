@@ -54,13 +54,13 @@
         <h4>Asset Picture Upload for Mfg Warranty Review</h4>
       </div>
       <div class="">
-        <h4><%= c.file_field :avatar, class: "form-control", label: false, input_html: { style: "display: none"} %></h4>
+        <h4><%= c.file_field :avatar, class: "hidden" %></h4>
       </div>
       <div class="blue">
         <h4>Picture Upload of 311 Service Request Number</h4>
       </div>
       <div class="">
-        <h4><%= c.file_field :contracts, multiple: true, class: "form-control" %></h4>
+        <h4><%= c.file_field :contracts, multiple: true, class: "hidden" %></h4>
       </div>
       <h3><%= c.submit "create cart request" %></h3>
       <!-- <binding.pry %> -->
