@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html>
+<%= stylesheet_link_tag "cartsr" %>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
   <body>
     <%= form_for @cartsr do |c| %>
-      <div class="w3-container w3-blue">
+      <div class="blue">
         <h2 style="color: blue;">Toter and Rehrig Carts Only</h2>
         <h3>Instruction:</h3>
         <h4>1) System applies to carts starting with "SS0" or "9GH",
@@ -16,7 +17,7 @@
       <h3>Please enter your cart NUMBER "123456" in this box
         <%= c.number_field :cart_number,
         data: { numeric: true } %></h3>
-      <div class="w3-container w3-blue"><h4>Please Pick From Following Inventory
+      <div class="blue"><h4>Please Pick From Following Inventory
         Consumption Type Drop Down</h4>
       </div>
       <div>
@@ -25,7 +26,7 @@
              Cartsr.consumption_types.keys,
           id: :item_consumption_type, prompt: 'please select an option'%></h3>
       </div>
-      <div class="w3-container w3-blue"><h4>
+      <div class="blue"><h4>
         please enter your Service Request Number "123456" in this box</h4>
       </div>
       <div>
@@ -33,7 +34,7 @@
           <%= c.number_field :cart_sr_number,
           data: { numeric: true } %></h3>
       </div>
-      <div class="w3-container w3-blue">
+      <div class="blue">
         <h3>Instructions for Repair/Replace Cart:</h3>
         <h4>1)Pick from any combination of the following TWO
         Options, as applicable, then</h4>
@@ -49,13 +50,13 @@
           <h4><%= c.select :part, Cartsr.parts.keys,
           id: :item_part, prompt: 'select an option'%></h4>
       </div>
-      <div class="w3-container w3-blue">
+      <div class="blue">
         <h4>Asset Picture Upload for Mfg Warranty Review</h4>
       </div>
       <div class="">
-        <h4><%= c.file_field :avatar, class: "form-control" %></h4>
+        <h4><%= c.file_field :avatar, class: "form-control", label: false, input_html: { style: "display: none"} %></h4>
       </div>
-      <div class="w3-container w3-blue">
+      <div class="blue">
         <h4>Picture Upload of 311 Service Request Number</h4>
       </div>
       <div class="">

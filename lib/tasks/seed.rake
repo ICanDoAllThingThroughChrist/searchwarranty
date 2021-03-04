@@ -558,7 +558,7 @@ namespace :seed do
                       header_converters: :symbol, converters: :all}) {|row|
       # binding.pry
       Cart.create(row.to_hash)
-      # binding.pry
+       # binding.pry
     }
     Cart.carts_compliance_list
   end
