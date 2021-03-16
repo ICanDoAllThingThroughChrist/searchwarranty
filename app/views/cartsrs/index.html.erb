@@ -10,8 +10,9 @@
         <h4>Cart Number: <%= c.cart_number%> </h4>
         <h4>Sr #: <%= c.cart_sr_number%></h4>
         <h4>Consumption Type: <%= c.consumption_type%></h4>
-      <%if c.avatar.attached?%>
+      <% if c.avatar.attached? && c.avatar.variable?  %>
         <h4>Cart Image: </h4>
+        <% #binding.pry %>
         <h4><%=image_tag(c.avatar.variant(resize:"400x400"))%></h4>
       <% else %>
         <h4> No Cart Image </h4>
