@@ -58,3 +58,9 @@ app/views/srs/test.html
 app/views/srs/test.html.erb
 districtAll_missed_services_FY20.csv
 *.html
+app/views/srs/districtAll_missed_services_FY20.html
+app/views/srs/districtAll_missed_services_FY20.html
+app/views/srs/districtAll_missed_services_FY20.html.erb
+app/views/srs/test.html
+app/views/srs/test.html.erb
+districtAll_missed_services_FY20.csv
