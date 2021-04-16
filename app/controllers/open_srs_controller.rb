@@ -26,7 +26,7 @@ class OpenSrsController < ApplicationController
         Sr.unauthorizedContainerRetrieval_cans_related_list_FY2017
 
       @RecyclingParticipationNEW_cans_related_list_FY2020=
-          Sr.recyclingParticipationNEW_cans_related_list_FY2021
+        Sr.recyclingParticipationNEW_cans_related_list_FY2021
       @RecyclingParticipationNEW_cans_related_list_FY2020=
         Sr.recyclingParticipationNEW_cans_related_list_FY2020
       @RecyclingParticipationNEW_cans_related_list_FY2019=

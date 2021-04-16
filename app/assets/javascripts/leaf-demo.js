@@ -2,16 +2,16 @@
 
 var map = L.map( 'map', {
   center: [29.749907, -95.358421],
-  minZoom: 2,
-  zoom: 10
+  minZoom: 5,
+  zoom: 5
 });
 
 L.tileLayer( 'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
  attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
  subdomains: ['a','b','c']
 }).addTo( map );
-map.setView([29.749907, -95.358421], 15);
-map.locate({setView: true, maxZoom:15});
+map.setView([29.749907, -95.358421], 10);
+map.locate({setView: true, maxZoom:10});
 map.on('locationfound', onLocationFound);
 function onLocationFound(e){
   //creates a marker at user latlong and add it to the marker
