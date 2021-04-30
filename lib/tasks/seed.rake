@@ -130,14 +130,15 @@ namespace :seed do
     require 'csvreader'
     require 'byebug'
     require 'csv'
-    start_date = Date.parse('2019-01-01')
+    start_date = Date.parse('2020-01-01')
     endDate = Date.parse('2021-06-30')
     Sr.where("sr_create_date >=? AND sr_create_date <= ?", start_date, endDate).delete_all
-    web1 = open('https://hfdapp.houstontx.gov/311/311-Public-Data-Extract-monthly-clean.txt'){|f| f.read}
-    web2 = open('https://hfdapp.houstontx.gov/311/311-Public-Data-Extract-2020-clean.txt'){|f| f.read}
+    web1 = open('https://hfdapp.houstontx.gov/311/311-Public-Data-Extract-monthly.txt'){|f| f.read}
+    web2 = open('https://hfdapp.houstontx.gov/311/311-Public-Data-Extract-2020.txt'){|f| f.read}
+    web3 = open('https://hfdapp.houstontx.gov/311/311-Public-Data-Extract-2021.txt'){|f| f.read}
     things1 = web1.split(/\n/)#creates an  new array
     things2 = web2.split(/\n/)#creates an  new array
-
+    things3 = web3.split(/\n/)#creates an  new array
     columns = %i[case_number sr_location county district neighborhood tax_id
       trash_quad recycle_quad trash_day heavy_trash_day recycle_day
        key_map management_district department division sr_type queue
@@ -160,6 +161,14 @@ namespace :seed do
           Sr.create(c)
           # byebug
        }
+       things3.each {|sr|
+           # byebug
+           b=sr.split('|')
+           c=Hash[columns.zip(b)]
+           # byebug
+           Sr.create(c)
+           # byebug
+        }
        Sr.pivot
   end
   task yr_2020_update: :environment do
