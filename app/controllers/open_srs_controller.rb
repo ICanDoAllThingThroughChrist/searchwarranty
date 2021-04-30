@@ -145,6 +145,43 @@ class OpenSrsController < ApplicationController
 
     def monthly_quality_grade
 
+      start_date_jan_21 = Date.parse('2021-1-01')
+      due_date_jan_21 = Date.parse('2021-1-31')
+      @deptSWwide_jan_2021_actual_due_and_closed_cases =
+      Sr.where("sr_create_date <= ? AND sr_create_date >= ?",
+        start_date_jan_21, due_date_jan_21).
+        where(overdue:[-30..-0.05],
+          department: 'SWM Solid Waste Management',
+          status: 'Closed',
+          trash_quad: 'SW',
+          sr_type: ['Missed Heavy Trash Pickup', 'Container Problem',
+            'New Resident Container', 'Recycling Participation NEW',
+            'Recycling Cart Repair or Replace', 'SWM Escalation',
+            'Missed Garbage Pickup', 'Trash Dumping or Illegal Dumpsite',
+            'Add A Can', 'Storm Debris Collection', 'Dead Animal Collection',
+            'Add A Can CANCELLATION', 'Missed Recycling Pickup',
+            'Personnel or Vehicle Complaint', 'Physically Challenged Pickup',
+            ]).count
+      @deptSWwide_jan_2021_sla_due_cases =
+            Sr.where(date_closed: start_date_jan_21..due_date_jan_21).
+            where(department: 'SWM Solid Waste Management',
+              trash_quad: 'SW',
+              status: 'Closed',
+              sr_type: ['Missed Heavy Trash Pickup', 'Container Problem',
+                'New Resident Container', 'Recycling Participation NEW',
+                'Recycling Cart Repair or Replace', 'SWM Escalation',
+                'Missed Garbage Pickup', 'Trash Dumping or Illegal Dumpsite',
+                'Add A Can', 'Storm Debris Collection', 'Dead Animal Collection',
+                'Add A Can CANCELLATION', 'Missed Recycling Pickup',
+                'Personnel or Vehicle Complaint', 'Physically Challenged Pickup',
+                ]).count
+      @deptSWwide_jan_2021_sla_percent_complete =
+      @deptSWwide_jan_2021_actual_due_and_closed_cases.
+            to_f.round(2)/
+      @deptSWwide_jan_2021_sla_due_cases.to_f.round(2)
+      @deptSWWide_jan_2021_grade=
+      OpenSr.qualityGrade(@deptSWwide_jan_2021_sla_percent_complete)
+
       @deptSWwide_May_2020_actual_due_and_closed_cases =
         OpenSr.swMay2020_actual_due_and_closed_cases
 
