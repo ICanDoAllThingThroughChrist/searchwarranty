@@ -58,9 +58,9 @@ namespace :seed do
     start_date = Date.parse('2019-01-01')
     endDate = Date.parse('2021-01-11')
     Sr.where("sr_create_date >=? AND sr_create_date <= ?", start_date, endDate).delete_all
-    #web1 = open('https://hfdapp.houstontx.gov/311/311-Public-Data-Extract-monthly-clean.txt'){|f| f.read}
+    web1 = open('https://hfdapp.houstontx.gov/311/311-Public-Data-Extract-monthly-clean.txt'){|f| f.read}
     web2 = open('https://hfdapp.houstontx.gov/311/311-Public-Data-Extract-2020.txt'){|f| f.read}
-    # things1 = web1.split(/\n/) #creates an  new array
+    things1 = web1.split(/\n/) #creates an  new array
     things2 = web2.split(/\n/) #creates an  new array
 
     columns = %i[case_number sr_location county district neighborhood tax_id
@@ -69,14 +69,14 @@ namespace :seed do
         sla status sr_create_date due_date date_closed overdue title
          x y latitude longitude channel_type created_at updated_at]
 
-     # things1.each {|sr|
-     #     # byebug
-     #     b=sr.split('|')
-     #     c=Hash[columns.zip(b)]
-     #     # byebug
-     #     Sr.create(c)
-     #     # byebug
-     #  }
+     things1.each {|sr|
+         # byebug
+         b=sr.split('|')
+         c=Hash[columns.zip(b)]
+         # byebug
+         Sr.create(c)
+         # byebug
+      }
       things2.each {|sr|
           # byebug
           b=sr.split('|')

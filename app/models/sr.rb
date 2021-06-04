@@ -1,4 +1,107 @@
 class Sr < ApplicationRecord
+  def self.remove_spaces_from_dept
+    department = Sr.where(department:'SWM Solid Waste Management              ')
+    department.each_with_index {|i,v|
+      if i[:department] == "SWM Solid Waste Management              "
+        i[:department] = "SWM Solid Waste Management"
+        i.save
+      elsif i[:sr_type] == "Property Damage                         "
+        i[:sr_type] = "Property Damage"
+        i.save
+      elsif i[:sr_type] == "Automated Recycling for Business NEW    "
+        i[:sr_type] = "Automated Recycling for Business NEW"
+        i.save
+      elsif i[:sr_type] == "Order Bag Tags                          "
+        i[:sr_type] = "Order Bag Tags"
+        i.save
+      elsif i[:sr_type] == "Recycle Bin/Cart Retrieve               "
+        i[:sr_type] = "Recycle Bin/Cart Retrieve"
+        i.save
+      elsif i[:sr_type] == "Dumpster Permit                         "
+        i[:sr_type] = "Dumpster Permit"
+        i.save
+      elsif i[:sr_type] == "Container Problem                       "
+        i[:sr_type] == "Container Problem"
+        i.save
+      elsif i[:sr_type] == "Add A Cart                              "
+        i[:sr_type] = "Add A Cart"
+        i.save
+      elsif i[:sr_type] == "Non Residential Collection CANCEL       "
+        i[:sr_type] = "Non Residential Collection CANCEL"
+        i.save
+      elsif i[:sr_type] == "Neighborhood Clean up                   "
+        i[:sr_type] = "Neighborhood Clean up"
+        i.save
+      elsif i[:sr_type] == "Storm Debris Collection                 "
+        i[:sr_type] = "Storm Debris Collection"
+        i.save
+      elsif i[:sr_type] == "Missed Recycling Pickup                 "
+        i[:sr_type] = "Missed Recycling Pickup"
+        i.save
+      elsif i[:sr_type] == "Missed Garbage Pickup                   "
+        i[:sr_type] = "Missed Garbage Pickup"
+        i.save
+      elsif i[:sr_type] == "Add A Cart CANCELLATION                 "
+        i[:sr_type] = "Add A Cart CANCELLATION"
+        i.save
+      elsif i[:sr_type]  == "Trash Dumping or Illegal Dumpsite       "
+        i[:sr_type] = "Trash Dumping or Illegal Dumpsite"
+        i.save
+      elsif i[:sr_type]  == "Container Placement                     "
+        i[:sr_type] = "Container Placement"
+        i.save
+      elsif i[:sr_type]  == "Missed Heavy Trash Pickup               "
+        i[:sr_type] = "Missed Heavy Trash Pickup"
+        i.save
+      elsif i[:sr_type]  == "Dumpster Complaint                      "
+        i[:sr_type] = "Dumpster Complaint"
+        i.save
+      elsif i[:sr_type]  == "Add A Bin                               "
+        i[:sr_type] = "Add A Bin"
+        i.save
+      elsif i[:sr_type]  == "New Resident in Private Development     "
+        i[:sr_type] = "New Resident in Private Development"
+        i.save
+      elsif i[:sr_type]  == "Recycling Cart Repair or Replace        "
+        i[:sr_type] = "Recycling Cart Repair or Replace"
+        i.save
+      elsif i[:sr_type]  == "Missed Yard Waste Pickup                "
+        i[:sr_type] = "Missed Yard Waste Pickup"
+        i.save
+      elsif i[:sr_type]  == "Non Residential Collection Service NEW  "
+        i[:sr_type] = "Non Residential Collection Service NEW"
+        i.save
+      elsif i[:sr_type]  == "Miss Complaint                          "
+        i[:sr_type] = "Miss Complaint"
+        i.save
+      elsif i[:sr_type]  == "New Resident Container                  "
+        i[:sr_type] = "New Resident Container"
+        i.save
+      elsif i[:sr_type]  == "Dead Animal Collection                  "
+        i[:sr_type] = "Dead Animal Collection"
+        i.save
+      elsif i[:sr_type]  == "Spilled Debris                          "
+        i[:sr_type] = "Spilled Debris"
+        i.save
+      elsif i[:sr_type]  == "SWM Escalation                          "
+        i[:sr_type] = "SWM Escalation"
+        i.save
+      elsif i[:sr_type]  == "Recycling Participation NEW             "
+        i[:sr_type] = "Recycling Participation NEW"
+        i.save
+      elsif i[:sr_type]  == "Add A Can                               "
+        i[:sr_type] = "Add A Can"
+        i.save
+      elsif i[:sr_type]  == "Add A Can CANCELLATION                  "
+        i[:sr_type] = "Add A Can CANCELLATION"
+        i.save
+      elsif i[:sr_type]  == "New Move In Service                     "
+        i[:sr_type] = "New Move In Service"
+        i.save
+      end
+    }
+  end
+
   @@max_number_in_range_of_overdues= ""
   def self.nil_resolution(case_number)
       local= Sr.where('case_number = ?', case_number).distinct.pluck(:overdue)
@@ -1169,6 +1272,7 @@ class Sr < ApplicationRecord
     end
 
     def self.pivot
+      Sr.remove_spaces_from_dept
       Sr.sla_nil_resolution
       Sr.update_trash_quad_v2
       Sr.trash_quad_nil_resolution_from_garbage_route
