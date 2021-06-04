@@ -19,7 +19,7 @@ gem 'pg', '~> 1.2', '>= 1.2.3'
 # gem 'mini_racer', '~> 0.3.1'
 # gem 'therubyracer', '~> 0.12.2'
 # Use Puma as the app server
-gem 'puma', '~> 3.7'
+gem 'puma', '~> 4.3'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
