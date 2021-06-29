@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_19_010923) do
+ActiveRecord::Schema.define(version: 2021_06_25_195631) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -340,6 +340,22 @@ ActiveRecord::Schema.define(version: 2021_02_19_010923) do
     t.integer "tally"
   end
 
+  create_table "route_tons", force: :cascade do |t|
+    t.integer "tons"
+    t.datetime "created_at"
+    t.bigint "unit_id"
+    t.bigint "route_id"
+    t.string "route_name"
+    t.index ["route_id"], name: "index_route_tons_on_route_id"
+    t.index ["unit_id"], name: "index_route_tons_on_unit_id"
+  end
+
+  create_table "routes", force: :cascade do |t|
+    t.string "route"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "spatial_overdue_hvies", force: :cascade do |t|
     t.integer "ID"
     t.text "case_number"
@@ -444,6 +460,42 @@ ActiveRecord::Schema.define(version: 2021_02_19_010923) do
     t.string "resolution_notes"
   end
 
+  create_table "units", force: :cascade do |t|
+    t.integer "OBJECTID"
+    t.string "created_user"
+    t.datetime "created_date"
+    t.string "last_edited_user"
+    t.datetime "last_edited_date"
+    t.string "SEC_NAME"
+    t.string "COLLECT_DAY"
+    t.string "QUAD"
+    t.integer "HELP_SECTION"
+    t.string "RECY_QUAD"
+    t.string "RECY_COLLECT_DAY"
+    t.string "RECY_SEC_NAME"
+    t.string "HVY_TRSH_SEC_NAME"
+    t.string "HVY_TRSH_COLLECT_DAY"
+    t.string "HVY_TRSH_QUAD"
+    t.integer "LIFT_COUNT"
+    t.string "SERV_TYPE"
+    t.integer "STREET_NUM"
+    t.string "FRACTION"
+    t.string "PREFIX"
+    t.string "STREET_NAME"
+    t.string "SUFFIX"
+    t.string "STREET_TYPE"
+    t.string "STATE"
+    t.string "CITY"
+    t.integer "ZIPCODE"
+    t.bigint "X_COORD"
+    t.bigint "Y_COORD"
+    t.string "DESCR"
+    t.bigint "LAT"
+    t.bigint "LONG"
+    t.integer "Customer_ID"
+    t.string "GlobalID"
+  end
+
   create_table "warranty_lists", force: :cascade do |t|
     t.integer "case1"
     t.integer "case2"
@@ -462,4 +514,6 @@ ActiveRecord::Schema.define(version: 2021_02_19_010923) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "route_tons", "routes"
+  add_foreign_key "route_tons", "units"
 end

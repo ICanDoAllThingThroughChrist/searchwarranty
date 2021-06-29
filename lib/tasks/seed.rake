@@ -1,5 +1,26 @@
 namespace :seed do
   desc "TODO"
+  task upload_residents: :environment do
+    require 'creek'
+    require 'pry'
+
+    creek = Creek::Book.new "/Users/e128289/OneDrive - City of Houston/daily-reports/residents.xlsx"
+    sheet = creek.sheets[0]
+    a = []
+    sheet.simple_rows.each do |row| a.push row end
+    a.each {|item|
+      Unit.create(
+        OBJECTID: "#{item["A"]}", created_user: "#{item["B"]}", created_date: "#{item["C"]}", last_edited_user: "#{item["D"]}", last_edited_date: "#{item["E"]}",
+        SEC_NAME: "#{item["F"]}", COLLECT_DAY: "#{item["G"]}", QUAD: "#{item["H"]}",
+        HELP_SECTION: "#{item["I"]}", RECY_QUAD: "#{item["J"]}", RECY_COLLECT_DAY: "#{item["K"]}",
+        RECY_SEC_NAME: "#{item["L"]}", HVY_TRSH_SEC_NAME: "#{item["M"]}", HVY_TRSH_COLLECT_DAY: "#{item["N"]}",
+        HVY_TRSH_QUAD: "#{item["O"]}", LIFT_COUNT: "#{item["P"]}", SERV_TYPE: "#{item["Q"]}",
+        STREET_NUM: "#{item["R"]}", FRACTION: "#{item["S"]}", PREFIX: "#{item["T"]}", STREET_NAME: "#{item["U"]}",
+        SUFFIX: "#{item["V"]}", STREET_TYPE: "#{item["W"]}", STATE: "#{item["X"]}", CITY: "#{item["Y"]}",
+        ZIPCODE: "#{item["Z"]}", X_COORD: "#{item["AA"]}", Y_COORD: "#{item["AB"]}", DESCR:"#{item["AC"]}",
+        LAT: "#{item["AD"]}", LONG: "#{item["AE"]}", Customer_ID: "#{item["AF"]}", GlobalID: "#{item["AG"]}")
+    }
+  end
   task upload_rehrig_warranty_list: :environment do
     require 'creek'
     require 'pry'
@@ -82,15 +103,7 @@ namespace :seed do
                Sr.create(row.to_hash)
                 # binding.pry
               }
-              CSV.foreach("C:/Users/e128289/Downloads/SWM All Data with Resolution Time-Jan12019-June302019.csv",
-                   { encoding: "iso-8859-1:utf-8",
-                      headers: true,
-                      header_converters: :symbol,converters: :all}) {|row|
-                  # binding.pry
-                 Sr.create(row.to_hash)
-                  # binding.pry
-                }
-                CSV.foreach("C:/Users/e128289/Downloads/SWM All Data with Resolution Time-July1st2019-Dec31-2019.csv",
+                CSV.foreach("C:/Users/e128289/Downloads/SWM All Data with Resolution Time-Jan12019-Dec31-2019.csv",
                      { encoding: "iso-8859-1:utf-8",
                         headers: true,
                         header_converters: :symbol,converters: :all}) {|row|
@@ -98,13 +111,21 @@ namespace :seed do
                    Sr.create(row.to_hash)
                     # binding.pry
                   }
-                  CSV.foreach("C:/Users/e128289/Downloads/SWM All Data with Resolution Time-Jan1st2020-April292020.csv",
+                CSV.foreach("C:/Users/e128289/Downloads/All Data with Resolution Time-Jan1st2020-June19-2020.csv",
                        { encoding: "iso-8859-1:utf-8",
                           headers: true,
                           header_converters: :symbol,converters: :all}) {|row|
                       # binding.pry
                      Sr.create(row.to_hash)
                       # binding.pry
+                    }
+                CSV.foreach("C:/Users/e128289/Downloads/SWM All Data with Resolution Time-June20-2020-June212021.csv",
+                         { encoding: "iso-8859-1:utf-8",
+                            headers: true,
+                            header_converters: :symbol,converters: :all}) {|row|
+                        # binding.pry
+                       Sr.create(row.to_hash)
+                        # binding.pry
                     }
   end
   task april_2020: :environment do
@@ -648,5 +669,46 @@ namespace :seed do
       # binding.pry
     }
     Cart.carts_compliance_list
+  end
+
+  task yr_2019_to_present_requests: :environment do
+    start = Date.parse('2017-07-01')
+    due = DateTime.now
+    Sr.
+    where('sr_create_date >= ? AND sr_create_date <=?',start, due).
+      where(department: 'SWM Solid Waste Management').
+      delete_all
+        columns = %i[CASE_NUMBER	SR_LOCATION	COUNTY	CLIENT
+          STREET_NUM	CLIENT_STREET	CITY	STATE	ZIP	PHONE_NUMBER
+          EMAIL_ADDRESS	DISTRICT	NEIGHBORHOOD	TAX_ID
+          GARBAGE_ROUTE	GARBAGE_DAY1	GARBAGE_QUAD	RECYCLE_DAY1
+          RECYCLE_ROUTE	RECYCLE_QUAD	HEAVY_TRASH_DAY	HEAVY_TRASH_QUAD
+          KEY_MAP	MANAGEMENT_DISTRICT	SR_OWNER	SR_CREATOR	DEPARTMENT
+          DIVISION	SR_TYPE	QUEUE	SLA	STATUS	SR_CREATE_DATE	DUE_DATE
+          DATE_CLOSED	RESOLUTION_TIME	OVERDUE]
+                CSV.foreach("C:/Users/e128289/Downloads/SWM All Data with Resolution Time-Jan12019-Dec31-2019.csv",
+                     { encoding: "iso-8859-1:utf-8",
+                        headers: true,
+                        header_converters: :symbol,converters: :all}) {|row|
+                    # binding.pry
+                   Sr.create(row.to_hash)
+                    # binding.pry
+                  }
+                CSV.foreach("C:/Users/e128289/Downloads/All Data with Resolution Time-Jan1st2020-June19-2020.csv",
+                       { encoding: "iso-8859-1:utf-8",
+                          headers: true,
+                          header_converters: :symbol,converters: :all}) {|row|
+                      # binding.pry
+                     Sr.create(row.to_hash)
+                      # binding.pry
+                    }
+                CSV.foreach("C:/Users/e128289/Downloads/SWM All Data with Resolution Time-June20-2020-June212021.csv",
+                         { encoding: "iso-8859-1:utf-8",
+                            headers: true,
+                            header_converters: :symbol,converters: :all}) {|row|
+                        # binding.pry
+                       Sr.create(row.to_hash)
+                        # binding.pry
+                    }
   end
 end
