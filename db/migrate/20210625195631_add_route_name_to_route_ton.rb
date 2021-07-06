@@ -1,5 +1,44 @@
 class AddRouteNameToRouteTon < ActiveRecord::Migration[5.2]
   def change
     add_column :route_tons, :route_name, :string
+    add_column :route_tons, :RouteData_id, :integer
+    add_column :route_tons, :RouteDate, :datetime
+    add_column :route_tons, :RouteEntryDate, :datetime
+    add_column :route_tons, :EmpCenter_id, :string
+    add_column :route_tons, :RouteNum, :integer
+    add_column :route_tons, :Supervisor_id, :integer
+    add_column :route_tons, :Employee1, :integer
+    add_column :route_tons, :Employee2, :integer
+    add_column :route_tons, :Employee3, :integer
+    add_column :route_tons, :CrewType_id, :integer
+    add_column :route_tons, :VehicleNum, :integer
+    add_column :route_tons, :LeaveCenter, :datetime
+    add_column :route_tons, :LeaveMileage, :integer
+    add_column :route_tons, :ArriveCenter, :datetime
+    add_column :route_tons, :ArriveMileage, :integer
+    add_column :route_tons, :RouteCompletedTime, :datetime
+    add_column :route_tons, :StartAMBreak, :datetime
+    add_column :route_tons, :EndAMBreak, :datetime
+    add_column :route_tons, :StartPMBreak, :datetime
+    add_column :route_tons, :EndPMBreak, :datetime
+    add_column :route_tons, :StartLunchBreak, :datetime
+    add_column :route_tons, :EndLunchBreak, :datetime
+    add_column :route_tons, :Comments, :string
+    add_column :route_tons, :LastUpdatedBy, :string
+    add_column :route_tons, :LastUpdatedDate, :datetime
+    add_column :route_tons, :RouteDataLoad_id, :integer
+    add_column :route_tons, :LoadSeq, :string
+    add_column :route_tons, :StartLoadTime, :datetime
+    add_column :route_tons, :EndLoadTime, :datetime
+    add_column :route_tons, :ArriveDisposalTime, :datetime
+    add_column :route_tons, :LeaveDisposalTime, :datetime
+    add_column :route_tons, :DisposalSite, :string
+    add_column :route_tons, :Tons, :integer
+    add_column :route_tons, :WasteType, :string
+    add_column :route_tons, :StartHelpRoute, :string
+    add_column :route_tons, :EndHelpRoute, :string
+    add_column :route_tons, :Help, :string
+    add_column :route_tons, :HelpRoute, :string
+    add_column :route_tons, :BackToLoad, :datetime
   end
 end
