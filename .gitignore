@@ -66,3 +66,4 @@ app/views/srs/test.html.erb
 districtAll_missed_services_FY20.csv
 app/views/srs/districtAll_missed_services_FY20.html.erb
 app/views/srs/districtAll_missed_services_FY20.html.erb
+*.csv
