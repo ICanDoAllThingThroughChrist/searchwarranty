@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_25_195631) do
+ActiveRecord::Schema.define(version: 2021_07_07_132722) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -498,6 +498,9 @@ ActiveRecord::Schema.define(version: 2021_06_25_195631) do
     t.string "type"
     t.string "other_description"
     t.string "resolution_notes"
+    t.string "case_title"
+    t.string "Resolve_by_SLA_status"
+    t.datetime "resolve_by"
   end
 
   create_table "units", force: :cascade do |t|

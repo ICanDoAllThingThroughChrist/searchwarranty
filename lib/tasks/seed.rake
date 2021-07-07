@@ -1,13 +1,23 @@
 namespace :seed do
   desc "TODO"
+  task swm_related_tasks: :environment do
+    creek = Creek::Book.new "/Users/e128289/Downloads/open-cases-july-7.xlsx"
+    sheet = creek.sheets[0]
+    a=[]
+    sheet.simple_rows.each do |row| a.push row end
+      a.each {|i|
+          Sr.create(case_title:"#{i["A"]}",Resolve_by_SLA_status:"#{i["B"]}",resolve_by:"#{i["C"]}")
+      }
+
+  end
   task route_ton: :environment do
-     require 'creek'
-     require 'pry'
      creek = Creek::Book.new "/Users/e128289/OneDrive - City of Houston/Desktop/tpia/route-data.xlsx"
      sheet = creek.sheets[0]
      a = []
      sheet.simple_rows.each do |row| a.push row end
-       binding.pry
+      a.each {|i|
+      binding.pry
+      }
   end
   task upload_residents: :environment do
     require 'creek'
@@ -34,7 +44,7 @@ namespace :seed do
     require 'creek'
     require 'pry'
     #binding.pry
-    creek = Creek::Book.new "/Users/charlielee/Desktop/rehrig-warranty-data.xlsx"
+    creek = Creek::Book.new "/Users/e128289/OneDrive - City of Houston/Desktop/rehrig-warranty-data.xlsx"
     sheet = creek.sheets[0]
     sheet.simple_rows.each do |row| puts row  end
     a = []
@@ -55,7 +65,7 @@ namespace :seed do
     require 'creek'
     require 'pry'
   # creek2 = Creek::Book.new "/Users/charlielee/Desktop/Warranty-info.xlsx"
-  creek3 = Creek::Book.new "C:/Users/e128289/Desktop/Warranty-info.xlsx"
+  creek3 = Creek::Book.new "/Users/e128289/OneDrive - City of Houston/Desktop/Warranty-info.xlsx"
   sheet2 = creek3.sheets[0]
   # sheet2 = creek2.sheets[0]
   sheet2.simple_rows.each do |row| puts row  end
