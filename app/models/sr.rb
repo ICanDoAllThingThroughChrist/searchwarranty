@@ -1,6 +1,34 @@
 class Sr < ApplicationRecord
-  def self.case_title
+  def self.daily_cases_update
       # require 'csv'
+      creek = Creek::Book.new "/Users/e128289/OneDrive - City of Houston/Desktop/Case Advanced Find View - last2.xlsx"
+      sheet = creek.sheets[0]
+      a=[]
+      sheet.simple_rows.each do |row| a.push row end
+      service_requests= ["Add a Can Cancellation", "Add A Cart Cancellation", "Container Placement", "Container Problem", "Container Repair",
+        "Container Replacement", "Customer Feedback", "Dead Animal Collection", "Dumpster Complaint", "Dumpster Permit", "Employee Commendation",
+        "Miss Complaint", "Missed Garbage Pickup", "Missed Heavy Trash Pickup", "Missed Recycling Pickup", "Missed Yard Waste Pickup",
+        "Neighborhood Clean up", "New Move In Service", "New Resident Container", "New Resident in Private Development", "Non Residential Collection CANCEL",
+        "Non Residential Collection Service NEW", "Order Bag Tags, Personnel or Vehicle Complaint", "Physically Challenged Pickup, Property Damage",
+        "Recycle Mascot Appearance", "Recycling Cart Repair", "Recycling Cart Replace", "Recycling Information"," Recycling Participation NEW",
+        "Spilled Debris", "Storm Debris Collection", "SWM Escalation", "SWM Information", "Trash Dumping or Illegal Dumpsite"]
+      # binding.pry
+      a.each{|i|
+        if i["A"]== "(Do Not Modify) Case"
+          # binding.pry
+          puts "not the right one"
+        else
+          # binding.pry
+          i.create( DoNotModifyCase:"#{i["A"]}",
+            DoNotModifyRowChecksum:"#{i["B"]}",
+            case_number:"#{i["D"]}", AlternateCaseNumber:"#{i["E"]}",
+            sr_type:"#{i["F"]}", heavy_trash_quad: "#{i["O"]}", recycle_quad: "#{i["P"]}",
+            garbage_quad: "#{i["Q"]}", status: "#{i["K"]}", SLAStartTime: "#{i["R"]}",
+            CloseDate: "#{i["U"]}", latitude:"#{i["V"]}", longitude:"#{i["W"]}",
+            sr_create_date:"#{i["L"]}",department:"#{i["G"]}")
+        end
+      }
+
       missed_hvy =[]
       missed_gar = []
       container_prob = []
@@ -16,7 +44,7 @@ class Sr < ApplicationRecord
       missed_recycling_pickup = []
       personnel_or_vehicle_complaint = []
       physically_challenged_pickup = []
-        Sr.all.map {|i|
+        i.all.map {|i|
           if i.case_title.include?"Missed Heavy Trash Pickup"
             missed_hvy.push i
           elsif i.case_title.include?"Missed Garbage Pickup"
@@ -501,5 +529,127 @@ class Sr < ApplicationRecord
                 end
       end
 
+  end
+  def self.sla
+    all_sr= Sr.all
+    all_sr.each{|i|
+        if i.sr_type == "Non Residential Collection CANCEL"
+          i.sla = 3
+          i.save
+        elsif i.sr_type == "Dead Animal Collection" ||  i.sr_type == "Missed Garbage Pickup" || i.sr_type == "Missed Recycling Pickup"
+          i.sla = 4
+          i.save
+        elsif i.sr_type == "Add A Cart" || i.sr_type== "Spilled Debris" || i.sr_type== "Storm Debris Collection"
+          i.sla = 5
+          i.save
+        elsif i.sr_type == "Missed Yard Waste Pickup"
+          i.sla = 6
+          i.save
+        elsif i.sr_type ==  "Missed Heavy Trash Pickup"
+          i.sla = 7
+          i.save
+        elsif i.sr_type == "Order Bag Tags"
+          i.sla = 9
+          i.save
+        elsif i.sr_type ==  "Container Problem"||i.sr_type ==  "Dumpster Permit"||i.sr_type == "Neighborhood Clean up"||
+          i.sr_type== "Non Residential Collection Service NEW"
+          i.sla = 10
+          i.save
+        elsif i.sr_type == "New Move In Service"
+          i.sla = 11
+          i.save
+        elsif i.sr_type == "Container Placement"|| i.sr_type == "New Resident Container"
+          i.sla = 12
+          i.save
+        elsif i.sr_type == "Add A Can"|| i.sr_type == "Recycling Cart Repair or Replace"
+          i.sla = 14
+          i.save
+        elsif i.sr_type == "Add A Cart CANCELLATION"
+          i.sla = 16
+          i.save
+        elsif i.sr_type == "Add A Can CANCELLATION"
+          i.sla = 19
+          i.save
+        elsif i.sr_type == "Dumpster Complaint"
+          i.sla = 21
+          i.save
+        elsif i.sr_type == "Spilled Debris"
+          i.sla = 24
+          i.save
+        elsif i.sr_type == "SWM Escalation"
+          i.sla = 27
+          i.save
+        elsif i.sr_type == "Trash Dumping or Illegal Dumpsite"
+          i.sla = 29
+          i.save
+        elsif i.sr_type == "Property Damage"
+          i.sla = 30
+          i.save
+        else
+          puts "#{i.sr_type}"
+        end
+      }
+  end
+  def self.quad_assignment
+    service_types = Sr.all
+    service_types.each {|i|
+        if i.sr_type == "Non Residential Collection CANCEL" || "Non Residential Collection CANCEL"
+          i.quad_status = "#{i.garbage_quad}"
+          i.save
+        elsif i.sr_type == "Missed Recycling Pickup" || "Missed Recycling Pickup"
+          i.quad_status = "#{i.recycle_quad}"
+        elsif i.sr_type == "Dead Animal Collection"
+          i.quad_status= "#{i.garbage_quad}"
+          i.save
+        elsif i.sr_type == "Add A Cart" || i.sr_type== "Spilled Debris" || i.sr_type== "Storm Debris Collection"
+          i.quad_status = "#{i.garbage_quad}"
+          i.save
+        elsif i.sr_type == "Missed Yard Waste Pickup" || "Missed Yard Waste Pickup"
+          i.quad_status= "#{i.garbage_quad}"
+          i.save
+        elsif i.sr_type ==  "Missed Heavy Trash Pickup"
+          i.quad_status= "#{i.heavy_trash_quad}"
+          i.save
+        elsif i.sr_type == "Order Bag Tags"
+          i.quad_status= "#{i.garbage_quad}"
+          i.save
+        elsif i.sr_type ==  "Container Problem"||i.sr_type ==  "Dumpster Permit"||i.sr_type == "Neighborhood Clean up"||
+          i.sr_type== "Non Residential Collection Service NEW"
+          i.quad_status= "#{i.garbage_quad}"
+          i.save
+        elsif i.sr_type == "New Move In Service"
+          i.quad_status= "#{i.garbage_quad}"
+          i.save
+        elsif i.sr_type == "Container Placement"|| i.sr_type == "New Resident Container"
+          i.quad_status= "#{i.garbage_quad}"
+          i.save
+        elsif i.sr_type == "Add A Can"|| i.sr_type == "Recycling Cart Repair or Replace"
+          i.quad_status= "#{i.garbage_quad}"
+          i.save
+        elsif i.sr_type == "Add A Cart CANCELLATION"
+          i.quad_status= "#{i.garbage_quad}"
+          i.save
+        elsif i.sr_type == "Add A Can CANCELLATION"
+          i.quad_status= "#{i.garbage_quad}"
+          i.save
+        elsif i.sr_type == "Dumpster Complaint"
+          i.quad_status= "#{i.garbage_quad}"
+          i.save
+        elsif i.sr_type == "Spilled Debris"
+          i.quad_status= "#{i.garbage_quad}"
+          i.save
+        elsif i.sr_type == "SWM Escalation"
+          i.quad_status= "#{i.garbage_quad}"
+          i.save
+        elsif i.sr_type == "Trash Dumping or Illegal Dumpsite"
+          i.quad_status= "#{i.garbage_quad}"
+          i.save
+        elsif i.sr_type == "Property Damage"
+          i.quad_status= "#{i.garbage_quad}"
+          i.save
+        else
+          puts "#{i.sr_type}"
+        end
+  }
   end
 end

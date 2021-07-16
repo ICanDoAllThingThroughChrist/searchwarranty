@@ -1,3 +1,44 @@
+def self.sla_historical
+  if sr.service_request_type == "Non Residential Collection CANCEL"
+    sr.sla_historical = 3
+  elsif sr.service_request_type == "Dead Animal Collection" ||  sr.service_request_type == "Missed Garbage Pickup" || sr.service_request_type == "Missed Recycling Pickup"
+    sr.sla_historical = 4
+  elsif sr.service_request_type == "Add A Cart" || sr.service_request_type== "Spilled Debris" || sr.service_request_type== "Storm Debris Collection"
+    sr.sla_historical = 5
+  elsif sr.service_request_type == "Missed Yard Waste Pickup"
+    sr.sla_historical = 6
+  elsif sr.service_request_type ==  "Missed Heavy Trash Pickup"
+    sr.sla_historical = 7
+  elsif sr.service_request_type == "Order Bag Tags"
+    sr.sla_historical = 9
+  elsif sr.service_request_type ==  "Container Problem"||sr.service_request_type ==  "Dumpster Permit"||sr.service_request_type == "Neighborhood Clean up"||
+    sr.service_request_type== "Non Residential Collection Service NEW"
+    sr.sla_historical = 10
+  elsif sr.service_request_type == "New Move In Service"
+    sr.sla_historical = 11
+  elsif sr.service_request_type == "Container Placement"|| sr.service_request_type == "New Resident Container"
+    sr.sla_historical = 12
+  elsif sr.service_request_type == "Add A Can"|| sr.service_request_type == "Recycling Cart Repair or Replace"
+    sr.sla_historical = 14
+  elsif sr.service_request_type == "Add A Cart CANCELLATION"
+    sr.sla_historical = 16
+  elsif sr.service_request_type == "Add A Can CANCELLATION"
+    sr.sla_historical = 19
+  elsif sr.service_request_type == "Dumpster Complaint"
+    sr.sla_historical = 21
+  elsif sr.service_request_type == "Spilled Debris"
+    sr.sla_historical = 24
+  elsif sr.service_request_type == "SWM Escalation"
+    sr.sla_historical = 27
+  elsif sr.service_request_type == "Trash Dumping or Illegal Dumpsite"
+    sr.sla_historical = 29
+  elsif sr.service_request_type == "Property Damage"
+    sr.sla_historical = 30
+  else
+    puts "#{sr.service_request_type}"
+  end
+end
+
 def self.search_address(case_number)
   address=[]
   case_number_search = Sr.find_by(case_number:"#{case_number}")

@@ -1,13 +1,15 @@
 namespace :seed do
   desc "TODO"
   task swm_related_tasks: :environment do
-    creek = Creek::Book.new "/Users/e128289/Downloads/open-cases-july-7.xlsx"
+    creek = Creek::Book.new "/Users/e128289/OneDrive - City of Houston/Desktop/Case Advanced Find View - last2.xlsx"
     sheet = creek.sheets[0]
     a=[]
     sheet.simple_rows.each do |row| a.push row end
-      a.each {|i|
-          Sr.create(case_title:"#{i["A"]}",Resolve_by_SLA_status:"#{i["B"]}",resolve_by:"#{i["C"]}")
-      }
+      binding.pry
+      # a.each {|i|
+      #   binding.pry
+      #     # Sr.create(case_title:"#{i["A"]}",Resolve_by_SLA_status:"#{i["B"]}",resolve_by:"#{i["C"]}")
+      # }
 
   end
   task route_ton: :environment do
