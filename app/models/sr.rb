@@ -596,7 +596,7 @@ class Sr < ApplicationRecord
         if i.sr_type == "Non Residential Collection CANCEL" || "Non Residential Collection CANCEL"
           i.quad_status = "#{i.garbage_quad}"
           i.save
-        elsif i.sr_type == "Missed Recycling Pickup" || "Missed Recycling Pickup"
+        elsif i.sr_type == "Missed Recycling Pickup"
           i.quad_status = "#{i.recycle_quad}"
         elsif i.sr_type == "Dead Animal Collection"
           i.quad_status= "#{i.garbage_quad}"
