@@ -1,7 +1,7 @@
 namespace :seed do
   desc "TODO"
-  task swm_related_tasks: :environment do
-    creek = Creek::Book.new "/Users/e128289/OneDrive - City of Houston/Desktop/Case Advanced Find View - last2.xlsx"
+  task swm_related_311_service_requests: :environment do
+    creek = Creek::Book.new "C:/Users/e128289/OneDrive - City of Houston/daily-reports/daily_citywide_export.xlsx"
     sheet = creek.sheets[0]
     a=[]
     sheet.simple_rows.each do |row| a.push row end
@@ -10,7 +10,17 @@ namespace :seed do
       #   binding.pry
       #     # Sr.create(case_title:"#{i["A"]}",Resolve_by_SLA_status:"#{i["B"]}",resolve_by:"#{i["C"]}")
       # }
-
+  end
+  task swm_daily_update_tasks: :environment do
+    creek = Creek::Book.new "/Users/e128289/OneDrive - City of Houston/daily-reports/Case Advanced Find View (14)-july-20-2021.xlsx"
+    sheet = creek.sheets[0]
+    a=[]
+    sheet.simple_rows.each do |row| a.push row end
+      binding.pry
+      # a.each {|i|
+      #   binding.pry
+      #     # Sr.create(case_title:"#{i["A"]}",Resolve_by_SLA_status:"#{i["B"]}",resolve_by:"#{i["C"]}")
+      # }
   end
   task route_ton: :environment do
      creek = Creek::Book.new "/Users/e128289/OneDrive - City of Houston/Desktop/tpia/route-data.xlsx"
