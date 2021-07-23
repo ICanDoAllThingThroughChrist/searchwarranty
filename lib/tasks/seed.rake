@@ -31,7 +31,8 @@ namespace :seed do
     sheet.simple_rows.each do |row| a.push row end
     a.each {|item|
       Unit.create(
-        OBJECTID: "#{item["A"]}", created_user: "#{item["B"]}", created_date: "#{item["C"]}", last_edited_user: "#{item["D"]}", last_edited_date: "#{item["E"]}",
+        OBJECTID: "#{item["A"]}", created_user: "#{item["B"]}",
+        created_date: "#{item["C"]}", last_edited_user: "#{item["D"]}", last_edited_date: "#{item["E"]}",
         SEC_NAME: "#{item["F"]}", COLLECT_DAY: "#{item["G"]}", QUAD: "#{item["H"]}",
         HELP_SECTION: "#{item["I"]}", RECY_QUAD: "#{item["J"]}", RECY_COLLECT_DAY: "#{item["K"]}",
         RECY_SEC_NAME: "#{item["L"]}", HVY_TRSH_SEC_NAME: "#{item["M"]}", HVY_TRSH_COLLECT_DAY: "#{item["N"]}",
@@ -42,7 +43,62 @@ namespace :seed do
         LAT: "#{item["AD"]}", LONG: "#{item["AE"]}", Customer_ID: "#{item["AF"]}", GlobalID: "#{item["AG"]}")
     }
   end
-  task upload_rehrig_warranty_list: :environment do
+  task mac_upload_rehrig_warranty_list: :environment do
+    require 'creek'
+    require 'pry'
+    #binding.pry
+    creek = Creek::Book.new "/Users/charlielee/Downloads/rehrig-warranty-data.xlsx"
+    sheet = creek.sheets[0]
+    sheet.simple_rows.each do |row| puts row  end
+    a = []
+    sheet.simple_rows.each do |row| a.push row end
+    a.each {|item|
+      if item["A"] == "beg_num"
+        next
+      else
+        item["A"]= item["A"].to_i
+        item["B"]= item["B"].to_i
+        WarrantyList.create(BegNum: "#{item["A"]}",
+           EndNum: "#{item["B"]}",
+           WarrantyStart: "#{item["C"]}",
+           WarrantyEnd: "#{item["D"]}",
+           PO: "#{item["E"]}",
+           OrderNum: "#{item["F"]}",
+           ItemNum: "#{item["G"]}",
+           ItemDesc: "#{item["H"]}")
+        #binding.pry
+      end
+      }
+  end
+  task mac_upload_toter_warranty_list: :environment do
+    require 'creek'
+    require 'pry'
+  # creek2 = Creek::Book.new "/Users/charlielee/Desktop/Warranty-info.xlsx"
+  creek3 = Creek::Book.new "/Users/charlielee/Downloads/Warranty-info.xlsx"
+  sheet2 = creek3.sheets[0]
+  # sheet2 = creek2.sheets[0]
+  sheet2.simple_rows.each do |row| puts row  end
+  b = []
+  sheet2.simple_rows.each do |row| b.push row end
+  b.each {|item|
+    if item["A"] == "beg_num"
+      next
+    else
+      item["A"]= item["A"].to_i
+      item["B"]= item["B"].to_i
+      WarrantyList.create(BegNum: "#{item["A"]}",
+        EndNum: "#{item["B"]}",
+        WarrantyStart: "#{item["C"]}",
+        WarrantyEnd: "#{item["D"]}",
+        PO: "#{item["E"]}",
+        OrderNum: "#{item["F"]}",
+        ItemNum: "#{item["G"]}",
+        ItemDesc: "#{item["H"]}")
+      #binding.pry
+    end
+    }
+  end
+  task city_upload_rehrig_warranty_list: :environment do
     require 'creek'
     require 'pry'
     #binding.pry
@@ -57,13 +113,19 @@ namespace :seed do
       else
         item["A"]= item["A"].to_i
         item["B"]= item["B"].to_i
-        WarrantyList.create(BegNum: "#{item["A"]}", EndNum: "#{item["B"]}", WarrantyStart: "#{item["C"]}", WarrantyEnd: "#{item["D"]}", PO: "#{item["E"]}",
-        OrderNum: "#{item["F"]}", ItemNum: "#{item["G"]}", ItemDesc: "#{item["H"]}")
+        WarrantyList.create(BegNum: "#{item["A"]}",
+          EndNum: "#{item["B"]}",
+          WarrantyStart: "#{item["C"]}",
+          WarrantyEnd: "#{item["D"]}",
+          PO: "#{item["E"]}",
+          OrderNum: "#{item["F"]}",
+          ItemNum: "#{item["G"]}",
+          ItemDesc: "#{item["H"]}")
         #binding.pry
       end
       }
   end
-  task upload_toter_warranty_list: :environment do
+  task city_upload_toter_warranty_list: :environment do
     require 'creek'
     require 'pry'
   # creek2 = Creek::Book.new "/Users/charlielee/Desktop/Warranty-info.xlsx"
