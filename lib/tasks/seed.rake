@@ -11,6 +11,60 @@ namespace :seed do
       #     # Sr.create(case_title:"#{i["A"]}",Resolve_by_SLA_status:"#{i["B"]}",resolve_by:"#{i["C"]}")
       # }
   end
+
+  task mac_swm_daily_update_tasks: :environment do
+    creek = Creek::Book.new "/Users/charlielee/Downloads/Case Advanced Find View (14)-july-20-2021.xlsx"
+    sheet = creek.sheets[0]
+    a=[]
+    sheet.simple_rows.each do |row| a.push row end
+      # binding.pry
+      a.each {|i|
+        # binding.pry
+        if i["A"] == "(Do Not Modify) Case"
+          puts "next"
+        elsif
+          Sr.create(case_number:"#{i["D"]}",sr_type:"#{i["F"]}",status:"#{i["K"]}",created_at:"#{i["L"]}",
+            heavy_trash_quad:"#{i["J"]}",recycle_quad:"#{i["Y"]}",trash_quad:"#{i["Q"]}",
+            SLAStartTime:"#{i["R"]}",ResolutionDate:"#{i["T"]}",CloseDate:"#{i["U"]}",
+            latitude:"#{i["V"]}",longitude:"#{i["W"]}",garbage_route: "#{i["X"]}}",
+            recycle_route: "#{i["Y"]}",garbage_day: "#{i["Z"]}",district: "#{i["AA"]}",
+            recycle_day: "#{i["AB"]}",heavy_trash_day: "#{i["AC"]}",department:"#{i["G"]}")
+        end
+      }
+        srs= Sr.all
+        headers = %i[CASE_NUMBER	SR_TYPE	STATUS	CREATED_AT
+          HEAVY_TRASH_QUAD	RECYCLE_QUAD	trash_quad	SLAStartTime ResolutionDate
+          CloseDate	latitude	longitude	GARBAGE_ROUTE
+          RECYCLE_ROUTE	GARBAGE_DAY DISTRICT RECYCLE_DAY HEAVY_TRASH_DAY
+          DEPARTMENT]
+          CSV.open("active.csv", "wb", write_headers: true, headers: headers) do |csv|
+            #binding.pry
+              srs.each do |row|
+              map = []
+              # binding.pry
+                map << row.case_number
+                map << row.sr_type
+                map << row.status
+                map << row.created_at
+                map << row.heavy_trash_quad
+                map << row.recycle_quad
+                map << row.trash_quad
+                map << row.SLAStartTime
+                map << row.ResolutionDate
+                map << row.CloseDate
+                map << row.latitude
+                map << row.longitude
+                map << row.garbage_route
+                map << row.recycle_route
+                map << row.garbage_day
+                map << row.district
+                map << row.recycle_day
+                map << row.heavy_trash_day
+                map << row.department
+                csv << map
+              end
+          end
+  end
   task swm_daily_update_tasks: :environment do
     creek = Creek::Book.new "/Users/e128289/OneDrive - City of Houston/daily-reports/Case Advanced Find View (14)-july-20-2021.xlsx"
     sheet = creek.sheets[0]

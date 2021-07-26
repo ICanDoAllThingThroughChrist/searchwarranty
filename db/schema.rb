@@ -332,13 +332,12 @@ ActiveRecord::Schema.define(version: 2021_07_16_021957) do
   end
 
   create_table "residents", force: :cascade do |t|
-    t.integer "ID"
     t.string "unique"
     t.string "sr_type"
-    t.integer "case_number"
-    t.integer "tally"
+    t.float "case_number"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "tally"
   end
 
   create_table "route_tons", force: :cascade do |t|
