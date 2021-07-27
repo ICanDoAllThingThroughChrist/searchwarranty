@@ -6,7 +6,7 @@ class Sr < ApplicationRecord
           records.each{|i|
             # binding.pry
             if i.sr_type == "Non Residential Collection CANCEL"
-              # i.sla = 3
+              i.sla = 3
               if i.SLAStartTime != nil
                 o= DateTime.parse("#{i.SLAStartTime}")
                 i.calcDeadline= o + i.sla
