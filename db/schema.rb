@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_16_021957) do
+ActiveRecord::Schema.define(version: 2021_07_27_184256) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -332,12 +332,13 @@ ActiveRecord::Schema.define(version: 2021_07_16_021957) do
   end
 
   create_table "residents", force: :cascade do |t|
+    t.integer "ID"
     t.string "unique"
     t.string "sr_type"
-    t.float "case_number"
+    t.integer "case_number"
+    t.integer "tally"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "tally"
   end
 
   create_table "route_tons", force: :cascade do |t|
@@ -509,6 +510,7 @@ ActiveRecord::Schema.define(version: 2021_07_16_021957) do
     t.datetime "SLAStartTimeUserLocal"
     t.datetime "ResolutionDate"
     t.datetime "CloseDate"
+    t.datetime "calcDeadline"
   end
 
   create_table "units", force: :cascade do |t|

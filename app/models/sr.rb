@@ -1,4 +1,415 @@
 class Sr < ApplicationRecord
+  def self.active_cases
+          srs= Sr.where(status:'Active', department:'Solid Waste Management')
+          records = srs.to_ary
+          #records is an array
+          records.each{|i|
+            # binding.pry
+            if i.sr_type == "Non Residential Collection CANCEL"
+              # i.sla = 3
+              if i.SLAStartTime != nil
+                o= DateTime.parse("#{i.SLAStartTime}")
+                i.calcDeadline= o + i.sla
+                co= DateTime.parse("#{i.calcDeadline}")
+                  if co- DateTime.now < 0
+                    i.overdue = 1
+                  else
+                    i.overdue = 0
+                  end
+                i.save
+              elsif
+                i.calcDeadline= i.created_at + i.sla
+                co= DateTime.parse("#{i.calcDe8adline}")
+                  if co- DateTime.now < 0
+                    i.overdue = 1
+                  else
+                    i.overdue = 0
+                  end
+                i.save
+              end
+            elsif i.sr_type == "Dead Animal Collection" ||  i.sr_type == "Missed Garbage Pickup" || i.sr_type == "Missed Recycling Pickup"
+              # i.sla = 4 = i.
+              i.sla = 4
+              if i.SLAStartTime != nil
+                o= DateTime.parse("#{i.SLAStartTime}")
+                i.calcDeadline= o + i.sla
+                co= DateTime.parse("#{i.calcDeadline}")
+                  if co- DateTime.now < 0
+                    i.overdue = 1
+                  else
+                    i.overdue = 0
+                  end
+                i.save
+              else
+                i.calcDeadline= i.created_at + i.sla
+                co= DateTime.parse("#{i.calcDeadline}")
+                  if co- DateTime.now < 0
+                    i.overdue = 1
+                  else
+                    i.overdue = 0
+                  end
+                i.save
+              end
+              # binding.pry
+            elsif i.sr_type == "Add A Cart" || i.sr_type== "Spilled Debris" || i.sr_type== "Storm Debris Collection"
+              # i.sla = 5
+              i.sla = 5
+              if i.SLAStartTime != nil
+                o= DateTime.parse("#{i.SLAStartTime}")
+                i.calcDeadline= o + i.sla
+                co= DateTime.parse("#{i.calcDeadline}")
+                  if co- DateTime.now < 0
+                    i.overdue = 1
+                  else
+                    i.overdue = 0
+                  end
+                i.save
+              else
+                i.calcDeadline= i.created_at + i.sla
+                co= DateTime.parse("#{i.calcDeadline}")
+                  if co- DateTime.now < 0
+                    i.overdue = 1
+                  else
+                    i.overdue = 0
+                  end
+                i.save
+              end
+
+            elsif i.sr_type == "Missed Yard Waste Pickup"
+              i.sla = 6
+              if i.SLAStartTime != nil
+                o= DateTime.parse("#{i.SLAStartTime}")
+                i.calcDeadline= o + i.sla
+                co= DateTime.parse("#{i.calcDeadline}")
+                  if co- DateTime.now < 0
+                    i.overdue = 1
+                  else
+                    i.overdue = 0
+                  end
+                i.save
+              else
+                i.calcDeadline= i.created_at + i.sla
+                co= DateTime.parse("#{i.calcDeadline}")
+                  if co- DateTime.now < 0
+                    i.overdue = 1
+                  else
+                    i.overdue = 0
+                  end
+                i.save
+              end
+
+            elsif i.sr_type ==  "Missed Heavy Trash Pickup"
+              i.sla = 7
+              if i.SLAStartTime != nil
+                o= DateTime.parse("#{i.SLAStartTime}")
+                i.calcDeadline= o + i.sla
+                co= DateTime.parse("#{i.calcDeadline}")
+                  if co- DateTime.now < 0
+                    i.overdue = 1
+                  else
+                    i.overdue = 0
+                  end
+                i.save
+              else
+                i.calcDeadline= i.created_at + i.sla
+                co= DateTime.parse("#{i.calcDeadline}")
+                  if co- DateTime.now < 0
+                    i.overdue = 1
+                  else
+                    i.overdue = 0
+                  end
+                i.save
+              end
+            elsif i.sr_type == "Order Bag Tags"
+              i.sla = 9
+              if i.SLAStartTime != nil
+                o= DateTime.parse("#{i.SLAStartTime}")
+                i.calcDeadline= o + i.sla
+                co= DateTime.parse("#{i.calcDeadline}")
+                  if co- DateTime.now < 0
+                    i.overdue = 1
+                  else
+                    i.overdue = 0
+                    co= DateTime.parse("#{i.calcDeadline}")
+                      if co- DateTime.now < 0
+                        i.overdue = 1
+                      else
+                        i.overdue = 0
+                      end
+                  end
+                i.save
+              else
+                i.calcDeadline= i.created_at + i.sla
+                co= DateTime.parse("#{i.calcDeadline}")
+                  if co- DateTime.now < 0
+                    i.overdue = 1
+                  else
+                    i.overdue = 0
+                  end
+                i.save
+              end
+            elsif i.sr_type ==  "Container Problem"||i.sr_type ==  "Dumpster Permit"||i.sr_type == "Neighborhood Clean up"||
+              i.sr_type== "Non Residential Collection Service NEW"
+              i.sla = 10
+              if i.SLAStartTime != nil
+                o= DateTime.parse("#{i.SLAStartTime}")
+                i.calcDeadline= o + i.sla
+                co= DateTime.parse("#{i.calcDeadline}")
+                  if co- DateTime.now < 0
+                    i.overdue = 1
+                  else
+                    i.overdue = 0
+                  end
+                i.save
+              else
+                i.calcDeadline= i.created_at + i.sla
+                co= DateTime.parse("#{i.calcDeadline}")
+                  if co- DateTime.now < 0
+                    i.overdue = 1
+                  else
+                    i.overdue = 0
+                  end
+                i.save
+              end
+            elsif i.sr_type == "New Move In Service"
+              i.sla = 11
+              if i.SLAStartTime != nil
+                o= DateTime.parse("#{i.SLAStartTime}")
+                i.calcDeadline= o + i.sla
+                co= DateTime.parse("#{i.calcDeadline}")
+                  if co- DateTime.now < 0
+                    i.overdue = 1
+                  else
+                    i.overdue = 0
+                    co= DateTime.parse("#{i.calcDeadline}")
+                      if co- DateTime.now < 0
+                        i.overdue = 1
+                      else
+                        i.overdue = 0
+                      end
+                  end
+                i.save
+              else
+                i.calcDeadline= i.created_at + i.sla
+                co= DateTime.parse("#{i.calcDeadline}")
+                  if co- DateTime.now < 0
+                    i.overdue = 1
+                  else
+                    i.overdue = 0
+                  end
+                i.save
+              end
+            elsif i.sr_type == "Container Placement"|| i.sr_type == "New Resident Container"
+              i.sla = 12
+              if i.SLAStartTime != nil
+                o= DateTime.parse("#{i.SLAStartTime}")
+                i.calcDeadline= o + i.sla
+                co= DateTime.parse("#{i.calcDeadline}")
+                  if co- DateTime.now < 0
+                    i.overdue = 1
+                  else
+                    i.overdue = 0
+                  end
+                i.save
+              else
+                i.calcDeadline= i.created_at + i.sla
+                co= DateTime.parse("#{i.calcDeadline}")
+                  if co- DateTime.now < 0
+                    i.overdue = 1
+                  else
+                    i.overdue = 0
+                  end
+                i.save
+              end
+            elsif i.sr_type == "Add A Can"|| i.sr_type == "Recycling Cart Repair or Replace"|| i.sr_type == "Recycling Cart Replace" || i.sr_type == "Recycling Cart Repair"
+              i.sla = 14
+              if i.SLAStartTime != nil
+                o= DateTime.parse("#{i.SLAStartTime}")
+                i.calcDeadline= o + i.sla
+                co= DateTime.parse("#{i.calcDeadline}")
+                  if co- DateTime.now < 0
+                    i.overdue = 1
+                  else
+                    i.overdue = 0
+                  end
+                i.save
+              else
+                i.calcDeadline= i.created_at + i.sla
+                co= DateTime.parse("#{i.calcDeadline}")
+                  if co- DateTime.now < 0
+                    i.overdue = 1
+                  else
+                    i.overdue = 0
+                  end
+                i.save
+              end
+            elsif i.sr_type == "Add A Cart CANCELLATION"
+              i.sla = 16
+              if i.SLAStartTime != nil
+                o= DateTime.parse("#{i.SLAStartTime}")
+                i.calcDeadline= o + i.sla
+                co= DateTime.parse("#{i.calcDeadline}")
+                  if co- DateTime.now < 0
+                    i.overdue = 1
+                  else
+                    i.overdue = 0
+                  end
+                i.save
+              else
+                i.calcDeadline= i.created_at + i.sla
+                co= DateTime.parse("#{i.calcDeadline}")
+                  if co- DateTime.now < 0
+                    i.overdue = 1
+                  else
+                    i.overdue = 0
+                  end
+                i.save
+              end
+            elsif i.sr_type == "Add A Can CANCELLATION"
+              i.sla = 19
+              if i.SLAStartTime != nil
+                o= DateTime.parse("#{i.SLAStartTime}")
+                i.calcDeadline= o + i.sla
+                co= DateTime.parse("#{i.calcDeadline}")
+                  if co- DateTime.now < 0
+                    i.overdue = 1
+                  else
+                    i.overdue = 0
+                  end
+                i.save
+              else
+                i.calcDeadline= i.created_at + i.sla
+                co= DateTime.parse("#{i.calcDeadline}")
+                  if co- DateTime.now < 0
+                    i.overdue = 1
+                  else
+                    i.overdue = 0
+                  end
+                i.save
+              end
+            elsif i.sr_type == "Dumpster Complaint"
+              i.sla = 21
+              if i.SLAStartTime != nil
+                o= DateTime.parse("#{i.SLAStartTime}")
+                i.calcDeadline= o + i.sla
+                co= DateTime.parse("#{i.calcDeadline}")
+                  if co- DateTime.now < 0
+                    i.overdue = 1
+                  else
+                    i.overdue = 0
+                  end
+                i.save
+              else
+                i.calcDeadline= i.created_at + i.sla
+                co= DateTime.parse("#{i.calcDeadline}")
+                  if co- DateTime.now < 0
+                    i.overdue = 1
+                  else
+                    i.overdue = 0
+                  end
+                i.save
+              end
+            elsif i.sr_type == "Spilled Debris"
+              i.sla = 24
+              if i.SLAStartTime != nil
+                o= DateTime.parse("#{i.SLAStartTime}")
+                i.calcDeadline= o + i.sla
+                co= DateTime.parse("#{i.calcDeadline}")
+                  if co- DateTime.now < 0
+                    i.overdue = 1
+                  else
+                    i.overdue = 0
+                  end
+                i.save
+              else
+                i.calcDeadline= i.created_at + i.sla
+                co= DateTime.parse("#{i.calcDeadline}")
+                  if co- DateTime.now < 0
+                    i.overdue = 1
+                  else
+                    i.overdue = 0
+                  end
+                i.save
+              end
+            elsif i.sr_type == "SWM Escalation"
+              i.sla = 27
+              if i.SLAStartTime != nil
+                o= DateTime.parse("#{i.SLAStartTime}")
+                i.calcDeadline= o + i.sla
+                co= DateTime.parse("#{i.calcDeadline}")
+                  if co- DateTime.now < 0
+                    i.overdue = 1
+                  else
+                    i.overdue = 0
+                  end
+                i.save
+              else
+                i.calcDeadline= i.created_at + i.sla
+                co= DateTime.parse("#{i.calcDeadline}")
+                  if co- DateTime.now < 0
+                    i.overdue = 1
+                  else
+                    i.overdue = 0
+                  end
+                i.save
+              end
+            elsif i.sr_type == "Trash Dumping or Illegal Dumpsite"
+                i.sla = 29
+                if i.SLAStartTime != nil
+                  o= DateTime.parse("#{i.SLAStartTime}")
+                  i.calcDeadline= o + i.sla
+                  co= DateTime.parse("#{i.calcDeadline}")
+                    if co- DateTime.now < 0
+                      i.overdue = 1
+                    else
+                      i.overdue = 0
+                    end
+                  i.save
+                else
+                  i.calcDeadline= i.created_at + i.sla
+                  co= DateTime.parse("#{i.calcDeadline}")
+                    if co- DateTime.now < 0
+                      i.overdue = 1
+                    else
+                      i.overdue = 0
+                    end
+                  i.save
+                end
+            elsif i.sr_type == "Property Damage"
+              i.sla = 30
+              if i.SLAStartTime != nil
+                o= DateTime.parse("#{i.SLAStartTime}")
+                i.calcDeadline= o + i.sla
+                co= DateTime.parse("#{i.calcDeadline}")
+                  if co- DateTime.now < 0
+                    i.overdue = 1
+                  else
+                    i.overdue = 0
+                  end
+                i.save
+              else
+                i.calcDeadline= i.created_at + i.sla
+                co= DateTime.parse("#{i.calcDeadline}")
+                  if co- DateTime.now < 0
+                    i.overdue = 1
+                  else
+                    i.overdue = 0
+                  end
+                i.save
+              end
+            elsif i.sr_type == "Uncollected Service Units"
+              i.sla = 0
+                # binding.pry
+            elsif i.sr_type == nil
+              puts "#{i.id}"
+            else
+              puts "#{i.sr_type}"
+            end
+          }
+          # binding.pry
+          # Sr.where(status:'Active',department:'Solid Waste Management').distinct.pluck(:sla)
+          # Sr.where(status:'Active',department:'Solid Waste Management',sla:'nil').distinct.pluck(:sr_type)
+  end
   def self.daily_cases_update
       # require 'csv'
       creek = Creek::Book.new "/Users/e128289/OneDrive - City of Houston/Desktop/Case Advanced Find View - last2.xlsx"
