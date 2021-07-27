@@ -412,6 +412,7 @@ class Sr < ApplicationRecord
   end
   def self.daily_cases_update
       # require 'csv'
+      Sr.delete_all
       creek = Creek::Book.new "/Users/e128289/OneDrive - City of Houston/Desktop/Case Advanced Find View - last2.xlsx"
       sheet = creek.sheets[0]
       a=[]
@@ -430,13 +431,12 @@ class Sr < ApplicationRecord
           puts "not the right one"
         else
           # binding.pry
-          i.create( DoNotModifyCase:"#{i["A"]}",
-            DoNotModifyRowChecksum:"#{i["B"]}",
-            case_number:"#{i["D"]}", AlternateCaseNumber:"#{i["E"]}",
-            sr_type:"#{i["F"]}", heavy_trash_quad: "#{i["O"]}", recycle_quad: "#{i["P"]}",
-            garbage_quad: "#{i["Q"]}", status: "#{i["K"]}", SLAStartTime: "#{i["R"]}",
-            CloseDate: "#{i["U"]}", latitude:"#{i["V"]}", longitude:"#{i["W"]}",
-            sr_create_date:"#{i["L"]}",department:"#{i["G"]}")
+          Sr.create(case_number:"#{i["D"]}",sr_type:"#{i["F"]}",status:"#{i["K"]}",created_at:"#{i["L"]}",
+            heavy_trash_quad:"#{i["J"]}",recycle_quad:"#{i["Y"]}",trash_quad:"#{i["Q"]}",
+            SLAStartTime:"#{i["R"]}",ResolutionDate:"#{i["T"]}",CloseDate:"#{i["U"]}",
+            latitude:"#{i["V"]}",longitude:"#{i["W"]}",garbage_route: "#{i["X"]}}",
+            recycle_route: "#{i["Y"]}",garbage_day: "#{i["Z"]}",district: "#{i["AA"]}",
+            recycle_day: "#{i["AB"]}",heavy_trash_day: "#{i["AC"]}",department:"#{i["G"]}")
         end
       }
 
@@ -499,8 +499,10 @@ class Sr < ApplicationRecord
         d = c/3600
         if d > 0
           i.overdue = 0
+          i.save
         else
           i.overdue = 1
+          i.save
         end
         array <<  i.case_title.split("-")
         # binding.pry
@@ -518,8 +520,10 @@ class Sr < ApplicationRecord
         d = c/3600
         if d > 0
           i.overdue = 0
+          i.save
         else
           i.overdue = 1
+          i.save
         end
         array <<  i.case_title.split("-")
         # binding.pry
@@ -537,8 +541,10 @@ class Sr < ApplicationRecord
         d = c/3600
         if d > 0
           i.overdue = 0
+          i.save
         else
           i.overdue = 1
+          i.save
         end
         array <<  i.case_title.split("-")
         # binding.pry
@@ -555,8 +561,10 @@ class Sr < ApplicationRecord
         d = c/3600
         if d > 0
           i.overdue = 0
+          i.save
         else
           i.overdue = 1
+          i.save
         end
         array = []
         array <<  i.case_title.split("-")
@@ -574,8 +582,10 @@ class Sr < ApplicationRecord
         d = c/3600
         if d > 0
           i.overdue = 0
+          i.save
         else
           i.overdue = 1
+          i.save
         end
         array = []
         array <<  i.case_title.split("-")
@@ -593,8 +603,10 @@ class Sr < ApplicationRecord
         d = c/3600
         if d > 0
           i.overdue = 0
+          i.save
         else
           i.overdue = 1
+          i.save
         end
         array = []
         array <<  i.case_title.split("-")
@@ -612,8 +624,10 @@ class Sr < ApplicationRecord
         d = c/3600
         if d > 0
           i.overdue = 0
+          i.save
         else
           i.overdue = 1
+          i.save
         end
         array = []
         array <<  i.case_title.split("-")
@@ -631,8 +645,10 @@ class Sr < ApplicationRecord
         d = c/3600
         if d > 0
           i.overdue = 0
+          i.save
         else
           i.overdue = 1
+          i.save
         end
         array = []
         array <<  i.case_title.split("-")
@@ -650,8 +666,10 @@ class Sr < ApplicationRecord
         d = c/3600
         if d > 0
           i.overdue = 0
+          i.save
         else
           i.overdue = 1
+          i.save
         end
         array = []
         array <<  i.case_title.split("-")
@@ -669,8 +687,10 @@ class Sr < ApplicationRecord
         d = c/3600
         if d > 0
           i.overdue = 0
+          i.save
         else
           i.overdue = 1
+          i.save
         end
         array = []
         array <<  i.case_title.split("-")
@@ -688,8 +708,10 @@ class Sr < ApplicationRecord
         d = c/3600
         if d > 0
           i.overdue = 0
+          i.save
         else
           i.overdue = 1
+          i.save
         end
         array = []
         array <<  i.case_title.split("-")
@@ -707,8 +729,10 @@ class Sr < ApplicationRecord
         d = c/3600
         if d > 0
           i.overdue = 0
+          i.save
         else
           i.overdue = 1
+          i.save
         end
         array = []
         array <<  i.case_title.split("-")
@@ -726,8 +750,10 @@ class Sr < ApplicationRecord
         d = c/3600
         if d > 0
           i.overdue = 0
+          i.save
         else
           i.overdue = 1
+          i.save
         end
         array = []
         array <<  i.case_title.split("-")
@@ -745,8 +771,10 @@ class Sr < ApplicationRecord
         d = c/3600
         if d > 0
           i.overdue = 0
+          i.save
         else
           i.overdue = 1
+          i.save
         end
         array = []
         array <<  i.case_title.split("-")

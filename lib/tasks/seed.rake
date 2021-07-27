@@ -22,7 +22,7 @@ namespace :seed do
         # binding.pry
         if i["A"] == "(Do Not Modify) Case"
           puts "next"
-        elsif
+        else
           Sr.create(case_number:"#{i["D"]}",sr_type:"#{i["F"]}",status:"#{i["K"]}",created_at:"#{i["L"]}",
             heavy_trash_quad:"#{i["J"]}",recycle_quad:"#{i["Y"]}",trash_quad:"#{i["Q"]}",
             SLAStartTime:"#{i["R"]}",ResolutionDate:"#{i["T"]}",CloseDate:"#{i["U"]}",
