@@ -406,6 +406,20 @@ class Sr < ApplicationRecord
               puts "#{i.sr_type}"
             end
           }
+          srs= ["Recycle Mascot Appearance", "Container Problem", "Spilled Debris",
+            "Non Residential Collection CANCEL", "Recycling Participation NEW",
+            "SWM Escalation", "SWM Speaker", "Container Repair", "SWM Information",
+            "Employee Commendation", "Dumpster Permit", "Add A Cart Cancellation",
+            "Non Residential Collection Service NEW", "Personnel or Vehicle Complaint",
+            "Recycling Cart Replace", "Recycling Cart Repair", "New Resident in Private Development",
+            "Container Replacement", "New Resident Container", "Customer Feedback",
+            "Trash Dumping or Illegal Dumpsite", "Missed Recycling Pickup",
+            "Recycling Information", "Property Damage", "Order Bag Tags",
+            "New Move In Service", "Container Placement", "Miss Complaint",
+            "Missed Garbage Pickup", "Dumpster Complaint", "Missed Yard Waste Pickup",
+            "Add a Can Cancellation", "Neighborhood Clean up", "Uncollected Service Units",
+            "Missed Heavy Trash Pickup", "Physically Challenged Pickup",
+            "Add a Can", "Dead Animal Collection"]
           # binding.pry
           # Sr.where(status:'Active',department:'Solid Waste Management').distinct.pluck(:sla)
           # Sr.where(status:'Active',department:'Solid Waste Management',sla:'nil').distinct.pluck(:sr_type)
@@ -430,9 +444,9 @@ class Sr < ApplicationRecord
           # binding.pry
           puts "not the right one"
         else
-          # binding.pry
+          #binding.pry
           Sr.create(case_number:"#{i["D"]}",sr_type:"#{i["F"]}",status:"#{i["K"]}",created_at:"#{i["L"]}",
-            heavy_trash_quad:"#{i["J"]}",recycle_quad:"#{i["Y"]}",trash_quad:"#{i["Q"]}",
+            heavy_trash_quad:"#{i["O"]}",recycle_quad:"#{i["P"]}",trash_quad:"#{i["Q"]}",
             SLAStartTime:"#{i["R"]}",ResolutionDate:"#{i["T"]}",CloseDate:"#{i["U"]}",
             latitude:"#{i["V"]}",longitude:"#{i["W"]}",garbage_route: "#{i["X"]}}",
             recycle_route: "#{i["Y"]}",garbage_day: "#{i["Z"]}",district: "#{i["AA"]}",
