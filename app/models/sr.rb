@@ -1625,6 +1625,7 @@ class Sr < ApplicationRecord
       where(sr_type_2: 'Missed Yard Waste Pickup').count
       Sr.separate_comma(variable)
     end
+
     def self.sept_2019_missed_yar
       start = DateTime.parse('2019-09-01T00:00:00+00:00')
       due= DateTime.parse('2019-09-30T23:59:59+00:00')
