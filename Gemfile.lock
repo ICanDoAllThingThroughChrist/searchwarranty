@@ -155,7 +155,8 @@ GEM
     pry-byebug (3.9.0)
       byebug (~> 11.0)
       pry (~> 0.13.0)
-    puma (3.12.6)
+    puma (4.3.9)
+      nio4r (~> 2.0)
     racc (1.5.2)
     rack (2.2.3)
     rack-test (1.1.0)
@@ -262,7 +263,7 @@ DEPENDENCIES
   pivot_table (~> 1.0)
   pry
   pry-byebug (~> 3.8)
-  puma (~> 3.7)
+  puma (~> 4.3)
   rails (~> 6.1, >= 6.1.3.2)
   sass-rails (~> 5.0)
   scenic (~> 1.5, >= 1.5.2)
